@@ -1,0 +1,21 @@
+Hoàn tất. Đã đánh giá lại `PHASE16/ENGINE_INTERFACES/` và ghi sửa vào đầu ra mới, không chạm bản gốc.
+
+**Thư mục mới:** `/home/REDACTED_USER/codex-work/work_v15/PHASE16/ENGINE_INTERFACES_REVIEW/`
+- `review_findings.json` (38.8 KB, valid JSON) — kết quả đã sửa, máquina-readable, trích file+hash+dòng cho mọi lần đo
+- `review_report.md` (15.8 KB) — báo cáo con người đọc được
+- `source_manifest.json` (9.2 KB, valid JSON) — danh sách nguồn + bằng chứng lưu trữ với sha256/size/vai trò/nhãn
+- `validation_log.md` (5.4 KB) — nhật ký kiểm tra: hash khớp, không probe, không ghi nguồn, bản gốc không bị overwrite
+
+**Sửa 6 mâu thuẫn:**
+1. `fuse+0x650 = 0x0004001F`: giá trị thô GHI LẠI là đo được (2 nguồn lưu trữ đồng ý), nhưng tên "TPC mask" và sự hồi hộp topology BỎ — `dev_fuse.h` tu102 chỉ có 2 định nghĩa (0x21378, 0x2174C), không có trường nào ở 0x21650, không consumer → UNKNOWN. Không dùng popcount làm bằng chứng.
+2. `fuse+0xC04`: `fuse2.json` = 1, `BAO_CAO` §4.1 = 0 → mâu thuẫn lưu trữ, KHÔNG chọn bên nào, ghi UNRESOLVED_CONFLICT. Chỉ có định nghĩa DISPLAY là Maxwell gm107 (chỉ cho giá trị 0) → không áp dụng TU106, U-FUSE-009 stays OPEN. Bỏ phát ngôn "display không bị mask" và suy nhân-nguyên.
+3. BAR1: sửa 8 GiB → **64 GiB** cửa sổ (khoảng 0x381000000000..0x381FFFFFFFFF, 65536 MiB, NVML đồng bộ); VRAM 8 GiB là riêng biệt.
+4. Display: chỉ kết luận ở mức các offset/trang đã lấy mẫu (phải 0xBADF1301/0xBADF1100, không trang nào sống trong 0x600000-0x700000). Khối hiện diện, BAR decode, đồng hồ/khóa điện, nguyên nhân bảng = UNKNOWN. Thay MEASURED_ABSENT bằng "đo được ở offset lấy mẫu / hiện diện không rõ".
+5. Topology: giá trị thô `gpc_nr=0x08040003` (3 GPC), `tpc_nr=0x00040005` (5 TPC GPC0), bản đồ TPC (17 TPC), 34 SM được đồng bộ bằng CUDA — đều trích chính xác file/dòng. Trường bitregister: không có định nghĩa nguồn trong snapshot → UNKNOWN. Bỏ lý thuyết popcount từ fuse.
+6: Tất cả chỉ số MMIO/fuse/PCIe được nhãn **lưu trữ**, không phải đo runtime mới; `g_chips2halspec_nvoc.h` chỉ công nhận TU106 ở biểu thức xóa hal DISPv0400 (dòng 140-141), không có header tu106 riêng; giới hạn áp dụng tu102/Turing-family được nêu rõ.
+
+**Còn lại (biết 유지):** toàn bộ unknowns, quyết định whole-GPU chưa hoàn thành, khôngprobe/ghi phần cứng, không mutate file nguồn, mâu thuẫn được liệt kê chứ không được chọn lý thuyết tiện lợi.
+
+**Thư mục gốc** `/home/REDACTED_USER/codex-work/PHASE16/ENGINE_INTERFACES/` không bị đọc làm thẩm định và không bị ghi đè.
+
+Need anything else?

@@ -1,0 +1,86 @@
+BUILD LOG — PHASE16/ENGINE_INTERFACES (CMP 40HX / TU106 engine-interfaces research)
+===================================================================================
+Run by: Hermes Agent (GLM-5.3 Flash), ponytail full
+CWD: /home/REDACTED_USER/codex-work
+Output dir: PHASE16/ENGINE_INTERFACES/
+Constraints honored: offline file-only; no hardware probe; no MMIO/PCI-config write;
+                     no driver change; no tool install; no GPU operation; no writes to
+                     /tmp/nvsrc or archived evidence.
+
+STEPS
+-----
+1. Enumerated source snapshot /tmp/nvsrc:
+     find /tmp/nvsrc -type f | wc -l   -> 2133 files
+     find /tmp/nvsrc -type d           -> common/ {modeset,nvswitch,unix,nvlink,displayport,sdk}
+                                          nvidia/ {src,inc,interface,generated,arch,_out}
+                                          nvidia-modeset/
+   Identified snapshot nature: NVIDIA open kernel module headers + published swref register
+   headers + RM ctrl/class control interfaces + cmp40 booter archive header. NO RM engine
+   driver source (no fifo/pbdma/pmu/gsp/ce engine-init .c). NO tu106/ register directory.
+
+2. Confirmed TU106 architectural recognition:
+     grep -ri TU106 nvidia/generated/g_chips2halspec_nvoc.h
+     -> DISPv0400 delete expression lists TU102 | TU104 | TU106 | TU116 | TU117
+
+3. Cataloged control-interface commands per engine:
+     grep -oE "NV[0-9A-Z]+_CTRL_CMD_[A-Z0-9_]+" on ctrl2080/{fifo,gsp,ce,pmu}.h,
+     ctrl208f/{sec2,pmu}.h, ctrl0080/{nvenc,nvdec,fifo}.h, class/cl90cdfecs.h
+   Results recorded in findings.json / report.md.
+
+4. Extracted register namespaces from tu102 headers:
+     dev_pbdma.h (NV_PPBDMA_SET_CHANNEL_INFO VEID/CHID)
+     dev_esched_pbdma.h (NV_PBDMA base 0x0/ mask 0x1ffff; SIGNATURE/PB_HEADER per-channel)
+     dev_gsp.h (NV_PGSP base 0x110000; mailbox/queue/msgq/ememc)
+     dev_sec_pri.h (NV_PSEC base 0x840000; FALCON_ENGINE/MAILBOX)
+     dev_falcon_v4.h (generic Falcon CPUCTL/BOOTVEC/HWCFG/MAILBOX/IRQ*)
+     dev_ce_base.h (NV_CE_BASE_GRCE_CONFIG / PCE2LCE_CONFIG; bitfields only, no base)
+     dev_pmc.h (NV_PMC base 0x0; PMC_ENABLE PFIFO bit8 / CE0-2 bits6,7,21)
+     dev_mmu.h (PDE/PTE format), dev_bus.h (PBUS scratch 0x1400), dev_nvdec_pri.h
+     (NV_PNVDEC(dev)=0x00830000+dev*16384), dev_gsp_addendum.h (FBIF 0x110600),
+     dev_sec_addendum.h (FBIF 0x840600), dev_fuse.h / dev_ctrl.h (small field headers)
+
+5. Computed input hash inventory:
+     Python sha256 over 29 cited source files + 207 archived evidence files
+     -> written to inputs/inputs.json (sha256 + size each)
+     Copied to PHASE16/ENGINE_INTERFACES/inputs/inputs.json
+
+6. Read primary archived evidence in full:
+     /tmp/BAO_CAO_CMP40HX_TU106.md  (374 lines — register/MMIO dump report)
+     Also present: BAO_CAO_CMP40HX_03-11-2026.md, BAO_CAO_3_NHIEM_VU.md, plus
+     firmware/ROM/bin dumps catalogued in inputs.json.
+
+7. Read governance context (read-only, not a source of technical claims):
+     /home/REDACTED_USER/codex-work/CODEX_CMP40HX_HANDOFF.md
+     /tmp/hermes_cmp40hx_phase16_task.txt, /tmp/hermes_cmp40hx_phase16_receipt.json
+
+8. Wrote deliverables:
+     findings.json    (structured per-subsystem: citations, register namespaces, control
+                        interfaces, firmware labels, dependencies, evidence w/ confidence,
+                        exact unavailability, unknowns, status)
+     report.md        (human-readable edition of the same, with tables and a verdict)
+     build_log.txt    (this file)
+
+ARTIFACTS
+---------
+ PHASE16/ENGINE_INTERFACES/
+   inputs/inputs.json     input hash inventory (29 source + 207 evidence files)
+   findings.json          machine-readable per-subsystem findings (valid JSON)
+   report.md              human-readable report
+   build_log.txt          this file
+   evidence/              (reserved, empty — no new evidence created)
+   subsystems/            (reserved, empty — per-subsystem files not split, kept in findings.json)
+
+VERIFICATION
+------------
+- findings.json parses as valid JSON (write_file lint: ok).
+- No file under /tmp/nvsrc or /tmp evidence was modified; only reads and sha256.
+- No hardware, MMIO, PCI config, driver, or GPU operation performed.
+- All register addresses labelled as either "tu102/Turing-family shared (header)" or
+  "observed from BAR0 dump (BAO_CAO_CMP40HX_TU106.md)". No TU106-specific override exists
+  in the snapshot.
+- No engine<->firmware-slot mapping asserted. Operational status never inferred from
+  fuse/capability alone.
+
+STATUS
+------
+WHOLE-GPU REVERSE ENGINEERING IS NOT COMPLETE. This covers engine interfaces only.

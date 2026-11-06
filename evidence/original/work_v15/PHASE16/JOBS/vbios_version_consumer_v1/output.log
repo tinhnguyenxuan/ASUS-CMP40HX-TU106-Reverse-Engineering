@@ -1,0 +1,21 @@
+Hoàn tất. Kết quả tóm tắt:
+
+**Đã xác định hai đoạn mã của envytools ghi `bios->info.version[0]` (nvbios @ git f102b823, hash đã kiểm tra):**
+- BIT 'i' table: `nvbios/info.c:49-52` → `version[0] = data[t_offset+3]` (major), gọi qua `bit.c:140` trong `envy_bios_parse_bit` (`bios.c:237`).
+- BMP: `nvbios/nvbios.c:858` (`parse_bios_version`, gọi tại 1078 với `bmp_offset+10` → đọc `data[bmp_offset+13]`) — **chỉ chạy khi có BMP signature**, ghi đè kết quả BIT 'i'.
+
+**Kết quả trên 3 ảnh (ROM / T4 / shadow, hash đã khớp bản ghi, so sánh byte):**
+- Không ảnh nào có BMP signature `\xff\x7fNV\0` → đường BMP không kích hoạt trên cả ba; `version[]` chỉ đến từ BIT 'i'.
+- ROM/T4: BIT 'i' entry `[16]` ('i', ver 2, t_len 0x68, t_offset 0x3f4) tại 0x287b0. Lưu ý: trường `t_offset` của ROM này là **chẵn đối với cơ sở 0x28600** (đã chứng minh qua 'B'→0x2883e, 'P'→0x288d4, 'i'→0x289f4, kết thúc 0x28a5c — khớp báo cáo trước), không phải offset tuyệt đối như envytools đọc.
+  - Đọc theo ý ROM (`0x28600 + 0x3f4 = 0x289f4`): bytes `00 67 06 90 06` → `version[0] = 0x90`, chính xác xâu "90.06.67.00.06" từ bản giao và — **không phải xâu ngẫu nhiên**.
+  - Đọc tuyệt đối theo lỗi envytools (0x3f7): `0x00` (viên perang, đã ghi nhận, không nhận làm phiên bản thật).
+- Shadow: cơ sở ảnh = 0, đọc tại 0x3f7 → `0x90`; khám phá mới: shadow chứa hai bảng BIT (@0x1b0 và @0x791b0), và vùng PERFORMANCE tương ứng ở shadow[0x2bb55] == rom[0x54155] (`60 0a 05 07 06 0a 01 07`); shadow file tại 0x54155 là 0xFF (vùng khác).
+
+**Các nhánh PM_Mode (`nvbios.c:1491-1528`) được đánh giá với bảng 0x60 (PERFORMANCE v0x60 @ ROM 0x54155):**
+- `version[0] = 0x90` (đã thiết lập): rơi nhánh `nvbios.c:1527` → "Unknown PM major version 90", **không trường nào của bảng bị tiêu thụ**, chỉ in hex-dump header.
+- `version[0] = 0x00` (viên perang): nhánh `nvbios.c:1497` (< 0x70) được vào, nhưng byte phiên bản bảng 0x60 không khớp sub-schema nào (0x12/0x13/0x15, 0x21-0x24, 0x25, 0x30/0x35, 0x40-0x50) → "Version unknown"; không chấp nhận ranh giới đoạn hay stride nào.
+- Table ID 0x60 trong `power.c:107` là "DI/DT" (`power->unk60.offset`), parser riêng `power.c:1605`, không đọc `version[0]`.
+
+**Kết luận:** không nhánh consumer nào nhận phiên bản bảng 0x60; không đoạn ranh giới được nhận; bảng v60 vẫn OPAQUE, giữ trường chưa biết — đóng vấn đề còn mở từ VBIOS_V60_STRUCTURE.
+
+**Đầu ra** (các artifacts cũ và job khác không bị động): `/home/REDACTED_USER/codex-work/work_v15/PHASE16/VBIOS_VERSION_CONSUMER/` chứa `vbios_version_consumer.py` (39 assert tự kiểm tra, tất cả PASS, exit 0), `VBIOS_VERSION_CONSUMER.json`, `VBIOS_VERSION_CONSUMER_REPORT.md`, `run.log`, `output_hashes.json`. Không đục phần cứng, không flash, không cài công cụ.

@@ -1,0 +1,17 @@
+{
+  "tool": "nvmlDeviceSetGpcClkVfOffset (libnvidia-ml.so.1)",
+  "target": "0000:03:00.0 CMP 40HX TU106-100-A1, payload T4",
+  "method": "set VF offset -> sleep 8s -> nvidia-smi clocks.sm/power/temp, reset ve 0 giua cac muc",
+  "burn": "/tmp/load 60 (CUDA burn, 1024x512 threads, 200000 iters)",
+  "results": [
+    {"offset_mhz": 0, "clock_mhz": 1905, "power_w": 147.54, "temp_c": 61, "rc": 0, "get": 0},
+    {"offset_mhz": 150, "clock_mhz": 2040, "power_w": 154.98, "temp_c": 64, "rc": 0, "get": 150},
+    {"offset_mhz": 200, "clock_mhz": 2085, "power_w": 158.55, "temp_c": 66, "rc": 0, "get": 200},
+    {"offset_mhz": 220, "clock_mhz": 2085, "power_w": 153.53, "temp_c": 67, "rc": 0, "get": 220},
+    {"offset_mhz": 240, "clock_mhz": 2130, "power_w": 75.24, "temp_c": 61, "rc": 0, "get": 240}
+  ],
+  "conclusion": "H3 XAC NHAN: VF offset anh huong truc tiep clock thuc (khong co tran cap cung o 1890 MHz). Tran ~1890 MHz tai VF offset 0 la curve mac dinh cua VBIOS, khong phai hard cap. H4 (GSP-RM policy) khong phai tran cung.",
+  "h3": "CONFIRMED",
+  "h4": "NOT_A_HARD_CAP",
+  "h1_clock_cap_vbios": "REFUTED"
+}

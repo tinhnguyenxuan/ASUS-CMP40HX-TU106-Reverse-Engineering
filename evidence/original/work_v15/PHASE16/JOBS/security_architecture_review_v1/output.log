@@ -1,0 +1,30 @@
+Hoàn tất. Kết quả review SECURITY_ARCH đã ghi vào thư mục孤立 mới, không chạm đến artifact cũ.
+
+## Những file mới (PHASE16/SECURITY_ARCH_REVIEW/)
+- `REPORT.md` — báo cáo review đầy đủ
+- `corrected_claims.json` — claims machines readable, hash các input, claims bị retracted/corrected/preserved/unknown
+- `verify_wpr.py` + `verify_wpr.log` — script tái lập, chạy ra `PASS`
+
+## Lỗi cần sửa (WPR2)
+Raw MMIO: `0x1FA824` = `0x01F7E000`, `0x1FA828` = `0x01FFEE00` (security_registers.json, khớp dmesg `WPR=01ffee00:01f7e000`).
+
+Source `dev_fb.h` tu102 (tag 580.95.05): `VAL[31:4]` đơn vị 4 KiB → decoded byte address = `(raw & 0xFFFFFFF0) << 8`.
+
+- **Sai (báo cáo trước):** `0x01FFEE00 − 0x01F7E000 = 0x80E00 ≈ 0.50 MiB` → trừ thẳng mã thô, không hợp lệ.
+- **Đúng:** base `0x1F7E00000`, end `0x1FFEE0000` (bỏ heo), size `0x080E0000` = 135,135,232 byte = **128.875 MiB** → khớp đúng E16-007 và MEMORY_PCIE_REPORT §8.
+
+## Những điều đã corrected/retracted
+| Vị trí | Prior | Mới |
+|---|---|---|
+| `audit_prior_claims.json` SEC-WPR-03 | SUPPORTED, 0.50 MiB | RETRACTED, 128.875 MiB + lý do |
+| `security_architecture.md` §2.2/§2.3/§6.1 | WPR2 0.50 MiB | Đã sửa thành decoded range/size |
+| reserved-memory commentary | "388.5 MiB carveout chưa giải" | Phần dựa vào WPR2=0.5 MiB retracted; overlap WPR2 vs Reserved 389 MiB = UNKNOWN |
+| SEC-SB-02 firmware signed | MEASURED | MEASURED (dmesg log) + UNVERIFIED (không khai signature valid chỉ từ log/metadata) |
+
+## Tại sao assertions không phát hiện lỗi
+`assertions.log` chỉ kiểm tra sự nhất quán bề mặt của giá trị thô (LO=..., HI=..., size=0x80E00, matches dmesg pair) — mọi cái đều đúng từng cái vì dữ liệu thô đúng. Không assert nào áp dụng field mapping (VAL[31:4] → byte decode), nên lỗi ngữ cảnh công thức trượt qua. Một assert như `decode(HI) − decode(LO) == 0x080E0000` mới bắt được.
+
+## Privilege boundaries / firmware sign
+Giữ nguyên事実 được đo: PLM chỉ có từ dmesg (register BAR0 bị poison `0xBADF5040`), SEC2 DMEM zero 64 KB, DMA mask 47-bit/IOMMU group 31, CC OFF, driver nvidia unsigned (host Secure Boot off). Không lập luận chữ ký firmware hợp lệ chỉ từ dmesg hay header SIG_DBG/SIG_PROD — cryptographic verification chưa làm, đánh giá UNKNOWN.
+
+Prior artifacts trong `work_v15/PHASE16/SECURITY_ARCH/` không bị ghi đè (timestamp/kích thước nguyên vẹt). Cần chỉnh thêm file nào trong báo cáo cũ hay không?

@@ -1,0 +1,142 @@
+{
+  "schema": "wpr_endpoint_semantics/v1",
+  "job": "wpr_endpoint_semantics_v1",
+  "gpu": "TU106 [CMP 40HX] 0000:03:00.0",
+  "source_tree": "/tmp/nvsrc",
+  "source_tree_version_self_declared": "615.78.08",
+  "source_tree_version_file": "common/inc/nvUnixVersion.h",
+  "numeric_extraction": {
+    "raw_lo_register": "NV_PFB_PRI_MMU_WPR2_ADDR_LO @ 0x1FA824 = 0x01F7E000",
+    "raw_hi_register": "NV_PFB_PRI_MMU_WPR2_ADDR_HI @ 0x1FA828 = 0x01FFEE00",
+    "field_mapping": "VAL[31:4] in 4 KiB address units; ALIGNMENT 0xc (4 KiB)",
+    "decode_formula": "(raw & 0xFFFFFFF0) << 8  ==  (raw >> 4) << 12",
+    "base_byte_address": "0x1F7E00000",
+    "hi_decoded_byte_address": "0x1FFEE0000",
+    "size_bytes": 135135232,
+    "size_hex": "0x080E0000",
+    "size_MiB": 128.875,
+    "page_count_4KiB": 32864,
+    "fits_within_8GiB_FB": true,
+    "raw_subtraction_invalid": true,
+    "corroboration": "archived dmesg WPR=01ffee00:01f7e000; E16-007 (EVIDENCE_LEDGER.md); MEMORY_PCIE_REPORT.md §8"
+  },
+  "endpoint_semantics": {
+    "question": "Whether HI is inclusive end, exclusive end, last page address, or another bound",
+    "best_supported_reading": "EXCLUSIVE upper bound (end boundary; byte at HI is NOT part of WPR2)",
+    "evidence": [
+      {
+        "path": "/tmp/nvsrc/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h",
+        "sha256": "9e9783e9c6b57078226dce4c181a1a3136d73cea2593fec70a122033d8788ce0",
+        "architecture": "NVIDIA RM ctrl ioctl interface (NV2080_CTRL_CMD_FB_GET_WPR_REGION_INFO, message id 0x64)",
+        "lines": 3065,
+        "excerpt": "NV2080_CTRL_FB_GET_WPR_REGION_INFO_PARAMS { wpr1Start; wpr1End; wpr2Start; wpr2End; fbRegionOfWpr2Start; }",
+        "comment_lines": 3072,
+        "comment_excerpt": "wpr1End: FB offset of the end (exclusive) of WPR1; wpr2End: FB offset of the end (exclusive) of WPR1",
+        "note": "Line 3079 contains a copy-paste artifact ('of WPR1' attached to wpr2End); the operative keyword 'end (exclusive)' is explicit for wpr2End. Struct field wpr2End at line 3091.",
+        "support_level": "ABI contract comment, not register-consumer proof"
+      },
+      {
+        "path": "/tmp/nvsrc/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h",
+        "sha256": "f3b615a6d87b557ddab986b6ba6a5209901f09edcf0e5b9c983e0d8112538fc5",
+        "architecture": "GSP firmware WPR metadata interface (CPU-RM initializes, DMA'd to FB, Booter locks in WPR2); used by Booter Turing through Ada",
+        "lines": 199,
+        "excerpt": "pmuReservedSize comment: 'Starts at gspFwWprEnd+frtsSize b/c FRTS is positioned to end where this allocation starts'",
+        "support_level": "Metadata layout treats gspFwWprEnd as upper boundary; next allocation starts at end => exclusive-end consistent",
+        "_duplicate_fields_preserved": {
+          "lines": [
+            32,
+            128,
+            42,
+            199
+          ],
+          "excerpt": [
+            "GspFwWprMeta ... Initialized by CPU-RM and DMA'd to FB, at the end of what will be WPR2.",
+            "NvU64 gspFwWprEnd;",
+            "memory-map diagram: upper boundary 'gspFwWprEnd (128K aligned) + frtsSize'; next region (PMU reservation) starts at gspFwWprEnd+frtsSize",
+            "pmuReservedSize comment: 'Starts at gspFwWprEnd+frtsSize b/c FRTS is positioned to end where this allocation starts'"
+          ]
+        }
+      },
+      {
+        "path": "/tmp/nvsrc/nvidia/interface/nvrm_registry.h",
+        "sha256": "8de487f1f624a628d2c5efffc9d25de2669ac5764f7420cd09da6c53aab1556f",
+        "architecture": "RM registry regkeys",
+        "lines": 2792,
+        "excerpt": "RmGspWprEndMargin: 'This regkey will increase the margin after the end of WPR2 when booting GSP-RM.' ... '1+ - size of the end margin in megabytes'",
+        "support_level": "Margin applied after the end => end treated as exclusive boundary"
+      },
+      {
+        "path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fb.h",
+        "sha256": "8c824a870e88874e95b22b463e70a6e1c08ff765ab1731746b98ef28e952c6a9",
+        "architecture": "Turing HW register header (tu102; same PFB MMU WPR2 block archived for TU106)",
+        "lines": 42,
+        "excerpt": "#define NV_PFB_PRI_MMU_WPR2_ADDR_HI 0x001FA828 ... _VAL 31:4 ... _ALIGNMENT 0x0000000c",
+        "note": "No inclusivity comment in the HW header; VAL[31:4] = 4 KiB units requires decode before any range interpretation.",
+        "support_level": "Field definition only; no endpoint semantics",
+        "_duplicate_fields_preserved": {
+          "lines": [
+            39,
+            42
+          ],
+          "excerpt": [
+            "#define NV_PFB_PRI_MMU_WPR2_ADDR_LO 0x001FA824 /* RW-4R */ ... _VAL 31:4 /* RWEVF */ ... _ALIGNMENT 0x0000000c",
+            "#define NV_PFB_PRI_MMU_WPR2_ADDR_HI 0x001FA828 ... _VAL 31:4 ... _ALIGNMENT 0x0000000c"
+          ]
+        }
+      },
+      {
+        "path": "/tmp/nvsrc/common/inc/swref/published/hopper/gh100/dev_fb.h",
+        "sha256": "d1b0dfdeb0345ac0f8e7ae01af863e56587f43e35c9da732898f02c67b08f0eb",
+        "architecture": "Hopper HW register header (gh100)",
+        "lines": 48,
+        "excerpt": "WPR2_ADDR_HI_VAL_INIT 0x00000000 (decoded HI = 0 when WPR2 disabled)",
+        "note": "Initial disabled state has HI=0 (end below base), consistent with exclusive-end convention, not proof.",
+        "support_level": "Corroborating convention only"
+      },
+      {
+        "path": "/tmp/nvsrc/common/inc/swref/published/blackwell/gb100/dev_hubmmu_base.h",
+        "sha256": "2b2e42622f32331573ba0da0d3c445c1cabb8dbf6ce3ccbc7b506b6db62f4b70",
+        "architecture": "Blackwell HUBMMU register header (gb100)",
+        "lines": 94,
+        "excerpt": "NV_HUBMMU_PRI_MMU_WPR2_ADDR_HI 0xa828 ... _VAL 31:4 ... _ALIGNMENT 0x0000000c",
+        "support_level": "Same field shape across generations; no endpoint semantics"
+      },
+      {
+        "path": "/tmp/nvsrc/nvidia/arch/nvalloc/common/inc/nvrangetypes.h",
+        "sha256": "84e8f17a5e82d9ce86c350aec7df95d7d711e7dfae7b2670a464f3b88fc017ac",
+        "architecture": "NvAlloc range types",
+        "lines": 63,
+        "excerpt": "NV_WITHIN_EXCLUSIVE_RANGE(r,x) = (r).min < x && x < (r).max ; NV_EMPTY_EXCLUSIVE_RANGE ...",
+        "note": "Generic inclusive/exclusive range macros; codebase convention, not WPR-specific.",
+        "support_level": "Convention context only"
+      }
+    ],
+    "consumer_code_found": false,
+    "consumer_search_scope": "whole /tmp/nvsrc (common/, nvidia/, nvidia-modeset/); grep WPR2_ADDR_HI/LO, GetWprRegionInfo/wpr2End, gspFwWprEnd; .c/.cpp under nvidia/ — none implement a WPR2_ADDR_HI consumer; subdeviceCtrlCmdFbGetWprRegionInfo_IMPL declared only in nvidia/generated/g_subdevice_nvoc.h, body absent from saved tree",
+    "consumer_proof_established": false,
+    "inclusive": false,
+    "exclusive": "best-supported (comment/contract level), NOT consumer-proven",
+    "last_page_address": false,
+    "other_bound": "unsupported",
+    "verdict": "HI best supported as exclusive upper bound; independent consumer proof ABSENT => do not hardcode exclusivity; retain caveat"
+  },
+  "alignment": {
+    "wpr2_register_alignment": "4 KiB (VAL[31:4] in 4 KiB units; ALIGNMENT macro 0xc)",
+    "base_4KiB_aligned": true,
+    "hi_decoded_4KiB_aligned": true,
+    "gsp_metadata_alignment": "gspFwWprStart/gspFwWprEnd 128K aligned (GSP metadata, not the HW WPR2 regs)",
+    "wpr2_span_pages_4KiB": 32864
+  },
+  "wpr_nvml_reserved_overlap": {
+    "status": "UNKNOWN",
+    "reason": "NVML Reserved is a scalar (389 MiB) with no address range in archived artifacts; MEMORY_PCIE_REPORT.md §8 rule: do not default-subtract WPR2 from Reserved; no direct evidence of overlap",
+    "source": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/MEMORY_PCIE/MEMORY_PCIE_REPORT.md lines 111-115, 122; memory_pcie_verified.json mode 'offline read-only; no /sys /dev /GPU probe'"
+  },
+  "unknowns_retained": [
+    "Independent consumer proof that HI is exclusive (no consumer code in saved source)",
+    "Exact source release: /tmp/nvsrc self-declares 615.78.08; E16-007 cites URL .../580.95.05/.../tu102/dev_fb.h which is external and NOT verified against /tmp/nvsrc; not claimed as exact release provenance",
+    "WPR2 vs NVML Reserved 389 MiB overlap",
+    "Applicability of boot-stage dmesg WPR2_lo 0x1FFFFE00 vs final MMIO 0x01F7E000/0x01FFEE00"
+  ],
+  "preservation": "No original artifact modified; all outputs written only to PHASE16/WPR_ENDPOINT_SEMANTICS/"
+}

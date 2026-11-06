@@ -1,0 +1,7 @@
+{
+ "dispatcher_vaddr": 83195388,
+ "total_jal": 172754,
+ "jal_to_dispatcher": [],
+ "auipc_jalr_pairs": 189928,
+ "auipc_jalr_to_dispatcher": []
+}

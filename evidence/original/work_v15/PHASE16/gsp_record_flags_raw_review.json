@@ -1,0 +1,182 @@
+{
+  "scope": "Independent bounded linear decode only; no reaching-definition or full-CFG claim",
+  "input_sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "rows": [
+    {
+      "va": "0x459c6e8",
+      "file": "0x59c728",
+      "raw": "b74c5804",
+      "size": 4,
+      "mnemonic": "lui",
+      "operands": "s9, 0x4584"
+    },
+    {
+      "va": "0x459c6ec",
+      "file": "0x59c72c",
+      "raw": "930d0000",
+      "size": 4,
+      "mnemonic": "mv",
+      "operands": "s11, zero"
+    },
+    {
+      "va": "0x459c6f0",
+      "file": "0x59c730",
+      "raw": "130c0000",
+      "size": 4,
+      "mnemonic": "mv",
+      "operands": "s8, zero"
+    },
+    {
+      "va": "0x459c6f4",
+      "file": "0x59c734",
+      "raw": "938c0c79",
+      "size": 4,
+      "mnemonic": "addi",
+      "operands": "s9, s9, 0x790"
+    },
+    {
+      "va": "0x459c6f8",
+      "file": "0x59c738",
+      "raw": "130d8001",
+      "size": 4,
+      "mnemonic": "addi",
+      "operands": "s10, zero, 0x18"
+    },
+    {
+      "va": "0x459c6fc",
+      "file": "0x59c73c",
+      "raw": "131a0c02",
+      "size": 4,
+      "mnemonic": "slli",
+      "operands": "s4, s8, 0x20"
+    },
+    {
+      "va": "0x459c700",
+      "file": "0x59c740",
+      "raw": "135a0a02",
+      "size": 4,
+      "mnemonic": "srli",
+      "operands": "s4, s4, 0x20"
+    },
+    {
+      "va": "0x459c704",
+      "file": "0x59c744",
+      "raw": "3309aa03",
+      "size": 4,
+      "mnemonic": "mul",
+      "operands": "s2, s4, s10"
+    },
+    {
+      "va": "0x459c708",
+      "file": "0x59c748",
+      "raw": "33872c01",
+      "size": 4,
+      "mnemonic": "add",
+      "operands": "a4, s9, s2"
+    },
+    {
+      "va": "0x459c70c",
+      "file": "0x59c74c",
+      "raw": "83270701",
+      "size": 4,
+      "mnemonic": "lw",
+      "operands": "a5, 0x10(a4)"
+    },
+    {
+      "va": "0x459c710",
+      "file": "0x59c750",
+      "raw": "93f74700",
+      "size": 4,
+      "mnemonic": "andi",
+      "operands": "a5, a5, 4"
+    },
+    {
+      "va": "0x459c714",
+      "file": "0x59c754",
+      "raw": "6382070e",
+      "size": 4,
+      "mnemonic": "beqz",
+      "operands": "a5, 0xe4"
+    },
+    {
+      "va": "0x459c718",
+      "file": "0x59c758",
+      "raw": "33892b01",
+      "size": 4,
+      "mnemonic": "add",
+      "operands": "s2, s7, s2"
+    },
+    {
+      "va": "0x459c71c",
+      "file": "0x59c75c",
+      "raw": "83270901",
+      "size": 4,
+      "mnemonic": "lw",
+      "operands": "a5, 0x10(s2)"
+    },
+    {
+      "va": "0x459c720",
+      "file": "0x59c760",
+      "raw": "93f6a7ff",
+      "size": 4,
+      "mnemonic": "andi",
+      "operands": "a3, a5, -6"
+    },
+    {
+      "va": "0x459c724",
+      "file": "0x59c764",
+      "raw": "63820610",
+      "size": 4,
+      "mnemonic": "beqz",
+      "operands": "a3, 0x104"
+    },
+    {
+      "va": "0x459c728",
+      "file": "0x59c768",
+      "raw": "37868e05",
+      "size": 4,
+      "mnemonic": "lui",
+      "operands": "a2, 0x58e8"
+    },
+    {
+      "va": "0x459c72c",
+      "file": "0x59c76c",
+      "raw": "93059002",
+      "size": 4,
+      "mnemonic": "addi",
+      "operands": "a1, zero, 0x29"
+    },
+    {
+      "va": "0x459c730",
+      "file": "0x59c770",
+      "raw": "13052000",
+      "size": 4,
+      "mnemonic": "addi",
+      "operands": "a0, zero, 2"
+    },
+    {
+      "va": "0x459c734",
+      "file": "0x59c774",
+      "raw": "13060699",
+      "size": 4,
+      "mnemonic": "addi",
+      "operands": "a2, a2, -0x670"
+    },
+    {
+      "va": "0x459c738",
+      "file": "0x59c778",
+      "raw": "97400201",
+      "size": 4,
+      "mnemonic": "auipc",
+      "operands": "ra, 0x1024"
+    },
+    {
+      "va": "0x459c73c",
+      "file": "0x59c77c",
+      "raw": "e78000da",
+      "size": 4,
+      "mnemonic": "jalr",
+      "operands": "ra, ra, -0x260"
+    }
+  ]
+}

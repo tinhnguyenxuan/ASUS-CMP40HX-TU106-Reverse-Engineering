@@ -1,0 +1,19 @@
+{
+  "wpr2_lo_mmio": "0x1f7e000",
+  "wpr2_hi_mmio": "0x1ffee00",
+  "wpr2_size_lo_hi": 527872,
+  "wpr2_size_mib": 0.503,
+  "dmesg_wpr2_lo": 536870400,
+  "dmesg_fecs_plm": 4294967183,
+  "dmesg_reset_plm": 255,
+  "dmesg_acr_token": 194,
+  "dmesg_ss0": 2290649224,
+  "dmesg_ss1": 8,
+  "dmesg_cpuctl": 16,
+  "dmesg_conf_compute": "0 MiB",
+  "dmesg_dma_mask_bits": 47,
+  "dmesg_iommu_group": 31,
+  "register_poison_count": 5,
+  "register_data_count": 10,
+  "register_zero_count": 2
+}

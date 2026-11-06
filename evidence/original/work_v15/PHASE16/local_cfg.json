@@ -1,0 +1,2265 @@
+{
+  "start": 83194684,
+  "end_exclusive": 83196704,
+  "function_boundary_status": "candidate: prologue to next prologue, not symbol metadata",
+  "blocks": [
+    {
+      "start": 83194684,
+      "end_exclusive": 83194788,
+      "terminator": {
+        "pc": 83194784,
+        "file_offset": 16085984,
+        "size": 4,
+        "raw": "e7804059",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 86513968,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 86513968,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83194788,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194788,
+      "end_exclusive": 83194796,
+      "terminator": {
+        "pc": 83194792,
+        "file_offset": 16085992,
+        "size": 4,
+        "raw": "63060558",
+        "kind": "branch",
+        "target": 83196212
+      },
+      "edges": [
+        {
+          "target": 83196212,
+          "kind": "branch"
+        },
+        {
+          "target": 83194796,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194796,
+      "end_exclusive": 83194808,
+      "terminator": {
+        "pc": 83194804,
+        "file_offset": 16086004,
+        "size": 4,
+        "raw": "e780809b",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 84249960,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 84249960,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83194808,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194808,
+      "end_exclusive": 83194816,
+      "terminator": {
+        "pc": 83194812,
+        "file_offset": 16086012,
+        "size": 4,
+        "raw": "6316093a",
+        "kind": "branch",
+        "target": 83195752
+      },
+      "edges": [
+        {
+          "target": 83195752,
+          "kind": "branch"
+        },
+        {
+          "target": 83194816,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194816,
+      "end_exclusive": 83194828,
+      "terminator": {
+        "pc": 83194824,
+        "file_offset": 16086024,
+        "size": 4,
+        "raw": "e780008a",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 82857060,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 82857060,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83194828,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194828,
+      "end_exclusive": 83194836,
+      "terminator": {
+        "pc": 83194832,
+        "file_offset": 16086032,
+        "size": 4,
+        "raw": "631e095c",
+        "kind": "branch",
+        "target": 83196332
+      },
+      "edges": [
+        {
+          "target": 83196332,
+          "kind": "branch"
+        },
+        {
+          "target": 83194836,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194836,
+      "end_exclusive": 83194844,
+      "terminator": {
+        "pc": 83194840,
+        "file_offset": 16086040,
+        "size": 4,
+        "raw": "638a072c",
+        "kind": "branch",
+        "target": 83195564
+      },
+      "edges": [
+        {
+          "target": 83195564,
+          "kind": "branch"
+        },
+        {
+          "target": 83194844,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194844,
+      "end_exclusive": 83194860,
+      "terminator": {
+        "pc": 83194856,
+        "file_offset": 16086056,
+        "size": 4,
+        "raw": "e7800700",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 15
+      },
+      "edges": [
+        {
+          "target": null,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83194860,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194860,
+      "end_exclusive": 83194864,
+      "terminator": {
+        "pc": 83194860,
+        "file_offset": 16086060,
+        "size": 4,
+        "raw": "6306056e",
+        "kind": "branch",
+        "target": 83196632
+      },
+      "edges": [
+        {
+          "target": 83196632,
+          "kind": "branch"
+        },
+        {
+          "target": 83194864,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83194864,
+      "end_exclusive": 83195084,
+      "terminator": {
+        "pc": 83195080,
+        "file_offset": 16086280,
+        "size": 4,
+        "raw": "e7800077",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 84081716,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 84081716,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195084,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195084,
+      "end_exclusive": 83195104,
+      "terminator": {
+        "pc": 83195100,
+        "file_offset": 16086300,
+        "size": 4,
+        "raw": "e780c075",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 84081716,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 84081716,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195104,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195104,
+      "end_exclusive": 83195124,
+      "terminator": {
+        "pc": 83195120,
+        "file_offset": 16086320,
+        "size": 4,
+        "raw": "e7808074",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 84081716,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 84081716,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195124,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195124,
+      "end_exclusive": 83195148,
+      "terminator": null,
+      "edges": [
+        {
+          "target": 83195148,
+          "kind": "fallthrough"
+        }
+      ]
+    },
+    {
+      "start": 83195148,
+      "end_exclusive": 83195160,
+      "terminator": {
+        "pc": 83195156,
+        "file_offset": 16086356,
+        "size": 4,
+        "raw": "e39ce6fe",
+        "kind": "branch",
+        "target": 83195148
+      },
+      "edges": [
+        {
+          "target": 83195148,
+          "kind": "branch"
+        },
+        {
+          "target": 83195160,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195160,
+      "end_exclusive": 83195172,
+      "terminator": null,
+      "edges": [
+        {
+          "target": 83195172,
+          "kind": "fallthrough"
+        }
+      ]
+    },
+    {
+      "start": 83195172,
+      "end_exclusive": 83195184,
+      "terminator": {
+        "pc": 83195180,
+        "file_offset": 16086380,
+        "size": 4,
+        "raw": "e31cf7fe",
+        "kind": "branch",
+        "target": 83195172
+      },
+      "edges": [
+        {
+          "target": 83195172,
+          "kind": "branch"
+        },
+        {
+          "target": 83195184,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195184,
+      "end_exclusive": 83195224,
+      "terminator": null,
+      "edges": [
+        {
+          "target": 83195224,
+          "kind": "fallthrough"
+        }
+      ]
+    },
+    {
+      "start": 83195224,
+      "end_exclusive": 83195236,
+      "terminator": {
+        "pc": 83195232,
+        "file_offset": 16086432,
+        "size": 4,
+        "raw": "e31cd7fe",
+        "kind": "branch",
+        "target": 83195224
+      },
+      "edges": [
+        {
+          "target": 83195224,
+          "kind": "branch"
+        },
+        {
+          "target": 83195236,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195236,
+      "end_exclusive": 83195248,
+      "terminator": null,
+      "edges": [
+        {
+          "target": 83195248,
+          "kind": "fallthrough"
+        }
+      ]
+    },
+    {
+      "start": 83195248,
+      "end_exclusive": 83195260,
+      "terminator": {
+        "pc": 83195256,
+        "file_offset": 16086456,
+        "size": 4,
+        "raw": "e39ce7fe",
+        "kind": "branch",
+        "target": 83195248
+      },
+      "edges": [
+        {
+          "target": 83195248,
+          "kind": "branch"
+        },
+        {
+          "target": 83195260,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195260,
+      "end_exclusive": 83195284,
+      "terminator": {
+        "pc": 83195280,
+        "file_offset": 16086480,
+        "size": 4,
+        "raw": "63980734",
+        "kind": "branch",
+        "target": 83196128
+      },
+      "edges": [
+        {
+          "target": 83196128,
+          "kind": "branch"
+        },
+        {
+          "target": 83195284,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195284,
+      "end_exclusive": 83195292,
+      "terminator": {
+        "pc": 83195288,
+        "file_offset": 16086488,
+        "size": 4,
+        "raw": "638a073e",
+        "kind": "branch",
+        "target": 83196300
+      },
+      "edges": [
+        {
+          "target": 83196300,
+          "kind": "branch"
+        },
+        {
+          "target": 83195292,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195292,
+      "end_exclusive": 83195316,
+      "terminator": {
+        "pc": 83195312,
+        "file_offset": 16086512,
+        "size": 4,
+        "raw": "e78040f5",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 83145984,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 83145984,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195316,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195316,
+      "end_exclusive": 83195324,
+      "terminator": {
+        "pc": 83195320,
+        "file_offset": 16086520,
+        "size": 4,
+        "raw": "63120940",
+        "kind": "branch",
+        "target": 83196348
+      },
+      "edges": [
+        {
+          "target": 83196348,
+          "kind": "branch"
+        },
+        {
+          "target": 83195324,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195324,
+      "end_exclusive": 83195348,
+      "terminator": {
+        "pc": 83195344,
+        "file_offset": 16086544,
+        "size": 4,
+        "raw": "6f004002",
+        "kind": "jump",
+        "target": 83195380,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195380,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83195348,
+      "end_exclusive": 83195364,
+      "terminator": {
+        "pc": 83195360,
+        "file_offset": 16086560,
+        "size": 4,
+        "raw": "e7800700",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 15
+      },
+      "edges": [
+        {
+          "target": null,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195364,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195364,
+      "end_exclusive": 83195372,
+      "terminator": {
+        "pc": 83195368,
+        "file_offset": 16086568,
+        "size": 4,
+        "raw": "63160926",
+        "kind": "branch",
+        "target": 83195988
+      },
+      "edges": [
+        {
+          "target": 83195988,
+          "kind": "branch"
+        },
+        {
+          "target": 83195372,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195372,
+      "end_exclusive": 83195380,
+      "terminator": {
+        "pc": 83195376,
+        "file_offset": 16086576,
+        "size": 4,
+        "raw": "63069c42",
+        "kind": "branch",
+        "target": 83196444
+      },
+      "edges": [
+        {
+          "target": 83196444,
+          "kind": "branch"
+        },
+        {
+          "target": 83195380,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195380,
+      "end_exclusive": 83195400,
+      "terminator": {
+        "pc": 83195396,
+        "file_offset": 16086596,
+        "size": 4,
+        "raw": "e780c09f",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 86466556,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 86466556,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195400,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195400,
+      "end_exclusive": 83195468,
+      "terminator": {
+        "pc": 83195464,
+        "file_offset": 16086664,
+        "size": 4,
+        "raw": "e78080fa",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 82867692,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 82867692,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195468,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195468,
+      "end_exclusive": 83195476,
+      "terminator": {
+        "pc": 83195472,
+        "file_offset": 16086672,
+        "size": 4,
+        "raw": "e31205f8",
+        "kind": "branch",
+        "target": 83195348
+      },
+      "edges": [
+        {
+          "target": 83195348,
+          "kind": "branch"
+        },
+        {
+          "target": 83195476,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195476,
+      "end_exclusive": 83195500,
+      "terminator": {
+        "pc": 83195496,
+        "file_offset": 16086696,
+        "size": 4,
+        "raw": "e78040e7",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195500,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195500,
+      "end_exclusive": 83195508,
+      "terminator": null,
+      "edges": [
+        {
+          "target": 83195508,
+          "kind": "fallthrough"
+        }
+      ]
+    },
+    {
+      "start": 83195508,
+      "end_exclusive": 83195520,
+      "terminator": {
+        "pc": 83195516,
+        "file_offset": 16086716,
+        "size": 4,
+        "raw": "e78000e6",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195520,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195520,
+      "end_exclusive": 83195540,
+      "terminator": {
+        "pc": 83195536,
+        "file_offset": 16086736,
+        "size": 4,
+        "raw": "e780808b",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195540,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195540,
+      "end_exclusive": 83195552,
+      "terminator": {
+        "pc": 83195548,
+        "file_offset": 16086748,
+        "size": 4,
+        "raw": "6398070a",
+        "kind": "branch",
+        "target": 83195724
+      },
+      "edges": [
+        {
+          "target": 83195724,
+          "kind": "branch"
+        },
+        {
+          "target": 83195552,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195552,
+      "end_exclusive": 83195556,
+      "terminator": {
+        "pc": 83195552,
+        "file_offset": 16086752,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83195556,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83195556,
+      "end_exclusive": 83195564,
+      "terminator": {
+        "pc": 83195560,
+        "file_offset": 16086760,
+        "size": 4,
+        "raw": "6f004016",
+        "kind": "jump",
+        "target": 83195916,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195916,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83195564,
+      "end_exclusive": 83195584,
+      "terminator": {
+        "pc": 83195580,
+        "file_offset": 16086780,
+        "size": 4,
+        "raw": "e78000e2",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195584,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195584,
+      "end_exclusive": 83195608,
+      "terminator": {
+        "pc": 83195604,
+        "file_offset": 16086804,
+        "size": 4,
+        "raw": "e7804087",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195608,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195608,
+      "end_exclusive": 83195616,
+      "terminator": {
+        "pc": 83195612,
+        "file_offset": 16086812,
+        "size": 4,
+        "raw": "63940730",
+        "kind": "branch",
+        "target": 83196388
+      },
+      "edges": [
+        {
+          "target": 83196388,
+          "kind": "branch"
+        },
+        {
+          "target": 83195616,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195616,
+      "end_exclusive": 83195620,
+      "terminator": {
+        "pc": 83195616,
+        "file_offset": 16086816,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83195620,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83195620,
+      "end_exclusive": 83195640,
+      "terminator": {
+        "pc": 83195636,
+        "file_offset": 16086836,
+        "size": 4,
+        "raw": "e78080de",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195640,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195640,
+      "end_exclusive": 83195660,
+      "terminator": {
+        "pc": 83195656,
+        "file_offset": 16086856,
+        "size": 4,
+        "raw": "e7800084",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195660,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195660,
+      "end_exclusive": 83195668,
+      "terminator": {
+        "pc": 83195664,
+        "file_offset": 16086864,
+        "size": 4,
+        "raw": "6398072e",
+        "kind": "branch",
+        "target": 83196416
+      },
+      "edges": [
+        {
+          "target": 83196416,
+          "kind": "branch"
+        },
+        {
+          "target": 83195668,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195668,
+      "end_exclusive": 83195672,
+      "terminator": {
+        "pc": 83195668,
+        "file_offset": 16086868,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83195672,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83195672,
+      "end_exclusive": 83195696,
+      "terminator": {
+        "pc": 83195692,
+        "file_offset": 16086892,
+        "size": 4,
+        "raw": "e78000db",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195696,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195696,
+      "end_exclusive": 83195716,
+      "terminator": {
+        "pc": 83195712,
+        "file_offset": 16086912,
+        "size": 4,
+        "raw": "e7808080",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195716,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195716,
+      "end_exclusive": 83195724,
+      "terminator": {
+        "pc": 83195720,
+        "file_offset": 16086920,
+        "size": 4,
+        "raw": "e38c07f4",
+        "kind": "branch",
+        "target": 83195552
+      },
+      "edges": [
+        {
+          "target": 83195552,
+          "kind": "branch"
+        },
+        {
+          "target": 83195724,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195724,
+      "end_exclusive": 83195752,
+      "terminator": {
+        "pc": 83195748,
+        "file_offset": 16086948,
+        "size": 4,
+        "raw": "6ff0dff3",
+        "kind": "jump",
+        "target": 83195552,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195552,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83195752,
+      "end_exclusive": 83195784,
+      "terminator": {
+        "pc": 83195780,
+        "file_offset": 16086980,
+        "size": 4,
+        "raw": "e78080d5",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195784,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195784,
+      "end_exclusive": 83195804,
+      "terminator": {
+        "pc": 83195800,
+        "file_offset": 16087000,
+        "size": 4,
+        "raw": "e78040d4",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195804,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195804,
+      "end_exclusive": 83195828,
+      "terminator": {
+        "pc": 83195824,
+        "file_offset": 16087024,
+        "size": 4,
+        "raw": "e7808079",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195828,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195828,
+      "end_exclusive": 83195836,
+      "terminator": {
+        "pc": 83195832,
+        "file_offset": 16087032,
+        "size": 4,
+        "raw": "63960710",
+        "kind": "branch",
+        "target": 83196100
+      },
+      "edges": [
+        {
+          "target": 83196100,
+          "kind": "branch"
+        },
+        {
+          "target": 83195836,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195836,
+      "end_exclusive": 83195840,
+      "terminator": {
+        "pc": 83195836,
+        "file_offset": 16087036,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83195840,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83195840,
+      "end_exclusive": 83195864,
+      "terminator": {
+        "pc": 83195860,
+        "file_offset": 16087060,
+        "size": 4,
+        "raw": "e78080d0",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195864,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195864,
+      "end_exclusive": 83195884,
+      "terminator": {
+        "pc": 83195880,
+        "file_offset": 16087080,
+        "size": 4,
+        "raw": "e78040cf",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195884,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195884,
+      "end_exclusive": 83195904,
+      "terminator": {
+        "pc": 83195900,
+        "file_offset": 16087100,
+        "size": 4,
+        "raw": "e780c074",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83195904,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195904,
+      "end_exclusive": 83195912,
+      "terminator": {
+        "pc": 83195908,
+        "file_offset": 16087108,
+        "size": 4,
+        "raw": "6392070a",
+        "kind": "branch",
+        "target": 83196072
+      },
+      "edges": [
+        {
+          "target": 83196072,
+          "kind": "branch"
+        },
+        {
+          "target": 83195912,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195912,
+      "end_exclusive": 83195916,
+      "terminator": {
+        "pc": 83195912,
+        "file_offset": 16087112,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83195916,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83195916,
+      "end_exclusive": 83195936,
+      "terminator": {
+        "pc": 83195932,
+        "file_offset": 16087132,
+        "size": 4,
+        "raw": "639e072e",
+        "kind": "branch",
+        "target": 83196696
+      },
+      "edges": [
+        {
+          "target": 83196696,
+          "kind": "branch"
+        },
+        {
+          "target": 83195936,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83195936,
+      "end_exclusive": 83195988,
+      "terminator": {
+        "pc": 83195984,
+        "file_offset": 16087184,
+        "size": 4,
+        "raw": "67800000",
+        "kind": "return",
+        "rd": 0,
+        "rs1": 1
+      },
+      "edges": [
+        {
+          "target": null,
+          "kind": "return"
+        }
+      ]
+    },
+    {
+      "start": 83195988,
+      "end_exclusive": 83196020,
+      "terminator": {
+        "pc": 83196016,
+        "file_offset": 16087216,
+        "size": 4,
+        "raw": "e780c0c6",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196020,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196020,
+      "end_exclusive": 83196028,
+      "terminator": null,
+      "edges": [
+        {
+          "target": 83196028,
+          "kind": "fallthrough"
+        }
+      ]
+    },
+    {
+      "start": 83196028,
+      "end_exclusive": 83196040,
+      "terminator": {
+        "pc": 83196036,
+        "file_offset": 16087236,
+        "size": 4,
+        "raw": "e78080c5",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196040,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196040,
+      "end_exclusive": 83196060,
+      "terminator": {
+        "pc": 83196056,
+        "file_offset": 16087256,
+        "size": 4,
+        "raw": "e780006b",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196060,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196060,
+      "end_exclusive": 83196072,
+      "terminator": {
+        "pc": 83196068,
+        "file_offset": 16087268,
+        "size": 4,
+        "raw": "e38207f6",
+        "kind": "branch",
+        "target": 83195912
+      },
+      "edges": [
+        {
+          "target": 83195912,
+          "kind": "branch"
+        },
+        {
+          "target": 83196072,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196072,
+      "end_exclusive": 83196100,
+      "terminator": {
+        "pc": 83196096,
+        "file_offset": 16087296,
+        "size": 4,
+        "raw": "6ff09ff4",
+        "kind": "jump",
+        "target": 83195912,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195912,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196100,
+      "end_exclusive": 83196128,
+      "terminator": {
+        "pc": 83196124,
+        "file_offset": 16087324,
+        "size": 4,
+        "raw": "6ff01fee",
+        "kind": "jump",
+        "target": 83195836,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195836,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196128,
+      "end_exclusive": 83196144,
+      "terminator": {
+        "pc": 83196140,
+        "file_offset": 16087340,
+        "size": 4,
+        "raw": "e780c0e6",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 82790228,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 82790228,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196144,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196144,
+      "end_exclusive": 83196152,
+      "terminator": {
+        "pc": 83196148,
+        "file_offset": 16087348,
+        "size": 4,
+        "raw": "638c0714",
+        "kind": "branch",
+        "target": 83196492
+      },
+      "edges": [
+        {
+          "target": 83196492,
+          "kind": "branch"
+        },
+        {
+          "target": 83196152,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196152,
+      "end_exclusive": 83196164,
+      "terminator": {
+        "pc": 83196160,
+        "file_offset": 16087360,
+        "size": 4,
+        "raw": "63000702",
+        "kind": "branch",
+        "target": 83196192
+      },
+      "edges": [
+        {
+          "target": 83196192,
+          "kind": "branch"
+        },
+        {
+          "target": 83196164,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196164,
+      "end_exclusive": 83196180,
+      "terminator": null,
+      "edges": [
+        {
+          "target": 83196180,
+          "kind": "fallthrough"
+        }
+      ]
+    },
+    {
+      "start": 83196180,
+      "end_exclusive": 83196192,
+      "terminator": {
+        "pc": 83196188,
+        "file_offset": 16087388,
+        "size": 4,
+        "raw": "e39ce7fe",
+        "kind": "branch",
+        "target": 83196180
+      },
+      "edges": [
+        {
+          "target": 83196180,
+          "kind": "branch"
+        },
+        {
+          "target": 83196192,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196192,
+      "end_exclusive": 83196212,
+      "terminator": {
+        "pc": 83196208,
+        "file_offset": 16087408,
+        "size": 4,
+        "raw": "6ff0dfc8",
+        "kind": "jump",
+        "target": 83195324,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195324,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196212,
+      "end_exclusive": 83196236,
+      "terminator": {
+        "pc": 83196232,
+        "file_offset": 16087432,
+        "size": 4,
+        "raw": "e78040b9",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196236,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196236,
+      "end_exclusive": 83196256,
+      "terminator": {
+        "pc": 83196252,
+        "file_offset": 16087452,
+        "size": 4,
+        "raw": "e78000b8",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196256,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196256,
+      "end_exclusive": 83196276,
+      "terminator": {
+        "pc": 83196272,
+        "file_offset": 16087472,
+        "size": 4,
+        "raw": "e780805d",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196276,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196276,
+      "end_exclusive": 83196288,
+      "terminator": {
+        "pc": 83196284,
+        "file_offset": 16087484,
+        "size": 4,
+        "raw": "639a070a",
+        "kind": "branch",
+        "target": 83196464
+      },
+      "edges": [
+        {
+          "target": 83196464,
+          "kind": "branch"
+        },
+        {
+          "target": 83196288,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196288,
+      "end_exclusive": 83196292,
+      "terminator": {
+        "pc": 83196288,
+        "file_offset": 16087488,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83196292,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83196292,
+      "end_exclusive": 83196300,
+      "terminator": {
+        "pc": 83196296,
+        "file_offset": 16087496,
+        "size": 4,
+        "raw": "6ff05fe8",
+        "kind": "jump",
+        "target": 83195916,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195916,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196300,
+      "end_exclusive": 83196320,
+      "terminator": {
+        "pc": 83196316,
+        "file_offset": 16087516,
+        "size": 4,
+        "raw": "e78000b4",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196320,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196320,
+      "end_exclusive": 83196332,
+      "terminator": {
+        "pc": 83196328,
+        "file_offset": 16087528,
+        "size": 4,
+        "raw": "6ff0dfcc",
+        "kind": "jump",
+        "target": 83195508,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195508,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196332,
+      "end_exclusive": 83196348,
+      "terminator": {
+        "pc": 83196344,
+        "file_offset": 16087544,
+        "size": 4,
+        "raw": "6ff09fe0",
+        "kind": "jump",
+        "target": 83195840,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195840,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196348,
+      "end_exclusive": 83196376,
+      "terminator": {
+        "pc": 83196372,
+        "file_offset": 16087572,
+        "size": 4,
+        "raw": "e78080b0",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196376,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196376,
+      "end_exclusive": 83196388,
+      "terminator": {
+        "pc": 83196384,
+        "file_offset": 16087584,
+        "size": 4,
+        "raw": "6ff0dfe9",
+        "kind": "jump",
+        "target": 83196028,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83196028,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196388,
+      "end_exclusive": 83196416,
+      "terminator": {
+        "pc": 83196412,
+        "file_offset": 16087612,
+        "size": 4,
+        "raw": "6ff05fce",
+        "kind": "jump",
+        "target": 83195616,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195616,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196416,
+      "end_exclusive": 83196444,
+      "terminator": {
+        "pc": 83196440,
+        "file_offset": 16087640,
+        "size": 4,
+        "raw": "6ff0dfcf",
+        "kind": "jump",
+        "target": 83195668,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195668,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196444,
+      "end_exclusive": 83196460,
+      "terminator": {
+        "pc": 83196456,
+        "file_offset": 16087656,
+        "size": 4,
+        "raw": "e780c001",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 83794496,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 83794496,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196460,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196460,
+      "end_exclusive": 83196464,
+      "terminator": {
+        "pc": 83196460,
+        "file_offset": 16087660,
+        "size": 4,
+        "raw": "6ff01fde",
+        "kind": "jump",
+        "target": 83195916,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195916,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196464,
+      "end_exclusive": 83196492,
+      "terminator": {
+        "pc": 83196488,
+        "file_offset": 16087688,
+        "size": 4,
+        "raw": "6ff09ff3",
+        "kind": "jump",
+        "target": 83196288,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83196288,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196492,
+      "end_exclusive": 83196512,
+      "terminator": {
+        "pc": 83196508,
+        "file_offset": 16087708,
+        "size": 4,
+        "raw": "e78000a8",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196512,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196512,
+      "end_exclusive": 83196536,
+      "terminator": {
+        "pc": 83196532,
+        "file_offset": 16087732,
+        "size": 4,
+        "raw": "e780404d",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196536,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196536,
+      "end_exclusive": 83196544,
+      "terminator": {
+        "pc": 83196540,
+        "file_offset": 16087740,
+        "size": 4,
+        "raw": "63900708",
+        "kind": "branch",
+        "target": 83196668
+      },
+      "edges": [
+        {
+          "target": 83196668,
+          "kind": "branch"
+        },
+        {
+          "target": 83196544,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196544,
+      "end_exclusive": 83196548,
+      "terminator": {
+        "pc": 83196544,
+        "file_offset": 16087744,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83196548,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83196548,
+      "end_exclusive": 83196572,
+      "terminator": {
+        "pc": 83196568,
+        "file_offset": 16087768,
+        "size": 4,
+        "raw": "e78040a4",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196572,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196572,
+      "end_exclusive": 83196592,
+      "terminator": {
+        "pc": 83196588,
+        "file_offset": 16087788,
+        "size": 4,
+        "raw": "e78000a3",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89916632,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89916632,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196592,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196592,
+      "end_exclusive": 83196612,
+      "terminator": {
+        "pc": 83196608,
+        "file_offset": 16087808,
+        "size": 4,
+        "raw": "e7808048",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 73031492,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 73031492,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196612,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196612,
+      "end_exclusive": 83196620,
+      "terminator": {
+        "pc": 83196616,
+        "file_offset": 16087816,
+        "size": 4,
+        "raw": "639c0700",
+        "kind": "branch",
+        "target": 83196640
+      },
+      "edges": [
+        {
+          "target": 83196640,
+          "kind": "branch"
+        },
+        {
+          "target": 83196620,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    },
+    {
+      "start": 83196620,
+      "end_exclusive": 83196624,
+      "terminator": {
+        "pc": 83196620,
+        "file_offset": 16087820,
+        "size": 4,
+        "raw": "73001000",
+        "kind": "trap"
+      },
+      "edges": [
+        {
+          "target": 83196624,
+          "kind": "possible_resume_after_trap"
+        }
+      ]
+    },
+    {
+      "start": 83196624,
+      "end_exclusive": 83196632,
+      "terminator": {
+        "pc": 83196628,
+        "file_offset": 16087828,
+        "size": 4,
+        "raw": "6ff09fd3",
+        "kind": "jump",
+        "target": 83195916,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195916,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196632,
+      "end_exclusive": 83196640,
+      "terminator": {
+        "pc": 83196636,
+        "file_offset": 16087836,
+        "size": 4,
+        "raw": "6ff09fc0",
+        "kind": "jump",
+        "target": 83195620,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83195620,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196640,
+      "end_exclusive": 83196668,
+      "terminator": {
+        "pc": 83196664,
+        "file_offset": 16087864,
+        "size": 4,
+        "raw": "6ff05ffd",
+        "kind": "jump",
+        "target": 83196620,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83196620,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196668,
+      "end_exclusive": 83196696,
+      "terminator": {
+        "pc": 83196692,
+        "file_offset": 16087892,
+        "size": 4,
+        "raw": "6ff0dff6",
+        "kind": "jump",
+        "target": 83196544,
+        "rd": 0
+      },
+      "edges": [
+        {
+          "target": 83196544,
+          "kind": "jump"
+        }
+      ]
+    },
+    {
+      "start": 83196696,
+      "end_exclusive": 83196704,
+      "terminator": {
+        "pc": 83196700,
+        "file_offset": 16087900,
+        "size": 4,
+        "raw": "e780c049",
+        "kind": "indirect_call",
+        "rd": 1,
+        "rs1": 1,
+        "target": 89059252,
+        "encoding": "adjacent_auipc_jalr"
+      },
+      "edges": [
+        {
+          "target": 89059252,
+          "kind": "indirect_call"
+        },
+        {
+          "target": 83196704,
+          "kind": "fallthrough_after_branch_or_assumed_call_return"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-04T14:48:18.711747+00:00",
+  "devices": [
+    {
+      "name": "llvmpipe (LLVM 20.1.2, 256 bits)",
+      "vendor_id": "0x10005",
+      "device_id": "0x0",
+      "device_type": 4
+    }
+  ],
+  "create_result": 0,
+  "count_result": 0,
+  "enumerate_result": 0
+}

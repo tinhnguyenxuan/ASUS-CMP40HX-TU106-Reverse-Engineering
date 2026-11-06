@@ -1,0 +1,14 @@
+Hoàn tất. Kết quả ngắn gọn:
+
+**Artifacts (mới, riêng PHASE16/GSP_BINDATA/, không chạm artifacts job khác):**
+- `gsp_bindata_consumers.py` — parse embedded ELF64 @ file 0x40, mapping section/program từ PT_LOAD (delta 0x04000000, tức VA = file + 0x03ffffc0), quét 7 section thực thi, tự giải mã RV64I (capstone 5.0.7 trên /usr/bin/python3 không có backend RISC-V), theo dõi luồng thanh ghi lui/auipc→use, từ chối lan cách và clobber.
+- `gsp_bindata_consumers.json` (trước report) — self_check PASS, code_scan/candidates/verdict/negative_scope/next_steps.
+- `run.log` — `EXIT=0`.
+- `GSP_BINDATA_CONSUMERS.md` — báo cáo ngắn.
+
+**Phát hiện:**
+- **VERIFIED:** Magic `NVUCODES` @ file 0x22370 (VA 0x04022330); fingerprint literal @ file 0x22378 (0x140152), raw `2bae986bab90198d` = `0x8D1990AB6B98AE2B`, VA đúng `0x04022338`, nằm trong `.section_task_rm_elf_rodata_instance`; artifact `global_va 0x40022338` là SAI (bị loại). Hash 48B window: `a4214709...81ff6dd`.
+- **CANDIDATE (1 consumer):** hàm tại VA `0x0459c5e0` (file `0x59c620`, `.section_task_rm_elf_text_instance`). Chuỗi đăng ký được qua luồng thanh ghi: `lui s7,0x4022000` + `ld s4,824(s7)` → đọc fingerprint `0x0459c678`; so sánh magic/fingerprint/numEntries(496) trên stack; vòng lap bước 24 (sizeof `BINDATA_STORAGE_PVT`); `lw flags @+0x10`, `andi ...,4` kiểm tra `BINDATA_FLAG_EXTERNAL`; 7 gọi trực gián qua thanh ghi (chưa giải được đích); pointer chain global `0x4202930` → giá trị `0x77F2058F82306A67` (chưa phân giải).
+- **UNKNOWN:** mapping global slot → nhãn `BINDATA_LABEL` → thành phần firmware/tên engine (không bảng tượng, không chuỗi BINDATA/ucodes trong nhị phân, không mảng `BINDATA_ARCHIVE_ENTRY` có nhãn được xác định). Giữ UNKNOWN, đã lưu phạm vi quét âm tính + bước offline tiếp trong JSON/MD.
+
+Không cài tool, không exploit/bruteforce, chỉ phân tích offline file đã có.

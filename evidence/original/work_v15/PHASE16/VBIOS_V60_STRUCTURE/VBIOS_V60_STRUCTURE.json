@@ -1,0 +1,359 @@
+{
+ "audit_meta": {
+  "created_utc": "2026-11-03T19:21:21.027905+00:00",
+  "command": "python3 vbios_v60_structure.py",
+  "outdir": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/VBIOS_V60_STRUCTURE",
+  "ponytail": "full",
+  "follows_job": "vbios_full_token_audit_v1 (completed)"
+ },
+ "inputs": {
+  "rom": {
+   "path": "/tmp/v11chk/outputs/CMP40HX_ORIGINAL_1MB.bin",
+   "size": 1048576,
+   "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec"
+  },
+  "t4": {
+   "path": "/tmp/v11chk/outputs/cmp40hx_t4.bin",
+   "size": 495616,
+   "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb"
+  },
+  "shadow": {
+   "path": "/tmp/v11chk/RAW_DATA/vbios_shadow.bin",
+   "size": 1048576,
+   "sha256": "2715c0b106931b540b5ef6660201919e9297f3f5cdc61432d9a16352c55b717a"
+  }
+ },
+ "inputs_match_prior_audit": {
+  "rom": true,
+  "t4": true,
+  "shadow": true
+ },
+ "provenance": {
+  "repo": "/tmp/envytools",
+  "git_head": "f102b82381f3f11cee113d16374c87091db039d9",
+  "files": {
+   "bit.c": {
+    "path": "/tmp/envytools/nvbios/bit.c",
+    "sha256": "ad7475b67203275e1fe05ac8c910ce2ad431eacb930ca3a858e085dceb87f335"
+   },
+   "power.c": {
+    "path": "/tmp/envytools/nvbios/power.c",
+    "sha256": "6f4d9d065dd37d8ea49ec3f7a7aeedd2723b13a1c223bc90e90de5be1802c8a6"
+   },
+   "nvbios.c": {
+    "path": "/tmp/envytools/nvbios/nvbios.c",
+    "sha256": "7e9f739bf8e4b45f168e90b4d6b07c0c0d039a2bdb76f753b38069714f36907f"
+   },
+   "bios.c": {
+    "path": "/tmp/envytools/nvbios/bios.c",
+    "sha256": "1a87fa1eab4712e120771ef9af0d5df2c81ee7a69dbf43cd38415d6bcdf09ac8"
+   }
+  }
+ },
+ "conventions": {
+  "bit_signature": "ff b8 42 49 54 00 00 (envytools bios.c:198)",
+  "bit_header": "version u16@+6 (expect 0x0100), hlen u8@+8, rlen u8@+9, entriesnum u8@+10; checksum over header must be 0 (bit.c:70-92); entry: type@0, version@1, t_len u16@2, t_offset u16@4 (bit.c:121-123)",
+  "mapping_rom_t4": "BIT t_offset -> 0x28600 + t_offset; power u32 -> 0x39600 + u32",
+  "mapping_shadow": "BIT t_offset -> direct shadow offset; power u32 -> u32 - 0x28600",
+  "traversal_vs_semantic": "offsets/versions/hlen/rlen/counts and extent arithmetic are parser traversal facts; field meanings are source-backed semantic decodes only where cited"
+ },
+ "structural_facts": {
+  "bit_signature_off": 165808,
+  "bit_header": {
+   "span": [
+    165808,
+    165820
+   ],
+   "len": 12,
+   "raw": [
+    255,
+    184,
+    66,
+    73,
+    84,
+    0,
+    0,
+    1,
+    12,
+    6,
+    17,
+    70
+   ]
+  },
+  "bit_entries_region": {
+   "span": [
+    165820,
+    165922
+   ],
+   "len": 102,
+   "count": 17,
+   "stride": 6,
+   "note": "BIT entry array \u2014 part of the BIT table, NOT a gap"
+  },
+  "bit_table_span": [
+   165808,
+   165922
+  ],
+  "first_target": {
+   "token": "2",
+   "index": 0,
+   "target": 165938,
+   "t_len": 4,
+   "target_span": [
+    165938,
+    165942
+   ]
+  },
+  "gap0": {
+   "old_stored": {
+    "span": [
+     165820,
+     165938
+    ],
+    "len": 118,
+    "note": "OLD (inconsistent): header_end -> 2 target; absorbs entries region"
+   },
+   "corrected": {
+    "span": [
+     165922,
+     165938
+    ],
+    "len": 16,
+    "note": "CORRECT: BIT entries end (0x28822) -> 2 target (0x28832)",
+    "intervening_bytes": [
+     0,
+     0,
+     92,
+     4,
+     88,
+     70,
+     190,
+     104,
+     247,
+     114,
+     48,
+     232,
+     0,
+     0,
+     0,
+     0
+    ],
+    "intervening_bytes_hex": "00 00 5c 04 58 46 be 68 f7 72 30 e8 00 00 00 00"
+   },
+   "root_cause": "span computed from header_end (0x287bc) rather than entries_end (0x28822); it wrongly absorbed the 102-byte BIT entries region [0x287bc, 0x28822) as if it were a gap"
+  },
+  "gap1": {
+   "span": [
+    165942,
+    165950
+   ],
+   "len": 8,
+   "intervening_bytes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "intervening_bytes_hex": "00 00 00 00 00 00 00 00"
+  },
+  "trailing_after_last_target": {
+   "start": 166492,
+   "note": "uncharted bytes after last BIT-targeted table extent; no end claimed"
+  },
+  "inter_target_gaps_all": [
+   {
+    "span": [
+     165942,
+     165950
+    ],
+    "len": 8,
+    "between": {
+     "prev_entry_index": null,
+     "prev_target_end": 165942,
+     "next_target_start": 165950
+    }
+   }
+  ]
+ },
+ "perf_v60": {
+  "target_rom": 344405,
+  "target_hex": "0x54155",
+  "directory_u32_at_0x288d4": "0x1ab55",
+  "mapped_pointer": "0x54155",
+  "pointer_resolution": "0x39600 + u32 (power.c:82-103 P2_tbls slot 0 PERFORMANCE)",
+  "raw_header_32": [
+   96,
+   10,
+   5,
+   7,
+   6,
+   10,
+   1,
+   7,
+   0,
+   1,
+   7,
+   0,
+   0,
+   0,
+   255,
+   133,
+   2,
+   44,
+   65,
+   161,
+   0,
+   88,
+   2,
+   28,
+   2,
+   150,
+   0,
+   149,
+   1,
+   149,
+   65,
+   101
+  ],
+  "raw_header_32_hex": "60 0a 05 07 06 0a 01 07 00 01 07 00 00 00 ff 85 02 2c 41 a1 00 58 02 1c 02 96 00 95 01 95 41 65",
+  "version_byte": "0x60",
+  "version_byte_int": 96,
+  "comparison": {
+   "rom_vs_t4_identical": true,
+   "rom_vs_shadow_identical": true,
+   "shadow_offset_used": "0x2bb55",
+   "note": "PERFORMANCE v60 bytes are byte-identical across ROM, T4, and shadow; no image-specific variation"
+  },
+  "source_consumer": {
+   "file": "/tmp/envytools/nvbios/nvbios.c",
+   "function": "PM_Mode perf print/parse block",
+   "lines": "1477-1554",
+   "consumes": "bios->power.perf.offset (power.c:76 P2_tbls slot 0 PERFORMANCE)",
+   "dispatch_key": "bios->info.version[0] (nvbios.c:858, set from data[bmp_offset+13] at nvbios.c:1078)",
+   "branches": [
+    "BIOS major == 0x4 (nvbios.c:1491)",
+    "BIOS major < 0x70 (nvbios.c:1497)",
+    "(BIOS major & 0xf0) <= 0x80 with table-version sub-case 0x50 / default (nvbios.c:1505)"
+   ],
+   "v60_handling": "NONE \u2014 no case 0x60 for the table version byte exists in any branch"
+  },
+  "adopted_extent": null,
+  "adopted_note": "PERFORMANCE v60 remains OPAQUE. No source-backed v60 schema exists; the generic hdr+esz*count extent (0x0a + 0x05*0x07 = 45 bytes, [0x54155, 0x54182)) was explicitly rejected in vbios_full_token_audit_v1 and is not re-adopted here. Only the 10-byte header (header_length = data[start+1] = 0x0a) is source-justified as a hex-dump width when the dispatch reaches printcmd; no section boundary or entry stride is established.",
+  "failed_hypotheses": [
+   {
+    "hypothesis": "generic hdr+esz*cnt extent = hlen(0x0a) + esz(0x05)*cnt(0x07) = 45 bytes, [0x54155, 0x54182)",
+    "status": "FAILED / explicitly rejected (prior audit)",
+    "reason": "no v60 schema in envytools; raw bytes continue non-zero past 0x54182 (byte 0x2b at 0x54182), so 45 bytes is not a real section boundary; zeros only begin around 0x541a5"
+   }
+  ],
+  "conditional_hypotheses_unadopted": [
+   {
+    "branch": "BIOS major == 0x4 (nvbios.c:1491)",
+    "precondition": "bios->info.version[0] == 0x4",
+    "precondition_met": false,
+    "fields": {
+     "header_length": 10,
+     "version": 96,
+     "entry_length": 7,
+     "entry_count": 5
+    },
+    "computed_extent_len": 45,
+    "extent": [
+     344405,
+     344450
+    ],
+    "status": "unadopted \u2014 precondition not established; table version byte is 0x60 not handled by this branch"
+   },
+   {
+    "branch": "BIOS major < 0x70 (nvbios.c:1497-1504)",
+    "precondition": "bios->info.version[0] < 0x70",
+    "precondition_met": false,
+    "fields": {
+     "version": 96,
+     "header_length": 10,
+     "entry_count": 5,
+     "mode_info_length": 7,
+     "extra_data_count": 6,
+     "extra_data_length": 10
+    },
+    "computed_extent_len": 67,
+    "extent": [
+     344405,
+     344472
+    ],
+    "status": "unadopted \u2014 precondition not established; generic hdr+esz*count-style model, no v60 schema"
+   },
+   {
+    "branch": "BIOS major high-nibble <= 0x80, default subentry case (nvbios.c:1505-1519)",
+    "precondition": "(bios->info.version[0] & 0xf0) <= 0x80 AND table version != 0x50",
+    "precondition_met": false,
+    "fields": {
+     "version": 96,
+     "header_length": 10,
+     "subentry_offset": 5,
+     "subentry_size": 7,
+     "subentry_count": 6,
+     "entry_count": 10
+    },
+    "computed_extent_len": 47,
+    "extent": [
+     344405,
+     344452
+    ],
+    "status": "unadopted \u2014 precondition not established; no case 0x60 for table version exists"
+   },
+   {
+    "branch": "BIOS major high-nibble <= 0x80, case 0x50 (nvbios.c:1512-1515)",
+    "precondition": "table version byte == 0x50",
+    "precondition_met": false,
+    "fields": {
+     "version": 96,
+     "header_length": 10,
+     "entry_count": 7,
+     "subentry_size": 6,
+     "subentry_count": 10
+    },
+    "computed_extent_len": 65,
+    "extent": [
+     344405,
+     344470
+    ],
+    "status": "failed \u2014 table version byte is 0x60, not 0x50"
+   }
+  ],
+  "unknown_fields_preserved": true
+ },
+ "bit_parsers_available": {
+  "source": "/tmp/envytools/nvbios/bit.c",
+  "bit_types_table_lines": "39-68",
+  "registered_parsers": [
+   {
+    "token": "P",
+    "version": 1,
+    "parser": "envy_bios_parse_bit_P /* Power v1 */"
+   },
+   {
+    "token": "P",
+    "version": 2,
+    "parser": "envy_bios_parse_bit_P /* Power v2 */"
+   }
+  ],
+  "nop": [
+   {
+    "token": "N",
+    "version": 0,
+    "note": "NOP per bit.c bit_types"
+   }
+  ],
+  "conclusion": "No source parser exists for packed tokens B,C,D,I,M,S,T,U,V,x,d,p,u,i; no additional BIT packed token can be considered without direct source/schema evidence."
+ },
+ "conclusion": {
+  "gap0_resolved": "corrected span [0x28822, 0x28832) len 16; intervening bytes recorded; old span [0x287bc, 0x28832) len 118 wrongly absorbed the entries region",
+  "perf_v60": "OPAQUE \u2014 no source-backed v60 schema; no section bounds or stride adopted; failed and conditional hypotheses documented; unknown fields preserved",
+  "no_full_decoding_claimed": true
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "phase21-hermes-report-provenance-v1",
+  "generated_utc": "2026-11-04T13:49:33.372005+00:00",
+  "rows": [
+    {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/BAO_CAO_TONG_HOP_PHASE15_20.md",
+      "exists": true,
+      "size": 9593,
+      "sha256": "8b9f3faf2ef14f389c692a7312aeaa55eca301c21a1db53c34348029b6c782fc",
+      "classification": "SECONDARY_HERMES_CACHE_REPORT",
+      "current_target_authority": false
+    },
+    {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/PHASE15/BAO_CAO_PHASE15.md",
+      "exists": true,
+      "size": 9851,
+      "sha256": "aa4fc9e5733b32490f616738799701c9e9a57bdc76ce1995dd0ce70ec8ee2fb6",
+      "classification": "SECONDARY_HERMES_CACHE_REPORT",
+      "current_target_authority": false
+    }
+  ],
+  "note": "Historical Hermes cache reports are secondary testimony. They do not replace fresh target package, current runtime, authenticated ROM provenance or PCB evidence."
+}

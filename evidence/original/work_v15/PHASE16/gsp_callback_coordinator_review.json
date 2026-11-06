@@ -1,0 +1,24 @@
+{
+  "input_sha256_matches": true,
+  "instruction_rows_checked_against_binary": 84,
+  "issues": [],
+  "capstone_available_reported_by_script": true,
+  "helper_target": "0x4f075ec",
+  "backward_branch_target": "0x4f575d4",
+  "specific_path": [
+    "helper return at 0x4f5764c",
+    "mv a1,a0",
+    "bnez a0 -> 0x4f575d4",
+    "ld a5,[s3+0x30]",
+    "lhu a2,[s0-0x88]",
+    "mv a0,s3",
+    "jalr a5 at 0x4f575e0"
+  ],
+  "specific_path_a1_fact": "a1 retains the nonzero helper return on this taken-branch path; no intervening call writes a1",
+  "limitations": [
+    "Full-function predecessors are not exhaustively verified",
+    "Callback target remains unknown",
+    "Helper may mutate the passed temporary struct",
+    "GSP_CALLBACK_VERIFIED.md still contradicts its own branch evidence and is not accepted as the final semantic report"
+  ]
+}

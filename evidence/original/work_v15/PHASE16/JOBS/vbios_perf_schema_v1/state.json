@@ -1,0 +1,12 @@
+{
+  "job": "vbios_perf_schema_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:25:16.235085+00:00",
+  "wrapper_pid": 1634357,
+  "task_sha256": "593e1c5027a7e114dd18c1402bd738c3f286223aeb7a619f7ac74ab4882e500a",
+  "hermes_pid": 1634358,
+  "hermes_start_ticks": "208546211",
+  "heartbeat_at": "2026-11-03T15:36:40.587867+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:36:42.588613+00:00"
+}

@@ -1,0 +1,78 @@
+{
+ "queue": [
+  {
+   "id": "P1-1",
+   "phase": "P1",
+   "task": "doc mo rong BAR0 theo dev_*.h blocks",
+   "why": "33/52 register doc duoc; con nhieu block chua cham",
+   "safe": true,
+   "status": "next"
+  },
+  {
+   "id": "P2-1",
+   "phase": "P2",
+   "task": "parse NVGI key block 0x3000 (38 record)",
+   "why": "cau truc da biet, nghia chua biet",
+   "safe": true,
+   "status": "next"
+  },
+  {
+   "id": "P2-2",
+   "phase": "P2",
+   "task": "parse NVINIT + FALCON_DATA day du",
+   "why": "con vung chua giai",
+   "safe": true,
+   "status": "next"
+  },
+  {
+   "id": "P3-1",
+   "phase": "P3",
+   "task": "Ghidra 17 MB text, tim vong lap 139 desc",
+   "why": "diem dut duy nhat cua GSP",
+   "safe": true,
+   "status": "queued"
+  },
+  {
+   "id": "P4-1",
+   "phase": "P4",
+   "task": "nen lai + XOR 4 blob ucodes",
+   "why": "phan biet AES vs nen",
+   "safe": true,
+   "status": "next"
+  },
+  {
+   "id": "P5-1",
+   "phase": "P5",
+   "task": "topology tu fuse 0x650 + 0xC1C",
+   "why": "17 TPC / 34 SM",
+   "safe": true,
+   "status": "next"
+  },
+  {
+   "id": "P6-1",
+   "phase": "P6",
+   "task": "ly giai 430 MiB lech VRAM",
+   "why": "memory architecture",
+   "safe": true,
+   "status": "queued"
+  },
+  {
+   "id": "P8-1",
+   "phase": "P8",
+   "task": "WPR + SEC2 tu log boot that",
+   "why": "security architecture",
+   "safe": true,
+   "status": "next"
+  }
+ ],
+ "done": [
+  "P8 SECURITY (DONE v7): 3 file + 17 register WPR/PLM/ACR + U-SEC-001/002"
+ ],
+ "next_priority": [
+  "U-SEC-001: WPR2_LO khac nhau giua MMIO va dmesg",
+  "U-GSP-006: bang descriptor thu 2 chua RmClkVfOverride",
+  "TU-01: phan bo 17 TPC tren 3 GPC",
+  "U-FUSE-002: 32 B hash tai 0x0718",
+  "H3 vs H4: tran 1890 MHz o VF offset hay policy GSP-RM"
+ ]
+}

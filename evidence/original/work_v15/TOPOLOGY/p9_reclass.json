@@ -1,0 +1,406 @@
+{
+ "zones": [
+  {
+   "zone": {
+    "start_page": 16,
+    "end_page": 31,
+    "start": "0x010000",
+    "end": "0x01ffff",
+    "pages": 16,
+    "state": "DATA"
+   },
+   "nonzero_pct": 75.0,
+   "distinct_u32": 1,
+   "top": [
+    {
+     "v": "0xbad00100",
+     "n": 16384
+    }
+   ],
+   "classification": "POISON_MOI"
+  },
+  {
+   "zone": {
+    "start_page": 88,
+    "end_page": 96,
+    "start": "0x058000",
+    "end": "0x060fff",
+    "pages": 9,
+    "state": "DATA"
+   },
+   "nonzero_pct": 75.0,
+   "distinct_u32": 1,
+   "top": [
+    {
+     "v": "0xbad00100",
+     "n": 9216
+    }
+   ],
+   "classification": "POISON_MOI"
+  },
+  {
+   "zone": {
+    "start_page": 160,
+    "end_page": 191,
+    "start": "0x0a0000",
+    "end": "0x0bffff",
+    "pages": 32,
+    "state": "DATA"
+   },
+   "nonzero_pct": 100.0,
+   "distinct_u32": 1,
+   "top": [
+    {
+     "v": "0xffffffff",
+     "n": 32768
+    }
+   ],
+   "classification": "SINGLE_U32_KHAC"
+  },
+  {
+   "zone": {
+    "start_page": 783,
+    "end_page": 799,
+    "start": "0x30f000",
+    "end": "0x31ffff",
+    "pages": 17,
+    "state": "DATA"
+   },
+   "nonzero_pct": 99.57,
+   "distinct_u32": 17308,
+   "top": [
+    {
+     "v": "0xffffffff",
+     "n": 80
+    },
+    {
+     "v": "0x8b36fa8b",
+     "n": 5
+    },
+    {
+     "v": "0x00000000",
+     "n": 4
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 801,
+    "end_page": 810,
+    "start": "0x321000",
+    "end": "0x32afff",
+    "pages": 10,
+    "state": "DATA"
+   },
+   "nonzero_pct": 94.67,
+   "distinct_u32": 9620,
+   "top": [
+    {
+     "v": "0x900149fe",
+     "n": 34
+    },
+    {
+     "v": "0x99900149",
+     "n": 31
+    },
+    {
+     "v": "0xbf0005d0",
+     "n": 19
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 821,
+    "end_page": 829,
+    "start": "0x335000",
+    "end": "0x33dfff",
+    "pages": 9,
+    "state": "DATA"
+   },
+   "nonzero_pct": 98.94,
+   "distinct_u32": 9113,
+   "top": [
+    {
+     "v": "0x00000000",
+     "n": 42
+    },
+    {
+     "v": "0x61938b52",
+     "n": 3
+    },
+    {
+     "v": "0x2a6c9664",
+     "n": 3
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 832,
+    "end_page": 842,
+    "start": "0x340000",
+    "end": "0x34afff",
+    "pages": 11,
+    "state": "DATA"
+   },
+   "nonzero_pct": 97.6,
+   "distinct_u32": 11008,
+   "top": [
+    {
+     "v": "0x00000000",
+     "n": 149
+    },
+    {
+     "v": "0x3f2babb7",
+     "n": 6
+    },
+    {
+     "v": "0xe350e869",
+     "n": 6
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 854,
+    "end_page": 866,
+    "start": "0x356000",
+    "end": "0x362fff",
+    "pages": 13,
+    "state": "DATA"
+   },
+   "nonzero_pct": 89.17,
+   "distinct_u32": 9524,
+   "top": [
+    {
+     "v": "0x00000640",
+     "n": 98
+    },
+    {
+     "v": "0xbf000006",
+     "n": 88
+    },
+    {
+     "v": "0x00000000",
+     "n": 83
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 870,
+    "end_page": 886,
+    "start": "0x366000",
+    "end": "0x376fff",
+    "pages": 17,
+    "state": "DATA"
+   },
+   "nonzero_pct": 92.18,
+   "distinct_u32": 13569,
+   "top": [
+    {
+     "v": "0xbf000006",
+     "n": 106
+    },
+    {
+     "v": "0x00000640",
+     "n": 97
+    },
+    {
+     "v": "0x63557e07",
+     "n": 61
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 904,
+    "end_page": 920,
+    "start": "0x388000",
+    "end": "0x398fff",
+    "pages": 17,
+    "state": "DATA"
+   },
+   "nonzero_pct": 99.57,
+   "distinct_u32": 17308,
+   "top": [
+    {
+     "v": "0xffffffff",
+     "n": 80
+    },
+    {
+     "v": "0x8b36fa8b",
+     "n": 5
+    },
+    {
+     "v": "0x00000000",
+     "n": 4
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 922,
+    "end_page": 931,
+    "start": "0x39a000",
+    "end": "0x3a3fff",
+    "pages": 10,
+    "state": "DATA"
+   },
+   "nonzero_pct": 94.67,
+   "distinct_u32": 9620,
+   "top": [
+    {
+     "v": "0x900149fe",
+     "n": 34
+    },
+    {
+     "v": "0x99900149",
+     "n": 31
+    },
+    {
+     "v": "0xbf0005d0",
+     "n": 19
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 942,
+    "end_page": 950,
+    "start": "0x3ae000",
+    "end": "0x3b6fff",
+    "pages": 9,
+    "state": "DATA"
+   },
+   "nonzero_pct": 98.94,
+   "distinct_u32": 9113,
+   "top": [
+    {
+     "v": "0x00000000",
+     "n": 42
+    },
+    {
+     "v": "0x61938b52",
+     "n": 3
+    },
+    {
+     "v": "0x2a6c9664",
+     "n": 3
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 953,
+    "end_page": 963,
+    "start": "0x3b9000",
+    "end": "0x3c3fff",
+    "pages": 11,
+    "state": "DATA"
+   },
+   "nonzero_pct": 97.6,
+   "distinct_u32": 11008,
+   "top": [
+    {
+     "v": "0x00000000",
+     "n": 149
+    },
+    {
+     "v": "0x3f2babb7",
+     "n": 6
+    },
+    {
+     "v": "0xe350e869",
+     "n": 6
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 969,
+    "end_page": 977,
+    "start": "0x3c9000",
+    "end": "0x3d1fff",
+    "pages": 9,
+    "state": "DATA"
+   },
+   "nonzero_pct": 96.02,
+   "distinct_u32": 79,
+   "top": [
+    {
+     "v": "0xffffffff",
+     "n": 8792
+    },
+    {
+     "v": "0x00000000",
+     "n": 338
+    },
+    {
+     "v": "0x4d454f02",
+     "n": 5
+    }
+   ],
+   "classification": "DATA_THAT"
+  },
+  {
+   "zone": {
+    "start_page": 984,
+    "end_page": 1023,
+    "start": "0x3d8000",
+    "end": "0x3fffff",
+    "pages": 40,
+    "state": "DATA"
+   },
+   "nonzero_pct": 100.0,
+   "distinct_u32": 1,
+   "top": [
+    {
+     "v": "0xffffffff",
+     "n": 40960
+    }
+   ],
+   "classification": "SINGLE_U32_KHAC"
+  },
+  {
+   "zone": {
+    "start_page": 2056,
+    "end_page": 2063,
+    "start": "0x808000",
+    "end": "0x80ffff",
+    "pages": 8,
+    "state": "DATA"
+   },
+   "nonzero_pct": 74.95,
+   "distinct_u32": 3,
+   "top": [
+    {
+     "v": "0xbad00100",
+     "n": 8176
+    },
+    {
+     "v": "0xffffffff",
+     "n": 8
+    },
+    {
+     "v": "0x00000000",
+     "n": 8
+    }
+   ],
+   "classification": "DATA_THAT"
+  }
+ ],
+ "poison_pages_found": 25,
+ "note": "neu POISON_MOI, TU-06 phai sua: DATA 287 -> 262"
+}

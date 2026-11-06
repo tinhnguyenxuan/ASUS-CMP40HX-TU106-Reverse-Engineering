@@ -1,0 +1,169 @@
+{
+  "manifest_of": "ENGINE_INTERFACES_REVIEW (PHASE16 work_v15 reviewed artifacts + archived evidence; original ENGINE_INTERFACES/ left untouched)",
+  "review_dir": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/ENGINE_INTERFACES_REVIEW/",
+  "all_inputs_read_only": true,
+  "no_new_hardware_measurement": true,
+  "reviewed_artifacts": [
+    {
+      "path": "work_v15/PHASE16/SECURITY_ARCH/audit_prior_claims.json",
+      "sha256": "ba8723d138d663043e1fdf35743b609be79558e82f0ec46af1735f5101d5d420",
+      "size": 8651,
+      "role": "authoritative prior-claims audit; SEC-FUSE-05 rejects fuse+0x650 TPC-mask name; SEC-FUSE-06 rejects fuse+0xC04 display name",
+      "label": "reviewed_artifact"
+    },
+    {
+      "path": "work_v15/PHASE16/FUSE_TU106_AUDIT/fuse_tu106_audit_report.json",
+      "sha256": "71bdd24109321cfdeccc7824d3837d3baa8e84f9de2587645f6c0580b3b5793a",
+      "size": 475728,
+      "role": "TU106 fuse audit; keeps fuse+0x650 UNKNOWN; U-FUSE-009 (0x0C04) OPEN/UNKNOWN; rejects popcount topology inference",
+      "label": "reviewed_artifact"
+    },
+    {
+      "path": "work_v15/PHASE16/MEMORY_PCIE/MEMORY_PCIE_REPORT.md",
+      "sha256": "ac931c72c235a12b6ffe4bb4c1ad1b3b3138182b25d2da753443f801d49044bc",
+      "size": 13499,
+      "role": "BAR1 resource range 0x381000000000..0x381FFFFFFFFF = 64 GiB; ReBAR BAR1 current 64GB; NVML BAR1 65536 MiB; VRAM total 8192 MiB separate",
+      "label": "reviewed_artifact"
+    },
+    {
+      "path": "work_v15/PHASE16/MMIO_SOURCE/page_inventory.csv",
+      "sha256": "d533936694f5582288a50ca034edb06b5be9457f09c4d692d6b592a9310344c8",
+      "size": 1360200,
+      "role": "archived MMIO page sample (4 u32 per 4KiB page, BAR0 window); pages 1536-1570 (0x600000-0x622000) all POISON; source_hash a872f2ce... per row",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "work_v15/PHASE16/MMIO_SOURCE/register_fields.csv",
+      "sha256": "dcd4a2a4395a51e474c6698575e1decb5781e7b001b0087269db4f7b8dcbc3f7",
+      "size": 20916,
+      "role": "register-field source cross-reference (dev_bus.h BAR1_BLOCK at 0x1704, dev_gsp.h GSP mailbox/engine at 0x110040/0x1103C0, dev_sec_pri.h SEC2 at 0x8403C0, dev_fuse.h words at 0x21378/0x2174C)",
+      "label": "reviewed_artifact"
+    },
+    {
+      "path": "work_v15/PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md",
+      "sha256": "dfd5ddccbd229bd3ba63b11b31d300d9972c8bfb7f4ea62d7fe4bbd4ecd78d6a",
+      "size": 2539,
+      "role": "coordinator review listing the 6 material conflicts this review corrects",
+      "label": "reviewed_artifact"
+    },
+    {
+      "path": "work_v15/PHASE16/fuse_audit.json",
+      "sha256": "7ac9ae8040ac144137755f210c933ff90e4191bed06c529bc06aa22ba6d784f1",
+      "size": 2263,
+      "role": "fuse2.json summary: 152 words==1, offsets incl. 0x74C (1868) and 0xC04 (3076), PDI 0x0000000000000000",
+      "label": "reviewed_artifact"
+    },
+    {
+      "path": "work_v15/PHASE16/source_manifest.json",
+      "sha256": "not re-hashed here (this file's own manifest entry is circular); see input_hashes.json",
+      "role": "workspace-level input hash index",
+      "label": "context"
+    }
+  ],
+  "archived_evidence": [
+    {
+      "path": "/tmp/BAO_CAO_CMP40HX_TU106.md",
+      "sha256": "aa43bb2dd7fe83b9c2c889539a6e2cf9dba5f0832ce9d2abc94317f9daedb64e",
+      "size": 13636,
+      "role": "primary archived silicon MMIO/fuse/PCIe report (measurement date 02/11/2026, archived); ALL gpc_nr/tpc_nr/fuse/PCIe/display raw values cited in this review trace to this file unless noted",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/fuse2.json",
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+      "size": 55233,
+      "role": "archived fuse dump, base 0x21000 span 32768; regs[1616] (0x650) = 0x0004001F; regs[3076] (0xC04) = 1; CONFLICTS with BAO_CAO §4.1 which claims 0x021C04 = 0",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/q6.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "size": 9279,
+      "role": "archived BAR0 MMIO zone dump; every PDISP zone (0x610000, 0x611000, 0x612000, 0x616000, 0x61C000, 0x620000, 0x640000) reads 0xBADF1301",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/p5678.json",
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165",
+      "size": 17350,
+      "role": "archived PCIe config: BAR1 Region 1 at 0x381000000000 64-bit prefetchable size=64G; LnkSta 2.5GT/s downgraded x16; IOMMU group 31",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/tu06.json",
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca",
+      "size": 772991,
+      "role": "archived full BAR0 page classification (4096 pages): POISON 3253, DATA 287, ZERO 355, MIXED 201",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/q3_pcie.txt",
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce",
+      "size": 9279,
+      "role": "archived lspci -vv text: ReBAR cap [bb0] BAR1 current 64GB supported 64MB..256GB; LnkCap2 2.5-5GT/s",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/bar3_hot.bin",
+      "sha256": "956c7b3ef2322c5ad5603f0cbc7f7defefa0bfb5678c276c0d91854099712d9c",
+      "size": 262144,
+      "role": "archived BAR3 mmap dump (0x40000 bytes); provenance confirmed internally vs p9_bar3_parsed.json",
+      "label": "archived_evidence"
+    },
+    {
+      "path": "work_v15/PHASE16/MMIO_SOURCE/MMIO_TOPOLOGY_SOURCE_REPORT.md (via MMIO_SOURCE dir)",
+      "sha256": "see MMIO_SOURCE directory listing",
+      "role": "MMIO topology source report context",
+      "label": "reviewed_artifact"
+    }
+  ],
+  "source_files_cited": [
+    {
+      "logical_path": "common/inc/swref/published/turing/tu102/dev_fuse.h",
+      "snapshot_path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fuse.h",
+      "local_copy": "work_v15/PHASE16/SOURCES/nvidia_tu102_dev_fuse.h",
+      "sha256": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+      "size": 2150,
+      "content": "only 2 register defines: NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS 0x0002174C (lines 26-29), NV_FUSE_OPT_NVDEC_DISABLE 0x00021378 (lines 31-33). NO register at 0x21650 or 0x21C04.",
+      "tu106_applicable": "accepted as Turing-family shared by coordinator; no TU106-specific header exists in snapshot",
+      "label": "source"
+    },
+    {
+      "logical_path": "common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+      "snapshot_path": "/tmp/nvsrc/common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+      "local_copy": "work_v15/PHASE16/SOURCES/nvidia_gm107_dev_fuse.h",
+      "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10",
+      "size": 1658,
+      "content": "NV_FUSE_STATUS_OPT_DISPLAY 0x00021C04 bit 0:0 (lines 27-29); only defined value DATA_ENABLE = 0x0. Maxwell only -> NOT TU106-applicable.",
+      "tu106_applicable": false,
+      "label": "source"
+    },
+    {
+      "logical_path": "nvidia/generated/g_chips2halspec_nvoc.h",
+      "snapshot_path": "/tmp/nvsrc/nvidia/generated/g_chips2halspec_nvoc.h",
+      "local_copy": "none in work_v15 SOURCES (external snapshot only)",
+      "sha256": "194204fd4b24bf97fccd27da61ae80ac532b74e328cc90c12d0c24512656f140",
+      "size": 5955,
+      "content": "lines 140-141: DISPv0400 delete expression lists TU102 | TU104 | TU106 | TU116 | TU117. TU106 architecturally recognized in hal spec only; no tu106/ register directory exists; all TU106 register namespaces come from tu102 Turing-family shared headers.",
+      "tu106_applicable": "architectural recognition only (hal delete expression); no register-field definition",
+      "label": "source"
+    },
+    {
+      "logical_path": "common/inc/swref/published/turing/tu102/dev_pmc.h",
+      "snapshot_path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_pmc.h",
+      "sha256": "2173a4743005eb8fc5d756e732869f540b3e9e959484645f4a84819b76567dfe",
+      "size": 8913,
+      "role": "PMC_ENABLE PFIFO bit8 / CE0 bit6 / CE1 bit7 / CE2 bit21 (PGR bit9 cited in archived BAO_CAO pitfall)",
+      "label": "source"
+    },
+    {
+      "logical_path": "common/inc/swref/published/turing/tu102/dev_bus.h",
+      "snapshot_path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_bus.h",
+      "sha256": "58d106d908a1b56a99b10075744067b15be95d0973ae4b4c9a50e914843cdd44",
+      "size": 5445,
+      "role": "NV_PBUS_BAR1_BLOCK 0x001704 PTR/TARGET/MODE bitfields (register_fields.csv lines 4-6)",
+      "label": "source"
+    }
+  ],
+  "coverage_note": "No tu106/ register directory exists in /tmp/nvsrc snapshot; every TU106 register address cited here is either tu102/Turing-family shared (header-defined) or archived BAR0 observation (BAO_CAO/q6/tu06/q6). No RM engine driver source exists in the snapshot; all engine operational status is archived evidence, not new measurement."
+}

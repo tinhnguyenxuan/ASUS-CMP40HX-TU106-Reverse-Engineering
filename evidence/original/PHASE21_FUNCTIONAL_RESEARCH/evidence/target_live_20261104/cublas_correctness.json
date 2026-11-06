@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T14:59:39.412171+00:00",
+  "source_sha256": "29ce5d6255226e0cecee2336592c8b4719cee6b22c98885f4c46091745fc2871",
+  "returncode": 0,
+  "stdout": "Selected device 0 (PCI BDF 0000:03:00.0)\\nDevice BDF: 0000:03:00.0\\nPASS: all 256 results match CPU reference\\n",
+  "stderr": ""
+}

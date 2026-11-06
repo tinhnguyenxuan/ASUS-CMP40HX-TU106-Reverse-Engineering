@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T15:19:46.693894+00:00",
+  "returncode": 0,
+  "stdout": "{\"vkCreateInstance\": false, \"vkEnumerateInstanceExtensionProperties\": false, \"vkGetInstanceProcAddr\": false}\n",
+  "stderr": "",
+  "boundary": "Direct ICD dispatch query only; NULL does not prove physical GPU capability."
+}

@@ -1,0 +1,32 @@
+Hoàn tất. Kết quả tra cứu nguồn công khai cho 5 đọc topology TU106 đã lưu vào `work_v15/PHASE16/TOPOLOGY_CONSUMER_SEARCH/`.
+
+## Kết quả (tất cả nguồn: official tag 615.78.08, /tmp/nvsrc, /tmp/envytools — chỉ đọc, không chạm phần cứng)
+
+| Đọc được trích lưu trữ | Định nghĩa bitfield công khai? | Mã tiêu thụ ký hiệu công khai? | Phán định |
+|---|---|---|---|
+| gpc_nr MMIO 0x00409604 | Không | Không | NO_PUBLIC_DEFINITION_OR_CONSUMER |
+| tpc_nr MMIO 0x00502608 | Không | Không | NO_PUBLIC_DEFINITION_OR_CONSUMER |
+| TPC_UNIT 0x504000+g×0x8000+t×0x800 | Không | Không | NO_PUBLIC_DEFINITION_OR_CONSUMER |
+| fuse base+0x650 (0x00021650) = 0x0004001F | Không | Không | Giá trị thô đã xác minh, nghĩa chưa biết |
+| fuse base+0xc1c (0x00021C1C) = 0x00000038 | Không | Không | Giá trị thô đã xác minh, nghĩa chưa biết |
+
+## Điều khiển âm (đã loại, không dùng làm TU106)
+- `blackwell/gb10b/dev_fuse.h`: `NV_FUSE_STATUS_OPT_GPC = 0x00820c1c` — chỉ trùng chuỗi "0xc1c", là fuse STATUS của Blackwell GB10b, không phải TU106, không ở base 0x00021000, không có tương đương thế hệ trong nguồn.
+- `ampere/ga100/dev_top.h`: chỉ 7 `#define` PTOP device-info, không có trường bitfield số GPC/TPC; `dev_gr.h`/`dev_graph.h` không tồn tại überhaupt tại tag này.
+- `dev_fuse.h` (tu102, hash giống hệt /tmp/nvsrc): chỉ 2 thanh ghi (NVDEC disable 0x21378, GSP debug 0x2174C), không có trường tại 0x650/0xc1c.
+
+## Mã liên kết (bối cảnh, không phải giải mã MMIO)
+RM lấy số GPC/TPC qua giao diện điều khiển từ thông tin tĩnh firmware, **không đọc MMIO 0x00409604/0x00502608**:
+- `kernel_graphics_manager.c:624,646,671` → `NV2080_CTRL_GR_INFO_INDEX_LITTER_NUM_GPCS`
+- `kernel_graphics.c:3646` → `nvPopCount32(gpcMask)` + mảng `tpcCount[gpcId]` (theo từng GPC, hỗ trợ quy tắc không giả định TPC bằng nhau mỗi GPC)
+
+## Kết luận
+Tra cứu hết ranh giới: cây check out kín tag 615.78.08 (commit `1a82fbfda8f321b056eb3568850f9316c5e465c5`, tag object `4bfe30bb...`), /tmp/nvsrc (byte-identical với file official), /tmp/envytools (rnndb chỉ trước-Turing). **Không tìm thấy định nghĩa bitfield hay mã tiêu thụ công khai cho bất kỳ đọc nào.** Các giá trị lưu trữ (3 GPC / 5 TPC GPC0 / 17 TPC / 34 SM / 64 ROP) vẫn là lời 주장 truy vấn lưu trữ, không phải giá trị đã chụp/giai mã. Không tạo định nghĩa trường nào.
+
+## Đầu ra (tất cả dưới thư mục trên, kèm sha256 trong `hashes.txt`)
+- `extraction_commands.sh` — lệnh tái lập (clone sparse, checkout tag, các grep, hash)
+- `findings.json` — JSON máy, hợp lệ, 5 kết quả + nguồn + điều khiển âm + kết luận
+- `REPORT.md` — báo cáo tiếng Việt chi tiết
+- `hashes.txt` — băm 3 tệp trên
+
+Scratch clone `/tmp/ogkm-6157808` đã xóa để reclaim ổ (còn 5.0 GB trống). provenance (URL, tag, commit, hash) đã ghi đầy đủ trong `findings.json` và `REPORT.md`, không cần giữ lại bản clone.

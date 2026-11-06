@@ -1,0 +1,146 @@
+│ glm_work/cublas_correctness.cu
+│ @@ -0,0 +1,126 @@
+│ +#include <cublas_v2.h>
+│ +#include <cuda_runtime.h>
+│ +#include <stdio.h>
+│ +#include <string.h>
+│ +#include <stdlib.h>
+│ +#include <math.h>
+│ +
+│ +#define TARGET_PCI_BDF "0000:03:00.0"
+│ +#define M_DIM 16
+│ +#define N_DIM 16
+│ +#define K_DIM 16
+│ +#define C_ELEMS (M_DIM * N_DIM) /* 256 outputs */
+│ +
+│ +#define CUDA_CALL(x)                                                          \
+│ +    do {                                                                      \
+│ +        cudaError_t __err = (x);                                              \
+│ +        if (__err != cudaSuccess) {                                           \
+│ +            fprintf(stderr, "CUDA call failed: %s -> %s (line %d)\\n", #x,    \
+│ +                    cudaGetErrorString(__err), __LINE__);                     \
+│ +            exit(1);                                                          \
+│ +        }                                                                     \
+│ +    } while (0)
+│ +
+│ +#define CUBLAS_CALL(x)                                                        \
+│ +    do {                                                                      \
+│ +        cublasStatus_t __st = (x);                                            \
+│ +        if (__st != CUBLAS_STATUS_SUCCESS) {                                  \
+│ +            fprintf(stderr, "cuBLAS call failed: %s -> status %d (line %d)\\n\", \
+│ +                    #x, (int)__st, __LINE__);                                 \
+│ +            exit(1);                                                          \
+│ +        }                                                                     \
+│ +    } while (0)
+│ +
+│ +static int select_device_by_pci_bus_id(const char* pci_bus_id) {
+│ +    int device = -1;
+│ +    CUDA_CALL(cudaDeviceGetByPCIBusId(&device, pci_bus_id));
+│ +    CUDA_CALL(cudaSetDevice(device));
+│ +    fprintf(stdout, "Selected device %d (PCI BDF %s)\\n", device, pci_bus_id);
+│ +    return device;
+│ +}
+│ +
+│ +int main(void) {
+│ +    const int M = M_DIM, N = N_DIM, K = K_DIM;
+│ +    const int lda = M, ldb = K, ldc = M;
+│ +    const float alpha = 1.0f, beta = 0.0f;
+│ +
+│ +    /* Float bytes for float matrices (not half input bytes). */
+│ +    const size_t a_bytes = M * K * sizeof(float);
+│ +    const size_t b_bytes = K * N * sizeof(float);
+│ +    const size_t c_bytes = M * N * sizeof(float);
+│ +
+│ +    /* Deterministic, non-constant small integer inputs (exact in float). */
+│ +    float h_A[M * K];
+│ +    float h_B[K * N];
+│ +    float h_C[M * N];
+│ +    float h_ref[M * N];
+│ +
+│ +    for (int i = 0; i < M * K; ++i) {
+│ +        h_A[i] = (float)(1 + (i * 7) % 9);  /* 1..9 */
+│ +    }
+│ +    for (int i = 0; i < K * N; ++i) {
+│ +        h_B[i] = (float)(1 + (i * 5) % 6);  /* 1..6 */
+│ +    }
+│ +    for (int i = 0; i < M * N; ++i) {
+│ +        h_C[i] = 0.0f;
+│ +        h_ref[i] = 0.0f;
+│ +    }
+│ +
+│ +    /* CPU reference: C = A * B, column-major 16x16x16, float accumulator.
+│ +       C[row + col*M] = sum_k A[row + k*M] * B[k + col*K] */
+│ +    for (int col = 0; col < N; ++col) {
+│ +        for (int row = 0; row < M; ++row) {
+│ +            float acc = 0.0f;
+│ +            for (int k = 0; k < K; ++k) {
+│ +                acc += h_A[row + k * M] * h_B[k + col * K];
+│ +            }
+│ +            h_ref[row + col * M] = acc;
+│ +        }
+│ … omitted 48 diff line(s) across 1 additional file(s)/section(s)
+│ glm_work/cublas_test_notes.md
+│ @@ -0,0 +1,45 @@
+│ +# cuBLAS correctness test notes
+│ +
+│ +## File
+│ +`glm_work/cublas_correctness.cu`
+│ +
+│ +## What it tests
+│ +cuBLAS `cublasSgemm` computes a single 16x16x16 SGEMM (float) on the device at
+│ +PCI BDF `0000:03:00.0`, selected with `cudaDeviceGetByPCIBusId`. Layout is
+│ +column-major: `alpha=1`, `beta=0`, `lda=M`, `ldb=K`, `ldc=M`. Device output is
+│ +compared against a column-major CPU reference over all 256 output elements;
+│ +mismatches print index, device value, reference value, and diff. Non-finite
+│ +device outputs are counted as mismatches (`isfinite`).
+│ +
+│ +## Coverage
+│ +- Device selection: `cudaDeviceGetByPCIBusId(&device, "0000:03:00.0")` then
+│ +  `cudaSetDevice`; aborts if no device matches.
+│ +- cuBLAS: `cublasCreate`, `cublasSgemm` (CUBLAS_OP_N x2, column-major strides),
+│ +  `cublasDestroy` — every call wrapped in `CUBLAS_CALL`, aborts with status on
+│ +  failure.
+│ +- CUDA: `cudaMalloc` x3, `cudaMemcpy` H2D x2 + D2H x1, `cudaGetLastError`,
+│ +  `cudaFree` x3 — every call wrapped in `CUDA_CALL`, aborts with error string
+│ +  on failure.
+│ +- Inputs: deterministic small integers (A: 1..9, B: 1..6), non-constant,
+│ +  exactly representable in float; CPU reference uses float accumulation.
+│ +- Output bytes: all three allocations use `sizeof(float)` (float matrices,
+│ +  not half).
+│ +- No timing, no clocks/reset/config/MMIO changes, no benchmark code, no
+│ +  credentials.
+│ +
+│ +## Compile
+│ +```
+│ +nvcc -arch=sm_75 cublas_correctness.cu -o cublas_correctness -lcublas
+│ +```
+│ +
+│ +## Corrections vs. earlier WMMA test
+│ +- Device selection passes the PCI BDF string directly to
+│ +  `cudaDeviceGetByPCIBusId` instead of reading `cudaDeviceProp.pciBusID`
+│ +  (an integer, not a string) and comparing it to a string.
+│ +- Allocations use `sizeof(float)` because inputs and output are float; the
+│ +  earlier version mixed `half` inputs with a `float` output and sized buffers
+│ +  with `sizeof(half)`.
+│ +
+│ +## Status
+│ +Not executed (no GPU operations permitted in this session). Review and run on
+│ +a host with a CUDA-capable sm_75+ device at PCI BDF 0000:03:00.0.
+│ glm_work/cublas_correctness.cu
+│ @@ -25,7 +25,7 @@
+│      do {                                                                      \
+│          cublasStatus_t __st = (x);                                            \
+│          if (__st != CUBLAS_STATUS_SUCCESS) {                                  \
+│ -            fprintf(stderr, "cuBLAS call failed: %s -> status %d (line %d)\\n\", \
+│ +            fprintf(stderr, "cuBLAS call failed: %s -> status %d (line %d)\\n", \
+│                      #x, (int)__st, __LINE__);                                 \
+│              exit(1);                                                          \
+│          }                                                                     \
+Written and verified:
+
+- `glm_work/cublas_correctness.cu` — 126-line cuBLAS SGEMM correctness test matching the sibling `tensor_correctness.cu` style (`CUDA_CALL`/`CUBLAS_CALL` macros, every API call checked, aborts on failure). Selects device 0000:03:00.0 via `cudaDeviceGetByPCIBusId`, runs column-major `cublasSgemm` (alpha=1, beta=0, lda/ldb/ldc = M/K/M) on float 16x16 matrices, compares all 256 outputs against a column-major CPU reference including `isfinite`, frees all device memory and destroys the handle. Allocations use `sizeof(float)` for float matrices (not half input bytes).
+- `glm_work/cublas_test_notes.md` — compile command (`nvcc -arch=sm_75 cublas_correctness.cu -o cublas_correctness -lcublas`), coverage, status (not executed — no GPU in this session), and the two WMMA-version corrections avoided: `pciBusID` is an integer (BDF string passed directly to `cudaDeviceGetByPCIBusId`) and float output bytes vs half input bytes.
+
+No SSH, no GPU execution, nothing outside glm_work, no credentials, no benchmark/reset/config/MMIO.
+
+[code] → wrote `cublas_correctness.cu` + `cublas_test_notes.md`; skipped: execution/verification on device, add when a host with sm_75+ at PCI BDF 0000:03:00.0 is available.

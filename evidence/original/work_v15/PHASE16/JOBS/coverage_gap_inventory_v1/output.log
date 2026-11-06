@@ -1,0 +1,21 @@
+Hoàn tất. Không viết gì vào COORDINATION.json / UNKNOWN_DATABASE.json / outputs người lao động đang chạy; tất cả output độc lập dưới `work_v15/PHASE16/COVERAGE_GAP_INVENTORY/`.
+
+**Đã kiểm tra (toàn bộ input, hash SHA-256 đã ghi trong input_hashes.json):** HANDOFF.md, COORDINATION.json, EVIDENCE_LEDGER.md (P16), 2 bản UNKNOWN_DATABASE.json, 21 đánh giá coordinator, + các audit/mmio/fuse/vbios/firmware/gsp — tổng 41 file, không thiếu.
+
+**Kết quả ma trận (45 yêu cầu / 11 luồng):** tất cả 11 luồng còn trạng thái PARTIAL; không luồng nào VERIFIED toàn bộ (tuân thủ quy tắc hoàn thành: không đánh giá từ số PASS, manifest, bản văn hay trạng thái nhân viên đang chạy).
+- VERIFIED: 10 (án toàn trên thô: ánh xạ ELF, vòng callback trong cửa sổ được quan sát, cấu trúc container 38 payload không chồng chéo, số đếm fuse, WPR bitfield, VBIOS/T4/shadow sai biệt)
+- PARTIAL: 19, CONTRADICTED: 2 (162 vs 161 PASS; số unknown 35/10 vs 36/9 và thiếu U-GSP-008), MISSING: 14.
+
+**Sai sót phải sửa trước khi hội nhập:** gọi callback `a1=s4` bị bác thô; báo cáo ENGINE_INTERFACES (mặt nạ fuse+0x650, fuse display=0, BAR1=8 GiB, "không có phần cứng", topology 3/17/34) bị từ chối; khớp MMIO 52/52 không chấp nhận.
+
+**Khoảng cách bảo tồn (không đóng):** ánh xạ payload/máy ficar; caller/callback/CFG/dataflow GSP (mục tiêu callback qua *(s3+0x30) chưa biết, CFG bị chặn 6000 lệnh/603 khối chưa đến fixpoint, lỗi dataflow chưa sửa); ngữ nghĩa OTP/khối +0x718; schema VBIOS chưa hỗ trợ (v0x60, khối khóa, danh sách tóm tắt NPDS 0x70, NVGIf#2); lấy mẫu MMIO 0.390625% + 49 trang chưa phân loại (poison ≠ vắng mặt phần cứng); topology GPC/TPC/SM/ROP/L2; phân bổ bộ nhớ (khoảng trống 430 MiB VRAM, GMMU/BAR3, WPR/NVML Reserved); PCIe (kích thước quảng bá vs vùng đã giải mã); bảo mật (PLM/ACR/SEC2, ranh giới đặc quyền).
+
+**Hành động ngoài mạng kế tiếp (9 mục, NAD-1..NAD-9) có đường dẫn bằng chứng chính xác** trong REPORT.md và requirements.json; nguồn thiếu cần: header TU106 (dev_top/gr/fb), thẻ driver chính xác, bản dump fuse TU106 thứ hai, tài liệu consumer GSP, mo tả định dạng khối khóa VBIOS.
+
+**Output:**
+- requirements.json — ma trận phân cấp (49 KB)
+- matrix.json — ma trận phẳng (45 dòng)
+- input_hashes.json — băm 41 input
+- REPORT.md — báo cáo ngắn gọn
+
+Cần bạn xem xét ma trận và ưu tiên NAD trước khi任何 verder tiếp. Không có số phần trăm hoàn thành đã bị tạo ra.

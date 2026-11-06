@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T14:40:37.573976+00:00",
+  "target": "<REDACTED_LAB_IP>",
+  "port": 22,
+  "action": "TCP connect with four-second timeout; no authentication",
+  "result": "OSError: [Errno 113] No route to host"
+}

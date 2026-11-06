@@ -1,0 +1,64 @@
+[
+  {
+    "id": "U21-CCB-HIGH",
+    "status": "OPEN",
+    "question": "What are nonzero high fields in CCB v4.1 records?",
+    "evidence": "evidence/board_tables.json",
+    "next": "Find matched newer consumer/format source"
+  },
+  {
+    "id": "U21-DISPLAY-SILICON",
+    "status": "OPEN",
+    "question": "Are PDISP, heads, SOR and PHY implemented and enabled on this chip?",
+    "next": "Matched engine discovery/capability evidence"
+  },
+  {
+    "id": "U21-SELECTOR",
+    "status": "OPEN",
+    "question": "What exact selector bits map to which issue-rate mechanisms, and who initializes them?",
+    "next": "Matched stock firmware/source dataflow",
+    "new_evidence": "Original ROM condition index50 tests FECS readout bit16; not a selector write"
+  },
+  {
+    "id": "U21-LIVE",
+    "status": "OPEN",
+    "question": "What is current target CUDA/headless/profiling state?",
+    "next": "Target access; no local NVIDIA hardware"
+  },
+  {
+    "id": "U21-PCB",
+    "status": "OPEN",
+    "question": "Are physical output paths routed on CG161P REV2?",
+    "next": "Authenticated board photographs/schematic"
+  },
+  {
+    "id": "U21-FUSE",
+    "status": "OPEN",
+    "question": "Physical origin and current state of display status; exact tag header corroboration",
+    "next": "Acquire exact tag header and fresh documented status; trace physical vs shadow origin",
+    "resolved_part": "TU106 dispatch and display status predicate; archived read evaluates false"
+  },
+  {
+    "id": "U21-GSP-NAME-CONSUMER",
+    "status": "OPEN",
+    "question": "Exact configuration-read/fallback semantics, caller/object identities, runtime value and reachability",
+    "evidence": "evidence/gsp_config_population.json; GSP_SYSTEM_INFO_INGESTION.md; evidence/gsp_nvkv_callback.json; GSP_NVKV_CALLBACK.md; evidence/host_registry_producer.json; HOST_REGISTRY_PRODUCER.md; evidence/display_object_fields.json; GSP_DISPLAY_OBJECT_FIELDS.md; evidence/display_790_sites.json; evidence/source_semantic_search.json",
+    "next": "Recover proprietary class/result names, exact selector 0x3814 field definitions, and obtain effective target values; +0xb8 producer method and +0x790 child provenance remain unresolved",
+    "resolved_part": "Two display-name sites; typed case-insensitive lookup at 0x054dd7ec; primary/fallback output word writes; generic type-1 create/update paths and initialization-byte writer at 0x054f4a94; type-2/type-3 setters and CPU-to-GSP system-info registry key dispatch/name-value pairing; concrete NVKV callback use, descriptor layout and return-to-continue semantics; GSP_INIT 0x10001 packet wrapper; official host global-then-local packed-registry producer and duplicate DWORD precedence; worker second-argument flow and +0x334 as a cached RmDisableDisplay==1 field alongside RMRunFub/RMFubUseCaseMask fields; site-B boolean veto; +0x737 cached from same-object +0xb8 call; site-A boolean veto; concrete +0x1b0/+0x1c8 targets read selector 0x3814 and return bits18:19-nonzero/bit27; initialization routine 0x04b72688 loads +0xb8 as same-object function pointer and caches return at +0x737; consumer 0x04b20f54 loads +0x790 as child pointer, but wider scan proves +0x790 offset collision across unrelated object contexts"
+  },
+  {
+    "id": "U21-INIT-COND50",
+    "status": "OPEN",
+    "question": "Runtime guard/interpreter semantics and TU106 FECS field meaning",
+    "evidence": "evidence/vbios_fecs_condition.json",
+    "next": "Matched interpreter and field consumers; no claim of runtime execution from static graph",
+    "resolved_part": "BIT I static CALL path and exact bounded script at0xca6e; related0xca41 writes409658/65c"
+  },
+  {
+    "id": "U21-VULKAN-ROOT",
+    "status": "OPEN",
+    "question": "Why does NVIDIA ICD global entrypoint discovery/negotiation fail in retained615.71.09 environment?",
+    "resolved_part": "Captured VkInstanceCreateInfo LP64 layout verified; actual failure precedes target Vulkan device/render testing",
+    "next": "Full direct-probe ABI/source and native-C loader query with unchanged permissions; runtime dependencies versus policy remain distinct"
+  }
+]

@@ -1,0 +1,98 @@
+{
+ "offset_in_rom": "0x28600",
+ "match_ratio": 1.0,
+ "diff_bytes": 14,
+ "diff_detail": [
+  {
+   "shadow_off": "0x0d1a88",
+   "rom_off": "0x0fa088",
+   "shadow": "0x04",
+   "rom": "0x05"
+  },
+  {
+   "shadow_off": "0x0d1a9a",
+   "rom_off": "0x0fa09a",
+   "shadow": "0x0d",
+   "rom": "0x0c"
+  },
+  {
+   "shadow_off": "0x0d1c88",
+   "rom_off": "0x0fa288",
+   "shadow": "0xe1",
+   "rom": "0xd1"
+  },
+  {
+   "shadow_off": "0x0d1cb0",
+   "rom_off": "0x0fa2b0",
+   "shadow": "0x30",
+   "rom": "0x33"
+  },
+  {
+   "shadow_off": "0x0d1cb2",
+   "rom_off": "0x0fa2b2",
+   "shadow": "0x32",
+   "rom": "0x34"
+  },
+  {
+   "shadow_off": "0x0d1cb3",
+   "rom_off": "0x0fa2b3",
+   "shadow": "0x35",
+   "rom": "0x39"
+  },
+  {
+   "shadow_off": "0x0d1cb4",
+   "rom_off": "0x0fa2b4",
+   "shadow": "0x31",
+   "rom": "0x37"
+  },
+  {
+   "shadow_off": "0x0d1cb5",
+   "rom_off": "0x0fa2b5",
+   "shadow": "0x33",
+   "rom": "0x34"
+  },
+  {
+   "shadow_off": "0x0d5a1a",
+   "rom_off": "0x0fe01a",
+   "shadow": "0x11",
+   "rom": "0x19"
+  },
+  {
+   "shadow_off": "0x0d5b30",
+   "rom_off": "0x0fe130",
+   "shadow": "0x30",
+   "rom": "0x33"
+  },
+  {
+   "shadow_off": "0x0d5b32",
+   "rom_off": "0x0fe132",
+   "shadow": "0x32",
+   "rom": "0x34"
+  },
+  {
+   "shadow_off": "0x0d5b33",
+   "rom_off": "0x0fe133",
+   "shadow": "0x35",
+   "rom": "0x39"
+  },
+  {
+   "shadow_off": "0x0d5b34",
+   "rom_off": "0x0fe134",
+   "shadow": "0x31",
+   "rom": "0x37"
+  },
+  {
+   "shadow_off": "0x0d5b35",
+   "rom_off": "0x0fe135",
+   "shadow": "0x33",
+   "rom": "0x34"
+  }
+ ],
+ "interpretation": "BAR0 0x300000 = VBIOS running image = rom[0x28600:]",
+ "pcir": {
+  "offset_hex": "0x170",
+  "vendor": "0x10de",
+  "device": "0x1f0b",
+  "classcode": "0x00000302"
+ }
+}

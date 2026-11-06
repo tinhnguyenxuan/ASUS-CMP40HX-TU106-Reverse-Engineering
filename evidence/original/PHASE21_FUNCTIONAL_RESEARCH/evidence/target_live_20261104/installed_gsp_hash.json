@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-04T15:07:11.615095+00:00",
+  "command": "sha256sum /lib/firmware/nvidia/615.71.09/gsp_tu10x.bin; stat -c \"%s %n\" /lib/firmware/nvidia/615.71.09/gsp_tu10x.bin",
+  "returncode": 0,
+  "stdout": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909  /lib/firmware/nvidia/615.71.09/gsp_tu10x.bin\n22897536 /lib/firmware/nvidia/615.71.09/gsp_tu10x.bin\n",
+  "stderr": "",
+  "boundary": "Installed file hash; not direct proof of loaded firmware bytes"
+}

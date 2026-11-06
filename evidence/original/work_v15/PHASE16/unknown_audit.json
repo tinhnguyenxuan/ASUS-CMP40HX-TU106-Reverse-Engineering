@@ -1,0 +1,11 @@
+{
+  "total": 45,
+  "status_counts": {
+    "open": 35,
+    "resolved": 10
+  },
+  "duplicate_ids": [],
+  "phase15_blocker_ids_missing_from_database": [
+    "U-GSP-008"
+  ]
+}

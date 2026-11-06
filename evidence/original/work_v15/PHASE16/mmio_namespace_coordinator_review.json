@@ -1,0 +1,130 @@
+{
+  "saved_entries": 52,
+  "worker_namespace_counts": {
+    "saved_entries": 52,
+    "confirmed_mmio_bar0_registers": 42,
+    "mmio_bar0_base_null_access": 3,
+    "constants_mislabeled_as_addresses": 3,
+    "control_space_addresses": 3,
+    "pci_config_addresses": 1,
+    "misaligned_addresses": 3,
+    "unknown": 0,
+    "poison_state_mismatch": [
+      "NV_PBDMA_SIGNATURE_HW_VALID",
+      "NV_XVE_ID_VENDOR_NVIDIA"
+    ]
+  },
+  "source_bit_ranges_independently_checked": 54,
+  "range_mismatches": [],
+  "unsupported_source_range_expressions": [
+    "NV_PGC6_BSI_SECURE_SCRATCH_14_BOOT_STAGE_3_HANDOFF"
+  ],
+  "semantic_true_with_source_match_false": [
+    {
+      "register": "NV_CTRL_CPU_DOORBELL_VECTORID",
+      "field": "NV_CTRL_CPU_DOORBELL_VECTORID_VALUE"
+    },
+    {
+      "register": "NV_CTRL_LEGACY_ENGINE_NONSTALL_INTR_BASE_VECTORID",
+      "field": "NV_CTRL_LEGACY_ENGINE_NONSTALL_INTR_BASE_VECTORID_VECTOR"
+    },
+    {
+      "register": "NV_CTRL_LEGACY_ENGINE_STALL_INTR_BASE_VECTORID",
+      "field": "NV_CTRL_LEGACY_ENGINE_STALL_INTR_BASE_VECTORID_VECTOR"
+    },
+    {
+      "register": "NV_FUSE_OPT_NVDEC_DISABLE",
+      "field": "NV_FUSE_OPT_NVDEC_DISABLE_DATA"
+    },
+    {
+      "register": "NV_PBUS_BAR1_BLOCK",
+      "field": "NV_PBUS_BAR1_BLOCK_PTR"
+    },
+    {
+      "register": "NV_PBUS_BAR1_BLOCK",
+      "field": "NV_PBUS_BAR1_BLOCK_TARGET"
+    },
+    {
+      "register": "NV_PBUS_BAR2_BLOCK",
+      "field": "NV_PBUS_BAR2_BLOCK_PTR"
+    },
+    {
+      "register": "NV_PBUS_BAR2_BLOCK",
+      "field": "NV_PBUS_BAR2_BLOCK_TARGET"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT",
+      "field": "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT_TOTAL"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT",
+      "field": "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT_UNIQUE"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT",
+      "field": "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT_TOTAL"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT",
+      "field": "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT_UNIQUE"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT",
+      "field": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT_TOTAL"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT",
+      "field": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT_UNIQUE"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_PAGE_FAULT_CTRL",
+      "field": "NV_PFB_PRI_MMU_PAGE_FAULT_CTRL_PRF_FILTER"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_WPR2_ADDR_HI",
+      "field": "NV_PFB_PRI_MMU_WPR2_ADDR_HI_VAL"
+    },
+    {
+      "register": "NV_PFB_PRI_MMU_WPR2_ADDR_LO",
+      "field": "NV_PFB_PRI_MMU_WPR2_ADDR_LO_VAL"
+    },
+    {
+      "register": "NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK",
+      "field": "NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK_READ_PROTECTION"
+    },
+    {
+      "register": "NV_PGSP_FALCON_MAILBOX0",
+      "field": "NV_PGSP_FALCON_MAILBOX0_DATA"
+    },
+    {
+      "register": "NV_PGSP_FALCON_MAILBOX1",
+      "field": "NV_PGSP_FALCON_MAILBOX1_DATA"
+    },
+    {
+      "register": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG",
+      "field": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG_THRESHOLD"
+    },
+    {
+      "register": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG",
+      "field": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG_MIMC_GRANULARITY"
+    },
+    {
+      "register": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG",
+      "field": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG_MOMC_GRANULARITY"
+    },
+    {
+      "register": "NV_VIRTUAL_FUNCTION_PRIV_CPU_INTR_LEAF_TRIGGER",
+      "field": "NV_VIRTUAL_FUNCTION_PRIV_CPU_INTR_LEAF_TRIGGER_VECTOR"
+    },
+    {
+      "register": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_PDB",
+      "field": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_PDB_ADDR"
+    },
+    {
+      "register": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_UPPER_PDB",
+      "field": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_UPPER_PDB_ADDR"
+    }
+  ],
+  "acceptance": "Constant/address namespace corrections are useful; worker field source_match flags and semantic acceptance require review. Control-space classification alone does not prove a location is physically outside BAR0.",
+  "whole_gpu_complete": false
+}

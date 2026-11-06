@@ -1,0 +1,61 @@
+{
+  "phase": "PHASE16",
+  "title": "Official public NVIDIA/open-gpu-kernel-modules consumer source evidence",
+  "release": "615.78.08",
+  "tag": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+  "commit_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/commit/ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+  "immutable_base": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/",
+  "identity_caveat": "Matching public headers to tag 615.78.08 does not establish whole-binary identity. This report documents public text source only. No generated descriptor instances or firmware-slot roles inferred.",
+  "saved_source_dir": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/OFFICIAL_CONSUMER_SOURCE",
+  "files": [
+    {"saved_as": "bin_data.c", "repo_path": "src/nvidia/src/kernel/core/bin_data.c", "sha256": "080ad8e8d357bb379e2aec1da54766a18624bb31c40e189bc19554c65e4d1b55"},
+    {"saved_as": "bin_data_pvt.h", "repo_path": "src/nvidia/src/kernel/core/bin_data_pvt.h", "sha256": "0a46eff1c9db21f4b19d23d42c75d411685755f98f08b76247ace36a4fe1691a"},
+    {"saved_as": "ctrl2080fb.h", "repo_path": "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h", "sha256": "9e9783e9c6b57078226dce4c181a1a3136d73cea2593fec70a122033d8788ce0"},
+    {"saved_as": "dev_fb_gh100.h", "repo_path": "src/common/inc/swref/published/hopper/gh100/dev_fb.h", "sha256": "d1b0dfdeb0345ac0f8e7ae01af863e56587f43e35c9da732898f02c67b08f0eb"},
+    {"saved_as": "dev_fb_tu102.h", "repo_path": "src/common/inc/swref/published/turing/tu102/dev_fb.h", "sha256": "8c824a870e88874e95b22b463e70a6e1c08ff765ab1731746b98ef28e952c6a9"},
+    {"saved_as": "dev_hubmmu_base_gb100.h", "repo_path": "src/common/inc/swref/published/blackwell/gb100/dev_hubmmu_base.h", "sha256": "2b2e42622f32331573ba0da0d3c445c1cabb8dbf6ce3ccbc7b506b6db62f4b70"},
+    {"saved_as": "gsp_fw_heap.h", "repo_path": "src/nvidia/inc/kernel/gpu/gsp/gsp_fw_heap.h", "sha256": "7afe46bda5d760e585bc5fb3e5494c501f415c99b705a441e991cccb2d201e8d"},
+    {"saved_as": "gsp_fw_wpr_meta.h", "repo_path": "src/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h", "sha256": "f3b615a6d87b557ddab986b6ba6a5209901f09edcf0e5b9c983e0d8112538fc5"},
+    {"saved_as": "gsp_fw_wpr_meta_v1.h", "repo_path": "src/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta_v1.h", "sha256": "04e2da01f1c1cedc6b740b1bab881f868419d93fb4701fbe1885bed09063f2b3"},
+    {"saved_as": "kernel_gsp.c", "repo_path": "src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c", "sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9"},
+    {"saved_as": "kernel_gsp_gh100.c", "repo_path": "src/nvidia/src/kernel/gpu/gsp/arch/hopper/kernel_gsp_gh100.c", "sha256": "5ee22f09c650ab70764be05828cc58e1237436bada08c91898aeadc011d37ea2"}
+  ],
+  "findings": {
+    "wpr2_addr_registers": {
+      "status": "registers_public_consumer_absent",
+      "note": "NV_PFB_PRI_MMU_WPR2_ADDR_LO/HI macros public in dev_fb.h (gh100/tu102) and NV_HUBMMU_PRI_MMU_WPR2_ADDR_LO/HI in dev_hubmmu_base.h (gb100). No public .c reads/writes these registers (exhaustive grep of all fetched public C files). WPR2 offsets are filled in by ACR ucode at boot (kernel_gsp_gh100.c L386-L387). Register-level WPR2 consumers are NOT in public source."
+    },
+    "subdeviceCtrlCmdFbGetWprRegionInfo_IMPL": {
+      "status": "body_unavailable_public_source",
+      "note": "Command NV2080_CTRL_CMD_FB_GET_WPR_REGION_INFO (0x20801364U) and NV2080_CTRL_FB_GET_WPR_REGION_INFO_PARAMS (wpr1Start/wpr1End/wpr2Start/wpr2End/fbRegionOfWpr2Start) are public in ctrl2080fb.h L3083-L3093. The IMPL body is NOT present in any public .c of tag ca2d03e (searched subdevice.c, all subdevice_ctrl_*.c, kernel_gsp.c, gsp arch, kern_gpu_arch_*.c, device.c, device_ctrl.c). Reported as explicitly unavailable."
+    },
+    "gsp_wpr_setup": {
+      "status": "public_sizes_only_offsets_by_acr",
+      "note": "kgspPopulateWprMeta_GH100 (kernel_gsp_gh100.c L366-L471) populates GspFwWprMeta sizes (nonWprHeapSize, gspFwHeapSize, frtsSize, pmuReservedSize, vgaWorkspaceSize, bootloader/radix3 sizes) but the actual WPR offsets are filled by ACR ucode. _kgspBootGspRm (kernel_gsp.c L5428) calls kgspIsWpr2Up_HAL, kgspPopulateWprMeta_HAL, kgspBootstrap_HAL. kgspGetWprEndMargin_GH100 (kernel_gsp_gh100.c L1311-L1353) converts regkey MB->bytes via << 20."
+    },
+    "bindata_nvucodes": {
+      "status": "public",
+      "note": "BINDATA_STORAGE_PVT (bin_data_pvt.h L60-L67): actualSize/compressedSize/pData/flags/relOffset. NVUCODES header (L84-L114): magic 0x5345444F4355564E ('NVUCODES'), version 1, numEntries (unique per-file index embedded in gsp.bin), fingerprint (hash of filenames in index-order). bindataArchiveGetStorage (bin_data.c L135-L159) looks up by BINDATA_LABEL enum over entries[]. bindataGetBufferSize reads actualSize (L122). bindataWriteToBuffer reads pData (L49/L83); compressed reads use offset 0 via utilGzGetData, not relOffset. relOffset is documented but NOT read by any public bindata consumer (only zeroed in bindataDestroyStorage L289). g_bindata_pvt[] ordinal index starts from 1 (bin_data.c L260). No per-entry source name string in public struct."
+    },
+    "raw_hi_to_api_end_conversion": {
+      "status": "determined",
+      "note": "kgspGetWprEndMargin_GH100 (kernel_gsp_gh100.c L1322): wprEndMargin = DRF_VAL(..._MB, wprEndMarginOverride) << 20, i.e. raw regkey in MB converted to bytes by << 20 (x1 MiB). Heap sizes also use << 20 (kernel_gsp.c L7312/L7315/L7423). No explicit '+page adjustment' found in public WPR end computation."
+    },
+    "inclusive_exclusive_semantics": {
+      "status": "determined",
+      "note": "END is EXCLUSIVE. ctrl2080fb.h L3072-L3081 documents wpr1End/wpr2End as 'FB offset of the end (exclusive) of WPR1/WPR2'."
+    },
+    "container_external_reloffset_actualsize_read_paths": {
+      "status": "partial",
+      "note": "actualSize IS read (bindataGetBufferSize -> bin_data.c L122). relOffset field present (bin_data_pvt.h L66, 'Offset of bin within bindata file') but NOT read by any public consumer in bin_data.c (reads use pData directly; compressed reads start at offset 0). Source index naming: lookup by BINDATA_LABEL enum / g_bindata_pvt ordinal (from 1); no source name string field in public struct."
+    }
+  },
+  "unavailable": [
+    "subdeviceCtrlCmdFbGetWprRegionInfo_IMPL body",
+    "WPR2_ADDR_HI/LO register consumers",
+    "Actual gspFwWprStart/gspFwWprEnd offset computation (done by ACR ucode)",
+    "relOffset read-path consumer",
+    "Per-entry source name string in bindata struct"
+  ],
+  "verification": "All files are verbatim public text from tag ca2d03e6fafd4d4b56b383497d931c25b283bfcf. SHA256 computed over saved byte content; immutable URLs allow re-verification. No source/config mutation, hardware access, key/signature handling, bypass, or binary loading performed."
+}

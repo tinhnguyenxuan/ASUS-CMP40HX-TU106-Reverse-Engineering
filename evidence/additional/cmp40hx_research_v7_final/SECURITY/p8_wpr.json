@@ -1,0 +1,184 @@
+{
+ "registers": [
+  {
+   "name": "NV_PGC6_AON_SECURE_SCRATCH_GROUP_00",
+   "off": "0x1180f8",
+   "value": "0x17300000",
+   "value_int": 389021696,
+   "second_read": "0x17300000",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR0_LO",
+   "off": "0x1fa800",
+   "value": "0x001001c0",
+   "value_int": 1049024,
+   "second_read": "0x001001c0",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR0_HI",
+   "off": "0x1fa804",
+   "value": "0x1ffff000",
+   "value_int": 536866816,
+   "second_read": "0x1ffff000",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR1_LO",
+   "off": "0x1fa810",
+   "value": "0x00000000",
+   "value_int": 0,
+   "second_read": "0x00000000",
+   "state": "zero"
+  },
+  {
+   "name": "WPR1_HI",
+   "off": "0x1fa814",
+   "value": "0x08000880",
+   "value_int": 134219904,
+   "second_read": "0x08000880",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_LO",
+   "off": "0x1fa820",
+   "value": "0x01f78200",
+   "value_int": 32997888,
+   "second_read": "0x01f78200",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_HI",
+   "off": "0x1fa824",
+   "value": "0x01f7e000",
+   "value_int": 33021952,
+   "second_read": "0x01f7e000",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_LO_ALT",
+   "off": "0x1fa828",
+   "value": "0x01ffee00",
+   "value_int": 33549824,
+   "second_read": "0x01ffee00",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_HI_ALT",
+   "off": "0x1fa82c",
+   "value": "0x1ffffff0",
+   "value_int": 536870896,
+   "second_read": "0x1ffffff0",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR_CFG",
+   "off": "0x1fa830",
+   "value": "0x00000000",
+   "value_int": 0,
+   "second_read": "0x00000000",
+   "state": "zero"
+  },
+  {
+   "name": "PLM_FECS",
+   "off": "0x1fa840",
+   "value": "0xbadf5040",
+   "value_int": 3135197248,
+   "second_read": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "PLM_RESET",
+   "off": "0x1fa844",
+   "value": "0xbadf5040",
+   "value_int": 3135197248,
+   "second_read": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "ACR_CMD",
+   "off": "0x1fa850",
+   "value": "0xbadf5040",
+   "value_int": 3135197248,
+   "second_read": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "ACR_STATUS",
+   "off": "0x1fa854",
+   "value": "0xbadf5040",
+   "value_int": 3135197248,
+   "second_read": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "SEC2_STATUS",
+   "off": "0x1fa860",
+   "value": "0xbadf5040",
+   "value_int": 3135197248,
+   "second_read": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "NV_PMC_BOOT_0",
+   "off": "0x000000",
+   "value": "0x166000a1",
+   "value_int": 375390369,
+   "second_read": "0x166000a1",
+   "state": "DATA"
+  },
+  {
+   "name": "NV_PMC_ENABLE",
+   "off": "0x000200",
+   "value": "0x90fdd1c1",
+   "value_int": 2432553409,
+   "second_read": "0x90fdd1c1",
+   "state": "DATA"
+  }
+ ],
+ "dmesg_facts": {
+  "WPR2_lo": 536870400,
+  "WPR_at_boot": "01FFEE00:01FFE000",
+  "FECS_PLM": 4294967183,
+  "RESET_PLM": 255,
+  "SS0": 2290649224,
+  "SS1": 8,
+  "ACR_TOKEN": 194,
+  "fresh_wpr_phys_1": 2399002624,
+  "fresh_wpr_sig": 4293132288,
+  "fresh_wpr_size_1": 64000,
+  "fresh_wpr_phys_2": 2398998528,
+  "fresh_wpr_size_2": 4096,
+  "advertised": 4096,
+  "backing": 64000,
+  "mailbox": 7389,
+  "mutex_release": 3367,
+  "stack": 65300,
+  "stage": 49408,
+  "tail": 14728,
+  "ls_version": 836,
+  "ls_id": 1,
+  "header": 131073,
+  "gadgets": [
+   3272,
+   3261,
+   3101,
+   7522,
+   8073,
+   1535,
+   25836
+  ],
+  "tracepc": 32017,
+  "CPUCTL": 16,
+  "idx_phase_boundary": 96,
+  "conf_compute_protected_total": "0 MiB",
+  "dma_mask_bits": 47,
+  "iommu_group": 31,
+  "bar1_size": "64 GiB",
+  "rebar_bar0": "16 MiB",
+  "rebar_bar1": "64 GiB",
+  "rebar_bar3": "32 MiB"
+ },
+ "note": "gia tri dmesg la BO CHUNG KHOI DONG THUC; register MMIO doc duoc o tren la bo chung RUNTIME"
+}

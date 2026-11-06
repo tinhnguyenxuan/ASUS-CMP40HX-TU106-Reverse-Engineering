@@ -1,0 +1,25 @@
+{
+  "scope": "Reviewed source snapshots; hashes do not independently prove remote execution identity",
+  "sources": [
+    {
+      "path": "tools/cuda_correctness.cu",
+      "sha256": "95ef2d18f6d790bce3ebe07597bb6bc7596f4c8a1900061fc273445d229f512a"
+    },
+    {
+      "path": "glm_work/tensor_correctness.cu",
+      "sha256": "3ae45c64d1e3777c7450cf7ff9c7aaabf6e3eb6761d8503462b5f60b4dfb23e7"
+    },
+    {
+      "path": "glm_work/cublas_correctness.cu",
+      "sha256": "29ce5d6255226e0cecee2336592c8b4719cee6b22c98885f4c46091745fc2871"
+    },
+    {
+      "path": "glm_work/diagnose_userspace.py",
+      "sha256": "dd9a8a8d8f40dd0f8017ad7682928a135bf781d7c42cec701e909f2c19385e9e"
+    },
+    {
+      "path": "glm_work/cupti_query.py",
+      "sha256": "10318c91f4607b267454a2f0a7559ded7eee2dab0316ad502d255b223fc42d64"
+    }
+  ]
+}

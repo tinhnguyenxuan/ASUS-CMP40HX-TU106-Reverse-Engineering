@@ -1,0 +1,11 @@
+Hermes: nhiệm vụ reverse engineering CMP40HX/TU106 tiếp nối, chỉ được chạy khi Codex dispatch job này. Không /goal/resume/Hermes con; không GPU/config/model changes. Dùng /usr/bin/python3; chỉ đọc supplied binaries và public/local source, giữ nguyên originals.
+
+Workspace /home/REDACTED_USER/codex-work/work_v15. Output riêng PHASE16/VBIOS_SOURCE/, không sửa checkpoint chung hoặc artifacts firmware/fuse/GSP.
+
+Mục tiêu: kiểm chứng cấu trúc toàn VBIOS và mọi BIT token/table tìm thấy, thay số đếm kế thừa bằng inventory có evidence. Inputs outputs/CMP40HX_ORIGINAL_1MB.bin, outputs/cmp40hx_t4.bin, RAW_DATA/vbios_shadow.bin, outputs/vbios_map.json, outputs/nvbios_fields.json, VBIOS/*, scripts/vbios_parser.py và source liên quan trong /tmp/nvsrc nếu có.
+
+1. Tạo vbios_structure_verify.py stdlib, ghi input hashes. Tìm container signatures và PCIR/NPDS/NPDE/NVGI/55AA; phân biệt signature hit với image boundary có header/length/chain chứng minh. Parse bằng pointer/header thật, kiểm tra extent/overlap/truncation; không kế thừa ranges images() đang chồng và bank1 end0xA1600 mâu thuẫn repeatspan0x79000.
+2. Parse BIT header/token list từ raw bytes, giữ version/length/raw pointers/mapped offsets và mapping assumptions. Inventory tất cả token, PERF pointers, table headers/extents/crossrefs; không áp một generic header shape cho mọi table rồi gọi semantics decoded. Table không biết ghi UNKNOWN, không bỏ silently.
+3. Đối chiếu hai repeated regions theo span thực, 38 record ở0x3000 và bản copy, original/T4 shared-prefix differences, ROM-shadow alignment và mọi byte khác. Không nói match100% nếu còn14byte khác; nêu denominator và exact ranges.
+4. Lưu vbios_structure_verified.json trước report: rawheader hex, fileoffsets, parsedfields, accepted/rejected candidates, complete token/table inventory, unresolved regions và reproduction commands. Viết VBIOS_STRUCTURE_REPORT.md phân biệt DECODED structure, source-backed meaning và UNKNOWN. Không suy encryption/signature validity từ entropy/checksum.
+5. Chạy script thật, lưu stdout/stderr/exitcode vào vbios_structure_verify_run.log. Mọi số đếm trong report phải tính từ output. Không tuning, sửa ROM hay đánh dấu wholeGPU hoàn tất. Trả sốimage/token/table thật và phần còn chưa biết.

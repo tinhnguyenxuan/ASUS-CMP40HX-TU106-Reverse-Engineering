@@ -1,0 +1,9 @@
+Done. All outputs are under `/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_CALLBACK_TARGET/` (script, JSON report, report.md, run.log, input_hashes.json). Exit code 0; old jobs/artifacts untouched; header consumer at 0x0459C5E0 not touched.
+
+Results:
+- **Caller verified**: auipc ra,5 (`97000500`) @ 0x04F06C18 + jalr ra,ra,0x724 (`e7804072`) @ 0x04F06C1C → target 0x04F5733C ✓ (raw bytes, file order)
+- **Helper verified**: auipc ra,0xfffb0 (`9700fbff`) @ 0x04F57644 + jalr ra,ra,-0x58 (`e78080fa`) @ 0x04F57648 → 0x04F075EC ✓
+- **Mapping**: inner ELF header at file 0x40 with +0x40 bias; VA = file_offset + 0x3FFFFC0 verified on 6 VAs; capstone RISC-V64+compressed; all 12 sanity raw-byte checks matched
+- **Context**: s3 = return of internal call @0x04F5739C/3A0 (target 0x05281930), not an argument; a0→s5, a1→s4, a2→s8, a3→s1 at entry
+- **context+0x30**: no store in-function (0 stores); slot writer is outside this window — unproven; 14 static pointer constants stored elsewhere, none proven at *(s3+0x30)
+- **Callback site** `jalr a5` @0x04F575E0 (`a5 = *(s3+0x30)`): target kept explicit as **UNKNOWN indirect**; a0 = s3 proven on both paths; a1 path-sensitive (first entry = call-clobbered UNKNOWN after wrapper call @0x04F575AC/5B0; back-edge = helper return via `mv a1,a0` @0x04F5764C → `bnez` @0x04F57650); **a1=s4 at call is false — not revived**; a2 = entry f00 u16 from stack slot s0-0x88, helper mutation of that slot not excluded

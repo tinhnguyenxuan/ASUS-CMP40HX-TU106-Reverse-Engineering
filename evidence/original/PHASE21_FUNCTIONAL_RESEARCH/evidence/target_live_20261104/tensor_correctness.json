@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-04T14:56:32.126321+00:00",
+  "returncode": 0,
+  "stdout": "Selected device 0: NVIDIA CMP 40HX (PCI BDF 0000:03:00.0)\nDevice BDF: 0000:03:00.0\nPASS: all 256 elements match CPU reference\n",
+  "stderr": ""
+}

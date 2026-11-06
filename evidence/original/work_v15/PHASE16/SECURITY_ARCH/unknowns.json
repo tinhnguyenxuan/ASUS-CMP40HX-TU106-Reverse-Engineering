@@ -1,0 +1,25 @@
+{
+  "preserved_unknowns": [
+    "TU106-specific dev_fuse.h not available in snapshot; only TU102 (Turing) published. 350 of 352 fuse DATA words have no source-defined field.",
+    "Physical OTP geometry / cell meaning for fuse aperture 0x21000 \u2014 values alone do not identify OTP cells.",
+    "fuse +0x0718 32-byte region semantics \u2014 4 hypotheses, all UNKNOWN.",
+    "0xBADF510C (7 occurrences in fuse data region) semantics \u2014 INFERRED only.",
+    "SEC2 callback target (context +0x30 indirect call) \u2014 not resolved.",
+    "GSP dispatcher caller \u2014 0 direct JAL / AUIPC+JALR found in GSP ELF scan.",
+    "PMU register values on this card \u2014 none measured.",
+    "ACR_CMD / ACR_STATUS / SEC2_STATUS BAR0 registers \u2014 all poison (0xBADF5040).",
+    "PLM register values \u2014 dmesg only, BAR0 poison.",
+    "GPU secure-boot state \u2014 fuse values observed but process not confirmed.",
+    "Firmware payload ISA / load address / engine mapping \u2014 38 payloads parsed, semantics UNKNOWN.",
+    "388.5 MiB NVML Reserved memory carveout \u2014 WPR2 is only 0.50 MiB; remainder unexplained.",
+    "UNK_0x1FA800/04/10/14/20/2C/30 \u2014 BAR0 registers with no source name.",
+    "fingerprint64 meaning in firmware container \u2014 source says filename-index hash, corroborated by literal match in gsp.bin, but not a payload signature.",
+    "VBIOS key-block fields (sig/ver/f4/f8/flags/hash) \u2014 5 of 6 unknown."
+  ],
+  "blocked_items": [
+    "U-FUSE-001: needs fuse dump from another TU106/TU104 to cross-check 152 word==1 pattern.",
+    "U-FUSE-002: exhaustive hash over ROM+GSP+uCodes+fuse = 0 matches for +0x0718.",
+    "U-SEC-002: PLM/ACR poison in BAR0; needs boot-code disassembly or PLM/ACR documentation.",
+    "U-FW-001..004: 4 high-entropy payloads, no key/known-plaintext; decryption out of scope."
+  ]
+}

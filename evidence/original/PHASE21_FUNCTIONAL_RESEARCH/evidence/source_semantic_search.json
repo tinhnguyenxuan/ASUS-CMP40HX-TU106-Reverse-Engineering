@@ -1,0 +1,30 @@
+{
+  "scope": [
+    "/tmp/nvsrc",
+    "work_v15/PHASE16/SOURCE_RELEASE_PROVENANCE",
+    "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources"
+  ],
+  "queries": [
+    "RmDisableDisplay",
+    "RMRunFub",
+    "RMFubUseCaseMask",
+    "FEATURE_READOUT",
+    "3814",
+    "gpuFuseSupportsDisplay"
+  ],
+  "results": {
+    "exact_proprietary_keys": false,
+    "exact_firmware_method_names": false,
+    "gpuFuseSupportsDisplay_host_declaration": true,
+    "cross_generation_feature_readout_headers": true,
+    "cross_generation_selector_bits_match_tu106_predicates": false
+  },
+  "evidence": [
+    "/tmp/nvsrc/nvidia/generated/g_gpu_nvoc.h:1135",
+    "/tmp/nvsrc/nvidia/generated/g_gpu_nvoc.h:3840-3842",
+    "/tmp/nvsrc/common/inc/swref/published/ampere/ga100/dev_fuse.h:26-28",
+    "/tmp/nvsrc/common/inc/swref/published/blackwell/gb100/dev_fuse_zb.h:26-29"
+  ],
+  "interpretation": "The retained 615.78.08 host source exposes a display-fuse HAL method, but does not expose the proprietary GSP configuration key/method names. GA100/GB100 selector 0x3814 headers are cross-generation analogies only and define ECC_DRAM bit 16, not the firmware-observed bits 18:19 or 27.",
+  "status": "semantic gap remains; no source-level renaming is justified"
+}

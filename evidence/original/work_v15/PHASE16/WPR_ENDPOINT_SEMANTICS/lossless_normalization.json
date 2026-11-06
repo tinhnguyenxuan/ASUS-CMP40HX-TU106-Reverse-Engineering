@@ -1,0 +1,8 @@
+{
+  "source": "findings.json",
+  "source_sha256": "1819cc54422a1981b497bd4dbb2603497ea84c16f33e225e6509994898050c2d",
+  "output": "findings_lossless.json",
+  "output_sha256": "27de1cdc596d52a0cda001c3b6f5d7fea07635ef7bbde5a1db4d4c222c4c976e",
+  "objects_with_duplicate_fields": 2,
+  "repair": "Preserve all repeated values under _duplicate_fields_preserved; original last-value keys retained; no semantic claims altered."
+}

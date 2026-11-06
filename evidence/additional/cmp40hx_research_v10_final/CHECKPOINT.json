@@ -1,0 +1,198 @@
+{
+ "project": "CMP 40HX (TU106-100-A1) full GPU reverse engineering",
+ "session": "2026-11-06 v10",
+ "checkpoint_version": 10,
+ "previous_report": "PHASE_REPORTS/MASTER_REPORT_v1_2026-11-03.md",
+ "gpu": {
+  "pci": "10DE:1F0B",
+  "subsystem": "8804:1043",
+  "bdf": "0000:03:00.0",
+  "vbios": "90.06.67.00.06",
+  "silicon": "TU106-100-A1",
+  "pcb": "CG161P REV 2.00",
+  "sm": 34,
+  "cuda": 2176,
+  "tpc": 17,
+  "vram_mib": 8192
+ },
+ "env": {
+  "kernel": "6.8.0-147-generic",
+  "driver": "615.78.08 open + cmpunlocker",
+  "host": "<REDACTED_LAB_IP>",
+  "target": "<REDACTED_LAB_IP>"
+ },
+ "phases": {
+  "P0_FUSE": {
+   "status": "DONE",
+   "report": "FUSE/P0_FUSE.md",
+   "key_findings": [
+    "aperture that = 0x21000 (0x820000 la gb100)",
+    "span that 0x1DFF khong phai 0x1800",
+    "352 word co du lieu, 3 ma poison",
+    "152 word =1 (OTP cell INFERRED)"
+   ]
+  },
+  "P1_MMIO": {
+   "status": "PARTIAL",
+   "report": "MMIO/P1_MMIO.md",
+   "key_findings": [
+    "52 register turing, 33 doc duoc",
+    "WPR2 khop dmesg 100%",
+    "XVE map = 1f0b10de"
+   ]
+  },
+  "P2_VBIOS": {
+   "status": "DONE",
+   "report": "VBIOS/P2_VBIOS.md",
+   "key_findings": [
+    "ROM = 2 ban sao 495616 B khac 1212 B",
+    "key block 38 record x 32 B layout giai duoc",
+    "f4 khong phai timestamp, hash khong khop vung nao"
+   ]
+  },
+  "P3_GSP": {
+   "status": "DONE",
+   "report": "GSP/P3_GSP.md",
+   "key_findings": [
+    "340 entry that trong 60 bang (khong phai 139)",
+    "RELIABILITY_NVVDD / VMIN_NVVDD_0-1 / UNLOAD_DRIVER_VOLTAGE_RAIL_0-3",
+    "0 xref cung: base la hang so trong lenh"
+   ]
+  },
+  "P4_FIRMWARE": {
+   "status": "PARTIAL",
+   "report": "FIRMWARE/P4_FIRMWARE.md",
+   "key_findings": [
+    "blob[6] === blob[8] (24 byte khac)",
+    "4 blob khong nen duoc -> khong ket luan AES",
+    "blob[0] khong phai code (93.1% unknown)"
+   ]
+  },
+  "P5_TOPOLOGY": {
+   "status": "PARTIAL",
+   "report": "PHASE_REPORTS/P5_P6_P7_P8.md"
+  },
+  "P6_MEMORY": {
+   "status": "DONE",
+   "report": "PHASE_REPORTS/P5_P6_P7_P8.md",
+   "key_findings": [
+    "Reserved 389 MiB; WPR2 chi 0.5 MiB",
+    "388.5 MiB la carveout khac (UNKNOWN)"
+   ]
+  },
+  "P7_PCIE": {
+   "status": "DONE",
+   "report": "PHASE_REPORTS/P5_P6_P7_P8.md",
+   "key_findings": [
+    "BAR1 = 64 GB (ReBAR bat)",
+    "cap 5GT/s, target 5GT/s, RUNTIME 2.5GT/s"
+   ]
+  },
+  "P8_SECURITY": {
+   "status": "PARTIAL",
+   "report": "PHASE_REPORTS/P5_P6_P7_P8.md",
+   "key_findings": [
+    "WPR2 khop 100% log boot",
+    "boot sequence 5 buoc",
+    "driver chua ky (tainting kernel)"
+   ]
+  }
+ },
+ "refuted_claims": [
+  "NV_FUSE0_PRI_BASE 0x820000 la aperture fuse (that: 0x21000)",
+  "fuse span 0x1800 (that: 0x1DFF)",
+  "1 ma poison (that: 3)",
+  "ROM = bank1 660992 + bank2 387584 (that: 2 ban sao 495616, khac 1212)",
+  "GSP 139 descriptor entry (that: 340)",
+  "GPC_MAX id=21 f08=0xff0a (do la XBAR_MAX)",
+  "6 plaintext firmware (that: ~5, blob[6]===blob[8])",
+  "VRAM lech 430 MiB (that: 389 MiB Reserved)"
+ ],
+ "unknowns": {
+  "total": 40,
+  "open": 31,
+  "resolved": 9
+ },
+ "coverage": {
+  "file": "COVERAGE.json",
+  "dashboard": "COVERAGE.md"
+ },
+ "safety_compliance": {
+  "flash_vbios": false,
+  "write_fuse": false,
+  "write_mmio": false,
+  "pci_config_write": false,
+  "driver_reload": false,
+  "reboot": false,
+  "voltage_clock_change": false,
+  "security_bypass": false,
+  "key_bruteforce": false,
+  "all_readonly": true
+ },
+ "verify": {
+  "script": "TOOLS/verify_all.py",
+  "result": "69/69 PASS"
+ },
+ "tools": [
+  "extract_regs.py",
+  "fuse_read2.py",
+  "fuse_dump2.py",
+  "fuse_classify.py",
+  "mmio_scan.py",
+  "nvgi_block.py",
+  "gsp_desc2.py",
+  "fw_entropy.py",
+  "phase5678.py",
+  "build_db.py",
+  "verify_all.py",
+  "q289.py",
+  "q4_falcon.py",
+  "q5_fusehash.py",
+  "q6_display.py",
+  "q1_lui.py",
+  "q1_disasm.py",
+  "q1_regtable.py",
+  "q1_final.py",
+  "tu06_aperture.py",
+  "tu06b_stable.py",
+  "tu07_shadow.py",
+  "q1_callback.py"
+ ],
+ "card_state": {
+  "health": "OK",
+  "payload": "cmp40hx_t4.bin",
+  "max_pl_w": 220,
+  "current_pl_w": 184,
+  "idle": "300 MHz / 12.5 W"
+ },
+ "rounds_added": [
+  "Q2 hash fuse (BLOCKED)",
+  "Q3 PCIe 2 dau (DONE)",
+  "Q4 FALCON/NVINIT (DONE)",
+  "Q5 hash tren fuse (BLOCKED)",
+  "Q6 display decoder (DONE)",
+  "Q8 build timestamp (DONE)",
+  "Q9 bang thu 2 (BLOCKED)",
+  "Q1 consumer bang descriptor (DONE - capstone RISC-V)",
+  "TU-06 aperture map (DONE) + TU-07 VBIOS shadow (BREAKTHROUGH) + P5/P8 docs",
+  "P8 SECURITY (DONE): 3 file output + 17 register WPR/PLM/ACR + U-SEC-001/002",
+  "P9 (DONE): phat hien 2 ma tra ve moi, sua TU-06 DATA 287->141, U-MMIO-012",
+  "P9b/c (DONE): BAR1 khong decode -> BLOCKED; BAR3 decode 4592 entry; U-BAR3-001/002",
+  "P9h (DONE): xac nhan BAR3 on dinh + BAR1 that su khong decode; sua stale headline 79.4->81.0"
+ ],
+ "new_findings": [
+  "Q8: 24 B khac blob[6]/blob[8] = build timestamp ASCII Dec 31 2024 vs Jan 2 2025",
+  "Q6: display 0/200 word, doi chung 8/32 -> address decoder; PGRAPH 0x400000 CUNG poison",
+  "Q4: FALCON_DATA = {u16 id, u32 offset} 16 entry (7 co du lieu); NVINIT 9 con tro hop le",
+  "Q3: root port 8GT/s, card 5GT/s, ca 2 target 5GT/s, ca 2 runtime 2.5GT/s",
+  "Q1: ham dispatch @0x04F575FC; base 0x041A70B0 (lui 0x41a7 + addi 0xb0); stride 32 (addi s1,s1,0x20); span 0x1740 = 186 entry; layout u16@0/u32@4/u8@8/u64@0x10/u16@0x18 -> LAYOUT P3 SAI",
+  "Q1 method: envydis la Falcon (93% unknown); dung capstone RISC-V -> 0% invalid, 768 lenh",
+  "Q1 sau kiem chung: u64(+0x10) KHONG phai name_ptr ma la tham so truyen callback qua a2; u16(+0x18) = {group:8,subtype:8} 23 ma (0xFF01 x47, 0xFF02 x80); suffix merging BI BAC BO (_MIN ambiguous 126 lan)",
+  "TU-07 DOT PHA: BAR0 0x300000 = VBIOS SHADOW DANG CHAY, khop rom_file[0x28600:] 100% (14 byte khac). Serial that: CMP40HX-8G#REDACTED (rom file: ...6304974)",
+  "TU-06: ban do aperture 4096 trang: 79.4% poison / 8.7% zero / 7.0% DATA / 4.9% MIXED. Poison = ngoai cua so decode",
+  "U-FUSE-007: fuse+0x0344+0x0348 = GPU PDI 0x0000000000000000 khop nvidia-smi 100%",
+  "P5: silicon_topology.md + topology_unknowns.md (7 muc TU-01..TU-07)"
+ ],
+ "card_serial": "CMP40HX-8G#REDACTED",
+ "gpu_pdi": "0x0000000000000000"
+}

@@ -1,0 +1,9 @@
+HEADER magic=NVUCODES version=1 numEntries=496 fingerprint=0x8D1990AB6B98AE2B
+TABLE_END 11928 (0x2E98) FIRST_PAYLOAD 12032 PAD 104
+CLASSES {'zero': 458, 'external': 38}
+FLAGS {'0x0': 458, '0x4': 38}
+PAYLOADS 38 FIRST 0x2f00
+CROSS_IDENTICAL True DETAIL {'previous_count': 38, 'new_count': 38, 'only_previous': [], 'only_new': []}
+GSP fingerprint_hits 1 adjacent_pairs 0 conclusion=literal_match
+WROTE /home/REDACTED_USER/codex-work/work_v15/PHASE16/firmware_container_source_verified.json
+EXIT_CODE=0

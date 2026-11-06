@@ -1,0 +1,26 @@
+Hoàn tất. Tất cả artifacts đã được tạo riêng tại `work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/` (gốc trong `GSP_DATAFLOW_FIX*` và `GSP_HEADER_CONSUMER*` chỉ đọc, không sửa).
+
+## Kết quả chạy (EXIT=0, tất cả check PASS)
+- Script tái lập: `loop_field_proof.py` (chạy bằng `/tmp/csvenv/bin/python3` capstone 5.0.7, offline, chỉ dùng file nhị phân đã lưu).
+- CFG đã tách block tại mọi branch target đã chứng minh: 516 block, 2205 instruction duy nhất, 0 slot trùng, 0 block chồng nhau. Đây là traversed CFG (chặn callees), không phải function-complete.
+- Dataflow chạy 2 mode (với seed và không seed): kết quả giống hệt (fixpoint, 1 base-table access) → seed s9/s10 không chịu chủ ý vì s9/s10/s8 được định nghĩa cục bộ trong block vào 0x459c6e8.
+
+## Chứng minh được / để unknown
+| Mục | Kết quả |
+|-----|---------|
+| flags +16 ở record index 0 qua bảng 0x4584790 | **PROVEN**: `0x459c70c lw a5,0x10(a4)`, guard `0x459c714`, raw `00000000`, raw_verified=True |
+| flags +16 ở index > 0 | UNKNOWN — chỉ số ký hiệu/không giới hạn cụ thể; flat join mất độ chính xác |
+| actualSize +0, compressedSize +4, pData +8, relOffset +20 | UNKNOWN — có instruction trùng offset nhưng cơ sở chưa giải quyết, chưa bao giờ tới bảng 0x4584790 |
+| Tải flags thứ qua s7 (`0x459c71c`) | UNKNOWN — s7 chưa được định nghĩa, bảng riêng, không hợp nhất với BASE |
+
+## Liên quan còn thiếu (lập minh rõ)
+- Giới hạn vòng lặp `a3` là `lw a3, -0x84(s0)` (bộ nhớ khungstack) — giá trị tĩnh không rõ → chỉ sớm chỉ số symbolically, không giới hạn cụ thể → không chứng minh được record > 0.
+- s7 chưa được định nghĩa trong phạm vi này → cơ sở bảng s7 không giải quyết được.
+- Tên descriptor/engine: UNKNOWN — bảng `0x41a70b0` là bảng khác, không có tham chiếu nhị phân/nguồn đến `0x4584790`.
+
+## Các file sản phẩm
+- `loop_field_proof.py` — script tái lập (tự kiểm tra, EXIT=0)
+- `run.log`, `input_hashes.json`, `structured_evidence.json`, `report.md`, `verified.json`, `table_accesses.json`, `records_dump.json`
+- `disassembly/cfg.json`, `disassembly/extended_disasm.txt`
+
+Chi tiết xem `report.md` và `structured_evidence.json`. Không tiếp trình ứng phần cứng, không ghi nhị phân, không khóa/bỏ qua gì.

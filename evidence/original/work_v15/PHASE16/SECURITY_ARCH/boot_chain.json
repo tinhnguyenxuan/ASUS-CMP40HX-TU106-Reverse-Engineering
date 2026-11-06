@@ -1,0 +1,145 @@
+{
+  "source_defined_roles": {
+    "GSP_RM": {
+      "role": "RISC-V firmware resource manager, executes inside WPR2",
+      "source": "nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h (gspFwOffset, gspFwHeapOffset inside WPR2); gsp_init_args.h (GSP_ARGUMENTS_CACHED passed from CPU-RM)",
+      "wpr2_location": "gspFwOffset / gspFwHeapOffset inside WPR2 per GspFwWprMeta",
+      "init_args": "GSP_ARGUMENTS_CACHED with vbiosOverrideArgs, bindataArgs, messageQueueInitArguments (encryption flag 0x01)"
+    },
+    "Booter": {
+      "role": "Verifies and locks GSP firmware in WPR2; loads signature metadata",
+      "source": "nvidia/src/kernel/gpu/gsp/cmp40_booter_load_610.h (BINDATA archive with IMAGE/HEADER/SIG/PATCH entries; source archive 610.57.04); gsp_fw_wpr_meta.h ('Verified, and locked in WPR2 by Booter')",
+      "signature": "SIG_DBG/SIG_PROD 16-byte signature metadata present in booter header"
+    },
+    "FWSEC": {
+      "role": "Falcon secure engine, boot stage 1, runs before GSP entry",
+      "source": "dmesg boot log stage 'POST_FWSEC_PRE_GSP_ENTRY'; kernel/sec2 headers reference TSEC channel class",
+      "evidence": "dmesg only (MEASURED), not BAR0-readable (poison)"
+    },
+    "SEC2": {
+      "role": "Falcon engine, runs exploit sequence then DMEM zeroed; EMEM channel 0 (RM) 1 KiB",
+      "source": "nvidia/arch/nvalloc/common/inc/sec2/sec2_emem_channels.h (SEC2_EMEM_CHANNEL_RM=0, size=1024); dmesg kgspCmp40SanitizeSec2AfterExploit",
+      "evidence": "DMEM zero [0x0, 0x10000) measured via dmesg"
+    },
+    "ACR": {
+      "role": "Authentication / token component; token 0xC2 observed",
+      "source": "common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080acr.h (stub, FINN-generated); dmesg ACR_TOKEN=0xC2",
+      "evidence": "dmesg token value only; ACR_CMD/ACR_STATUS BAR0 poison"
+    },
+    "PLM": {
+      "role": "Privilege Level Mask; FECS_PLM=0xFFFFFF8F (8 low bits = levels), RESET_PLM=0x000000FF",
+      "source": "dmesg boot log only; no BAR0 register definition (0x1FA840/0x1FA844 poison)",
+      "evidence": "dmesg only (MEASURED)"
+    },
+    "PMU": {
+      "role": "Power management unit; falcon_common.h defines Falcon IMEM/DMEM alignments",
+      "source": "nvidia/inc/kernel/gpu/falcon/falcon_common.h (FLCN_IMEM_ACCESS_ALIGNMENT=4, FLCN_DMEM_ACCESS_ALIGNMENT=4, FALCON_IMEM_BLKSIZE2=8); nvidia/inc/kernel/gpu/pmu/kern_pmu.h (nvoc stub)",
+      "evidence": "No PMU register values measured on this card."
+    }
+  },
+  "measured_boot_sequence": [
+    {
+      "t": "4.754",
+      "event": "_kgspCreateSignatureMemdesc",
+      "detail": "signed fullspeed stock-relock WPR-down commit"
+    },
+    {
+      "t": "4.864",
+      "event": "kgspBootstrap_TU102: POST_FWSEC_PRE_GSP_ENTRY",
+      "detail": "WPR=01ffee00:01ffe000 FECS=ffffff8f RESET=000000ff"
+    },
+    {
+      "t": "4.864",
+      "event": "_kgspCmp40ExecuteBooterFreshMeta",
+      "detail": "fresh WPR metadata phys=0x8efde000 signature=0xffe40000 size=0xfa00"
+    },
+    {
+      "t": "4.892",
+      "event": "kgspBootstrap_TU102: WPR_META_BEFORE_RESET / INPUT_RESET_PASS",
+      "detail": "bootCount=0 verified=0"
+    },
+    {
+      "t": "4.892",
+      "event": "kgspCmp40SanitizeSec2AfterExploit",
+      "detail": "NATIVE_CLEANUP_DMEM_PRESERVED_PASS"
+    },
+    {
+      "t": "4.892",
+      "event": "kgspBootstrap_TU102: FULLSPEED_STOCK_RELOCK_WPR_DOWN_HANDOFF_PASS",
+      "detail": "WPR down, handoff to GSP"
+    },
+    {
+      "t": "4.892",
+      "event": "kgspBootstrap_TU102: TOKEN_RELEASE_RESETPLM_FF_PHASE_BOUNDARY_PASS",
+      "detail": "PLM phase boundary"
+    },
+    {
+      "t": "4.956",
+      "event": "kgspBootstrap_TU102: REFWSEC_STOCK_WPR_PASS",
+      "detail": "WPR restored"
+    },
+    {
+      "t": "4.956",
+      "event": "kgspBootstrap_TU102: RISCV_MODE_BOOTARGS_PASS",
+      "detail": "RISC-V boot args"
+    },
+    {
+      "t": "4.956",
+      "event": "kgspBootstrap_TU102: POST_FWSEC_PRE_GSP_HANDOFF_PASS",
+      "detail": "final GSP handoff"
+    },
+    {
+      "t": "4.958",
+      "event": "s_clearCmp40Sec2ExploitDmem",
+      "detail": "FULL_DMEM_ZERO_PASS [0x0,0x10000)"
+    },
+    {
+      "t": "5.005",
+      "event": "kgspBootstrap_TU102: INPLACE_STOCK_BOOTER_AFTER_UNLOCK_PASS",
+      "detail": "stock relock"
+    }
+  ],
+  "wpr_metadata_v1_source": {
+    "magic": "0xdc3aae21371a60b3",
+    "verified_value": "0xa0a0a0a0a0a0a0a0",
+    "revision": 1,
+    "size_bytes": 256,
+    "fields": [
+      "magic",
+      "revision",
+      "sysmemAddrOfRadix3Elf",
+      "sizeOfRadix3Elf",
+      "sysmemAddrOfBootloader",
+      "sizeOfBootloader",
+      "bootloaderCodeOffset",
+      "bootloaderDataOffset",
+      "bootloaderManifestOffset",
+      "sysmemAddrOfSignature",
+      "sizeOfSignature",
+      "gspFwRsvdStart",
+      "nonWprHeapOffset",
+      "nonWprHeapSize",
+      "gspFwWprStart",
+      "gspFwHeapOffset",
+      "gspFwHeapSize",
+      "gspFwOffset",
+      "bootBinOffset",
+      "frtsOffset",
+      "frtsSize",
+      "gspFwWprEnd",
+      "fbSize",
+      "vgaWorkspaceOffset",
+      "vgaWorkspaceSize",
+      "bootCount",
+      "sysmemAddrOfCrashReportQueue",
+      "sizeOfCrashReportQueue",
+      "gspFwHeapVfPartitionCount",
+      "flags",
+      "pagingConfig",
+      "pmuReservedSize",
+      "verified"
+    ],
+    "source_file": "nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta_v1.h",
+    "source_hash": "04e2da01f1c1cedc6b740b1bab881f868419d93fb4701fbe1885bed09063f2b3"
+  }
+}

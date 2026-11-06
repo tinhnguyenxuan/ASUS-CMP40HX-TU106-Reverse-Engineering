@@ -1,0 +1,964 @@
+{
+ "pool_size": 4812,
+ "rows": [
+  {
+   "idx": 7,
+   "raw": "PERF_CF_CONTROLLER_DRAM_MIN",
+   "resolved": "PERF_CF_CONTROLLER_DRAM_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 8,
+   "raw": "PERF_CF_CONTROLLER_GPC_MIN",
+   "resolved": "PERF_CF_CONTROLLER_GPC_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 9,
+   "raw": "ER_GPC_MIN",
+   "resolved": "PERF_CF_CONTROLLER_GPC_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 10,
+   "raw": "CONTROLLER_NVD_MIN",
+   "resolved": "PERF_CF_CONTROLLER_NVD_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 11,
+   "raw": "GPU_IS_IDLE",
+   "resolved": "GPU_IS_IDLE",
+   "status": "ambig2"
+  },
+  {
+   "idx": 12,
+   "raw": "DLE_GROUP1",
+   "resolved": "GPU_IS_IDLE_GROUP1",
+   "status": "ambig2"
+  },
+  {
+   "idx": 14,
+   "raw": "PERF_CF_CONTROLLER_DRAM_MAX",
+   "resolved": "PERF_CF_CONTROLLER_DRAM_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 15,
+   "raw": "PERF_CF_CONTROLLER_GPC_MAX",
+   "resolved": "PERF_CF_CONTROLLER_GPC_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 16,
+   "raw": "CONTROLLER_GPC_MAX",
+   "resolved": "PERF_CF_CONTROLLER_GPC_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 17,
+   "raw": "PERF_CF_CONTROLLER_NVD_MAX",
+   "resolved": "PERF_CF_CONTROLLER_NVD_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 18,
+   "raw": "ER_NVD_MAX",
+   "resolved": "PERF_CF_CONTROLLER_NVD_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 19,
+   "raw": "BOOST",
+   "resolved": "BOOST",
+   "status": "ambig2"
+  },
+  {
+   "idx": 20,
+   "raw": "GRP_0_MIN",
+   "resolved": "SLI_DOM_GRP_0_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 21,
+   "raw": "PM_DYNAMIC",
+   "resolved": "PM_DYNAMIC",
+   "status": "ambig2"
+  },
+  {
+   "idx": 22,
+   "raw": "NO_CLIENT",
+   "resolved": "NO_CLIENT",
+   "status": "ambig2"
+  },
+  {
+   "idx": 23,
+   "raw": "SCREEN_SAVER",
+   "resolved": "SCREEN_SAVER",
+   "status": "ambig2"
+  },
+  {
+   "idx": 24,
+   "raw": "AVER",
+   "resolved": "SCREEN_SAVER",
+   "status": "ambig2"
+  },
+  {
+   "idx": 28,
+   "raw": "POWERMIZER",
+   "resolved": "POWERMIZER",
+   "status": "ambig2"
+  },
+  {
+   "idx": 29,
+   "raw": "CLIENT_0_MAX",
+   "resolved": "CLIENT_0_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 30,
+   "raw": "CLIENT_0_MIN",
+   "resolved": "CLIENT_0_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 31,
+   "raw": "CLIENT_1_MAX",
+   "resolved": "CLIENT_1_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 32,
+   "raw": "_MIN",
+   "resolved": "CLIENT_0_MIN",
+   "status": "ambig126"
+  },
+  {
+   "idx": 33,
+   "raw": "_MIN",
+   "resolved": "CLIENT_0_MIN",
+   "status": "ambig126"
+  },
+  {
+   "idx": 34,
+   "raw": "CLIENT_LOW_STRICT_PSTATE_MAX",
+   "resolved": "CLIENT_LOW_STRICT_PSTATE_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 35,
+   "raw": "CLIENT_LOW_STRICT_PSTATE_MIN",
+   "resolved": "CLIENT_LOW_STRICT_PSTATE_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 36,
+   "raw": "CLIENT_LOW_STRICT_DRAM_MAX",
+   "resolved": "CLIENT_LOW_STRICT_DRAM_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 37,
+   "raw": "CLIENT_LOW_STRICT_PCIE_MAX",
+   "resolved": "CLIENT_LOW_STRICT_PCIE_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 38,
+   "raw": "CLIENT_LOW_STRICT_GPC_MAX",
+   "resolved": "CLIENT_LOW_STRICT_GPC_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 39,
+   "raw": "CLIENT_LOW_STRICT_DISP_MAX",
+   "resolved": "CLIENT_LOW_STRICT_DISP_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 40,
+   "raw": "CLIENT_LOW_STRICT_DRAM_MIN",
+   "resolved": "CLIENT_LOW_STRICT_DRAM_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 41,
+   "raw": "CLIENT_LOW_STRICT_PCIE_MIN",
+   "resolved": "CLIENT_LOW_STRICT_PCIE_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 42,
+   "raw": "CLIENT_LOW_STRICT_GPC_MIN",
+   "resolved": "CLIENT_LOW_STRICT_GPC_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 44,
+   "raw": "T_DISP_MIN",
+   "resolved": "CLIENT_STRICT_DISP_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 45,
+   "raw": "OW_LOOSE_0_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_0_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 46,
+   "raw": "OW_LOOSE_0_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_0_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 47,
+   "raw": "OW_LOOSE_1_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_1_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 48,
+   "raw": "OW_LOOSE_1_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_1_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 49,
+   "raw": "OW_LOOSE_2_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_2_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 50,
+   "raw": "OW_LOOSE_2_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_2_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 51,
+   "raw": "OW_LOOSE_3_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_3_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 52,
+   "raw": "OW_LOOSE_3_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_3_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 53,
+   "raw": "OW_LOOSE_4_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_4_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 54,
+   "raw": "OW_LOOSE_4_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_4_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 55,
+   "raw": "OW_LOOSE_5_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_5_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 56,
+   "raw": "OW_LOOSE_5_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_5_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 57,
+   "raw": "OW_LOOSE_6_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_6_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 58,
+   "raw": "OW_LOOSE_6_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_6_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 59,
+   "raw": "OW_LOOSE_7_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_7_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 60,
+   "raw": "OW_LOOSE_7_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_7_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 61,
+   "raw": "OW_LOOSE_8_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_8_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 62,
+   "raw": "OW_LOOSE_8_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_8_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 63,
+   "raw": "OW_LOOSE_9_MAX",
+   "resolved": "CLIENT_LOW_LOOSE_9_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 64,
+   "raw": "CLIENT_LOW_LOOSE_9_MIN",
+   "resolved": "CLIENT_LOW_LOOSE_9_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 65,
+   "raw": "_9_MIN",
+   "resolved": "CLIENT_LOOSE_9_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 69,
+   "raw": "D_SW_LICENSING",
+   "resolved": "VGPU_GRID_SW_LICENSING",
+   "status": "ambig2"
+  },
+  {
+   "idx": 70,
+   "raw": "MIN_FAN_LEVEL",
+   "resolved": "MIN_FAN_LEVEL",
+   "status": "ambig2"
+  },
+  {
+   "idx": 71,
+   "raw": "VIDEO_WAR",
+   "resolved": "VIDEO_WAR",
+   "status": "ambig2"
+  },
+  {
+   "idx": 72,
+   "raw": "SSIBLE",
+   "resolved": "ISMODEPOSSIBLE",
+   "status": "ambig2"
+  },
+  {
+   "idx": 73,
+   "raw": "DISPLAY_GLITCH",
+   "resolved": "DISPLAY_GLITCH",
+   "status": "ambig2"
+  },
+  {
+   "idx": 74,
+   "raw": "ISMODEPOSSIBLE_DISP",
+   "resolved": "ISMODEPOSSIBLE_DISP",
+   "status": "ambig2"
+  },
+  {
+   "idx": 77,
+   "raw": "EXCEPT_VIDEO",
+   "resolved": "EXCEPT_VIDEO",
+   "status": "ambig2"
+  },
+  {
+   "idx": 78,
+   "raw": "BIF_USBC_PMU_PCIE_MIN",
+   "resolved": "BIF_USBC_PMU_PCIE_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 79,
+   "raw": "_RM_PCIE_MIN",
+   "resolved": "BIF_USBC_RM_PCIE_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 80,
+   "raw": "CLIENT_STRICT_PSTATE_MAX",
+   "resolved": "CLIENT_STRICT_PSTATE_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 82,
+   "raw": "TATE_MIN",
+   "resolved": "JPAC_PSTATE_MIN",
+   "status": "ambig7"
+  },
+  {
+   "idx": 83,
+   "raw": "TRICT_DRAM_MAX",
+   "resolved": "CLIENT_STRICT_DRAM_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 84,
+   "raw": "TRICT_PCIE_MAX",
+   "resolved": "CLIENT_STRICT_PCIE_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 85,
+   "raw": "TRICT_GPC_MAX",
+   "resolved": "CLIENT_STRICT_GPC_MAX",
+   "status": "ambig8"
+  },
+  {
+   "idx": 86,
+   "raw": "TRICT_DISP_MAX",
+   "resolved": "CLIENT_STRICT_DISP_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 87,
+   "raw": "TRICT_DRAM_MIN",
+   "resolved": "CLIENT_STRICT_DRAM_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 88,
+   "raw": "TRICT_PCIE_MIN",
+   "resolved": "CLIENT_STRICT_PCIE_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 89,
+   "raw": "TRICT_GPC_MIN",
+   "resolved": "CLIENT_STRICT_GPC_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 90,
+   "raw": "TRICT_DISP_MIN",
+   "resolved": "CLIENT_STRICT_DISP_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 91,
+   "raw": "OOSE_0_MAX",
+   "resolved": "CLIENT_LOOSE_0_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 92,
+   "raw": "OOSE_1_MAX",
+   "resolved": "CLIENT_LOOSE_1_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 93,
+   "raw": "OOSE_2_MAX",
+   "resolved": "CLIENT_LOOSE_2_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 94,
+   "raw": "OOSE_3_MAX",
+   "resolved": "CLIENT_LOOSE_3_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 95,
+   "raw": "OOSE_4_MAX",
+   "resolved": "CLIENT_LOOSE_4_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 96,
+   "raw": "OOSE_5_MAX",
+   "resolved": "CLIENT_LOOSE_5_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 97,
+   "raw": "OOSE_6_MAX",
+   "resolved": "CLIENT_LOOSE_6_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 98,
+   "raw": "OOSE_7_MAX",
+   "resolved": "CLIENT_LOOSE_7_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 99,
+   "raw": "OOSE_8_MAX",
+   "resolved": "CLIENT_LOOSE_8_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 100,
+   "raw": "OOSE_9_MAX",
+   "resolved": "CLIENT_LOOSE_9_MAX",
+   "status": "ambig6"
+  },
+  {
+   "idx": 101,
+   "raw": "OOSE_0_MIN",
+   "resolved": "CLIENT_LOOSE_0_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 102,
+   "raw": "OOSE_1_MIN",
+   "resolved": "CLIENT_LOOSE_1_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 103,
+   "raw": "OOSE_2_MIN",
+   "resolved": "CLIENT_LOOSE_2_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 104,
+   "raw": "OOSE_3_MIN",
+   "resolved": "CLIENT_LOOSE_3_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 105,
+   "raw": "OOSE_4_MIN",
+   "resolved": "CLIENT_LOOSE_4_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 106,
+   "raw": "OOSE_5_MIN",
+   "resolved": "CLIENT_LOOSE_5_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 107,
+   "raw": "OOSE_6_MIN",
+   "resolved": "CLIENT_LOOSE_6_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 108,
+   "raw": "OOSE_7_MIN",
+   "resolved": "CLIENT_LOOSE_7_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 112,
+   "raw": "FORCED_DACPERFTEST",
+   "resolved": "FORCED_DACPERFTEST",
+   "status": "ambig2"
+  },
+  {
+   "idx": 114,
+   "raw": "INKTRAIN",
+   "resolved": "FORCED_LINKTRAIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 115,
+   "raw": "RATED_TDP_MAX",
+   "resolved": "RATED_TDP_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 116,
+   "raw": "RATED_TDP_MIN",
+   "resolved": "RATED_TDP_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 117,
+   "raw": "OST_MAX",
+   "resolved": "TURBO_BOOST_MAX",
+   "status": "ambig4"
+  },
+  {
+   "idx": 118,
+   "raw": "LOCKED_DRIVER",
+   "resolved": "LOCKED_DRIVER",
+   "status": "ambig2"
+  },
+  {
+   "idx": 119,
+   "raw": "C_MAX",
+   "resolved": "ECC_MAX",
+   "status": "ambig14"
+  },
+  {
+   "idx": 120,
+   "raw": "UNLOAD_DRIVER_VOLTAGE_RAIL_0",
+   "resolved": "UNLOAD_DRIVER_VOLTAGE_RAIL_0",
+   "status": "ambig3"
+  },
+  {
+   "idx": 121,
+   "raw": "IL_0",
+   "resolved": "UNLOAD_DRIVER_VOLTAGE_RAIL_0",
+   "status": "ambig3"
+  },
+  {
+   "idx": 122,
+   "raw": "LTAGE_RAIL_1",
+   "resolved": "UNLOAD_DRIVER_VOLTAGE_RAIL_1",
+   "status": "ambig3"
+  },
+  {
+   "idx": 123,
+   "raw": "RIVER_DISP",
+   "resolved": "UNLOAD_DRIVER_DISP",
+   "status": "ambig2"
+  },
+  {
+   "idx": 124,
+   "raw": "_BOOST_MAX",
+   "resolved": "TURBO_BOOST_MAX",
+   "status": "ambig4"
+  },
+  {
+   "idx": 126,
+   "raw": "K_LIMIT_MAX",
+   "resolved": "OOB_CLOCK_LIMIT_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 127,
+   "raw": "K_LIMIT_MIN",
+   "resolved": "OOB_CLOCK_LIMIT_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 128,
+   "raw": "CUDA_MAX",
+   "resolved": "CUDA_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 129,
+   "raw": "LICY_DOM_GRP_0",
+   "resolved": "THERM_POLICY_DOM_GRP_0",
+   "status": "ambig2"
+  },
+  {
+   "idx": 130,
+   "raw": "LICY_DOM_GRP_1",
+   "resolved": "EDP_POLICY_DOM_GRP_1",
+   "status": "ambig4"
+  },
+  {
+   "idx": 131,
+   "raw": "LICY_NVVDD",
+   "resolved": "THERM_POLICY_NVVDD",
+   "status": "ambig2"
+  },
+  {
+   "idx": 132,
+   "raw": "CY_DOM_GRP_1",
+   "resolved": "EDP_POLICY_DOM_GRP_1",
+   "status": "ambig4"
+  },
+  {
+   "idx": 133,
+   "raw": "AGE_LOGIC",
+   "resolved": "OVERVOLTAGE_LOGIC",
+   "status": "ambig2"
+  },
+  {
+   "idx": 134,
+   "raw": "AGE_SRAM",
+   "resolved": "OVERVOLTAGE_SRAM",
+   "status": "ambig2"
+  },
+  {
+   "idx": 135,
+   "raw": "ITY_ALT_LOGIC",
+   "resolved": "RELIABILITY_ALT_LOGIC",
+   "status": "ambig2"
+  },
+  {
+   "idx": 136,
+   "raw": "ITY_ALT_SRAM",
+   "resolved": "RELIABILITY_ALT_SRAM",
+   "status": "ambig2"
+  },
+  {
+   "idx": 137,
+   "raw": "RELIABILITY_LOGIC",
+   "resolved": "RELIABILITY_LOGIC",
+   "status": "ambig2"
+  },
+  {
+   "idx": 139,
+   "raw": "RELIABILITY_SRAM",
+   "resolved": "RELIABILITY_SRAM",
+   "status": "ambig2"
+  },
+  {
+   "idx": 140,
+   "raw": "ITY_SRAM",
+   "resolved": "RELIABILITY_SRAM",
+   "status": "ambig2"
+  },
+  {
+   "idx": 141,
+   "raw": "POWERMIZER_HARD",
+   "resolved": "POWERMIZER_HARD",
+   "status": "ambig2"
+  },
+  {
+   "idx": 143,
+   "raw": "SYSPERF",
+   "resolved": "SYSPERF",
+   "status": "ambig2"
+  },
+  {
+   "idx": 144,
+   "raw": "STATE",
+   "resolved": "RLW_TAGSTATE",
+   "status": "ambig6"
+  },
+  {
+   "idx": 146,
+   "raw": "PMU_DOM_GRP_1",
+   "resolved": "PMU_DOM_GRP_1",
+   "status": "ambig2"
+  },
+  {
+   "idx": 147,
+   "raw": "SLI_GPU_BOOST_DOM_GRP_0",
+   "resolved": "SLI_GPU_BOOST_DOM_GRP_0",
+   "status": "ambig2"
+  },
+  {
+   "idx": 148,
+   "raw": "SLI_GPU_BOOST_DOM_GRP_1",
+   "resolved": "SLI_GPU_BOOST_DOM_GRP_1",
+   "status": "ambig2"
+  },
+  {
+   "idx": 149,
+   "raw": "M_GRP_1",
+   "resolved": "PMU_DOM_GRP_1",
+   "status": "ambig10"
+  },
+  {
+   "idx": 150,
+   "raw": "OWER",
+   "resolved": "AUX_POWER",
+   "status": "ambig8"
+  },
+  {
+   "idx": 151,
+   "raw": "_CONTROL",
+   "resolved": "EXT_PERF_CONTROL",
+   "status": "ambig2"
+  },
+  {
+   "idx": 152,
+   "raw": "MXM_ACPOWER",
+   "resolved": "MXM_ACPOWER",
+   "status": "ambig2"
+  },
+  {
+   "idx": 153,
+   "raw": "VMIN_LOGIC",
+   "resolved": "VMIN_LOGIC",
+   "status": "ambig2"
+  },
+  {
+   "idx": 154,
+   "raw": "GPU_STATE_LOAD_BOOST_DOM_GRP_0",
+   "resolved": "GPU_STATE_LOAD_BOOST_DOM_GRP_0",
+   "status": "ambig2"
+  },
+  {
+   "idx": 155,
+   "raw": "_GRP_0",
+   "resolved": "PMU_DOM_GRP_0",
+   "status": "ambig8"
+  },
+  {
+   "idx": 156,
+   "raw": "_GRP_1",
+   "resolved": "PMU_DOM_GRP_1",
+   "status": "ambig10"
+  },
+  {
+   "idx": 157,
+   "raw": "MODS_RULES_STRICT_PSTATE_MAX",
+   "resolved": "MODS_RULES_STRICT_PSTATE_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 158,
+   "raw": "MODS_RULES_STRICT_PSTATE_MIN",
+   "resolved": "MODS_RULES_STRICT_PSTATE_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 159,
+   "raw": "MODS_RULES_STRICT_DRAM_MAX",
+   "resolved": "MODS_RULES_STRICT_DRAM_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 160,
+   "raw": "MODS_RULES_STRICT_PCIE_MAX",
+   "resolved": "MODS_RULES_STRICT_PCIE_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 161,
+   "raw": "MODS_RULES_STRICT_GPC_MAX",
+   "resolved": "MODS_RULES_STRICT_GPC_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 162,
+   "raw": "MODS_RULES_STRICT_DISP_MAX",
+   "resolved": "MODS_RULES_STRICT_DISP_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 163,
+   "raw": "MODS_RULES_STRICT_DRAM_MIN",
+   "resolved": "MODS_RULES_STRICT_DRAM_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 164,
+   "raw": "MODS_RULES_STRICT_PCIE_MIN",
+   "resolved": "MODS_RULES_STRICT_PCIE_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 165,
+   "raw": "MODS_RULES_STRICT_GPC_MIN",
+   "resolved": "MODS_RULES_STRICT_GPC_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 167,
+   "raw": "T_DISP_MIN",
+   "resolved": "CLIENT_STRICT_DISP_MIN",
+   "status": "ambig6"
+  },
+  {
+   "idx": 168,
+   "raw": "ES_LOOSE_0_MAX",
+   "resolved": "MODS_RULES_LOOSE_0_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 169,
+   "raw": "ES_LOOSE_0_MIN",
+   "resolved": "MODS_RULES_LOOSE_0_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 170,
+   "raw": "ES_LOOSE_1_MAX",
+   "resolved": "MODS_RULES_LOOSE_1_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 171,
+   "raw": "ES_LOOSE_1_MIN",
+   "resolved": "MODS_RULES_LOOSE_1_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 172,
+   "raw": "ES_LOOSE_2_MAX",
+   "resolved": "MODS_RULES_LOOSE_2_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 173,
+   "raw": "ES_LOOSE_2_MIN",
+   "resolved": "MODS_RULES_LOOSE_2_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 174,
+   "raw": "ES_LOOSE_3_MAX",
+   "resolved": "MODS_RULES_LOOSE_3_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 175,
+   "raw": "ES_LOOSE_3_MIN",
+   "resolved": "MODS_RULES_LOOSE_3_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 176,
+   "raw": "ES_LOOSE_4_MAX",
+   "resolved": "MODS_RULES_LOOSE_4_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 177,
+   "raw": "ES_LOOSE_4_MIN",
+   "resolved": "MODS_RULES_LOOSE_4_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 178,
+   "raw": "ES_LOOSE_5_MAX",
+   "resolved": "MODS_RULES_LOOSE_5_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 179,
+   "raw": "ES_LOOSE_5_MIN",
+   "resolved": "MODS_RULES_LOOSE_5_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 180,
+   "raw": "ES_LOOSE_6_MAX",
+   "resolved": "MODS_RULES_LOOSE_6_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 181,
+   "raw": "ES_LOOSE_6_MIN",
+   "resolved": "MODS_RULES_LOOSE_6_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 182,
+   "raw": "ES_LOOSE_7_MAX",
+   "resolved": "MODS_RULES_LOOSE_7_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 183,
+   "raw": "ES_LOOSE_7_MIN",
+   "resolved": "MODS_RULES_LOOSE_7_MIN",
+   "status": "ambig2"
+  },
+  {
+   "idx": 184,
+   "raw": "ES_LOOSE_8_MAX",
+   "resolved": "MODS_RULES_LOOSE_8_MAX",
+   "status": "ambig2"
+  },
+  {
+   "idx": 185,
+   "raw": "ES_LOOSE_8_MIN",
+   "resolved": "MODS_RULES_LOOSE_8_MIN",
+   "status": "ambig2"
+  }
+ ],
+ "counts": {
+  "unique": 0,
+  "ambiguous": 159,
+  "none": 0
+ }
+}

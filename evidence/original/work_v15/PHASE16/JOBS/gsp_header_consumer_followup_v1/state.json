@@ -1,0 +1,10 @@
+{
+  "job": "gsp_header_consumer_followup_v1",
+  "stage": "running",
+  "started_at": "2026-11-03T18:39:16.547021+00:00",
+  "wrapper_pid": 1650945,
+  "task_sha256": "af4c381b04dc14bbe7d2a2e5dbe64e40eb639daab4760cee16c17a1d7bedeb59",
+  "hermes_pid": 1650946,
+  "hermes_start_ticks": "209710243",
+  "heartbeat_at": "2026-11-03T18:59:55.096833+00:00"
+}

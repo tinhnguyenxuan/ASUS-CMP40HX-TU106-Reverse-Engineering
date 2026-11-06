@@ -1,0 +1,7 @@
+Hermes: chỉ dispatch sau khi mmio_topology_v1 kết thúc; không sửa output của job còn sống. Không /goal/resume/Hermes con/GPU/config/model changes. Offline workspace /home/REDACTED_USER/codex-work/work_v15, /usr/bin/python3.
+
+Đọc PHASE16/mmio_topology_coordinator_review.json. Lỗi quan trọng: CSV dùng NV_XVE_ID_VENDOR_NVIDIA=0x10de (access_source C---V) như địa chỉ register, nên đọc poison lệchword thành0x5040badf rồi gọi data. Kết luận52/52 matched source là chưa hợp lệ vì inputcatalog lẫn enum/constant với registeraddress.
+
+Output riêng PHASE16/MMIO_NAMESPACE/. Parse lại nguồn Turing theo loại macro: register/address với access/address declaration phù hợp; fieldbitrange; enum/constant value; indexed address expression. Không xem mọi #define sốhex là register. Tách vị trí MMIO BAR0, PCI config và constant namespaces. Kiểm toán toàn52saved entries, chỉ đọc lại file đãdump (khônghardware); liệt kê confirmedaddresses, constants mislabelled, misaligned addresses, unsupported expressions và unknown.
+
+Tính lại bitfield extraction chỉ trên registervalue thực; error-like/poison phải đánh dấu không có semanticfieldvalue đáng tin. Không biếnenumvalue thànhoffset. Xác minh headerhash/lines, giữ source applicability. Phân biệt L2TLB với L2cache. Xuất mmio_namespace_verified.json, corrected_registers.csv, script+run.log và MMIO_NAMESPACE_REPORT.md; giữ artifact cũ kèm supersession note, không sửa binary/dump gốc hay checkpoint chung. Chạy tool thật; không gọi wholeGPU DONE.

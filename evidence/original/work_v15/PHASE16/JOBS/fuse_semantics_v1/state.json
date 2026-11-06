@@ -1,0 +1,12 @@
+{
+  "job": "fuse_semantics_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:11:34.176721+00:00",
+  "wrapper_pid": 1629156,
+  "task_sha256": "9954e3654ee45543d62d20d83de25f466f79c0609fa799af0193677666e22c2c",
+  "hermes_pid": 1629157,
+  "hermes_start_ticks": "208464006",
+  "heartbeat_at": "2026-11-03T15:17:54.428633+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:17:56.429421+00:00"
+}

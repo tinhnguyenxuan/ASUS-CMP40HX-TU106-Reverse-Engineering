@@ -1,0 +1,22 @@
+Hoàn tất. Tất cả đã được lưu và xác thực bằng hash thực tế, không có tác tác nào bị làm gián đoạn.
+
+**Kết quả PHASE16 (NVIDIA/open-gpu-kernel-modules 615.78.08, commit `ca2d03e6fafd4d4b56b383497d931c25b283bfcf`)**
+
+11 tệp công khai đã lưu vào `/home/REDACTED_USER/codex-work/work_v15/PHASE16/OFFICIAL_CONSUMER_SOURCE/`, kèm URL không đổi và SHA256 (đã kiểm tra khớp toàn bộ):
+
+- `ctrl2080fb.h` — lệnh `NV2080_CTRL_CMD_FB_GET_WPR_REGION_INFO` (0x20801364U) + params `wpr1Start/wpr1End/wpr2Start/wpr2End/fbRegionOfWpr2Start`; kết luận **end là exclusive**.
+- `bin_data_pvt.h` + `bin_data.c` — `BINDATA_STORAGE_PVT` (actualSize/compressedSize/pData/flags/relOffset), header `NVUCODES` (magic, numEntries, fingerprint); `bindataGetBufferSize` đọc `actualSize`; `bindataArchiveGetStorage` tra theo `BINDATA_LABEL` enum; `relOffset` có trong struct nhưng **không được đọc** bởi đường dẫn công khai (chỉ được xóa ở `bindataDestroyStorage`); chỉ mục bắt đầu từ 1.
+- `kernel_gsp.c` + `kernel_gsp_gh100.c` — `_kgspBootGspRm` gọi `kgspIsWpr2Up_HAL` → `kgspPopulateWprMeta_HAL` → `kgspBootstrap_HAL`; `kgspPopulateWprMeta_GH100` chỉ điền kích thước, **offset thực tế do ACR ucode điền**; `kgspGetWprEndMargin_GH100` đổi raw(MB)→bytes bằng `<< 20`.
+- `gsp_fw_wpr_meta.h`(v1), `gsp_fw_heap.h`, `dev_fb_gh100/tu102.h`, `dev_hubmmu_base_gb100.h`.
+
+**Không có trong nguồn công khai (khai báo rõ, không suy đoán):**
+- Thân hàm `subdeviceCtrlCmdFbGetWprRegionInfo_IMPL` (chỉ lệnh + struct công khai).
+- Người tiêu dùng (consumer) đăng ký/đọc ghi thanh ghi `WPR2_ADDR_HI/LO` — chỉ có macro định nghĩa, lập trình WPR2 nằm trong firmware ACR/bootloader đóng.
+- Tính toán offset `gspFwWprStart/gspFwWprEnd` thực sự (do ACR).
+- Người tiêu dùng đọc `relOffset` và chuỗi tên nguồn mỗi mục trong bindata.
+
+Bản báo cáo: `PHASE16_REPORT.md`; bằng chứng máy đọc được: `PHASE16_EVIDENCE.json` (JSON hợp lệ, 11 tệp, toàn bộ SHA256 khớp).
+
+Tương đổi raw-HI → API-end: `<< 20` (MB sang bytes), không có điều chỉnh `+trang` công khai nào tìm được. Khuyến nghị: nếu cần thân hàm IMPL và consumer WPR2_ADDR, cần nguồn firmware/ACR hoặc phần RM đóng, ngoài phạm vi nguồn công khai này.
+
+Skipped: cloning repo (dùng raw immutably), tool cài đặt mới, truy cập phần cứng. Add when: cần đối chiếu nhị phân thực tế hoặc khai thác firmware ACR.

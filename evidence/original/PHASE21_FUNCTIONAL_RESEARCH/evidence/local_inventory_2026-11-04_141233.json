@@ -1,0 +1,22 @@
+{
+  "schema": "phase21-local-inventory-rerun-summary-v1",
+  "generated_utc": "2026-11-04T14:12:48.717271+00:00",
+  "collector_utc": "2026-11-04T09:03:29.867171+00:00",
+  "target_match": "10de:1f0b",
+  "devices": [],
+  "nvidia_driver": {
+    "error": "[Errno 2] No such file or directory: '/proc/driver/nvidia/version'"
+  },
+  "nvidia_smi": {
+    "status": "TOOL_MISSING",
+    "argv": [
+      "nvidia-smi",
+      "--query-gpu=pci.bus_id,name,uuid,driver_version,vbios_version,pstate,clocks.current.graphics,clocks.current.memory,power.draw,temperature.gpu",
+      "--format=csv,noheader"
+    ]
+  },
+  "sha256_source": "a4615263f704735b80851ad1bb722326ce71a55398f1c64aa3be34aa5ace8223",
+  "classification": "STALE_SOURCE_SUMMARY_NOT_FRESH_CAPTURE",
+  "provenance_correction": "This summary read evidence/local_inventory.json dated 09:03:29Z. It does not preserve the collector stdout emitted at 14:12:33Z and must not be cited as that fresh capture.",
+  "closure_effect": "No target runtime or hardware blocker closed."
+}

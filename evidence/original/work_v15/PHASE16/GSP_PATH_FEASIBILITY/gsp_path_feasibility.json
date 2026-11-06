@@ -1,0 +1,370 @@
+{
+  "audit": "GSP NVUCODES header-consumer loop-header feasibility",
+  "subject": "GSP NVUCODES consumer at VA 0x0459c5e0; loop header 0x0459c6fc; table base s9 = 0x4584790",
+  "inputs": {
+    "gsp": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+    "gsp_sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+    "gsp_size": 22901632,
+    "cfg_json": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/disassembly/cfg.json",
+    "cfg_sha256": "7b08b646a0e804c8566a435bc833e3da4b3c8ae6503156e321fb68e48bddc7b0",
+    "script": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_PATH_FEASIBILITY/gsp_path_feasibility.py",
+    "script_sha256": "eba81f17a2bb9136c29857cf6220bdebaa4af2aff2c416be01ea89d10c538d21",
+    "decoder_reuse": "PHASE16/riscv_audit.py (sext, auipc_jalr, control), read-only",
+    "offline": true
+  },
+  "graph": {
+    "blocks": 516,
+    "edges": 884,
+    "dominators_recomputed_from_edges": true,
+    "iterations": 4,
+    "dom(0x459c6e8, 0x459c6fc)": false,
+    "header_predecessors": [
+      "0x459c6e8",
+      "0x459c7f8"
+    ],
+    "pred(0x459c7f8)": [
+      "0x459c6fc",
+      "0x459c7d0"
+    ],
+    "succ(0x459c6e8)": [
+      "0x459c6fc"
+    ]
+  },
+  "path": {
+    "path": [
+      "0x459c5e0",
+      "0x459c64c",
+      "0x459c654",
+      "0x459c664",
+      "0x459c670",
+      "0x459c680",
+      "0x459c68c",
+      "0x459c6b4",
+      "0x459c6bc",
+      "0x459c6d0",
+      "0x459c6d8",
+      "0x459c810",
+      "0x459c824",
+      "0x459c828",
+      "0x459c844",
+      "0x459c890",
+      "0x459c898",
+      "0x459c8a4",
+      "0x459c8d8",
+      "0x459c7d0",
+      "0x459c7f8",
+      "0x459c6fc"
+    ],
+    "avoids_definition_block": true,
+    "all_consecutive_edges_present_in_cfg": true,
+    "path_edges_verified": [
+      [
+        "0x459c5e0",
+        "0x459c64c",
+        "call_indirect_fallthrough"
+      ],
+      [
+        "0x459c64c",
+        "0x459c654",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c654",
+        "0x459c664",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c664",
+        "0x459c670",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c670",
+        "0x459c680",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c680",
+        "0x459c68c",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c68c",
+        "0x459c6b4",
+        "call_indirect_fallthrough"
+      ],
+      [
+        "0x459c6b4",
+        "0x459c6bc",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c6bc",
+        "0x459c6d0",
+        "call_indirect_fallthrough"
+      ],
+      [
+        "0x459c6d0",
+        "0x459c6d8",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c6d8",
+        "0x459c810",
+        "branch_taken"
+      ],
+      [
+        "0x459c6fc",
+        "0x459c7f8",
+        "branch_taken"
+      ],
+      [
+        "0x459c7d0",
+        "0x459c7f8",
+        "fallthrough"
+      ],
+      [
+        "0x459c7f8",
+        "0x459c6fc",
+        "branch_taken"
+      ],
+      [
+        "0x459c810",
+        "0x459c824",
+        "call_indirect_fallthrough"
+      ],
+      [
+        "0x459c824",
+        "0x459c828",
+        "fallthrough"
+      ],
+      [
+        "0x459c828",
+        "0x459c844",
+        "branch_taken"
+      ],
+      [
+        "0x459c844",
+        "0x459c890",
+        "branch_taken"
+      ],
+      [
+        "0x459c890",
+        "0x459c898",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c898",
+        "0x459c8a4",
+        "branch_fallthrough"
+      ],
+      [
+        "0x459c8a4",
+        "0x459c8d8",
+        "branch_taken"
+      ],
+      [
+        "0x459c8d8",
+        "0x459c7d0",
+        "branch_taken"
+      ]
+    ]
+  },
+  "predicate_trace": [
+    {
+      "va": 72992332,
+      "ins": "sext.w s1, a0",
+      "constraint": "(int32)entry_a0 == 0",
+      "reason": "0x459c650 bnez s1 -> 0x459c970 must NOT be taken to reach 0x459c654"
+    },
+    {
+      "va": 72992344,
+      "ins": "ld a1, -0x90(s0)",
+      "constraint": "MEM(s0-0x90) == MEM(0x4022330)",
+      "reason": "0x459c660 bne a1,a5 -> 0x459c9b4 must NOT be taken (a5 = ld 0x330(0x4022000) = MEM(0x4022330))"
+    },
+    {
+      "va": 72992356,
+      "ins": "lw a1, -0x88(s0)",
+      "constraint": "MEM(s0-0x88) == 1",
+      "reason": "0x459c66c bne a1,a5 -> 0x459c990 must NOT be taken (a5 = 1)"
+    },
+    {
+      "va": 72992372,
+      "ins": "ld a1, -0x80(s0)",
+      "constraint": "MEM(s0-0x80) == MEM(0x4022338)",
+      "reason": "0x459c67c bne a1,a2 -> 0x459c9f8 must NOT be taken (a2 = ld 0x338(0x4022000))"
+    },
+    {
+      "va": 72992384,
+      "ins": "lw a1, -0x84(s0)",
+      "constraint": "C1: MEM(s0-0x84) == 496",
+      "reason": "0x459c688 bne a1,a5 -> 0x459c9d0 must NOT be taken (a5 = 0x1f0 = 496). REACHING DEF: lw a1,-0x84(s0) @0x459c680"
+    },
+    {
+      "va": 72992440,
+      "ins": "beqz a0 -> 0x459ca68",
+      "constraint": "call1_return(a0) != 0",
+      "reason": "0x459c6b8 beqz a0 must NOT be taken to reach 0x459c6bc"
+    },
+    {
+      "va": 72992464,
+      "ins": "sext.w s1, a0",
+      "constraint": "call2_return == 0",
+      "reason": "0x459c6d4 bnez s1 -> 0x459caa8 must NOT be taken to reach 0x459c6d8"
+    },
+    {
+      "va": 72992472,
+      "ins": "lw a3, -0x84(s0)",
+      "constraint": "C2: MEM(s0-0x84) == 0",
+      "reason": "0x459c6e4 beqz a3 -> 0x459c810 must BE taken to reach 0x459c810 (avoiding path). REACHING DEF: lw a3,-0x84(s0) @0x459c6d8"
+    }
+  ],
+  "call_sites_on_path": {
+    "72992328": {
+      "va": "0x459c648",
+      "raw": "0x900e7",
+      "mnemonic": "jalr",
+      "target": null,
+      "resolved": "UNKNOWN (indirect through register)",
+      "in_exec_range": null,
+      "effect": "indirect call through s2 (incoming function-pointer argument); target unresolved; callee NOT entered; fallthrough = assumes return",
+      "rs1": "s2",
+      "rd": "ra",
+      "imm_i": 0
+    },
+    "72992432": {
+      "va": "0x459c6b0",
+      "raw": "0x284080e7",
+      "mnemonic": "jalr",
+      "target": null,
+      "resolved": "0x5281930",
+      "in_exec_range": true,
+      "effect": "PC-relative indirect call -> 0x5281930 (exec segment: True); callee NOT entered; fallthrough = assumes return",
+      "rs1": "ra",
+      "rd": "ra",
+      "imm_i": 644,
+      "auipc_va": "0x459c6ac",
+      "auipc_raw": "0xce5097"
+    },
+    "72992460": {
+      "va": "0x459c6cc",
+      "raw": "0x900e7",
+      "mnemonic": "jalr",
+      "target": null,
+      "resolved": "UNKNOWN (indirect through register)",
+      "in_exec_range": null,
+      "effect": "indirect call through s2 (incoming function-pointer argument); target unresolved; callee NOT entered; fallthrough = assumes return",
+      "rs1": "s2",
+      "rd": "ra",
+      "imm_i": 0
+    }
+  },
+  "frame_analysis": {
+    "slot": "s0-0x84 (loop bound / record count)",
+    "loads": [
+      {
+        "va": "0x459c680",
+        "ins": "lw a1, -0x84(s0)",
+        "role": "bound check vs 496"
+      },
+      {
+        "va": "0x459c6d8",
+        "ins": "lw a3, -0x84(s0)",
+        "role": "back-edge branch beqz"
+      }
+    ],
+    "s0_invariant": true,
+    "stores_to_slot_visible_between_loads": [],
+    "all_stores_in_intervening_blocks": [
+      [
+        72992396,
+        72992408,
+        "sd",
+        "s4, -0x748(a5)",
+        "0x8b47bc23"
+      ],
+      [
+        72992396,
+        72992424,
+        "sd",
+        "s2, -0x740(a5)",
+        "0x8d27b023"
+      ]
+    ],
+    "indirect_calls_between_loads": [
+      72992432,
+      72992460
+    ]
+  },
+  "contradiction": {
+    "c1": "MEM(s0-0x84) == 496 required at 0x459c688 (bne not taken, fallthrough to 0x459c68c), reaching def lw a1,-0x84(s0) @0x459c680",
+    "c2": "MEM(s0-0x84) == 0 required at 0x459c6e4 (beqz taken to 0x459c810), reaching def lw a3,-0x84(s0) @0x459c6d8",
+    "verdict": "INFEASIBLE",
+    "basis": "explicit contradictory constraints on one frame slot with no intervening visible store; not address comparison or intuition",
+    "residual_unknown_only_if": "the only loophole is an unentered callee writing MEM(s0-0x84)=0 between the two loads; no callee is entered and no side-effect summary exists, so that hypothesis is unevidenced"
+  },
+  "reachability": {
+    "header_graph_reachable_without_def_block": true,
+    "but_that_route_is_the_infeasible_path": true,
+    "every_feasible_entry_to_header_path_passes_def_block_first_visit": true,
+    "definition_block_va": "0x459c6e8"
+  },
+  "definitions": {
+    "s9_base_0x4584790": [
+      {
+        "va": "0x459c6e8",
+        "ins": "lui s9, 0x4584"
+      },
+      {
+        "va": "0x459c6f4",
+        "ins": "addi s9, s9, 0x790"
+      }
+    ],
+    "s10_stride_24": [
+      {
+        "va": "0x459c6f8",
+        "ins": "addi s10, zero, 0x18"
+      }
+    ],
+    "s8_index_zero": [
+      {
+        "va": "0x459c6f0",
+        "ins": "mv s8, zero"
+      }
+    ],
+    "s8_increment": [
+      {
+        "va": "0x459c7f8",
+        "ins": "addiw s8, s8, 1"
+      }
+    ],
+    "block_containing_definitions": "0x459c6e8",
+    "entry_block_va": "0x459c5e0",
+    "other_writes_to_s9_s10_s8_in_walked_cfg": "NONE"
+  },
+  "per_visit_state": {
+    "first_visit": "via 0x459c6e8 -> s9=0x4584790, s10=24, s8=0 (definitions hold)",
+    "later_visits_via_back_edge_0x459c7fc_to_0x459c6fc": "s9/s10 survive (callee-saved, zero body writes, calls preserve s-regs); s8 = k on visit k+1 (IV(0,1))",
+    "table_base_definitions_hold_on_every_feasible_visit": true,
+    "s8_equals_zero_on_every_visit": false
+  },
+  "flags_plus_16": {
+    "access": "0x459c70c lw a5, 0x10(a4); a4 = s9 + s8*24 (0x459c708 add a4, s9, s2)",
+    "visit_0": "a4 = 0x4584790, EA = 0x4584790+16, raw 00000000 at VA 0x45847a0 (file 0x5847e0) verified -> PROVEN at record index 0",
+    "visit_k_gt_0": "s8 = k symbolic -> address 0x4584790 + 24k + 16 unverifiable -> UNKNOWN",
+    "kind": "path-specific (first-visit path through 0x459c6e8), not universal"
+  },
+  "indirect_call_fallthrough_soundness": {
+    "0x459c648": "jalr s2 through incoming function-pointer argument; target unresolved; callee not entered; fallthrough edge kept = assumes return (conservative over-approximation)",
+    "0x459c6b0": "auipc ra,0xce5 @0x459c6ac + jalr ra,ra,0x284 -> resolved PC-relative target 0x5281930, in exec segment but unentered; fallthrough kept (conservative)",
+    "0x459c6cc": "jalr s2 through same function-pointer argument; unresolved; callee not entered; fallthrough kept",
+    "judgment": "no callee target inferred, none entered; fallthrough-after-call edges are over-approximations, not unsound edges; all 21 consecutive path edges exist in cfg.json (structurally sound)"
+  },
+  "corrections_vs_prior_artifacts": [
+    "structured_evidence.json hardcodes s9_defined_in_entry_block=true with entry=0x459c5e0: FALSE as written; definitions live in block 0x459c6e8, which is on every FEASIBLE entry->header path but is not the entry block itself",
+    "dom(0x459c6e8, header)=False is graph-correct, but the avoiding-path evidence cited for it is infeasible (see contradiction); graph non-domination does not imply a feasible bypass",
+    "no old outputs were modified; this is an isolated output under GSP_PATH_FEASIBILITY"
+  ],
+  "limits": "offline static analysis only; indirect callees not entered; frame memory and call return values are symbolic; no hardware, firmware, MMIO, keys, bypass, or brute force"
+}

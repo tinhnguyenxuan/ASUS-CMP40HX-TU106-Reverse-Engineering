@@ -1,0 +1,26 @@
+Hoàn tất. Kết quả ngắn gọn:
+
+**Đã tạo PHASE16/VBIOS_TYPED/** (không sửa CHECKPOINT.json hay JOBS cũ):
+
+- `typed_table_verify.py` — công cụ verify, stdlib-only, tự assert tự kiểm tra mỗi lần chạy
+- `typed_tables_verified.json` (84 KB) — raw header/entries/fields, mọi byte unknown có raw hex, source file/hash/function/line mỗi bảng
+- `run.log` — exit 0, tất cả assert passed
+- `VBIOS_TYPED_TABLES.md` — báo cáo
+
+**ROM dùng:** `/tmp/CMP40HX_ORIGINAL_1MB.bin`, sha256 `dc5395dd...` khớp handoff v15. Chỉ đọc, không ghi ROM.
+
+**Kết quả decode (branch version thực từ ROM, theo source envytools/power.c):**
+
+| Slot | Bảng | Off file | Ver ROM | Branch source | Trạng thái | Typed extent |
+|----:|------|----------|---------|---------------|------------|--------------|
+| 17 | PERF TEST SPEC | 0x545f2 | 0x10 | 0x10 (power.c:1188) | decoded | 0x545f2–0x54600, len 14 |
+| 5 | THERMAL DEVICES | 0x58723 | 0x10 | 0x10 (power.c:239) | decoded | 0x58723–0x5875d, len 58 |
+| 20 | THERMAL POLICY | 0x58679 | 0x10 | 0x10 (power.c:1334) | decoded | 0x58679–0x58723, len 170 |
+| 11 | POWER BUDGET | 0x57e92 | 0x30 | 0x30 (power.c:644) | decoded | 0x57e92–0x583e6, len 1364 |
+| 0 | PERFORMANCE | 0x054155 | 0x60 | — (không có parser field trong source, chỉ offset nvbios.c:1095) | UNSUPPORTED | không suy luận |
+
+4/5 bảng decode thực theo schema nguồn (đáp ứng yêu cầu ≥3). PERF slot 0 ghi UNSUPPORTED, không dùng generic header để ép số bảng.
+
+**Sửa tiền đề 14 overlaps:** slot17 source extent = hlen 14 (0x545f2–0x54600), kết trùng đầu slot 1 (0x054600) → liền kề, **không chồng**. 14 overlap cũ là artifact của model generic `esz=70 × cnt=183` (byte offset+2=70, offset+3=183 không phải entry_size/count — source power.c:1198 chỉ đọc version@+0, hlen@+1, comment dòng 1200 cho biết không có entries). Bytes 12 byte còn lại của slot17 giữ unknown, raw nguyên bản, không đoán nghĩa.
+
+Không khẳng định giải mã 40 bảng — chỉ 4 bảng có schema nguồn được triển khai thật, các slot còn lại giữ name_only/unknown. Không tuning, không sửa binary. Paths đã nêu trên.

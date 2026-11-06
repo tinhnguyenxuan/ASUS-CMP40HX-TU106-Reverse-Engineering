@@ -1,0 +1,12 @@
+Hermes, tiếp tục trực tiếp reverse engineering CMP40HX/TU106, không /goal/resume/Hermes con. Workspace /home/REDACTED_USER/codex-work/work_v15. Chỉ file offline/source đã có; không GPU probes/writes, tuning, flash, reboot/driver reload, exploit/bypass. Không đổi config/model. Dùng /usr/bin/python3.
+
+Output riêng PHASE16/MMIO_SOURCE/, không sửa checkpoint chung hay artifacts của job khác. Inputs MMIO/mmio.json, registers_turing.json, registers_all.json, RAW_DATA/tu06.json, TOPOLOGY/aperture_map.json, p9_reclass.json, p9_pattern.json, silicon_topology.json, SECURITY/security_registers.json, MEMORY/memory_registers.json. Source headers /tmp/nvsrc/common/inc/swref/published/turing/tu102 và các họ khác chỉ để đối chiếu với applicability rõ.
+
+Mục tiêu tạo ánh xạ source-backed register/bitfield và topology, không chỉ đếm sốregister:
+1. Tạo mmio_topology_verify.py stdlib; hash toàn bộ inputs/header dùng. Join các địa chỉ đã dump với register/bitfield TU10x source, trích giá trịfield bằng mask thật. Phân biệt register zero, sampled error-like value, named source match, unknown. Không coi header architecture khác là định nghĩa TU106.
+2. Kiểm tra WPR2 LO/HI @0x1fa824/0x1fa828 với header dev_fb.h: VAL31:4 rồi shift12 (28bit, khôngmask20bit); ghi raw, extractedfield, decodedaddress. Xác minh bound semantics từ consumer nếu source có; nếu không giữ UNKNOWN, không tự gán reserved allocation từ subtraction.
+3. Audit page inventory từ RAW_DATA/tu06.json và các corrected summaries: xác định chính xác49trang chưa được phân loại ở đâu, dùng dữ liệu đãdump để phân loại khi đủ sample; ghi sampling limitation, không giả vờ có full4KiB khi chỉ16wordsample. Phân biệt zero/FFFFFFFF/BADFxxxx/BAD00100, không suy physicalengineabsent hoặc addressdecoder cause chỉ từ poison.
+4. Tìm topology definitions TU10x trong dev_top/dev_graph/dev_fuse/source liên quan và đối chiếu saved values. GPC/TPC/SM/ROP/L2 chỉ DECODED khi có sourcefield/consumer thật; popcount=3 hay17 không đủ đặt tên. Tạo danh sách unknown và phép kiểm offline tiếp theo, không hardware experiments.
+5. Lưu mmio_topology_verified.json + register_fields.csv + page_inventory.csv trước report; mọi row có sourcehash/line/raw/offset. Viết MMIO_TOPOLOGY_SOURCE_REPORT.md với actualcoverage numerator/denominator và giới hạn, source applicability, findings/unknowns. Chạy tool thật và lưu stdout/stderr/exitcode mmio_topology_verify_run.log. Không gọi wholeGPU DONE.
+
+Nếu không tìm được nguồn cho field/topology, giữ unknown nhưng vẫn xuất toàn inventory và chứng cứ đã tìm. Trả kết quả thật và paths.

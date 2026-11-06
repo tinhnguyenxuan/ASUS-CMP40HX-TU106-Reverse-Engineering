@@ -1,0 +1,20 @@
+[
+  {
+    "origin": "/tmp/gpu-unlock/docs/How Ampere was unlocked.md",
+    "snapshot": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/ampere_How_Ampere_was_unlocked.md",
+    "sha256": "e4be75e05dd37721f5205234f0b475c26039c3385350b93e8307f9c21baad13b",
+    "provenance": "preexisting local source; upstream commit unverified; GA102 not TU106"
+  },
+  {
+    "origin": "/tmp/gpu-unlock/kernel/gpu_unlock/gfw_eval.h",
+    "snapshot": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/ampere_gfw_eval.h",
+    "sha256": "8c79837e0b17252365c0b3d7f8edb0dc845a2c94bfd9c165c3b095783fffbe00",
+    "provenance": "preexisting local source; upstream commit unverified; GA102 not TU106"
+  },
+  {
+    "origin": "/tmp/gpu-unlock/VERSION",
+    "snapshot": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/ampere_VERSION",
+    "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "provenance": "preexisting local source; upstream commit unverified; GA102 not TU106"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T14:54:42.375883+00:00",
+  "command": "nm -D /lib/x86_64-linux-gnu/libGLX_nvidia.so.0 | grep -E 'vk_icdGetInstanceProcAddr|vkCreateInstance|vkGetInstanceProcAddr'; cat /proc/driver/nvidia/gpus/0000:03:00.0/registry",
+  "returncode": 0,
+  "stdout": "000000000009eb00 T vkCreateInstance\n000000000009ed80 T vkGetInstanceProcAddr\n000000000009f940 T vk_icdGetInstanceProcAddr\nBinary: \"\"\n",
+  "stderr": ""
+}

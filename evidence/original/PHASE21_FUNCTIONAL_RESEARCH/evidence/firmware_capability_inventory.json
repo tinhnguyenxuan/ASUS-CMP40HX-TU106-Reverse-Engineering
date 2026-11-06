@@ -1,0 +1,1732 @@
+[
+  {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+    "bytes": 22901632,
+    "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+    "outer_elf": {
+      "base": 0,
+      "type": 1,
+      "machine": 243,
+      "entry": 0,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 0,
+          "size": 0
+        },
+        {
+          "name": ".fwimage",
+          "type": 1,
+          "flags": 3,
+          "va": 0,
+          "file_offset": 64,
+          "size": 22887880
+        },
+        {
+          "name": ".note.gnu.build-id",
+          "type": 7,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22887944,
+          "size": 36
+        },
+        {
+          "name": ".fwversion",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22887980,
+          "size": 10
+        },
+        {
+          "name": ".fwsignature_ga100",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22887990,
+          "size": 4096
+        },
+        {
+          "name": ".fwsignature_tu11x",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22892086,
+          "size": 4096
+        },
+        {
+          "name": ".fwsignature_tu10x",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22896182,
+          "size": 4096
+        },
+        {
+          "name": ".symtab",
+          "type": 2,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22900280,
+          "size": 96
+        },
+        {
+          "name": ".strtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22900376,
+          "size": 493
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22900869,
+          "size": 123
+        }
+      ]
+    },
+    "fwversion_sections": [
+      {
+        "offset": 22887980,
+        "hex": "3631352e37382e303800",
+        "text": "615.78.08"
+      }
+    ],
+    "inner_elf": {
+      "base": 64,
+      "type": 2,
+      "machine": 243,
+      "entry": 67145728,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 64,
+          "size": 0
+        },
+        {
+          "name": ".ga100_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67112960,
+          "file_offset": 4160,
+          "size": 4464
+        },
+        {
+          "name": ".tu10x_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67121152,
+          "file_offset": 12352,
+          "size": 4464
+        },
+        {
+          "name": ".ga100_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67129344,
+          "file_offset": 20544,
+          "size": 5140
+        },
+        {
+          "name": ".tu10x_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67137536,
+          "file_offset": 28736,
+          "size": 5140
+        },
+        {
+          "name": ".bootstrap",
+          "type": 1,
+          "flags": 6,
+          "va": 67145728,
+          "file_offset": 36928,
+          "size": 116
+        },
+        {
+          "name": ".gnext_resident_text",
+          "type": 1,
+          "flags": 1,
+          "va": 67149824,
+          "file_offset": 22884416,
+          "size": 0
+        },
+        {
+          "name": ".gh100_resident_text",
+          "type": 1,
+          "flags": 1,
+          "va": 67149824,
+          "file_offset": 22884416,
+          "size": 0
+        },
+        {
+          "name": ".ga10x_resident_text",
+          "type": 1,
+          "flags": 1,
+          "va": 67149824,
+          "file_offset": 22884416,
+          "size": 0
+        },
+        {
+          "name": ".ga100_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67149824,
+          "file_offset": 41024,
+          "size": 12288
+        },
+        {
+          "name": ".ga100_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67162112,
+          "file_offset": 53312,
+          "size": 4096
+        },
+        {
+          "name": ".tu10x_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67166208,
+          "file_offset": 57408,
+          "size": 12288
+        },
+        {
+          "name": ".tu10x_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67178496,
+          "file_offset": 69696,
+          "size": 4096
+        },
+        {
+          "name": ".acl",
+          "type": 1,
+          "flags": 3,
+          "va": 67182592,
+          "file_offset": 73792,
+          "size": 331
+        },
+        {
+          "name": ".manifest",
+          "type": 1,
+          "flags": 3,
+          "va": 67182928,
+          "file_offset": 74128,
+          "size": 3760
+        },
+        {
+          "name": ".section_task_init_stack_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 90456064,
+          "file_offset": 22876224,
+          "size": 8192
+        },
+        {
+          "name": ".section_task_rm_stack_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 90464256,
+          "file_offset": 22884416,
+          "size": 65536
+        },
+        {
+          "name": ".header",
+          "type": 1,
+          "flags": 2,
+          "va": 67186688,
+          "file_offset": 77888,
+          "size": 16
+        },
+        {
+          "name": ".memory_region_init_arguments",
+          "type": 1,
+          "flags": 2,
+          "va": 67186704,
+          "file_offset": 22884432,
+          "size": 96
+        },
+        {
+          "name": ".section_task_init_elf_rodata_instance",
+          "type": 1,
+          "flags": 2,
+          "va": 67190784,
+          "file_offset": 81984,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_init_elf_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 67194880,
+          "file_offset": 86080,
+          "size": 8192
+        },
+        {
+          "name": ".section_task_init_elf_paged_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 67203072,
+          "file_offset": 94272,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_init_elf_text_instance",
+          "type": 1,
+          "flags": 6,
+          "va": 67207168,
+          "file_offset": 98368,
+          "size": 16384
+        },
+        {
+          "name": ".section_task_init_elf_paged_text_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 67223552,
+          "file_offset": 114752,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_elf_rodata_instance",
+          "type": 1,
+          "flags": 2,
+          "va": 67227648,
+          "file_offset": 118848,
+          "size": 1982464
+        },
+        {
+          "name": ".section_task_rm_elf_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 69210112,
+          "file_offset": 2101312,
+          "size": 3698688
+        },
+        {
+          "name": ".section_task_rm_elf_paged_data_instance",
+          "type": 1,
+          "flags": 1,
+          "va": 72908800,
+          "file_offset": 22884528,
+          "size": 0
+        },
+        {
+          "name": ".section_task_rm_elf_text_instance",
+          "type": 1,
+          "flags": 6,
+          "va": 72908800,
+          "file_offset": 5800000,
+          "size": 17010688
+        },
+        {
+          "name": ".section_task_rm_elf_paged_text_instance",
+          "type": 1,
+          "flags": 1,
+          "va": 89919488,
+          "file_offset": 22884528,
+          "size": 0
+        },
+        {
+          "name": ".section_task_init_dmem_64kb_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 89919488,
+          "file_offset": 22810688,
+          "size": 65536
+        },
+        {
+          "name": ".section_log_init_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 89985024,
+          "file_offset": 64,
+          "size": 65536
+        },
+        {
+          "name": ".section_task_rm_args_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 90050560,
+          "file_offset": 64,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_msgq_work_areas_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 90054656,
+          "file_offset": 22876224,
+          "size": 135168
+        },
+        {
+          "name": ".section_task_rm_memset_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 90189824,
+          "file_offset": 22876224,
+          "size": 4096
+        },
+        {
+          "name": ".section_log_rm_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 90193920,
+          "file_offset": 64,
+          "size": 262144
+        },
+        {
+          "name": ".comment",
+          "type": 1,
+          "flags": 48,
+          "va": 0,
+          "file_offset": 22884528,
+          "size": 86
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 22884614,
+          "size": 957
+        }
+      ]
+    },
+    "capability_strings": [
+      {
+        "text": "RmForceGridDisplayless",
+        "file_offset": 566048,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67674848
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMSbProgressProfiling",
+        "file_offset": 619920,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67728720
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMExecuteFwsecOnSec2",
+        "file_offset": 619944,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67728744
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmDisableDisplay",
+        "file_offset": 649576,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67758376
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmHDMIDisallowDisplayMask",
+        "file_offset": 649888,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67758688
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmForceEnableDisplayMscg",
+        "file_offset": 650096,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67758896
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmDisableDisplayGlitchPerfLimit",
+        "file_offset": 650832,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67759632
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMEnableSingleHeadMultiDisplay",
+        "file_offset": 650912,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67759712
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMDisplayGpcRgSysclkPauseLatencyUs",
+        "file_offset": 651096,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67759896
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMDisableVESADisplayID20",
+        "file_offset": 651368,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67760168
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmDisableDisplayMux",
+        "file_offset": 651440,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67760240
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2HdcpOffload",
+        "file_offset": 656488,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67765288
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmDisplayDpTunDelayBeforeFecEnable",
+        "file_offset": 660416,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67769216
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmDisableDisplay",
+        "file_offset": 733304,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67842104
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmForceGridDisplayless",
+        "file_offset": 740312,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67849112
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmForceGridDisplayless",
+        "file_offset": 811848,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 67920648
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmProfilerFeature",
+        "file_offset": 1267848,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68376648
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmProfilerControl",
+        "file_offset": 1267872,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68376672
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmProfilerCtxswBackendHint",
+        "file_offset": 1267896,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68376696
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmPmgrIsenseC2cCl4SsgWarOverride",
+        "file_offset": 1800312,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68909112
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMHotPlugI2cDisplays",
+        "file_offset": 1802808,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68911608
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmPmuUcodeProfile",
+        "file_offset": 1807656,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68916456
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmPmuRpcProfiling",
+        "file_offset": 1807912,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68916712
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMAcrExecuteOnSec2",
+        "file_offset": 1816432,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68925232
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmDisableSec2",
+        "file_offset": 1817888,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926688
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2EnableGfnPlatform",
+        "file_offset": 1817904,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926704
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmDisableSec2Load",
+        "file_offset": 1817960,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926760
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2EnableMiracastDbg",
+        "file_offset": 1817984,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926784
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2EnableRtos",
+        "file_offset": 1818008,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926808
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2UcodeProfile",
+        "file_offset": 1818032,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926832
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RMSec2UseDebugFuseOnlyBinary",
+        "file_offset": 1818056,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926856
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2FalcTrace",
+        "file_offset": 1818088,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926888
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2RtosOverrides",
+        "file_offset": 1818104,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926904
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2Bug2540582War",
+        "file_offset": 1818128,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926928
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmSec2PrEnabled",
+        "file_offset": 1818152,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68926952
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmForceGridDisplayless",
+        "file_offset": 1837176,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 68945976
+          }
+        ],
+        "data_pointer_candidates": []
+      },
+      {
+        "text": "RmForceGridDisplayless",
+        "file_offset": 2073400,
+        "mappings": [
+          {
+            "section": ".section_task_rm_elf_rodata_instance",
+            "va": 69182200
+          }
+        ],
+        "data_pointer_candidates": []
+      }
+    ],
+    "adjacent_pair_scan": {
+      "coverage": "Halfword-aligned candidates in executable sections; ADDI/ADDIW; no CFG, no compressed ADDI, no intervening instructions, no pointer dereference tracing",
+      "candidate_pairs": 151251,
+      "string_address_matches": []
+    }
+  },
+  {
+    "path": "/tmp/gsp_firmware/gsp-570.144.bin",
+    "bytes": 28542040,
+    "sha256": "3052aee2872182a14d8d7c069e3a14fe4642405894b24692c4aca4101dfb1809",
+    "outer_elf": {
+      "base": 0,
+      "type": 1,
+      "machine": 243,
+      "entry": 0,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 0,
+          "size": 0
+        },
+        {
+          "name": ".fwimage",
+          "type": 1,
+          "flags": 3,
+          "va": 0,
+          "file_offset": 64,
+          "size": 28528288
+        },
+        {
+          "name": ".note.gnu.build-id",
+          "type": 7,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28528352,
+          "size": 36
+        },
+        {
+          "name": ".fwversion",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28528388,
+          "size": 8
+        },
+        {
+          "name": ".fwsignature_ga100",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28528396,
+          "size": 4096
+        },
+        {
+          "name": ".fwsignature_tu11x",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28532492,
+          "size": 4096
+        },
+        {
+          "name": ".fwsignature_tu10x",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28536588,
+          "size": 4096
+        },
+        {
+          "name": ".symtab",
+          "type": 2,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28540688,
+          "size": 96
+        },
+        {
+          "name": ".strtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28540784,
+          "size": 493
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28541277,
+          "size": 123
+        }
+      ]
+    },
+    "fwversion_sections": [
+      {
+        "offset": 28528388,
+        "hex": "3537302e31343400",
+        "text": "570.144"
+      }
+    ],
+    "inner_elf": {
+      "base": 64,
+      "type": 2,
+      "machine": 243,
+      "entry": 67145728,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 64,
+          "size": 0
+        },
+        {
+          "name": ".ga100_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67112960,
+          "file_offset": 4160,
+          "size": 4464
+        },
+        {
+          "name": ".tu10x_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67121152,
+          "file_offset": 12352,
+          "size": 4464
+        },
+        {
+          "name": ".ga100_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67129344,
+          "file_offset": 20544,
+          "size": 5140
+        },
+        {
+          "name": ".tu10x_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67137536,
+          "file_offset": 28736,
+          "size": 5140
+        },
+        {
+          "name": ".bootstrap",
+          "type": 1,
+          "flags": 6,
+          "va": 67145728,
+          "file_offset": 36928,
+          "size": 116
+        },
+        {
+          "name": ".gnext_resident_text",
+          "type": 1,
+          "flags": 1,
+          "va": 67149824,
+          "file_offset": 28524608,
+          "size": 0
+        },
+        {
+          "name": ".gh100_resident_text",
+          "type": 1,
+          "flags": 1,
+          "va": 67149824,
+          "file_offset": 28524608,
+          "size": 0
+        },
+        {
+          "name": ".ga10x_resident_text",
+          "type": 1,
+          "flags": 1,
+          "va": 67149824,
+          "file_offset": 28524608,
+          "size": 0
+        },
+        {
+          "name": ".ga100_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67149824,
+          "file_offset": 41024,
+          "size": 12288
+        },
+        {
+          "name": ".ga100_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67162112,
+          "file_offset": 53312,
+          "size": 4096
+        },
+        {
+          "name": ".tu10x_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67166208,
+          "file_offset": 57408,
+          "size": 12288
+        },
+        {
+          "name": ".tu10x_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67178496,
+          "file_offset": 69696,
+          "size": 4096
+        },
+        {
+          "name": ".acl",
+          "type": 1,
+          "flags": 3,
+          "va": 67182592,
+          "file_offset": 73792,
+          "size": 353
+        },
+        {
+          "name": ".manifest",
+          "type": 1,
+          "flags": 3,
+          "va": 67182952,
+          "file_offset": 74152,
+          "size": 3736
+        },
+        {
+          "name": ".section_task_init_stack_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 96104448,
+          "file_offset": 28516416,
+          "size": 8192
+        },
+        {
+          "name": ".section_task_rm_stack_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 96112640,
+          "file_offset": 28524608,
+          "size": 65536
+        },
+        {
+          "name": ".header",
+          "type": 1,
+          "flags": 2,
+          "va": 67186688,
+          "file_offset": 77888,
+          "size": 16
+        },
+        {
+          "name": ".memory_region_init_arguments",
+          "type": 1,
+          "flags": 2,
+          "va": 67186704,
+          "file_offset": 28524624,
+          "size": 96
+        },
+        {
+          "name": ".section_task_init_elf_rodata_instance",
+          "type": 1,
+          "flags": 2,
+          "va": 67190784,
+          "file_offset": 81984,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_init_elf_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 67194880,
+          "file_offset": 86080,
+          "size": 8192
+        },
+        {
+          "name": ".section_task_init_elf_paged_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 67203072,
+          "file_offset": 94272,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_init_elf_text_instance",
+          "type": 1,
+          "flags": 6,
+          "va": 67207168,
+          "file_offset": 98368,
+          "size": 20480
+        },
+        {
+          "name": ".section_task_init_elf_paged_text_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 67227648,
+          "file_offset": 118848,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_elf_rodata_instance",
+          "type": 1,
+          "flags": 2,
+          "va": 67231744,
+          "file_offset": 122944,
+          "size": 1822720
+        },
+        {
+          "name": ".section_task_rm_elf_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 69054464,
+          "file_offset": 1945664,
+          "size": 10997760
+        },
+        {
+          "name": ".section_task_rm_elf_paged_data_instance",
+          "type": 1,
+          "flags": 1,
+          "va": 80052224,
+          "file_offset": 28524720,
+          "size": 0
+        },
+        {
+          "name": ".section_task_rm_elf_text_instance",
+          "type": 1,
+          "flags": 6,
+          "va": 80052224,
+          "file_offset": 12943424,
+          "size": 15507456
+        },
+        {
+          "name": ".section_task_rm_elf_paged_text_instance",
+          "type": 1,
+          "flags": 1,
+          "va": 95559680,
+          "file_offset": 28524720,
+          "size": 0
+        },
+        {
+          "name": ".section_task_init_dmem_64kb_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 95559680,
+          "file_offset": 28450880,
+          "size": 65536
+        },
+        {
+          "name": ".section_log_init_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 95625216,
+          "file_offset": 64,
+          "size": 65536
+        },
+        {
+          "name": ".section_task_rm_args_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 95690752,
+          "file_offset": 64,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_msgq_work_areas_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 95694848,
+          "file_offset": 28516416,
+          "size": 135168
+        },
+        {
+          "name": ".section_task_rm_message_timing_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 95830016,
+          "file_offset": 28516416,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_memcpy_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 95834112,
+          "file_offset": 28516416,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_memset_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 95838208,
+          "file_offset": 28516416,
+          "size": 4096
+        },
+        {
+          "name": ".section_log_rm_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 95842304,
+          "file_offset": 64,
+          "size": 262144
+        },
+        {
+          "name": ".comment",
+          "type": 1,
+          "flags": 48,
+          "va": 0,
+          "file_offset": 28524720,
+          "size": 86
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 28524806,
+          "size": 1045
+        }
+      ]
+    }
+  },
+  {
+    "path": "/tmp/gsp_firmware/gsp-535.113.01.bin",
+    "bytes": 23750944,
+    "sha256": "be2c3bb39cee2c4bd6680dce9eb75b26105c576e5aaf2c82f59d11a79f103749",
+    "outer_elf": {
+      "base": 0,
+      "type": 1,
+      "machine": 243,
+      "entry": 0,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 0,
+          "size": 0
+        },
+        {
+          "name": ".fwimage",
+          "type": 1,
+          "flags": 3,
+          "va": 0,
+          "file_offset": 64,
+          "size": 23737168
+        },
+        {
+          "name": ".fwversion",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23737232,
+          "size": 11
+        },
+        {
+          "name": ".fwsignature_ga100",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23737243,
+          "size": 4096
+        },
+        {
+          "name": ".fwsignature_tu11x",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23741339,
+          "size": 4096
+        },
+        {
+          "name": ".fwsignature_tu10x",
+          "type": 1,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23745435,
+          "size": 4096
+        },
+        {
+          "name": ".symtab",
+          "type": 2,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23749536,
+          "size": 216
+        },
+        {
+          "name": ".strtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23749752,
+          "size": 505
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23750257,
+          "size": 104
+        }
+      ]
+    },
+    "fwversion_sections": [
+      {
+        "offset": 23737232,
+        "hex": "3533352e3131332e303100",
+        "text": "535.113.01"
+      }
+    ],
+    "inner_elf": {
+      "base": 64,
+      "type": 2,
+      "machine": 243,
+      "entry": 67203072,
+      "sections": [
+        {
+          "name": "",
+          "type": 0,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 64,
+          "size": 0
+        },
+        {
+          "name": ".gnext_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67112960,
+          "file_offset": 4160,
+          "size": 8616
+        },
+        {
+          "name": ".gh100_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67125248,
+          "file_offset": 16448,
+          "size": 8616
+        },
+        {
+          "name": ".ga10x_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67137536,
+          "file_offset": 28736,
+          "size": 4240
+        },
+        {
+          "name": ".ga100_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67145728,
+          "file_offset": 36928,
+          "size": 4464
+        },
+        {
+          "name": ".tu10x_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67153920,
+          "file_offset": 45120,
+          "size": 4464
+        },
+        {
+          "name": ".gnext_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67162112,
+          "file_offset": 53312,
+          "size": 6856
+        },
+        {
+          "name": ".gh100_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67170304,
+          "file_offset": 61504,
+          "size": 6856
+        },
+        {
+          "name": ".ga10x_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67178496,
+          "file_offset": 69696,
+          "size": 4804
+        },
+        {
+          "name": ".ga100_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67186688,
+          "file_offset": 77888,
+          "size": 5092
+        },
+        {
+          "name": ".tu10x_text",
+          "type": 1,
+          "flags": 6,
+          "va": 67194880,
+          "file_offset": 86080,
+          "size": 5092
+        },
+        {
+          "name": ".bootstrap",
+          "type": 1,
+          "flags": 6,
+          "va": 67203072,
+          "file_offset": 94272,
+          "size": 236
+        },
+        {
+          "name": ".gnext_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67207168,
+          "file_offset": 98368,
+          "size": 8192
+        },
+        {
+          "name": ".gnext_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67215360,
+          "file_offset": 106560,
+          "size": 4096
+        },
+        {
+          "name": ".gh100_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67219456,
+          "file_offset": 110656,
+          "size": 8192
+        },
+        {
+          "name": ".gh100_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67227648,
+          "file_offset": 118848,
+          "size": 4096
+        },
+        {
+          "name": ".ga10x_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67231744,
+          "file_offset": 122944,
+          "size": 8192
+        },
+        {
+          "name": ".ga10x_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67239936,
+          "file_offset": 131136,
+          "size": 4096
+        },
+        {
+          "name": ".ga100_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67244032,
+          "file_offset": 135232,
+          "size": 12288
+        },
+        {
+          "name": ".ga100_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67256320,
+          "file_offset": 147520,
+          "size": 4096
+        },
+        {
+          "name": ".tu10x_resident_text",
+          "type": 1,
+          "flags": 7,
+          "va": 67260416,
+          "file_offset": 151616,
+          "size": 12288
+        },
+        {
+          "name": ".tu10x_resident_data",
+          "type": 1,
+          "flags": 3,
+          "va": 67272704,
+          "file_offset": 163904,
+          "size": 4096
+        },
+        {
+          "name": ".acl",
+          "type": 1,
+          "flags": 3,
+          "va": 67276800,
+          "file_offset": 168000,
+          "size": 353
+        },
+        {
+          "name": ".manifest",
+          "type": 1,
+          "flags": 3,
+          "va": 67277160,
+          "file_offset": 168360,
+          "size": 3736
+        },
+        {
+          "name": ".section_task_init_stack_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 90767360,
+          "file_offset": 176192,
+          "size": 8192
+        },
+        {
+          "name": ".section_task_rm_stack_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 90775552,
+          "file_offset": 12456000,
+          "size": 65536
+        },
+        {
+          "name": ".header",
+          "type": 1,
+          "flags": 3,
+          "va": 67280896,
+          "file_offset": 172096,
+          "size": 16
+        },
+        {
+          "name": ".memory_region_init_arguments",
+          "type": 1,
+          "flags": 3,
+          "va": 67280912,
+          "file_offset": 23732304,
+          "size": 96
+        },
+        {
+          "name": ".section_task_rm_elf_rodata_instance",
+          "type": 1,
+          "flags": 2,
+          "va": 67284992,
+          "file_offset": 22347840,
+          "size": 1363968
+        },
+        {
+          "name": ".section_task_rm_elf_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 68648960,
+          "file_offset": 12533824,
+          "size": 9809920
+        },
+        {
+          "name": ".section_task_rm_elf_paged_data_instance",
+          "type": 1,
+          "flags": 1,
+          "va": 78458880,
+          "file_offset": 23732400,
+          "size": 0
+        },
+        {
+          "name": ".section_task_rm_elf_text_instance",
+          "type": 1,
+          "flags": 6,
+          "va": 78458880,
+          "file_offset": 184384,
+          "size": 12271616
+        },
+        {
+          "name": ".section_task_rm_elf_paged_text_instance",
+          "type": 1,
+          "flags": 1,
+          "va": 90730496,
+          "file_offset": 23732400,
+          "size": 0
+        },
+        {
+          "name": ".section_task_init_elf_rodata_instance",
+          "type": 1,
+          "flags": 2,
+          "va": 90730496,
+          "file_offset": 22343744,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_init_elf_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 90734592,
+          "file_offset": 12456000,
+          "size": 8192
+        },
+        {
+          "name": ".section_task_init_elf_paged_data_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 90742784,
+          "file_offset": 23711808,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_init_elf_text_instance",
+          "type": 1,
+          "flags": 6,
+          "va": 90746880,
+          "file_offset": 23715904,
+          "size": 16384
+        },
+        {
+          "name": ".section_task_init_elf_paged_text_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 90763264,
+          "file_offset": 12529728,
+          "size": 4096
+        },
+        {
+          "name": ".section_log_rm_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 90841088,
+          "file_offset": 64,
+          "size": 262144
+        },
+        {
+          "name": ".section_task_rm_args_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 91103232,
+          "file_offset": 64,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_init_dmem_64kb_instance",
+          "type": 1,
+          "flags": 3,
+          "va": 91107328,
+          "file_offset": 12464192,
+          "size": 65536
+        },
+        {
+          "name": ".section_log_init_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 91172864,
+          "file_offset": 64,
+          "size": 65536
+        },
+        {
+          "name": ".section_task_rm_message_timing_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 91238400,
+          "file_offset": 22343744,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_msgq_work_areas_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 91242496,
+          "file_offset": 23715904,
+          "size": 135168
+        },
+        {
+          "name": ".section_task_rm_memcpy_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 91377664,
+          "file_offset": 23715904,
+          "size": 4096
+        },
+        {
+          "name": ".section_task_rm_memset_buffer_instance",
+          "type": 8,
+          "flags": 3,
+          "va": 91381760,
+          "file_offset": 23732288,
+          "size": 4096
+        },
+        {
+          "name": ".comment",
+          "type": 1,
+          "flags": 48,
+          "va": 0,
+          "file_offset": 23732400,
+          "size": 59
+        },
+        {
+          "name": ".riscv.attributes",
+          "type": 1879048195,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23732459,
+          "size": 434
+        },
+        {
+          "name": ".shstrtab",
+          "type": 3,
+          "flags": 0,
+          "va": 0,
+          "file_offset": 23732893,
+          "size": 1198
+        }
+      ]
+    }
+  }
+]

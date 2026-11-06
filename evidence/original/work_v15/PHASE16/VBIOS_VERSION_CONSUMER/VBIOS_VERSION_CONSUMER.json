@@ -1,0 +1,995 @@
+{
+  "results": {
+    "images": {
+      "rom": {
+        "path": "/home/REDACTED_USER/codex-work/cmp40hx_transfer/CMP40HX_ORIGINAL_1MB.bin.txt",
+        "size": 1048576,
+        "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+        "size_ok": true,
+        "hash_ok": true
+      },
+      "t4": {
+        "path": "/home/REDACTED_USER/codex-work/cmp40hx_transfer/cmp40hx_t4.bin.txt",
+        "size": 495616,
+        "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+        "size_ok": true,
+        "hash_ok": true
+      },
+      "shadow": {
+        "path": "/tmp/v11chk/RAW_DATA/vbios_shadow.bin",
+        "size": 1048576,
+        "sha256": "2715c0b106931b540b5ef6660201919e9297f3f5cdc61432d9a16352c55b717a",
+        "size_ok": true,
+        "hash_ok": true
+      }
+    },
+    "source": {
+      "bit.c": {
+        "path": "/tmp/envytools/nvbios/bit.c",
+        "sha256": "ad7475b67203275e1fe05ac8c910ce2ad431eacb930ca3a858e085dceb87f335",
+        "hash_ok": true
+      },
+      "power.c": {
+        "path": "/tmp/envytools/nvbios/power.c",
+        "sha256": "6f4d9d065dd37d8ea49ec3f7a7aeedd2723b13a1c223bc90e90de5be1802c8a6",
+        "hash_ok": true
+      },
+      "nvbios.c": {
+        "path": "/tmp/envytools/nvbios/nvbios.c",
+        "sha256": "7e9f739bf8e4b45f168e90b4d6b07c0c0d039a2bdb76f753b38069714f36907f",
+        "hash_ok": true
+      },
+      "bios.c": {
+        "path": "/tmp/envytools/nvbios/bios.c",
+        "sha256": "1a87fa1eab4712e120771ef9af0d5df2c81ee7a69dbf43cd38415d6bcdf09ac8",
+        "hash_ok": true
+      }
+    },
+    "code_paths": [
+      {
+        "file": "nvbios/info.c",
+        "function": "envy_bios_parse_bit_i",
+        "lines": "49-52",
+        "statement": "info->version[0] = data[bit->t_offset + 3]; (version[3]=+0, version[2]=+1, version[1]=+2, version[0]=+3 MAJOR, version[4]=+4)",
+        "precondition": "BIT entry type=='i', version==2 (bit.c:50), t_len>=0x19 (info.c:31)",
+        "called_from": "bit.c:140 envy_bios_parse_bit dispatch, inside envy_bios_parse (bios.c:237)"
+      },
+      {
+        "file": "nvbios/nvbios.c",
+        "function": "parse_bios_version",
+        "lines": "849-868 (write at 858)",
+        "statement": "bios->info.version[0] = bios->data[offset + 3]; called with bios->bmp_offset + 10 at nvbios.c:1078 -> reads data[bmp_offset + 13]",
+        "precondition": "bios->bmp_offset != 0 && bios->type == ENVY_BIOS_TYPE_NV04 (nvbios.c:1077)",
+        "notes": "BMP path OVERWRITES whatever BIT 'i' wrote; BMP signature \\xff\\x7fNV\\0 located by find_string (bios.c:161-168, bios.c:229)"
+      }
+    ],
+    "bit": {
+      "rom": {
+        "bit_off": 165808,
+        "sig": "ffb84249540000",
+        "sig_ok": true,
+        "header": {
+          "version_u16@+6": "0x100",
+          "hlen@+8": 12,
+          "rlen@+9": 6,
+          "entriesnum@+10": 17,
+          "header_checksum_mod256": 0
+        },
+        "entries": [
+          {
+            "idx": 0,
+            "type": "2",
+            "type_hex": "0x32",
+            "version": 1,
+            "t_len": 4,
+            "t_offset": 562,
+            "t_offset_hex": "0x232"
+          },
+          {
+            "idx": 1,
+            "type": "B",
+            "type_hex": "0x42",
+            "version": 2,
+            "t_len": 37,
+            "t_offset": 574,
+            "t_offset_hex": "0x23e"
+          },
+          {
+            "idx": 2,
+            "type": "C",
+            "type_hex": "0x43",
+            "version": 2,
+            "t_len": 44,
+            "t_offset": 611,
+            "t_offset_hex": "0x263"
+          },
+          {
+            "idx": 3,
+            "type": "D",
+            "type_hex": "0x44",
+            "version": 1,
+            "t_len": 4,
+            "t_offset": 655,
+            "t_offset_hex": "0x28f"
+          },
+          {
+            "idx": 4,
+            "type": "I",
+            "type_hex": "0x49",
+            "version": 1,
+            "t_len": 36,
+            "t_offset": 659,
+            "t_offset_hex": "0x293"
+          },
+          {
+            "idx": 5,
+            "type": "M",
+            "type_hex": "0x4d",
+            "version": 2,
+            "t_len": 29,
+            "t_offset": 695,
+            "t_offset_hex": "0x2b7"
+          },
+          {
+            "idx": 6,
+            "type": "N",
+            "type_hex": "0x4e",
+            "version": 0,
+            "t_len": 0,
+            "t_offset": 0,
+            "t_offset_hex": "0x0"
+          },
+          {
+            "idx": 7,
+            "type": "P",
+            "type_hex": "0x50",
+            "version": 2,
+            "t_len": 224,
+            "t_offset": 724,
+            "t_offset_hex": "0x2d4"
+          },
+          {
+            "idx": 8,
+            "type": "S",
+            "type_hex": "0x53",
+            "version": 2,
+            "t_len": 24,
+            "t_offset": 948,
+            "t_offset_hex": "0x3b4"
+          },
+          {
+            "idx": 9,
+            "type": "T",
+            "type_hex": "0x54",
+            "version": 1,
+            "t_len": 2,
+            "t_offset": 972,
+            "t_offset_hex": "0x3cc"
+          },
+          {
+            "idx": 10,
+            "type": "U",
+            "type_hex": "0x55",
+            "version": 1,
+            "t_len": 5,
+            "t_offset": 974,
+            "t_offset_hex": "0x3ce"
+          },
+          {
+            "idx": 11,
+            "type": "V",
+            "type_hex": "0x56",
+            "version": 1,
+            "t_len": 6,
+            "t_offset": 979,
+            "t_offset_hex": "0x3d3"
+          },
+          {
+            "idx": 12,
+            "type": "x",
+            "type_hex": "0x78",
+            "version": 1,
+            "t_len": 8,
+            "t_offset": 985,
+            "t_offset_hex": "0x3d9"
+          },
+          {
+            "idx": 13,
+            "type": "d",
+            "type_hex": "0x64",
+            "version": 1,
+            "t_len": 2,
+            "t_offset": 993,
+            "t_offset_hex": "0x3e1"
+          },
+          {
+            "idx": 14,
+            "type": "p",
+            "type_hex": "0x70",
+            "version": 2,
+            "t_len": 4,
+            "t_offset": 995,
+            "t_offset_hex": "0x3e3"
+          },
+          {
+            "idx": 15,
+            "type": "u",
+            "type_hex": "0x75",
+            "version": 1,
+            "t_len": 13,
+            "t_offset": 999,
+            "t_offset_hex": "0x3e7"
+          },
+          {
+            "idx": 16,
+            "type": "i",
+            "type_hex": "0x69",
+            "version": 2,
+            "t_len": 104,
+            "t_offset": 1012,
+            "t_offset_hex": "0x3f4"
+          }
+        ],
+        "i_entry": {
+          "idx": 16,
+          "type": "i",
+          "type_hex": "0x69",
+          "version": 2,
+          "t_len": 104,
+          "t_offset": 1012,
+          "t_offset_hex": "0x3f4"
+        },
+        "i_stock_version": {
+          "version": [
+            0,
+            217,
+            0,
+            207,
+            0
+          ],
+          "major_version[0]": "0x0",
+          "read_offset": "0x3f7",
+          "read_byte": "0x0"
+        },
+        "i_intended_version": {
+          "version": [
+            144,
+            6,
+            103,
+            0,
+            6
+          ],
+          "major_version[0]": "0x90",
+          "read_offset": "0x289f7",
+          "read_base": "0x28600",
+          "stored_t_offset": "0x3f4"
+        },
+        "i_raw_stored": "cf00d9000000ffdd00000080fdf904de",
+        "i_raw_intended": "006706900600000e31c301c402000030"
+      },
+      "t4": {
+        "bit_off": 165808,
+        "sig": "ffb84249540000",
+        "sig_ok": true,
+        "header": {
+          "version_u16@+6": "0x100",
+          "hlen@+8": 12,
+          "rlen@+9": 6,
+          "entriesnum@+10": 17,
+          "header_checksum_mod256": 0
+        },
+        "entries": [
+          {
+            "idx": 0,
+            "type": "2",
+            "type_hex": "0x32",
+            "version": 1,
+            "t_len": 4,
+            "t_offset": 562,
+            "t_offset_hex": "0x232"
+          },
+          {
+            "idx": 1,
+            "type": "B",
+            "type_hex": "0x42",
+            "version": 2,
+            "t_len": 37,
+            "t_offset": 574,
+            "t_offset_hex": "0x23e"
+          },
+          {
+            "idx": 2,
+            "type": "C",
+            "type_hex": "0x43",
+            "version": 2,
+            "t_len": 44,
+            "t_offset": 611,
+            "t_offset_hex": "0x263"
+          },
+          {
+            "idx": 3,
+            "type": "D",
+            "type_hex": "0x44",
+            "version": 1,
+            "t_len": 4,
+            "t_offset": 655,
+            "t_offset_hex": "0x28f"
+          },
+          {
+            "idx": 4,
+            "type": "I",
+            "type_hex": "0x49",
+            "version": 1,
+            "t_len": 36,
+            "t_offset": 659,
+            "t_offset_hex": "0x293"
+          },
+          {
+            "idx": 5,
+            "type": "M",
+            "type_hex": "0x4d",
+            "version": 2,
+            "t_len": 29,
+            "t_offset": 695,
+            "t_offset_hex": "0x2b7"
+          },
+          {
+            "idx": 6,
+            "type": "N",
+            "type_hex": "0x4e",
+            "version": 0,
+            "t_len": 0,
+            "t_offset": 0,
+            "t_offset_hex": "0x0"
+          },
+          {
+            "idx": 7,
+            "type": "P",
+            "type_hex": "0x50",
+            "version": 2,
+            "t_len": 224,
+            "t_offset": 724,
+            "t_offset_hex": "0x2d4"
+          },
+          {
+            "idx": 8,
+            "type": "S",
+            "type_hex": "0x53",
+            "version": 2,
+            "t_len": 24,
+            "t_offset": 948,
+            "t_offset_hex": "0x3b4"
+          },
+          {
+            "idx": 9,
+            "type": "T",
+            "type_hex": "0x54",
+            "version": 1,
+            "t_len": 2,
+            "t_offset": 972,
+            "t_offset_hex": "0x3cc"
+          },
+          {
+            "idx": 10,
+            "type": "U",
+            "type_hex": "0x55",
+            "version": 1,
+            "t_len": 5,
+            "t_offset": 974,
+            "t_offset_hex": "0x3ce"
+          },
+          {
+            "idx": 11,
+            "type": "V",
+            "type_hex": "0x56",
+            "version": 1,
+            "t_len": 6,
+            "t_offset": 979,
+            "t_offset_hex": "0x3d3"
+          },
+          {
+            "idx": 12,
+            "type": "x",
+            "type_hex": "0x78",
+            "version": 1,
+            "t_len": 8,
+            "t_offset": 985,
+            "t_offset_hex": "0x3d9"
+          },
+          {
+            "idx": 13,
+            "type": "d",
+            "type_hex": "0x64",
+            "version": 1,
+            "t_len": 2,
+            "t_offset": 993,
+            "t_offset_hex": "0x3e1"
+          },
+          {
+            "idx": 14,
+            "type": "p",
+            "type_hex": "0x70",
+            "version": 2,
+            "t_len": 4,
+            "t_offset": 995,
+            "t_offset_hex": "0x3e3"
+          },
+          {
+            "idx": 15,
+            "type": "u",
+            "type_hex": "0x75",
+            "version": 1,
+            "t_len": 13,
+            "t_offset": 999,
+            "t_offset_hex": "0x3e7"
+          },
+          {
+            "idx": 16,
+            "type": "i",
+            "type_hex": "0x69",
+            "version": 2,
+            "t_len": 104,
+            "t_offset": 1012,
+            "t_offset_hex": "0x3f4"
+          }
+        ],
+        "i_entry": {
+          "idx": 16,
+          "type": "i",
+          "type_hex": "0x69",
+          "version": 2,
+          "t_len": 104,
+          "t_offset": 1012,
+          "t_offset_hex": "0x3f4"
+        },
+        "i_stock_version": {
+          "version": [
+            0,
+            217,
+            0,
+            207,
+            0
+          ],
+          "major_version[0]": "0x0",
+          "read_offset": "0x3f7",
+          "read_byte": "0x0"
+        },
+        "i_intended_version": {
+          "version": [
+            144,
+            6,
+            103,
+            0,
+            6
+          ],
+          "major_version[0]": "0x90",
+          "read_offset": "0x289f7",
+          "read_base": "0x28600",
+          "stored_t_offset": "0x3f4"
+        },
+        "i_raw_stored": "cf00d9000000ffdd00000080fdf904de",
+        "i_raw_intended": "006706900600000e31c301c402000030"
+      },
+      "shadow": {
+        "first": {
+          "bit_off": 432,
+          "sig": "ffb84249540000",
+          "sig_ok": true,
+          "header": {
+            "version_u16@+6": "0x100",
+            "hlen@+8": 12,
+            "rlen@+9": 6,
+            "entriesnum@+10": 17,
+            "header_checksum_mod256": 0
+          },
+          "entries": [
+            {
+              "idx": 0,
+              "type": "2",
+              "type_hex": "0x32",
+              "version": 1,
+              "t_len": 4,
+              "t_offset": 562,
+              "t_offset_hex": "0x232"
+            },
+            {
+              "idx": 1,
+              "type": "B",
+              "type_hex": "0x42",
+              "version": 2,
+              "t_len": 37,
+              "t_offset": 574,
+              "t_offset_hex": "0x23e"
+            },
+            {
+              "idx": 2,
+              "type": "C",
+              "type_hex": "0x43",
+              "version": 2,
+              "t_len": 44,
+              "t_offset": 611,
+              "t_offset_hex": "0x263"
+            },
+            {
+              "idx": 3,
+              "type": "D",
+              "type_hex": "0x44",
+              "version": 1,
+              "t_len": 4,
+              "t_offset": 655,
+              "t_offset_hex": "0x28f"
+            },
+            {
+              "idx": 4,
+              "type": "I",
+              "type_hex": "0x49",
+              "version": 1,
+              "t_len": 36,
+              "t_offset": 659,
+              "t_offset_hex": "0x293"
+            },
+            {
+              "idx": 5,
+              "type": "M",
+              "type_hex": "0x4d",
+              "version": 2,
+              "t_len": 29,
+              "t_offset": 695,
+              "t_offset_hex": "0x2b7"
+            },
+            {
+              "idx": 6,
+              "type": "N",
+              "type_hex": "0x4e",
+              "version": 0,
+              "t_len": 0,
+              "t_offset": 0,
+              "t_offset_hex": "0x0"
+            },
+            {
+              "idx": 7,
+              "type": "P",
+              "type_hex": "0x50",
+              "version": 2,
+              "t_len": 224,
+              "t_offset": 724,
+              "t_offset_hex": "0x2d4"
+            },
+            {
+              "idx": 8,
+              "type": "S",
+              "type_hex": "0x53",
+              "version": 2,
+              "t_len": 24,
+              "t_offset": 948,
+              "t_offset_hex": "0x3b4"
+            },
+            {
+              "idx": 9,
+              "type": "T",
+              "type_hex": "0x54",
+              "version": 1,
+              "t_len": 2,
+              "t_offset": 972,
+              "t_offset_hex": "0x3cc"
+            },
+            {
+              "idx": 10,
+              "type": "U",
+              "type_hex": "0x55",
+              "version": 1,
+              "t_len": 5,
+              "t_offset": 974,
+              "t_offset_hex": "0x3ce"
+            },
+            {
+              "idx": 11,
+              "type": "V",
+              "type_hex": "0x56",
+              "version": 1,
+              "t_len": 6,
+              "t_offset": 979,
+              "t_offset_hex": "0x3d3"
+            },
+            {
+              "idx": 12,
+              "type": "x",
+              "type_hex": "0x78",
+              "version": 1,
+              "t_len": 8,
+              "t_offset": 985,
+              "t_offset_hex": "0x3d9"
+            },
+            {
+              "idx": 13,
+              "type": "d",
+              "type_hex": "0x64",
+              "version": 1,
+              "t_len": 2,
+              "t_offset": 993,
+              "t_offset_hex": "0x3e1"
+            },
+            {
+              "idx": 14,
+              "type": "p",
+              "type_hex": "0x70",
+              "version": 2,
+              "t_len": 4,
+              "t_offset": 995,
+              "t_offset_hex": "0x3e3"
+            },
+            {
+              "idx": 15,
+              "type": "u",
+              "type_hex": "0x75",
+              "version": 1,
+              "t_len": 13,
+              "t_offset": 999,
+              "t_offset_hex": "0x3e7"
+            },
+            {
+              "idx": 16,
+              "type": "i",
+              "type_hex": "0x69",
+              "version": 2,
+              "t_len": 104,
+              "t_offset": 1012,
+              "t_offset_hex": "0x3f4"
+            }
+          ],
+          "i_entry": {
+            "idx": 16,
+            "type": "i",
+            "type_hex": "0x69",
+            "version": 2,
+            "t_len": 104,
+            "t_offset": 1012,
+            "t_offset_hex": "0x3f4"
+          },
+          "i_stock_version": {
+            "version": [
+              144,
+              6,
+              103,
+              0,
+              6
+            ],
+            "major_version[0]": "0x90",
+            "read_offset": "0x3f7",
+            "read_byte": "0x90"
+          },
+          "i_intended_version": {
+            "version": [
+              254,
+              130,
+              249,
+              228,
+              79
+            ],
+            "major_version[0]": "0xfe",
+            "read_offset": "0x289f7",
+            "read_base": "0x28600",
+            "stored_t_offset": "0x3f4"
+          },
+          "i_raw_stored": "006706900600000e31c301c402000030",
+          "i_raw_intended": "e4f982fe4f01b0e10990ff3ca0f972c2"
+        },
+        "second": {
+          "bit_off": 496048,
+          "sig": "ffb84249540000",
+          "sig_ok": true,
+          "header": {
+            "version_u16@+6": "0x100",
+            "hlen@+8": 12,
+            "rlen@+9": 6,
+            "entriesnum@+10": 17,
+            "header_checksum_mod256": 0
+          },
+          "entries": [
+            {
+              "idx": 0,
+              "type": "2",
+              "type_hex": "0x32",
+              "version": 1,
+              "t_len": 4,
+              "t_offset": 562,
+              "t_offset_hex": "0x232"
+            },
+            {
+              "idx": 1,
+              "type": "B",
+              "type_hex": "0x42",
+              "version": 2,
+              "t_len": 37,
+              "t_offset": 574,
+              "t_offset_hex": "0x23e"
+            },
+            {
+              "idx": 2,
+              "type": "C",
+              "type_hex": "0x43",
+              "version": 2,
+              "t_len": 44,
+              "t_offset": 611,
+              "t_offset_hex": "0x263"
+            },
+            {
+              "idx": 3,
+              "type": "D",
+              "type_hex": "0x44",
+              "version": 1,
+              "t_len": 4,
+              "t_offset": 655,
+              "t_offset_hex": "0x28f"
+            },
+            {
+              "idx": 4,
+              "type": "I",
+              "type_hex": "0x49",
+              "version": 1,
+              "t_len": 36,
+              "t_offset": 659,
+              "t_offset_hex": "0x293"
+            },
+            {
+              "idx": 5,
+              "type": "M",
+              "type_hex": "0x4d",
+              "version": 2,
+              "t_len": 29,
+              "t_offset": 695,
+              "t_offset_hex": "0x2b7"
+            },
+            {
+              "idx": 6,
+              "type": "N",
+              "type_hex": "0x4e",
+              "version": 0,
+              "t_len": 0,
+              "t_offset": 0,
+              "t_offset_hex": "0x0"
+            },
+            {
+              "idx": 7,
+              "type": "P",
+              "type_hex": "0x50",
+              "version": 2,
+              "t_len": 224,
+              "t_offset": 724,
+              "t_offset_hex": "0x2d4"
+            },
+            {
+              "idx": 8,
+              "type": "S",
+              "type_hex": "0x53",
+              "version": 2,
+              "t_len": 24,
+              "t_offset": 948,
+              "t_offset_hex": "0x3b4"
+            },
+            {
+              "idx": 9,
+              "type": "T",
+              "type_hex": "0x54",
+              "version": 1,
+              "t_len": 2,
+              "t_offset": 972,
+              "t_offset_hex": "0x3cc"
+            },
+            {
+              "idx": 10,
+              "type": "U",
+              "type_hex": "0x55",
+              "version": 1,
+              "t_len": 5,
+              "t_offset": 974,
+              "t_offset_hex": "0x3ce"
+            },
+            {
+              "idx": 11,
+              "type": "V",
+              "type_hex": "0x56",
+              "version": 1,
+              "t_len": 6,
+              "t_offset": 979,
+              "t_offset_hex": "0x3d3"
+            },
+            {
+              "idx": 12,
+              "type": "x",
+              "type_hex": "0x78",
+              "version": 1,
+              "t_len": 8,
+              "t_offset": 985,
+              "t_offset_hex": "0x3d9"
+            },
+            {
+              "idx": 13,
+              "type": "d",
+              "type_hex": "0x64",
+              "version": 1,
+              "t_len": 2,
+              "t_offset": 993,
+              "t_offset_hex": "0x3e1"
+            },
+            {
+              "idx": 14,
+              "type": "p",
+              "type_hex": "0x70",
+              "version": 2,
+              "t_len": 4,
+              "t_offset": 995,
+              "t_offset_hex": "0x3e3"
+            },
+            {
+              "idx": 15,
+              "type": "u",
+              "type_hex": "0x75",
+              "version": 1,
+              "t_len": 13,
+              "t_offset": 999,
+              "t_offset_hex": "0x3e7"
+            },
+            {
+              "idx": 16,
+              "type": "i",
+              "type_hex": "0x69",
+              "version": 2,
+              "t_len": 104,
+              "t_offset": 1012,
+              "t_offset_hex": "0x3f4"
+            }
+          ],
+          "i_entry": {
+            "idx": 16,
+            "type": "i",
+            "type_hex": "0x69",
+            "version": 2,
+            "t_len": 104,
+            "t_offset": 1012,
+            "t_offset_hex": "0x3f4"
+          },
+          "i_stock_version": {
+            "version": [
+              144,
+              6,
+              103,
+              0,
+              6
+            ],
+            "major_version[0]": "0x90",
+            "read_offset": "0x3f7",
+            "read_byte": "0x90"
+          },
+          "i_intended_version": {
+            "version": [
+              254,
+              130,
+              249,
+              228,
+              79
+            ],
+            "major_version[0]": "0xfe",
+            "read_offset": "0x289f7",
+            "read_base": "0x28600",
+            "stored_t_offset": "0x3f4"
+          },
+          "i_raw_stored": "006706900600000e31c301c402000030",
+          "i_raw_intended": "e4f982fe4f01b0e10990ff3ca0f972c2"
+        }
+      }
+    },
+    "bmp": {
+      "rom": {
+        "sig_found": false,
+        "bmp_offset": -1,
+        "bmp_path_version0_offset": null
+      },
+      "t4": {
+        "sig_found": false,
+        "bmp_offset": -1,
+        "bmp_path_version0_offset": null
+      },
+      "shadow": {
+        "sig_found": false,
+        "bmp_offset": -1,
+        "bmp_path_version0_offset": null
+      }
+    },
+    "version": {
+      "rom": {
+        "stock_envytools_read": "0x0",
+        "final_established_major": "0x90",
+        "basis": "BIT 'i' info.c:49-52; BMP path inactive (no \\xff\\x7fNV\\0)"
+      },
+      "t4": {
+        "stock_envytools_read": "0x0",
+        "final_established_major": "0x90",
+        "basis": "BIT 'i' info.c:49-52; BMP path inactive (no \\xff\\x7fNV\\0)"
+      },
+      "shadow": {
+        "stock_envytools_read": "0x90",
+        "final_established_major": "0x90",
+        "basis": "BIT 'i' info.c:49-52; BMP path inactive (no \\xff\\x7fNV\\0)"
+      }
+    },
+    "pm_mode": {
+      "v00_stock_rom_t4": {
+        "bios_major": "0x0",
+        "result": {
+          "branch": "nvbios.c:1497",
+          "condition": "version[0] < 0x70",
+          "taken": true,
+          "schema": "version=data[start+0]=0x60; header_length=data[start+1]=0x0a; entry_count=data[start+2]=0x05; mode_info_length=data[start+3]=0x07; extra_data_count=data[start+4]=0x06; extra_data_length=data[start+5]=0x0a; entry_length = mode_info_length + extra_data_count*extra_data_length = 0x07 + 6*8 = 53",
+          "computed_extent": [
+            "0x54155",
+            "0x54194",
+            "len 63 incl header"
+          ],
+          "table_v60_consumed": false,
+          "note": "table version 0x60 matches no per-entry sub-schema (0x12/0x13/0x15, 0x21-0x24, 0x25, 0x30/0x35, 0x40-0x50) -> 'Version unknown'; entry_length=53 is a generic hdr+esz*count-style figure with no v60 schema backing \u2014 NOT adopted",
+          "evaluated_against_table": "PERFORMANCE v0x60 @ 0x54155"
+        }
+      },
+      "v90_established_rom_t4": {
+        "bios_major": "0x90",
+        "result": {
+          "branch": "nvbios.c:1527",
+          "condition": "else",
+          "taken": true,
+          "statement": "printf(\"Unknown PM major version %x\")",
+          "table_v60_consumed": false,
+          "note": "only printcmd(start, header_length>0?header_length:10) hex dump; no table field consumed",
+          "evaluated_against_table": "PERFORMANCE v0x60 @ 0x54155"
+        }
+      },
+      "v90_shadow_stock": {
+        "bios_major": "0x90",
+        "result": {
+          "branch": "nvbios.c:1527",
+          "condition": "else",
+          "taken": true,
+          "statement": "printf(\"Unknown PM major version %x\")",
+          "table_v60_consumed": false,
+          "note": "only printcmd(start, header_length>0?header_length:10) hex dump; no table field consumed",
+          "evaluated_against_table": "PERFORMANCE v0x60 @ 0x54155"
+        }
+      }
+    },
+    "table_0x60": {
+      "perf_v60": {
+        "file": "PERFORMANCE table (BIT 'P' dir entry 0x00 -> 0x1ab55)",
+        "start_rom": "0x54155",
+        "header_rom": "600a0507060a0107",
+        "table_version_byte": 96,
+        "byte_identical_rom_t4": true,
+        "shadow_equivalent_offset": "0x2bb55",
+        "shadow_equivalent_header": "600a0507060a0107",
+        "shadow_equivalent_matches_rom": true,
+        "shadow_file_at_0x54155": "ffffffffffffffff",
+        "notes": "shadow file at 0x54155 is 0xFF-filled (different image region); shadow-equivalent offset 0x2bb55 matches rom byte-for-byte"
+      },
+      "power_table_id_0x60": {
+        "name": "DI/DT",
+        "target": "power->unk60.offset",
+        "parser": "envy_bios_parse_power_unk60 (power.c:1605-1621)",
+        "own_header": "version@offset+0, hlen@+1, rlen@+2, entriesnum@+3",
+        "consumes_bios_info_version": false,
+        "note": "independent of nvbios.c PM_Mode dispatch; version[0] never read"
+      }
+    },
+    "conclusion": {
+      "version[0]_established": "0x90 for rom/t4 (BIT 'i' at 0x289f4: bytes 00 67 06 90 06 -> \"90.06.67.00.06\", confirming the handoff string is the BIT 'i' version, not an incidental string); stock envytools absolute read on rom/t4 yields 0x00 because this ROM stores BIT t_offset relative to 0x28600; shadow stock read yields 0x90.",
+      "bmp_path": "inactive in all three images (no \\xff\\x7fNV\\0 signature)",
+      "pm_mode_vs_table_0x60": "with version[0]=0x90 -> nvbios.c:1527 'Unknown PM major version 90', no table field consumed; with version[0]=0x00 -> nvbios.c:1497 branch taken but table version byte 0x60 matches no sub-schema; no section bounds or stride for the v60 table are adopted in any case",
+      "table_id_0x60": "DI/DT via power->unk60.offset, independent parser, no version[0] consumption",
+      "adopted_extent": "NONE \u2014 PERFORMANCE v60 remains OPAQUE; unknown fields preserved"
+    },
+    "self_checks": {
+      "total": 39,
+      "failures": 0,
+      "failed_msgs": []
+    },
+    "created_utc": "2026-11-03T19:30:07.747368+00:00"
+  }
+}

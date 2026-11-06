@@ -1,0 +1,58 @@
+{
+  "utc": "2026-11-04T14:44:35.973137+00:00",
+  "tools": {
+    "eglinfo": null,
+    "glxinfo": null,
+    "vulkaninfo": null,
+    "nvcc": "/usr/bin/nvcc",
+    "deviceQuery": null,
+    "nvidia-smi": "/usr/bin/nvidia-smi"
+  },
+  "drm": [
+    {
+      "name": "card0",
+      "device": "/sys/devices/pci0000:00/0000:00:03.0/0000:04:00.0",
+      "files": {}
+    },
+    {
+      "name": "card0-DP-1",
+      "device": "/sys/devices/pci0000:00/0000:00:03.0/0000:04:00.0/drm/card0",
+      "files": {
+        "status": "connected\n",
+        "enabled": "enabled\n",
+        "modes": "640x480\n1024x768\n800x600\n800x600\n848x480\n"
+      }
+    },
+    {
+      "name": "card0-DVI-I-1",
+      "device": "/sys/devices/pci0000:00/0000:00:03.0/0000:04:00.0/drm/card0",
+      "files": {
+        "status": "disconnected\n",
+        "enabled": "disabled\n",
+        "modes": ""
+      }
+    },
+    {
+      "name": "card1",
+      "device": "/sys/devices/pci0000:00/0000:00:02.0/0000:03:00.0",
+      "files": {}
+    },
+    {
+      "name": "renderD128",
+      "device": "/sys/devices/pci0000:00/0000:00:03.0/0000:04:00.0",
+      "files": {}
+    },
+    {
+      "name": "renderD129",
+      "device": "/sys/devices/pci0000:00/0000:00:02.0/0000:03:00.0",
+      "files": {}
+    }
+  ],
+  "device_nodes": [
+    "/dev/nvidia-modeset",
+    "/dev/nvidia-uvm-tools",
+    "/dev/nvidia-uvm",
+    "/dev/nvidia0",
+    "/dev/nvidiactl"
+  ]
+}

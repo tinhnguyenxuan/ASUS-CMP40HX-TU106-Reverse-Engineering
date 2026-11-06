@@ -1,0 +1,7 @@
+{
+  "scope": "Readable /etc/modprobe.d/*.conf and /proc/cmdline; matching key names only, values not collected",
+  "matches": [],
+  "errors": [],
+  "utc": "2026-11-04T15:17:09.302447+00:00",
+  "boundary": "Absence from searched sources does not prove effective firmware configuration."
+}

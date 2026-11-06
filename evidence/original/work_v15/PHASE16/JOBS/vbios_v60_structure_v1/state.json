@@ -1,0 +1,12 @@
+{
+  "job": "vbios_v60_structure_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:13:45.748305+00:00",
+  "wrapper_pid": 1677282,
+  "task_sha256": "58e8e24dfe84501d4b9adf3e8633b107da7f385c7b7402bf0263f56b886a72a5",
+  "hermes_pid": 1677283,
+  "hermes_start_ticks": "209917163",
+  "heartbeat_at": "2026-11-03T19:21:36.021650+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:21:38.022324+00:00"
+}

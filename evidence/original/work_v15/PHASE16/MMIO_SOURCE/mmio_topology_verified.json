@@ -1,0 +1,294 @@
+{
+ "gpu": "CMP 40HX (TU106-100-A1), PCI 10DE:1F0B, BDF 0000:03:00.0, BAR0 /resource0",
+ "mode": "offline read-only, stdlib, /usr/bin/python3",
+ "output_dir": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_SOURCE",
+ "input_hashes": {
+  "MMIO/mmio.json": "8782ce5628383a19d73121396c4032f9f67f6275c0c897455ea1c5913c61e0b8",
+  "MMIO/registers_turing.json": "a7e084bcb153e8413927843b77b3dab89fd113bff4c77b5a4de17480961b91a9",
+  "MMIO/registers_all.json": "23d64737b22dea5e13c5070fabed61ec4262f55a8b6dc65347fa20b6eab0e410",
+  "RAW_DATA/tu06.json": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca",
+  "TOPOLOGY/aperture_map.json": "ac0a3ba8c0fb1547771180a89e89c46afc794ab548a757ee4fba5d268734d20e",
+  "TOPOLOGY/p9_reclass.json": "d3ecce9b3cd50ccf21848c72cc05567033153e1da5b7db58a6820aa43a954fc9",
+  "TOPOLOGY/p9_pattern.json": "0faab11a68944bd4c2b7b650fe9bb5d6fb04652b8e16d0ac32405bc8a90bdd85",
+  "TOPOLOGY/silicon_topology.json": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+  "SECURITY/security_registers.json": "a52f335a75b2176c4790f02198fa79faa448b58b1bd7f406f94085e6a9f129f9",
+  "MEMORY/memory_registers.json": "4cc3aae6abf2317589f172f240ee7451b76114bf80b54e5797ded9e61a445077"
+ },
+ "header_hashes": {
+  "dev_access_counter.h": "b258173bf4a6f71bd5bd527ead77627261769abed21c0b5a9d850d0c54aa0bd4",
+  "dev_bus.h": "58d106d908a1b56a99b10075744067b15be95d0973ae4b4c9a50e914843cdd44",
+  "dev_ce_base.h": "b6c5befe383e870ad23b8317fa3c60f29a3cd4e3a9c3034cd7ab446b07d07a4f",
+  "dev_ctrl.h": "213bbf9cb40da4b78292cf9c63a3be307b53a19c9d80bc5194bc14bb29b6c0be",
+  "dev_ctxsw_prog.h": "353d5616f7473a93ae609a09d89f434ad05ee9bfcc5f3c50ee7a45ad747f56a6",
+  "dev_esched_pbdma.h": "e9b48a491a5d13b13f7e9de869f6b915359345df08d0f4f5c99d3e9322ffd5cb",
+  "dev_ext_devices.h": "5bd20fe70555e4f1e5c03bd0d67125ecad1214dcd8b74f298ed9c82aff31e619",
+  "dev_falcon_v4.h": "8341d82e4722521c121e2cd55b19b6ddd8877771efeeb05cbd016cfd8a6bff40",
+  "dev_fault.h": "8410c458867a942f03358e94333ae274caa1a7adafca5bb4331f52500d855f50",
+  "dev_fb.h": "8c824a870e88874e95b22b463e70a6e1c08ff765ab1731746b98ef28e952c6a9",
+  "dev_fb_addendum.h": "0a2a412868712c1add4ba9c52a2fb53d7e1905250424783c85db367693426d26",
+  "dev_fbif_v4.h": "eb4b6661a3a9d95d78be1cce494a02b0ce22eb66a27c30014bcb6213fb397a5e",
+  "dev_fbpa.h": "e5dec4fcef75c02c34dae89c428a5d7ea14e18da1d8d36fbe3a13712912b12e5",
+  "dev_fuse.h": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+  "dev_gc6_island.h": "2a2b677175b6cb8936f4c9d5deb8b677a19ba74ec274c43d140140e620186e2d",
+  "dev_gc6_island_addendum.h": "192415f7fc931441531dda6705700480b6e0715ed25ab07ed86a04a0588183f5",
+  "dev_gsp.h": "7736a1d52aaae1d7ba89f3d231d924f74cf612e404ccde4043326bf234180cb0",
+  "dev_gsp_addendum.h": "c282e232de583768d5389df8c3a4af4a55c4a8a624c69b97654946f761235c51",
+  "dev_ltc.h": "b22068694089ed6271d131e38574d1cea347ff751e790e3b1888c2d5cdb001ce",
+  "dev_ltc_zb.h": "720596795132b8412e55af32f434d09608c50c36a75004ddd58df1342c9b09aa",
+  "dev_mmu.h": "1668eb3c9399b35fc2e2c6a5f6986ff65be6151d9f110f569b9ca6cc25104c06",
+  "dev_nv_pcfg_xve_regmap.h": "fab52e712a99651a3288bbe6041f543be5c960c7f4c226c13bd4c0860ae39e55",
+  "dev_nv_xve.h": "4421613bea6c68c86555d40d5ff208af861bde4da48873218c3caffcdbb638ad",
+  "dev_nv_xve3g_vf.h": "c92059365c6c54a11fe27884999038e204d04d65b88899c5259b11b6ae410b1e",
+  "dev_nvdec_addendum.h": "24b61b9d4a325b29f356c6af5cd1754fb06b3f946ef135ce27ae814e0f2aba93",
+  "dev_nvdec_pri.h": "8d5cc8e8ac1dbd2407502990af0d7d0f198df140bc115a176fe7ecedeb9b4a86",
+  "dev_pbdma.h": "f150f0845726f6adad89b2e7654bce7ee0ecf495f7dd4679fe21dce6a5517140",
+  "dev_pmc.h": "2173a4743005eb8fc5d756e732869f540b3e9e959484645f4a84819b76567dfe",
+  "dev_ram.h": "43e6d3555e484168c15209db878e336eb14f20af200ca804f9be4b55de807fbf",
+  "dev_riscv_pri.h": "f729a81939c2a675938f44e7de751274ecb97b0ce238cc919970b132161088b7",
+  "dev_sec_addendum.h": "664b90670e550fdf0cbc42c04ace6bf7fc306b88b82ed3dcc6ba57d3aa29e62b",
+  "dev_sec_pri.h": "cf199ce042a3b739c253870ff82b6d98806614611d9ad231b6d36c4d49598e36",
+  "dev_timer.h": "3a3bdf4d6f4123917b62a114c583ad48e1a69e6de55578d55e6b9b5cb1d33e3b",
+  "dev_vm.h": "8ea9a40bed9a857385f38f94d074081ac3d775676c6204ba72a2e883898faea6",
+  "dev_vm_addendum.h": "e27bcebf86ef8c5787d6290d5e6781a8b1d9f2aab638e6308a349d491a3bc546",
+  "hwproject.h": "4b84e419f9e8a041e2c757303ced79efa260a322f6d24cec47076b93e2a93534",
+  "kind_macros.h": "9f0757c33f8d7a4ffd6c8b58355c70bc92a1d50e498d475167abb08ce9f641e8"
+ },
+ "registers": {
+  "dumped": 52,
+  "source_matched_tu102": 52,
+  "cross_ref_other_family_used": false,
+  "unknown_address": [],
+  "total_bitfield_rows_extracted": 78
+ },
+ "wpr2": {
+  "NV_PFB_PRI_MMU_WPR2_ADDR_LO": {
+   "offset": 2074660,
+   "offset_hex": "0x1FA824",
+   "raw": 33021952,
+   "raw_hex": "0x01F7E000",
+   "field_bits": "31:4",
+   "field_width": 28,
+   "shift": 12,
+   "extracted_field": 2063872,
+   "extracted_field_hex": "0x001F7E00",
+   "decoded_address": 8453619712,
+   "decoded_address_hex": "0x01F7E00000",
+   "source_hash": "8c824a870e88874e95b22b463e70a6e1c08ff765ab1731746b98ef28e952c6a9",
+   "source_line": 40
+  },
+  "NV_PFB_PRI_MMU_WPR2_ADDR_HI": {
+   "offset": 2074664,
+   "offset_hex": "0x1FA828",
+   "raw": 33549824,
+   "raw_hex": "0x01FFEE00",
+   "field_bits": "31:4",
+   "field_width": 28,
+   "shift": 12,
+   "extracted_field": 2096864,
+   "extracted_field_hex": "0x001FFEE0",
+   "decoded_address": 8588754944,
+   "decoded_address_hex": "0x01FFEE0000",
+   "source_hash": "8c824a870e88874e95b22b463e70a6e1c08ff765ab1731746b98ef28e952c6a9",
+   "source_line": 43
+  }
+ },
+ "wpr2_bound_difference_bytes": 135135232,
+ "wpr2_bound_difference_mib": 128.875,
+ "wpr2_consumer_boot_log_lines": [
+  "[    4.754233] NVRM: GPU0 _kgspCreateSignatureMemdesc: CMP40_COMPUTE_UNLOCK_V526: signed fullspeed stock-relock WPR-down commit FECS=0xffffff8f SS0=0x88888888 SS1=8 WPR2=0:0x1ffffe00 RESET_PLM=0xff ACR_TOKEN=0xc2 MB0=0 MB1=0 header=0x00020001 ls_version=0x344 ls_id=1 tail=0x3988 mutex_release=0x0d27 mailbox=0x1cdd cleanup=0x7c43@0xbcac g_resetPLM=f stack=0xff14 stage=0xc100 gadgets=0x0cc8,0x0cbd,0x0c1d,0x1d62,0x1f89,0x5ff,0x64ec",
+  "[    4.891951] NVRM: GPU0 kgspExecuteBooterLoad_TU102: CMP40_FECS_FEATURE_PLM_V140_RESULT: status=0x0 mailbox0=0x00000000 tracepc=0x00007d11 wpr2_lo=0x1ffffe00 plm_before=0xffffff8f plm_after=0xffffff8f plm_restored=0xffffff8f"
+ ],
+ "wpr2_bound_semantics": "UNKNOWN (khong co source nguon co duong dan local xac dinh inclusive/exclusive; khong su dung REDACTED_USER hieu tu URL)",
+ "wpr2_note": "khong phan bo reserved tu hieu chieu; khong su dung phep tru reserved allocation",
+ "pages": {
+  "total": 4096,
+  "page_size": 4096,
+  "sample_words_per_page": 4,
+  "counts": {
+   "MIXED": 201,
+   "POISON": 3278,
+   "UNCLASSIFIED": 49,
+   "UNINIT_FF": 72,
+   "ZERO": 355,
+   "DATA": 141
+  },
+  "unclassified_count": 49,
+  "unclassified_pages": [
+   7,
+   140,
+   282,
+   499,
+   768,
+   769,
+   771,
+   774,
+   775,
+   776,
+   780,
+   781,
+   817,
+   818,
+   844,
+   845,
+   846,
+   848,
+   849,
+   850,
+   852,
+   889,
+   890,
+   892,
+   895,
+   896,
+   897,
+   901,
+   902,
+   938,
+   939,
+   965,
+   966,
+   967,
+   979,
+   980,
+   1040,
+   1041,
+   2304,
+   2308,
+   2312,
+   2316,
+   2432,
+   2436,
+   2440,
+   2464,
+   2912,
+   3008,
+   3009
+  ],
+  "note": "tu06 co 4096 trang, moi trang chi co 4 u32 (16 byte) sample; khong co full 4KiB"
+ },
+ "topology": {
+  "headers_searched": {
+   "dev_top.h": false,
+   "dev_graph.h": false,
+   "dev_fb.h": true,
+   "dev_fuse.h": true,
+   "dev_ltc.h": true,
+   "dev_gr.h": false
+  },
+  "decoded_l2_registers": [
+   {
+    "register": "NV_PLTCG_LTC0_LTS0_L2_CACHE_ECC_UNCORRECTED_ERR_COUNT",
+    "header": "dev_ltc.h",
+    "header_line": 27,
+    "offset": 1311992,
+    "offset_hex": "0x1404F8",
+    "in_dump": true,
+    "dump_value": 0,
+    "meaning": "L2 cache ECC/invalidate register exists in source; NOT an L2 instance count"
+   },
+   {
+    "register": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT",
+    "header": "dev_fb.h",
+    "header_line": 83,
+    "offset": 1052280,
+    "offset_hex": "0x100E78",
+    "in_dump": true,
+    "dump_value": 0,
+    "meaning": "L2 cache ECC/invalidate register exists in source; NOT an L2 instance count"
+   },
+   {
+    "register": "NV_VIRTUAL_FUNCTION_PRIV_L2_SYSMEM_INVALIDATE",
+    "header": "dev_vm.h",
+    "header_line": 29,
+    "offset": 3840,
+    "offset_hex": "0x000F00",
+    "in_dump": false,
+    "dump_value": null,
+    "meaning": "L2 cache ECC/invalidate register exists in source; NOT an L2 instance count"
+   },
+   {
+    "register": "NV_VIRTUAL_FUNCTION_PRIV_L2_PEERMEM_INVALIDATE",
+    "header": "dev_vm.h",
+    "header_line": 30,
+    "offset": 3844,
+    "offset_hex": "0x000F04",
+    "in_dump": false,
+    "dump_value": null,
+    "meaning": "L2 cache ECC/invalidate register exists in source; NOT an L2 instance count"
+   }
+  ],
+  "gpc_tpc_sm_rop_counts": "UNKNOWN",
+  "reason": "dev_top.h/dev_graph.h khong co trong bo nguon local; dev_fault.h chi chua fault client ID (khong la so luong engine); popcount=3 hoac 17 khong du de dat ten GPC/TPC/SM/ROP/L2",
+  "fault_client_ids_sample": [
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_0",
+    55,
+    "0x00000000"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_1",
+    56,
+    "0x00000001"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_10",
+    78,
+    "0x00000023"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_11",
+    79,
+    "0x00000024"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_12",
+    80,
+    "0x00000025"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_13",
+    81,
+    "0x00000026"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_14",
+    82,
+    "0x00000027"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_15",
+    83,
+    "0x00000028"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_16",
+    94,
+    "0x00000035"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_17",
+    95,
+    "0x00000036"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_2",
+    57,
+    "0x00000002"
+   ],
+   [
+    "NV_PFAULT_CLIENT_GPC_T1_3",
+    58,
+    "0x00000003"
+   ]
+  ],
+  "silicon_topology_sm_count_nvml": "NVIDIA CMP 40HX, 7.5",
+  "silicon_topology_note": "sm_count tu nvml log, khong la dinh nghia thanh ghi, khong duoc decode thanh topology"
+ },
+ "coverage": {
+  "registers_matched": "52/52",
+  "pages_classified": "4047/4096",
+  "pages_unclassified": "49/4096",
+  "l2_registers_with_source": 4,
+  "gpc_tpc_sm_rop_decoded": "0/4"
+ }
+}

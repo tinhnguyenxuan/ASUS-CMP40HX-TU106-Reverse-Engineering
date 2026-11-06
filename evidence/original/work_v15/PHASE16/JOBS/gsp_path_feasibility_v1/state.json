@@ -1,0 +1,12 @@
+{
+  "job": "gsp_path_feasibility_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:56:20.854326+00:00",
+  "wrapper_pid": 1703510,
+  "task_sha256": "ef1776e3953d7b90c7165eaa8b8d1e5a9c8d5e7e0145c18b159064cdf0fed484",
+  "hermes_pid": 1703511,
+  "hermes_start_ticks": "210172673",
+  "heartbeat_at": "2026-11-03T20:08:15.243521+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T20:08:17.244604+00:00"
+}

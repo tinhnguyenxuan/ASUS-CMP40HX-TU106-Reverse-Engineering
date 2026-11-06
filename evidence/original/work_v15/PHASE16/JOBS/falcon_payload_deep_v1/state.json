@@ -1,0 +1,12 @@
+{
+  "job": "falcon_payload_deep_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T18:48:52.013986+00:00",
+  "wrapper_pid": 1661618,
+  "task_sha256": "c41f370c1a2af1896bd715cc9939b9fb728eac9e236e2a6e538b7e3087577f41",
+  "hermes_pid": 1661619,
+  "hermes_start_ticks": "209767789",
+  "heartbeat_at": "2026-11-03T19:19:14.778437+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:19:16.779419+00:00"
+}

@@ -1,0 +1,23 @@
+**Vì thất bại nằm ở userspace/ICD/permissions, chưa phải hardware-disable**
+
+- `eglInitialize` thất bại **cùng lúc** trên card1 (CMP40HX) và card0 (R5 430), cả hai `egl_version = [0,0]`, trong khi thiết bị phần mềm (llvmpipe) init thành công EGL 1.5. Nếu CMP40HX bị tắt phần cứng thì card0 — GPU có màn hình DP-1 kết nối — không nên thất bại cùng kiểu.
+- CUDA correctness đã **PASS** trên card1 (kernel chạy, 4096 phần tử, 0 sai số) → phần cứng CMP40HX đang hoạt động, không bị disable.
+- DRM node `/dev/dri/card1` và `renderD129` đã được kernel liệt kê → thiết bị không bị ẩn ở cấp kernel/KMD.
+- `eglinfo/glxinfo/vulkaninfo` không có trong PATH → bộ công cụ userspace EGL/GL/Vulkan chưa rõ có ICD NVIDIA hay không, đây là điều cần tra trước khi kết luận về phần cứng.
+
+**3 phép kiểm tra tiếp theo (chỉ đọc, không sudo/install/reset/MMIO)**
+
+1. **Kiểm tra EGL ICD/vendor library**: `ldconfig -p | grep -iE 'egl|nvidia'`, liệt kê các tập tin `libEGL*`, dùng `ctypes` dlopen `libEGL` và gọi `eglQueryString(EGL_EXTENSIONS)` / `eglGetProcAddress`. Xác định ICD EGL nào đang phục vụ và liệu ICD NVIDIA có tồn tại/được nạp hay không.
+2. **Kiểm tra quyền và trạng thái DRM**: `ls -l /dev/dri/card1 /dev/dri/renderD129`, `cat /sys/class/drm/card1/device/uevent`, `cat /proc/driver/nvidia/gpus/*/information`, `modinfo nvidia-drm`. Xác định render node truy cập được hay không, nhóm render/video, và module `nvidia-drm` có loaded/modeset cho card1.
+3. **Kiểm tra ICD Vulkan liệt kê thiết bị vật lý**: `ls /usr/share/vulkan/icd.d/`, đọc ICD JSON, dùng `ctypes` nạp `libvulkan` và gọi `vkEnumeratePhysicalDevices`. Chéo độc lập với EGL để biết Vulkan userspace có thấy GPU hay không.
+
+**Đã chứng minh**
+- CUDA driver + thực thi kernel trên CMP40HX đúng (correctness PASS, không sai số).
+- Kernel DRM liệt kê card1/renderD129 và card0/renderD128.
+- EGL phần mềm (llvmpipe) hoạt động.
+
+**Chưa chứng minh**
+- ICD EGL/Vulkan nào đang phục vụ, có bị thiếu hay sai phiên bản.
+- Quyền truy cập render node của user hiện tại.
+- `nvidia-drm` đã loaded và modeset cho card1 hay chưa.
+- Vulkan có liệt kê được thiết bị vật lý CMP40HX hay không.

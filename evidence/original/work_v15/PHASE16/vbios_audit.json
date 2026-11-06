@@ -1,0 +1,930 @@
+{
+  "rom_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+  "rom_bytes": 1048576,
+  "t4_bytes": 495616,
+  "t4_shared_prefix_diff_count": 19,
+  "t4_shared_prefix_diffs": [
+    {
+      "offset": 353948,
+      "original": 112,
+      "t4": 64
+    },
+    {
+      "offset": 353949,
+      "original": 118,
+      "t4": 84
+    },
+    {
+      "offset": 353950,
+      "original": 130,
+      "t4": 137
+    },
+    {
+      "offset": 353952,
+      "original": 112,
+      "t4": 64
+    },
+    {
+      "offset": 353953,
+      "original": 118,
+      "t4": 84
+    },
+    {
+      "offset": 353954,
+      "original": 130,
+      "t4": 137
+    },
+    {
+      "offset": 353956,
+      "original": 112,
+      "t4": 64
+    },
+    {
+      "offset": 353957,
+      "original": 118,
+      "t4": 84
+    },
+    {
+      "offset": 353958,
+      "original": 130,
+      "t4": 137
+    },
+    {
+      "offset": 353972,
+      "original": 176,
+      "t4": 64
+    },
+    {
+      "offset": 353973,
+      "original": 131,
+      "t4": 84
+    },
+    {
+      "offset": 353974,
+      "original": 133,
+      "t4": 137
+    },
+    {
+      "offset": 353976,
+      "original": 176,
+      "t4": 64
+    },
+    {
+      "offset": 353977,
+      "original": 131,
+      "t4": 84
+    },
+    {
+      "offset": 353978,
+      "original": 133,
+      "t4": 137
+    },
+    {
+      "offset": 353980,
+      "original": 176,
+      "t4": 64
+    },
+    {
+      "offset": 353981,
+      "original": 131,
+      "t4": 84
+    },
+    {
+      "offset": 353982,
+      "original": 133,
+      "t4": 137
+    },
+    {
+      "offset": 485375,
+      "original": 51,
+      "t4": 229
+    }
+  ],
+  "repeat_span": 495616,
+  "repeated_region_diffs": 1212,
+  "repeated_diff_first": 12288,
+  "repeated_diff_last": 13503,
+  "shadow_comparison_bytes": 883200,
+  "shadow_difference_count": 14,
+  "shadow_match_ratio": 0.9999841485507246,
+  "shadow_differences": [
+    {
+      "shadow_offset": 858760,
+      "rom_offset": 1024136,
+      "shadow": 4,
+      "rom": 5
+    },
+    {
+      "shadow_offset": 858778,
+      "rom_offset": 1024154,
+      "shadow": 13,
+      "rom": 12
+    },
+    {
+      "shadow_offset": 859272,
+      "rom_offset": 1024648,
+      "shadow": 225,
+      "rom": 209
+    },
+    {
+      "shadow_offset": 859312,
+      "rom_offset": 1024688,
+      "shadow": 48,
+      "rom": 51
+    },
+    {
+      "shadow_offset": 859314,
+      "rom_offset": 1024690,
+      "shadow": 50,
+      "rom": 52
+    },
+    {
+      "shadow_offset": 859315,
+      "rom_offset": 1024691,
+      "shadow": 53,
+      "rom": 57
+    },
+    {
+      "shadow_offset": 859316,
+      "rom_offset": 1024692,
+      "shadow": 49,
+      "rom": 55
+    },
+    {
+      "shadow_offset": 859317,
+      "rom_offset": 1024693,
+      "shadow": 51,
+      "rom": 52
+    },
+    {
+      "shadow_offset": 875034,
+      "rom_offset": 1040410,
+      "shadow": 17,
+      "rom": 25
+    },
+    {
+      "shadow_offset": 875312,
+      "rom_offset": 1040688,
+      "shadow": 48,
+      "rom": 51
+    },
+    {
+      "shadow_offset": 875314,
+      "rom_offset": 1040690,
+      "shadow": 50,
+      "rom": 52
+    },
+    {
+      "shadow_offset": 875315,
+      "rom_offset": 1040691,
+      "shadow": 53,
+      "rom": 57
+    },
+    {
+      "shadow_offset": 875316,
+      "rom_offset": 1040692,
+      "shadow": 49,
+      "rom": 55
+    },
+    {
+      "shadow_offset": 875317,
+      "rom_offset": 1040693,
+      "shadow": 51,
+      "rom": 52
+    }
+  ],
+  "pcir_offset": 165744,
+  "pcir_signature": "PCIR",
+  "vendor": "0x10de",
+  "device": "0x1f0b",
+  "bit_header": {
+    "offset": 165808,
+    "header": 12,
+    "stride": 6,
+    "count": 17
+  },
+  "bit_tokens": [
+    {
+      "index": 0,
+      "offset": 165820,
+      "token": "2",
+      "version": 1,
+      "length": 4,
+      "raw_pointer": 562,
+      "mapped_offset": 165938,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 1,
+      "offset": 165826,
+      "token": "B",
+      "version": 2,
+      "length": 37,
+      "raw_pointer": 574,
+      "mapped_offset": 165950,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 2,
+      "offset": 165832,
+      "token": "C",
+      "version": 2,
+      "length": 44,
+      "raw_pointer": 611,
+      "mapped_offset": 165987,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 3,
+      "offset": 165838,
+      "token": "D",
+      "version": 1,
+      "length": 4,
+      "raw_pointer": 655,
+      "mapped_offset": 166031,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 4,
+      "offset": 165844,
+      "token": "I",
+      "version": 1,
+      "length": 36,
+      "raw_pointer": 659,
+      "mapped_offset": 166035,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 5,
+      "offset": 165850,
+      "token": "M",
+      "version": 2,
+      "length": 29,
+      "raw_pointer": 695,
+      "mapped_offset": 166071,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 6,
+      "offset": 165856,
+      "token": "N",
+      "version": 0,
+      "length": 0,
+      "raw_pointer": 0,
+      "mapped_offset": 165376,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 7,
+      "offset": 165862,
+      "token": "P",
+      "version": 2,
+      "length": 224,
+      "raw_pointer": 724,
+      "mapped_offset": 166100,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 8,
+      "offset": 165868,
+      "token": "S",
+      "version": 2,
+      "length": 24,
+      "raw_pointer": 948,
+      "mapped_offset": 166324,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 9,
+      "offset": 165874,
+      "token": "T",
+      "version": 1,
+      "length": 2,
+      "raw_pointer": 972,
+      "mapped_offset": 166348,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 10,
+      "offset": 165880,
+      "token": "U",
+      "version": 1,
+      "length": 5,
+      "raw_pointer": 974,
+      "mapped_offset": 166350,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 11,
+      "offset": 165886,
+      "token": "V",
+      "version": 1,
+      "length": 6,
+      "raw_pointer": 979,
+      "mapped_offset": 166355,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 12,
+      "offset": 165892,
+      "token": "x",
+      "version": 1,
+      "length": 8,
+      "raw_pointer": 985,
+      "mapped_offset": 166361,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 13,
+      "offset": 165898,
+      "token": "d",
+      "version": 1,
+      "length": 2,
+      "raw_pointer": 993,
+      "mapped_offset": 166369,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 14,
+      "offset": 165904,
+      "token": "p",
+      "version": 2,
+      "length": 4,
+      "raw_pointer": 995,
+      "mapped_offset": 166371,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 15,
+      "offset": 165910,
+      "token": "u",
+      "version": 1,
+      "length": 13,
+      "raw_pointer": 999,
+      "mapped_offset": 166375,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    },
+    {
+      "index": 16,
+      "offset": 165916,
+      "token": "i",
+      "version": 2,
+      "length": 104,
+      "raw_pointer": 1012,
+      "mapped_offset": 166388,
+      "mapping_status": "inherited Turing pointer formula, not a general parser"
+    }
+  ],
+  "perf_pointer_scan": [
+    {
+      "index": 0,
+      "raw_pointer": 109397,
+      "offset": 344405,
+      "version": 96,
+      "header_size": 10,
+      "entry_size": 5,
+      "count": 7,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 1,
+      "raw_pointer": 110592,
+      "offset": 345600,
+      "version": 17,
+      "header_size": 26,
+      "entry_size": 60,
+      "count": 33,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 2,
+      "raw_pointer": 113348,
+      "offset": 348356,
+      "version": 32,
+      "header_size": 6,
+      "entry_size": 74,
+      "count": 12,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 5,
+      "raw_pointer": 127267,
+      "offset": 362275,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 3,
+      "count": 18,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 8,
+      "raw_pointer": 118428,
+      "offset": 353436,
+      "version": 48,
+      "header_size": 9,
+      "entry_size": 25,
+      "count": 20,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 10,
+      "raw_pointer": 123872,
+      "offset": 358880,
+      "version": 32,
+      "header_size": 8,
+      "entry_size": 49,
+      "count": 7,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 11,
+      "raw_pointer": 125074,
+      "offset": 360082,
+      "version": 48,
+      "header_size": 44,
+      "entry_size": 66,
+      "count": 20,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 14,
+      "raw_pointer": 109862,
+      "offset": 344870,
+      "version": 32,
+      "header_size": 19,
+      "entry_size": 1,
+      "count": 17,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 15,
+      "raw_pointer": 124223,
+      "offset": 359231,
+      "version": 32,
+      "header_size": 6,
+      "entry_size": 22,
+      "count": 20,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 16,
+      "raw_pointer": 126817,
+      "offset": 361825,
+      "version": 16,
+      "header_size": 5,
+      "entry_size": 25,
+      "count": 11,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 17,
+      "raw_pointer": 110578,
+      "offset": 345586,
+      "version": 16,
+      "header_size": 14,
+      "entry_size": 70,
+      "count": 183,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 18,
+      "raw_pointer": 127325,
+      "offset": 362333,
+      "version": 16,
+      "header_size": 9,
+      "entry_size": 5,
+      "count": 32,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 19,
+      "raw_pointer": 127494,
+      "offset": 362502,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 5,
+      "count": 2,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 20,
+      "raw_pointer": 127097,
+      "offset": 362105,
+      "version": 16,
+      "header_size": 10,
+      "entry_size": 40,
+      "count": 4,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 22,
+      "raw_pointer": 127524,
+      "offset": 362532,
+      "version": 16,
+      "header_size": 6,
+      "entry_size": 26,
+      "count": 2,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 23,
+      "raw_pointer": 127582,
+      "offset": 362590,
+      "version": 16,
+      "header_size": 6,
+      "entry_size": 54,
+      "count": 2,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 25,
+      "raw_pointer": 127696,
+      "offset": 362704,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 5,
+      "count": 2,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 26,
+      "raw_pointer": 19835,
+      "offset": 185211,
+      "version": 16,
+      "header_size": 5,
+      "entry_size": 14,
+      "count": 1,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 27,
+      "raw_pointer": 19735,
+      "offset": 185111,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 24,
+      "count": 4,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 28,
+      "raw_pointer": 19854,
+      "offset": 185230,
+      "version": 16,
+      "header_size": 5,
+      "entry_size": 17,
+      "count": 1,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 29,
+      "raw_pointer": 117794,
+      "offset": 352802,
+      "version": 16,
+      "header_size": 6,
+      "entry_size": 7,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 30,
+      "raw_pointer": 117835,
+      "offset": 352843,
+      "version": 16,
+      "header_size": 5,
+      "entry_size": 12,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 31,
+      "raw_pointer": 117900,
+      "offset": 352908,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 13,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 32,
+      "raw_pointer": 117969,
+      "offset": 352977,
+      "version": 16,
+      "header_size": 10,
+      "entry_size": 5,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 33,
+      "raw_pointer": 118004,
+      "offset": 353012,
+      "version": 16,
+      "header_size": 7,
+      "entry_size": 15,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 34,
+      "raw_pointer": 118086,
+      "offset": 353094,
+      "version": 16,
+      "header_size": 14,
+      "entry_size": 5,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 35,
+      "raw_pointer": 118125,
+      "offset": 353133,
+      "version": 16,
+      "header_size": 58,
+      "entry_size": 5,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 36,
+      "raw_pointer": 118236,
+      "offset": 353244,
+      "version": 48,
+      "header_size": 9,
+      "entry_size": 4,
+      "count": 2,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 37,
+      "raw_pointer": 127508,
+      "offset": 362516,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 2,
+      "count": 6,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 38,
+      "raw_pointer": 127710,
+      "offset": 362718,
+      "version": 16,
+      "header_size": 6,
+      "entry_size": 5,
+      "count": 2,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 39,
+      "raw_pointer": 118253,
+      "offset": 353261,
+      "version": 16,
+      "header_size": 6,
+      "entry_size": 24,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 40,
+      "raw_pointer": 127736,
+      "offset": 362744,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 19,
+      "count": 18,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 41,
+      "raw_pointer": 128082,
+      "offset": 363090,
+      "version": 16,
+      "header_size": 7,
+      "entry_size": 5,
+      "count": 18,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 42,
+      "raw_pointer": 128179,
+      "offset": 363187,
+      "version": 16,
+      "header_size": 6,
+      "entry_size": 24,
+      "count": 8,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 43,
+      "raw_pointer": 128377,
+      "offset": 363385,
+      "version": 16,
+      "header_size": 5,
+      "entry_size": 10,
+      "count": 8,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 44,
+      "raw_pointer": 128772,
+      "offset": 363780,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 6,
+      "count": 4,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 45,
+      "raw_pointer": 128800,
+      "offset": 363808,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 29,
+      "count": 8,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 46,
+      "raw_pointer": 128462,
+      "offset": 363470,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 13,
+      "count": 2,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 47,
+      "raw_pointer": 118379,
+      "offset": 353387,
+      "version": 16,
+      "header_size": 4,
+      "entry_size": 9,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    },
+    {
+      "index": 48,
+      "raw_pointer": 118208,
+      "offset": 353216,
+      "version": 16,
+      "header_size": 8,
+      "entry_size": 4,
+      "count": 5,
+      "valid_header_shape": true,
+      "semantic_status": "UNKNOWN unless separately evidenced"
+    }
+  ],
+  "historical_images": [
+    {
+      "name": "bank1",
+      "start": 0,
+      "end": 660992,
+      "size": 660992,
+      "sum_mod256": 148,
+      "checksum_ok": false
+    },
+    {
+      "name": "legacy1",
+      "start": 165376,
+      "end": 227840,
+      "size": 62464,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "EFI1",
+      "start": 227840,
+      "end": 297472,
+      "size": 69632,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "NPDS_E0_1",
+      "start": 297472,
+      "end": 344064,
+      "size": 46592,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "NPDS_E0_2",
+      "start": 344064,
+      "end": 485376,
+      "size": 141312,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "NPDS_70_digest",
+      "start": 485376,
+      "end": 492544,
+      "size": 7168,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "bank2",
+      "start": 660992,
+      "end": 1048576,
+      "size": 387584,
+      "sum_mod256": 155,
+      "checksum_ok": false
+    },
+    {
+      "name": "legacy2",
+      "start": 660992,
+      "end": 723456,
+      "size": 62464,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "EFI2",
+      "start": 723456,
+      "end": 793088,
+      "size": 69632,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "NPDS_E0_3",
+      "start": 793088,
+      "end": 839680,
+      "size": 46592,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "NPDS_E0_4",
+      "start": 839680,
+      "end": 980992,
+      "size": 141312,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "VN_container",
+      "start": 980992,
+      "end": 1023488,
+      "size": 42496,
+      "sum_mod256": 0,
+      "checksum_ok": true
+    },
+    {
+      "name": "NPDE",
+      "start": 1023488,
+      "end": 1025280,
+      "size": 1792,
+      "sum_mod256": 66,
+      "checksum_ok": false
+    }
+  ],
+  "warnings": [
+    "Historical images() ranges overlap and bank1 end 0xA1600 conflicts with repeat span 0x79000.",
+    "Header shape and checksum do not establish table semantics, authentication, encryption, or runtime use."
+  ]
+}

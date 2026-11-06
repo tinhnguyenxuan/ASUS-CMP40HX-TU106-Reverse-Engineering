@@ -1,0 +1,538 @@
+{
+  "schema": "phase21-egl-shader-v1",
+  "utc": "2026-11-04T15:18:52.541477+00:00",
+  "command": "egl_shader_probe",
+  "read_only": true,
+  "vendor_library": "libEGL_nvidia.so.0",
+  "egl_dispatcher": "libEGL.so.1",
+  "target_nodes": [
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "manifest": {
+    "file_format_version": "1.0.0",
+    "ICD": {
+      "library_path": "libEGL_nvidia.so.0"
+    }
+  },
+  "manifest_path": "/tmp/tmp4pe9gbhn.json",
+  "manifest_auto_cleanup": true,
+  "steps": [
+    {
+      "step": "write_manifest",
+      "ok": true,
+      "result": {
+        "path": "/tmp/tmp4pe9gbhn.json",
+        "content": {
+          "file_format_version": "1.0.0",
+          "ICD": {
+            "library_path": "libEGL_nvidia.so.0"
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "step": "load_egl",
+      "ok": true,
+      "result": "libEGL.so.1",
+      "error": null
+    },
+    {
+      "step": "eglQueryDevicesEXT",
+      "ok": true,
+      "result": {
+        "count": 1,
+        "rc": true
+      },
+      "error": null
+    },
+    {
+      "step": "EGL_CUDA_DEVICE_NV_to_BDF",
+      "ok": true,
+      "result": "0000:03:00.0",
+      "error": null
+    },
+    {
+      "step": "eglGetPlatformDisplayEXT",
+      "ok": true,
+      "result": {
+        "selected_index": 0
+      },
+      "error": null
+    },
+    {
+      "step": "eglInitialize",
+      "ok": true,
+      "result": {
+        "major": 1,
+        "minor": 5
+      },
+      "error": null
+    },
+    {
+      "step": "eglBindAPI",
+      "ok": true,
+      "result": {
+        "api": "EGL_OPENGL_ES_API"
+      },
+      "error": null
+    },
+    {
+      "step": "eglChooseConfig",
+      "ok": true,
+      "result": {
+        "num_config": 1
+      },
+      "error": null
+    },
+    {
+      "step": "verify_config_attribs",
+      "ok": true,
+      "result": [
+        {
+          "attribute": "surface_type",
+          "expected": 1,
+          "actual": 2049,
+          "ok": true
+        },
+        {
+          "attribute": "renderable_type",
+          "expected": 4,
+          "actual": 77,
+          "ok": true
+        },
+        {
+          "attribute": "red_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        },
+        {
+          "attribute": "green_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        },
+        {
+          "attribute": "blue_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        },
+        {
+          "attribute": "alpha_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "step": "eglCreatePbufferSurface",
+      "ok": true,
+      "result": {
+        "width": 4,
+        "height": 4
+      },
+      "error": null
+    },
+    {
+      "step": "eglCreateContext",
+      "ok": true,
+      "result": {
+        "client_version": 2
+      },
+      "error": null
+    },
+    {
+      "step": "eglMakeCurrent",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "glClearColor+glClear(red)",
+      "ok": true,
+      "result": {
+        "color": [
+          255,
+          0,
+          0,
+          255
+        ]
+      },
+      "error": null
+    },
+    {
+      "step": "glReadPixels(red)",
+      "ok": true,
+      "result": {
+        "count": 16,
+        "all_red": true
+      },
+      "error": null
+    },
+    {
+      "step": "glCompileShader(vertex)",
+      "ok": true,
+      "result": {
+        "info_log": ""
+      },
+      "error": null
+    },
+    {
+      "step": "glCompileShader(fragment)",
+      "ok": true,
+      "result": {
+        "info_log": ""
+      },
+      "error": null
+    },
+    {
+      "step": "glLinkProgram",
+      "ok": true,
+      "result": {
+        "attrib_position": 0,
+        "info_log": ""
+      },
+      "error": null
+    },
+    {
+      "step": "glDrawArrays+glReadPixels(green)",
+      "ok": true,
+      "result": {
+        "count": 16,
+        "all_green": true
+      },
+      "error": null
+    },
+    {
+      "step": "glGetString",
+      "ok": true,
+      "result": {
+        "vendor": "NVIDIA Corporation",
+        "renderer": "NVIDIA CMP 40HX/PCIe/SSE2",
+        "version": "OpenGL ES 3.2 NVIDIA 615.71.09"
+      },
+      "error": null
+    },
+    {
+      "step": "eglMakeCurrent(release)",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "eglDestroyContext",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "eglDestroySurface",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "eglTerminate",
+      "ok": true,
+      "result": null,
+      "error": null
+    }
+  ],
+  "egl_errors": [],
+  "gl_errors": [
+    {
+      "where": "glClearColor",
+      "code": 0
+    },
+    {
+      "where": "glClear",
+      "code": 0
+    },
+    {
+      "where": "glReadPixels(red)",
+      "code": 0
+    },
+    {
+      "where": "glCreateShader(vertex)",
+      "code": 0
+    },
+    {
+      "where": "glShaderSource(vertex)",
+      "code": 0
+    },
+    {
+      "where": "glCompileShader(vertex)",
+      "code": 0
+    },
+    {
+      "where": "glCreateShader(fragment)",
+      "code": 0
+    },
+    {
+      "where": "glShaderSource(fragment)",
+      "code": 0
+    },
+    {
+      "where": "glCompileShader(fragment)",
+      "code": 0
+    },
+    {
+      "where": "glCreateProgram",
+      "code": 0
+    },
+    {
+      "where": "glAttachShader(vertex)",
+      "code": 0
+    },
+    {
+      "where": "glAttachShader(fragment)",
+      "code": 0
+    },
+    {
+      "where": "glLinkProgram",
+      "code": 0
+    },
+    {
+      "where": "glGetAttribLocation",
+      "code": 0
+    },
+    {
+      "where": "glUseProgram",
+      "code": 0
+    },
+    {
+      "where": "glGenBuffers",
+      "code": 0
+    },
+    {
+      "where": "glBindBuffer",
+      "code": 0
+    },
+    {
+      "where": "glBufferData",
+      "code": 0
+    },
+    {
+      "where": "glVertexAttribPointer",
+      "code": 0
+    },
+    {
+      "where": "glEnableVertexAttribArray",
+      "code": 0
+    },
+    {
+      "where": "glViewport",
+      "code": 0
+    },
+    {
+      "where": "glDrawArrays",
+      "code": 0
+    },
+    {
+      "where": "glReadPixels(green)",
+      "code": 0
+    },
+    {
+      "where": "glGetString",
+      "code": 0
+    },
+    {
+      "where": "glDetachShader(vertex)",
+      "code": 0
+    },
+    {
+      "where": "glDetachShader(fragment)",
+      "code": 0
+    },
+    {
+      "where": "glDeleteShader(vertex)",
+      "code": 0
+    },
+    {
+      "where": "glDeleteShader(fragment)",
+      "code": 0
+    },
+    {
+      "where": "glDeleteProgram",
+      "code": 0
+    },
+    {
+      "where": "glDeleteBuffers",
+      "code": 0
+    }
+  ],
+  "devices": [
+    {
+      "index": 0,
+      "drm_device": null,
+      "render_node": null,
+      "matched": true,
+      "handle": 128167578625808
+    }
+  ],
+  "selected_device": {
+    "index": 0,
+    "drm_device": null,
+    "render_node": null,
+    "matched": true
+  },
+  "egl_version": [
+    1,
+    5
+  ],
+  "egl_client_vendor": "NVIDIA",
+  "gl": {
+    "vendor": "NVIDIA Corporation",
+    "renderer": "NVIDIA CMP 40HX/PCIe/SSE2",
+    "version": "OpenGL ES 3.2 NVIDIA 615.71.09"
+  },
+  "shaders": {
+    "vertex": {
+      "source": "attribute vec4 position;\nvoid main() {\n    gl_Position = position;\n}\n",
+      "compile_status": true,
+      "info_log": ""
+    },
+    "fragment": {
+      "source": "precision mediump float;\nvoid main() {\n    gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\n}\n",
+      "compile_status": true,
+      "info_log": ""
+    },
+    "program": {
+      "link_status": true,
+      "info_log": "",
+      "attrib_position": 0
+    }
+  },
+  "pixels": {
+    "size": [
+      4,
+      4
+    ],
+    "count": 16,
+    "expected_per_pixel": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "read": [
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        0,
+        255,
+        0,
+        255
+      ]
+    ],
+    "all_match": true,
+    "clear_red_verified": true
+  },
+  "matched_gpu": true,
+  "nvidia_hardware": true,
+  "egl_errors_clean": true,
+  "gl_errors_clean": true,
+  "pass": true,
+  "source_sha256": "31ec1471a5da27e3ec0d2a30b5faa1ac1ab8ea2344d2e5f9b22f8c9cd76a8694",
+  "notes": [
+    "This probe verifies shader compile/link, VBO draw and glReadPixels raster correctness on a 4x4 pbuffer only.",
+    "A pass does NOT prove scanout: no display/present path is exercised (raster/shader correctness, not scanout).",
+    "Clear-red-first means a silent draw failure leaves red pixels and cannot pass; final expectation is all green (0,255,0,255).",
+    "Device selection matches eglQueryDeviceStringEXT output against /dev/dri/card1 or /dev/dri/renderD129 (BDF 03:00.0); no unverified ordinal is used.",
+    "EGL_NV_device_cuda ordinal -> CUDA PCI bus id path records the 0000:03:00.0 mapping when DRM strings are absent.",
+    "Manifest and environment changes are process-only; the temp manifest is removed via NamedTemporaryFile cleanup. No sudo, config, group, MMIO, or driver changes."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "container_ucodes_tu10x.bin": {
+    "sha256": "6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0",
+    "size": 8837632
+  },
+  "firmware_container_verified.json": "55322f5a08755aa9d359bb419f87d6ae116aea5173e08818cd878918c68b00f5",
+  "payload_riscv_verified.json": "cdeb454b678696e0a08b2cc11729e403b7ff9b3c4679ea8fd0ba683fb83d986c",
+  "envydis_binary": "5aa83772ac1ea3e3eb5b63ffef1b3890e6cd41086cbffa9c2cfff542b6de103a",
+  "this_script": "319abb51634debbd4b6af061107509bb7ebb8bba40a9b5eb289a064a0df1d83c",
+  "sources": {
+    "nvidia_bin_data_pvt.h": "0a46eff1c9db21f4b19d23d42c75d411685755f98f08b76247ace36a4fe1691a",
+    "nvidia_bin_data.h": "9103cb8ab21ed3906eac3b1248409f4392a8d968b4fc15631be3854b24c4a50e",
+    "descriptor_table.json": "b08b5b02dac11e319c0438c99aed45140facdb16d73ecf7d58bdd9d4eac32231",
+    "gsp_local_disassembly.txt": "fe6701c9fc07cc3d960ca2d759a01218f43d910bdf39dba6667614a3ef60c97b"
+  }
+}

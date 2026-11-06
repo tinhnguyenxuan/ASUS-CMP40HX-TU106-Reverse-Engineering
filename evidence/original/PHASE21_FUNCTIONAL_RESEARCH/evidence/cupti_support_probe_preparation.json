@@ -1,0 +1,15 @@
+{
+  "schema": "phase21-cupti-support-probe-preparation-v1",
+  "utc": "2026-11-06T03:05:22.558880+00:00",
+  "source_path": "PHASE21_FUNCTIONAL_RESEARCH/tools/cupti_device_support.cpp",
+  "sha256": "7a5ef0206bdd042162aa998b80f22dc6d267e151728628a08471b311d06ca54f",
+  "status": "NOT_COMPILED_NOT_RUN",
+  "reason": "Current local environment lacks CUDA/CUPTI headers and nvcc",
+  "compiler_in_path": "/usr/bin/g++",
+  "limits": [
+    "Prepared source is not device-support evidence",
+    "No profiling/counter API enabled",
+    "Native installed header struct-size macro avoids hardcoded ctypes ABI",
+    "Explicit counter privilege test still separate"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "script_sha256": "42e80b01347b47c5faaf11f97235897bf2502606c24132876c091c8e49229713",
+  "ssh_exit": 0,
+  "stdout": "{\n  \"timestamp_utc\": \"2026-11-05T17:48:19.933807+00:00\",\n  \"steps\": [\n    {\n      \"operation\": \"alloc\",\n      \"class\": \"0x41\",\n      \"status\": \"0x0\",\n      \"handle\": \"0xc1d0001b\"\n    },\n    {\n      \"operation\": \"control\",\n      \"cmd\": \"0x201\",\n      \"status\": \"0x0\"\n    },\n    {\n      \"operation\": \"control\",\n      \"cmd\": \"0x204\",\n      \"status\": \"0x0\"\n    },\n    {\n      \"operation\": \"alloc\",\n      \"class\": \"0x80\",\n      \"status\": \"0x1b\",\n      \"handle\": \"0xcaf00000\"\n    }\n  ],\n  \"attached_gpu_ids\": [\n    \"0x300\"\n  ],\n  \"device_ids_mask\": \"0x1\",\n  \"error\": \"RuntimeError('device allocation failed')\"\n}\n",
+  "stderr": ""
+}

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-04T15:13:21.072489+00:00",
+  "command": "nvidia-smi --query-gpu=pci.bus_id,uuid,driver_version,pstate,clocks.current.graphics,clocks.current.memory,power.draw,temperature.gpu,utilization.gpu --format=csv,noheader",
+  "returncode": 0,
+  "stdout": "00000000:03:00.0, GPU-REDACTED, 615.71.09, P8, 300 MHz, 405 MHz, 12.46 W, 35, 0 %\n",
+  "stderr": "",
+  "boundary": "Single post-test status sample; does not establish stock or long-term stability."
+}

@@ -1,0 +1,35 @@
+MMIO coverage reconcile started 2026-11-03T19:02:51.297226+00:00
+mode: offline read-only, stdlib, no hardware access
+input MMIO/mmio.json 18248 8782ce5628383a19d73121396c4032f9f67f6275c0c897455ea1c5913c61e0b8 not_in_manifest
+input MMIO/registers_turing.json 14974 a7e084bcb153e8413927843b77b3dab89fd113bff4c77b5a4de17480961b91a9 not_in_manifest
+input MMIO/registers_all.json 514470 23d64737b22dea5e13c5070fabed61ec4262f55a8b6dc65347fa20b6eab0e410 not_in_manifest
+input RAW_DATA/tu06.json 772991 a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca not_in_manifest
+input PHASE16/MMIO_SOURCE/page_inventory.csv 1360200 d533936694f5582288a50ca034edb06b5be9457f09c4d692d6b592a9310344c8 not_in_manifest
+input PHASE16/MMIO_SOURCE/register_fields.csv 20916 dcd4a2a4395a51e474c6698575e1decb5781e7b001b0087269db4f7b8dcbc3f7 not_in_manifest
+input PHASE16/MMIO_SOURCE/mmio_topology_verified.json 10319 7214c8418215fb96c7a3c8499c32744fedc963d3cec43fbfb13adaaf82bb7c9e not_in_manifest
+input PHASE16/MMIO_NAMESPACE/mmio_namespace_verified.json 77750 0cf3344de2d8585e2aea7318b882e9e6c0c37ee396c97b16bef78681a6c6dfd9 not_in_manifest
+input PHASE16/MMIO_NAMESPACE/corrected_registers.csv 8558 5013ba75de6be96f79edf1c412b3966eb3e3cb2239fc3749ea9453ef1870e63a not_in_manifest
+input PHASE16/mmio_namespace_coordinator_review.json 4415 b84d4a0ffaae5c5be8a64ccdb1c8e39de094aa16017cc43292513bdfd5c816f5 not_in_manifest
+input PHASE16/mmio_topology_coordinator_review.json 841 4d33083899c324d28d831dc38b730bc3c225df8f06f487e9316e754cd25fdff4 not_in_manifest
+input PHASE16/mmio_audit.json 1238 abcca8580471ab0addb1a67b3558de00b4bbb9086a876ede0302df1724498b55 not_in_manifest
+header dev_ctrl.h 213bbf9cb40da4b78292cf9c63a3be307b53a19c9d80bc5194bc14bb29b6c0be
+header dev_fuse.h f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d
+header dev_bus.h 58d106d908a1b56a99b10075744067b15be95d0973ae4b4c9a50e914843cdd44
+header dev_fb.h 8c824a870e88874e95b22b463e70a6e1c08ff765ab1731746b98ef28e952c6a9
+header dev_gc6_island.h 2a2b677175b6cb8936f4c9d5deb8b677a19ba74ec274c43d140140e620186e2d
+header dev_gsp.h 7736a1d52aaae1d7ba89f3d231d924f74cf612e404ccde4043326bf234180cb0
+header dev_vm.h 8ea9a40bed9a857385f38f94d074081ac3d775676c6204ba72a2e883898faea6
+header dev_gc6_island_addendum.h 192415f7fc931441531dda6705700480b6e0715ed25ab07ed86a04a0588183f5
+header dev_esched_pbdma.h e9b48a491a5d13b13f7e9de869f6b915359345df08d0f4f5c99d3e9322ffd5cb
+header dev_nv_xve.h 4421613bea6c68c86555d40d5ff208af861bde4da48873218c3caffcdbb638ad
+header dev_ltc.h b22068694089ed6271d131e38574d1cea347ff751e790e3b1888c2d5cdb001ce
+headers parsed: 37
+namespace counts: {'confirmed_mmio_bar0': 42, 'mmio_bar0_base': 3, 'constants_mislabeled': 3, 'control_space_addresses': 3, 'pci_config_addresses': 1, 'misaligned_addresses': 3, 'unknown': 0}
+bitfields checked: 55 | transpose artifacts: 33 | flagged semantic=true: 26 | related semantic=false: 7
+bsi field dev_gc6_island_addendum.h:33 '26:26' is a plain single-bit field, not an unsupported range expression; dump bitfield 26:06 value=1 matches header.
+coverage: 65536/16777216 bytes = 0.390625% (per page 16/4096 bytes), unobserved 16711680 bytes
+unclassified pages: 49 buckets: {'poison (sample-level)': 1, 'data-like (sample-level)': 46, 'uninit_all_ones (sample-level)': 2} missing_records: 0
+p9_reclass moves (DATA -> corrected): {'POISON': 25, 'UNINIT_FF': 72, 'DATA': 141}
+WPR2 decoded LO 0x1f7e00000 HI 0x1ffee0000 bound_diff 135135232 MiB 128.875
+wrote /home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_COVERAGE_RECONCILE/mmio_coverage_reconcile.json
+wrote /home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_COVERAGE_RECONCILE/MMIO_COVERAGE_RECONCILE_REPORT.md

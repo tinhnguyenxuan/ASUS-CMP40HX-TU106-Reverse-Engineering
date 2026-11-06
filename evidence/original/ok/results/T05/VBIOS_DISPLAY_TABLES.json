@@ -1,0 +1,1103 @@
+{
+  "parser": "parse_vbios_corrected.py",
+  "results": [
+    {
+      "file": "CMP40HX_ORIGINAL_1MB.bin",
+      "path": "/home/REDACTED_USER/codex-work/CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/03_VBIOS/CMP40HX_ORIGINAL_1MB.bin",
+      "size": 1048576,
+      "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+      "pcir_images": [
+        {
+          "block_off": "0x28600",
+          "pcir_off": "0x170",
+          "vendor": "0x10de",
+          "device": "0x1f0b",
+          "image_len": 62464
+        },
+        {
+          "block_off": "0x37a00",
+          "pcir_off": "0x1c",
+          "vendor": "0x10de",
+          "device": "0x1f0b",
+          "image_len": 69632
+        },
+        {
+          "block_off": "0xa1600",
+          "pcir_off": "0x170",
+          "vendor": "0x10de",
+          "device": "0x1f0b",
+          "image_len": 62464
+        },
+        {
+          "block_off": "0xb0a00",
+          "pcir_off": "0x1c",
+          "vendor": "0x10de",
+          "device": "0x1f0b",
+          "image_len": 69632
+        }
+      ],
+      "legacy_image_base": "0x28600",
+      "status": "OK",
+      "dcb": {
+        "offset": "0x2d9ac",
+        "version": "0x41",
+        "header_size": 35,
+        "entry_count": 0,
+        "entry_size": 8,
+        "signature": "0x4edcbdcb",
+        "signature_valid": true,
+        "pointer_base": "legacy_image_base",
+        "fields": {
+          "communications": "0x544f",
+          "gpio": "0x4baa",
+          "input": "0x0",
+          "cinema": "0x0",
+          "spread_spectrum": "0x0",
+          "i2c_devices": "0x5540",
+          "connector": "0x55c5",
+          "unknown_22": "0x1",
+          "hdtv": "0x0",
+          "mux": "0x0"
+        },
+        "tables": {
+          "communications": {
+            "offset": "0x2da4f",
+            "version": "0x41",
+            "header_size": 6,
+            "count": 15,
+            "entry_size": 4,
+            "present": true,
+            "relative_offset": "0x544f",
+            "raw_rows": [
+              "e0030010",
+              "e1030030",
+              "e2030030",
+              "03000010",
+              "24000010",
+              "45000010",
+              "66000010",
+              "87000010",
+              "a8000010",
+              "c9000010",
+              "ff030000",
+              "ff030000",
+              "ff030000",
+              "ff030000",
+              "ff030000"
+            ],
+            "decoded_rows": [
+              {
+                "i2c_port": 0,
+                "dpaux_port": 31,
+                "high_bits": "0x40000",
+                "raw": "e0030010"
+              },
+              {
+                "i2c_port": 1,
+                "dpaux_port": 31,
+                "high_bits": "0xc0000",
+                "raw": "e1030030"
+              },
+              {
+                "i2c_port": 2,
+                "dpaux_port": 31,
+                "high_bits": "0xc0000",
+                "raw": "e2030030"
+              },
+              {
+                "i2c_port": 3,
+                "dpaux_port": 0,
+                "high_bits": "0x40000",
+                "raw": "03000010"
+              },
+              {
+                "i2c_port": 4,
+                "dpaux_port": 1,
+                "high_bits": "0x40000",
+                "raw": "24000010"
+              },
+              {
+                "i2c_port": 5,
+                "dpaux_port": 2,
+                "high_bits": "0x40000",
+                "raw": "45000010"
+              },
+              {
+                "i2c_port": 6,
+                "dpaux_port": 3,
+                "high_bits": "0x40000",
+                "raw": "66000010"
+              },
+              {
+                "i2c_port": 7,
+                "dpaux_port": 4,
+                "high_bits": "0x40000",
+                "raw": "87000010"
+              },
+              {
+                "i2c_port": 8,
+                "dpaux_port": 5,
+                "high_bits": "0x40000",
+                "raw": "a8000010"
+              },
+              {
+                "i2c_port": 9,
+                "dpaux_port": 6,
+                "high_bits": "0x40000",
+                "raw": "c9000010"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              }
+            ]
+          },
+          "gpio": {
+            "offset": "0x2d1aa",
+            "version": "0x41",
+            "header_size": 6,
+            "count": 32,
+            "entry_size": 6,
+            "present": true,
+            "relative_offset": "0x4baa",
+            "raw_rows": [
+              "00815d804f00",
+              "01ff00006f00",
+              "82ff59804f01",
+              "03d15e80ef01",
+              "84ff0000cf00",
+              "85ff0000cf01",
+              "067a00009f01",
+              "07d2004cef01",
+              "08ff5815bf01",
+              "89ff5c804f01",
+              "0aff0000ef01",
+              "0bff410ae101",
+              "0c790057bf01",
+              "0d3d0058ef01",
+              "0eff0041ef00",
+              "0fff0002bf01",
+              "10090080ef00",
+              "11ff0044ef00",
+              "12ff0045bf01",
+              "13ff0002ef01",
+              "14ff00006f01",
+              "15ff4029e001",
+              "16ff5031e401",
+              "17ff412a4101",
+              "18ff0006ef01",
+              "197f00001f00",
+              "1ad000004f01",
+              "1bff0043ef00",
+              "1cd45a004f01",
+              "1dff00004f00",
+              "1eff0000ef01",
+              "1fff0000ef01"
+            ],
+            "decoded_rows": [
+              {
+                "line": 0,
+                "tag": "0x81",
+                "special_output": "0x5d",
+                "special_input": "0x80",
+                "raw": "00815d804f00"
+              },
+              {
+                "line": 1,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "01ff00006f00"
+              },
+              {
+                "line": 2,
+                "tag": "0xff",
+                "special_output": "0x59",
+                "special_input": "0x80",
+                "raw": "82ff59804f01"
+              },
+              {
+                "line": 3,
+                "tag": "0xd1",
+                "special_output": "0x5e",
+                "special_input": "0x80",
+                "raw": "03d15e80ef01"
+              },
+              {
+                "line": 4,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "84ff0000cf00"
+              },
+              {
+                "line": 5,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "85ff0000cf01"
+              },
+              {
+                "line": 6,
+                "tag": "0x7a",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "067a00009f01"
+              },
+              {
+                "line": 7,
+                "tag": "0xd2",
+                "special_output": "0x00",
+                "special_input": "0x4c",
+                "raw": "07d2004cef01"
+              },
+              {
+                "line": 8,
+                "tag": "0xff",
+                "special_output": "0x58",
+                "special_input": "0x15",
+                "raw": "08ff5815bf01"
+              },
+              {
+                "line": 9,
+                "tag": "0xff",
+                "special_output": "0x5c",
+                "special_input": "0x80",
+                "raw": "89ff5c804f01"
+              },
+              {
+                "line": 10,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "0aff0000ef01"
+              },
+              {
+                "line": 11,
+                "tag": "0xff",
+                "special_output": "0x41",
+                "special_input": "0x0a",
+                "raw": "0bff410ae101"
+              },
+              {
+                "line": 12,
+                "tag": "0x79",
+                "special_output": "0x00",
+                "special_input": "0x57",
+                "raw": "0c790057bf01"
+              },
+              {
+                "line": 13,
+                "tag": "0x3d",
+                "special_output": "0x00",
+                "special_input": "0x58",
+                "raw": "0d3d0058ef01"
+              },
+              {
+                "line": 14,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x41",
+                "raw": "0eff0041ef00"
+              },
+              {
+                "line": 15,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x02",
+                "raw": "0fff0002bf01"
+              },
+              {
+                "line": 16,
+                "tag": "0x09",
+                "special_output": "0x00",
+                "special_input": "0x80",
+                "raw": "10090080ef00"
+              },
+              {
+                "line": 17,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x44",
+                "raw": "11ff0044ef00"
+              },
+              {
+                "line": 18,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x45",
+                "raw": "12ff0045bf01"
+              },
+              {
+                "line": 19,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x02",
+                "raw": "13ff0002ef01"
+              },
+              {
+                "line": 20,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "14ff00006f01"
+              },
+              {
+                "line": 21,
+                "tag": "0xff",
+                "special_output": "0x40",
+                "special_input": "0x29",
+                "raw": "15ff4029e001"
+              },
+              {
+                "line": 22,
+                "tag": "0xff",
+                "special_output": "0x50",
+                "special_input": "0x31",
+                "raw": "16ff5031e401"
+              },
+              {
+                "line": 23,
+                "tag": "0xff",
+                "special_output": "0x41",
+                "special_input": "0x2a",
+                "raw": "17ff412a4101"
+              },
+              {
+                "line": 24,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x06",
+                "raw": "18ff0006ef01"
+              },
+              {
+                "line": 25,
+                "tag": "0x7f",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "197f00001f00"
+              },
+              {
+                "line": 26,
+                "tag": "0xd0",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1ad000004f01"
+              },
+              {
+                "line": 27,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x43",
+                "raw": "1bff0043ef00"
+              },
+              {
+                "line": 28,
+                "tag": "0xd4",
+                "special_output": "0x5a",
+                "special_input": "0x00",
+                "raw": "1cd45a004f01"
+              },
+              {
+                "line": 29,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1dff00004f00"
+              },
+              {
+                "line": 30,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1eff0000ef01"
+              },
+              {
+                "line": 31,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1fff0000ef01"
+              }
+            ]
+          },
+          "input": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "cinema": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "spread_spectrum": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "i2c_devices": {
+            "offset": "0x2db40",
+            "version": "0x40",
+            "header_size": 5,
+            "count": 32,
+            "entry_size": 4,
+            "present": true,
+            "relative_offset": "0x5540",
+            "raw_rows": [
+              "474a0000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff001000",
+              "ff001000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000"
+            ],
+            "decoded_type_bytes": [
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00"
+            ]
+          },
+          "connector": {
+            "offset": "0x2dbc5",
+            "version": "0x40",
+            "header_size": 5,
+            "count": 0,
+            "entry_size": 4,
+            "present": true,
+            "relative_offset": "0x55c5",
+            "raw_rows": []
+          },
+          "hdtv": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "mux": {
+            "present": false,
+            "relative_offset": "0x0"
+          }
+        }
+      }
+    },
+    {
+      "file": "cmp40hx_t4_derivative.bin",
+      "path": "/home/REDACTED_USER/codex-work/CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/03_VBIOS/cmp40hx_t4_derivative.bin",
+      "size": 495616,
+      "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+      "pcir_images": [
+        {
+          "block_off": "0x28600",
+          "pcir_off": "0x170",
+          "vendor": "0x10de",
+          "device": "0x1f0b",
+          "image_len": 62464
+        },
+        {
+          "block_off": "0x37a00",
+          "pcir_off": "0x1c",
+          "vendor": "0x10de",
+          "device": "0x1f0b",
+          "image_len": 69632
+        }
+      ],
+      "legacy_image_base": "0x28600",
+      "status": "OK",
+      "dcb": {
+        "offset": "0x2d9ac",
+        "version": "0x41",
+        "header_size": 35,
+        "entry_count": 0,
+        "entry_size": 8,
+        "signature": "0x4edcbdcb",
+        "signature_valid": true,
+        "pointer_base": "legacy_image_base",
+        "fields": {
+          "communications": "0x544f",
+          "gpio": "0x4baa",
+          "input": "0x0",
+          "cinema": "0x0",
+          "spread_spectrum": "0x0",
+          "i2c_devices": "0x5540",
+          "connector": "0x55c5",
+          "unknown_22": "0x1",
+          "hdtv": "0x0",
+          "mux": "0x0"
+        },
+        "tables": {
+          "communications": {
+            "offset": "0x2da4f",
+            "version": "0x41",
+            "header_size": 6,
+            "count": 15,
+            "entry_size": 4,
+            "present": true,
+            "relative_offset": "0x544f",
+            "raw_rows": [
+              "e0030010",
+              "e1030030",
+              "e2030030",
+              "03000010",
+              "24000010",
+              "45000010",
+              "66000010",
+              "87000010",
+              "a8000010",
+              "c9000010",
+              "ff030000",
+              "ff030000",
+              "ff030000",
+              "ff030000",
+              "ff030000"
+            ],
+            "decoded_rows": [
+              {
+                "i2c_port": 0,
+                "dpaux_port": 31,
+                "high_bits": "0x40000",
+                "raw": "e0030010"
+              },
+              {
+                "i2c_port": 1,
+                "dpaux_port": 31,
+                "high_bits": "0xc0000",
+                "raw": "e1030030"
+              },
+              {
+                "i2c_port": 2,
+                "dpaux_port": 31,
+                "high_bits": "0xc0000",
+                "raw": "e2030030"
+              },
+              {
+                "i2c_port": 3,
+                "dpaux_port": 0,
+                "high_bits": "0x40000",
+                "raw": "03000010"
+              },
+              {
+                "i2c_port": 4,
+                "dpaux_port": 1,
+                "high_bits": "0x40000",
+                "raw": "24000010"
+              },
+              {
+                "i2c_port": 5,
+                "dpaux_port": 2,
+                "high_bits": "0x40000",
+                "raw": "45000010"
+              },
+              {
+                "i2c_port": 6,
+                "dpaux_port": 3,
+                "high_bits": "0x40000",
+                "raw": "66000010"
+              },
+              {
+                "i2c_port": 7,
+                "dpaux_port": 4,
+                "high_bits": "0x40000",
+                "raw": "87000010"
+              },
+              {
+                "i2c_port": 8,
+                "dpaux_port": 5,
+                "high_bits": "0x40000",
+                "raw": "a8000010"
+              },
+              {
+                "i2c_port": 9,
+                "dpaux_port": 6,
+                "high_bits": "0x40000",
+                "raw": "c9000010"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              },
+              {
+                "i2c_port": 31,
+                "dpaux_port": 31,
+                "high_bits": "0x0",
+                "raw": "ff030000"
+              }
+            ]
+          },
+          "gpio": {
+            "offset": "0x2d1aa",
+            "version": "0x41",
+            "header_size": 6,
+            "count": 32,
+            "entry_size": 6,
+            "present": true,
+            "relative_offset": "0x4baa",
+            "raw_rows": [
+              "00815d804f00",
+              "01ff00006f00",
+              "82ff59804f01",
+              "03d15e80ef01",
+              "84ff0000cf00",
+              "85ff0000cf01",
+              "067a00009f01",
+              "07d2004cef01",
+              "08ff5815bf01",
+              "89ff5c804f01",
+              "0aff0000ef01",
+              "0bff410ae101",
+              "0c790057bf01",
+              "0d3d0058ef01",
+              "0eff0041ef00",
+              "0fff0002bf01",
+              "10090080ef00",
+              "11ff0044ef00",
+              "12ff0045bf01",
+              "13ff0002ef01",
+              "14ff00006f01",
+              "15ff4029e001",
+              "16ff5031e401",
+              "17ff412a4101",
+              "18ff0006ef01",
+              "197f00001f00",
+              "1ad000004f01",
+              "1bff0043ef00",
+              "1cd45a004f01",
+              "1dff00004f00",
+              "1eff0000ef01",
+              "1fff0000ef01"
+            ],
+            "decoded_rows": [
+              {
+                "line": 0,
+                "tag": "0x81",
+                "special_output": "0x5d",
+                "special_input": "0x80",
+                "raw": "00815d804f00"
+              },
+              {
+                "line": 1,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "01ff00006f00"
+              },
+              {
+                "line": 2,
+                "tag": "0xff",
+                "special_output": "0x59",
+                "special_input": "0x80",
+                "raw": "82ff59804f01"
+              },
+              {
+                "line": 3,
+                "tag": "0xd1",
+                "special_output": "0x5e",
+                "special_input": "0x80",
+                "raw": "03d15e80ef01"
+              },
+              {
+                "line": 4,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "84ff0000cf00"
+              },
+              {
+                "line": 5,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "85ff0000cf01"
+              },
+              {
+                "line": 6,
+                "tag": "0x7a",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "067a00009f01"
+              },
+              {
+                "line": 7,
+                "tag": "0xd2",
+                "special_output": "0x00",
+                "special_input": "0x4c",
+                "raw": "07d2004cef01"
+              },
+              {
+                "line": 8,
+                "tag": "0xff",
+                "special_output": "0x58",
+                "special_input": "0x15",
+                "raw": "08ff5815bf01"
+              },
+              {
+                "line": 9,
+                "tag": "0xff",
+                "special_output": "0x5c",
+                "special_input": "0x80",
+                "raw": "89ff5c804f01"
+              },
+              {
+                "line": 10,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "0aff0000ef01"
+              },
+              {
+                "line": 11,
+                "tag": "0xff",
+                "special_output": "0x41",
+                "special_input": "0x0a",
+                "raw": "0bff410ae101"
+              },
+              {
+                "line": 12,
+                "tag": "0x79",
+                "special_output": "0x00",
+                "special_input": "0x57",
+                "raw": "0c790057bf01"
+              },
+              {
+                "line": 13,
+                "tag": "0x3d",
+                "special_output": "0x00",
+                "special_input": "0x58",
+                "raw": "0d3d0058ef01"
+              },
+              {
+                "line": 14,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x41",
+                "raw": "0eff0041ef00"
+              },
+              {
+                "line": 15,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x02",
+                "raw": "0fff0002bf01"
+              },
+              {
+                "line": 16,
+                "tag": "0x09",
+                "special_output": "0x00",
+                "special_input": "0x80",
+                "raw": "10090080ef00"
+              },
+              {
+                "line": 17,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x44",
+                "raw": "11ff0044ef00"
+              },
+              {
+                "line": 18,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x45",
+                "raw": "12ff0045bf01"
+              },
+              {
+                "line": 19,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x02",
+                "raw": "13ff0002ef01"
+              },
+              {
+                "line": 20,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "14ff00006f01"
+              },
+              {
+                "line": 21,
+                "tag": "0xff",
+                "special_output": "0x40",
+                "special_input": "0x29",
+                "raw": "15ff4029e001"
+              },
+              {
+                "line": 22,
+                "tag": "0xff",
+                "special_output": "0x50",
+                "special_input": "0x31",
+                "raw": "16ff5031e401"
+              },
+              {
+                "line": 23,
+                "tag": "0xff",
+                "special_output": "0x41",
+                "special_input": "0x2a",
+                "raw": "17ff412a4101"
+              },
+              {
+                "line": 24,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x06",
+                "raw": "18ff0006ef01"
+              },
+              {
+                "line": 25,
+                "tag": "0x7f",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "197f00001f00"
+              },
+              {
+                "line": 26,
+                "tag": "0xd0",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1ad000004f01"
+              },
+              {
+                "line": 27,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x43",
+                "raw": "1bff0043ef00"
+              },
+              {
+                "line": 28,
+                "tag": "0xd4",
+                "special_output": "0x5a",
+                "special_input": "0x00",
+                "raw": "1cd45a004f01"
+              },
+              {
+                "line": 29,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1dff00004f00"
+              },
+              {
+                "line": 30,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1eff0000ef01"
+              },
+              {
+                "line": 31,
+                "tag": "0xff",
+                "special_output": "0x00",
+                "special_input": "0x00",
+                "raw": "1fff0000ef01"
+              }
+            ]
+          },
+          "input": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "cinema": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "spread_spectrum": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "i2c_devices": {
+            "offset": "0x2db40",
+            "version": "0x40",
+            "header_size": 5,
+            "count": 32,
+            "entry_size": 4,
+            "present": true,
+            "relative_offset": "0x5540",
+            "raw_rows": [
+              "474a0000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff001000",
+              "ff001000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000",
+              "ff000000"
+            ],
+            "decoded_type_bytes": [
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00",
+              "0x00"
+            ]
+          },
+          "connector": {
+            "offset": "0x2dbc5",
+            "version": "0x40",
+            "header_size": 5,
+            "count": 0,
+            "entry_size": 4,
+            "present": true,
+            "relative_offset": "0x55c5",
+            "raw_rows": []
+          },
+          "hdtv": {
+            "present": false,
+            "relative_offset": "0x0"
+          },
+          "mux": {
+            "present": false,
+            "relative_offset": "0x0"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+# source: /home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin sha256=0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b
+# ELF64-LE parsed with struct; VA->file offset via SHF_ALLOC section / PT_LOAD fallback
+# Format: VA  FILE_OFFSET  BYTES(file order)  SIZE  MNEMONIC  OPERANDS
+# Windows: callback_block 0x04f575bc..0x04f57658 ; entry_helper 0x04f075ec..0x04f076a0
+
+# callback_block: 0x4f575bc..0x4f57658 backing=section[27].section_task_rm_elf_text_instance count=39
+04f575bc  file=00f575fc  b7741a04          4  lui         s1, 0x41a7
+04f575c0  file=00f57600  371c0000          4  lui         s8, 1
+04f575c4  file=00f57604  9384040b          4  addi        s1, s1, 0xb0
+04f575c8  file=00f57608  130c0c74          4  addi        s8, s8, 0x740
+04f575cc  file=00f5760c  338c8401          4  add         s8, s1, s8
+04f575d0  file=00f57610  6f004002          4  j           0x24
+04f575d4  file=00f57614  83b70903          4  ld          a5, 0x30(s3)
+04f575d8  file=00f57618  035684f7          4  lhu         a2, -0x88(s0)
+04f575dc  file=00f5761c  13850900          4  mv          a0, s3
+04f575e0  file=00f57620  e7800700          4  jalr        a5
+04f575e4  file=00f57624  1b090500          4  sext.w      s2, a0
+04f575e8  file=00f57628  63160926          4  bnez        s2, 0x26c
+04f575ec  file=00f5762c  93840402          4  addi        s1, s1, 0x20
+04f575f0  file=00f57630  63069c42          4  beq         s8, s1, 0x42c
+04f575f4  file=00f57634  13068008          4  addi        a2, zero, 0x88
+04f575f8  file=00f57638  93050000          4  mv          a1, zero
+04f575fc  file=00f5763c  130504f2          4  addi        a0, s0, -0xe0
+04f57600  file=00f57640  97f03100          4  auipc       ra, 0x31f
+04f57604  file=00f57644  e780c09f          4  jalr        ra, ra, -0x604
+04f57608  file=00f57648  83d80400          4  lhu         a7, 0(s1)
+04f5760c  file=00f5764c  03a84400          4  lw          a6, 4(s1)
+04f57610  file=00f57650  83c68400          4  lbu         a3, 8(s1)
+04f57614  file=00f57654  03b70401          4  ld          a4, 0x10(s1)
+04f57618  file=00f57658  83d78401          4  lhu         a5, 0x18(s1)
+04f5761c  file=00f5765c  93050a00          4  mv          a1, s4
+04f57620  file=00f57660  130604f2          4  addi        a2, s0, -0xe0
+04f57624  file=00f57664  13850a00          4  mv          a0, s5
+04f57628  file=00f57668  230004f2          4  sb          zero, -0xe0(s0)
+04f5762c  file=00f5766c  230d04f6          4  sb          zero, -0x86(s0)
+04f57630  file=00f57670  231c14f7          4  sh          a7, -0x88(s0)
+04f57634  file=00f57674  232e04f7          4  sw          a6, -0x84(s0)
+04f57638  file=00f57678  2300d4f8          4  sb          a3, -0x80(s0)
+04f5763c  file=00f5767c  2334e4f8          4  sd          a4, -0x78(s0)
+04f57640  file=00f57680  2318f4f8          4  sh          a5, -0x70(s0)
+04f57644  file=00f57684  9700fbff          4  auipc       ra, 0xfffb0
+04f57648  file=00f57688  e78080fa          4  jalr        ra, ra, -0x58
+04f5764c  file=00f5768c  93050500          4  mv          a1, a0
+04f57650  file=00f57690  e31205f8          4  bnez        a0, -0x7c
+04f57654  file=00f57694  835584f7          4  lhu         a1, -0x88(s0)
+
+# entry_helper: 0x4f075ec..0x4f076a0 backing=section[27].section_task_rm_elf_text_instance count=45
+04f075ec  file=00f0762c  130101fc          4  addi        sp, sp, -0x40
+04f075f0  file=00f07630  23388102          4  sd          s0, 0x30(sp)
+04f075f4  file=00f07634  23349102          4  sd          s1, 0x28(sp)
+04f075f8  file=00f07638  23302103          4  sd          s2, 0x20(sp)
+04f075fc  file=00f0763c  233c3101          4  sd          s3, 0x18(sp)
+04f07600  file=00f07640  233c1102          4  sd          ra, 0x38(sp)
+04f07604  file=00f07644  23384101          4  sd          s4, 0x10(sp)
+04f07608  file=00f07648  13040104          4  addi        s0, sp, 0x40
+04f0760c  file=00f0764c  b7392004          4  lui         s3, 0x4203
+04f07610  file=00f07650  83450600          4  lbu         a1, 0(a2)
+04f07614  file=00f07654  83b70993          4  ld          a5, -0x6d0(s3)
+04f07618  file=00f07658  2334f4fc          4  sd          a5, -0x38(s0)
+04f0761c  file=00f0765c  93070000          4  mv          a5, zero
+04f07620  file=00f07660  233004fc          4  sd          zero, -0x40(s0)
+04f07624  file=00f07664  93076000          4  addi        a5, zero, 6
+04f07628  file=00f07668  93040600          4  mv          s1, a2
+04f0762c  file=00f0766c  13890000          4  mv          s2, ra
+04f07630  file=00f07670  63e8b706          4  bltu        a5, a1, 0x70
+04f07634  file=00f07674  37671a04          4  lui         a4, 0x41a6
+04f07638  file=00f07678  93972500          4  slli        a5, a1, 2
+04f0763c  file=00f0767c  1307879c          4  addi        a4, a4, -0x638
+04f07640  file=00f07680  b387e700          4  add         a5, a5, a4
+04f07644  file=00f07684  83a70700          4  lw          a5, 0(a5)
+04f07648  file=00f07688  67800700          4  jr          a5
+04f0764c  file=00f0768c  93060600          4  mv          a3, a2
+04f07650  file=00f07690  930504fc          4  addi        a1, s0, -0x40
+04f07654  file=00f07694  13060015          4  addi        a2, zero, 0x150
+04f07658  file=00f07698  97800600          4  auipc       ra, 0x68
+04f0765c  file=00f0769c  e780c093          4  jalr        ra, ra, -0x6c4
+04f07660  file=00f076a0  1b050500          4  sext.w      a0, a0
+04f07664  file=00f076a4  631a0510          4  bnez        a0, 0x114
+04f07668  file=00f076a8  033504fc          4  ld          a0, -0x40(s0)
+04f0766c  file=00f076ac  033784fc          4  ld          a4, -0x38(s0)
+04f07670  file=00f076b0  83b70993          4  ld          a5, -0x6d0(s3)
+04f07674  file=00f076b4  b347f700          4  xor         a5, a4, a5
+04f07678  file=00f076b8  13070000          4  mv          a4, zero
+04f0767c  file=00f076bc  639c0718          4  bnez        a5, 0x198
+04f07680  file=00f076c0  83308103          4  ld          ra, 0x38(sp)
+04f07684  file=00f076c4  03340103          4  ld          s0, 0x30(sp)
+04f07688  file=00f076c8  83348102          4  ld          s1, 0x28(sp)
+04f0768c  file=00f076cc  03390102          4  ld          s2, 0x20(sp)
+04f07690  file=00f076d0  83398101          4  ld          s3, 0x18(sp)
+04f07694  file=00f076d4  033a0101          4  ld          s4, 0x10(sp)
+04f07698  file=00f076d8  13010104          4  addi        sp, sp, 0x40
+04f0769c  file=00f076dc  67800000          4  ret         
+

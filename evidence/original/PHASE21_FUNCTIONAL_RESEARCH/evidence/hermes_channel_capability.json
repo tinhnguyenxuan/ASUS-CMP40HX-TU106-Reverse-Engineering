@@ -1,0 +1,18 @@
+{
+  "schema": "phase21-hermes-channel-capability-v1",
+  "generated_utc": "2026-11-04T14:01:03.167046+00:00",
+  "observed_channel": "telegram:1881666059",
+  "session_key": "agent:main:telegram:dm:1881666059",
+  "available_operations": [
+    "conversations_list",
+    "messages_read",
+    "messages_send",
+    "events_poll",
+    "events_wait",
+    "channels_list"
+  ],
+  "reported_external_delivery": false,
+  "reported_limit": "Hermes channel cannot send files or notifications to external APIs/services, including Hermes gốc (vilao/qwen3.8 flash); it can write local files and reply in this Telegram conversation.",
+  "decision": "Do not attempt external Hermes/API delivery through this MCP; retain local artifacts and use only explicit read-only collection workflows.",
+  "phase21_effect": "No runtime or hardware blocker is closed."
+}

@@ -1,0 +1,73 @@
+provenance: 15 source files catalogued
+dev_fuse.tu102 defines 5 fuse registers: ['NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS', 'NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS_DATA_NO', 'NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS_DATA_YES', 'NV_FUSE_OPT_NVDEC_DISABLE', 'NV_FUSE_OPT_NVDEC_DISABLE_DATA_INIT']
+provenance: 15 source files catalogued
+dev_fuse.tu102 defines 3 fuse registers: ['NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS', 'NV_FUSE_OPT_NVDEC_DISABLE', 'NV_FUSE_OPT_NVDEC_DISABLE_DATA_INIT']
+provenance: 15 source files catalogued
+dev_fuse.tu102 defines 2 fuse registers: ['NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS', 'NV_FUSE_OPT_NVDEC_DISABLE']
+[PASS] dev_fuse tu102 defines exactly 2 registers
+[FAIL] NVDEC_DISABLE at 0x21378 line 31
+[FAIL] GSP_DEBUG_DIS at 0x2174C line 26
+[PASS] WPR magic line present
+[PASS] WPR verified value line present
+[PASS] WPR size 256 bytes documented
+[PASS] WPR2 MMIO LO=0x01f7e000
+[PASS] WPR2 MMIO HI=0x01ffee00
+[PASS] WPR2 size = 0x80E00
+[PASS] WPR2 matches dmesg pair
+[PASS] SEC2 EMEM channel RM = 0
+[PASS] SEC2 EMEM channel RM size = 1024
+[PASS] Firmware container 38 valid payloads
+[PASS] Firmware container numEntries = 496
+[PASS] CC is off
+[PASS] IOMMU group 31
+[PASS] DMA mask 47-bit
+[PASS] Driver unsigned (taint)
+[PASS] GSP debug disabled fuse bit = 1
+
+=== RESULT: FAILURES: ['NVDEC_DISABLE at 0x21378 line 31', 'GSP_DEBUG_DIS at 0x2174C line 26'] ===
+provenance: 15 source files catalogued
+dev_fuse.tu102 defines 2 fuse registers: ['NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS', 'NV_FUSE_OPT_NVDEC_DISABLE']
+[PASS] dev_fuse tu102 defines exactly 2 registers
+[PASS] NVDEC_DISABLE at 0x21378 line 31
+[PASS] GSP_DEBUG_DIS at 0x2174C line 26
+[PASS] WPR magic line present
+[PASS] WPR verified value line present
+[PASS] WPR size 256 bytes documented
+[PASS] WPR2 MMIO LO=0x01f7e000
+[PASS] WPR2 MMIO HI=0x01ffee00
+[PASS] WPR2 size = 0x80E00
+[PASS] WPR2 matches dmesg pair
+[PASS] SEC2 EMEM channel RM = 0
+[PASS] SEC2 EMEM channel RM size = 1024
+[PASS] Firmware container 38 valid payloads
+[PASS] Firmware container numEntries = 496
+[PASS] CC is off
+[PASS] IOMMU group 31
+[PASS] DMA mask 47-bit
+[PASS] Driver unsigned (taint)
+[PASS] GSP debug disabled fuse bit = 1
+
+=== RESULT: ALL ASSERTIONS PASS ===
+provenance: 15 source files catalogued
+dev_fuse.tu102 defines 2 fuse registers: ['NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS', 'NV_FUSE_OPT_NVDEC_DISABLE']
+[PASS] dev_fuse tu102 defines exactly 2 registers
+[PASS] NVDEC_DISABLE at 0x21378 line 31
+[PASS] GSP_DEBUG_DIS at 0x2174C line 26
+[PASS] WPR magic line present
+[PASS] WPR verified value line present
+[PASS] WPR size 256 bytes documented
+[PASS] WPR2 MMIO LO=0x01f7e000
+[PASS] WPR2 MMIO HI=0x01ffee00
+[PASS] WPR2 size = 0x80E00
+[PASS] WPR2 matches dmesg pair
+[PASS] SEC2 EMEM channel RM = 0
+[PASS] SEC2 EMEM channel RM size = 1024
+[PASS] Firmware container 38 valid payloads
+[PASS] Firmware container numEntries = 496
+[PASS] CC is off
+[PASS] IOMMU group 31
+[PASS] DMA mask 47-bit
+[PASS] Driver unsigned (taint)
+[PASS] GSP debug disabled fuse bit = 1
+
+=== RESULT: ALL ASSERTIONS PASS ===

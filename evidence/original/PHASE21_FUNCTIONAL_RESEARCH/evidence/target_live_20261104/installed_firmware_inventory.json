@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T15:06:55.173223+00:00",
+  "command": "find /lib/firmware/nvidia -maxdepth 3 -type f -name '*gsp*' -print; modinfo -F version nvidia; modinfo -F firmware nvidia",
+  "returncode": 0,
+  "stdout": "/lib/firmware/nvidia/615.71.09/gsp_ga10x.bin\n/lib/firmware/nvidia/615.71.09/gsp_tu10x.bin\n/lib/firmware/nvidia/580.178.04/gsp_ga10x.bin\n/lib/firmware/nvidia/580.178.04/gsp_tu10x.bin\n/lib/firmware/nvidia/ga102/gsp/gsp-535.113.01.bin.zst\n/lib/firmware/nvidia/ga102/gsp/gsp-570.144.bin.zst\n/lib/firmware/nvidia/tu102/gsp/gsp-535.113.01.bin.zst\n/lib/firmware/nvidia/tu102/gsp/gsp-570.144.bin.zst\n615.71.09\nnvidia/615.71.09/ucodes_tu10x.bin\nnvidia/615.71.09/ucodes_ga10x.bin\nnvidia/615.71.09/gsp_tu10x.bin\nnvidia/615.71.09/gsp_ga10x.bin\n",
+  "stderr": ""
+}

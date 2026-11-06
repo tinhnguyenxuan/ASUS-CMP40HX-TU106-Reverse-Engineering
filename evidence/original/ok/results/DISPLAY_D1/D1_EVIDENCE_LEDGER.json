@@ -1,0 +1,416 @@
+{
+  "phase": "D1 — DeepSeek V4.1 Flash independent CMP 40HX display restoration research",
+  "date": "2026-11-06",
+  "gpu": {
+    "model": "NVIDIA CMP 40HX",
+    "chip": "TU106-100-A1",
+    "pci_id": "10DE:1F0B",
+    "bdf": "0000:03:00.0",
+    "driver": "615.78.08",
+    "vbios": "90.06.67.00.06"
+  },
+  "artifacts": {
+    "gsp_wrapper": {
+      "path": "/lib/firmware/nvidia/615.78.08/gsp_tu10x.bin",
+      "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+      "size": 22901632
+    },
+    "gsp_inner_elf": {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/gsp/gsp_tu10x_615.78.08_inner.elf",
+      "sha256": "cd83bb04d32a29c2daee20b58cd8cbbc67849f8e7c122ee9f87994eb4a2cfe85",
+      "size": 22901568,
+      "extract": "dd skip=64 count=22901568",
+      "entry": "0x4009000"
+    },
+    "source_rm": {
+      "repo": "open-gpu-kernel-modules",
+      "tag": "615.78.08",
+      "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5"
+    },
+    "nv_kernel_obj": {
+      "path": "/tmp/nvx/kernel/nvidia/nv-kernel.o_binary",
+      "size": 115570992,
+      "cmp_pattern_offset": "0x5FE26F0",
+      "cmp_table_start": "0x5FE26CC"
+    },
+    "vbios_parser": {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/vbios_final.py",
+      "selftest": "--selftest PASS"
+    },
+    "elf_sections": {
+      "rm_text": {
+        "vaddr": "0x4588000",
+        "file": "0x588000",
+        "size": "0x1039000"
+      },
+      "rm_rodata": {
+        "vaddr": "0x401d000",
+        "file": "0x1d000",
+        "size": "0x1e4000"
+      },
+      "rm_data": {
+        "vaddr": "0x4201000",
+        "file": "0x201000",
+        "size": "0x387000"
+      }
+    },
+    "disassembler": "/usr/lib/llvm-18/bin/llvm-objdump -d --triple=riscv64"
+  },
+  "hardware_reads": {
+    "method": "mmap /sys/bus/pci/devices/0000:03:00.0/resource0 (BAR0), PROT_READ, 16MiB, read-only",
+    "registers": {
+      "0x000000": "0x166000A1  (NV_PMC_BOOT_0 — chip identity, confirms correct BAR)",
+      "0x021000": "0xC0040000  (fuse window base, self-consistent)",
+      "0x021378": "0x00000000  (NV_FUSE_OPT_NVDEC_DISABLE = 0, NVDEC enabled)",
+      "0x02174C": "0x00000001  (NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS = 1)",
+      "0x021C00": "0x00000000",
+      "0x021C04": "0x00000001  *** NV_FUSE_STATUS_OPT_DISPLAY: DATA=1, ENABLE=0 -> gate FALSE ***",
+      "0x021C08": "0x0000000F"
+    },
+    "cross_check": "0x21378=0 and 0x2174C=1 are different functional fuse cells returning different meaningful values -> fuse window 0x21000 is routed and returns real data, not a stuck constant"
+  },
+  "fuse_register": {
+    "name": "NV_FUSE_STATUS_OPT_DISPLAY",
+    "address": "0x00021C04",
+    "access": "R-I4R (Read, Inner, 4-byte, Read-only)",
+    "header": "src/common/inc/swref/published/maxwell/gm107/dev_fuse.h:27-29",
+    "block": "fuse",
+    "window_base_tu106": "0x21000",
+    "window_offset": "0xC04",
+    "block_proof": "TU102 0x0002174C <-> GA100 0x0082074C (delta 0x7FF000); TU102 0x00021378 <-> GA100 0x00820378 (delta 0x7FF000); 0x820000-0x7FF000=0x21000; 0x21000+0xC04=0x21C04=0x820000+0xC04=0x820C04",
+    "fuse_base_on_tu106": "0 (gpuGetPrimaryFuseBaseAddr_b2b553, g_gpu_nvoc.c:2889) -> absolute MMIO 0x21C04"
+  },
+  "dependency_graph": [
+    {
+      "step": 1,
+      "layer": "silicon",
+      "what": "fuse cell 0xC04 in block 0x21000",
+      "value": "0x00000001",
+      "evidence": "BAR0 read"
+    },
+    {
+      "step": 2,
+      "layer": "driver",
+      "what": "gpuFuseSupportsDisplay_GM107",
+      "file": "src/nvidia/src/kernel/gpu/arch/maxwell/kern_gpu_gm107.c:62-73",
+      "dispatch": "src/nvidia/generated/g_gpu_nvoc.c:2094-2098 (ChipHal mask 0x3e0 = TU102|TU104|TU106|TU116|TU117)",
+      "result": "NV_FALSE (1 != DATA_ENABLE 0)"
+    },
+    {
+      "step": 3,
+      "layer": "driver",
+      "what": "kdispStatePreInitLocked_IMPL",
+      "file": "src/nvidia/src/kernel/gpu/disp/kern_disp.c:435-445",
+      "code": "if (!gpuFuseSupportsDisplay_HAL(pGpu)) return NV_ERR_NOT_SUPPORTED;",
+      "result": "returns at line 445 — display init stops here"
+    },
+    {
+      "step": 4,
+      "layer": "driver",
+      "what": "engstateIsPresent -> gpuDestroyMissingEngine",
+      "file": "src/nvidia/src/kernel/gpu/gpu.c:1744-1768",
+      "note": "ENG_CLASS_KERNEL_DISPLAY -> IS_FW_CLIENT = TRUE so KernelDisplay IS constructed, then destroyed by pre-init failure"
+    },
+    {
+      "step": 5,
+      "layer": "gsp",
+      "what": "NV2080_CTRL_CMD_INTERNAL_DISPLAY_GET_IP_VERSION 0x20800A4B",
+      "dispatch_record": "0x04061958",
+      "handler": "0x04B9F5CC",
+      "payload": "0x4",
+      "result": "NEVER SENT — host returned at step 3"
+    },
+    {
+      "step": 6,
+      "layer": "observed",
+      "what": "nvidia-drm",
+      "dmesg": [
+        "nvidia 0000:03:00.0: [drm] No compatible format found",
+        "nvidia 0000:03:00.0: [drm] Cannot find any crtc or sizes"
+      ],
+      "nvidia_smi": "Display Attached: No / Display Active: Disabled"
+    }
+  ],
+  "nouveau_consumer": {
+    "file": "drivers/gpu/drm/nouveau/nvkm/subdev/bios/shadowramin.c — pramin_init()",
+    "code_path": "card_type >= GM100 && < GA100 -> addr = rd32(0x021c04)",
+    "condition": "if (addr & 0x00000001) { nvkm_debug('... display disabled'); return ERR_PTR(-ENODEV); }",
+    "result": "0x021C04=1 -> addr&1=1 -> -ENODEV, before VBIOS parse and before PDISP init",
+    "note": "NVIDIA's own comment: 'we can't get the bios image pointer without PDISP'"
+  },
+  "gsp_display_handler": {
+    "cmd": "0x20800A4B",
+    "name": "NV2080_CTRL_CMD_INTERNAL_DISPLAY_GET_IP_VERSION",
+    "record_vaddr": "0x04061958",
+    "record_bytes": "4b0a8020 04000000 c8040704 00000000 ccf5b904 00000000 c0000000 00000000",
+    "handler": "0x04B9F5CC",
+    "objchain": "a5=*(pGpu+0x160); base=*(a5+0xE8); s1=base+0x2000; s3=*(base+0x1F60); flag=*(u8*)(base+0x6EA)",
+    "rule": "ipVersion = 0 if (s3==0 || flag==0), else 1|2|3|4 via callback *(base+0x1F50)",
+    "key_bytes": [
+      "4b9f5fc: 83 b9 04 f6  ld s3,-0xa0(s1)",
+      "4b9f604: 83 47 a5 6e  lbu a5,0x6ea(a0)",
+      "4b9f60c: 93 07 00 00  li a5,0x0",
+      "4b9f610: 23 20 f9 00  sw a5,0x0(s2)"
+    ],
+    "flag_writers": [
+      "0x4A128D4",
+      "0x4B6F3EC",
+      "0x4C89784",
+      "0x4C95FDC",
+      "0x5306DE4",
+      "0x530713C",
+      "0x5307604",
+      "0x53076C4",
+      "0x5382D2C",
+      "0x5382F08",
+      "0x538314C"
+    ],
+    "status": "CODE PATH EXISTS; NEVER EXECUTED on this card (host blocks first). Actual ipVersion UNMEASURED."
+  },
+  "rmdisabldisplay_exclusion": {
+    "string_vaddr": "0x409E928",
+    "string_file_offset": "0x9E928",
+    "context": "registry key name blob: ...PanelBrightnessLimits\\0RmDisableDisplay\\0RmDisableDispMacro\\0CRT...",
+    "qword_ptr_hits": 0,
+    "dword_ptr_hits": 0,
+    "auipc_addi_hits": 0,
+    "source_rm_hits": 0,
+    "module_param_present_on_target": false,
+    "conclusion": "not set, not referenced, not the producer of current state"
+  },
+  "vbios_comparison": {
+    "CMP40HX_ORIGINAL_1MB.bin": {
+      "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+      "size": 1048576,
+      "image_base": "0x28600",
+      "pci_device": "0x1f0b",
+      "bios_version": "90.06.67.00",
+      "bit_offset": "0x287b0",
+      "bit_stride": 6,
+      "bit_entries": 17,
+      "token_U": {
+        "offset": "0x3ce",
+        "file_offset": "0x289ce",
+        "raw": "0000020000",
+        "flags": "0x02",
+        "NO_DISPLAY_SUBSYSTEM": 1
+      },
+      "token_B": {
+        "offset": "0x23e",
+        "file_offset": "0x2883e",
+        "length": 37,
+        "B_plus_28": "0x36",
+        "COPROC_BUILD": 1,
+        "B_plus_32": "0x12",
+        "hex": "00670690060000000000a807000000000000000002005c5c2202000036020400122a4d0100"
+      },
+      "dcb": {
+        "version": "0x41",
+        "sig": "0x4EDCBDCB",
+        "entry_count": 0,
+        "real_output_entries": 0,
+        "type_counts": {}
+      }
+    },
+    "doc_8915fc0aae7e_246948.rom": {
+      "sha256": "c468ac52bfea803a7784b02c3f0a4005115660b0087e06302056ab27a9332dcf",
+      "size": 1047040,
+      "image_base": "0x28600",
+      "pci_device": "0x1f06",
+      "bios_version": "90.06.44.00",
+      "bit_offset": "0x287b0",
+      "bit_stride": 6,
+      "bit_entries": 17,
+      "token_U": {
+        "offset": "0x3a2",
+        "file_offset": "0x289a2",
+        "raw": "8f4e000000",
+        "flags": "0x00",
+        "NO_DISPLAY_SUBSYSTEM": 0
+      },
+      "token_B": {
+        "offset": "0x23e",
+        "file_offset": "0x2883e",
+        "length": 37,
+        "B_plus_28": "0x36",
+        "COPROC_BUILD": 1,
+        "B_plus_32": "0x10",
+        "hex": "00440690c10000000000a807000000000000000002005c5c2202000036020400105b430100"
+      },
+      "dcb": {
+        "version": "0x41",
+        "sig": "0x4EDCBDCB",
+        "entry_count": 16,
+        "real_output_entries": 7,
+        "type_counts": {
+          "DisplayPort": 2,
+          "TMDS": 5,
+          "EndOfLine": 2,
+          "Unused": 7
+        }
+      }
+    },
+    "doc_dc16edaba2f1_268920.rom": {
+      "sha256": "0a2fd8782e7bfc5b74edf1a6609b76157626cfe130188a584f0caed4a58c9cb9",
+      "size": 1047040,
+      "image_base": "0x28600",
+      "pci_device": "0x1f06",
+      "bios_version": "90.06.4C.00",
+      "bit_offset": "0x287b0",
+      "bit_stride": 6,
+      "bit_entries": 17,
+      "token_U": {
+        "offset": "0x3a2",
+        "file_offset": "0x289a2",
+        "raw": "8f4e000000",
+        "flags": "0x00",
+        "NO_DISPLAY_SUBSYSTEM": 0
+      },
+      "token_B": {
+        "offset": "0x23e",
+        "file_offset": "0x2883e",
+        "length": 37,
+        "B_plus_28": "0x36",
+        "COPROC_BUILD": 1,
+        "B_plus_32": "0x10",
+        "hex": "004c0690570000000000a807000000000000000002005c5c22020000360204001072430100"
+      },
+      "dcb": {
+        "version": "0x41",
+        "sig": "0x4EDCBDCB",
+        "entry_count": 16,
+        "real_output_entries": 5,
+        "type_counts": {
+          "DisplayPort": 1,
+          "TMDS": 4,
+          "Unused": 11
+        }
+      }
+    },
+    "doc_1de655d2169f_265590.rom": {
+      "sha256": "560f2be1bee834c3d6acccbc5b0eaba47d3be5b9bce2ef2a40b97e1e898a0db8",
+      "size": 1047040,
+      "image_base": "0x28600",
+      "pci_device": "0x1f07",
+      "bios_version": "90.06.3D.00",
+      "bit_offset": "0x287b0",
+      "bit_stride": 6,
+      "bit_entries": 17,
+      "token_U": {
+        "offset": "0x3a2",
+        "file_offset": "0x289a2",
+        "raw": "8f4e000000",
+        "flags": "0x00",
+        "NO_DISPLAY_SUBSYSTEM": 0
+      },
+      "token_B": {
+        "offset": "0x23e",
+        "file_offset": "0x2883e",
+        "length": 37,
+        "B_plus_28": "0x36",
+        "COPROC_BUILD": 1,
+        "B_plus_32": "0x10",
+        "hex": "003d0690cb0000000000a807000000000000000002005c5c2202000036020400103a430100"
+      },
+      "dcb": {
+        "version": "0x41",
+        "sig": "0x4EDCBDCB",
+        "entry_count": 16,
+        "real_output_entries": 5,
+        "type_counts": {
+          "DisplayPort": 1,
+          "TMDS": 4,
+          "Unused": 11
+        }
+      }
+    },
+    "doc_c3a77dc8a778_253219.rom": {
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "size": 1047040,
+      "image_base": "0x28600",
+      "pci_device": "0x1f0b",
+      "bios_version": "90.06.67.00",
+      "bit_offset": "0x287b0",
+      "bit_stride": 6,
+      "bit_entries": 17,
+      "token_U": {
+        "offset": "0x3ce",
+        "file_offset": "0x289ce",
+        "raw": "0000020000",
+        "flags": "0x02",
+        "NO_DISPLAY_SUBSYSTEM": 1
+      },
+      "token_B": {
+        "offset": "0x23e",
+        "file_offset": "0x2883e",
+        "length": 37,
+        "B_plus_28": "0x36",
+        "COPROC_BUILD": 1,
+        "B_plus_32": "0x12",
+        "hex": "00670690060000000000a807000000000000000002005c5c2202000036020400122a4d0100"
+      },
+      "dcb": {
+        "version": "0x41",
+        "sig": "0x4EDCBDCB",
+        "entry_count": 0,
+        "real_output_entries": 0,
+        "type_counts": {}
+      }
+    }
+  },
+  "safety": {
+    "writes_performed": 0,
+    "mmio_writes": 0,
+    "bar3_writes": 0,
+    "fuse_writes": 0,
+    "vbios_flash": 0,
+    "firmware_patched": 0,
+    "gpu_reset": 0,
+    "driver_changed": 0,
+    "note": "all hardware access was read-only mmap of BAR0 resource0 + dmesg/nvidia-smi queries"
+  },
+  "propositions_kept_separate": {
+    "display_disabled_in_current_env": "PROVEN",
+    "hardware_level_cause": "SUPPORTED (fuse window validated by sibling cells; but OTP-vs-latch unproven)",
+    "raw_otp_immutability": "UNPROVEN"
+  },
+  "remaining_tests": [
+    {
+      "id": "T-B1",
+      "what": "call 0x20800A4B via RM userspace API, read ipVersion",
+      "readonly": true,
+      "status": "FEASIBLE, not run",
+      "value": "highest remaining"
+    },
+    {
+      "id": "T-A1",
+      "what": "read 0x021C04 after PCI reset before driver load",
+      "readonly": true,
+      "status": "FEASIBLE, not run"
+    },
+    {
+      "id": "T-A2",
+      "what": "flash GeForce TU106 ROM, re-read 0x021C04",
+      "readonly": false,
+      "status": "OUT OF D1 SCOPE, needs user decision"
+    },
+    {
+      "id": "T-A3",
+      "what": "compare with a second CMP 40HX",
+      "readonly": true,
+      "status": "NEEDS HARDWARE"
+    },
+    {
+      "id": "T-D1",
+      "what": "read PDISP device-id register via BAR0",
+      "readonly": true,
+      "status": "BLOCKED — no published register address for Turing disp"
+    },
+    {
+      "id": "T-D2",
+      "what": "inspect CMP40HX_PORTS_PHOTO_ANNOTATED.jpg / boardview",
+      "readonly": true,
+      "status": "FEASIBLE, not done"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "instruction_walk": "linear length walk within SHF_EXECINSTR sections; not proof all bytes are reachable code",
+  "sections": [
+    {
+      "section": ".ga100_text",
+      "counts": {
+        "length_4": 1285,
+        "return": 27,
+        "jump": 17,
+        "branch": 58,
+        "resolved_auipc_jalr": 77,
+        "indirect_jump": 9,
+        "indirect_call": 68
+      }
+    },
+    {
+      "section": ".tu10x_text",
+      "counts": {
+        "length_4": 1285,
+        "return": 27,
+        "jump": 17,
+        "branch": 58,
+        "resolved_auipc_jalr": 77,
+        "indirect_jump": 9,
+        "indirect_call": 68
+      }
+    },
+    {
+      "section": ".bootstrap",
+      "counts": {
+        "length_4": 29,
+        "branch": 8,
+        "resolved_auipc_jalr": 2,
+        "indirect_call": 2,
+        "jump": 1
+      }
+    },
+    {
+      "section": ".ga100_resident_text",
+      "counts": {
+        "length_4": 2613,
+        "return": 33,
+        "branch": 224,
+        "indirect_jump": 8,
+        "jump": 68,
+        "indirect_call": 130,
+        "resolved_auipc_jalr": 136,
+        "length_2": 918
+      }
+    },
+    {
+      "section": ".tu10x_resident_text",
+      "counts": {
+        "length_4": 2635,
+        "return": 33,
+        "branch": 225,
+        "indirect_jump": 8,
+        "jump": 68,
+        "indirect_call": 130,
+        "resolved_auipc_jalr": 136,
+        "length_2": 874
+      }
+    },
+    {
+      "section": ".section_task_init_elf_text_instance",
+      "counts": {
+        "length_4": 3658,
+        "branch": 245,
+        "return": 26,
+        "jump": 97,
+        "trap": 25,
+        "resolved_auipc_jalr": 273,
+        "indirect_call": 271,
+        "indirect_jump": 3,
+        "length_2": 876
+      }
+    },
+    {
+      "section": ".section_task_rm_elf_text_instance",
+      "counts": {
+        "length_4": 4242803,
+        "return": 48792,
+        "branch": 308147,
+        "jump": 165977,
+        "resolved_auipc_jalr": 189980,
+        "indirect_call": 217158,
+        "trap": 53518,
+        "indirect_jump": 14615,
+        "length_2": 19738
+      }
+    }
+  ],
+  "call_edges": 185486,
+  "unique_candidate_targets": 11416,
+  "xrefs": [
+    {
+      "pc": 82865180,
+      "file_offset": 15756380,
+      "raw": "e7804072",
+      "kind": "indirect_call",
+      "rd": 1,
+      "rs1": 1,
+      "target": 83194684,
+      "encoding": "adjacent_auipc_jalr"
+    },
+    {
+      "pc": 83196208,
+      "file_offset": 16087408,
+      "raw": "6ff0dfc8",
+      "kind": "jump",
+      "target": 83195324,
+      "rd": 0
+    }
+  ],
+  "function_candidate_start": 83194684,
+  "function_candidate_end_exclusive": 83196704,
+  "descriptor_loop_block": 83195324
+}

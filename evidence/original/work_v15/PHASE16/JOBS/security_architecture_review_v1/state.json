@@ -1,0 +1,12 @@
+{
+  "job": "security_architecture_review_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T18:48:15.152023+00:00",
+  "wrapper_pid": 1660271,
+  "task_sha256": "0ce551f74965a168a870ac9bca7af7fa8c66eb0078d90dc7f6ea9ebd6e81ea62",
+  "hermes_pid": 1660272,
+  "hermes_start_ticks": "209764103",
+  "heartbeat_at": "2026-11-03T18:53:13.282957+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T18:53:15.283752+00:00"
+}

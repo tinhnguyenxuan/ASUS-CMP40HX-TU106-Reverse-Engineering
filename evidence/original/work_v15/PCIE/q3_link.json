@@ -1,0 +1,26 @@
+{
+ "raw_file": "RAW_DATA/q3_pcie.txt",
+ "link": {
+  "card": {
+   "LnkCap": "Port #0, Speed 5GT/s, Width x16, ASPM L0s L1, Exit Latency L0s <512ns, L1 <4us",
+   "LnkSta": "Speed 2.5GT/s (downgraded), Width x16",
+   "LnkCap2": "Supported Link Speeds: 2.5-5GT/s, Crosslink- Retimer- 2Retimers- DRS-",
+   "LnkCtl2": "Target Link Speed: 5GT/s, EnterCompliance- SpeedDis-"
+  },
+  "root": {
+   "LnkCap": "Port #3, Speed 8GT/s, Width x16, ASPM L1, Exit Latency L1 <16us",
+   "LnkSta": "Speed 2.5GT/s, Width x16",
+   "LnkCap2": "Supported Link Speeds: 2.5-8GT/s, Crosslink- Retimer- 2Retimers- DRS-",
+   "LnkCtl2": "Target Link Speed: 5GT/s, EnterCompliance- SpeedDis-"
+  }
+ },
+ "conclusion": {
+  "card_cap": "5 GT/s",
+  "root_cap": "8 GT/s",
+  "card_target": "5 GT/s",
+  "root_target": "5 GT/s",
+  "card_runtime": "2.5 GT/s",
+  "root_runtime": "2.5 GT/s",
+  "finding": "CA HAI DAU cung target 5 GT/s nhung runtime 2.5 GT/s -> link training that bai, khong phai root port gioi han"
+ }
+}

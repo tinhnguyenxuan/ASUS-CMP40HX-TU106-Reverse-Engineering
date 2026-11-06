@@ -1,0 +1,1666 @@
+{
+  "sideband_components": {
+    "Q7": {
+      "component_metadata": {
+        "line": 15685,
+        "PLACE": [
+          "-989.331",
+          "3196.260"
+        ],
+        "LAYER": [
+          "TOP"
+        ],
+        "ROTATION": [
+          "90.00"
+        ],
+        "SHAPE": [
+          "SC70_6",
+          "0",
+          "0"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "6",
+          "net": "IFPD_AUX_R*",
+          "signal_line": 33989,
+          "net_nodes": [
+            {
+              "component": "C42",
+              "pin": "1",
+              "line": 33990
+            },
+            {
+              "component": "Q508",
+              "pin": "1",
+              "line": 33992
+            },
+            {
+              "component": "Q7",
+              "pin": "6",
+              "line": 33994
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "3",
+          "net": "IFPD_AUX_R",
+          "signal_line": 34007,
+          "net_nodes": [
+            {
+              "component": "C43",
+              "pin": "1",
+              "line": 34008
+            },
+            {
+              "component": "Q7",
+              "pin": "3",
+              "line": 34010
+            },
+            {
+              "component": "Q509",
+              "pin": "1",
+              "line": 34012
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "2",
+          "net": "DP_AUX_PROT",
+          "signal_line": 34223,
+          "net_nodes": [
+            {
+              "component": "C23",
+              "pin": "1",
+              "line": 34224
+            },
+            {
+              "component": "Q7",
+              "pin": "2",
+              "line": 34226
+            },
+            {
+              "component": "Q7",
+              "pin": "5",
+              "line": 34228
+            },
+            {
+              "component": "Q506",
+              "pin": "3",
+              "line": 34230
+            },
+            {
+              "component": "R646",
+              "pin": "2",
+              "line": 34232
+            }
+          ],
+          "net_node_count": 5,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "5",
+          "net": "DP_AUX_PROT",
+          "signal_line": 34223,
+          "net_nodes": [
+            {
+              "component": "C23",
+              "pin": "1",
+              "line": 34224
+            },
+            {
+              "component": "Q7",
+              "pin": "2",
+              "line": 34226
+            },
+            {
+              "component": "Q7",
+              "pin": "5",
+              "line": 34228
+            },
+            {
+              "component": "Q506",
+              "pin": "3",
+              "line": 34230
+            },
+            {
+              "component": "R646",
+              "pin": "2",
+              "line": 34232
+            }
+          ],
+          "net_node_count": 5,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "4",
+          "net": "IFPD_AUX",
+          "signal_line": 37701,
+          "net_nodes": [
+            {
+              "component": "G1",
+              "pin": "BE11",
+              "line": 37702
+            },
+            {
+              "component": "Q7",
+              "pin": "4",
+              "line": 37704
+            },
+            {
+              "component": "R53",
+              "pin": "1",
+              "line": 37706
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "1",
+          "net": "IFPD_AUX*",
+          "signal_line": 37708,
+          "net_nodes": [
+            {
+              "component": "G1",
+              "pin": "BF11",
+              "line": 37709
+            },
+            {
+              "component": "Q7",
+              "pin": "1",
+              "line": 37711
+            },
+            {
+              "component": "R57",
+              "pin": "1",
+              "line": 37713
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    },
+    "Q509": {
+      "component_metadata": {
+        "line": 15741,
+        "PLACE": [
+          "-930.000",
+          "3065.000"
+        ],
+        "LAYER": [
+          "BOTTOM"
+        ],
+        "ROTATION": [
+          "180.00"
+        ],
+        "SHAPE": [
+          "SC70_6",
+          "MIRRORY",
+          "FLIP"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "1",
+          "net": "IFPD_AUX_R",
+          "signal_line": 34007,
+          "net_nodes": [
+            {
+              "component": "C43",
+              "pin": "1",
+              "line": 34008
+            },
+            {
+              "component": "Q7",
+              "pin": "3",
+              "line": 34010
+            },
+            {
+              "component": "Q509",
+              "pin": "1",
+              "line": 34012
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "4",
+          "net": "IFPD_AUX_C",
+          "signal_line": 34014,
+          "net_nodes": [
+            {
+              "component": "C43",
+              "pin": "2",
+              "line": 34015
+            },
+            {
+              "component": "D3",
+              "pin": "1",
+              "line": 34017
+            },
+            {
+              "component": "J1",
+              "pin": "15",
+              "line": 34019
+            },
+            {
+              "component": "Q509",
+              "pin": "4",
+              "line": 34021
+            },
+            {
+              "component": "R55",
+              "pin": "1",
+              "line": 34023
+            }
+          ],
+          "net_node_count": 5,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "2",
+          "net": "DP1_MODE",
+          "signal_line": 34206,
+          "net_nodes": [
+            {
+              "component": "C1299",
+              "pin": "1",
+              "line": 34207
+            },
+            {
+              "component": "Q508",
+              "pin": "2",
+              "line": 34209
+            },
+            {
+              "component": "Q508",
+              "pin": "5",
+              "line": 34211
+            },
+            {
+              "component": "Q518",
+              "pin": "6",
+              "line": 34213
+            },
+            {
+              "component": "Q509",
+              "pin": "2",
+              "line": 34215
+            },
+            {
+              "component": "Q509",
+              "pin": "5",
+              "line": 34217
+            },
+            {
+              "component": "R740",
+              "pin": "1",
+              "line": 34219
+            },
+            {
+              "component": "R757",
+              "pin": "2",
+              "line": 34221
+            }
+          ],
+          "net_node_count": 8,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "5",
+          "net": "DP1_MODE",
+          "signal_line": 34206,
+          "net_nodes": [
+            {
+              "component": "C1299",
+              "pin": "1",
+              "line": 34207
+            },
+            {
+              "component": "Q508",
+              "pin": "2",
+              "line": 34209
+            },
+            {
+              "component": "Q508",
+              "pin": "5",
+              "line": 34211
+            },
+            {
+              "component": "Q518",
+              "pin": "6",
+              "line": 34213
+            },
+            {
+              "component": "Q509",
+              "pin": "2",
+              "line": 34215
+            },
+            {
+              "component": "Q509",
+              "pin": "5",
+              "line": 34217
+            },
+            {
+              "component": "R740",
+              "pin": "1",
+              "line": 34219
+            },
+            {
+              "component": "R757",
+              "pin": "2",
+              "line": 34221
+            }
+          ],
+          "net_node_count": 8,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "6",
+          "net": "IFPD_AUX_BYP",
+          "signal_line": 38958,
+          "net_nodes": [
+            {
+              "component": "Q509",
+              "pin": "6",
+              "line": 38959
+            },
+            {
+              "component": "Q509",
+              "pin": "3",
+              "line": 38961
+            }
+          ],
+          "net_node_count": 2,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "3",
+          "net": "IFPD_AUX_BYP",
+          "signal_line": 38958,
+          "net_nodes": [
+            {
+              "component": "Q509",
+              "pin": "6",
+              "line": 38959
+            },
+            {
+              "component": "Q509",
+              "pin": "3",
+              "line": 38961
+            }
+          ],
+          "net_node_count": 2,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    },
+    "Q521": {
+      "component_metadata": {
+        "line": 15692,
+        "PLACE": [
+          "-1464.331",
+          "2983.307"
+        ],
+        "LAYER": [
+          "BOTTOM"
+        ],
+        "ROTATION": [
+          "180.00"
+        ],
+        "SHAPE": [
+          "SOT23",
+          "MIRRORY",
+          "FLIP"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "2",
+          "net": "GND",
+          "signal_line": 21896,
+          "net_nodes": [],
+          "net_node_count": 2505,
+          "ground_nodes_omitted": true
+        },
+        {
+          "pin": "3",
+          "net": "GPIO17_IFPD_HPD",
+          "signal_line": 37867,
+          "net_nodes": [
+            {
+              "component": "G1",
+              "pin": "BH1",
+              "line": 37868
+            },
+            {
+              "component": "Q521",
+              "pin": "3",
+              "line": 37870
+            },
+            {
+              "component": "R767",
+              "pin": "2",
+              "line": 37872
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "1",
+          "net": "DP_D_HPD_R_Q",
+          "signal_line": 38901,
+          "net_nodes": [
+            {
+              "component": "Q521",
+              "pin": "1",
+              "line": 38902
+            },
+            {
+              "component": "R743",
+              "pin": "1",
+              "line": 38904
+            },
+            {
+              "component": "R742",
+              "pin": "1",
+              "line": 38906
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    },
+    "C42": {
+      "component_metadata": {
+        "line": 13284,
+        "PLACE": [
+          "-1024.331",
+          "3119.370"
+        ],
+        "LAYER": [
+          "TOP"
+        ],
+        "ROTATION": [
+          "0.00"
+        ],
+        "SHAPE": [
+          "0402",
+          "0",
+          "0"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "1",
+          "net": "IFPD_AUX_R*",
+          "signal_line": 33989,
+          "net_nodes": [
+            {
+              "component": "C42",
+              "pin": "1",
+              "line": 33990
+            },
+            {
+              "component": "Q508",
+              "pin": "1",
+              "line": 33992
+            },
+            {
+              "component": "Q7",
+              "pin": "6",
+              "line": 33994
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "2",
+          "net": "IFPD_AUX_C*",
+          "signal_line": 33996,
+          "net_nodes": [
+            {
+              "component": "C42",
+              "pin": "2",
+              "line": 33997
+            },
+            {
+              "component": "D2",
+              "pin": "1",
+              "line": 33999
+            },
+            {
+              "component": "J1",
+              "pin": "17",
+              "line": 34001
+            },
+            {
+              "component": "Q508",
+              "pin": "4",
+              "line": 34003
+            },
+            {
+              "component": "R54",
+              "pin": "2",
+              "line": 34005
+            }
+          ],
+          "net_node_count": 5,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    },
+    "C43": {
+      "component_metadata": {
+        "line": 13291,
+        "PLACE": [
+          "-959.331",
+          "3119.370"
+        ],
+        "LAYER": [
+          "TOP"
+        ],
+        "ROTATION": [
+          "180.00"
+        ],
+        "SHAPE": [
+          "0402",
+          "0",
+          "0"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "1",
+          "net": "IFPD_AUX_R",
+          "signal_line": 34007,
+          "net_nodes": [
+            {
+              "component": "C43",
+              "pin": "1",
+              "line": 34008
+            },
+            {
+              "component": "Q7",
+              "pin": "3",
+              "line": 34010
+            },
+            {
+              "component": "Q509",
+              "pin": "1",
+              "line": 34012
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "2",
+          "net": "IFPD_AUX_C",
+          "signal_line": 34014,
+          "net_nodes": [
+            {
+              "component": "C43",
+              "pin": "2",
+              "line": 34015
+            },
+            {
+              "component": "D3",
+              "pin": "1",
+              "line": 34017
+            },
+            {
+              "component": "J1",
+              "pin": "15",
+              "line": 34019
+            },
+            {
+              "component": "Q509",
+              "pin": "4",
+              "line": 34021
+            },
+            {
+              "component": "R55",
+              "pin": "1",
+              "line": 34023
+            }
+          ],
+          "net_node_count": 5,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    },
+    "R720": {
+      "component_metadata": {
+        "line": 15923,
+        "PLACE": [
+          "-1299.331",
+          "3028.307"
+        ],
+        "LAYER": [
+          "BOTTOM"
+        ],
+        "ROTATION": [
+          "270.00"
+        ],
+        "SHAPE": [
+          "0402",
+          "MIRRORY",
+          "FLIP"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "2",
+          "net": "DP_D_HPD_C",
+          "signal_line": 34150,
+          "net_nodes": [
+            {
+              "component": "C1293",
+              "pin": "1",
+              "line": 34151
+            },
+            {
+              "component": "J1",
+              "pin": "18",
+              "line": 34153
+            },
+            {
+              "component": "R720",
+              "pin": "2",
+              "line": 34155
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "1",
+          "net": "DP_D_HPD_R",
+          "signal_line": 34157,
+          "net_nodes": [
+            {
+              "component": "C1296",
+              "pin": "1",
+              "line": 34158
+            },
+            {
+              "component": "R720",
+              "pin": "1",
+              "line": 34160
+            },
+            {
+              "component": "R742",
+              "pin": "2",
+              "line": 34162
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    },
+    "R742": {
+      "component_metadata": {
+        "line": 17554,
+        "PLACE": [
+          "-1379.331",
+          "3028.307"
+        ],
+        "LAYER": [
+          "BOTTOM"
+        ],
+        "ROTATION": [
+          "90.00"
+        ],
+        "SHAPE": [
+          "0402",
+          "MIRRORY",
+          "FLIP"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "2",
+          "net": "DP_D_HPD_R",
+          "signal_line": 34157,
+          "net_nodes": [
+            {
+              "component": "C1296",
+              "pin": "1",
+              "line": 34158
+            },
+            {
+              "component": "R720",
+              "pin": "1",
+              "line": 34160
+            },
+            {
+              "component": "R742",
+              "pin": "2",
+              "line": 34162
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        },
+        {
+          "pin": "1",
+          "net": "DP_D_HPD_R_Q",
+          "signal_line": 38901,
+          "net_nodes": [
+            {
+              "component": "Q521",
+              "pin": "1",
+              "line": 38902
+            },
+            {
+              "component": "R743",
+              "pin": "1",
+              "line": 38904
+            },
+            {
+              "component": "R742",
+              "pin": "1",
+              "line": 38906
+            }
+          ],
+          "net_node_count": 3,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    },
+    "D3": {
+      "component_metadata": {
+        "line": 13676,
+        "PLACE": [
+          "-955.866",
+          "3046.535"
+        ],
+        "LAYER": [
+          "TOP"
+        ],
+        "ROTATION": [
+          "0.00"
+        ],
+        "SHAPE": [
+          "DIODE_SMD_010X060",
+          "0",
+          "0"
+        ]
+      },
+      "pins": [
+        {
+          "pin": "2",
+          "net": "GND",
+          "signal_line": 21896,
+          "net_nodes": [],
+          "net_node_count": 2505,
+          "ground_nodes_omitted": true
+        },
+        {
+          "pin": "1",
+          "net": "IFPD_AUX_C",
+          "signal_line": 34014,
+          "net_nodes": [
+            {
+              "component": "C43",
+              "pin": "2",
+              "line": 34015
+            },
+            {
+              "component": "D3",
+              "pin": "1",
+              "line": 34017
+            },
+            {
+              "component": "J1",
+              "pin": "15",
+              "line": 34019
+            },
+            {
+              "component": "Q509",
+              "pin": "4",
+              "line": 34021
+            },
+            {
+              "component": "R55",
+              "pin": "1",
+              "line": 34023
+            }
+          ],
+          "net_node_count": 5,
+          "ground_nodes_omitted": false
+        }
+      ],
+      "internal_connections": "UNKNOWN; footprint/name does not define electrical connectivity"
+    }
+  },
+  "input": {
+    "path": "CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/01_BOARDVIEW/CG161P_R2_boardview.cad",
+    "sha256": "7338ccead9423c8ddd61f5c1e4f0147d95b3c6da5af3e9bae0a20fbcfab6264d"
+  },
+  "components": {
+    "G1": {
+      "line": 13872,
+      "PLACE": [
+        "3277.362",
+        "1967.008"
+      ],
+      "LAYER": [
+        "TOP"
+      ],
+      "ROTATION": [
+        "270.00"
+      ],
+      "SHAPE": [
+        "BGA_2228_P070_375X375",
+        "0",
+        "0"
+      ]
+    },
+    "J1": {
+      "line": 13879,
+      "PLACE": [
+        "-1402.953",
+        "2935.158"
+      ],
+      "LAYER": [
+        "TOP"
+      ],
+      "ROTATION": [
+        "270.00"
+      ],
+      "SHAPE": [
+        "S_DISPLAY_20P_5HOLD_LF3",
+        "0",
+        "0"
+      ]
+    },
+    "J5": {
+      "line": 13893,
+      "PLACE": [
+        "-1639.961",
+        "589.173"
+      ],
+      "LAYER": [
+        "TOP"
+      ],
+      "ROTATION": [
+        "270.00"
+      ],
+      "SHAPE": [
+        "SO_DVI_24P_4HD_RA_C1_LF3",
+        "0",
+        "0"
+      ]
+    },
+    "J10": {
+      "line": 13886,
+      "PLACE": [
+        "-1466.772",
+        "1853.346"
+      ],
+      "LAYER": [
+        "TOP"
+      ],
+      "ROTATION": [
+        "270.00"
+      ],
+      "SHAPE": [
+        "SO_HDMI_38P_9H_C1_COLAY_LF3",
+        "0",
+        "0"
+      ]
+    }
+  },
+  "connector_gpu_paths": [
+    {
+      "connector": "J1",
+      "pin": "1",
+      "net": "IFPD_L0_C",
+      "gpu_pin": "BM18",
+      "via": {
+        "component": "C47",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L0"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J1",
+      "pin": "10",
+      "net": "IFPD_L3_C",
+      "gpu_pin": "BM15",
+      "via": {
+        "component": "C31",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L3"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J1",
+      "pin": "12",
+      "net": "IFPD_L3_C*",
+      "gpu_pin": "BM14",
+      "via": {
+        "component": "C30",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L3*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J1",
+      "pin": "3",
+      "net": "IFPD_L0_C*",
+      "gpu_pin": "BM17",
+      "via": {
+        "component": "C46",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L0*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J1",
+      "pin": "4",
+      "net": "IFPD_L1_C",
+      "gpu_pin": "BL17",
+      "via": {
+        "component": "C33",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L1"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J1",
+      "pin": "6",
+      "net": "IFPD_L1_C*",
+      "gpu_pin": "BK17",
+      "via": {
+        "component": "C32",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L1*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J1",
+      "pin": "7",
+      "net": "IFPD_L2_C",
+      "gpu_pin": "BK15",
+      "via": {
+        "component": "C45",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L2"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J1",
+      "pin": "9",
+      "net": "IFPD_L2_C*",
+      "gpu_pin": "BL15",
+      "via": {
+        "component": "C44",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPD_L2*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "1",
+      "net": "IFPAB_TXD2_C*",
+      "gpu_pin": "BF24",
+      "via": {
+        "component": "C1272",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L0*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "10",
+      "net": "IFPAB_TXD1_C",
+      "gpu_pin": "BE23",
+      "via": {
+        "component": "C1271",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L1"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "12",
+      "net": "IFPAB_TXD3_C*",
+      "gpu_pin": "BK20",
+      "via": {
+        "component": "C1266",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPB_L2*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "13",
+      "net": "IFPAB_TXD3_C",
+      "gpu_pin": "BL20",
+      "via": {
+        "component": "C1267",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPB_L2"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "17",
+      "net": "IFPAB_TXD0_C*",
+      "gpu_pin": "BG23",
+      "via": {
+        "component": "C1262",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L2*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "18",
+      "net": "IFPAB_TXD0_C",
+      "gpu_pin": "BH23",
+      "via": {
+        "component": "C1263",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L2"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "2",
+      "net": "IFPAB_TXD2_C",
+      "gpu_pin": "BG24",
+      "via": {
+        "component": "C1273",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L0"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "20",
+      "net": "IFPAB_TXD5_C*",
+      "gpu_pin": "BL21",
+      "via": {
+        "component": "C1268",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPB_L0*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "21",
+      "net": "IFPAB_TXD5_C",
+      "gpu_pin": "BK21",
+      "via": {
+        "component": "C1269",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPB_L0"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "23",
+      "net": "IFPAB_TXC_C",
+      "gpu_pin": "BG21",
+      "via": {
+        "component": "C1261",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L3"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "24",
+      "net": "IFPAB_TXC_C*",
+      "gpu_pin": "BF21",
+      "via": {
+        "component": "C1260",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L3*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "4",
+      "net": "IFPAB_TXD4_C*",
+      "gpu_pin": "BM20",
+      "via": {
+        "component": "C1264",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPB_L1*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "5",
+      "net": "IFPAB_TXD4_C",
+      "gpu_pin": "BM21",
+      "via": {
+        "component": "C1265",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPB_L1"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    },
+    {
+      "connector": "J5",
+      "pin": "9",
+      "net": "IFPAB_TXD1_C*",
+      "gpu_pin": "BF23",
+      "via": {
+        "component": "C1270",
+        "connector_side_pin": "2",
+        "gpu_side_pin": "1",
+        "gpu_net": "IFPA_L1*"
+      },
+      "scope": "CAD design across two-terminal capacitor; not DC continuity or populated/working path"
+    }
+  ],
+  "hdmi_passive_paths": [],
+  "sideband_nets": [
+    {
+      "connector": "J1",
+      "pin": "15",
+      "net": "IFPD_AUX_C",
+      "signal_line": 34014,
+      "nodes": [
+        {
+          "component": "C43",
+          "pin": "2",
+          "line": 34015
+        },
+        {
+          "component": "D3",
+          "pin": "1",
+          "line": 34017
+        },
+        {
+          "component": "J1",
+          "pin": "15",
+          "line": 34019
+        },
+        {
+          "component": "Q509",
+          "pin": "4",
+          "line": 34021
+        },
+        {
+          "component": "R55",
+          "pin": "1",
+          "line": 34023
+        }
+      ]
+    },
+    {
+      "connector": "J1",
+      "pin": "17",
+      "net": "IFPD_AUX_C*",
+      "signal_line": 33996,
+      "nodes": [
+        {
+          "component": "C42",
+          "pin": "2",
+          "line": 33997
+        },
+        {
+          "component": "D2",
+          "pin": "1",
+          "line": 33999
+        },
+        {
+          "component": "J1",
+          "pin": "17",
+          "line": 34001
+        },
+        {
+          "component": "Q508",
+          "pin": "4",
+          "line": 34003
+        },
+        {
+          "component": "R54",
+          "pin": "2",
+          "line": 34005
+        }
+      ]
+    },
+    {
+      "connector": "J1",
+      "pin": "18",
+      "net": "DP_D_HPD_C",
+      "signal_line": 34150,
+      "nodes": [
+        {
+          "component": "C1293",
+          "pin": "1",
+          "line": 34151
+        },
+        {
+          "component": "J1",
+          "pin": "18",
+          "line": 34153
+        },
+        {
+          "component": "R720",
+          "pin": "2",
+          "line": 34155
+        }
+      ]
+    },
+    {
+      "connector": "J5",
+      "pin": "14",
+      "net": "DDC_5V",
+      "signal_line": 32920,
+      "nodes": [
+        {
+          "component": "5V",
+          "pin": "1",
+          "line": 32921
+        },
+        {
+          "component": "C1226",
+          "pin": "1",
+          "line": 32923
+        },
+        {
+          "component": "C1205",
+          "pin": "1",
+          "line": 32925
+        },
+        {
+          "component": "C1331",
+          "pin": "1",
+          "line": 32927
+        },
+        {
+          "component": "C8",
+          "pin": "1",
+          "line": 32929
+        },
+        {
+          "component": "C1224",
+          "pin": "1",
+          "line": 32931
+        },
+        {
+          "component": "J10",
+          "pin": "P18",
+          "line": 32933
+        },
+        {
+          "component": "J10",
+          "pin": "G18",
+          "line": 32935
+        },
+        {
+          "component": "J5",
+          "pin": "14",
+          "line": 32937
+        },
+        {
+          "component": "R27",
+          "pin": "2",
+          "line": 32939
+        },
+        {
+          "component": "R42",
+          "pin": "1",
+          "line": 32941
+        },
+        {
+          "component": "R664",
+          "pin": "2",
+          "line": 32943
+        },
+        {
+          "component": "R672",
+          "pin": "1",
+          "line": 32945
+        },
+        {
+          "component": "R780",
+          "pin": "2",
+          "line": 32947
+        },
+        {
+          "component": "R781",
+          "pin": "1",
+          "line": 32949
+        },
+        {
+          "component": "U502",
+          "pin": "1",
+          "line": 32951
+        }
+      ]
+    },
+    {
+      "connector": "J5",
+      "pin": "16",
+      "net": "IFPA_HPD_C",
+      "signal_line": 34192,
+      "nodes": [
+        {
+          "component": "C78",
+          "pin": "1",
+          "line": 34193
+        },
+        {
+          "component": "J5",
+          "pin": "16",
+          "line": 34195
+        },
+        {
+          "component": "R101",
+          "pin": "2",
+          "line": 34197
+        }
+      ]
+    },
+    {
+      "connector": "J10",
+      "pin": "G18",
+      "net": "DDC_5V",
+      "signal_line": 32920,
+      "nodes": [
+        {
+          "component": "5V",
+          "pin": "1",
+          "line": 32921
+        },
+        {
+          "component": "C1226",
+          "pin": "1",
+          "line": 32923
+        },
+        {
+          "component": "C1205",
+          "pin": "1",
+          "line": 32925
+        },
+        {
+          "component": "C1331",
+          "pin": "1",
+          "line": 32927
+        },
+        {
+          "component": "C8",
+          "pin": "1",
+          "line": 32929
+        },
+        {
+          "component": "C1224",
+          "pin": "1",
+          "line": 32931
+        },
+        {
+          "component": "J10",
+          "pin": "P18",
+          "line": 32933
+        },
+        {
+          "component": "J10",
+          "pin": "G18",
+          "line": 32935
+        },
+        {
+          "component": "J5",
+          "pin": "14",
+          "line": 32937
+        },
+        {
+          "component": "R27",
+          "pin": "2",
+          "line": 32939
+        },
+        {
+          "component": "R42",
+          "pin": "1",
+          "line": 32941
+        },
+        {
+          "component": "R664",
+          "pin": "2",
+          "line": 32943
+        },
+        {
+          "component": "R672",
+          "pin": "1",
+          "line": 32945
+        },
+        {
+          "component": "R780",
+          "pin": "2",
+          "line": 32947
+        },
+        {
+          "component": "R781",
+          "pin": "1",
+          "line": 32949
+        },
+        {
+          "component": "U502",
+          "pin": "1",
+          "line": 32951
+        }
+      ]
+    },
+    {
+      "connector": "J10",
+      "pin": "G19",
+      "net": "HDMI_C_HPD_C",
+      "signal_line": 34164,
+      "nodes": [
+        {
+          "component": "C1305",
+          "pin": "1",
+          "line": 34165
+        },
+        {
+          "component": "J10",
+          "pin": "G19",
+          "line": 34167
+        },
+        {
+          "component": "R753",
+          "pin": "2",
+          "line": 34169
+        }
+      ]
+    },
+    {
+      "connector": "J10",
+      "pin": "P18",
+      "net": "DDC_5V",
+      "signal_line": 32920,
+      "nodes": [
+        {
+          "component": "5V",
+          "pin": "1",
+          "line": 32921
+        },
+        {
+          "component": "C1226",
+          "pin": "1",
+          "line": 32923
+        },
+        {
+          "component": "C1205",
+          "pin": "1",
+          "line": 32925
+        },
+        {
+          "component": "C1331",
+          "pin": "1",
+          "line": 32927
+        },
+        {
+          "component": "C8",
+          "pin": "1",
+          "line": 32929
+        },
+        {
+          "component": "C1224",
+          "pin": "1",
+          "line": 32931
+        },
+        {
+          "component": "J10",
+          "pin": "P18",
+          "line": 32933
+        },
+        {
+          "component": "J10",
+          "pin": "G18",
+          "line": 32935
+        },
+        {
+          "component": "J5",
+          "pin": "14",
+          "line": 32937
+        },
+        {
+          "component": "R27",
+          "pin": "2",
+          "line": 32939
+        },
+        {
+          "component": "R42",
+          "pin": "1",
+          "line": 32941
+        },
+        {
+          "component": "R664",
+          "pin": "2",
+          "line": 32943
+        },
+        {
+          "component": "R672",
+          "pin": "1",
+          "line": 32945
+        },
+        {
+          "component": "R780",
+          "pin": "2",
+          "line": 32947
+        },
+        {
+          "component": "R781",
+          "pin": "1",
+          "line": 32949
+        },
+        {
+          "component": "U502",
+          "pin": "1",
+          "line": 32951
+        }
+      ]
+    },
+    {
+      "connector": "J10",
+      "pin": "P19",
+      "net": "HDMI_E_HPD_C",
+      "signal_line": 34178,
+      "nodes": [
+        {
+          "component": "C1325",
+          "pin": "1",
+          "line": 34179
+        },
+        {
+          "component": "J10",
+          "pin": "P19",
+          "line": 34181
+        },
+        {
+          "component": "R793",
+          "pin": "2",
+          "line": 34183
+        }
+      ]
+    }
+  ],
+  "images_inspected": [
+    {
+      "path": "CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/02_PCB_PHOTOS/ANNOTATED/CMP40HX_PORTS_PHOTO_ANNOTATED.jpg",
+      "sha256": "dfe7f8ee0d31eca85e6cdc2d27cbc055207e8a06f80ae7fadea51bfed93fcd53",
+      "scope": "Supplied photograph; capture/board-to-UUID authentication unknown"
+    },
+    {
+      "path": "CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621628.jpg",
+      "sha256": "cf866b92d4c2dd0640ddf2971f15e5c057dd6b1ef49a5b300db5f902abdfe383",
+      "scope": "Supplied photograph; capture/board-to-UUID authentication unknown"
+    }
+  ],
+  "limits": [
+    "Design netlist is not proof of actual CMP copper/population",
+    "Two-terminal capacitor paths do not prove live link or DC continuity",
+    "No internal connection is invented across Q/U/D multi-pin devices",
+    "Package ball names are CAD nodes, not independently authenticated package pinout",
+    "No physical restoration or board-unrouted conclusion"
+  ]
+}

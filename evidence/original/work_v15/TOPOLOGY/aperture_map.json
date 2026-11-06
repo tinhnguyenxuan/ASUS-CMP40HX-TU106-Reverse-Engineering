@@ -1,0 +1,902 @@
+{
+ "zones": [
+  {
+   "start_page": 0,
+   "end_page": 3,
+   "start": "0x000000",
+   "end": "0x003fff",
+   "pages": 4,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 16,
+   "end_page": 31,
+   "start": "0x010000",
+   "end": "0x01ffff",
+   "pages": 16,
+   "state": "DATA"
+  },
+  {
+   "start_page": 35,
+   "end_page": 63,
+   "start": "0x023000",
+   "end": "0x03ffff",
+   "pages": 29,
+   "state": "POISON"
+  },
+  {
+   "start_page": 88,
+   "end_page": 96,
+   "start": "0x058000",
+   "end": "0x060fff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 97,
+   "end_page": 111,
+   "start": "0x061000",
+   "end": "0x06ffff",
+   "pages": 15,
+   "state": "POISON"
+  },
+  {
+   "start_page": 113,
+   "end_page": 135,
+   "start": "0x071000",
+   "end": "0x087fff",
+   "pages": 23,
+   "state": "POISON"
+  },
+  {
+   "start_page": 143,
+   "end_page": 159,
+   "start": "0x08f000",
+   "end": "0x09ffff",
+   "pages": 17,
+   "state": "POISON"
+  },
+  {
+   "start_page": 160,
+   "end_page": 191,
+   "start": "0x0a0000",
+   "end": "0x0bffff",
+   "pages": 32,
+   "state": "DATA"
+  },
+  {
+   "start_page": 192,
+   "end_page": 255,
+   "start": "0x0c0000",
+   "end": "0x0fffff",
+   "pages": 64,
+   "state": "POISON"
+  },
+  {
+   "start_page": 262,
+   "end_page": 265,
+   "start": "0x106000",
+   "end": "0x109fff",
+   "pages": 4,
+   "state": "POISON"
+  },
+  {
+   "start_page": 276,
+   "end_page": 279,
+   "start": "0x114000",
+   "end": "0x117fff",
+   "pages": 4,
+   "state": "POISON"
+  },
+  {
+   "start_page": 284,
+   "end_page": 287,
+   "start": "0x11c000",
+   "end": "0x11ffff",
+   "pages": 4,
+   "state": "POISON"
+  },
+  {
+   "start_page": 298,
+   "end_page": 303,
+   "start": "0x12a000",
+   "end": "0x12ffff",
+   "pages": 6,
+   "state": "POISON"
+  },
+  {
+   "start_page": 304,
+   "end_page": 307,
+   "start": "0x130000",
+   "end": "0x133fff",
+   "pages": 4,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 335,
+   "end_page": 381,
+   "start": "0x14f000",
+   "end": "0x17dfff",
+   "pages": 47,
+   "state": "POISON"
+  },
+  {
+   "start_page": 383,
+   "end_page": 455,
+   "start": "0x17f000",
+   "end": "0x1c7fff",
+   "pages": 73,
+   "state": "POISON"
+  },
+  {
+   "start_page": 460,
+   "end_page": 471,
+   "start": "0x1cc000",
+   "end": "0x1d7fff",
+   "pages": 12,
+   "state": "POISON"
+  },
+  {
+   "start_page": 476,
+   "end_page": 479,
+   "start": "0x1dc000",
+   "end": "0x1dffff",
+   "pages": 4,
+   "state": "POISON"
+  },
+  {
+   "start_page": 481,
+   "end_page": 495,
+   "start": "0x1e1000",
+   "end": "0x1effff",
+   "pages": 15,
+   "state": "POISON"
+  },
+  {
+   "start_page": 500,
+   "end_page": 504,
+   "start": "0x1f4000",
+   "end": "0x1f8fff",
+   "pages": 5,
+   "state": "POISON"
+  },
+  {
+   "start_page": 505,
+   "end_page": 508,
+   "start": "0x1f9000",
+   "end": "0x1fcfff",
+   "pages": 4,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 509,
+   "end_page": 579,
+   "start": "0x1fd000",
+   "end": "0x243fff",
+   "pages": 71,
+   "state": "POISON"
+  },
+  {
+   "start_page": 588,
+   "end_page": 592,
+   "start": "0x24c000",
+   "end": "0x250fff",
+   "pages": 5,
+   "state": "POISON"
+  },
+  {
+   "start_page": 594,
+   "end_page": 767,
+   "start": "0x252000",
+   "end": "0x2fffff",
+   "pages": 174,
+   "state": "POISON"
+  },
+  {
+   "start_page": 783,
+   "end_page": 799,
+   "start": "0x30f000",
+   "end": "0x31ffff",
+   "pages": 17,
+   "state": "DATA"
+  },
+  {
+   "start_page": 801,
+   "end_page": 810,
+   "start": "0x321000",
+   "end": "0x32afff",
+   "pages": 10,
+   "state": "DATA"
+  },
+  {
+   "start_page": 811,
+   "end_page": 816,
+   "start": "0x32b000",
+   "end": "0x330fff",
+   "pages": 6,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 821,
+   "end_page": 829,
+   "start": "0x335000",
+   "end": "0x33dfff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 832,
+   "end_page": 842,
+   "start": "0x340000",
+   "end": "0x34afff",
+   "pages": 11,
+   "state": "DATA"
+  },
+  {
+   "start_page": 854,
+   "end_page": 866,
+   "start": "0x356000",
+   "end": "0x362fff",
+   "pages": 13,
+   "state": "DATA"
+  },
+  {
+   "start_page": 870,
+   "end_page": 886,
+   "start": "0x366000",
+   "end": "0x376fff",
+   "pages": 17,
+   "state": "DATA"
+  },
+  {
+   "start_page": 904,
+   "end_page": 920,
+   "start": "0x388000",
+   "end": "0x398fff",
+   "pages": 17,
+   "state": "DATA"
+  },
+  {
+   "start_page": 922,
+   "end_page": 931,
+   "start": "0x39a000",
+   "end": "0x3a3fff",
+   "pages": 10,
+   "state": "DATA"
+  },
+  {
+   "start_page": 932,
+   "end_page": 937,
+   "start": "0x3a4000",
+   "end": "0x3a9fff",
+   "pages": 6,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 942,
+   "end_page": 950,
+   "start": "0x3ae000",
+   "end": "0x3b6fff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 953,
+   "end_page": 963,
+   "start": "0x3b9000",
+   "end": "0x3c3fff",
+   "pages": 11,
+   "state": "DATA"
+  },
+  {
+   "start_page": 969,
+   "end_page": 977,
+   "start": "0x3c9000",
+   "end": "0x3d1fff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 984,
+   "end_page": 1023,
+   "start": "0x3d8000",
+   "end": "0x3fffff",
+   "pages": 40,
+   "state": "DATA"
+  },
+  {
+   "start_page": 1024,
+   "end_page": 1027,
+   "start": "0x400000",
+   "end": "0x403fff",
+   "pages": 4,
+   "state": "POISON"
+  },
+  {
+   "start_page": 1028,
+   "end_page": 1034,
+   "start": "0x404000",
+   "end": "0x40afff",
+   "pages": 7,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 1035,
+   "end_page": 1039,
+   "start": "0x40b000",
+   "end": "0x40ffff",
+   "pages": 5,
+   "state": "POISON"
+  },
+  {
+   "start_page": 1042,
+   "end_page": 1047,
+   "start": "0x412000",
+   "end": "0x417fff",
+   "pages": 6,
+   "state": "POISON"
+  },
+  {
+   "start_page": 1048,
+   "end_page": 1054,
+   "start": "0x418000",
+   "end": "0x41efff",
+   "pages": 7,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 1055,
+   "end_page": 1279,
+   "start": "0x41f000",
+   "end": "0x4fffff",
+   "pages": 225,
+   "state": "POISON"
+  },
+  {
+   "start_page": 1280,
+   "end_page": 1286,
+   "start": "0x500000",
+   "end": "0x506fff",
+   "pages": 7,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 1288,
+   "end_page": 1294,
+   "start": "0x508000",
+   "end": "0x50efff",
+   "pages": 7,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 1296,
+   "end_page": 1302,
+   "start": "0x510000",
+   "end": "0x516fff",
+   "pages": 7,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 1303,
+   "end_page": 1791,
+   "start": "0x517000",
+   "end": "0x6fffff",
+   "pages": 489,
+   "state": "POISON"
+  },
+  {
+   "start_page": 1792,
+   "end_page": 2047,
+   "start": "0x700000",
+   "end": "0x7fffff",
+   "pages": 256,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2049,
+   "end_page": 2055,
+   "start": "0x801000",
+   "end": "0x807fff",
+   "pages": 7,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2056,
+   "end_page": 2063,
+   "start": "0x808000",
+   "end": "0x80ffff",
+   "pages": 8,
+   "state": "DATA"
+  },
+  {
+   "start_page": 2065,
+   "end_page": 2079,
+   "start": "0x811000",
+   "end": "0x81ffff",
+   "pages": 15,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2081,
+   "end_page": 2095,
+   "start": "0x821000",
+   "end": "0x82ffff",
+   "pages": 15,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2105,
+   "end_page": 2111,
+   "start": "0x839000",
+   "end": "0x83ffff",
+   "pages": 7,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2116,
+   "end_page": 2303,
+   "start": "0x844000",
+   "end": "0x8fffff",
+   "pages": 188,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2319,
+   "end_page": 2431,
+   "start": "0x90f000",
+   "end": "0x97ffff",
+   "pages": 113,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2443,
+   "end_page": 2463,
+   "start": "0x98b000",
+   "end": "0x99ffff",
+   "pages": 21,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2465,
+   "end_page": 2468,
+   "start": "0x9a1000",
+   "end": "0x9a4fff",
+   "pages": 4,
+   "state": "MIXED"
+  },
+  {
+   "start_page": 2469,
+   "end_page": 2911,
+   "start": "0x9a5000",
+   "end": "0xb5ffff",
+   "pages": 443,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2919,
+   "end_page": 2930,
+   "start": "0xb67000",
+   "end": "0xb72fff",
+   "pages": 12,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2946,
+   "end_page": 2959,
+   "start": "0xb82000",
+   "end": "0xb8ffff",
+   "pages": 14,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2961,
+   "end_page": 2991,
+   "start": "0xb91000",
+   "end": "0xbaffff",
+   "pages": 31,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2993,
+   "end_page": 3007,
+   "start": "0xbb1000",
+   "end": "0xbbffff",
+   "pages": 15,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 3011,
+   "end_page": 3023,
+   "start": "0xbc3000",
+   "end": "0xbcffff",
+   "pages": 13,
+   "state": "POISON"
+  },
+  {
+   "start_page": 3026,
+   "end_page": 3055,
+   "start": "0xbd2000",
+   "end": "0xbeffff",
+   "pages": 30,
+   "state": "POISON"
+  },
+  {
+   "start_page": 3058,
+   "end_page": 4095,
+   "start": "0xbf2000",
+   "end": "0xffffff",
+   "pages": 1038,
+   "state": "POISON"
+  }
+ ],
+ "big": [
+  {
+   "start_page": 16,
+   "end_page": 31,
+   "start": "0x010000",
+   "end": "0x01ffff",
+   "pages": 16,
+   "state": "DATA"
+  },
+  {
+   "start_page": 35,
+   "end_page": 63,
+   "start": "0x023000",
+   "end": "0x03ffff",
+   "pages": 29,
+   "state": "POISON"
+  },
+  {
+   "start_page": 88,
+   "end_page": 96,
+   "start": "0x058000",
+   "end": "0x060fff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 97,
+   "end_page": 111,
+   "start": "0x061000",
+   "end": "0x06ffff",
+   "pages": 15,
+   "state": "POISON"
+  },
+  {
+   "start_page": 113,
+   "end_page": 135,
+   "start": "0x071000",
+   "end": "0x087fff",
+   "pages": 23,
+   "state": "POISON"
+  },
+  {
+   "start_page": 143,
+   "end_page": 159,
+   "start": "0x08f000",
+   "end": "0x09ffff",
+   "pages": 17,
+   "state": "POISON"
+  },
+  {
+   "start_page": 160,
+   "end_page": 191,
+   "start": "0x0a0000",
+   "end": "0x0bffff",
+   "pages": 32,
+   "state": "DATA"
+  },
+  {
+   "start_page": 192,
+   "end_page": 255,
+   "start": "0x0c0000",
+   "end": "0x0fffff",
+   "pages": 64,
+   "state": "POISON"
+  },
+  {
+   "start_page": 335,
+   "end_page": 381,
+   "start": "0x14f000",
+   "end": "0x17dfff",
+   "pages": 47,
+   "state": "POISON"
+  },
+  {
+   "start_page": 383,
+   "end_page": 455,
+   "start": "0x17f000",
+   "end": "0x1c7fff",
+   "pages": 73,
+   "state": "POISON"
+  },
+  {
+   "start_page": 460,
+   "end_page": 471,
+   "start": "0x1cc000",
+   "end": "0x1d7fff",
+   "pages": 12,
+   "state": "POISON"
+  },
+  {
+   "start_page": 481,
+   "end_page": 495,
+   "start": "0x1e1000",
+   "end": "0x1effff",
+   "pages": 15,
+   "state": "POISON"
+  },
+  {
+   "start_page": 509,
+   "end_page": 579,
+   "start": "0x1fd000",
+   "end": "0x243fff",
+   "pages": 71,
+   "state": "POISON"
+  },
+  {
+   "start_page": 594,
+   "end_page": 767,
+   "start": "0x252000",
+   "end": "0x2fffff",
+   "pages": 174,
+   "state": "POISON"
+  },
+  {
+   "start_page": 783,
+   "end_page": 799,
+   "start": "0x30f000",
+   "end": "0x31ffff",
+   "pages": 17,
+   "state": "DATA"
+  },
+  {
+   "start_page": 801,
+   "end_page": 810,
+   "start": "0x321000",
+   "end": "0x32afff",
+   "pages": 10,
+   "state": "DATA"
+  },
+  {
+   "start_page": 821,
+   "end_page": 829,
+   "start": "0x335000",
+   "end": "0x33dfff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 832,
+   "end_page": 842,
+   "start": "0x340000",
+   "end": "0x34afff",
+   "pages": 11,
+   "state": "DATA"
+  },
+  {
+   "start_page": 854,
+   "end_page": 866,
+   "start": "0x356000",
+   "end": "0x362fff",
+   "pages": 13,
+   "state": "DATA"
+  },
+  {
+   "start_page": 870,
+   "end_page": 886,
+   "start": "0x366000",
+   "end": "0x376fff",
+   "pages": 17,
+   "state": "DATA"
+  },
+  {
+   "start_page": 904,
+   "end_page": 920,
+   "start": "0x388000",
+   "end": "0x398fff",
+   "pages": 17,
+   "state": "DATA"
+  },
+  {
+   "start_page": 922,
+   "end_page": 931,
+   "start": "0x39a000",
+   "end": "0x3a3fff",
+   "pages": 10,
+   "state": "DATA"
+  },
+  {
+   "start_page": 942,
+   "end_page": 950,
+   "start": "0x3ae000",
+   "end": "0x3b6fff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 953,
+   "end_page": 963,
+   "start": "0x3b9000",
+   "end": "0x3c3fff",
+   "pages": 11,
+   "state": "DATA"
+  },
+  {
+   "start_page": 969,
+   "end_page": 977,
+   "start": "0x3c9000",
+   "end": "0x3d1fff",
+   "pages": 9,
+   "state": "DATA"
+  },
+  {
+   "start_page": 984,
+   "end_page": 1023,
+   "start": "0x3d8000",
+   "end": "0x3fffff",
+   "pages": 40,
+   "state": "DATA"
+  },
+  {
+   "start_page": 1055,
+   "end_page": 1279,
+   "start": "0x41f000",
+   "end": "0x4fffff",
+   "pages": 225,
+   "state": "POISON"
+  },
+  {
+   "start_page": 1303,
+   "end_page": 1791,
+   "start": "0x517000",
+   "end": "0x6fffff",
+   "pages": 489,
+   "state": "POISON"
+  },
+  {
+   "start_page": 1792,
+   "end_page": 2047,
+   "start": "0x700000",
+   "end": "0x7fffff",
+   "pages": 256,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2056,
+   "end_page": 2063,
+   "start": "0x808000",
+   "end": "0x80ffff",
+   "pages": 8,
+   "state": "DATA"
+  },
+  {
+   "start_page": 2065,
+   "end_page": 2079,
+   "start": "0x811000",
+   "end": "0x81ffff",
+   "pages": 15,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2081,
+   "end_page": 2095,
+   "start": "0x821000",
+   "end": "0x82ffff",
+   "pages": 15,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2116,
+   "end_page": 2303,
+   "start": "0x844000",
+   "end": "0x8fffff",
+   "pages": 188,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2319,
+   "end_page": 2431,
+   "start": "0x90f000",
+   "end": "0x97ffff",
+   "pages": 113,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2443,
+   "end_page": 2463,
+   "start": "0x98b000",
+   "end": "0x99ffff",
+   "pages": 21,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2469,
+   "end_page": 2911,
+   "start": "0x9a5000",
+   "end": "0xb5ffff",
+   "pages": 443,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2919,
+   "end_page": 2930,
+   "start": "0xb67000",
+   "end": "0xb72fff",
+   "pages": 12,
+   "state": "POISON"
+  },
+  {
+   "start_page": 2946,
+   "end_page": 2959,
+   "start": "0xb82000",
+   "end": "0xb8ffff",
+   "pages": 14,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2961,
+   "end_page": 2991,
+   "start": "0xb91000",
+   "end": "0xbaffff",
+   "pages": 31,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 2993,
+   "end_page": 3007,
+   "start": "0xbb1000",
+   "end": "0xbbffff",
+   "pages": 15,
+   "state": "ZERO"
+  },
+  {
+   "start_page": 3011,
+   "end_page": 3023,
+   "start": "0xbc3000",
+   "end": "0xbcffff",
+   "pages": 13,
+   "state": "POISON"
+  },
+  {
+   "start_page": 3026,
+   "end_page": 3055,
+   "start": "0xbd2000",
+   "end": "0xbeffff",
+   "pages": 30,
+   "state": "POISON"
+  },
+  {
+   "start_page": 3058,
+   "end_page": 4095,
+   "start": "0xbf2000",
+   "end": "0xffffff",
+   "pages": 1038,
+   "state": "POISON"
+  }
+ ],
+ "stats": {
+  "MIXED": 201,
+  "POISON": 3253,
+  "DATA": 287,
+  "ZERO": 355
+ },
+ "finding": "BAR0 khong decode lien tuc: 79.4% poison, 7.0% DATA. Vung 0x40000..0x60000 co chu ky 4KB MIXED/POISON xen ke = moi trang 4KB la 1 cua so engine rieng.",
+ "conclusion": "POISON = ngoai cua so decode, KHONG phai block khong ton tai",
+ "reclassified_v7": {
+  "method": "p9_reclass.py \u2014 doc lai tung vung DATA, dem distinct u32",
+  "poison_new_0xBAD00100": 25,
+  "uninit_0xFFFFFFFF": 72,
+  "data_true": 141,
+  "corrected_stats": {
+   "POISON": 3278,
+   "UNINIT_FF": 72,
+   "DATA": 141,
+   "ZERO": 355,
+   "MIXED": 201
+  },
+  "old_data_287_corrected_to": 141,
+  "note": "TU-06 dem 287 trang DATA vi mask poison cu chi co 0xBADF0000. Phat hien ma poi son moi 0xBAD00100 (vung 0x010000..0x01FFFF va 0x058000..0x060FFF) va ma 0xFFFFFFFF (0x0A0000..0x0BFFFF, 0x3D8000..0x3FFFFF). DATA that chi con lai trong 0x300000..0x3D7FFF = VBIOS shadow. 49 trang nho (<3 trang/vung, duoi nguong gom) chua phan loai lai.",
+  "unclassified_pages": 49
+ }
+}

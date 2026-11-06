@@ -1,0 +1,12 @@
+{
+  "job": "topology_consumer_search_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:50:30.570806+00:00",
+  "wrapper_pid": 1698579,
+  "task_sha256": "3b764cdae74e46bc6aac1697a327038494a3b777ab00e46d8978e185123c31b8",
+  "hermes_pid": 1698580,
+  "hermes_start_ticks": "210137645",
+  "heartbeat_at": "2026-11-03T20:08:29.051883+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T20:08:31.053387+00:00"
+}

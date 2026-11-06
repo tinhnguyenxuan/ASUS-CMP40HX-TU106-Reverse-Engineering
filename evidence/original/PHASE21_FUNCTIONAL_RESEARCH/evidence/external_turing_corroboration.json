@@ -1,0 +1,47 @@
+{
+  "schema": "phase21-external-turing-source-v1",
+  "reviewed_utc": "2026-11-06T03:03:57.452163+00:00",
+  "sources": [
+    {
+      "url": "https://github.com/nlzy/turing-unlock/blob/1d379b7/kernel/turing_unlock/unlock.c",
+      "pin": "1d379b7 (abbreviated repository revision)",
+      "reviewed_items": [
+        "Turing FECS local offset definitions",
+        "Actual post-operation read/write/validation identifier use"
+      ],
+      "scope": "Third-party source; not NVIDIA field specification or target runtime evidence"
+    },
+    {
+      "url": "https://github.com/nlzy/turing-unlock/blob/main/kernel/turing_unlock/gfw_eval.h",
+      "pin": "mutable main",
+      "reviewed_items": [
+        "Inherited GA102-style feature constants differ from actual Turing access identifiers"
+      ],
+      "scope": "Included header alone cannot establish active register addressing"
+    },
+    {
+      "url": "https://github.com/nlzy/turing-unlock/issues/4",
+      "pin": "operator report, mutable issue",
+      "reported_target": {
+        "chip": "TU106",
+        "device": "10de:1f07",
+        "subsystem": "3842:2171",
+        "vbios": "90.06.18.40.09",
+        "driver_gsp": "610.43.02",
+        "boot_assets": "610.43.03",
+        "SM": 36
+      },
+      "scope": "External GeForce report only; not independently reproduced CMP40HX restoration"
+    }
+  ],
+  "reference_rom_obtained": false,
+  "reference_search_limit": "TechPowerUp vgabios robots denial; no bypass/retry attempted",
+  "target_operations": [],
+  "claims_not_proven": [
+    "Exact TU106 selector bit assignments",
+    "Original initialization writer",
+    "CMP40HX throughput recovery",
+    "Physical display restoration",
+    "Physical OTP or defective TPC status"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "container_ucodes_tu10x.bin": {
+    "sha256": "6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0",
+    "size": 8837632
+  },
+  "firmware_container_verified.json": "55322f5a08755aa9d359bb419f87d6ae116aea5173e08818cd878918c68b00f5",
+  "envydis_binary": "5aa83772ac1ea3e3eb5b63ffef1b3890e6cd41086cbffa9c2cfff542b6de103a",
+  "this_script": "fb0d1dfa089d2045a970ec800ff242a293b0b9301f303f6e3c82d075c1b17f2f"
+}

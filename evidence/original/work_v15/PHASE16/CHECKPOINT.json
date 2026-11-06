@@ -1,0 +1,135 @@
+{
+  "phase": "PHASE16",
+  "session": "2026-11-03 (turn 1, Hermes Agent)",
+  "status": "in_progress",
+  "gpu": "CMP 40HX (TU106-100-A1), PCI 10DE:1F0B, subsystem 8804:1043, BDF 0000:03:00.0",
+  "source_archive": "cmp40hx_transfer/cmp40hx_research_v15_final.tar.gz",
+  "source_sha256": "323c96e5bf7d5512ae3e55f6040afa81373c7ab44d1f059165c536fbd2c51a45",
+  "work_root": "/home/REDACTED_USER/codex-work/work_v15",
+  "mode": "offline read-only only, no hardware writes",
+  "artifacts_this_turn": {
+    "GSP_AUDIT.md": "work_v15/PHASE16/GSP_AUDIT.md",
+    "this_checkpoint": "work_v15/PHASE16/CHECKPOINT.json",
+    "gsp_callback_verify_py": "work_v15/PHASE16/gsp_callback_verify.py",
+    "gsp_callback_verified_md": "work_v15/PHASE16/GSP_CALLBACK_VERIFIED.md",
+    "gsp_callback_verified_json": "work_v15/PHASE16/gsp_callback_verified.json",
+    "gsp_callback_verified_txt": "work_v15/PHASE16/gsp_callback_verified.txt",
+    "scratch_repro": "/home/REDACTED_USER/.hermes/cache/scratch/phase16_repro.py"
+  },
+  "verified_this_turn": {
+    "elf_mapping": {
+      "finding": "VA = file_offset + 0x3FFFFC0 (ELF inner offset 0x40; section offset da cong them 64 header), KHONG phai +0x04000000",
+      "evidence": "6 mocl khop: loop 0x4F575BC@0xF575FC, entry 0x4F5733C@0xF5737C, JAL 0x4F57930@0xF57970, callback 0x4F575E0@0xF57620, table 0x41A70B0@0x1A70F0, caller 0x4F06C18@0xF06C58",
+      "status": "DECODED"
+    },
+    "decoder_riscv": {
+      "finding": "jal/auipc_jalr/control trong riscv_audit.py chuan, xac nhan boi raw bytes khong can capstone",
+      "evidence": "jal(0xC8DFF06F,0x4F57930)=(0x4F575BC,0); auipc_jalr(0x00050097,0x724080E7,0x4F06C18)=0x4F5733C",
+      "status": "DECODED"
+    },
+    "gsp_caller": {
+      "finding": "AUIPC ra,5 @0x4F06C18 + JALR ra,ra,0x724 @0x4F06C1c goi vao 0x4F5733C (ham chua vong lap dispatcher)",
+      "evidence": "raw 97000500 @0xF06C58, e7804072 @0xF06C5C",
+      "status": "DECODED"
+    },
+    "gsp_loop_jump": {
+      "finding": "JAL x0 0xC8DFF06F @0x4F57930 nhay ve 0x4F575BC (lui 0x374, rd=x0), KHONG PHAI call",
+      "evidence": "raw 6ff0dfc8 @0xF57970",
+      "status": "DECODED"
+    },
+    "gsp_callback": {
+      "finding": "Tai 0x4F575E0: ld a5,0x30(s3); lhu a2,-0x88(s0); mv a0,s3; jalr ra,a5 (goi trung gian qua *(s3+0x30)). a0=context (LAST-WRITE mv a0,s3 @0x4F575DC), a2=f00 u16 stack (LAST-WRITE lhu a2,-0x88(s0) @0x4F575D8), a1 KHONG co ghi trong cua so 0x4F575BC..0x4F575E0. XAC NHAN tu raw: cặp auipc@0x4F57644 (9700fbff, val=0x4F07644) + jalr@0x4F57648 (e78080fa, imm=-0x58) -> target = 0x04F075EC (helper); 0x4F5764c mv a1,a0; 0x4F57650 bnez a0,-0x7c -> target 0x04F575D4 (quay ve block callback). Tren duong di vong lap tai diem goi callback: a1 = ket qua helper, KHONG phai s4. Dich callback qua con tro: UNKNOWN.",
+      "evidence": "PHASE16/gsp_callback_verified.txt/.json and gsp_callback_coordinator_review.json (84 raw rows checked). Older Markdown contradictions are superseded by the raw evidence and coordinator review.",
+      "a1_vs_helper_0x4F075ec": "DECODED on observed taken-branch path: call helper @0x4f57648 targets0x4f075ec, mv a1,a0 @0x4f5764c, bnez a0 @0x4f57650 ->0x4f575d4, then callback @0x4f575e0 with no intervening CALL. Full-function predecessor enumeration remains unverified.",
+      "f10_via_a2": "BI BO: a2 mang f00 (u16); f10 (u64@entry+0x10) luu tai stack-0x78, khong truyen qua a2",
+      "f10_bounded_ascii": "NOT_SET (khong bi thieu so 0)",
+      "f18_meaning": "UNKNOWN (chi co cau truc bit u16 0xFF01: byte0=1, byte1=255)",
+      "status": "DECODED (partial); a1-helper relationship UNKNOWN, callback target UNKNOWN",
+      "a2_scope": "a2 loads u16 stack[s0-0x88] after helper. Last direct store came from entry.f00; helper alias/mutation of the pointed temporary struct is not excluded."
+    },
+    "descriptor_table": {
+      "finding": "Layout 5 truong u16@0,u32@4,u8@8,pad,u64@0x10,u16@0x18, stride 32, 186 entry, base 0x41A70B0, end 0x41A87F0; entry[0] f00=0,f04=0xff,f08=0,f10=0x00000000041A6000 (raw +0x10 = 00 60 1a 04 ...; ban cu 0x41a60000/0x41A600 SAI), f18=0xFF01 (bit cau truc: byte0=0x01, byte1=0xFF; chua gan semantic nhom/subtype). f10 tro VA 0x041A6000 -> file 0x1A6040 -> bounded ASCII \"NOT_SET\"",
+      "evidence": "raw 32 byte @0x1A70F0",
+      "status": "DECODED"
+    },
+    "verify_all_count": {
+      "finding": "161 PASS, 0 FAIL (khong phai 162); chi chung minh ton tai/nhat thuc du lieu luu tru, khong chung minh nghia GPU",
+      "evidence": "archive_audit.json legacy_verify pass_lines=161",
+      "status": "DECODED (count), semantic meaning UNKNOWN"
+    },
+    "wpr": {
+      "finding": "raw LO=0x1f7e000, HI=0x1ffee00; VAL[31:4]<<12 -> LO=0x1f7e00000, HI=0x1ffee0000; decoded bound difference=128.875 MiB. Physical allocation and upper-bound interpretation remain under review.",
+      "evidence": "PHASE16/mmio_audit.json (VAL28bit); khong REDACTED_USER lai tu phase16_repro.py (mask20bit sai)",
+      "status": "DECODED (register+formula); physical allocation UNKNOWN"
+    },
+    "mmio": {
+      "finding": "corrected_stats: POISON 3278, UNINIT_FF 72, DATA 141, ZERO 355, MIXED 201 = 4047 trang da phan loai, 49 trang chua phan loai (trong 4096)",
+      "evidence": "TOPOLOGY/aperture_map.json reclassified_v7.corrected_stats",
+      "status": "DECODED"
+    },
+    "firmware_container": {
+      "finding": "ucodes_tu10x.bin (8,837,632 B, sha256 6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0) container FULLY parsed: header 24 B <8sIIQ> NVUCODES ver=1 count=496@0x0c fp=0x8D1990AB6B98AE2B; 496 x 24 B records <QQII>; table end 0x2E98; 104 B zero pad to first payload 0x2F00. ALL 496 slots: 38 valid_marker4 + 458 zero; 38 payloads, 0 overlaps/duplicates, covered 8,824,912 B, all gaps zero, last payload ends exactly at EOF. Independent marker+offset scan [0x18,0x2F00): 38 hits/38 confirmed/0 extra/0 missing. Legacy '11 blob' REFUTED (496 is count not header_size; stride 24 not 32; blob10-to-EOF spans ~21 payload slots).",
+      "evidence": "PHASE16/firmware_container_verify.py + firmware_container_verified.json + firmware_container_verify_run.log (exit 0)",
+      "status": "DECODED (structure); format semantics/ISA UNKNOWN"
+    },
+    "fuse": {
+      "finding": "3072 word (0..12284 lien tu), 352 data / 518 zero / 2202 poison, 152 word =1, PDI 0x0000000000000000 khop nvidia-smi",
+      "evidence": "RAW_DATA/fuse2.json, PHASE16/fuse_audit.json",
+      "status": "DECODED (counts); OTP physical cell meaning UNKNOWN"
+    },
+    "corrections_this_turn": [
+      {
+        "field": "verified_this_turn.descriptor_table.finding (lan truoc)",
+        "old": "entry[0] f00=0,f04=0xff,f08=0,f10=0x41a60000,f18=0xFF01",
+        "new": "entry[0] f10=0x00000000041A6000 (raw +0x10 = 00 60 1a 04 ...), f18=0xFF01 bits only (byte0=0x01, byte1=0xFF), f10 tro VA 0x041A6000/file 0x1A6040 co bounded ASCII NOT_SET",
+        "evidence": "gsp_callback_verified.json entry0; raw byte tai file 0x1A70F0"
+      },
+      {
+        "field": "GSP_AUDIT.md §5 entry[0] f10",
+        "old": "f10 = 0x000000000041A600",
+        "new": "f10 = 0x00000000041A6000; raw +0x10 = 00 60 1a 04 00 00 00 00; raw +0x18 = 01 ff",
+        "evidence": "gsp_callback_verified.json entry0.raw32/fields"
+      },
+      {
+        "field": "verified_this_turn.gsp_callback (this turn addition)",
+        "old": "a1-helper relationship UNKNOWN; callback target UNKNOWN",
+        "new": "helper target 0x04F075EC duoc REDACTED_USER tu raw auipc+jalr @0x4F57644/48; bnez a0 @0x4F57650 -> 0x4F575D4; tren duong di vong lap a1 tai diem goi callback = ket qua helper (mv a1,a0 @0x4F5764c), khong phai s4",
+        "evidence": "gsp_callback_verified.txt control_flow; registers_at_call"
+      }
+    ]
+  },
+  "unknown_or_blocked": [
+    "Ham callback chua duoc giai quyet (con tro tai *(s3+0x30) chua biet dich)",
+    "Caller cha cua 0x04F06C18 chua tim thay",
+    "Y nghia OTP cell vat ly cua fuse (352 data word) chua biet",
+    "f10 entry0 bounded ASCII = NOT_SET; f18 nghia (nhom/subtype) UNKNOWN",
+    "Full GPU reverse engineering CHUA HOAN TAT",
+    "Full-function GSP predecessor analysis and helper alias/mutation remain unverified; the observed a1 helper-return path is decoded."
+  ],
+  "next_steps_ordered": [
+    "Fuse/OTP semantics",
+    "VBIOS parser audit",
+    "MMIO bitfields + poison + 49 unclassified pages"
+  ],
+  "safety_compliance": {
+    "flash_vbios": false,
+    "write_fuse": false,
+    "write_mmio": false,
+    "pci_config_write": false,
+    "driver_reload": false,
+    "reboot": false,
+    "voltage_clock_change": false,
+    "security_bypass": false,
+    "key_bruteforce": false,
+    "all_readonly": true
+  },
+  "environment_notes": "Use /usr/bin/python3, where Capstone 5.0.7 import is confirmed. Other Python runtimes may differ. Do not retain unsupported claims that Capstone is absent.",
+  "coordinator_review": {
+    "full_objective_complete": false,
+    "accepted_raw_evidence": "EVIDENCE_LEDGER.md",
+    "firmware_raw_interval_review": "firmware_container_coordinator_review.json",
+    "firmware_source_semantics": "JOBS/fw_source_v1 running",
+    "fuse_source_semantics": "JOBS/fuse_semantics_v1 running",
+    "warning": "Older report labels DECODED/RESOLVED are not automatically accepted; consult raw evidence and review limits."
+  }
+}

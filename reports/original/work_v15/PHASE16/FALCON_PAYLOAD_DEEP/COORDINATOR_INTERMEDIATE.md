@@ -1,0 +1,3 @@
+# Intermediate review — worker still live
+
+Report summary currently shows code coverage0.1142–0.1794, thousands of orphan regions and selected primary entries varying from +0x2a to +0x1d5a, unlike prior +0x10/+0x24 candidates. Full linear decoding of a mixed payload cannot establish executable entry points or code regions by density alone. Preserve raw bytes/disassembly as observations; do not promote coverage metrics to engine identity or validated control-flow graph. Immediate cross-reference search reports none. Need final worker justification and instruction/branch parsing audit before accepting semantic conclusions.

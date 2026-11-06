@@ -1,0 +1,13 @@
+NVIDIA open gpu kernel modules tag 615.71.09
+annotated tag d2a24f90e843359450ab313a286f43a88d95c6ce
+commit 61dcc93722ecb418bb5f2e00923f05b4b8051dd1
+kernel_graphics.c sha256 33872cb559ae7c9f6818de3f0ef8b4a8958a6d80164ccd1db1a00c29de234eee (local and raw.githubusercontent.com matched)
+g_subdevice_nvoc.c sha256 81bc346087a35f5185158fdc32f88cc8b083f7a04660d54b54d442bcb14804f5 (local and raw.githubusercontent.com matched)
+https://github.com/lixiangwuxian/170hx-rir-tool commit 03a612af5f6ebfdd8df50fe9e88cacce7c512a54
+ga100_rir.c sha256 f618773079300f92192a317b5bcaf632df71c906113ba87c779148176c3763a1
+https://github.com/matstatman/gpcprobe commit 7aa144b81c06c98f3210118ba8ab2e707ddeeb13
+gpc_probe.py sha256 f5378425c12e317b881f3bf43bdf5953d3b2eb134c80c4d2238540175f6f2ca2
+https://github.com/amoghmunikote/cmpunlocker commit 2c7e2ecd7944e791fec040d2680036beb4a9327b
+driver/patches/sec2-postbl-plm-ss-cfg.patch sha256 1a9ecd419dc5e732951c8f7093be2a2314233c17e9126297459025a9ff08bc78
+https://github.com/envytools/envytools commit f102b82381f3f11cee113d16374c87091db039d9
+rnndb/bus/pfuse.xml sha256 eee471b4cff40a60dc1e7c27ff5fa87593c57564ed10dc353a916be2b55b1391

@@ -1,0 +1,1005 @@
+{
+  "script": "PHASE16/gsp_callback_verify.py",
+  "bin": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+  "bin_size": 22901632,
+  "source_sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "elf_entry": "0x4009000",
+  "capstone": true,
+  "windows": {
+    "callback_block": {
+      "va_start": 83195324,
+      "va_end": 83195480,
+      "backing": "section[27].section_task_rm_elf_text_instance",
+      "count": 39,
+      "instructions": [
+        {
+          "va": 83195324,
+          "file_offset": 16086524,
+          "bytes": "b7741a04",
+          "size": 4,
+          "mnemonic": "lui",
+          "op_str": "s1, 0x41a7"
+        },
+        {
+          "va": 83195328,
+          "file_offset": 16086528,
+          "bytes": "371c0000",
+          "size": 4,
+          "mnemonic": "lui",
+          "op_str": "s8, 1"
+        },
+        {
+          "va": 83195332,
+          "file_offset": 16086532,
+          "bytes": "9384040b",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "s1, s1, 0xb0"
+        },
+        {
+          "va": 83195336,
+          "file_offset": 16086536,
+          "bytes": "130c0c74",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "s8, s8, 0x740"
+        },
+        {
+          "va": 83195340,
+          "file_offset": 16086540,
+          "bytes": "338c8401",
+          "size": 4,
+          "mnemonic": "add",
+          "op_str": "s8, s1, s8"
+        },
+        {
+          "va": 83195344,
+          "file_offset": 16086544,
+          "bytes": "6f004002",
+          "size": 4,
+          "mnemonic": "j",
+          "op_str": "0x24"
+        },
+        {
+          "va": 83195348,
+          "file_offset": 16086548,
+          "bytes": "83b70903",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "a5, 0x30(s3)"
+        },
+        {
+          "va": 83195352,
+          "file_offset": 16086552,
+          "bytes": "035684f7",
+          "size": 4,
+          "mnemonic": "lhu",
+          "op_str": "a2, -0x88(s0)"
+        },
+        {
+          "va": 83195356,
+          "file_offset": 16086556,
+          "bytes": "13850900",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a0, s3"
+        },
+        {
+          "va": 83195360,
+          "file_offset": 16086560,
+          "bytes": "e7800700",
+          "size": 4,
+          "mnemonic": "jalr",
+          "op_str": "a5"
+        },
+        {
+          "va": 83195364,
+          "file_offset": 16086564,
+          "bytes": "1b090500",
+          "size": 4,
+          "mnemonic": "sext.w",
+          "op_str": "s2, a0"
+        },
+        {
+          "va": 83195368,
+          "file_offset": 16086568,
+          "bytes": "63160926",
+          "size": 4,
+          "mnemonic": "bnez",
+          "op_str": "s2, 0x26c"
+        },
+        {
+          "va": 83195372,
+          "file_offset": 16086572,
+          "bytes": "93840402",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "s1, s1, 0x20"
+        },
+        {
+          "va": 83195376,
+          "file_offset": 16086576,
+          "bytes": "63069c42",
+          "size": 4,
+          "mnemonic": "beq",
+          "op_str": "s8, s1, 0x42c"
+        },
+        {
+          "va": 83195380,
+          "file_offset": 16086580,
+          "bytes": "13068008",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "a2, zero, 0x88"
+        },
+        {
+          "va": 83195384,
+          "file_offset": 16086584,
+          "bytes": "93050000",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a1, zero"
+        },
+        {
+          "va": 83195388,
+          "file_offset": 16086588,
+          "bytes": "130504f2",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "a0, s0, -0xe0"
+        },
+        {
+          "va": 83195392,
+          "file_offset": 16086592,
+          "bytes": "97f03100",
+          "size": 4,
+          "mnemonic": "auipc",
+          "op_str": "ra, 0x31f"
+        },
+        {
+          "va": 83195396,
+          "file_offset": 16086596,
+          "bytes": "e780c09f",
+          "size": 4,
+          "mnemonic": "jalr",
+          "op_str": "ra, ra, -0x604"
+        },
+        {
+          "va": 83195400,
+          "file_offset": 16086600,
+          "bytes": "83d80400",
+          "size": 4,
+          "mnemonic": "lhu",
+          "op_str": "a7, 0(s1)"
+        },
+        {
+          "va": 83195404,
+          "file_offset": 16086604,
+          "bytes": "03a84400",
+          "size": 4,
+          "mnemonic": "lw",
+          "op_str": "a6, 4(s1)"
+        },
+        {
+          "va": 83195408,
+          "file_offset": 16086608,
+          "bytes": "83c68400",
+          "size": 4,
+          "mnemonic": "lbu",
+          "op_str": "a3, 8(s1)"
+        },
+        {
+          "va": 83195412,
+          "file_offset": 16086612,
+          "bytes": "03b70401",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "a4, 0x10(s1)"
+        },
+        {
+          "va": 83195416,
+          "file_offset": 16086616,
+          "bytes": "83d78401",
+          "size": 4,
+          "mnemonic": "lhu",
+          "op_str": "a5, 0x18(s1)"
+        },
+        {
+          "va": 83195420,
+          "file_offset": 16086620,
+          "bytes": "93050a00",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a1, s4"
+        },
+        {
+          "va": 83195424,
+          "file_offset": 16086624,
+          "bytes": "130604f2",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "a2, s0, -0xe0"
+        },
+        {
+          "va": 83195428,
+          "file_offset": 16086628,
+          "bytes": "13850a00",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a0, s5"
+        },
+        {
+          "va": 83195432,
+          "file_offset": 16086632,
+          "bytes": "230004f2",
+          "size": 4,
+          "mnemonic": "sb",
+          "op_str": "zero, -0xe0(s0)"
+        },
+        {
+          "va": 83195436,
+          "file_offset": 16086636,
+          "bytes": "230d04f6",
+          "size": 4,
+          "mnemonic": "sb",
+          "op_str": "zero, -0x86(s0)"
+        },
+        {
+          "va": 83195440,
+          "file_offset": 16086640,
+          "bytes": "231c14f7",
+          "size": 4,
+          "mnemonic": "sh",
+          "op_str": "a7, -0x88(s0)"
+        },
+        {
+          "va": 83195444,
+          "file_offset": 16086644,
+          "bytes": "232e04f7",
+          "size": 4,
+          "mnemonic": "sw",
+          "op_str": "a6, -0x84(s0)"
+        },
+        {
+          "va": 83195448,
+          "file_offset": 16086648,
+          "bytes": "2300d4f8",
+          "size": 4,
+          "mnemonic": "sb",
+          "op_str": "a3, -0x80(s0)"
+        },
+        {
+          "va": 83195452,
+          "file_offset": 16086652,
+          "bytes": "2334e4f8",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "a4, -0x78(s0)"
+        },
+        {
+          "va": 83195456,
+          "file_offset": 16086656,
+          "bytes": "2318f4f8",
+          "size": 4,
+          "mnemonic": "sh",
+          "op_str": "a5, -0x70(s0)"
+        },
+        {
+          "va": 83195460,
+          "file_offset": 16086660,
+          "bytes": "9700fbff",
+          "size": 4,
+          "mnemonic": "auipc",
+          "op_str": "ra, 0xfffb0"
+        },
+        {
+          "va": 83195464,
+          "file_offset": 16086664,
+          "bytes": "e78080fa",
+          "size": 4,
+          "mnemonic": "jalr",
+          "op_str": "ra, ra, -0x58"
+        },
+        {
+          "va": 83195468,
+          "file_offset": 16086668,
+          "bytes": "93050500",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a1, a0"
+        },
+        {
+          "va": 83195472,
+          "file_offset": 16086672,
+          "bytes": "e31205f8",
+          "size": 4,
+          "mnemonic": "bnez",
+          "op_str": "a0, -0x7c"
+        },
+        {
+          "va": 83195476,
+          "file_offset": 16086676,
+          "bytes": "835584f7",
+          "size": 4,
+          "mnemonic": "lhu",
+          "op_str": "a1, -0x88(s0)"
+        }
+      ]
+    },
+    "entry_helper": {
+      "va_start": 82867692,
+      "va_end": 82867872,
+      "backing": "section[27].section_task_rm_elf_text_instance",
+      "count": 45,
+      "instructions": [
+        {
+          "va": 82867692,
+          "file_offset": 15758892,
+          "bytes": "130101fc",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "sp, sp, -0x40"
+        },
+        {
+          "va": 82867696,
+          "file_offset": 15758896,
+          "bytes": "23388102",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "s0, 0x30(sp)"
+        },
+        {
+          "va": 82867700,
+          "file_offset": 15758900,
+          "bytes": "23349102",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "s1, 0x28(sp)"
+        },
+        {
+          "va": 82867704,
+          "file_offset": 15758904,
+          "bytes": "23302103",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "s2, 0x20(sp)"
+        },
+        {
+          "va": 82867708,
+          "file_offset": 15758908,
+          "bytes": "233c3101",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "s3, 0x18(sp)"
+        },
+        {
+          "va": 82867712,
+          "file_offset": 15758912,
+          "bytes": "233c1102",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "ra, 0x38(sp)"
+        },
+        {
+          "va": 82867716,
+          "file_offset": 15758916,
+          "bytes": "23384101",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "s4, 0x10(sp)"
+        },
+        {
+          "va": 82867720,
+          "file_offset": 15758920,
+          "bytes": "13040104",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "s0, sp, 0x40"
+        },
+        {
+          "va": 82867724,
+          "file_offset": 15758924,
+          "bytes": "b7392004",
+          "size": 4,
+          "mnemonic": "lui",
+          "op_str": "s3, 0x4203"
+        },
+        {
+          "va": 82867728,
+          "file_offset": 15758928,
+          "bytes": "83450600",
+          "size": 4,
+          "mnemonic": "lbu",
+          "op_str": "a1, 0(a2)"
+        },
+        {
+          "va": 82867732,
+          "file_offset": 15758932,
+          "bytes": "83b70993",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "a5, -0x6d0(s3)"
+        },
+        {
+          "va": 82867736,
+          "file_offset": 15758936,
+          "bytes": "2334f4fc",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "a5, -0x38(s0)"
+        },
+        {
+          "va": 82867740,
+          "file_offset": 15758940,
+          "bytes": "93070000",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a5, zero"
+        },
+        {
+          "va": 82867744,
+          "file_offset": 15758944,
+          "bytes": "233004fc",
+          "size": 4,
+          "mnemonic": "sd",
+          "op_str": "zero, -0x40(s0)"
+        },
+        {
+          "va": 82867748,
+          "file_offset": 15758948,
+          "bytes": "93076000",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "a5, zero, 6"
+        },
+        {
+          "va": 82867752,
+          "file_offset": 15758952,
+          "bytes": "93040600",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "s1, a2"
+        },
+        {
+          "va": 82867756,
+          "file_offset": 15758956,
+          "bytes": "13890000",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "s2, ra"
+        },
+        {
+          "va": 82867760,
+          "file_offset": 15758960,
+          "bytes": "63e8b706",
+          "size": 4,
+          "mnemonic": "bltu",
+          "op_str": "a5, a1, 0x70"
+        },
+        {
+          "va": 82867764,
+          "file_offset": 15758964,
+          "bytes": "37671a04",
+          "size": 4,
+          "mnemonic": "lui",
+          "op_str": "a4, 0x41a6"
+        },
+        {
+          "va": 82867768,
+          "file_offset": 15758968,
+          "bytes": "93972500",
+          "size": 4,
+          "mnemonic": "slli",
+          "op_str": "a5, a1, 2"
+        },
+        {
+          "va": 82867772,
+          "file_offset": 15758972,
+          "bytes": "1307879c",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "a4, a4, -0x638"
+        },
+        {
+          "va": 82867776,
+          "file_offset": 15758976,
+          "bytes": "b387e700",
+          "size": 4,
+          "mnemonic": "add",
+          "op_str": "a5, a5, a4"
+        },
+        {
+          "va": 82867780,
+          "file_offset": 15758980,
+          "bytes": "83a70700",
+          "size": 4,
+          "mnemonic": "lw",
+          "op_str": "a5, 0(a5)"
+        },
+        {
+          "va": 82867784,
+          "file_offset": 15758984,
+          "bytes": "67800700",
+          "size": 4,
+          "mnemonic": "jr",
+          "op_str": "a5"
+        },
+        {
+          "va": 82867788,
+          "file_offset": 15758988,
+          "bytes": "93060600",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a3, a2"
+        },
+        {
+          "va": 82867792,
+          "file_offset": 15758992,
+          "bytes": "930504fc",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "a1, s0, -0x40"
+        },
+        {
+          "va": 82867796,
+          "file_offset": 15758996,
+          "bytes": "13060015",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "a2, zero, 0x150"
+        },
+        {
+          "va": 82867800,
+          "file_offset": 15759000,
+          "bytes": "97800600",
+          "size": 4,
+          "mnemonic": "auipc",
+          "op_str": "ra, 0x68"
+        },
+        {
+          "va": 82867804,
+          "file_offset": 15759004,
+          "bytes": "e780c093",
+          "size": 4,
+          "mnemonic": "jalr",
+          "op_str": "ra, ra, -0x6c4"
+        },
+        {
+          "va": 82867808,
+          "file_offset": 15759008,
+          "bytes": "1b050500",
+          "size": 4,
+          "mnemonic": "sext.w",
+          "op_str": "a0, a0"
+        },
+        {
+          "va": 82867812,
+          "file_offset": 15759012,
+          "bytes": "631a0510",
+          "size": 4,
+          "mnemonic": "bnez",
+          "op_str": "a0, 0x114"
+        },
+        {
+          "va": 82867816,
+          "file_offset": 15759016,
+          "bytes": "033504fc",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "a0, -0x40(s0)"
+        },
+        {
+          "va": 82867820,
+          "file_offset": 15759020,
+          "bytes": "033784fc",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "a4, -0x38(s0)"
+        },
+        {
+          "va": 82867824,
+          "file_offset": 15759024,
+          "bytes": "83b70993",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "a5, -0x6d0(s3)"
+        },
+        {
+          "va": 82867828,
+          "file_offset": 15759028,
+          "bytes": "b347f700",
+          "size": 4,
+          "mnemonic": "xor",
+          "op_str": "a5, a4, a5"
+        },
+        {
+          "va": 82867832,
+          "file_offset": 15759032,
+          "bytes": "13070000",
+          "size": 4,
+          "mnemonic": "mv",
+          "op_str": "a4, zero"
+        },
+        {
+          "va": 82867836,
+          "file_offset": 15759036,
+          "bytes": "639c0718",
+          "size": 4,
+          "mnemonic": "bnez",
+          "op_str": "a5, 0x198"
+        },
+        {
+          "va": 82867840,
+          "file_offset": 15759040,
+          "bytes": "83308103",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "ra, 0x38(sp)"
+        },
+        {
+          "va": 82867844,
+          "file_offset": 15759044,
+          "bytes": "03340103",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "s0, 0x30(sp)"
+        },
+        {
+          "va": 82867848,
+          "file_offset": 15759048,
+          "bytes": "83348102",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "s1, 0x28(sp)"
+        },
+        {
+          "va": 82867852,
+          "file_offset": 15759052,
+          "bytes": "03390102",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "s2, 0x20(sp)"
+        },
+        {
+          "va": 82867856,
+          "file_offset": 15759056,
+          "bytes": "83398101",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "s3, 0x18(sp)"
+        },
+        {
+          "va": 82867860,
+          "file_offset": 15759060,
+          "bytes": "033a0101",
+          "size": 4,
+          "mnemonic": "ld",
+          "op_str": "s4, 0x10(sp)"
+        },
+        {
+          "va": 82867864,
+          "file_offset": 15759064,
+          "bytes": "13010104",
+          "size": 4,
+          "mnemonic": "addi",
+          "op_str": "sp, sp, 0x40"
+        },
+        {
+          "va": 82867868,
+          "file_offset": 15759068,
+          "bytes": "67800000",
+          "size": 4,
+          "mnemonic": "ret",
+          "op_str": ""
+        }
+      ]
+    }
+  },
+  "resolved": {
+    "0x4f575bc": {
+      "va": 83195324,
+      "file_offset": 16086524,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "b7741a04"
+    },
+    "0x4f57644": {
+      "va": 83195460,
+      "file_offset": 16086660,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "9700fbff"
+    },
+    "0x4f57648": {
+      "va": 83195464,
+      "file_offset": 16086664,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "e78080fa"
+    },
+    "0x4f5764c": {
+      "va": 83195468,
+      "file_offset": 16086668,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "93050500"
+    },
+    "0x4f57650": {
+      "va": 83195472,
+      "file_offset": 16086672,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "e31205f8"
+    },
+    "0x4f575d4": {
+      "va": 83195348,
+      "file_offset": 16086548,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "83b70903"
+    },
+    "0x4f575e0": {
+      "va": 83195360,
+      "file_offset": 16086560,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "e7800700"
+    },
+    "0x4f075ec": {
+      "va": 82867692,
+      "file_offset": 15758892,
+      "source": "section[27].section_task_rm_elf_text_instance",
+      "raw4": "130101fc"
+    },
+    "0x41a70b0": {
+      "va": 68841648,
+      "file_offset": 1732848,
+      "source": "section[24].section_task_rm_elf_rodata_instance",
+      "raw4": "00000000"
+    }
+  },
+  "control_flow": {
+    "at_0x4f57644_50": [
+      {
+        "va": 83195460,
+        "file_offset": 16086660,
+        "bytes": "9700fbff",
+        "mnemonic": "auipc",
+        "op_str": "ra, 0xfffb0",
+        "raw": 4294639767,
+        "auipc": {
+          "kind": "auipc",
+          "rd": 1,
+          "imm": -327680,
+          "val": 82867780
+        },
+        "writes_reg": 1
+      },
+      {
+        "va": 83195464,
+        "file_offset": 16086664,
+        "bytes": "e78080fa",
+        "mnemonic": "jalr",
+        "op_str": "ra, ra, -0x58",
+        "raw": 4202725607,
+        "jalr": {
+          "kind": "jalr",
+          "rd": 1,
+          "rs1": 1,
+          "imm": -88
+        },
+        "writes_reg": 1
+      },
+      {
+        "va": 83195468,
+        "file_offset": 16086668,
+        "bytes": "93050500",
+        "mnemonic": "mv",
+        "op_str": "a1, a0",
+        "raw": 329107,
+        "writes_reg": 11
+      },
+      {
+        "va": 83195472,
+        "file_offset": 16086672,
+        "bytes": "e31205f8",
+        "mnemonic": "bnez",
+        "op_str": "a0, -0x7c",
+        "raw": 4161082083,
+        "branch": {
+          "kind": "branch",
+          "funct3": 1,
+          "target": 83195348
+        }
+      }
+    ],
+    "auipc_jalr_pairs": [
+      {
+        "pc": 83195392,
+        "kind": "auipc",
+        "rd": 1,
+        "imm": 3272704,
+        "val": 86468096,
+        "file_offset": 16086592,
+        "raw": 3272855,
+        "adjacent_jalr": {
+          "pc": 83195396,
+          "raw": 2680193255,
+          "imm": -1540,
+          "target": 86466556,
+          "rd": 1
+        }
+      },
+      {
+        "pc": 83195460,
+        "kind": "auipc",
+        "rd": 1,
+        "imm": -327680,
+        "val": 82867780,
+        "file_offset": 16086660,
+        "raw": 4294639767,
+        "adjacent_jalr": {
+          "pc": 83195464,
+          "raw": 4202725607,
+          "imm": -88,
+          "target": 82867692,
+          "rd": 1
+        }
+      }
+    ],
+    "branches": [
+      {
+        "pc": 83195368,
+        "raw": 638129763,
+        "file_offset": 16086568,
+        "kind": "branch",
+        "funct3": 1,
+        "target": 83195988
+      },
+      {
+        "pc": 83195376,
+        "raw": 1117521507,
+        "file_offset": 16086576,
+        "kind": "branch",
+        "funct3": 0,
+        "target": 83196444
+      },
+      {
+        "pc": 83195472,
+        "raw": 4161082083,
+        "file_offset": 16086672,
+        "kind": "branch",
+        "funct3": 1,
+        "target": 83195348
+      }
+    ],
+    "jumps": [
+      {
+        "pc": 83195344,
+        "raw": 37748847,
+        "file_offset": 16086544,
+        "kind": "jal",
+        "rd": 0,
+        "target": 83195380
+      }
+    ],
+    "predecessors_of_callback": [],
+    "fallthrough_into_callback": [
+      {
+        "pc": 83195356,
+        "raw": "13850900",
+        "file_offset": 16086556,
+        "mnemonic": "mv",
+        "op_str": "a0, s3"
+      }
+    ]
+  },
+  "registers_at_call": {
+    "a0": {
+      "last_write": {
+        "va": 83195356,
+        "file_offset": 16086556,
+        "raw": "13850900",
+        "mnemonic": "mv",
+        "op_str": "a0, s3"
+      },
+      "all_writes_in_window": [
+        {
+          "va": 83195356,
+          "file_offset": 16086556,
+          "raw": "13850900",
+          "mnemonic": "mv",
+          "op_str": "a0, s3"
+        }
+      ],
+      "call_preceded_by": {
+        "va": 83195356,
+        "raw": "13850900",
+        "mnemonic": "mv"
+      },
+      "path": "fall-through tu 0x04f575d4 den 0x04f575e0 (khong co nhan vao callback trong cua so)",
+      "note": "LAST-WRITE = mv a0, s3 tai 0x04f575dc (a0 = con tro context/s3) tren duong di thang den goi; a0 la caller-saved, CALL-CLOBBER ap dung sau khi jalr tra ve. (straight-line last-write, chua xac minh CFG toan cuc)."
+    },
+    "a1": {
+      "last_write": null,
+      "all_writes_in_window": [],
+      "call_preceded_by": {
+        "va": 83195356,
+        "raw": "13850900",
+        "mnemonic": "mv"
+      },
+      "path": "fall-through tu 0x04f575d4 den 0x04f575e0 (khong co nhan vao callback trong cua so)",
+      "note": "KHONG co lenh ghi a1 trong cua so 0x04f575bc..0x04f575e0 -> a1 tai diem goi = gia tri nhap cua ham, duoc luu tai s4 (mv s4, a1 tai 0x04f57378, van ban truoc). KHONG phai gia tri tra tu helper 0x04f075ec tai diem goi nay. (straight-line last-write, chua xac minh CFG toan cuc)."
+    },
+    "a2": {
+      "last_write": {
+        "va": 83195352,
+        "file_offset": 16086552,
+        "raw": "035684f7",
+        "mnemonic": "lhu",
+        "op_str": "a2, -0x88(s0)"
+      },
+      "all_writes_in_window": [
+        {
+          "va": 83195352,
+          "file_offset": 16086552,
+          "raw": "035684f7",
+          "mnemonic": "lhu",
+          "op_str": "a2, -0x88(s0)"
+        }
+      ],
+      "call_preceded_by": {
+        "va": 83195356,
+        "raw": "13850900",
+        "mnemonic": "mv"
+      },
+      "path": "fall-through tu 0x04f575d4 den 0x04f575e0 (khong co nhan vao callback trong cua so)",
+      "note": "LAST-WRITE = lhu a2, -0x88(s0) tai 0x04f575d8 (a2 = u16 f00 cua entry luu tren stack); a2 la caller-saved, CALL-CLOBBER ap dung sau khi jalr tra ve. (straight-line last-write, chua xac minh CFG toan cuc)."
+    }
+  },
+  "entry0": {
+    "va": 68841648,
+    "file_offset": 1732848,
+    "source": "section[24].section_task_rm_elf_rodata_instance",
+    "raw32": "00000000ff000000000100000000000000601a040000000001ff000000000000",
+    "fields": {
+      "f00_u16_0x00": 0,
+      "f04_u32_0x04": 255,
+      "f08_u8_0x08": 0,
+      "f10_u64_0x10": 68837376,
+      "f18_u16_0x18": 65281
+    },
+    "f10_bits": {
+      "low16": 24576,
+      "high16": 1050,
+      "low8": 0,
+      "byte0": 0,
+      "byte1": 96,
+      "byte2": 26,
+      "byte3": 4
+    },
+    "f18_bits": {
+      "raw": 65281,
+      "byte0": 1,
+      "byte1": 255
+    },
+    "f10_bounded_ascii": {
+      "value": "NOT_SET",
+      "status": "ok",
+      "source": "section[24].section_task_rm_elf_rodata_instance"
+    },
+    "note": "f18: only bit structure is evidenced (u16 @ entry+0x18); no group/subtype semantic assignment made here."
+  },
+  "observations": [
+    "source_sha256=0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b bin_size=22901632",
+    "callback block disassembled 39 instructions at 0x04f575bc..0x04f57658 (file 0xf575fc)",
+    "entry_helper disassembled 45 instructions at 0x04f075ec..0x04f076a0",
+    "AUIPC+JALR pairs at/near 0x04f57644: 2",
+    "branches: 3; jumps: 1",
+    "predecessors into callback 0x04f575e0: branches=0, fallthrough=1",
+    "entry0 file_offset=0x1a70f0 source=section[24].section_task_rm_elf_rodata_instance raw32=00000000ff000000000100000000000000601a040000000001ff000000000000",
+    "entry0 f00=0x0 f04=0xff f08=0x0 f10=0x41a6000 f18=0xff01",
+    "f10 bounded ASCII: ok value='NOT_SET'",
+    "Duong di sau goi callback: 0x04f575e4 sext.w s2,a0; 0x04f575e8 bnez s2,+0x26c (thoat neu tra !=0); 0x04f575ec addi s1,s1,0x20; 0x04f575f0 beq s8,s1,+0x42c (thoat neu het bang).",
+    "Tiep tuc duong di khong thoat: 0x04f575f4..0x04f57640 luu 5 field entry vao stack (s0-0xe0..); 0x04f57644 auipc ra,0xfffb0 + 0x04f57648 jalr ra,ra,-0x58 -> goi helper 0x04f075EC (REDACTED_USER duoc tu raw, khong copy cu).",
+    "0x04f5764c mv a1,a0 (a1 = ket qua helper); 0x04f57650 bnez a0,-0x7c -> nhan quay ve block callback 0x04f575d4. XAC NHAN: co trinh tu helper-call -> mv a1,a0 -> nhanh quay lai block callback.",
+    "Con tro callback qua *(s3+0x30) tai jalr 0x04f575e0: dich cua con tro chua biet tu du lieu tich cuc -> UNKNOWN, khong ep ket luan."
+  ],
+  "unknowns": [
+    "destinasi callback qua con tro *(s3+0x30): UNKNOWN (gia tri con tro chua duoc lay tu du lieu tich cuc)",
+    "a1 tai diem goi callback: chua co last-write trong cua so 0x04f575bc..0x04f575e0 (can mo cua so ngang xuong)"
+  ]
+}

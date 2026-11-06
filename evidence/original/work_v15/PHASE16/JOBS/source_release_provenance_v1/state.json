@@ -1,0 +1,12 @@
+{
+  "job": "source_release_provenance_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:21:47.243252+00:00",
+  "wrapper_pid": 1681591,
+  "task_sha256": "21b5642f3d8f74ae957ac6a5a3946aa34e8c1e7b8c0c1207ef1942b34f3542d6",
+  "hermes_pid": 1681592,
+  "hermes_start_ticks": "209965312",
+  "heartbeat_at": "2026-11-03T19:27:05.406061+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:27:07.407199+00:00"
+}

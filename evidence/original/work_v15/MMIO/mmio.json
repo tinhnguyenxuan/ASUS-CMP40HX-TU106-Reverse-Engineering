@@ -1,0 +1,915 @@
+{
+ "bdf": "0000:03:00.0",
+ "boot0": "0x166000a1",
+ "poison": [
+  "0xbadf5040",
+  "0xbadf1300",
+  "0xbadf1100",
+  "0xbadf1301",
+  "0xbadf510c",
+  "0xbadf0000"
+ ],
+ "pages_touched": [
+  0,
+  2,
+  3,
+  8,
+  16,
+  17,
+  20,
+  31,
+  132,
+  182
+ ],
+ "stats": {
+  "states": {
+   "data": 33,
+   "poison": 6,
+   "zero": 13
+  },
+  "blocks": {
+   "OTHER": 52
+  }
+ },
+ "registers": {
+  "NV_XVE_ID_VENDOR_NVIDIA": {
+   "addr": 4318,
+   "addr_hex": "0x000010de",
+   "page": 0,
+   "access": "C---V",
+   "block": "OTHER",
+   "value": 1346419423,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_CPU_INTR_LEAF_TRIGGER": {
+   "addr": 5696,
+   "addr_hex": "0x00001640",
+   "page": 0,
+   "access": "-W-4R",
+   "block": "OTHER",
+   "value": 143,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_CPU_INTR_LEAF_TRIGGER_VECTOR",
+     "hi": 11,
+     "lo": 0,
+     "value": 143
+    }
+   ]
+  },
+  "NV_PBUS_BAR1_BLOCK": {
+   "addr": 5892,
+   "addr_hex": "0x00001704",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 2149547200,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_PBUS_BAR1_BLOCK_PTR",
+     "hi": 27,
+     "lo": 0,
+     "value": 2063552
+    },
+    {
+     "name": "NV_PBUS_BAR1_BLOCK_TARGET",
+     "hi": 29,
+     "lo": 28,
+     "value": 0
+    },
+    {
+     "name": "NV_PBUS_BAR1_BLOCK_MODE",
+     "hi": 31,
+     "lo": 31,
+     "value": 1
+    }
+   ]
+  },
+  "NV_PBUS_BAR2_BLOCK": {
+   "addr": 5908,
+   "addr_hex": "0x00001714",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 3223289025,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_PBUS_BAR2_BLOCK_PTR",
+     "hi": 27,
+     "lo": 0,
+     "value": 2063553
+    },
+    {
+     "name": "NV_PBUS_BAR2_BLOCK_TARGET",
+     "hi": 29,
+     "lo": 28,
+     "value": 0
+    },
+    {
+     "name": "NV_PBUS_BAR2_BLOCK_DEBUG_CYA",
+     "hi": 30,
+     "lo": 30,
+     "value": 1
+    },
+    {
+     "name": "NV_PBUS_BAR2_BLOCK_MODE",
+     "hi": 31,
+     "lo": 31,
+     "value": 1
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_PAGE_FAULT_CTRL": {
+   "addr": 12400,
+   "addr_hex": "0x00003070",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 3135197248,
+   "state": "poison",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_ADDR_LO": {
+   "addr": 12416,
+   "addr_hex": "0x00003080",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 268963848,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_ADDR_HI": {
+   "addr": 12420,
+   "addr_hex": "0x00003084",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 268963848,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_INST_LO": {
+   "addr": 12424,
+   "addr_hex": "0x00003088",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 286068744,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_INST_HI": {
+   "addr": 12428,
+   "addr_hex": "0x0000308c",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 421533728,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_INFO": {
+   "addr": 12432,
+   "addr_hex": "0x00003090",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 280760508,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_STATUS": {
+   "addr": 12436,
+   "addr_hex": "0x00003094",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 311104002,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_PDB": {
+   "addr": 12448,
+   "addr_hex": "0x000030a0",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 337645568,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_PDB_APERTURE",
+     "hi": 1,
+     "lo": 1,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_PDB_ADDR",
+     "hi": 31,
+     "lo": 4,
+     "value": 21102848
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_UPPER_PDB": {
+   "addr": 12452,
+   "addr_hex": "0x000030a4",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 268513281,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_UPPER_PDB_ADDR",
+     "hi": 19,
+     "lo": 0,
+     "value": 77825
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE": {
+   "addr": 12464,
+   "addr_hex": "0x000030b0",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 3135197248,
+   "state": "poison",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_ALL_VA",
+     "hi": 0,
+     "lo": 0,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_ALL_PDB",
+     "hi": 1,
+     "lo": 1,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_HUBTLB_ONLY",
+     "hi": 2,
+     "lo": 2,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_REPLAY",
+     "hi": 5,
+     "lo": 3,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_SYS_MEMBAR",
+     "hi": 6,
+     "lo": 6,
+     "value": 1
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_ACK",
+     "hi": 8,
+     "lo": 7,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_CANCEL_CLIENT_ID",
+     "hi": 14,
+     "lo": 9,
+     "value": 40
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_CANCEL_GPC_ID",
+     "hi": 19,
+     "lo": 15,
+     "value": 30
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_CANCEL_CLIENT_TYPE",
+     "hi": 20,
+     "lo": 20,
+     "value": 1
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_USE_PASID",
+     "hi": 21,
+     "lo": 21,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_USE_SIZE",
+     "hi": 22,
+     "lo": 22,
+     "value": 1
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_PROP_FLUSH",
+     "hi": 23,
+     "lo": 23,
+     "value": 1
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_CACHE_LEVEL",
+     "hi": 26,
+     "lo": 24,
+     "value": 2
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_TRIGGER",
+     "hi": 31,
+     "lo": 31,
+     "value": 1
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG": {
+   "addr": 12544,
+   "addr_hex": "0x00003100",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 2050564,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG_THRESHOLD",
+     "hi": 15,
+     "lo": 0,
+     "value": 18948
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG_MIMC_GRANULARITY",
+     "hi": 17,
+     "lo": 16,
+     "value": 3
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG_MOMC_GRANULARITY",
+     "hi": 19,
+     "lo": 18,
+     "value": 3
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_LO": {
+   "addr": 12552,
+   "addr_hex": "0x00003108",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 134264615,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_LO_EN",
+     "hi": 0,
+     "lo": 0,
+     "value": 1
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_HI": {
+   "addr": 12556,
+   "addr_hex": "0x0000310c",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 265878711,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_SIZE": {
+   "addr": 12560,
+   "addr_hex": "0x00003110",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 685920793,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_GET": {
+   "addr": 12564,
+   "addr_hex": "0x00003114",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 21018020,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_PUT": {
+   "addr": 12568,
+   "addr_hex": "0x00003118",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 1072584642,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_INFO": {
+   "addr": 12572,
+   "addr_hex": "0x0000311c",
+   "page": 0,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 191724970,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_INFO_FULL",
+     "hi": 0,
+     "lo": 0,
+     "value": 0
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_INFO_PUSHED",
+     "hi": 1,
+     "lo": 1,
+     "value": 1
+    },
+    {
+     "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_INFO_WRITE_NACK",
+     "hi": 24,
+     "lo": 24,
+     "value": 1
+    }
+   ]
+  },
+  "NV_PTIMER_INTR_0": {
+   "addr": 37120,
+   "addr_hex": "0x00009100",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 1,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_PTIMER_INTR_EN_0": {
+   "addr": 37184,
+   "addr_hex": "0x00009140",
+   "page": 0,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 1,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_PBDMA_SIGNATURE_HW_VALID": {
+   "addr": 64206,
+   "addr_hex": "0x0000face",
+   "page": 0,
+   "access": "RW--V",
+   "block": "OTHER",
+   "value": 1346419423,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_PBDMA_ACQUIRE_TIMEOUT_MAN_MAX": {
+   "addr": 65535,
+   "addr_hex": "0x0000ffff",
+   "page": 0,
+   "access": "RW--V",
+   "block": "OTHER",
+   "value": 3489726650,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_FUSE_OPT_NVDEC_DISABLE": {
+   "addr": 136056,
+   "addr_hex": "0x00021378",
+   "page": 2,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_FUSE_OPT_NVDEC_DISABLE_DATA",
+     "hi": 2,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  },
+  "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS": {
+   "addr": 137036,
+   "addr_hex": "0x0002174c",
+   "page": 2,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 1,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS_DATA",
+     "hi": 0,
+     "lo": 0,
+     "value": 1
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_TIME_0": {
+   "addr": 196736,
+   "addr_hex": "0x00030080",
+   "page": 3,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 3135181056,
+   "state": "poison",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_TIME_0_NSEC",
+     "hi": 31,
+     "lo": 5,
+     "value": 97974408
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_TIME_1": {
+   "addr": 196740,
+   "addr_hex": "0x00030084",
+   "page": 3,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 3135181056,
+   "state": "poison",
+   "bitfields": [
+    {
+     "name": "NV_VIRTUAL_FUNCTION_TIME_1_NSEC",
+     "hi": 28,
+     "lo": 0,
+     "value": 450826496
+    }
+   ]
+  },
+  "NV_VIRTUAL_FUNCTION_DOORBELL": {
+   "addr": 196752,
+   "addr_hex": "0x00030090",
+   "page": 3,
+   "access": "-W-4R",
+   "block": "OTHER",
+   "value": 3135181056,
+   "state": "poison",
+   "bitfields": []
+  },
+  "NV_VIRTUAL_FUNCTION_ERR_CONT": {
+   "addr": 196756,
+   "addr_hex": "0x00030094",
+   "page": 3,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 3135181056,
+   "state": "poison",
+   "bitfields": []
+  },
+  "NV_PCFG_XVE_REGISTER_MAP_START_OFFSET": {
+   "addr": 557056,
+   "addr_hex": "0x00088000",
+   "page": 8,
+   "access": null,
+   "block": "OTHER",
+   "value": 520818910,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_PFB_NISO_ACCESS_COUNTER_NOTIFY_BUFFER_INFO": {
+   "addr": 1051160,
+   "addr_hex": "0x00100a18",
+   "page": 16,
+   "access": "R--4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PFB_NISO_ACCESS_COUNTER_NOTIFY_BUFFER_INFO_FULL",
+     "hi": 0,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PFB_PRI_MMU_PAGE_FAULT_CTRL": {
+   "addr": 1051896,
+   "addr_hex": "0x00100cf8",
+   "page": 16,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PFB_PRI_MMU_PAGE_FAULT_CTRL_PRF_FILTER",
+     "hi": 1,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT": {
+   "addr": 1052280,
+   "addr_hex": "0x00100e78",
+   "page": 16,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT_TOTAL",
+     "hi": 15,
+     "lo": 0,
+     "value": 0
+    },
+    {
+     "name": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT_UNIQUE",
+     "hi": 31,
+     "lo": 16,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT": {
+   "addr": 1052300,
+   "addr_hex": "0x00100e8c",
+   "page": 16,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT_TOTAL",
+     "hi": 15,
+     "lo": 0,
+     "value": 0
+    },
+    {
+     "name": "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT_UNIQUE",
+     "hi": 31,
+     "lo": 16,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT": {
+   "addr": 1052320,
+   "addr_hex": "0x00100ea0",
+   "page": 16,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT_TOTAL",
+     "hi": 15,
+     "lo": 0,
+     "value": 0
+    },
+    {
+     "name": "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT_UNIQUE",
+     "hi": 31,
+     "lo": 16,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PGSP_FALCON_MAILBOX0": {
+   "addr": 1114176,
+   "addr_hex": "0x00110040",
+   "page": 17,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PGSP_FALCON_MAILBOX0_DATA",
+     "hi": 31,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PGSP_FALCON_MAILBOX1": {
+   "addr": 1114180,
+   "addr_hex": "0x00110044",
+   "page": 17,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PGSP_FALCON_MAILBOX1_DATA",
+     "hi": 31,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PGSP_FALCON_ENGINE": {
+   "addr": 1115072,
+   "addr_hex": "0x001103c0",
+   "page": 17,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PGSP_FALCON_ENGINE_RESET",
+     "hi": 0,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PGSP_FBIF_BASE": {
+   "addr": 1115648,
+   "addr_hex": "0x00110600",
+   "page": 17,
+   "access": null,
+   "block": "OTHER",
+   "value": 272,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_FALCON2_GSP_BASE": {
+   "addr": 1118208,
+   "addr_hex": "0x00111000",
+   "page": 17,
+   "access": null,
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": []
+  },
+  "NV_PGC6_BSI_SECURE_SCRATCH_14": {
+   "addr": 1147128,
+   "addr_hex": "0x001180f8",
+   "page": 17,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 389021696,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_PGC6_BSI_SECURE_SCRATCH_14_BOOT_STAGE_3_HANDOFF",
+     "hi": 26,
+     "lo": 26,
+     "value": 1
+    }
+   ]
+  },
+  "NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK": {
+   "addr": 1147176,
+   "addr_hex": "0x00118128",
+   "page": 17,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 4294967183,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK_READ_PROTECTION",
+     "hi": 3,
+     "lo": 0,
+     "value": 15
+    }
+   ]
+  },
+  "NV_PLTCG_LTC0_LTS0_L2_CACHE_ECC_UNCORRECTED_ERR_COUNT": {
+   "addr": 1311992,
+   "addr_hex": "0x001404f8",
+   "page": 20,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": []
+  },
+  "NV_PFB_PRI_MMU_WPR2_ADDR_LO": {
+   "addr": 2074660,
+   "addr_hex": "0x001fa824",
+   "page": 31,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 33021952,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_PFB_PRI_MMU_WPR2_ADDR_LO_VAL",
+     "hi": 31,
+     "lo": 4,
+     "value": 2063872
+    }
+   ]
+  },
+  "NV_PFB_PRI_MMU_WPR2_ADDR_HI": {
+   "addr": 2074664,
+   "addr_hex": "0x001fa828",
+   "page": 31,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 33549824,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_PFB_PRI_MMU_WPR2_ADDR_HI_VAL",
+     "hi": 31,
+     "lo": 4,
+     "value": 2096864
+    }
+   ]
+  },
+  "NV_PSEC_FALCON_ENGINE": {
+   "addr": 8651712,
+   "addr_hex": "0x008403c0",
+   "page": 132,
+   "access": "RW-4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_PSEC_FALCON_ENGINE_RESET",
+     "hi": 0,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  },
+  "NV_PSEC_FBIF_BASE": {
+   "addr": 8652288,
+   "addr_hex": "0x00840600",
+   "page": 132,
+   "access": null,
+   "block": "OTHER",
+   "value": 65540,
+   "state": "data",
+   "bitfields": []
+  },
+  "NV_CTRL_CPU_DOORBELL_VECTORID": {
+   "addr": 11954300,
+   "addr_hex": "0x00b6687c",
+   "page": 182,
+   "access": "C--4R",
+   "block": "OTHER",
+   "value": 129,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_CTRL_CPU_DOORBELL_VECTORID_VALUE",
+     "hi": 11,
+     "lo": 0,
+     "value": 129
+    }
+   ]
+  },
+  "NV_CTRL_LEGACY_ENGINE_STALL_INTR_BASE_VECTORID": {
+   "addr": 11954304,
+   "addr_hex": "0x00b66880",
+   "page": 182,
+   "access": "C--4R",
+   "block": "OTHER",
+   "value": 192,
+   "state": "data",
+   "bitfields": [
+    {
+     "name": "NV_CTRL_LEGACY_ENGINE_STALL_INTR_BASE_VECTORID_VECTOR",
+     "hi": 11,
+     "lo": 0,
+     "value": 192
+    }
+   ]
+  },
+  "NV_CTRL_LEGACY_ENGINE_NONSTALL_INTR_BASE_VECTORID": {
+   "addr": 11954308,
+   "addr_hex": "0x00b66884",
+   "page": 182,
+   "access": "C--4R",
+   "block": "OTHER",
+   "value": 0,
+   "state": "zero",
+   "bitfields": [
+    {
+     "name": "NV_CTRL_LEGACY_ENGINE_NONSTALL_INTR_BASE_VECTORID_VECTOR",
+     "hi": 11,
+     "lo": 0,
+     "value": 0
+    }
+   ]
+  }
+ }
+}

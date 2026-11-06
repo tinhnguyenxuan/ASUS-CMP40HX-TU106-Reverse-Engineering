@@ -1,0 +1,106 @@
+falcon_cfg_rebuild.py run log
+command: cd /home/REDACTED_USER/codex-work/work_v15 && /usr/bin/python3 PHASE16/FALCON_CFG_REBUILD/falcon_cfg_rebuild.py
+input: /home/REDACTED_USER/codex-work/work_v15/outputs/ucodes_tu10x.bin size=8837632 sha256=6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0
+inventory: /home/REDACTED_USER/codex-work/work_v15/PHASE16/firmware_container_verified.json sha256=55322f5a08755aa9d359bb419f87d6ae116aea5173e08818cd878918c68b00f5
+envydis: /tmp/envytools/build/envydis/envydis sha256=5aa83772ac1ea3e3eb5b63ffef1b3890e6cd41086cbffa9c2cfff542b6de103a
+script: /home/REDACTED_USER/codex-work/work_v15/PHASE16/FALCON_CFG_REBUILD/falcon_cfg_rebuild.py sha256=fb0d1dfa089d2045a970ec800ff242a293b0b9301f303f6e3c82d075c1b17f2f
+
+envydis -d/-l passed as explicit hexadecimal strings (parser uses sscanf "%x");
+every decoded instruction raw bytes verified against the payload before CFG construction.
+
+slot=20   off=0x00002F00 size=122880 sha_ok=True envydis_rc=0 lines=99517 verified=99517 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x00002A, UNKNOWN-not-proven) valid_insns=6767 invalid_spans=4519 invalid_bytes=103056
+   blocks=4618 block_bytes=19824 reachable_blocks=1 reachable_bytes=62 unreachable_blocks=4617 unreachable_bytes=19762 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000001 len=1 bytes=d0
+   INVALID_SPAN 0x000004..0x000005 len=1 bytes=00
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=8b0000000c38
+   INVALID_SPAN 0x000019..0x00001B len=2 bytes=f922
+   INVALID_SPAN 0x000021..0x00002A len=9 bytes=b20a7eaffe00980e01
+   INVALID_SPAN 0x000068..0x00006C len=4 bytes=3e74fe00
+   INVALID_SPAN 0x00006F..0x000074 len=5 bytes=b899000100
+   ... 4511 more invalid spans
+slot=150  off=0x00161100 size=571136 sha_ok=True envydis_rc=0 lines=417987 verified=417987 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x000016, UNKNOWN-not-proven) valid_insns=54835 invalid_spans=33233 invalid_bytes=411628
+   blocks=35550 block_bytes=159508 reachable_blocks=1 reachable_bytes=30 unreachable_blocks=35549 unreachable_bytes=159478 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000005 len=5 bytes=d0005e0000
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=f93289000000
+   INVALID_SPAN 0x000034..0x000038 len=4 bytes=89000000
+   INVALID_SPAN 0x00004A..0x000050 len=6 bytes=49005efe9903
+   INVALID_SPAN 0x000055..0x00005E len=9 bytes=da0000000389000000
+   INVALID_SPAN 0x000061..0x000068 len=7 bytes=3e9b5e00fee902
+   INVALID_SPAN 0x00006B..0x00006F len=4 bytes=c7991ab3
+   ... 33225 more invalid spans
+slot=156  off=0x0041A400 size=539136 sha_ok=True envydis_rc=0 lines=398271 verified=398271 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x000016, UNKNOWN-not-proven) valid_insns=51469 invalid_spans=30800 invalid_bytes=389551
+   blocks=32910 block_bytes=149585 reachable_blocks=1 reachable_bytes=30 unreachable_blocks=32909 unreachable_bytes=149555 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000005 len=5 bytes=d0005e0000
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=f93289000000
+   INVALID_SPAN 0x000034..0x000038 len=4 bytes=89000000
+   INVALID_SPAN 0x00004A..0x000050 len=6 bytes=49005efe9903
+   INVALID_SPAN 0x000055..0x00005E len=9 bytes=da0000000389000000
+   INVALID_SPAN 0x000061..0x000068 len=7 bytes=3e9b5e00fee902
+   INVALID_SPAN 0x00006B..0x00006F len=4 bytes=c7991ab3
+   ... 30792 more invalid spans
+slot=481  off=0x007D2800 size=143360 sha_ok=True envydis_rc=0 lines=113000 verified=113000 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x000016, UNKNOWN-not-proven) valid_insns=7921 invalid_spans=5495 invalid_bytes=119803
+   blocks=5790 block_bytes=23557 reachable_blocks=1 reachable_bytes=33 unreachable_blocks=5789 unreachable_bytes=23524 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000002 len=2 bytes=d000
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=f93289000000
+   INVALID_SPAN 0x000037..0x00003B len=4 bytes=89000000
+   INVALID_SPAN 0x00004D..0x000054 len=7 bytes=8900fb00fe9903
+   INVALID_SPAN 0x000059..0x000062 len=9 bytes=db0000000389000000
+   INVALID_SPAN 0x000065..0x00006C len=7 bytes=3e9ffb00fee902
+   INVALID_SPAN 0x00006F..0x000073 len=4 bytes=c7991ab3
+   ... 5487 more invalid spans
+slot=484  off=0x007F5800 size=157440 sha_ok=True envydis_rc=0 lines=120741 verified=120741 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x000016, UNKNOWN-not-proven) valid_insns=9483 invalid_spans=6626 invalid_bytes=129192
+   blocks=6948 block_bytes=28248 reachable_blocks=1 reachable_bytes=33 unreachable_blocks=6947 unreachable_bytes=28215 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000002 len=2 bytes=d000
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=f93289000000
+   INVALID_SPAN 0x000037..0x00003B len=4 bytes=89000000
+   INVALID_SPAN 0x00004D..0x000054 len=7 bytes=8900fb00fe9903
+   INVALID_SPAN 0x000059..0x000062 len=9 bytes=db0000000389000000
+   INVALID_SPAN 0x000065..0x00006C len=7 bytes=3e9ffb00fee902
+   INVALID_SPAN 0x00006F..0x000073 len=4 bytes=c7991ab3
+   ... 6618 more invalid spans
+slot=487  off=0x0081BF00 size=147712 sha_ok=True envydis_rc=0 lines=128428 verified=128428 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x000016, UNKNOWN-not-proven) valid_insns=5745 invalid_spans=3836 invalid_bytes=130848
+   blocks=3973 block_bytes=16864 reachable_blocks=1 reachable_bytes=33 unreachable_blocks=3972 unreachable_bytes=16831 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000002 len=2 bytes=d000
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=f93289000000
+   INVALID_SPAN 0x000037..0x00003B len=4 bytes=89000000
+   INVALID_SPAN 0x00004D..0x000054 len=7 bytes=8900fb00fe9903
+   INVALID_SPAN 0x000059..0x000062 len=9 bytes=db0000000389000000
+   INVALID_SPAN 0x000065..0x00006C len=7 bytes=3e9ffb00fee902
+   INVALID_SPAN 0x00006F..0x000073 len=4 bytes=c7991ab3
+   ... 3828 more invalid spans
+slot=490  off=0x00840000 size=124160 sha_ok=True envydis_rc=0 lines=100854 verified=100854 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x000016, UNKNOWN-not-proven) valid_insns=6218 invalid_spans=4323 invalid_bytes=105698
+   blocks=4446 block_bytes=18462 reachable_blocks=1 reachable_bytes=33 unreachable_blocks=4445 unreachable_bytes=18429 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000002 len=2 bytes=d000
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=f93289000000
+   INVALID_SPAN 0x000037..0x00003B len=4 bytes=89000000
+   INVALID_SPAN 0x00004D..0x000055 len=8 bytes=8900fd00fe9903bd
+   INVALID_SPAN 0x000059..0x000062 len=9 bytes=db0000000389000000
+   INVALID_SPAN 0x000065..0x00006C len=7 bytes=3e9ffd00fee902
+   INVALID_SPAN 0x00006F..0x000073 len=4 bytes=c7991ab3
+   ... 4315 more invalid spans
+slot=493  off=0x0085E500 size=62720 sha_ok=True envydis_rc=0 lines=55241 verified=55241 mismatches=0 cover_full=True
+   entry=UNKNOWN (candidate 0x000016, UNKNOWN-not-proven) valid_insns=2680 invalid_spans=1674 invalid_bytes=54979
+   blocks=1770 block_bytes=7741 reachable_blocks=1 reachable_bytes=33 unreachable_blocks=1769 unreachable_bytes=7708 calls=0 unresolved_edges=0
+   INVALID_SPAN 0x000000..0x000002 len=2 bytes=d000
+   INVALID_SPAN 0x00000A..0x00000B len=1 bytes=7e
+   INVALID_SPAN 0x000010..0x000016 len=6 bytes=f93289000000
+   INVALID_SPAN 0x000037..0x00003B len=4 bytes=89000000
+   INVALID_SPAN 0x00004D..0x000055 len=8 bytes=8900fd00fe9903bd
+   INVALID_SPAN 0x000059..0x000062 len=9 bytes=db0000000389000000
+   INVALID_SPAN 0x000065..0x00006C len=7 bytes=3e9ffd00fee902
+   INVALID_SPAN 0x00006F..0x000073 len=4 bytes=c7991ab3
+   ... 1666 more invalid spans

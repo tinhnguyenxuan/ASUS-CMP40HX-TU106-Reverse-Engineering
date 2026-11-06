@@ -1,0 +1,32 @@
+falcon_radix_recheck.py run log
+command: cd /home/REDACTED_USER/codex-work/work_v15 && /usr/bin/python3 PHASE16/FALCON_RADIX_RECHECK/falcon_radix_recheck.py
+input: /home/REDACTED_USER/codex-work/work_v15/outputs/ucodes_tu10x.bin size=8837632 sha256=6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0
+envydis: /tmp/envytools/build/envydis/envydis sha256=5aa83772ac1ea3e3eb5b63ffef1b3890e6cd41086cbffa9c2cfff542b6de103a
+
+Radix defect: payload_riscv_analyze.py:123 passed str(skip)/str(limit) (decimal) to envydis -d/-l which parses sscanf "%x". Prior best probes: slot 20 passed decimal 36 (label "0x24") -> actual skip 0x36=54; slots 150/156/481/484/487/490/493 passed decimal 16 (label "0x10") -> actual skip 0x16=22. Limit 150 -> actual 0x150=336. This script passes explicit hex strings ("%%x" %% intended) so actual == intended.
+
+slot=20   probe=prior_best_recompute req_skip=36 req_limit=150 argv_skip=24 argv_limit=96 actual_skip=36(0x24) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=af first_match=True stream_consumed=150 stream_match=True
+slot=20   probe=full_span_baseline req_skip=0 req_limit=122880 argv_skip=0 argv_limit=1e000 actual_skip=0(0x0) actual_limit=122880(0x1E000) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=122880 stream_match=None
+slot=150  probe=prior_best_recompute req_skip=16 req_limit=150 argv_skip=10 argv_limit=96 actual_skip=16(0x10) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=f932 first_match=True stream_consumed=150 stream_match=True
+slot=150  probe=full_span_baseline req_skip=0 req_limit=571136 argv_skip=0 argv_limit=8b700 actual_skip=0(0x0) actual_limit=571136(0x8B700) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=571136 stream_match=None
+slot=156  probe=prior_best_recompute req_skip=16 req_limit=150 argv_skip=10 argv_limit=96 actual_skip=16(0x10) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=f932 first_match=True stream_consumed=150 stream_match=True
+slot=156  probe=full_span_baseline req_skip=0 req_limit=539136 argv_skip=0 argv_limit=83a00 actual_skip=0(0x0) actual_limit=539136(0x83A00) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=539136 stream_match=None
+slot=481  probe=prior_best_recompute req_skip=16 req_limit=150 argv_skip=10 argv_limit=96 actual_skip=16(0x10) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=f932 first_match=True stream_consumed=150 stream_match=True
+slot=481  probe=full_span_baseline req_skip=0 req_limit=143360 argv_skip=0 argv_limit=23000 actual_skip=0(0x0) actual_limit=143360(0x23000) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=143360 stream_match=None
+slot=484  probe=prior_best_recompute req_skip=16 req_limit=150 argv_skip=10 argv_limit=96 actual_skip=16(0x10) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=f932 first_match=True stream_consumed=150 stream_match=True
+slot=484  probe=full_span_baseline req_skip=0 req_limit=157440 argv_skip=0 argv_limit=26700 actual_skip=0(0x0) actual_limit=157440(0x26700) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=157440 stream_match=None
+slot=487  probe=prior_best_recompute req_skip=16 req_limit=150 argv_skip=10 argv_limit=96 actual_skip=16(0x10) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=f932 first_match=True stream_consumed=150 stream_match=True
+slot=487  probe=full_span_baseline req_skip=0 req_limit=147712 argv_skip=0 argv_limit=24100 actual_skip=0(0x0) actual_limit=147712(0x24100) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=147712 stream_match=None
+slot=490  probe=prior_best_recompute req_skip=16 req_limit=150 argv_skip=10 argv_limit=96 actual_skip=16(0x10) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=f932 first_match=True stream_consumed=150 stream_match=True
+slot=490  probe=full_span_baseline req_skip=0 req_limit=124160 argv_skip=0 argv_limit=1e500 actual_skip=0(0x0) actual_limit=124160(0x1E500) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=124160 stream_match=None
+slot=493  probe=prior_best_recompute req_skip=16 req_limit=150 argv_skip=10 argv_limit=96 actual_skip=16(0x10) actual_limit=150(0x96) rc=0 first_addr=0x0 first_raw=f932 first_match=True stream_consumed=150 stream_match=True
+slot=493  probe=full_span_baseline req_skip=0 req_limit=62720 argv_skip=0 argv_limit=f500 actual_skip=0(0x0) actual_limit=62720(0xF500) rc=0 first_addr=0x0 first_raw=- first_match=False stream_consumed=62720 stream_match=None
+
+CFG slot=20   entry=0x0002A regions=11 gap_bytes=402 terminators=1 fallthrough_after_terminator=1 calls=1 branch_targets=0 mid_region_block_split=0
+CFG slot=150  entry=0x00016 regions=48 gap_bytes=256 terminators=20 fallthrough_after_terminator=7 calls=2 branch_targets=0 mid_region_block_split=0
+CFG slot=156  entry=0x00016 regions=50 gap_bytes=255 terminators=19 fallthrough_after_terminator=5 calls=2 branch_targets=0 mid_region_block_split=0
+CFG slot=481  entry=0x00016 regions=29 gap_bytes=289 terminators=1 fallthrough_after_terminator=1 calls=2 branch_targets=0 mid_region_block_split=0
+CFG slot=484  entry=0x00016 regions=29 gap_bytes=289 terminators=1 fallthrough_after_terminator=1 calls=2 branch_targets=0 mid_region_block_split=0
+CFG slot=487  entry=0x00016 regions=29 gap_bytes=286 terminators=1 fallthrough_after_terminator=1 calls=2 branch_targets=0 mid_region_block_split=0
+CFG slot=490  entry=0x00016 regions=27 gap_bytes=299 terminators=1 fallthrough_after_terminator=1 calls=1 branch_targets=0 mid_region_block_split=0
+CFG slot=493  entry=0x00016 regions=29 gap_bytes=292 terminators=2 fallthrough_after_terminator=1 calls=1 branch_targets=0 mid_region_block_split=0

@@ -1,0 +1,284 @@
+{
+  "scope": "offline ROM inventory; no provenance inferred from filenames",
+  "all_files": 27,
+  "unique_contents": 16,
+  "records": [
+    {
+      "path": "/tmp/A.rom",
+      "size": 1047040,
+      "sha256": "add5fb175445745f2787ef8b38a8f1d182f601e9fb08dab76f9ee24c00de881a",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/B1_fan4k_only.bin.rom",
+      "size": 1047040,
+      "sha256": "cf325d85817fff274a5473cab717a518f939f82a9f79b43b34dd6578c421e9c9",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/B2_power270_only.bin.rom",
+      "size": 1047040,
+      "sha256": "c32601bdda8e19ef0c27c76eaee9e578cb383c1c71e38b48d050b4ba75091ed0",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/BS50.rom",
+      "size": 1047040,
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/CMP40HX_ORIGINAL_1MB.bin",
+      "size": 1048576,
+      "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/F.rom",
+      "size": 1047040,
+      "sha256": "41d961f30dea60968a98fda0424f7b5a6049fd79e9ffcb248e9f9b29e47adcd0",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/GF_60.rom",
+      "size": 1047040,
+      "sha256": "99813f1c67125d76e684838a41d00d3c67e2e23fb37256f5bab495d32f3b3bde",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/V2.rom",
+      "size": 1047040,
+      "sha256": "2d48f5ce364da49347befdf63c50fbbf91c7e7a4cfb822d3c0fabc26b09a8172",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/V4.rom",
+      "size": 1047040,
+      "sha256": "bdf44cb8fb9f8e629f9fbdf29e102108fd86ba83fb0ac4eb49d86ea176f2a761",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/V5.rom",
+      "size": 1047040,
+      "sha256": "2784db8badd37f93ecfb48b848516f42b5bc084699fa1a26db5010c7c352d421",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/base_edit.rom",
+      "size": 1047040,
+      "sha256": "75eb9c0e7ca06716d60da23a8760ecffbd392c91bd956ede691a7b5b857a557f",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/edit1.rom",
+      "size": 1047040,
+      "sha256": "368df73294336a14dc39011cbdb973fa881ba37165f4fc6f6e06445c6c5cecbc",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/gen3_a.rom",
+      "size": 1047040,
+      "sha256": "d4fa7c93a5bbbc86848b34bc7f2b6271dc0bff83d94eadb4c43e38cc77e11f3c",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/t3.rom",
+      "size": 1048576,
+      "sha256": "09acb1cda57f6483c7a743634538d2b4f5f9766bbb9047abda8ad6a8a537b650",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/t_clk.rom",
+      "size": 1047040,
+      "sha256": "612eaa72cc1ed8e83c53eb7aa1fb6e0edb1d6afc47201953f0272efd9d6bc435",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    },
+    {
+      "path": "/tmp/t_gpc.rom",
+      "size": 1047040,
+      "sha256": "263a6d902e85abb8b615cb0947a62fddc247917572ebe8df4fdccecf6af6e9c3",
+      "sig": "4e56",
+      "markers": [],
+      "prefix": "4e564749660324802c03000043100488",
+      "pci_id_byte_hits": [
+        "0x1f0b",
+        "0x1f07",
+        "0x1e04",
+        "0x1e07",
+        "0x1e09",
+        "0x1f02",
+        "0x1f03"
+      ]
+    }
+  ],
+  "limits": [
+    "/tmp files have no authenticated source metadata",
+    "modified/patch variants are not independent reference ROMs",
+    "PCI identity and board routing still require trusted provenance"
+  ]
+}

@@ -1,0 +1,579 @@
+[
+  {
+    "path": "00_READ_FIRST/ASTRA_MASTER_PROMPT.md",
+    "bytes": 8153,
+    "sha256": "90a114a98b5cba907320b2be0a9971fc190f331c730c4a3a86a147409bb46ae4",
+    "lines": 53,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "00_READ_FIRST/DISPLAY_ENABLE_DECISION_TREE.md",
+    "bytes": 3276,
+    "sha256": "90682554757ba8ead4c9ac93f0a7dfb5b1badd317d8f69fedb66ea5e71fb942b",
+    "lines": 20,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "00_READ_FIRST/EVIDENCE_CONTRADICTIONS.md",
+    "bytes": 3412,
+    "sha256": "a4781060925274c71bc09aaf5ec6185eb8b36c58352488b5e976f0e40646edc2",
+    "lines": 28,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "00_READ_FIRST/README.md",
+    "bytes": 3217,
+    "sha256": "5a7ea49661587908b41847e1b94c5ffdbc28c2bdc8ed1661f4587f62f088546f",
+    "lines": 24,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "00_READ_FIRST/REFERENCES_AND_PROVENANCE.md",
+    "bytes": 2514,
+    "sha256": "0054a8079dd370a520699c0d967466418cd3659eacfb5eb3e005b308d4a15cf6",
+    "lines": 26,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "00_READ_FIRST/SESSION_SUMMARY.md",
+    "bytes": 7099,
+    "sha256": "ce47def5ec487e89907ada9c359018a2b11449e23c25465b55d5f6c9f775ff69",
+    "lines": 40,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "01_BOARDVIEW/CG161P_R2_STRAP3_4_5_ZOOM_PHONE.png",
+    "bytes": 154105,
+    "sha256": "af640a1a84da6a7ea3acb581e5907b9aab7d93c6b4e9731cac2d0f72b16a4334",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "01_BOARDVIEW/CG161P_R2_STRAP_FOOTPRINTS_PHONE.png",
+    "bytes": 155311,
+    "sha256": "177ba27717c6925145f6998cf0509efa93703b35bee983fefdfb97be5ef516e5",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "01_BOARDVIEW/CG161P_R2_boardview.cad",
+    "bytes": 1145628,
+    "sha256": "7338ccead9423c8ddd61f5c1e4f0147d95b3c6da5af3e9bae0a20fbcfab6264d",
+    "lines": 40939,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "01_BOARDVIEW/CMP40HX_Strap_Report.docx",
+    "bytes": 225452,
+    "sha256": "4a040ae4f5c66bfba84614779cc38d0a2e845165983232ecd9041ea4f7cb353e",
+    "embedded_media": [
+      "word/media/image1.png",
+      "word/media/image2.png",
+      "word/media/image3.png"
+    ],
+    "intake": "document text reviewed; embedded assets inventoried"
+  },
+  {
+    "path": "01_BOARDVIEW/Original_Boardview.rar",
+    "bytes": 106600,
+    "sha256": "d5cdb147f1e7a7d2dd6e5821625ace1a6c65125e685f52ecbaf8a292cd2cbc8d",
+    "intake": "nested CAD read to memory; no net extraction",
+    "nested_bytes": 1145628,
+    "nested_sha256": "7338ccead9423c8ddd61f5c1e4f0147d95b3c6da5af3e9bae0a20fbcfab6264d"
+  },
+  {
+    "path": "01_BOARDVIEW/STRAPS_NETLIST_VERIFIED.csv",
+    "bytes": 463,
+    "sha256": "02ae52d534e6032beeb0cd98c2e3d347930052aa6d0aa70a2ddf059c00feb2ba",
+    "lines": 7,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/ANNOTATED/CMP40HX_PORTS_PHOTO_ANNOTATED.jpg",
+    "bytes": 548052,
+    "sha256": "dfe7f8ee0d31eca85e6cdc2d27cbc055207e8a06f80ae7fadea51bfed93fcd53",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/ANNOTATED/CMP40HX_STRAP_PHOTO_ANNOTATED.jpg",
+    "bytes": 323110,
+    "sha256": "3f04a5122937bf7bc4d0e55363f0dee83391031276e94287dc9620ea6562be3a",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/HIRES_ROI/strap_all_highres.jpg",
+    "bytes": 322454,
+    "sha256": "c05b70138acc80b001addd893b8ada8b5a4c883e72c34cfa3ec55fda392831e8",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/HIRES_ROI/strap_bottom_highres.jpg",
+    "bytes": 146297,
+    "sha256": "4a4d408eb42d845477c0dc994205d2885826ae19643febdee1db45b5f3b12170",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/HIRES_ROI/strap_crop_original.jpg",
+    "bytes": 222398,
+    "sha256": "0ecc66ecdef068b9b93a20b06030a6dfbcd325562bd030e9e97d90cc057efa9e",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/HIRES_ROI/strap_top_highres.jpg",
+    "bytes": 95156,
+    "sha256": "3dee661cc7c1865578c264d3a3607bee7e9c978e5ec010ffff0dc811514bc3fd",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621628.jpg",
+    "bytes": 1016240,
+    "sha256": "cf866b92d4c2dd0640ddf2971f15e5c057dd6b1ef49a5b300db5f902abdfe383",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621632.jpg",
+    "bytes": 955316,
+    "sha256": "18802272dceeddd3d20a2c7185f6c1aea25f967419929ab7a5dc3d1394e136d0",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621636.jpg",
+    "bytes": 806819,
+    "sha256": "e93e2e0ef08a640e71d0e4557803427a1dce77a38ce331af504c3c0a792d2f26",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621639.jpg",
+    "bytes": 870518,
+    "sha256": "ff7a2e54fabd5ea5adc9fae2252cd911850c052d4baa50eeecf3163dc2c205a7",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621642.jpg",
+    "bytes": 873063,
+    "sha256": "96b12ab21f9eb3ad58030838e0dbfeb822a9fc104d753a1e13148a32942abfaa",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621645.jpg",
+    "bytes": 879253,
+    "sha256": "b72639366c34bc72c740909c1d560ba0a75b3e611fd7a3e38a91a8a6a82e319e",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621648.jpg",
+    "bytes": 667546,
+    "sha256": "29738382908fd5789dc9fa4f7498d40f42a179e4109205088f89a6080e65dbd2",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621651.jpg",
+    "bytes": 1033982,
+    "sha256": "f386de966ca143a517a196961d55a46679ae432e259c2bc5dd7e988c2fa75499",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621654.jpg",
+    "bytes": 1297658,
+    "sha256": "170765e930977f580a2c4786bd03f06f1513bbad6c585ba2c597e573cc95a4c0",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621657.jpg",
+    "bytes": 1330679,
+    "sha256": "5785f76e2c780813e893e26ae61b0cd99a9533f450114b00566515b537db2bfd",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621660.jpg",
+    "bytes": 1335133,
+    "sha256": "eb20f1bbeb4f61d269acff258a179514f294d3bd2335157bf52bc31f18868849",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621663.jpg",
+    "bytes": 1427043,
+    "sha256": "dc4c3d401574b077e0fd15e3ae3e073b11b8c7c1a9e7640cd415ea7ef14a97be",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621666.jpg",
+    "bytes": 1008735,
+    "sha256": "87e310d22d2c956a26f8f5b78b81d1f456119e0dc7a9ad78737142171c756c17",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621670.jpg",
+    "bytes": 1078807,
+    "sha256": "6029ef03f40602d0a08cfc78a9a496db6989c1204e8c4332714622e60a08a527",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621673.jpg",
+    "bytes": 1260851,
+    "sha256": "1904b0d79635845acba1853fe0a21c656cca65863730ef3404f4327be1cf3908",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621675.jpg",
+    "bytes": 713105,
+    "sha256": "268817111e977f18a935f51406ae750104fb38c8802e5b4e9d57856b968de67a",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621678.jpg",
+    "bytes": 553571,
+    "sha256": "23d4417966e0b1896f326d361358f0b0570064833ad32a17440b5d4207b97c03",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "02_PCB_PHOTOS/PHONE_PREVIEWS/1793813621681.jpg",
+    "bytes": 743762,
+    "sha256": "0be587bd6b21784592ef13a0033047d9a26edc990e2feb55884f9cda95d851c3",
+    "intake": "image viewed for planning; no component mapping certified"
+  },
+  {
+    "path": "03_VBIOS/CMP40HX_ORIGINAL_1MB.bin",
+    "bytes": 1048576,
+    "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+    "intake": "bytes inventoried and hashed; no firmware reverse engineering performed"
+  },
+  {
+    "path": "03_VBIOS/cmp40hx_t4_derivative.bin",
+    "bytes": 495616,
+    "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+    "intake": "bytes inventoried and hashed; no firmware reverse engineering performed"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/CHECKPOINT.json",
+    "bytes": 6584,
+    "sha256": "75b359897fa23bf02c7cdea3cdca755f33cf06cfe0e1f71bbcd890d104165ada",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/FUSE/P0_FUSE.md",
+    "bytes": 9878,
+    "sha256": "30a12008f7ac1fd57071e3df8fc7c85606d35fdfa600be5b43aeeed4ef58268a",
+    "lines": 195,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/FUSE/fuse2.json",
+    "bytes": 55233,
+    "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/FUSE/fuse_bitfields.csv",
+    "bytes": 340,
+    "sha256": "0a3f627ec7fffb58975ee92994e49fba46ed28484fcd52bb82b6ff3a2824161e",
+    "lines": 4,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/FUSE/fuse_map.json",
+    "bytes": 724147,
+    "sha256": "01c37668156116876ab3a58c6b018670d377559a9cea952ace4add6b48a1450e",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/PCIE/pcie_map.json",
+    "bytes": 7218,
+    "sha256": "083aecf49a60e26458cd0785af80c0e935b65873064530609b1d0c1c2baa8e00",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/PHASE15/FUSE_SEMANTICS.md",
+    "bytes": 9064,
+    "sha256": "4518520032fec6ad35bde76cb84fda8f6eb47a21bb745afeb4359dc02ef1845f",
+    "lines": 163,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/PHASE15/fuse_analysis.json",
+    "bytes": 15105,
+    "sha256": "b40f124cd95cf100de52f51048a33969827b49cecfbbfe5016149a8948d805ff",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/PHASE15/fuse_deep.json",
+    "bytes": 3000,
+    "sha256": "4185ad04799541a6fbed3a5e069c450618f9197db135465a1ca8b90e2e0c77b3",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOOLS/fuse_dump2.py",
+    "bytes": 2212,
+    "sha256": "c2484927990fb684cec3ae7d54540394a94d509e1dda625f67da66f078e4efd4",
+    "lines": 67,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOOLS/fuse_read.py",
+    "bytes": 3129,
+    "sha256": "58a99a695eb97fabd5a5d6d0719d0944ccb0e6d5c0970684643c62b6665d989c",
+    "lines": 88,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOOLS/q6_display.py",
+    "bytes": 3798,
+    "sha256": "df30e41666043565f9bf7029cef8fc158eed0a24e50d01a0be55624880048a3e",
+    "lines": 98,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOPOLOGY/display_probe.json",
+    "bytes": 22560,
+    "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOPOLOGY/p9_barscan.json",
+    "bytes": 2052,
+    "sha256": "46487c9cb6d21003b495c7c2db66e70e2d92e75a1e6d295c448b55a58320bcdc",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOPOLOGY/silicon_topology.json",
+    "bytes": 4694,
+    "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOPOLOGY/silicon_topology.md",
+    "bytes": 6067,
+    "sha256": "1080d82640aa0fc8fea88454bf37569c62039ca37fc968199581a7a8b4d0406b",
+    "lines": 149,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/TOPOLOGY/topology_unknowns.md",
+    "bytes": 4653,
+    "sha256": "6e5a685ba5dd4cb1accbbf38c7e3cfe9b0248834a1d898b86fbac5ee3402d0be",
+    "lines": 123,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/UNKNOWN_DATABASE.json",
+    "bytes": 23192,
+    "sha256": "600e96943f0c0191faa263e48c30a72f97188a81b8b8fc7c7b8d85472cff4ab0",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/VBIOS/P2_VBIOS.md",
+    "bytes": 6997,
+    "sha256": "5047acc13be3cdb1db871cc8dc6ec4289b37753eebbd6b55003646f0c521e3ec",
+    "lines": 164,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/VBIOS/shadow_vs_rom.json",
+    "bytes": 496,
+    "sha256": "cf2266e23d642ec04cb599fa8d0780799de863a35125574ec968db032af26ab7",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "04_PHASE15_EXTRACTS/VBIOS/vbios_crossrefs.json",
+    "bytes": 18118,
+    "sha256": "82ece5e1c493ed49b71bfb7c364794439d134048b3d10275700f739d2907c638",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/BAO_CAO_BAN_GIAO_PHASE21.md",
+    "bytes": 9451,
+    "sha256": "3c5a5898326379e801f9e4fc3d281dfe76a0b9cbb6524268f7e79a0f84fd69e4",
+    "lines": 129,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/DISPLAY_DISABLE_MATRIX.md",
+    "bytes": 1688,
+    "sha256": "cea85aab42b35b630747a9bc52237ef19bbc780dca718d50f04dabea454aeff6",
+    "lines": 17,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/DISPLAY_ENGINE_ARCHITECTURE.md",
+    "bytes": 1963,
+    "sha256": "6a6941a98d19bad41808a980afc52b69fec228cf56c4b062667831a583429ad6",
+    "lines": 15,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/DISPLAY_PCB_EVIDENCE.md",
+    "bytes": 991,
+    "sha256": "53154d29e8bd4ba9ff97b514f7ef065be7d6a5a138b81a9d3dae98d46f8db0a8",
+    "lines": 7,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/EVIDENCE_LEDGER.md",
+    "bytes": 35910,
+    "sha256": "60625cd593cf9aa3924e391920c80d04a74519f871c67dff0a5f36f8ae5fdf6c",
+    "lines": 131,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/FIRMWARE_PROVENANCE_REPORT.md",
+    "bytes": 3520,
+    "sha256": "b90832c461a072ac75d102081804e50ff23ab8dffafb6960c15d0ff8a6aa194c",
+    "lines": 32,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/FUSE_CAPABILITY_MAP.json",
+    "bytes": 1740,
+    "sha256": "13a38129b4eaee8daffd51aa2989f655ed80df09911bcaa5caac62283d5deded",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/GSP_CAPABILITY_GATES.md",
+    "bytes": 5679,
+    "sha256": "f00de3603f261ebd863ff2d03fefdc3b1e4666a2e27ff2ea1a2ee4c7093110ce",
+    "lines": 44,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/GSP_DISPLAY_CONFIG_DATAFLOW.md",
+    "bytes": 5001,
+    "sha256": "81d365de1ce129998e2765fd1681a3a5c1d9de95cd6e5a25c68f1e986f3fa331",
+    "lines": 39,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/GSP_DISPLAY_OBJECT_FIELDS.md",
+    "bytes": 12117,
+    "sha256": "2f951e6f095fafedf1c02c256c9ace7352bc2c06384daf5dfb7b4bba9b1d0ba3",
+    "lines": 90,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/PHASE21_CURRENT_STATE.md",
+    "bytes": 3031,
+    "sha256": "5afab241dbe026c3eca92af2c582f01e7a09c7de432e603f3b01a3ac4d79cf8e",
+    "lines": 43,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/RESTORATION_FEASIBILITY_MATRIX.md",
+    "bytes": 6419,
+    "sha256": "d8f8123b414b7109102947021bd22da98a23f9d71172c1c71574b02abba4daf3",
+    "lines": 22,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/TARGET_LIVE_FINDINGS.md",
+    "bytes": 8321,
+    "sha256": "98656512e535a92c961d77fbd6fd10147da709b2351483c8bcc931f8cd37e46e",
+    "lines": 131,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/VBIOS_DISPLAY_ANALYSIS.md",
+    "bytes": 3230,
+    "sha256": "9261d6294c27e0207e0a2a3fd1934f51213507ce3f826a178039277d393af8a5",
+    "lines": 23,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/board_tables.json",
+    "bytes": 36211,
+    "sha256": "4cd5d3c55bdf6bd6927ff594dcf721a576b7d05c2d5741ef1908c8dcfb145717",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/dcb.json",
+    "bytes": 3478,
+    "sha256": "5e621d549928f4536a0c1d588dfa9c7d8a2803d09ef82682ab93c5a48aeb5aa3",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/display_gate.json",
+    "bytes": 1616,
+    "sha256": "492e6e8604638d2da1f57e24d6c316c062fef8a8a4e20ec00f5a0bc002f38b69",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/display_gate_exact_tag.json",
+    "bytes": 1602,
+    "sha256": "496516018277f2561b1dfa602324eb5091f412245239e3476265c6f79f855cb8",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/display_object_fields.json",
+    "bytes": 2807,
+    "sha256": "06c360054dbd6c8941fa9d3d24975eaa0761afd07a59defdcded5dad4267998a",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/fuse_header_inventory.json",
+    "bytes": 3162,
+    "sha256": "22a3a34bbbfa1760375dbc8cdd34e92d164a861ea43e68ed406b44995d609a78",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/historical_display_probe_inventory.json",
+    "bytes": 4108,
+    "sha256": "6838ab57845fe54c9b3f98caac2e32f0b97fe53b426d8a7089296bc5b80ec1c1",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/host_display_gate_source_availability.json",
+    "bytes": 1178,
+    "sha256": "50313660b4ac30d2c5817d2e6f1e6ed7f636d80a490b4e63a561524ecd799350",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/rom_dcb_all_inventory.json",
+    "bytes": 29612,
+    "sha256": "289a2b35fd54f99a053e9db3c2e2b931f774ba58d0a9463a612fb853b1f08689",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "05_PHASE21_EXTRACTS/evidence/rom_inventory.json",
+    "bytes": 6890,
+    "sha256": "c7abc42bfb4b9c30b03ead3c552f4352b04ff0ffa77502f7c48e0fb2010a217c",
+    "intake": "JSON parsed for input inventory; interpretations not reverified"
+  },
+  {
+    "path": "06_PRIOR_REPORTS/BAO_CAO_DAY_DU.md",
+    "bytes": 18986,
+    "sha256": "454be9fb57a72065bd555d2287b90e0d17e8bfa838a0146443dc0e5ac7be5cda",
+    "lines": 481,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "06_PRIOR_REPORTS/BAO_CAO_TONG_HOP_PHASE15_20.md",
+    "bytes": 9593,
+    "sha256": "8b9f3faf2ef14f389c692a7312aeaa55eca301c21a1db53c34348029b6c782fc",
+    "lines": 192,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "06_PRIOR_REPORTS/CMP40HX_PCB_PHASE_CROSSCHECK.md",
+    "bytes": 8156,
+    "sha256": "57b7acbbd6dbdb3837939227e21bf68f96fd56ec8bea84f9fdaec55b16585639",
+    "lines": 88,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "06_PRIOR_REPORTS/CMP40HX_PHOTO_VS_CG161P_PHASE_REPORT.md",
+    "bytes": 6460,
+    "sha256": "7990ab537baae2c056e0ee019133dbc450fcab3505a4d7a1cb16e09f0f17e38e",
+    "lines": 62,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "06_PRIOR_REPORTS/CODEX_CMP40HX_HANDOFF.md",
+    "bytes": 9985,
+    "sha256": "fb2a99004aa62c33eef13a1bebfb101e260b3c33a9318942eeadfd462a9d4411",
+    "lines": 91,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  },
+  {
+    "path": "CHECKSUMS.sha256",
+    "bytes": 11773,
+    "sha256": "dc6605b625928192d789d94e7c467e3a129e3d29d63c1fa2a554d1d53492ba29",
+    "lines": 88,
+    "intake": "text loaded; planning review, technical claims not reverified"
+  }
+]

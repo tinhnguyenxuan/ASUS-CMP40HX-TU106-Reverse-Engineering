@@ -1,0 +1,590 @@
+{
+  "inner_offset": 64,
+  "entry": 67145728,
+  "flags": 1,
+  "sections": [
+    {
+      "index": 0,
+      "name": "",
+      "type": 0,
+      "flags": 0,
+      "va": 0,
+      "offset": 64,
+      "size": 0
+    },
+    {
+      "index": 1,
+      "name": ".ga100_data",
+      "type": 1,
+      "flags": 3,
+      "va": 67112960,
+      "offset": 4160,
+      "size": 4464
+    },
+    {
+      "index": 2,
+      "name": ".tu10x_data",
+      "type": 1,
+      "flags": 3,
+      "va": 67121152,
+      "offset": 12352,
+      "size": 4464
+    },
+    {
+      "index": 3,
+      "name": ".ga100_text",
+      "type": 1,
+      "flags": 6,
+      "va": 67129344,
+      "offset": 20544,
+      "size": 5140
+    },
+    {
+      "index": 4,
+      "name": ".tu10x_text",
+      "type": 1,
+      "flags": 6,
+      "va": 67137536,
+      "offset": 28736,
+      "size": 5140
+    },
+    {
+      "index": 5,
+      "name": ".bootstrap",
+      "type": 1,
+      "flags": 6,
+      "va": 67145728,
+      "offset": 36928,
+      "size": 116
+    },
+    {
+      "index": 6,
+      "name": ".gnext_resident_text",
+      "type": 1,
+      "flags": 1,
+      "va": 67149824,
+      "offset": 22884416,
+      "size": 0
+    },
+    {
+      "index": 7,
+      "name": ".gh100_resident_text",
+      "type": 1,
+      "flags": 1,
+      "va": 67149824,
+      "offset": 22884416,
+      "size": 0
+    },
+    {
+      "index": 8,
+      "name": ".ga10x_resident_text",
+      "type": 1,
+      "flags": 1,
+      "va": 67149824,
+      "offset": 22884416,
+      "size": 0
+    },
+    {
+      "index": 9,
+      "name": ".ga100_resident_text",
+      "type": 1,
+      "flags": 7,
+      "va": 67149824,
+      "offset": 41024,
+      "size": 12288
+    },
+    {
+      "index": 10,
+      "name": ".ga100_resident_data",
+      "type": 1,
+      "flags": 3,
+      "va": 67162112,
+      "offset": 53312,
+      "size": 4096
+    },
+    {
+      "index": 11,
+      "name": ".tu10x_resident_text",
+      "type": 1,
+      "flags": 7,
+      "va": 67166208,
+      "offset": 57408,
+      "size": 12288
+    },
+    {
+      "index": 12,
+      "name": ".tu10x_resident_data",
+      "type": 1,
+      "flags": 3,
+      "va": 67178496,
+      "offset": 69696,
+      "size": 4096
+    },
+    {
+      "index": 13,
+      "name": ".acl",
+      "type": 1,
+      "flags": 3,
+      "va": 67182592,
+      "offset": 73792,
+      "size": 331
+    },
+    {
+      "index": 14,
+      "name": ".manifest",
+      "type": 1,
+      "flags": 3,
+      "va": 67182928,
+      "offset": 74128,
+      "size": 3760
+    },
+    {
+      "index": 15,
+      "name": ".section_task_init_stack_instance",
+      "type": 1,
+      "flags": 3,
+      "va": 90456064,
+      "offset": 22876224,
+      "size": 8192
+    },
+    {
+      "index": 16,
+      "name": ".section_task_rm_stack_instance",
+      "type": 8,
+      "flags": 3,
+      "va": 90464256,
+      "offset": 22884416,
+      "size": 65536
+    },
+    {
+      "index": 17,
+      "name": ".header",
+      "type": 1,
+      "flags": 2,
+      "va": 67186688,
+      "offset": 77888,
+      "size": 16
+    },
+    {
+      "index": 18,
+      "name": ".memory_region_init_arguments",
+      "type": 1,
+      "flags": 2,
+      "va": 67186704,
+      "offset": 22884432,
+      "size": 96
+    },
+    {
+      "index": 19,
+      "name": ".section_task_init_elf_rodata_instance",
+      "type": 1,
+      "flags": 2,
+      "va": 67190784,
+      "offset": 81984,
+      "size": 4096
+    },
+    {
+      "index": 20,
+      "name": ".section_task_init_elf_data_instance",
+      "type": 1,
+      "flags": 3,
+      "va": 67194880,
+      "offset": 86080,
+      "size": 8192
+    },
+    {
+      "index": 21,
+      "name": ".section_task_init_elf_paged_data_instance",
+      "type": 1,
+      "flags": 3,
+      "va": 67203072,
+      "offset": 94272,
+      "size": 4096
+    },
+    {
+      "index": 22,
+      "name": ".section_task_init_elf_text_instance",
+      "type": 1,
+      "flags": 6,
+      "va": 67207168,
+      "offset": 98368,
+      "size": 16384
+    },
+    {
+      "index": 23,
+      "name": ".section_task_init_elf_paged_text_instance",
+      "type": 1,
+      "flags": 3,
+      "va": 67223552,
+      "offset": 114752,
+      "size": 4096
+    },
+    {
+      "index": 24,
+      "name": ".section_task_rm_elf_rodata_instance",
+      "type": 1,
+      "flags": 2,
+      "va": 67227648,
+      "offset": 118848,
+      "size": 1982464
+    },
+    {
+      "index": 25,
+      "name": ".section_task_rm_elf_data_instance",
+      "type": 1,
+      "flags": 3,
+      "va": 69210112,
+      "offset": 2101312,
+      "size": 3698688
+    },
+    {
+      "index": 26,
+      "name": ".section_task_rm_elf_paged_data_instance",
+      "type": 1,
+      "flags": 1,
+      "va": 72908800,
+      "offset": 22884528,
+      "size": 0
+    },
+    {
+      "index": 27,
+      "name": ".section_task_rm_elf_text_instance",
+      "type": 1,
+      "flags": 6,
+      "va": 72908800,
+      "offset": 5800000,
+      "size": 17010688
+    },
+    {
+      "index": 28,
+      "name": ".section_task_rm_elf_paged_text_instance",
+      "type": 1,
+      "flags": 1,
+      "va": 89919488,
+      "offset": 22884528,
+      "size": 0
+    },
+    {
+      "index": 29,
+      "name": ".section_task_init_dmem_64kb_instance",
+      "type": 1,
+      "flags": 3,
+      "va": 89919488,
+      "offset": 22810688,
+      "size": 65536
+    },
+    {
+      "index": 30,
+      "name": ".section_log_init_buffer_instance",
+      "type": 8,
+      "flags": 3,
+      "va": 89985024,
+      "offset": 64,
+      "size": 65536
+    },
+    {
+      "index": 31,
+      "name": ".section_task_rm_args_buffer_instance",
+      "type": 8,
+      "flags": 3,
+      "va": 90050560,
+      "offset": 64,
+      "size": 4096
+    },
+    {
+      "index": 32,
+      "name": ".section_task_rm_msgq_work_areas_instance",
+      "type": 8,
+      "flags": 3,
+      "va": 90054656,
+      "offset": 22876224,
+      "size": 135168
+    },
+    {
+      "index": 33,
+      "name": ".section_task_rm_memset_buffer_instance",
+      "type": 8,
+      "flags": 3,
+      "va": 90189824,
+      "offset": 22876224,
+      "size": 4096
+    },
+    {
+      "index": 34,
+      "name": ".section_log_rm_buffer_instance",
+      "type": 8,
+      "flags": 3,
+      "va": 90193920,
+      "offset": 64,
+      "size": 262144
+    },
+    {
+      "index": 35,
+      "name": ".comment",
+      "type": 1,
+      "flags": 48,
+      "va": 0,
+      "offset": 22884528,
+      "size": 86
+    },
+    {
+      "index": 36,
+      "name": ".shstrtab",
+      "type": 3,
+      "flags": 0,
+      "va": 0,
+      "offset": 22884614,
+      "size": 957
+    }
+  ],
+  "segments": [
+    {
+      "type": 1,
+      "flags": 7,
+      "offset": 64,
+      "va": 67108864,
+      "filesz": 77840,
+      "memsz": 77840
+    },
+    {
+      "type": 1610612741,
+      "flags": 6,
+      "offset": 73792,
+      "va": 67182592,
+      "filesz": 331,
+      "memsz": 331
+    },
+    {
+      "type": 1610612742,
+      "flags": 4,
+      "offset": 22884432,
+      "va": 67186704,
+      "filesz": 96,
+      "memsz": 96
+    },
+    {
+      "type": 1,
+      "flags": 4608,
+      "offset": 22810688,
+      "va": 89919488,
+      "filesz": 65536,
+      "memsz": 65536
+    },
+    {
+      "type": 1610612737,
+      "flags": 5120,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612737,
+      "flags": 4352,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612737,
+      "flags": 4352,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612736,
+      "flags": 0,
+      "offset": 64,
+      "va": 89985024,
+      "filesz": 0,
+      "memsz": 65536
+    },
+    {
+      "type": 1610612737,
+      "flags": 1024,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612736,
+      "flags": 0,
+      "offset": 64,
+      "va": 90050560,
+      "filesz": 0,
+      "memsz": 4096
+    },
+    {
+      "type": 1610612736,
+      "flags": 256,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612736,
+      "flags": 0,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612737,
+      "flags": 256,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612737,
+      "flags": 0,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612736,
+      "flags": 0,
+      "offset": 64,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1,
+      "flags": 512,
+      "offset": 64,
+      "va": 90054656,
+      "filesz": 0,
+      "memsz": 135168
+    },
+    {
+      "type": 1,
+      "flags": 512,
+      "offset": 64,
+      "va": 90189824,
+      "filesz": 0,
+      "memsz": 4096
+    },
+    {
+      "type": 1610612736,
+      "flags": 0,
+      "offset": 64,
+      "va": 90193920,
+      "filesz": 0,
+      "memsz": 262144
+    },
+    {
+      "type": 1,
+      "flags": 4352,
+      "offset": 22876224,
+      "va": 90456064,
+      "filesz": 8192,
+      "memsz": 8192
+    },
+    {
+      "type": 1,
+      "flags": 512,
+      "offset": 64,
+      "va": 90464256,
+      "filesz": 0,
+      "memsz": 65536
+    },
+    {
+      "type": 1,
+      "flags": 4353,
+      "offset": 98368,
+      "va": 67207168,
+      "filesz": 16384,
+      "memsz": 16384
+    },
+    {
+      "type": 1,
+      "flags": 4352,
+      "offset": 81984,
+      "va": 67190784,
+      "filesz": 4096,
+      "memsz": 4096
+    },
+    {
+      "type": 1,
+      "flags": 4352,
+      "offset": 86080,
+      "va": 67194880,
+      "filesz": 8192,
+      "memsz": 8192
+    },
+    {
+      "type": 1,
+      "flags": 4609,
+      "offset": 114752,
+      "va": 67223552,
+      "filesz": 4096,
+      "memsz": 4096
+    },
+    {
+      "type": 1,
+      "flags": 4608,
+      "offset": 94272,
+      "va": 67203072,
+      "filesz": 4096,
+      "memsz": 4096
+    },
+    {
+      "type": 1,
+      "flags": 257,
+      "offset": 5800000,
+      "va": 72908800,
+      "filesz": 17010688,
+      "memsz": 17010688
+    },
+    {
+      "type": 1,
+      "flags": 256,
+      "offset": 118848,
+      "va": 67227648,
+      "filesz": 1982464,
+      "memsz": 1982464
+    },
+    {
+      "type": 1,
+      "flags": 256,
+      "offset": 2101312,
+      "va": 69210112,
+      "filesz": 3698688,
+      "memsz": 3698688
+    },
+    {
+      "type": 1,
+      "flags": 513,
+      "offset": 77904,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1,
+      "flags": 512,
+      "offset": 77904,
+      "va": 0,
+      "filesz": 0,
+      "memsz": 0
+    },
+    {
+      "type": 1610612743,
+      "flags": 4,
+      "offset": 64,
+      "va": 90529792,
+      "filesz": 0,
+      "memsz": 0
+    }
+  ]
+}

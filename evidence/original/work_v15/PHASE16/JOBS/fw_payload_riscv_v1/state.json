@@ -1,0 +1,12 @@
+{
+  "job": "fw_payload_riscv_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T18:39:03.100152+00:00",
+  "wrapper_pid": 1650736,
+  "task_sha256": "1678f158f774517ab5d3f8059441aed0c77a87b3ac02ac1137baf7e2809d9aa7",
+  "hermes_pid": 1650737,
+  "hermes_start_ticks": "209708898",
+  "heartbeat_at": "2026-11-03T18:46:53.351258+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T18:46:55.352396+00:00"
+}

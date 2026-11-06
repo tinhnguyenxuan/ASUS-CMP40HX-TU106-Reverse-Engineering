@@ -1,0 +1,12 @@
+{
+  "job": "vbios_full_token_audit_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T18:45:34.681840+00:00",
+  "wrapper_pid": 1658306,
+  "task_sha256": "3f11210dd35aa40a76d977fba3d0d286ef21ad70c2ef967e8052c5fd01e380b0",
+  "hermes_pid": 1658307,
+  "hermes_start_ticks": "209748056",
+  "heartbeat_at": "2026-11-03T19:12:03.321708+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:12:05.322438+00:00"
+}

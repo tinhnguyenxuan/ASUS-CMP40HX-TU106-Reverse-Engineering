@@ -1,0 +1,72 @@
+VA-file delta verified=True (delta=0x03ffffc0)
+sanity 0x04f06c18 file 0xf06c58 raw 97000500 expected 97000500 match=True
+sanity 0x04f06c1c file 0xf06c5c raw e7804072 expected e7804072 match=True
+sanity 0x04f5733c file 0xf5737c raw 130101f2 expected 130101f2 match=True
+sanity 0x04f575d4 file 0xf57614 raw 83b70903 expected 83b70903 match=True
+sanity 0x04f575d8 file 0xf57618 raw 035684f7 expected 035684f7 match=True
+sanity 0x04f575dc file 0xf5761c raw 13850900 expected 13850900 match=True
+sanity 0x04f575e0 file 0xf57620 raw e7800700 expected e7800700 match=True
+sanity 0x04f57644 file 0xf57684 raw 9700fbff expected 9700fbff match=True
+sanity 0x04f57648 file 0xf57688 raw e78080fa expected e78080fa match=True
+sanity 0x04f5764c file 0xf5768c raw 93050500 expected 93050500 match=True
+sanity 0x04f57650 file 0xf57690 raw e31205f8 expected e31205f8 match=True
+sanity 0x04f075ec file 0xf0762c raw 130101fc expected 130101fc match=True
+caller 0x04f06c18 (file f06c58): auipc raw 97000500 jalr raw e7804072 -> computed target 0x04f5733c (verified=True)
+function 0x04f5733c..0x04f57a00 (file 0xf5737c..0xf57a40) backing=section[28]sec28 insns=433
+calls=36 (direct=33, indirect=3) branches=27 jumps=11
+  call direct_auipc_jalr @0x04f5739c -> 0x05281930 EXTERNAL
+  call direct_auipc_jalr @0x04f573b0 -> 0x05058d68 EXTERNAL
+  call direct_auipc_jalr @0x04f573c4 -> 0x04f04c64 EXTERNAL
+  call indirect_jalr @0x04f573e8 -> UNKNOWN_indirect EXTERNAL
+  call direct_auipc_jalr @0x04f574c4 -> 0x0502fc34 EXTERNAL
+  call direct_auipc_jalr @0x04f574d8 -> 0x0502fc34 EXTERNAL
+  call direct_auipc_jalr @0x04f574ec -> 0x0502fc34 EXTERNAL
+  call direct_auipc_jalr @0x04f575ac -> 0x04f4b500 EXTERNAL
+  call indirect_jalr @0x04f575e0 -> UNKNOWN_indirect EXTERNAL
+  call direct_auipc_jalr @0x04f57600 -> 0x05275ffc EXTERNAL
+  call direct_auipc_jalr @0x04f57644 -> 0x04f075ec EXTERNAL
+  call direct_auipc_jalr @0x04f57664 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f57678 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f5768c -> 0x045a5f44 EXTERNAL
+  call direct_auipc_jalr @0x04f576b8 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f576d0 -> 0x045a5f44 EXTERNAL
+  call direct_auipc_jalr @0x04f576f0 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f57704 -> 0x045a5f44 EXTERNAL
+  call direct_auipc_jalr @0x04f57728 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f5773c -> 0x045a5f44 EXTERNAL
+  call direct_auipc_jalr @0x04f57780 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f57794 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f577ac -> 0x045a5f44 EXTERNAL
+  call direct_auipc_jalr @0x04f577d0 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f577e4 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f577f8 -> 0x045a5f44 EXTERNAL
+  call indirect_jalr @0x04f57850 -> UNKNOWN_indirect EXTERNAL
+  call direct_auipc_jalr @0x04f5786c -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f57880 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f57894 -> 0x045a5f44 EXTERNAL
+  call direct_auipc_jalr @0x04f578e8 -> 0x04ef4754 EXTERNAL
+  call direct_auipc_jalr @0x04f57944 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f57958 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f5796c -> 0x045a5f44 EXTERNAL
+  call direct_auipc_jalr @0x04f57998 -> 0x055c04d8 EXTERNAL
+  call direct_auipc_jalr @0x04f579d0 -> 0x055c04d8 EXTERNAL
+stores=48 loads=42 stored_pointer_constants=14
+  store a4 -> a0+0x110 @0x04f57414 constant 0x0000000004f56c88 (formed @0x04f57410)
+  store a4 -> a5+0x470 @0x04f57420 constant 0x0000000004f633e4 (formed @0x04f5741c)
+  store a4 -> a5+0x478 @0x04f5742c constant 0x0000000004f64524 (formed @0x04f57428)
+  store a4 -> a5+0x480 @0x04f57438 constant 0x0000000004f62024 (formed @0x04f57434)
+  store a4 -> a5+0x488 @0x04f57444 constant 0x0000000004f62370 (formed @0x04f57440)
+  store a4 -> a5+0x490 @0x04f57450 constant 0x0000000004f48ed4 (formed @0x04f5744c)
+  store a4 -> a5+0x498 @0x04f5745c constant 0x0000000004f5a470 (formed @0x04f57458)
+  store a4 -> a5+0x4a0 @0x04f57468 constant 0x0000000004f46764 (formed @0x04f57464)
+  store a4 -> a5+0x4a8 @0x04f57474 constant 0x0000000004f4bdec (formed @0x04f57470)
+  store a4 -> a5+0x4b0 @0x04f57480 constant 0x0000000004f4be8c (formed @0x04f5747c)
+  store a4 -> a5+0x4b8 @0x04f5748c constant 0x0000000004f46784 (formed @0x04f57488)
+  store a4 -> a5+0x4c0 @0x04f57498 constant 0x0000000004f571e0 (formed @0x04f57494)
+  store a4 -> a5+0x4c8 @0x04f574a4 constant 0x0000000004f47224 (formed @0x04f574a0)
+  store a4 -> a5+0x4d8 @0x04f574b4 constant 0x0000000004f467a4 (formed @0x04f574ac)
+stores to *(s3+0x30) in-function: 0 -> NONE (slot writer is outside this function)
+context: s3 = return of internal call @0x04F5739C/3A0 target=0x05281930
+indirect call chain at s3+0x20: [{'va': 83194836, 'raw': '83b70902'}, {'va': 83194844, 'raw': '83b70700'}, {'va': 83194856, 'raw': 'e7800700'}]
+helper 0x04F57644/48: auipc raw 9700fbff jalr raw e78080fa -> 0x04f075ec verified=True
+CONCLUSION: callback target UNKNOWN (indirect *(s3+0x30)); context+0x30 store: none in-function; a0=s3 proven; a1 path-sensitive (first entry UNKNOWN clobbered, back-edge helper return); a1=s4 at call: FALSE (do not revive)

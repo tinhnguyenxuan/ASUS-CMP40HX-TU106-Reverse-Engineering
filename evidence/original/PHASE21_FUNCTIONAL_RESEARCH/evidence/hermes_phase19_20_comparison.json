@@ -1,0 +1,42 @@
+{
+  "schema": "phase21-hermes-phase19-20-comparison-v1",
+  "generated_utc": "2026-11-04T13:52:24.687121+00:00",
+  "rows": [
+    {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/PHASE19/FINAL_FINDINGS.md",
+      "sha256": "cb5a44d7e91652290375704943dfa66410cd985a77fe178c45830d92cf1b3968",
+      "size": 5921,
+      "mentions_300mhz": true,
+      "mentions_1905mhz": false,
+      "mentions_mmio_write": true,
+      "classification": "HISTORICAL_SECONDARY",
+      "current_target_authority": false
+    },
+    {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/PHASE20/FINAL_FINDINGS.md",
+      "sha256": "4073769c3001dd4e774c20d0b0ba18531ee66bf20140f5b0dac2d7bdee96a522",
+      "size": 4585,
+      "mentions_300mhz": true,
+      "mentions_1905mhz": true,
+      "mentions_mmio_write": true,
+      "classification": "HISTORICAL_SECONDARY",
+      "current_target_authority": false
+    },
+    {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/BAO_CAO_TONG_HOP_PHASE15_20.md",
+      "sha256": "8b9f3faf2ef14f389c692a7312aeaa55eca301c21a1db53c34348029b6c782fc",
+      "size": 9593,
+      "mentions_300mhz": true,
+      "mentions_1905mhz": true,
+      "mentions_mmio_write": true,
+      "classification": "HISTORICAL_SECONDARY",
+      "current_target_authority": false
+    }
+  ],
+  "contradictions": [
+    "Phase 19 reports truly stock 300 MHz/13.31 W/40 C; Phase 20 reports 1905 MHz/66 W/55 C and says state persistence.",
+    "Reports discuss MMIO/register experiments but do not provide a verifier-compatible current target package in this workspace."
+  ],
+  "decision": "Retain as historical leads only; do not infer current state or execute unsafe operations.",
+  "closure_effect": "No requirement row or blocker is closed."
+}

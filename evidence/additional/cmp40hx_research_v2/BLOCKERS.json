@@ -1,0 +1,42 @@
+{
+ "generated": "2026-11-03",
+ "count": 6,
+ "items": [
+  {
+   "id": "B1",
+   "what": "consumer cua 340 descriptor",
+   "why": "0 xref tren 22.9 MB; base la hang so",
+   "need": "Ghidra 17 MB text, tim hang so 0x41AA418"
+  },
+  {
+   "id": "B2",
+   "what": "nghia 4 blob entropy cao",
+   "why": "khong nen duoc, khong magic/IV; AES vs nen khong phan biet duoc",
+   "need": "khoa giai ma (khong co trong driver cong khai)"
+  },
+  {
+   "id": "B3",
+   "what": "disasm blob[0]",
+   "why": "93.1% unknown tu 4 offset -> khong phai code",
+   "need": "xac dinh day la bang gi truoc"
+  },
+  {
+   "id": "B4",
+   "what": "nghia f4/f8/hash key block",
+   "why": "khong phai timestamp, khong khop hash vung nao",
+   "need": "ROM TU106 khac de so sanh"
+  },
+  {
+   "id": "B5",
+   "what": "388.5 MiB carveout",
+   "why": "WPR2 chi 0.5 MiB",
+   "need": "doc them register PFB carveout"
+  },
+  {
+   "id": "B6",
+   "what": "nghia 152 word =1 trong fuse",
+   "why": "can mau doi chung",
+   "need": "dump fuse TU106 khac"
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+  "variants": [
+    {
+      "path": "/tmp/gen3_a.rom",
+      "sha256": "d4fa7c93a5bbbc86848b34bc7f2b6271dc0bff83d94eadb4c43e38cc77e11f3c",
+      "parser_exit": "SIGSEGV",
+      "stderr_sha256": "8f95d48fdb14b6b1b477652242392f980ede87ffcaea68269cf67516e131da73"
+    },
+    {
+      "path": "/tmp/t_clk.rom",
+      "sha256": "612eaa72cc1ed8e83c53eb7aa1fb6e0edb1d6afc47201953f0272efd9d6bc435",
+      "parser_exit": "SIGSEGV",
+      "stderr_sha256": "8f95d48fdb14b6b1b477652242392f980ede87ffcaea68269cf67516e131da73"
+    }
+  ],
+  "interpretation": "parser crash prevents semantic decoding of two tiny-delta variants; raw offsets remain the only claim",
+  "limits": [
+    "no VBIOS execution",
+    "no capability conclusion"
+  ]
+}

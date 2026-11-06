@@ -1,0 +1,11 @@
+{
+  "firmware": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+  "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "instructions": {
+    "lui_va": "0x04b20fcc",
+    "addi_va": "0x04b20fd0",
+    "resolved_va": "0x5995528"
+  },
+  "mapped_sections": [],
+  "result": "diagnostic string VA is outside current mapped inner-ELF sections; text intentionally unresolved"
+}

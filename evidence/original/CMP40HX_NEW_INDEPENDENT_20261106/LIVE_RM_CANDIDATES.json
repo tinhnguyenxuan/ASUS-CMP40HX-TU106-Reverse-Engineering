@@ -1,0 +1,95 @@
+{
+  "utc": "2026-11-05T18:17:28.296610+00:00",
+  "steps": [
+    {
+      "op": "alloc",
+      "class": "0x41",
+      "status": "0x0"
+    },
+    {
+      "op": "control",
+      "cmd": "0x201",
+      "size": 128,
+      "status": "0x0",
+      "input": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "output": "00030000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "op": "control",
+      "cmd": "0x204",
+      "size": 4,
+      "status": "0x0",
+      "input": "00000000",
+      "output": "01000000"
+    },
+    {
+      "op": "alloc",
+      "class": "0x80",
+      "status": "0x0"
+    },
+    {
+      "op": "alloc",
+      "class": "0x2080",
+      "status": "0x0"
+    },
+    {
+      "op": "control",
+      "cmd": "0x2080123b",
+      "size": 24,
+      "status": "0x56",
+      "input": "00000000efbeadde00000000000000000000000000000000",
+      "output": "00000000efbeadde00000000000000000000000000000000"
+    },
+    {
+      "op": "control",
+      "cmd": "0x208001e7",
+      "size": 8,
+      "status": "0x56",
+      "input": "00000000efbeadde",
+      "output": "00000000efbeadde"
+    },
+    {
+      "op": "control",
+      "cmd": "0x2080123b",
+      "size": 24,
+      "status": "0x56",
+      "input": "01000000efbeadde00000000000000000000000000000000",
+      "output": "01000000efbeadde00000000000000000000000000000000"
+    },
+    {
+      "op": "control",
+      "cmd": "0x208001e7",
+      "size": 8,
+      "status": "0x56",
+      "input": "01000000efbeadde",
+      "output": "01000000efbeadde"
+    },
+    {
+      "op": "control",
+      "cmd": "0x2080123b",
+      "size": 24,
+      "status": "0x56",
+      "input": "02000000efbeadde00000000000000000000000000000000",
+      "output": "02000000efbeadde00000000000000000000000000000000"
+    },
+    {
+      "op": "control",
+      "cmd": "0x208001e7",
+      "size": 8,
+      "status": "0x56",
+      "input": "02000000efbeadde",
+      "output": "02000000efbeadde"
+    },
+    {
+      "op": "control",
+      "cmd": "0x20800a26",
+      "size": 10848,
+      "status": "0x56",
+      "input_nonzero_bytes": [],
+      "output_nonzero_bytes": []
+    }
+  ],
+  "gpu_ids": [
+    "0x300"
+  ]
+}

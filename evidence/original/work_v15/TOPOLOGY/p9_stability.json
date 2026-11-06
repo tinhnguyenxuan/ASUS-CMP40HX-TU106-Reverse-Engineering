@@ -1,0 +1,10 @@
+{
+ "card_before": "1920 MHz, 59.01 W",
+ "card_after": "1920 MHz, 58.85 W",
+ "positive_control_nonzero": 3617,
+ "bar3_17000_stable": true,
+ "bar3_2b000_stable": true,
+ "bar3_interleave_stable": true,
+ "bar0_ctrl_stable": true,
+ "conclusion": "BAR3 du lieu THAT (3 lan on dinh + xen ke khong doi + duong doc song chung minh boi positive control)"
+}

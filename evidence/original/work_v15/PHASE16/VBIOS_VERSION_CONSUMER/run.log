@@ -1,0 +1,70 @@
+=== input images ===
+  ok: image rom size+sha256 match recorded (/home/REDACTED_USER/codex-work/cmp40hx_transfer/CMP40HX_ORIGINAL_1MB.bin.txt)
+  ok: image t4 size+sha256 match recorded (/home/REDACTED_USER/codex-work/cmp40hx_transfer/cmp40hx_t4.bin.txt)
+  ok: image shadow size+sha256 match recorded (/tmp/v11chk/RAW_DATA/vbios_shadow.bin)
+=== envytools source hashes @ git f102b823 ===
+  ok: source bit.c sha256 matches recorded git blob
+  ok: source power.c sha256 matches recorded git blob
+  ok: source nvbios.c sha256 matches recorded git blob
+  ok: source bios.c sha256 matches recorded git blob
+=== code paths that populate bios->info.version[0] ===
+  - nvbios/info.c envy_bios_parse_bit_i [49-52]
+  - nvbios/nvbios.c parse_bios_version [849-868 (write at 858)]
+=== BIT table parse (bit.c:70-149) per image ===
+  ok: rom BIT signature at 0x287b0
+  ok: rom BIT header version 0x0100 accepted (bit.c:98-103)
+  ok: rom hlen>=12 (bit.c:104-107)
+  ok: rom rlen>=6 (bit.c:108-111)
+  ok: rom BIT header checksum mod256 == 0 (bit.c:82-94)
+  rom: entries=17 i_entry={"idx": 16, "type": "i", "type_hex": "0x69", "version": 2, "t_len": 104, "t_offset": 1012, "t_offset_hex": "0x3f4"}
+  ok: t_offset arithmetic
+  ok: rom/t4 'B' entry maps to 0x2883e (prior gap-analysis anchor)
+  ok: rom/t4 'P' entry maps to 0x288d4 (prior P-dir anchor)
+  ok: rom/t4 'i' entry maps to 0x289f4; table end 0x289f4+0x68=0x28a5c matches prior report
+  ok: t4 BIT signature at 0x287b0
+  ok: t4 BIT header version 0x0100 accepted (bit.c:98-103)
+  ok: t4 hlen>=12 (bit.c:104-107)
+  ok: t4 rlen>=6 (bit.c:108-111)
+  ok: t4 BIT header checksum mod256 == 0 (bit.c:82-94)
+  t4: entries=17 i_entry={"idx": 16, "type": "i", "type_hex": "0x69", "version": 2, "t_len": 104, "t_offset": 1012, "t_offset_hex": "0x3f4"}
+  ok: t_offset arithmetic
+  ok: rom/t4 'B' entry maps to 0x2883e (prior gap-analysis anchor)
+  ok: rom/t4 'P' entry maps to 0x288d4 (prior P-dir anchor)
+  ok: rom/t4 'i' entry maps to 0x289f4; table end 0x289f4+0x68=0x28a5c matches prior report
+  ok: shadow (shadow first BIT) BIT signature at 0x1b0
+  ok: shadow (shadow first BIT) BIT header version 0x0100 accepted (bit.c:98-103)
+  ok: shadow (shadow first BIT) hlen>=12 (bit.c:104-107)
+  ok: shadow (shadow first BIT) rlen>=6 (bit.c:108-111)
+  ok: shadow (shadow first BIT) BIT header checksum mod256 == 0 (bit.c:82-94)
+  ok: shadow (shadow second BIT) BIT signature at 0x791b0
+  ok: shadow (shadow second BIT) BIT header version 0x0100 accepted (bit.c:98-103)
+  ok: shadow (shadow second BIT) hlen>=12 (bit.c:104-107)
+  ok: shadow (shadow second BIT) rlen>=6 (bit.c:108-111)
+  ok: shadow (shadow second BIT) BIT header checksum mod256 == 0 (bit.c:82-94)
+  shadow: first BIT @0x1b0 sig_ok=True entries=17; second BIT @0x791b0 sig_ok=True entries=17
+  ok: shadow i-table @0x3f4 == rom intended i-table @0x289f4 bytes
+=== BMP path (nvbios.c:1077-1078, parse_bios_version at 858) ===
+  rom: BMP signature \xff\x7fNV\0 at NOT FOUND -> parse_bios_version NOT CALLED
+  ok: rom: no BMP signature -> BMP version path inactive (version[] only from BIT 'i')
+  t4: BMP signature \xff\x7fNV\0 at NOT FOUND -> parse_bios_version NOT CALLED
+  ok: t4: no BMP signature -> BMP version path inactive (version[] only from BIT 'i')
+  shadow: BMP signature \xff\x7fNV\0 at NOT FOUND -> parse_bios_version NOT CALLED
+  ok: shadow: no BMP signature -> BMP version path inactive (version[] only from BIT 'i')
+=== version[0] established per image ===
+  rom: stock(abs @0x3f7)=0x0 ; intended(0x28600+t_off @0x289f7)=0x90
+  rom -> established bios->info.version[0] = 0x90
+  t4: stock(abs @0x3f7)=0x0 ; intended(0x28600+t_off @0x289f7)=0x90
+  t4 -> established bios->info.version[0] = 0x90
+  shadow -> established bios->info.version[0] = 0x90
+=== PM_Mode consumer branches vs established version[0] (nvbios.c:1477-1554) ===
+  PERFORMANCE v0x60 @ ROM 0x54155: 600a0507060a0107 ... table version byte = 0x60
+  T4 identical: True ; shadow @0x2bb55 identical: True ; shadow file @0x54155: ffffffffffffffff
+  BIOS major 0x0: nvbios.c:1497 -> table version 0x60 matches no per-entry sub-schema (0x12/0x13/0x15, 0x21-0x24, 0x25, 0x30/0x35, 0x40-0x50) -> 'Version u
+  BIOS major 0x90: nvbios.c:1527 -> only printcmd(start, header_length>0?header_length:10) hex dump; no table field consumed
+  BIOS major 0x90: nvbios.c:1527 -> only printcmd(start, header_length>0?header_length:10) hex dump; no table field consumed
+=== table ID 0x60 (power.c P2_tbls, DI/DT) ===
+  power.c:107 {0x60, &power->unk60.offset, "DI/DT"} -> envy_bios_parse_power_unk60; no consumption of bios->info.version[0]
+=== self-check ===
+  total checks: 39, failures: 0
+
+wrote /home/REDACTED_USER/codex-work/work_v15/PHASE16/VBIOS_VERSION_CONSUMER/VBIOS_VERSION_CONSUMER.json

@@ -1,0 +1,29 @@
+========================================================================
+FUSE_TU106_AUDIT — archived TU106 fuse/OTP dump source-backed audit
+UTC 2026-11-03T18:47:59Z
+Mode: offline read-only. Original dump and UNKNOWN_DATABASE.json untouched.
+========================================================================
+[INPUT] dump /home/REDACTED_USER/codex-work/work_v15/RAW_DATA/fuse2.json sha256=0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc (expected 0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc) OK
+[INPUT] source /tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fuse.h sha256=f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d size=2150
+[INPUT] source /tmp/nvsrc/common/inc/swref/published/maxwell/gm107/dev_fuse.h sha256=1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10 size=1658
+[INPUT] source /home/REDACTED_USER/codex-work/work_v15/PHASE16/SOURCES/nvidia_tu102_dev_fuse.h sha256=f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d size=2150
+[INPUT] source /home/REDACTED_USER/codex-work/work_v15/PHASE16/SOURCES/nvidia_gm107_dev_fuse.h sha256=1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10 size=1658
+[DUMP] base=0x21000 span(declared)=32768 dumped_words=3072 dumped_bytes=12288 extent=0x0..0x2FFC
+[DUMP] poison_declared=['0xbadf1100', '0xbadf1300', '0xbadf5040'] pages=[{'off': 0, 'data': 300, 'poison': 239}, {'off': 4096, 'data': 52, 'poison': 939}, {'off': 8192, 'data': 0, 'poison': 1024}]
+[CLASSIFY] DATA=352 ZERO=518 POISON=2202 total=3072 (stats in dump: {'words': 3072, 'with_data': 352, 'poison': 2202, 'zero': 518})
+[ONES] word==1 count=152 first=0x110 last=0x1470
+[RANGE] nonpoison_count=870 nonzero_count=352 last_nonpoison_offset=0x17FC (6140)
+[RANGE] min_offset=0x0 max_offset=0x2FFC
+[DECODE] source-mapped words=3
+  offset=0x378 abs=0x21378 val=0x00000000 -> NV_FUSE_OPT_NVDEC_DISABLE [INIT (disable=0)] tu106_applicable=True
+  offset=0x74C abs=0x2174C val=0x00000001 -> NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS [YES] tu106_applicable=True
+  offset=0xC04 abs=0x21C04 val=0x00000001 -> NV_FUSE_STATUS_OPT_DISPLAY [value not in defined enum] tu106_applicable=False
+[PDI] fuse+0x344=0x40680BB5 fuse+0x348=0x72E259ED combined PDI=0x0000000000000000 (U-FUSE-007, kept RESOLVED/CORROBORATED vs nvidia-smi)
+[PROVENANCE] physical OTP geometry: NOT established. Sparse ones (152) and gaps do not prove cell readout (coordinator/E16-006). No OTP geometry source in snapshot.
+[PROVENANCE] shadow/strap: U-FUSE-003 0xC0040000 != NV_PMC_BOOT_0 0x166000A1; no strap bitfield source — not established.
+[PROVENANCE] status/class fields: decoded only where Turing source exists (0x378 NVDEC_DISABLE=0, 0x74C GSP_DEBUG_DIS=1). 0xC04 DISPLAY=1 is Maxwell-only and not applicable.
+[WRITE] /home/REDACTED_USER/codex-work/work_v15/PHASE16/FUSE_TU106_AUDIT/fuse_tu106_audit_report.json
+[WRITE] /home/REDACTED_USER/codex-work/work_v15/PHASE16/FUSE_TU106_AUDIT/FUSE_TU106_AUDIT.md
+[WRITE] /home/REDACTED_USER/codex-work/work_v15/PHASE16/FUSE_TU106_AUDIT/fuse_tu106_audit_run.log
+========================================================================
+AUDIT COMPLETE. See /home/REDACTED_USER/codex-work/work_v15/PHASE16/FUSE_TU106_AUDIT/fuse_tu106_audit_report.json and /home/REDACTED_USER/codex-work/work_v15/PHASE16/FUSE_TU106_AUDIT/FUSE_TU106_AUDIT.md

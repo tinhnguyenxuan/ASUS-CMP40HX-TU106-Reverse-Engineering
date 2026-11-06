@@ -1,0 +1,30 @@
+=== bang descriptor tim duoc ===
+  0x1a7280..0x1a73e0  11 entry x 32 B  (vaddr 0x041a7280)
+  0x1a7440..0x1a7620  15 entry x 32 B  (vaddr 0x041a7440)
+  0x1a7640..0x1a7900  22 entry x 32 B  (vaddr 0x041a7640)
+  0x1a7b00..0x1a7e60  27 entry x 32 B  (vaddr 0x041a7b00)
+  0x1a7f00..0x1a8060  11 entry x 32 B  (vaddr 0x041a7f00)
+  0x1a8080..0x1a8200  12 entry x 32 B  (vaddr 0x041a8080)
+  0x1a8300..0x1a8580  20 entry x 32 B  (vaddr 0x041a8300)
+  0x1a85a0..0x1a8840  21 entry x 32 B  (vaddr 0x041a85a0)
+
+  tong 139 entry doc duoc
+
+=== entry lien quan clock/voltage ===
+     entry   id  f14   f18         f08  ten
+  0x1a7280   20   42   273  0x0000ff02  PERF_CF_CONTROLLER_DRAM_MAX
+  0x1a72a0   21   88   273  0x0000ff0a  PERF_CF_CONTROLLER_GPC_MAX
+  0x1a72e0   23    1   274  0x0000ff01  PERF_CF_CONTROLLER_NVD_MAX
+
+=== tham chieu toi bang (u64 ptr base, va base+0x10) ===
+
+=== phan bo field (doan nghia) ===
+  f08: 12 gia tri khac nhau, pho bien [(65282, 70), (65281, 33), (65285, 10), (65286, 6), (65283, 5), (65287, 5)]
+  f0c: 1 gia tri khac nhau, pho bien [(0, 139)]
+  id: 139 gia tri khac nhau, pho bien [(20, 1), (21, 1), (22, 1), (23, 1), (24, 1), (25, 1)]
+  f14: 139 gia tri khac nhau, pho bien [(42, 1), (88, 1), (43, 1), (1, 1), (2, 1), (3, 1)]
+  f18: 11 gia tri khac nhau, pho bien [(278, 48), (277, 47), (274, 22), (273, 8), (287, 4), (279, 3)]
+  f1c: 2 gia tri khac nhau, pho bien [(0, 138), (83284620, 1)]
+  id tang dan? False  khoang 20..83284620
+
+  -> outputs/gsp_xrefs.json

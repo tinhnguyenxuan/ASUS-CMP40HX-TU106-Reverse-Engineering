@@ -1,0 +1,51 @@
+payload_riscv_analyze.py run log
+command: /usr/bin/python3 payload_riscv_analyze.py  (cwd: PHASE16/FW_PAYLOAD_RISCV)
+input_file: /home/REDACTED_USER/codex-work/work_v15/outputs/ucodes_tu10x.bin  size=8837632  sha256=6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0
+inventory_source: /home/REDACTED_USER/codex-work/work_v15/PHASE16/FW_PAYLOAD_ISA/payload_isa_verified.json  (38 payloads)
+capstone: available=True version=5.0.7 module=/home/REDACTED_USER/.local/lib/python3.12/site-packages/capstone/__init__.py
+capstone_probe: {"arch": "CS_ARCH_RISCV", "mode": "CS_MODE_RISCV64|CS_MODE_RISCVC", "bytes": "130a0000000a0000130b00006780008002a4382380a02083", "insns": [["0x1000", "mv", "s4, zero"], ["0x1004", "c.addi4spn", "s0, sp, 0x110"], ["0x1006", "c.unimp", ""], ["0x1008", "mv", "s6, zero"], ["0x100c", "jalr", "zero, ra, -0x800"], ["0x1010", "c.fsdsp", "ft0, 8(sp)"], ["0x1012", "c.fld", "fa4, 0x40(a4)"], ["0x1014", "c.fsd", "fs0, 0(s1)"]]}
+envydis: True (/tmp/envytools/build/envydis/envydis)
+discrepancy: payload_isa_verified.json capstone_available=true IS correct for /usr/bin/python3; FW_PAYLOAD_ISA_REPORT.md claim "Capstone unavailable" was wrong; RISC-V decoding below uses CS_ARCH_RISCV | CS_MODE_RISCV64 | CS_MODE_RISCVC
+
+per-payload verdict (slot offset_hex size entropy isa role confidence entry basis):
+  slot=20   off=0x002F00   size=122880  ent=3.4807 isa=Falcon     role=code           conf=medium  entry=0x24 basis=envydis -m falcon bounded decode: 17 insn prefix, density 0.136, Falcon special-register markers at payload +0x24
+  slot=21   off=0x020F00   size=122880  ent=7.9976 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1F4 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=22   off=0x03EF00   size=122880  ent=7.9978 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1A4 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=23   off=0x05CF00   size=122880  ent=7.9978 isa=UNKNOWN    role=undetermined   conf=none    entry=0x44 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=24   off=0x07AF00   size=122880  ent=7.9976 isa=UNKNOWN    role=undetermined   conf=none    entry=0x5C basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=32   off=0x098F00   size=126144  ent=4.9172 isa=UNKNOWN    role=undetermined   conf=none    entry=0x138 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=33   off=0x0B7C00   size=125464  ent=4.9047 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1F0 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=34   off=0x0D6700   size=126152  ent=4.9180 isa=UNKNOWN    role=undetermined   conf=none    entry=0x138 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=35   off=0x0F5400   size=125464  ent=4.9047 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1F0 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=36   off=0x113F00   size=131992  ent=4.9559 isa=UNKNOWN    role=undetermined   conf=none    entry=0x138 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=37   off=0x134300   size=183808  ent=4.6642 isa=UNKNOWN    role=undetermined   conf=none    entry=0x54 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=150  off=0x161100   size=571136  ent=4.8686 isa=Falcon     role=code           conf=medium  entry=0x10 basis=envydis -m falcon bounded decode: 10 insn prefix, density 0.357, Falcon special-register markers at payload +0x10
+  slot=151  off=0x1EC800   size=571136  ent=7.9996 isa=UNKNOWN    role=undetermined   conf=none    entry=0x114 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=152  off=0x277F00   size=571136  ent=7.9997 isa=UNKNOWN    role=undetermined   conf=none    entry=0x10 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=153  off=0x303600   size=571136  ent=7.9996 isa=UNKNOWN    role=undetermined   conf=none    entry=0x11C basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=154  off=0x38ED00   size=571136  ent=7.9997 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1B0 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=156  off=0x41A400   size=539136  ent=4.8136 isa=Falcon     role=code           conf=medium  entry=0x10 basis=envydis -m falcon bounded decode: 10 insn prefix, density 0.341, Falcon special-register markers at payload +0x10
+  slot=449  off=0x49DE00   size=258560  ent=5.8042 isa=UNKNOWN    role=undetermined   conf=none    entry=0x190 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=452  off=0x4DD000   size=258560  ent=7.9990 isa=UNKNOWN    role=undetermined   conf=none    entry=0x54 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=453  off=0x51C200   size=160512  ent=7.9986 isa=UNKNOWN    role=undetermined   conf=none    entry=0x30 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=456  off=0x543500   size=145152  ent=7.9985 isa=UNKNOWN    role=undetermined   conf=none    entry=0xA4 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=459  off=0x566C00   size=258560  ent=7.9993 isa=UNKNOWN    role=undetermined   conf=none    entry=0x188 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=460  off=0x5A5E00   size=145152  ent=7.9982 isa=UNKNOWN    role=undetermined   conf=none    entry=0x170 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=461  off=0x5C9500   size=261120  ent=5.8173 isa=UNKNOWN    role=undetermined   conf=none    entry=0x190 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=464  off=0x609100   size=261120  ent=7.9992 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1B0 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=465  off=0x648D00   size=145408  ent=7.9984 isa=UNKNOWN    role=undetermined   conf=none    entry=0x144 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=468  off=0x66C500   size=261120  ent=7.9992 isa=UNKNOWN    role=undetermined   conf=none    entry=0x14C basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=469  off=0x6AC100   size=145408  ent=7.9982 isa=UNKNOWN    role=undetermined   conf=none    entry=0xFC basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=470  off=0x6CF900   size=257792  ent=5.7907 isa=UNKNOWN    role=undetermined   conf=none    entry=0x190 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=473  off=0x70E800   size=257792  ent=7.9993 isa=UNKNOWN    role=undetermined   conf=none    entry=0x104 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=474  off=0x74D700   size=143616  ent=7.9984 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1B4 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=477  off=0x770800   size=257792  ent=7.9992 isa=UNKNOWN    role=undetermined   conf=none    entry=0x70 basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=478  off=0x7AF700   size=143616  ent=7.9983 isa=UNKNOWN    role=undetermined   conf=none    entry=0x1BC basis=no source struct accepted; no bounded ISA decode met proof thresholds
+  slot=481  off=0x7D2800   size=143360  ent=4.1983 isa=Falcon     role=code           conf=medium  entry=0x10 basis=envydis -m falcon bounded decode: 11 insn prefix, density 0.389, Falcon special-register markers at payload +0x10
+  slot=484  off=0x7F5800   size=157440  ent=4.5950 isa=Falcon     role=code           conf=medium  entry=0x10 basis=envydis -m falcon bounded decode: 11 insn prefix, density 0.389, Falcon special-register markers at payload +0x10
+  slot=487  off=0x81BF00   size=147712  ent=2.7862 isa=Falcon     role=code           conf=medium  entry=0x10 basis=envydis -m falcon bounded decode: 11 insn prefix, density 0.389, Falcon special-register markers at payload +0x10
+  slot=490  off=0x840000   size=124160  ent=3.7980 isa=Falcon     role=code           conf=medium  entry=0x10 basis=envydis -m falcon bounded decode: 11 insn prefix, density 0.371, Falcon special-register markers at payload +0x10
+  slot=493  off=0x85E500   size=62720   ent=2.4236 isa=Falcon     role=code           conf=medium  entry=0x10 basis=envydis -m falcon bounded decode: 11 insn prefix, density 0.371, Falcon special-register markers at payload +0x10
+
+summary: {"UNKNOWN": [21, 22, 23, 24, 32, 33, 34, 35, 36, 37, 151, 152, 153, 154, 449, 452, 453, 456, 459, 460, 461, 464, 465, 468, 469, 470, 473, 474, 477, 478], "Falcon": [20, 150, 156, 481, 484, 487, 490, 493]}
+conclusion: Per-payload proven ISA/role listed in results[].verdict; UNKNOWN entries carry full evidence (header, entropy, descriptor reject reasons, decode densities). No ISA claimed from entropy; no encryption inferred; no GPU/keys used.

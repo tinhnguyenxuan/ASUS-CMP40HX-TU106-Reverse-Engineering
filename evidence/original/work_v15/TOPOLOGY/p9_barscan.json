@@ -1,0 +1,131 @@
+{
+ "BAR1": {
+  "size": 8589934592,
+  "rows": [
+   {
+    "off": "0x000000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x000001000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x000010000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x000100000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x001000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x010000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x020000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x040000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x060000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x07f000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x080000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x0a0000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x0c0000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x0e0000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x0ff000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x1f0000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x1f7000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x1f7e00000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   }
+  ],
+  "nonzero_total": 0,
+  "any_data": false
+ },
+ "BAR3": {
+  "size": 33554432,
+  "rows": [
+   {
+    "off": "0x000000000",
+    "nonzero": 2,
+    "first": "0x00007ff0"
+   },
+   {
+    "off": "0x000001000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x000010000",
+    "nonzero": 4,
+    "first": "0x1f4f4d02"
+   },
+   {
+    "off": "0x000100000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   },
+   {
+    "off": "0x001000000",
+    "nonzero": 0,
+    "first": "0x00000000"
+   }
+  ],
+  "nonzero_total": 6,
+  "any_data": true
+ }
+}

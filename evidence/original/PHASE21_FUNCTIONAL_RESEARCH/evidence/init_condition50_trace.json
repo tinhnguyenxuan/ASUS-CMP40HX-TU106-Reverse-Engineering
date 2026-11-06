@@ -1,0 +1,281 @@
+{
+  "related_conditions": [
+    {
+      "index": "0x26",
+      "file_offset": "0x2ce64",
+      "register": "0x12e0",
+      "mask": "0x1",
+      "expected": "0x1"
+    },
+    {
+      "index": "0x30",
+      "file_offset": "0x2cedc",
+      "register": "0x1404",
+      "mask": "0x4",
+      "expected": "0x0"
+    },
+    {
+      "index": "0x32",
+      "file_offset": "0x2cef4",
+      "register": "0x409660",
+      "mask": "0x10000",
+      "expected": "0x10000"
+    },
+    {
+      "index": "0x33",
+      "file_offset": "0x2cf00",
+      "register": "0xa00",
+      "mask": "0x1ff00000",
+      "expected": "0x0"
+    },
+    {
+      "index": "0x51",
+      "file_offset": "0x2d068",
+      "register": "0x419b54",
+      "mask": "0xff",
+      "expected": "0x0"
+    },
+    {
+      "index": "0x52",
+      "file_offset": "0x2d074",
+      "register": "0x419b68",
+      "mask": "0x3",
+      "expected": "0x0"
+    },
+    {
+      "index": "0x53",
+      "file_offset": "0x2d080",
+      "register": "0x419e20",
+      "mask": "0x10",
+      "expected": "0x0"
+    }
+  ],
+  "input": {
+    "path": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin",
+    "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec"
+  },
+  "script_table_relative": "0x4698",
+  "main_script_relative": "0x7634",
+  "call_edges": [
+    {
+      "owner_script": "0x7634",
+      "instruction": "0x7634",
+      "file_offset": "0x2fc34",
+      "target_script": "0x7639",
+      "raw": "5b3976",
+      "scope": "CALL bytes verified; owner assignment from nvbios traversal, runtime guards unresolved"
+    },
+    {
+      "owner_script": "0x7639",
+      "instruction": "0x763f",
+      "file_offset": "0x2fc3f",
+      "target_script": "0x7644",
+      "raw": "5b4476",
+      "scope": "CALL bytes verified; owner assignment from nvbios traversal, runtime guards unresolved"
+    },
+    {
+      "owner_script": "0x7644",
+      "instruction": "0x764a",
+      "file_offset": "0x2fc4a",
+      "target_script": "0x8a67",
+      "raw": "5b678a",
+      "scope": "CALL bytes verified; owner assignment from nvbios traversal, runtime guards unresolved"
+    },
+    {
+      "owner_script": "0x8a67",
+      "instruction": "0xc7f0",
+      "file_offset": "0x34df0",
+      "target_script": "0xca6e",
+      "raw": "5b6eca",
+      "scope": "CALL bytes verified; owner assignment from nvbios traversal, runtime guards unresolved"
+    },
+    {
+      "owner_script": "0x8a67",
+      "instruction": "0xc7f5",
+      "file_offset": "0x34df5",
+      "target_script": "0xca41",
+      "raw": "5b41ca",
+      "scope": "CALL bytes verified; owner assignment from nvbios traversal, runtime guards unresolved"
+    }
+  ],
+  "bounded_scripts": [
+    {
+      "start": "0xca6e",
+      "instructions": [
+        {
+          "relative": "0xca6e",
+          "absolute": "0x3506e",
+          "opcode": "0x75",
+          "raw": "7532",
+          "kind": "CONDITION",
+          "index": 50
+        },
+        {
+          "relative": "0xca70",
+          "absolute": "0x35070",
+          "opcode": "0x6e",
+          "raw": "6e18e31700eeffffff10000000",
+          "kind": "NV_REG",
+          "register": "0x17e318",
+          "and_mask": "0xffffffee",
+          "or_value": "0x10"
+        },
+        {
+          "relative": "0xca7d",
+          "absolute": "0x3507d",
+          "opcode": "0x6e",
+          "raw": "6e1ce21700feffffff01000000",
+          "kind": "NV_REG",
+          "register": "0x17e21c",
+          "and_mask": "0xfffffffe",
+          "or_value": "0x1"
+        },
+        {
+          "relative": "0xca8a",
+          "absolute": "0x3508a",
+          "opcode": "0x7a",
+          "raw": "7a549b4100ff000000",
+          "kind": "ZM_REG",
+          "register": "0x419b54",
+          "value": "0xff"
+        },
+        {
+          "relative": "0xca93",
+          "absolute": "0x35093",
+          "opcode": "0x7a",
+          "raw": "7a689b410003000000",
+          "kind": "ZM_REG",
+          "register": "0x419b68",
+          "value": "0x3"
+        },
+        {
+          "relative": "0xca9c",
+          "absolute": "0x3509c",
+          "opcode": "0x7a",
+          "raw": "7a209e410010000000",
+          "kind": "ZM_REG",
+          "register": "0x419e20",
+          "value": "0x10"
+        },
+        {
+          "relative": "0xcaa5",
+          "absolute": "0x350a5",
+          "opcode": "0xb1",
+          "raw": "b15101",
+          "kind": "POLL_NV_COND",
+          "index": 81,
+          "parameter": 1
+        },
+        {
+          "relative": "0xcaa8",
+          "absolute": "0x350a8",
+          "opcode": "0x72",
+          "raw": "72",
+          "kind": "RESUME"
+        },
+        {
+          "relative": "0xcaa9",
+          "absolute": "0x350a9",
+          "opcode": "0xb1",
+          "raw": "b15201",
+          "kind": "POLL_NV_COND",
+          "index": 82,
+          "parameter": 1
+        },
+        {
+          "relative": "0xcaac",
+          "absolute": "0x350ac",
+          "opcode": "0x72",
+          "raw": "72",
+          "kind": "RESUME"
+        },
+        {
+          "relative": "0xcaad",
+          "absolute": "0x350ad",
+          "opcode": "0xb1",
+          "raw": "b15301",
+          "kind": "POLL_NV_COND",
+          "index": 83,
+          "parameter": 1
+        },
+        {
+          "relative": "0xcab0",
+          "absolute": "0x350b0",
+          "opcode": "0x72",
+          "raw": "72",
+          "kind": "RESUME"
+        },
+        {
+          "relative": "0xcab1",
+          "absolute": "0x350b1",
+          "opcode": "0x72",
+          "raw": "72",
+          "kind": "RESUME"
+        },
+        {
+          "relative": "0xcab2",
+          "absolute": "0x350b2",
+          "opcode": "0x71",
+          "raw": "71",
+          "kind": "DONE"
+        }
+      ]
+    },
+    {
+      "start": "0xca41",
+      "instructions": [
+        {
+          "relative": "0xca41",
+          "absolute": "0x35041",
+          "opcode": "0x6e",
+          "raw": "6e18e31700eeffffff00000000",
+          "kind": "NV_REG",
+          "register": "0x17e318",
+          "and_mask": "0xffffffee",
+          "or_value": "0x0"
+        },
+        {
+          "relative": "0xca4e",
+          "absolute": "0x3504e",
+          "opcode": "0x6e",
+          "raw": "6e1ce21700feffffff00000000",
+          "kind": "NV_REG",
+          "register": "0x17e21c",
+          "and_mask": "0xfffffffe",
+          "or_value": "0x0"
+        },
+        {
+          "relative": "0xca5b",
+          "absolute": "0x3505b",
+          "opcode": "0x7a",
+          "raw": "7a5896400088888800",
+          "kind": "ZM_REG",
+          "register": "0x409658",
+          "value": "0x888888"
+        },
+        {
+          "relative": "0xca64",
+          "absolute": "0x35064",
+          "opcode": "0x7a",
+          "raw": "7a5c964000aaaa2a00",
+          "kind": "ZM_REG",
+          "register": "0x40965c",
+          "value": "0x2aaaaa"
+        },
+        {
+          "relative": "0xca6d",
+          "absolute": "0x3506d",
+          "opcode": "0x71",
+          "raw": "71",
+          "kind": "DONE"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Static table/command path only; conditions may suppress execution",
+    "Owner paths from nvbios command traversal, not an independent complete interpreter",
+    "No TU106 semantics assigned to the newly observed register fields",
+    "Full nvbios run emitted parser compatibility/OOB warnings; see stderr"
+  ]
+}

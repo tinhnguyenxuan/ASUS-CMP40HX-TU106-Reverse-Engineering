@@ -1,0 +1,318 @@
+{
+  "phase": "PHASE16",
+  "area": "ENGINE_INTERFACES",
+  "target": "NVIDIA CMP 40HX / TU106-100-A1 (PCI 10de:1f0b, subsystem 8804:1043, rev 0xA1)",
+  "generated_by": "Hermes Agent (GLM-5.3 Flash), ponytail full",
+  "method": "source-bounded research only. Local source snapshot /tmp/nvsrc and supplied archived evidence in /tmp. No hardware probe, no MMIO/PCI config write, no driver change, no tool install, no GPU operation.",
+  "inputs_inventory": "inputs/inputs.json (sha256 + size for every cited source file and every archived evidence file)",
+  "confidence_levels": ["MEASURED","DECODED","CORROBORATED","INFERRED","UNKNOWN","BLOCKED"],
+  "source_snapshot": {
+    "path": "/tmp/nvsrc",
+    "nature": "NVIDIA open kernel module headers + published swref register headers + RM ctrl/class control interfaces + cmp40 booter archive header",
+    "engine_driver_source_present": false,
+    "note": "No RM-side fifo/pbdma/pmu/gsp/ce engine init .c source exists in this snapshot. Only register namespaces (dev_*.h), control ioctl headers (ctrl*/class*), and the cmp40 signed booter image header. RM engine programming logic is therefore NOT source-citable from this snapshot.",
+    "tu106_register_dir_present": false,
+    "tu106_arch_recognized": true,
+    "tu106_evidence": "nvidia/generated/g_chips2halspec_nvoc.h DISPv0400 delete expression lists TU102 | TU104 | TU106 | TU116 | TU117",
+    "register_headers_used": "common/inc/swref/published/turing/tu102/* (Turing family; TU106 shares unless a tu106 override exists — none does)"
+  },
+  "subsystems": [
+    {
+      "name": "GR / FECS / GPCCS",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {"file":"nvidia/generated/g_chips2halspec_nvoc.h","element":"TU106 in DISPv0400 hal delete expression","note":"TU106 is a recognized chip in this build's hal spec"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_esched_pbdma.h","line":26,"element":"NV_PBDMA base/mask 0x0001ffff:0x00000000","note":"PBDMA unit register namespace (Turing family, shared by TU106)"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_pbdma.h","line":26,"element":"NV_PPBDMA_SET_CHANNEL_INFO_VEID / CHID bitfields","note":"PBDMA channel-set descriptor fields"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gr.h","element":"NV2080_CTRL_CMD_GRP_* GR control commands","note":"RM->GR ioctl interface exists in headers"},
+        {"file":"common/sdk/nvidia/inc/class/cl90cdfecs.h","element":"NV_EVENT_BUFFER_FECS_CTXSWTAG_* + NV_EVENT_BUFFER_RECORD_TYPE_FECS_CTX_SWITCH","note":"FECS is firmware-managed context-switch engine; only event-buffer tags exposed, no RM ctrl command interface for FECS programming"},
+        {"file":"common/sdk/nvidia/inc/class/cl90cdtypes.h","element":"NV_EVENT_BUFFER_RECORD_TYPE_FECS_CTX_SWITCH (134) / _V2 (2)","note":"FECS context-switch event record type"}
+      ],
+      "register_namespaces": [
+        {"unit":"PBDMA (feeds GR)","header":"dev_esched_pbdma.h","base":"0x00000000","mask":"0x0001ffff","tu106_applicable":"Turing-family shared, no tu106 override"}
+      ],
+      "control_interfaces": [
+        {"header":"ctrl2080gr.h","commands":"GR objengine/channel control (NV2080_CTRL_CMD_GRP_*)"},
+        {"header":"ctrl0080fifo.h","commands":"FIFO runlist start/stop, channel properties, engine context props (NV0080_CTRL_CMD_FIFO_*)"},
+        {"header":"cl90cdfecs.h","commands":"none (FECS has no RM ctrl command interface; event tags only)"}
+      ],
+      "firmware_descriptor_labels": [
+        {"label":"FECS ucode / firmware image","source":"none in snapshot","note":"No FECS firmware binary, descriptor, or load-address is present in /tmp/nvsrc"}
+      ],
+      "dependencies": ["RM (GR objengine via ctrl2080gr)","FIFO/PBDMA channels runlist","FECS firmware (Falcon) for GR context switch — firmware not in snapshot"],
+      "evidence_runtime": [
+        {"addr":"NV_PMC_BOOT_0 0x00000000","raw":"0x166000A1","decoded":"ARCH=1(Turing), IMPL=6(TU106), REV=6(A1)","source":"BAO_CAO_CMP40HX_TU106.md #2","confidence":"MEASURED"},
+        {"addr":"gpc_nr 0x00409604","raw":"0x08040003","decoded":"3 GPC","source":"BAO_CAO_CMP40HX_TU106.md #3.1","confidence":"MEASURED"},
+        {"addr":"tpc_nr 0x00502608","raw":"0x00040005","decoded":"5 TPC in GPC0","source":"BAO_CAO_CMP40HX_TU106.md #3.1","confidence":"MEASURED"},
+        {"addr":"fuse+0x650","raw":"0x0004001F","decoded":"TPC mask bits0-4=0x1F = 5 TPC enabled","source":"BAO_CAO_CMP40HX_TU106.md #3.6","confidence":"MEASURED"},
+        {"addr":"TPC map GPC0 TPC5 @ 0x504000+0*0x8000+5*0x800 +0x010/0x100/0x400","raw":"0xBADF1300 (all 3 offsets)","decoded":"GPC0 TPC5 absent (poison); no register responds","source":"BAO_CAO_CMP40HX_TU106.md #3.2","confidence":"MEASURED"},
+        {"addr":"17 live TPC x 2 SM","raw":"34 SM / 2176 CUDA","decoded":"matches cudaGetDeviceProperties multiProcessorCount=34","source":"BAO_CAO_CMP40HX_TU106.md #3.3","confidence":"CORROBORATED"},
+        {"addr":"PMC_ENABLE 0x00000200","raw":"bit9(PGR)=0 when idle","decoded":"GR clock-gated/idle until a CUDA kernel wakes it","source":"BAO_CAO_CMP40HX_TU106.md #3.5 pitfall1","confidence":"MEASURED"},
+        {"addr":"FECS region 0x409600-0x409700 shadow slots 0x40960C/0x409610/0x409634/0x40967C/0x409680","raw":"accepts any write, reads back","decoded":"shadow slot: writable but NOT connected to topology; writing 6/0x3F/0x07 does not change tpc_nr","source":"BAO_CAO_CMP40HX_TU106.md #3.6","confidence":"MEASURED"},
+        {"addr":"FECS_SPEED_PLM 0x409650","raw":"0xFFFFFF8F","decoded":"identical to fuse+0x0D8/0x0DC/0x0E0/0x0E4/0x0F4 mask; fuse and FECS are copies","source":"BAO_CAO_CMP40HX_TU106.md #5.1","confidence":"CORROBORATED"}
+      ],
+      "evidence_archived_dump": [],
+      "exact_unavailability": [
+        "No tu106-specific GR register header (uses tu102 Turing-family headers; no tu106 override dir)",
+        "No FECS firmware binary, ucode descriptor, load address, or Falcon slot in /tmp/nvsrc",
+        "No engine<->FECS-firmware-slot mapping asserted anywhere in source; mapping NOT established — do not infer",
+        "No GPCCS register header or GPCCS control interface found in snapshot",
+        "No generated FIFO/GR channel descriptor instance or source tag observable in any dump"
+      ],
+      "unknown_unsupported": [
+        "GPCCS block: no header, no control interface, no runtime evidence -> BLOCKED/UNKNOWN",
+        "FECS firmware slot and ucode: absent from snapshot -> UNKNOWN",
+        "GR channel/runlist live state: not captured in dumps -> UNKNOWN",
+        "Whether TPC mask (fuse) is the sole GR gating mechanism vs. additional strap/falcon gating: not established -> UNKNOWN"
+      ],
+      "status": "PARTIALLY_MEASURED"
+    },
+    {
+      "name": "FIFO / PBDMA",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {"file":"common/inc/swref/published/turing/tu102/dev_esched_pbdma.h","line":26,"element":"NV_PBDMA base 0x00000000 mask 0x0001ffff; SIGNATURE(i)=0x10+i*8192; PB_HEADER(i)=0x84+i*8192; per-channel stride 8192","note":"PBDMA pushbuffer DMA unit, per-channel registers"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_pbdma.h","line":26,"element":"NV_PPBDMA_SET_CHANNEL_INFO_VEID=(6-1)+8:8 ; CHID=12+15:16","note":"channel-set descriptor VEID/CHID fields"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_esched_pbdma.h","lines":"34-42","element":"NV_PBDMA_USERD_TARGET (VID_MEM / VID_MEM_NVLINK_COHERENT / SYS_MEM_COHERENT / SYS_MEM_NONCOHERENT), USERD_ADDR, USERD_HI_ADDR","note":"user doorbell register fields"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fifo.h","element":"NV2080_CTRL_CMD_FIFO_GET_CHANNELS / GET_CHANNEL_MEM / GET_USERD_LOCATION / DISABLE_CHANNELS / START_RUNLIST / STOP_RUNLIST / OBJSCHED_*","note":"RM FIFO ioctl interface"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl0080/ctrl0080fifo.h","element":"NV0080_CTRL_CMD_FIFO_START_RUNLIST / STOP_RUNLIST / SET_CHANNEL_PROPERTIES / GET_CHANNELLIST","note":"legacy FIFO ioctl interface"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_pmc.h","line":56,"element":"NV_PMC_ENABLE_PFIFO bit 8","note":"FIFO enable bit in PMC_ENABLE"}
+      ],
+      "register_namespaces": [
+        {"unit":"PBDMA","header":"dev_esched_pbdma.h","base":"0x00000000","mask":"0x0001ffff","tu106_applicable":"Turing-family shared"}
+      ],
+      "control_interfaces": [
+        {"header":"ctrl2080fifo.h","commands":"GET_CHANNELS, GET_CHANNEL_MEM, GET_USERD_LOCATION, DISABLE_CHANNELS, START_RUNLIST, STOP_RUNLIST, OBJSCHED_GET/SET_STATE, CLEAR_FAULTED_BIT"},
+        {"header":"ctrl0080fifo.h","commands":"GET_CAPS, GET_CHANNELLIST, START_RUNLIST, STOP_RUNLIST, SET_CHANNEL_PROPERTIES, IDLE_CHANNELS"}
+      ],
+      "firmware_descriptor_labels": [
+        {"label":"PBDMA channel descriptor / pushbuffer","source":"none instantiated in snapshot","note":"No generated descriptor instance or source tag for any FIFO/PBDMA channel is present in source or dumps"}
+      ],
+      "dependencies": ["RM FIFO ctrl (ctrl2080fifo/ctrl0080fifo)","PBDMA registers","PMC_ENABLE PFIFO bit","runlist (GR context scheduling)"],
+      "evidence_runtime": [
+        {"addr":"PMC_ENABLE 0x00000200","raw":"bit9(PGR)=0 idle","decoded":"GR not feeding FIFO when idle","source":"BAO_CAO_CMP40HX_TU106.md #3.5","confidence":"MEASURED"}
+      ],
+      "evidence_archived_dump": [],
+      "exact_unavailability": [
+        "No tu106 FIFO/PBDMA register header (uses tu102 shared headers)",
+        "No generated FIFO/PBDMA channel descriptor instance or source tag in source or any dump",
+        "No FIFO channel count, runlist state, or userdoorbell location observed in dumps"
+      ],
+      "unknown_unsupported": [
+        "Number of PBDMA channels instantiated on this TU106 -> UNKNOWN",
+        "FIFO runlist/channel state -> UNKNOWN (not captured)",
+        "Userdoorbell aperture/location -> UNKNOWN"
+      ],
+      "status": "ARCH_ONLY"
+    },
+    {
+      "name": "Copy engines (CE)",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {"file":"common/inc/swref/published/turing/tu102/dev_ce_base.h","line":28,"element":"NV_CE_BASE_GRCE_CONFIG_SHARED_LCE bits3:0 ; SHARED bit30","note":"CE GRCE configuration fields"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_ce_base.h","line":27,"element":"NV_CE_BASE_PCE2LCE_CONFIG_PCE_ASSIGNED_LCE_NONE 0x0f","note":"PCE->LCE mapping field"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080ce.h","element":"NV2080_CTRL_CMD_CE_GET_CAPS / GET_ALL_CAPS / GET_PCE_LCE_MASK / SET_PCE_LCE_CONFIG / UPDATE_PCE_LCE_MAPPINGS / GET_DECOMP_LCE_MASK","note":"RM copy-engine ioctl interface"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_pmc.h","lines":"62-69","element":"NV_PMC_ENABLE_CE0 bit6 ; CE1 bit7 ; CE2 bit21","note":"CE enable bits in PMC_ENABLE"}
+      ],
+      "register_namespaces": [
+        {"unit":"CE_BASE","header":"dev_ce_base.h","base":"not defined in this header","mask":"config fields only","tu106_applicable":"no base address exposed; config fields only"}
+      ],
+      "control_interfaces": [
+        {"header":"ctrl2080ce.h","commands":"CE_GET_CAPS, CE_GET_ALL_CAPS, CE_GET_PCE_LCE_MASK, CE_SET_PCE_LCE_CONFIG, CE_UPDATE_PCE_LCE_MAPPINGS, CE_GET_DECOMP_LCE_MASK"}
+      ],
+      "firmware_descriptor_labels": [
+        {"label":"CE ucode / descriptor","source":"none in snapshot","note":"No copy-engine firmware binary or descriptor present"}
+      ],
+      "dependencies": ["RM CE ctrl (ctrl2080ce)","PMC_ENABLE CE0/CE1/CE2 bits","PCE/LCE mapping config"],
+      "evidence_runtime": [],
+      "evidence_archived_dump": [],
+      "exact_unavailability": [
+        "No CE register base address header in snapshot (dev_ce_base.h exposes config bitfields, no base/mask)",
+        "No CE instance count, PCE/LCE mask, or CE state observed in any dump",
+        "No copy-engine firmware or descriptor present"
+      ],
+      "unknown_unsupported": [
+        "How many copy engines exist on this TU106 -> UNKNOWN",
+        "CE PCE/LCE configuration -> UNKNOWN",
+        "CE operational status -> UNKNOWN (PMC CE enable bits not read in dumps)"
+      ],
+      "status": "ARCH_ONLY"
+    },
+    {
+      "name": "PMU / SEC2 / GSP",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {"file":"common/inc/swref/published/turing/tu102/dev_gsp.h","line":26,"element":"NV_PGSP base 0x110000 mask 0x113fff; FALCON_MAILBOX0 0x110040; FALCON_ENGINE 0x1103c0 (RESET bit0); MAILBOX(i)=0x110804+i*4; QUEUE_HEAD(i)=0x110c00+i*8; QUEUE_TAIL(i)=0x110c04+i*8; MSGQ_HEAD/TAIL 0x110c80; EMEMC/D 0x110ac0","note":"GSP Falcon register namespace + doorbell/queue/mailbox interfaces"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_gsp_addendum.h","line":"NV_PGSP_FBIF_BASE 0x110600","note":"GSP FBIF base"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_sec_pri.h","line":27,"element":"NV_PSEC base 0x840000 mask 0x843fff; FALCON_ENGINE 0x008403c0; MAILBOX(i)=0x00840804+i*4","note":"SEC2 Falcon register namespace + mailbox"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_sec_addendum.h","line":"NV_PSEC_FBIF_BASE 0x00840600","note":"SEC2 FBIF base"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_falcon_v4.h","element":"FALCON_CPUCTL 0x100 (STARTCPU bit1, HALTED bit4), BOOTVEC 0x104, HWCFG 0x108 (HWCFG2_RISCV bit10), MAILBOX0/1 0x40/0x44, OS 0x80, RM 0x84","note":"Generic Falcon control registers applied to each Falcon unit via its base"},
+        {"file":"nvidia/src/kernel/gpu/gsp/cmp40_booter_load_610.h","element":"cmp40Booter610_IMAGE_PROD (signed booter 610.57.04 archive), source archive SHA256 619d7b5ce1...2299be681","note":"Only cmp40 unlock path uses this archive; GSP launch/suspend/resume/unload use the driver's native Booter archive"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gsp.h","element":"NV2080_CTRL_CMD_GSP_GET_FEATURES / GSP_CORE_TEST","note":"RM->GSP ioctl interface"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl208f/ctrl208fpmu.h","element":"NV208F_CTRL_CMD_PMU_ECC_*","note":"PMU ECC ioctl (control-plane, not PMU register block)"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl208f/ctrl208fsec2.h","element":"NV208F_CTRL_CMD_SEC2_ECC_GET_NUM_ERROR_INDEXES","note":"SEC2 ECC ioctl"}
+      ],
+      "register_namespaces": [
+        {"unit":"GSP","header":"dev_gsp.h","base":"0x110000","mask":"0x113fff","tu106_applicable":"Turing-family shared"},
+        {"unit":"SEC2","header":"dev_sec_pri.h","base":"0x840000","mask":"0x843fff","tu106_applicable":"Turing-family shared"}
+      ],
+      "control_interfaces": [
+        {"header":"ctrl2080gsp.h","commands":"GSP_GET_FEATURES, GSP_CORE_TEST"},
+        {"header":"ctrl208fpmu.h / ctrl208fsec2.h","commands":"PMU/SEC2 ECC injection/query only"}
+      ],
+      "firmware_descriptor_labels": [
+        {"label":"GSP firmware (gsp_tu10x.bin)","source":"none in snapshot","note":"GSP firmware binary not present in /tmp/nvsrc; cannot cite GSP ucode/descriptor/load address"},
+        {"label":"SEC2 booter cmp40Booter610_IMAGE_PROD","source":"cmp40_booter_load_610.h","note":"signed NVIDIA booter 610.57.04 used ONLY for the CMP40 unlock transaction"}
+      ],
+      "dependencies": ["RM->GSP RPC via ctrl2080gsp (NV2080_CTRL_CMD_GSP_*)","Falcon mailbox/doorbell/queue registers (NV_PGSP / NV_PSEC)","SEC2 halted state (RESET_PLM) before booter runs","PMC_ENABLE"],
+      "evidence_runtime": [
+        {"addr":"SEC2 (via dmesg)","raw":"FECS=0xffffff8f SS0=0x88888888 SS1=0x8; WPR2=0:0x1ffffe00; RESET_PLM=0xff; ACR_TOKEN=0xc2","decoded":"SEC2 halted with RESET_PLM=0xff before signed booter executes; cmpunlocker runs NVIDIA-signed booter in SEC2, host never writes MMIO","source":"BAO_CAO_CMP40HX_TU106.md #8 / dmesg","confidence":"MEASURED"},
+        {"addr":"SEC2 mailbox/engine base 0x840000","raw":"(not directly dumped)","decoded":"SEC2 Falcon register block exists in source (NV_PSEC); no SEC2 register values observed in dumps","source":"dev_sec_pri.h","confidence":"ARCH_ONLY"}
+      ],
+      "evidence_archived_dump": [],
+      "exact_unavailability": [
+        "GSP firmware binary (gsp_tu10x.bin) absent from /tmp/nvsrc -> no GSP ucode/descriptor/load address to cite",
+        "No engine<->Falcon-slot mapping asserted in source for GSP/SEC2/PMU; mapping NOT established — do not infer",
+        "No GSP queue head/tail or mailbox values observed in dumps",
+        "PMU register block not separately defined/observed (only PMU ECC ctrl commands)"
+      ],
+      "unknown_unsupported": [
+        "GSP firmware version/residency and RPC channel state -> UNKNOWN",
+        "SEC2 mailbox contents -> UNKNOWN",
+        "PMU operational register state -> UNKNOWN",
+        "Whether GSP drives FECS selector (per cmpunlocker claim) is a runtime claim, not a source-mapped engine<->slot assignment -> treat as runtime evidence only, not structural fact"
+      ],
+      "status": "PARTIALLY_MEASURED"
+    },
+    {
+      "name": "NVENC / NVDEC",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {"file":"common/inc/swref/published/turing/tu102/dev_nvdec_pri.h","element":"NV_PNVDEC(dev) = 0x00830000 + dev*16384 (range 0x00830000-0x00833fff)","note":"NVDEC per-instance register base"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl0080/ctrl0080nvenc.h","element":"NV0080_CTRL_CMD_NVENC_GET_CAPS / _V2 ; MSENC_GET_CAPS / _V2","note":"RM NVENC ioctl interface"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl0080/ctrl0080nvdec.h","element":"NV0080_CTRL_CMD_NVDEC_GET_CAPS / _V2 ; BSP_GET_CAPS / _V2","note":"RM NVDEC ioctl interface (BSP = bitstream processor)"},
+        {"file":"nvidia/generated/g_gpu_nvoc.h","element":"GPU_MAX_MSENCS / GPU_MAX_NVDECS derived from NV2080_CTRL_CMD_INTERNAL_MAX_BSPS/NVENCS","note":"RM engine-type list references NVENC/NVDEC counts"}
+      ],
+      "register_namespaces": [
+        {"unit":"NVDEC","header":"dev_nvdec_pri.h","base":"0x00830000+(dev)*16384","tu106_applicable":"Turing-family shared (instance count not specified)"}
+      ],
+      "control_interfaces": [
+        {"header":"ctrl0080nvenc.h","commands":"NVENC_GET_CAPS, MSENC_GET_CAPS"},
+        {"header":"ctrl0080nvdec.h","commands":"NVDEC_GET_CAPS, BSP_GET_CAPS"}
+      ],
+      "firmware_descriptor_labels": [
+        {"label":"NVENC/NVDEC firmware/descriptor","source":"none in snapshot","note":"No video codec firmware or descriptor present"}
+      ],
+      "dependencies": ["RM NVENC/NVDEC ctrl (ctrl0080)","NVDEC per-instance base (dev_nvdec_pri.h)"],
+      "evidence_runtime": [],
+      "evidence_archived_dump": [],
+      "exact_unavailability": [
+        "No NVENC register header at all in snapshot",
+        "No NVENC/NVDEC instance count, capabilities, or state observed in any dump",
+        "No video codec firmware or descriptor present",
+        "NVDEC instance base formula known but dev index/range not instantiated for this TU106"
+      ],
+      "unknown_unsupported": [
+        "NVENC presence/count -> UNKNOWN (no header, no evidence)",
+        "NVDEC instance count and state -> UNKNOWN",
+        "Video codec operational status -> UNKNOWN"
+      ],
+      "status": "ARCH_ONLY"
+    },
+    {
+      "name": "Display",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {"file":"nvidia/generated/g_chips2halspec_nvoc.h","element":"DISPv0400 delete expression includes TU102 | TU104 | TU106 | TU116 | TU117","note":"TU106 display HAL (DISPv0400) exists architecturally in this build"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_fb.h","element":"referenced by report as DISP base cross-reference","note":"nouveau gf119 disp base 0x610000 cross-referenced in report"}
+      ],
+      "register_namespaces": [
+        {"unit":"DISP","header":"no tu106 display reg header in snapshot","base":"0x610000 (report-observed, not source-defined)","tu106_applicable":"no source header; observed offsets only"}
+      ],
+      "control_interfaces": [
+        {"header":"none (no display ctrl header examined)","commands":"none"}
+      ],
+      "firmware_descriptor_labels": [
+        {"label":"display firmware/descriptor","source":"none","note":"none"}
+      ],
+      "dependencies": ["none established (block absent)"],
+      "evidence_runtime": [
+        {"addr":"DISP base 0x610000 / control 0x610010 / head 0x612300","raw":"0xBADF1301","decoded":"poison = address does not exist","source":"BAO_CAO_CMP40HX_TU106.md #4","confidence":"MEASURED"},
+        {"addr":"SOR 0x616000 ; DAC 0x61C110","raw":"0xBADF1301","decoded":"poison","source":"BAO_CAO_CMP40HX_TU106.md #4","confidence":"MEASURED"},
+        {"addr":"PRAMIN+0x1E0200 = 0x8E0200","raw":"0xBADF1100","decoded":"address does not exist","source":"BAO_CAO_CMP40HX_TU106.md #4","confidence":"MEASURED"},
+        {"addr":"scan 0x600000-0x700000 step 0x1000","raw":"0/256 pages live","decoded":"no display aperture decoded","source":"BAO_CAO_CMP40HX_TU106.md #4","confidence":"MEASURED"},
+        {"addr":"scan 0x600000-0x700000 step 0x100","raw":"0 pages","decoded":"confirmed","source":"BAO_CAO_CMP40HX_TU106.md #4","confidence":"MEASURED"},
+        {"addr":"0x700000-0x87FFFF","raw":"reads zero","decoded":"mapped but uninitialized (third state, distinct from poison)","source":"BAO_CAO_CMP40HX_TU106.md #4","confidence":"MEASURED"},
+        {"addr":"NV_FUSE_OPT_DISPLAY 0x021C04","raw":"0x00000000 (read-only)","decoded":"display not fuse-masked; fuse=0 means not disabled, yet block still absent","source":"BAO_CAO_CMP40HX_TU106.md #4.1","confidence":"MEASURED"},
+        {"addr":"driver state","raw":"Display Active: Disabled; Attached: No; card1 -> 0 connector","decoded":"display not exposed","source":"BAO_CAO_CMP40HX_TU106.md #4 driver","confidence":"MEASURED"}
+      ],
+      "evidence_archived_dump": [],
+      "exact_unavailability": [
+        "No tu106 display register header in snapshot",
+        "Display block NOT decoded into BAR0 on any path (incl. PRAMIN) — hardware absent, not fuse-masked",
+        "No display encoder/head state observable"
+      ],
+      "unknown_unsupported": [
+        "Whether display absence is die-feature (TU106-100-A1 binning) vs. board strapping: not established -> UNKNOWN",
+        "No display register semantics (only poison/zero observed) -> BLOCKED for semantic decode"
+      ],
+      "status": "MEASURED_ABSENT"
+    },
+    {
+      "name": "PCIe / GMMU-facing paths",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {"file":"common/inc/swref/published/turing/tu102/dev_bus.h","element":"NV_PBUS_VBIOS_SCRATCH(i) / SW_SCRATCH(i) = 0x1400+i*4","note":"PCIe bus scratch registers"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_mmu.h","element":"NV_MMU PDE/PTE: aperture VID/MEM, size full/half/quarter/eighth, address shift 0xc, PDE size 8, valid/privilege/read-only/encrypted bits","note":"GMMU page-table entry format"},
+        {"file":"common/inc/swref/published/turing/tu102/dev_vm.h","element":"present in snapshot (VM/GMMU address-space header)","note":"GMMU/VM header present; contents not cross-referenced to live registers"},
+        {"file":"common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080bif.h","element":"PCIe/BIF control interface present in ctrl2080 dir","note":"BIF commands exist"}
+      ],
+      "register_namespaces": [
+        {"unit":"PBUS","header":"dev_bus.h","base":"scratch at 0x1400","tu106_applicable":"Turing-family shared"},
+        {"unit":"MMU","header":"dev_mmu.h","base":"PDE/PTE bitfield format (no unit base in this header)","tu106_applicable":"Turing-family shared"}
+      ],
+      "control_interfaces": [
+        {"header":"ctrl2080bif.h","commands":"PCIe/BIF RM commands (present)"}
+      ],
+      "firmware_descriptor_labels": [],
+      "dependencies": ["RM BIF ctrl","MMU/GMMU page tables","PMC_ENABLE"],
+      "evidence_runtime": [
+        {"addr":"PCIe LnkCap/LnkSta","raw":"2.5GT/s x16","decoded":"Gen1 x16 link","source":"BAO_CAO_CMP40HX_TU106.md #6","confidence":"MEASURED"},
+        {"addr":"LnkCap2","raw":"Supported Link Speeds 2.5GT/s only","decoded":"advertises Gen1 only; Gen2 was driver-side retrain via cmpunlocker (CMP40_PCIE_GEN2_V2), not fuse/hw","source":"BAO_CAO_CMP40HX_TU106.md #6","confidence":"MEASURED"},
+        {"addr":"BAR1","raw":"8 GiB","decoded":"ReBAR enabled","source":"BAO_CAO_CMP40HX_TU106.md #6","confidence":"MEASURED"},
+        {"addr":"XVE 0x88000","raw":"0x1F0B10DE","decoded":"mirrors Device ID 10de:1f0b, read-only","source":"BAO_CAO_CMP40HX_TU106.md #6","confidence":"MEASURED"},
+        {"addr":"XVE 0x88008","raw":"0x030200A1","decoded":"class 0x0302 (display controller) + rev A1","source":"BAO_CAO_CMP40HX_TU106.md #6","confidence":"MEASURED"},
+        {"addr":"XVE 0x88004","raw":"0x00100507","decoded":"partially writable; probe bit-flip write KILLED PCIe link permanently (needed full power-off) -> treat XVE 0x88000 and 0x118000 as READ-ONLY","source":"BAO_CAO_CMP40HX_TU106.md #6 warning","confidence":"MEASURED"},
+        {"addr":"XP 0x118000 / 0x118004 / 0x118008","raw":"0x00001000 / 0 / 0","decoded":"PCIe block registers read-only","source":"BAO_CAO_CMP40HX_TU106.md #6","confidence":"MEASURED"},
+        {"addr":"fuse+0x4D8","raw":"0x00001F0B","decoded":"Device ID","source":"BAO_CAO_CMP40HX_TU106.md #5.1","confidence":"MEASURED"},
+        {"addr":"fuse+0x56C","raw":"0x00001F4B","decoded":"Device ID secondary","source":"BAO_CAO_CMP40HX_TU106.md #5.1","confidence":"MEASURED"}
+      ],
+      "evidence_archived_dump": [],
+      "exact_unavailability": [
+        "No tu106 PCIe/BIF register header in snapshot",
+        "No GMMU/VM page-table contents or VM fault state observed in dumps",
+        "dev_vm.h header present but not cross-referenced to any live MMIO address"
+      ],
+      "unknown_unsupported": [
+        "GMMU page-table hierarchy and VM fault injection -> UNKNOWN",
+        "PCIe ASPM/L1s, max link width beyond x16 observed -> Gen1 x16 only measured",
+        "Whether ReBAR 8GiB is fuse or strap -> UNKNOWN"
+      ],
+      "status": "PARTIALLY_MEASURED"
+    }
+  ],
+  "cross_cutting": {
+    "do_not_infer_operational_status_from_fuse_or_cap": true,
+    "do_not_assert_engine_firmware_slot_mapping": true,
+    "note_on_fuse_vs_absence": "Display fuse NV_FUSE_OPT_DISPLAY=0 (not masked) yet the block is absent (poison on all paths): capability/fuse value does NOT imply operational presence. GR TPC fuse matches live tpc_nr, but that is corroborated by direct register reads, not assumed from fuse alone.",
+    "note_on_cmpunlocker": "cmpunlocker compute-rate unlock is an RM->SEC2 RPC that executes a NVIDIA-signed booter inside halted SEC2 (RESET_PLM=0xff). The FECS selector is written by firmware running in SEC2, not by the host. This is runtime evidence for the unlock path only; it is NOT a source-mapped engine<->firmware-slot assignment and does not imply other engines are programmable.",
+    "exact_unavailability_summary": [
+      "No tu106/ register directory exists; all TU106 register namespaces are TU102/Turing-family shared headers",
+      "No RM engine driver source (fifo/pbdma/pmu/gsp/ce init .c) in snapshot",
+      "No GSP firmware binary, FECS ucode, CE firmware, or video-codec firmware/descriptor in snapshot",
+      "No generated channel/descriptor instance or source tag observable for FIFO/PBDMA, CE, NVENC, NVDEC",
+      "No engine<->Falcon firmware-slot mapping asserted anywhere in source"
+    ],
+    "verdict": "WHOLE-GPU REVERSE ENGINEERING IS NOT COMPLETE. This document covers engine interfaces only; topology, fuse/OTP semantics beyond what is measured, VBIOS tables, GSP function inventory, and MMIO outside the listed namespaces are out of scope and remain UNKNOWN unless separately evidenced."
+  }
+}

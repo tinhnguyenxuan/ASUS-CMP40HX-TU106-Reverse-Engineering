@@ -1,0 +1,69 @@
+{
+  "schema": "phase21-rom-rescan-v1",
+  "generated_utc": "2026-11-04T13:38:42.843437+00:00",
+  "scope": "all /tmp and workspace *.rom files sized 1,000,000–1,100,000 bytes",
+  "file_count": 26,
+  "unique_hash_count": 15,
+  "previous_inventory_unique_hash_count": 16,
+  "new_hashes": [],
+  "classification": "NO_NEW_HASHES",
+  "note": "All observed hashes are already represented in the retained ROM inventory; this does not establish independent provenance or physical display capability.",
+  "hashes": {
+    "09acb1cda57f6483c7a743634538d2b4f5f9766bbb9047abda8ad6a8a537b650": [
+      "/tmp/t3.rom",
+      "/tmp/t2.rom",
+      "/tmp/repro_1093.rom"
+    ],
+    "263a6d902e85abb8b615cb0947a62fddc247917572ebe8df4fdccecf6af6e9c3": [
+      "/tmp/t_gpc.rom"
+    ],
+    "2784db8badd37f93ecfb48b848516f42b5bc084699fa1a26db5010c7c352d421": [
+      "/tmp/V5.rom"
+    ],
+    "2d48f5ce364da49347befdf63c50fbbf91c7e7a4cfb822d3c0fabc26b09a8172": [
+      "/tmp/V1.rom",
+      "/tmp/V2.rom"
+    ],
+    "368df73294336a14dc39011cbdb973fa881ba37165f4fc6f6e06445c6c5cecbc": [
+      "/tmp/edit1.rom"
+    ],
+    "41d961f30dea60968a98fda0424f7b5a6049fd79e9ffcb248e9f9b29e47adcd0": [
+      "/tmp/F.rom",
+      "/tmp/E.rom"
+    ],
+    "612eaa72cc1ed8e83c53eb7aa1fb6e0edb1d6afc47201953f0272efd9d6bc435": [
+      "/tmp/t.rom",
+      "/tmp/t_clk.rom"
+    ],
+    "75eb9c0e7ca06716d60da23a8760ecffbd392c91bd956ede691a7b5b857a557f": [
+      "/tmp/base_edit.rom"
+    ],
+    "99813f1c67125d76e684838a41d00d3c67e2e23fb37256f5bab495d32f3b3bde": [
+      "/tmp/GF_60.rom",
+      "/tmp/GF_125.rom"
+    ],
+    "add5fb175445745f2787ef8b38a8f1d182f601e9fb08dab76f9ee24c00de881a": [
+      "/tmp/A.rom"
+    ],
+    "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78": [
+      "/tmp/BS150.rom",
+      "/tmp/BS100.rom",
+      "/tmp/BS125_125.rom",
+      "/tmp/BS50.rom",
+      "/tmp/B3_offset200_only.bin.rom"
+    ],
+    "bdf44cb8fb9f8e629f9fbdf29e102108fd86ba83fb0ac4eb49d86ea176f2a761": [
+      "/tmp/V4.rom",
+      "/tmp/V3.rom"
+    ],
+    "c32601bdda8e19ef0c27c76eaee9e578cb383c1c71e38b48d050b4ba75091ed0": [
+      "/tmp/B2_power270_only.bin.rom"
+    ],
+    "cf325d85817fff274a5473cab717a518f939f82a9f79b43b34dd6578c421e9c9": [
+      "/tmp/B1_fan4k_only.bin.rom"
+    ],
+    "d4fa7c93a5bbbc86848b34bc7f2b6271dc0bff83d94eadb4c43e38cc77e11f3c": [
+      "/tmp/gen3_a.rom"
+    ]
+  }
+}

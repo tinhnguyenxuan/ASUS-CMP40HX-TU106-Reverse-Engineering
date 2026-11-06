@@ -1,0 +1,33 @@
+{
+  "firmware_sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "capstone_version": "5.0.7",
+  "inner_elf_offset": 64,
+  "corrected_loop_va": 83195324,
+  "loop_file_offset": 16086524,
+  "function_candidate_start": 83194684,
+  "table_base_va": 68841648,
+  "table_base_file_offset": 1732848,
+  "entries": 186,
+  "ascii_names": 186,
+  "names_start_after_nul": 185,
+  "xrefs": [
+    {
+      "pc": 82865180,
+      "file_offset": 15756380,
+      "raw": "e7804072",
+      "kind": "indirect_call",
+      "rd": 1,
+      "rs1": 1,
+      "target": 83194684,
+      "encoding": "adjacent_auipc_jalr"
+    },
+    {
+      "pc": 83196208,
+      "file_offset": 16087408,
+      "raw": "6ff0dfc8",
+      "kind": "jump",
+      "target": 83195324,
+      "rd": 0
+    }
+  ]
+}

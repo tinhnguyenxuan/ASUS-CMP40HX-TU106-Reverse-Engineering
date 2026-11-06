@@ -1,0 +1,2 @@
+# Dump cũ và trạng thái hiệu dụng
+Nguồn lịch sử /home/REDACTED_USER/codex-work/CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/04_PHASE15_EXTRACTS/FUSE/fuse2.json; SHA256 0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc; base 0x21000, keys decimal: {'0x524': 0, '0x650': 262175, '0xc1c': 56}. Offset 0x524→0x21524 raw 0; 0x650→0x21650 raw 0x0004001f; 0xc1c→0x21c1c raw 0x38. Không có bitfield TU106 độc lập xác thực: không gọi chúng OPT, DEFECTIVE hay mask TPC. Dump cũ không thay thế thu thập mới. Mask effective chưa đọc; STATUS không mặc định là OTP.

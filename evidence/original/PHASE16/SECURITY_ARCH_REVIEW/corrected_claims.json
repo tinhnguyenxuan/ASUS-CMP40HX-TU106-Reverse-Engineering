@@ -1,0 +1,191 @@
+{
+  "schema": "security_arch_review/v1",
+  "review_dir": "PHASE16/SECURITY_ARCH_REVIEW",
+  "prior_artifacts_not_overwritten": true,
+  "inputs_audited": {
+    "audit_prior_claims.json": {
+      "path": "work_v15/PHASE16/SECURITY_ARCH/audit_prior_claims.json",
+      "sha256": "ba8723d138d663043e1fdf35743b609be79558e82f0ec46af1735f5101d5d420"
+    },
+    "assertions.log": {
+      "path": "work_v15/PHASE16/SECURITY_ARCH/assertions.log",
+      "sha256": "5772c1160dc8e431a7b37b379b1fe145872c81395c7691144be4efffc015ab7e"
+    },
+    "security_architecture.md": {
+      "path": "work_v15/SECURITY/security_architecture.md",
+      "sha256": "cd054a0a0eb5669284894729cd57949ca5334c95de5afc9585e6dc9bc7ea34e7"
+    },
+    "security_registers.json": {
+      "path": "work_v15/SECURITY/security_registers.json",
+      "sha256": "a52f335a75b2176c4790f02198fa79faa448b58b1bd7f406f94085e6a9f129f9",
+      "cross_check_recorded_in_memory_pcie_verified": true
+    },
+    "PHASE16/EVIDENCE_LEDGER.md": {
+      "path": "work_v15/PHASE16/EVIDENCE_LEDGER.md",
+      "sha256": "2c7e79d75ffa1890bb4ec6024c982e1fe6edd8348506c85dbca546cbd3160eb2"
+    },
+    "root/EVIDENCE_LEDGER.md": {
+      "path": "work_v15/EVIDENCE_LEDGER.md",
+      "sha256": "fc953c5c6dd0dd6e1c47d9e437416dd1eb4bfe961af37f3e8098b7f2a175a528"
+    },
+    "memory_pcie_verified.json": {
+      "path": "work_v15/PHASE16/MEMORY_PCIE/memory_pcie_verified.json",
+      "sha256": "cc2470730a0c6cdff9d8add0c7bf8d5b057b3c1d4cc315d488899511cbf04f39"
+    },
+    "MEMORY_PCIE_REPORT.md": {
+      "path": "work_v15/PHASE16/MEMORY_PCIE/MEMORY_PCIE_REPORT.md",
+      "sha256": "ac931c72c235a12b6ffe4bb4c1ad1b3b3138182b25d2da753443f801d49044bc"
+    },
+    "fuse_source_coordinator_review.json": {
+      "path": "work_v15/PHASE16/fuse_source_coordinator_review.json",
+      "sha256": "ea62cf75a343ef318af57a11b723452e3c7431c9a79c3184e9ab30d0d714ea3"
+    },
+    "fuse_source_mapping.json": {
+      "path": "work_v15/PHASE16/SECURITY_ARCH/fuse_source_mapping.json",
+      "sha256": "eccc36e513ff5148c69725558676fadae2a9b7454be2e756b120eca617a9e8d6"
+    },
+    "dev_fb.h_tu102_tag_580_95_05": {
+      "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/580.95.05/src/common/inc/swref/published/turing/tu102/dev_fb.h",
+      "defs": [
+        "NV_PFB_PRI_MMU_WPR2_ADDR_LO 0x001FA824 /* RW-4R */",
+        "NV_PFB_PRI_MMU_WPR2_ADDR_LO_VAL 31:4 /* RWEVF */",
+        "NV_PFB_PRI_MMU_WPR2_ADDR_HI 0x001FA828",
+        "NV_PFB_PRI_MMU_WPR2_ADDR_HI_VAL 31:4"
+      ],
+      "field_semantics": "VAL[31:4] in 4 KiB address units",
+      "decode_formula": "(raw & 0xFFFFFFF0) << 8  ==  (raw >> 4) << 12"
+    }
+  },
+  "wpr2_raw_inputs": {
+    "offset_0x1FA824_NV_PFB_PRI_MMU_WPR2_ADDR_LO": "0x01F7E000",
+    "offset_0x1FA828_NV_PFB_PRI_MMU_WPR2_ADDR_HI": "0x01FFEE00",
+    "provenance": "security_registers.json registers_read[], DATA state, read-only BAR0 mmap resource0",
+    "corroboration": "archived dmesg \"WPR=01ffee00:01f7e000\" + mmio_audit.json; accepted E16-007",
+    "dmesg_boot_stage_note": "dmesg_facts.WPR2_lo = 0x1FFFFE00 and boot WPR=0:0x1FFFFE00 are earlier kgspExecuteBooterLoad stage values, not the final MMIO state"
+  },
+  "wpr2_corrected_decode": {
+    "formula": "(raw & 0xFFFFFFF0) << 8",
+    "base_byte_address": "0x1F7E00000",
+    "end_byte_address_exclusive": "0x1FFEE0000",
+    "size_bytes": 135135232,
+    "size_hex": "0x080E0000",
+    "size_MiB": 128.875,
+    "fits_within_8GiB_FB": true,
+    "reconciled_with": ["accepted E16-007", "MEMORY_PCIE_REPORT.md section 8 WPR"],
+    "expected_candidate_match": true
+  },
+  "erroneous_prior_path": {
+    "operation": "raw encoding subtraction",
+    "calculation": "0x01FFEE00 - 0x01F7E000",
+    "result_bytes": 527872,
+    "result_hex": "0x80E00",
+    "result_MiB": 0.50341796875,
+    "reported_as": "0.50 MiB",
+    "verdict": "INVALID - raw encodings are 4 KiB address units, not bytes; field extraction required before subtraction"
+  },
+  "claims_corrected_or_retracted": [
+    {
+      "id": "SEC-WPR-03",
+      "source_file": "work_v15/PHASE16/SECURITY_ARCH/audit_prior_claims.json",
+      "prior_claim": "WPR2 = 0.50 MiB (0x01F7E000..0x01FFEE00), not 457 MiB",
+      "prior_status": "SUPPORTED",
+      "prior_reason": "MMIO LO=0x01F7E000 HI=0x01FFEE00 -> size 0x80E00 = 515.5 KiB ≈ 0.50 MiB. Matches dmesg WPR pair 100%.",
+      "new_status": "RETRACTED",
+      "new_claim": "WPR2 decoded byte range [0x1F7E00000, 0x1FFEE0000), size 0x080E0000 = 135,135,232 bytes = 128.875 MiB. The quoted raw range 0x01F7E000..0x01FFEE00 are MMIO encodings, not byte addresses.",
+      "new_reason": "Source field VAL[31:4] in 4 KiB units; decode (raw & 0xFFFFFFF0) << 8. Raw-encoding subtraction is invalid.",
+      "source_ref": "dev_fb.h tu102 tag 580.95.05 NV_PFB_PRI_MMU_WPR2_ADDR_LO/HI_VAL 31:4; security_registers.json; dmesg WPR=01ffee00:01f7e000"
+    },
+    {
+      "id": "SEC-ARCH-6.1-reserved-commentary",
+      "source_file": "work_v15/SECURITY/security_architecture.md section 6.1",
+      "prior_claim": "WPR2 0.5 MiB is negligible vs NVML Reserved 389 MiB, so 388.5 MiB remains an unresolved carveout (U-MEM-001 still open)",
+      "prior_status": "SUPPORTED (via WPR2=0.50 MiB)",
+      "new_status": "PARTIALLY RETRACTED",
+      "new_claim": "NVML Total 8192 / Reserved 389 / Used 0 / Free 7804 MiB (delta 1 MiB unexplained) is preserved. The inference 'WPR2 negligible vs Reserved' is retracted: WPR2 = 128.875 MiB, not 0.5 MiB. Overlap between WPR2 and NVML Reserved 389 MiB = UNKNOWN (per memory report rule: no default subtraction).",
+      "source_ref": "MEMORY_PCIE_REPORT.md section 8 rule_applied; memory_pcie_verified.json vram"
+    },
+    {
+      "id": "SEC-SB-02",
+      "source_file": "work_v15/PHASE16/SECURITY_ARCH/audit_prior_claims.json",
+      "prior_claim": "GPU firmware is signed and signature is restored in-place",
+      "prior_status": "MEASURED",
+      "new_status": "MEASURED (log statements) + UNVERIFIED (cryptographic validity)",
+      "new_reason": "dmesg logs _kgspCreateSignatureMemdesc 'signed fullspeed...' and kgspCmp40RebuildStockSignature 'restored stock signature in-place' are MEASURED as log content. cmp40_booter_load_610.h SIG_DBG/SIG_PROD is source metadata only. No independent cryptographic verification performed; signature validity NOT claimed from metadata or logs.",
+      "source_ref": "security_registers.json boot_log lines; cmp40_booter_load_610.h source archive 610.57.04"
+    }
+  ],
+  "claims_preserved": [
+    {
+      "id": "dev_fuse_register_definitions",
+      "claim": "dev_fuse.h tu102 defines exactly 2 registers: NV_FUSE_OPT_NVDEC_DISABLE at 0x21378 (bits 2:0, INIT=0) and NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS at 0x2174C (bit 0, NO=0/YES=1)",
+      "status": "PRESERVED",
+      "source_ref": "dev_fuse.h tu102; fuse_source_mapping.json; audit_prior_claims.json SEC-FUSE-01/02"
+    },
+    {
+      "id": "WPR2_registers_exist_and_match_dmesg",
+      "claim": "NV_PFB_PRI_MMU_WPR2_ADDR_LO=0x1FA824 and WPR2_ADDR_HI=0x1FA828 exist in Turing source; final MMIO values 0x01F7E000/0x01FFEE00 match dmesg WPR=01ffee00:01f7e000 at field level",
+      "status": "PRESERVED",
+      "source_ref": "dev_fb.h tu102; security_registers.json; dmesg"
+    },
+    {
+      "id": "unnamed_MMIO_offsets",
+      "claim": "Offsets 0x1FA800/04/10/14/20/2C/30 have no register name in Turing source -> UNK_*",
+      "status": "PRESERVED",
+      "source_ref": "security_registers.json registers_summary; dev_fb.h tu102 (only 2 WPR registers)"
+    },
+    {
+      "id": "PLM_registers_poison",
+      "claim": "PLM_FECS 0x1FA840, PLM_RESET 0x1FA844, ACR_CMD 0x1FA850, ACR_STATUS 0x1FA854, SEC2_STATUS 0x1FA860 read 0xBADF5040 (poison) via BAR0",
+      "status": "PRESERVED",
+      "source_ref": "security_registers.json registers_read"
+    },
+    {
+      "id": "driver_unsigned",
+      "claim": "Linux nvidia driver module verification failed (taint); Secure Boot off on host",
+      "status": "PRESERVED",
+      "source_ref": "dmesg [3.945834]; security_architecture.md section 5.1"
+    },
+    {
+      "id": "cc_off",
+      "claim": "Confidential Computing off: Total/Used/Free 0 MiB, virtualization mode None",
+      "status": "PRESERVED",
+      "source_ref": "nvidia-smi via security_registers.json dmesg_facts.conf_compute_protected_total"
+    },
+    {
+      "id": "dma_isolation",
+      "claim": "IOMMU group 31 dedicated; DMA mask 47-bit (128 TB); BAR1 64 GiB",
+      "status": "PRESERVED",
+      "source_ref": "security_registers.json dmesg_facts; memory_pcie_verified.json"
+    },
+    {
+      "id": "SEC2_DMEM_zeroed",
+      "claim": "SEC2 DMEM [0x00000000, 0x00010000) 64 KB zeroed after use (FULL_DMEM_ZERO_PASS)",
+      "status": "PRESERVED",
+      "source_ref": "dmesg s_clearCmp40Sec2ExploitDmem"
+    }
+  ],
+  "unknowns_kept": [
+    "WPR2 vs NVML Reserved 389 MiB overlap (memory report rule: no default subtraction)",
+    "Applicability of dmesg WPR2_lo stage value 0x1FFFFE00 vs final MMIO 0x01F7E000/0x01FFEE00",
+    "GPU Secure Boot state (host Secure Boot OFF measured; GPU state unknown)",
+    "Firmware signature cryptographic validity (not independently verified)",
+    "Falcon actual privilege level (PLM registers poison via BAR0)",
+    "0xBADF510C fuse semantics (7 occurrences; not in dev_fuse.h tu102)",
+    "Fuse physical OTP geometry (152 ones sparse; not established)"
+  ],
+  "assertions_analysis": {
+    "runs": [
+      {"run": 1, "result": "FAILURES", "failures": ["NVDEC_DISABLE at 0x21378 line 31", "GSP_DEBUG_DIS at 0x2174C line 26"]},
+      {"run": 2, "result": "ALL PASS", "note": "source re-checked: dev_fuse tu102 defines 2 registers"},
+      {"run": 3, "result": "ALL PASS", "note": "repeat of run 2"}
+    ],
+    "why_semantic_error_was_not_detected": "Assertions checked surface consistency of raw values only: 'WPR2 MMIO LO=0x01f7e000', 'WPR2 MMIO HI=0x01ffee00', 'WPR2 size = 0x80E00', 'WPR2 matches dmesg pair'. Each is true in isolation because the raw register values, their raw difference, and the dmesg text all agree. No assertion applied the source field mapping (VAL[31:4] = 4 KiB address units -> byte decode) because assertions were written against raw MMIO values, not decoded byte addresses. Self-consistency among correct raw inputs cannot detect that the interpretation formula (raw subtraction vs field-extracted subtraction) is semantically wrong. A detecting assertion would be: decode(HI) - decode(LO) == 0x080E0000, or cross-check vs E16-007 base/end. This is a specification/semantics gap, not a data gap."
+  },
+  "reproducible_script": {
+    "path": "PHASE16/SECURITY_ARCH_REVIEW/verify_wpr.py",
+    "log": "PHASE16/SECURITY_ARCH_REVIEW/verify_wpr.log",
+    "command": "python3 verify_wpr.py",
+    "result": "PASS - decoded range matches [0x1F7E00000, 0x1FFEE0000), 0x80E0000 bytes, 128.875 MiB; prior 0.50 MiB confirmed invalid"
+  },
+  "output_directory_isolation": "All outputs written to PHASE16/SECURITY_ARCH_REVIEW/; prior artifacts under work_v15/PHASE16/SECURITY_ARCH/ untouched."
+}

@@ -1,0 +1,87 @@
+{
+ "generated": "2026-11-03 v2",
+ "principle": "uu tien unknown mo ra nhieu hieu biet nhat / rui ro thap nhat",
+ "queue": [
+  {
+   "id": "Q1",
+   "phase": "P3",
+   "task": "Ghidra load gsp_tu10x.bin base 0x4000000, tim hang so 0x41AA418 trong .section_task_rm_elf_text_instance",
+   "why": "diem dut duy nhat: 340 descriptor khong co consumer",
+   "safe": true,
+   "effort": "lon (17 MB RISC-V)",
+   "status": "next"
+  },
+  {
+   "id": "Q2",
+   "phase": "P0",
+   "task": "thu SHA-256 tren MOI cua so truot cua 32 B hash tai fuse 0x0718 va 0x0344",
+   "why": "neu giai duoc -> biet fuse ky cai gi",
+   "safe": true,
+   "effort": "trung binh",
+   "status": "next"
+  },
+  {
+   "id": "Q3",
+   "phase": "P7",
+   "task": "doc LnkCap/LnkSta tu PCI config space day du (khong ghi)",
+   "why": "xac dinh RETRAIN_FAIL 1101 la do root port hay do card",
+   "safe": true,
+   "effort": "nho",
+   "status": "next"
+  },
+  {
+   "id": "Q4",
+   "phase": "P2",
+   "task": "parse FALCON_DATA + NVINIT day du bang parser moi",
+   "why": "con vung chua giai trong VBIOS",
+   "safe": true,
+   "effort": "nho",
+   "status": "next"
+  },
+  {
+   "id": "Q5",
+   "phase": "P0",
+   "task": "tim dump fuse TU106/TU104 khac tren mang de doi chieu 152 word =1",
+   "why": "phan biet OTP cell vs enable flag",
+   "safe": true,
+   "effort": "trung binh",
+   "status": "queued"
+  },
+  {
+   "id": "Q6",
+   "phase": "P5",
+   "task": "doc register PDISP khac trong dev_disp.h de tim display khong BADF",
+   "why": "fuse bao enable nhung MMIO BADF - mau thuan chua giai",
+   "safe": true,
+   "effort": "trung binh",
+   "status": "next"
+  },
+  {
+   "id": "Q7",
+   "phase": "P6",
+   "task": "doc cac register PFB carveout de giai 388.5 MiB",
+   "why": "memory architecture chua ro",
+   "safe": true,
+   "effort": "trung binh",
+   "status": "queued"
+  },
+  {
+   "id": "Q8",
+   "phase": "P4",
+   "task": "so sanh blob[6] va blob[8] o 24 byte khac, doi chieu voi VBIOS version",
+   "why": "co the la version stamp",
+   "safe": true,
+   "effort": "nho",
+   "status": "next"
+  },
+  {
+   "id": "Q9",
+   "phase": "P3",
+   "task": "tim bang descriptor thu 2 chua RMClkVfOverride",
+   "why": "7 ten quan trong khong co trong 60 bang da tim",
+   "safe": true,
+   "effort": "trung binh",
+   "status": "queued"
+  }
+ ]
+}

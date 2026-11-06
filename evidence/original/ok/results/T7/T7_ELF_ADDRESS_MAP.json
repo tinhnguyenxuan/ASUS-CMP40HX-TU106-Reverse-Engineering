@@ -1,0 +1,365 @@
+{
+  "artifact": {
+    "wrapper_path": "gsp_tu10x_615.78.08.bin",
+    "wrapper_sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+    "inner_elf_path": "gsp_tu10x_615.78.08_inner.elf",
+    "inner_elf_sha256": "cd83bb04d32a29c2daee20b58cd8cbbc67849f8e7c122ee9f87994eb4a2cfe85",
+    "inner_elf_extraction": "dd if=gsp_tu10x_615.78.08.bin bs=1 skip=64 count=22901608",
+    "elf_type": "ELF64 EXEC RISC-V soft-float RVC",
+    "entry_point": "0x4009000",
+    "source_on_target": "<REDACTED_LAB_IP>:/lib/firmware/nvidia/615.78.08/gsp_tu10x.bin",
+    "fw_version_string": "615.78.08",
+    "compiler": "NVRISCV GCC 12.2.0-2024.03.01"
+  },
+  "toolchain": {
+    "disassembler": "/usr/lib/llvm-18/bin/llvm-objdump",
+    "triple": "riscv64",
+    "readelf": "/usr/lib/llvm-18/bin/llvm-readelf",
+    "validated_on": ".bootstrap chip-ID dispatch"
+  },
+  "sections": [
+    {
+      "name": ".ga100_data",
+      "vaddr": 67112960,
+      "file_off": 4096,
+      "size": 4464,
+      "flags": "WA"
+    },
+    {
+      "name": ".tu10x_data",
+      "vaddr": 67121152,
+      "file_off": 12288,
+      "size": 4464,
+      "flags": "WA"
+    },
+    {
+      "name": ".ga100_text",
+      "vaddr": 67129344,
+      "file_off": 20480,
+      "size": 5140,
+      "flags": "AX"
+    },
+    {
+      "name": ".tu10x_text",
+      "vaddr": 67137536,
+      "file_off": 28672,
+      "size": 5140,
+      "flags": "AX"
+    },
+    {
+      "name": ".bootstrap",
+      "vaddr": 67145728,
+      "file_off": 36864,
+      "size": 116,
+      "flags": "AX"
+    },
+    {
+      "name": ".gnext_resident_text",
+      "vaddr": 67149824,
+      "file_off": 22884352,
+      "size": 0,
+      "flags": "W"
+    },
+    {
+      "name": ".gh100_resident_text",
+      "vaddr": 67149824,
+      "file_off": 22884352,
+      "size": 0,
+      "flags": "W"
+    },
+    {
+      "name": ".ga10x_resident_text",
+      "vaddr": 67149824,
+      "file_off": 22884352,
+      "size": 0,
+      "flags": "W"
+    },
+    {
+      "name": ".ga100_resident_text",
+      "vaddr": 67149824,
+      "file_off": 40960,
+      "size": 12288,
+      "flags": "WAX"
+    },
+    {
+      "name": ".ga100_resident_data",
+      "vaddr": 67162112,
+      "file_off": 53248,
+      "size": 4096,
+      "flags": "WA"
+    },
+    {
+      "name": ".tu10x_resident_text",
+      "vaddr": 67166208,
+      "file_off": 57344,
+      "size": 12288,
+      "flags": "WAX"
+    },
+    {
+      "name": ".tu10x_resident_data",
+      "vaddr": 67178496,
+      "file_off": 69632,
+      "size": 4096,
+      "flags": "WA"
+    },
+    {
+      "name": ".acl",
+      "vaddr": 67182592,
+      "file_off": 73728,
+      "size": 331,
+      "flags": "WA"
+    },
+    {
+      "name": ".manifest",
+      "vaddr": 67182928,
+      "file_off": 74064,
+      "size": 3760,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_init_stack_instance",
+      "vaddr": 90456064,
+      "file_off": 22876160,
+      "size": 8192,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_rm_stack_instance",
+      "vaddr": 90464256,
+      "file_off": 22884352,
+      "size": 65536,
+      "flags": "WA"
+    },
+    {
+      "name": ".header",
+      "vaddr": 67186688,
+      "file_off": 77824,
+      "size": 16,
+      "flags": "A"
+    },
+    {
+      "name": ".memory_region_init_arguments",
+      "vaddr": 67186704,
+      "file_off": 22884368,
+      "size": 96,
+      "flags": "A"
+    },
+    {
+      "name": ".section_task_init_elf_rodata_instance",
+      "vaddr": 67190784,
+      "file_off": 81920,
+      "size": 4096,
+      "flags": "A"
+    },
+    {
+      "name": ".section_task_init_elf_data_instance",
+      "vaddr": 67194880,
+      "file_off": 86016,
+      "size": 8192,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_init_elf_paged_data_instance",
+      "vaddr": 67203072,
+      "file_off": 94208,
+      "size": 4096,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_init_elf_text_instance",
+      "vaddr": 67207168,
+      "file_off": 98304,
+      "size": 16384,
+      "flags": "AX"
+    },
+    {
+      "name": ".section_task_init_elf_paged_text_instance",
+      "vaddr": 67223552,
+      "file_off": 114688,
+      "size": 4096,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_rm_elf_rodata_instance",
+      "vaddr": 67227648,
+      "file_off": 118784,
+      "size": 1982464,
+      "flags": "A"
+    },
+    {
+      "name": ".section_task_rm_elf_data_instance",
+      "vaddr": 69210112,
+      "file_off": 2101248,
+      "size": 3698688,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_rm_elf_paged_data_instance",
+      "vaddr": 72908800,
+      "file_off": 22884464,
+      "size": 0,
+      "flags": "W"
+    },
+    {
+      "name": ".section_task_rm_elf_text_instance",
+      "vaddr": 72908800,
+      "file_off": 5799936,
+      "size": 17010688,
+      "flags": "AX"
+    },
+    {
+      "name": ".section_task_rm_elf_paged_text_instance",
+      "vaddr": 89919488,
+      "file_off": 22884464,
+      "size": 0,
+      "flags": "W"
+    },
+    {
+      "name": ".section_task_init_dmem_64kb_instance",
+      "vaddr": 89919488,
+      "file_off": 22810624,
+      "size": 65536,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_log_init_buffer_instance",
+      "vaddr": 89985024,
+      "file_off": null,
+      "size": 65536,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_rm_args_buffer_instance",
+      "vaddr": 90050560,
+      "file_off": null,
+      "size": 4096,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_rm_msgq_work_areas_instance",
+      "vaddr": 90054656,
+      "file_off": 22876160,
+      "size": 135168,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_task_rm_memset_buffer_instance",
+      "vaddr": 90189824,
+      "file_off": 22876160,
+      "size": 4096,
+      "flags": "WA"
+    },
+    {
+      "name": ".section_log_rm_buffer_instance",
+      "vaddr": 90193920,
+      "file_off": null,
+      "size": 262144,
+      "flags": "WA"
+    },
+    {
+      "name": ".comment",
+      "vaddr": null,
+      "file_off": 22884464,
+      "size": 86,
+      "flags": "MS"
+    },
+    {
+      "name": ".shstrtab",
+      "vaddr": null,
+      "file_off": 22884550,
+      "size": 957,
+      "flags": ""
+    }
+  ],
+  "key_addresses": {
+    "rm_text": {
+      "base": "0x4588000",
+      "end": "0x55C1000",
+      "size": 17010688,
+      "file_off": "0x588000"
+    },
+    "rm_rodata": {
+      "base": "0x401d000",
+      "end": "0x4201000",
+      "size": 1982464,
+      "file_off": "0x1d000"
+    },
+    "rm_data": {
+      "base": "0x4201000",
+      "end": "0x4588000",
+      "size": 3698688,
+      "file_off": "0x201000"
+    },
+    "gsp_dispatch_table": {
+      "base": "0x405FCB8",
+      "end": "0x4069058",
+      "entries": 1182,
+      "entry_size": 32,
+      "section": ".section_task_rm_elf_rodata_instance"
+    },
+    "a26_record": {
+      "vaddr": "0x40614B8",
+      "index": 192
+    },
+    "a26_handler": {
+      "vaddr": "0x4BC682C",
+      "section": ".section_task_rm_elf_text_instance",
+      "section_offset": "0x63E82C"
+    },
+    "a26_vtable_plus_0x130": {
+      "site": "0x4BC6D64",
+      "load_site": "0x4BC6D54",
+      "insn": "ld a5,0x130(s2)"
+    },
+    "mask_producer_func": {
+      "vaddr": "0x4C853B4",
+      "reads": "lw a1,0x3e0(a2)"
+    },
+    "prior_research_addresses": {
+      "0x04BB6C90": "IN rm_text",
+      "0x04BC63C4": "IN rm_text",
+      "0x04BBDD1C": "IN rm_text"
+    },
+    "t6_retracted_addresses": {
+      "0x01042478": "NOT IN ANY SECTION",
+      "0x01042620": "NOT IN ANY SECTION",
+      "0x01042248": "NOT IN ANY SECTION"
+    }
+  },
+  "dispatch_record_layout": {
+    "size": 32,
+    "fields": [
+      {
+        "off": 0,
+        "type": "u32",
+        "name": "cmdId"
+      },
+      {
+        "off": 4,
+        "type": "u32",
+        "name": "reqSize_bytes"
+      },
+      {
+        "off": 8,
+        "type": "u64",
+        "name": "table_base_const",
+        "observed": "0x040704C8"
+      },
+      {
+        "off": 16,
+        "type": "u64",
+        "name": "handler_fnptr"
+      },
+      {
+        "off": 24,
+        "type": "u32",
+        "name": "flags",
+        "observed_examples": [
+          "0x10080",
+          "0x1C0C0",
+          "0x8000"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+ "file": "outputs/ucodes_tu10x.bin",
+ "size": 8837632,
+ "blobs": [
+  {
+   "idx": 0,
+   "offset": 12032,
+   "offset_hex": "0x00002f00",
+   "size": 122880,
+   "entropy": 3.4807,
+   "nonzero": 0.3725,
+   "text_like": 0.08391927083333334
+  },
+  {
+   "idx": 1,
+   "offset": 134912,
+   "offset_hex": "0x00020f00",
+   "size": 122880,
+   "entropy": 7.9976,
+   "nonzero": 0.9939,
+   "zlib_ratio": 1.0014,
+   "lzma_ratio": 0.9994,
+   "compressible": false,
+   "distinct_bytes": 256,
+   "max_byte_freq": 0.00606,
+   "expected_uniform": 0.00391,
+   "head16": "f09f472255d1909cbfbc4203f329b45d",
+   "head16_repeats_in_blob": 1
+  },
+  {
+   "idx": 2,
+   "offset": 257792,
+   "offset_hex": "0x0003ef00",
+   "size": 122880,
+   "entropy": 7.9978,
+   "nonzero": 0.9942,
+   "zlib_ratio": 1.0014,
+   "lzma_ratio": 0.9994,
+   "compressible": false,
+   "distinct_bytes": 256,
+   "max_byte_freq": 0.00582,
+   "expected_uniform": 0.00391,
+   "head16": "730e154e731616656ba7aeb777322a63",
+   "head16_repeats_in_blob": 1
+  },
+  {
+   "idx": 3,
+   "offset": 380672,
+   "offset_hex": "0x0005cf00",
+   "size": 122880,
+   "entropy": 7.9978,
+   "nonzero": 0.994,
+   "zlib_ratio": 1.0014,
+   "lzma_ratio": 0.9994,
+   "compressible": false,
+   "distinct_bytes": 256,
+   "max_byte_freq": 0.00596,
+   "expected_uniform": 0.00391,
+   "head16": "790985d2c678b51b4702af25d0582444",
+   "head16_repeats_in_blob": 1
+  },
+  {
+   "idx": 4,
+   "offset": 503552,
+   "offset_hex": "0x0007af00",
+   "size": 122880,
+   "entropy": 7.9976,
+   "nonzero": 0.9937,
+   "zlib_ratio": 1.0014,
+   "lzma_ratio": 0.9994,
+   "compressible": false,
+   "distinct_bytes": 256,
+   "max_byte_freq": 0.00632,
+   "expected_uniform": 0.00391,
+   "head16": "6832cc3a12b765ee5aeccdf2b613a5d4",
+   "head16_repeats_in_blob": 1
+  },
+  {
+   "idx": 5,
+   "offset": 626432,
+   "offset_hex": "0x00098f00",
+   "size": 126208,
+   "entropy": 4.9154,
+   "nonzero": 0.5676,
+   "text_like": 0.15163064148073022
+  },
+  {
+   "idx": 6,
+   "offset": 752640,
+   "offset_hex": "0x000b7c00",
+   "size": 125696,
+   "entropy": 4.8978,
+   "nonzero": 0.5652,
+   "text_like": 0.1506094068228106
+  },
+  {
+   "idx": 7,
+   "offset": 878336,
+   "offset_hex": "0x000d6700",
+   "size": 126208,
+   "entropy": 4.9163,
+   "nonzero": 0.5677,
+   "text_like": 0.15161479462474645
+  },
+  {
+   "idx": 8,
+   "offset": 1004544,
+   "offset_hex": "0x000f5400",
+   "size": 125696,
+   "entropy": 4.8979,
+   "nonzero": 0.5652,
+   "text_like": 0.15059349541751527
+  },
+  {
+   "idx": 9,
+   "offset": 1130240,
+   "offset_hex": "0x00113f00",
+   "size": 132096,
+   "entropy": 4.953,
+   "nonzero": 0.5743,
+   "text_like": 0.1592781007751938
+  },
+  {
+   "idx": 10,
+   "offset": 1262336,
+   "offset_hex": "0x00134300",
+   "size": 7575296,
+   "entropy": 7.2614,
+   "nonzero": 0.8307,
+   "text_like": 0.2994902113395965
+  }
+ ],
+ "xor_pairs": [
+  {
+   "a": 0,
+   "b": 1,
+   "size": 122880,
+   "xor_entropy": 7.998,
+   "xor_nonzero": 0.9941
+  },
+  {
+   "a": 0,
+   "b": 2,
+   "size": 122880,
+   "xor_entropy": 7.9976,
+   "xor_nonzero": 0.9939
+  },
+  {
+   "a": 0,
+   "b": 3,
+   "size": 122880,
+   "xor_entropy": 7.9979,
+   "xor_nonzero": 0.9942
+  },
+  {
+   "a": 0,
+   "b": 4,
+   "size": 122880,
+   "xor_entropy": 7.9973,
+   "xor_nonzero": 0.9936
+  },
+  {
+   "a": 1,
+   "b": 2,
+   "size": 122880,
+   "xor_entropy": 7.9978,
+   "xor_nonzero": 0.994
+  },
+  {
+   "a": 1,
+   "b": 3,
+   "size": 122880,
+   "xor_entropy": 7.9978,
+   "xor_nonzero": 0.994
+  },
+  {
+   "a": 1,
+   "b": 4,
+   "size": 122880,
+   "xor_entropy": 7.9977,
+   "xor_nonzero": 0.9937
+  },
+  {
+   "a": 2,
+   "b": 3,
+   "size": 122880,
+   "xor_entropy": 7.998,
+   "xor_nonzero": 0.9939
+  },
+  {
+   "a": 2,
+   "b": 4,
+   "size": 122880,
+   "xor_entropy": 7.998,
+   "xor_nonzero": 0.994
+  },
+  {
+   "a": 3,
+   "b": 4,
+   "size": 122880,
+   "xor_entropy": 7.9978,
+   "xor_nonzero": 0.9942
+  },
+  {
+   "a": 5,
+   "b": 7,
+   "size": 126208,
+   "xor_entropy": 3.8064,
+   "xor_nonzero": 0.4111
+  },
+  {
+   "a": 6,
+   "b": 8,
+   "size": 125696,
+   "xor_entropy": 0.0033,
+   "xor_nonzero": 0.0002
+  }
+ ],
+ "conclusion": {
+  "high_entropy": 4,
+  "compressible": 0,
+  "aes_claim": "KHONG ket luan AES (entropy khong du)"
+ }
+}

@@ -1,0 +1,30 @@
+Hoàn tất. Tómắt kiểm tra (toàn bộ tĩnh, offline, chỉ đọc binary + artifacts cũ; không sửa gì ở `GSP_LOOP_FIELD_PROOF`):
+
+**Các file mới (độc lập) tại** `work_v15/PHASE16/GSP_PATH_FEASIBILITY/`:
+- `gsp_path_feasibility.py` — script tái lập được, tự kiểm tra, EXIT=0
+- `gsp_path_feasibility.json` — bằng chứng có cấu trúc
+- `report.md` — báo cáo chi tiết
+- `run.log`, `input_hashes.json` — log + hash của GSP binary, script, cfg.json, disasm
+
+**Kết quả:**
+
+1. **Dominator tính lại từ edges (không hardcode):** `dom(0x459c6e8, 0x459c6fc) = False` (4 vòng lặp); header có 2 predecessor: `0x459c6e8` (block định nghĩa) và `0x459c7f8` (back-edge).
+
+2. **Đường đi avoids `0x459c6e8` trong COORDINATOR_INTERIM_REVIEW.md** (21 block) — **cấu trúc edge OK** (tất cả 21 edge liên tiếp có trong `cfg.json`, graph trước không lỗi edge trên đường này) nhưng **INFEASIBLE** về phân nhánh:
+   - **C1:** tại `0x459c688` `bne a1,a5` phải **không nhánh** để ở lại đường → `a1 == 0x1f0 = 496`; `a1` đến từ `lw a1, -0x84(s0) @0x459c680` → `MEM(s0-0x84) == 496`.
+   - **C2:** tại `0x459c6e4` `beqz a3` phải **nhánh sang 0x459c810** (tránh def block) → `a3 == 0`; `a3` đến từ `lw a3, -0x84(s0) @0x459c6d8` → `MEM(s0-0x84) == 0`.
+   - Cùng vị trí khung `s0-0x84`; `s0` bất biến (callee-saved,設一次 tại prologue, không ghi trên đường); không có store sicht nào vào `-0x84(s0)` giữa 2 load (quét block `0x459c68c..0x459c6d0`). Hai indirect call can giữa (`0x459c6b0` auipc+jalr → `0x5281930`, exec-range nhưng chưa vào; `0x459c6cc`/`0x459c648` jalr qua con trỏ hàm đối số) — callee chưa vào, không có side-effect summary, nên giả định callee ghi `0` vào slot là chưa có bằng chứng. ⇒ Đường tránh def block **không khả thi** (mâu thuẫn rõ ràng, không phải suy ngán hay so sánh địa chỉ).
+
+3. **Hệ quả:** mọi thăm viếng **khả tính đầu tiên** của header đều qua block định nghĩa `0x459c6e8`:
+   - `s9 = 0x4584790` (`lui @0x459c6e8`, `addi @0x459c6f4`), `s10 = 24` (`@0x459c6f8`), `s8 = 0` (`@0x459c6f0`).
+   - Quét toàn CFG (516 block): **không ghi nào khác** vào `s9/s10/s8`; `s8` chỉ tăng tại `addiw @0x459c7f8` trên back-edge.
+   - Lần thứ k: `s9/s10` tồn tại (callee-saved, gọi không clobber s-reg), `s8 = k` (IV(0,1)).
+
+4. **Phán xét cuối:**
+   - Định nghĩa bảng (`s9/s10`) **giữ trên mọi thăm viếng khả tính** của header (không phải do dominator đồ thị, mà do đường nào tránh qua là không khả tính).
+   - `s8 == 0` chỉ đúng lần thứ 1; `s8 == k` sau đó → claim phổ quát `s8=0` còn lại UNKNOWN.
+   - `flags+16` tại `0x459c70c`: **chứng minh được ở index 0** (raw `00000000` đã verify) — bằng chứng **theo một đường đi cụ thể** (qua `0x459c6e8`), **không phải phổ quát**; index > 0 và các field khác (`actualSize`, `compressedSize`, `pData`, `relOffset`, tải thứ hai qua `s7`) = UNKNOWN.
+
+5. **Sửa lỗi cũ (chỉ ghi chép, không chạm file cũ):** `structured_evidence.json` claim `s9_defined_in_entry_block=true` với entry `0x459c5e0` **sai như viết** — định nghĩa nằm ở block `0x459c6e8`, không phải entry block. Các indirect call trên đường đều được xử lý là callee chưa vào + fallthrough giữ (over-approximation bảo thủ), không phải edge lỗi.
+
+Tất cả xuất ra `GSP_PATH_FEASIBILITY`; outputs cũ dưới `GSP_LOOP_FIELD_PROOF` được giữ nguyên (không sửa).

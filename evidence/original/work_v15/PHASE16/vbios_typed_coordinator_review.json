@@ -1,0 +1,71 @@
+{
+  "input_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+  "raw_checks": [
+    {
+      "slot": 17,
+      "name": "PERF TEST SPEC",
+      "offset": "0x545f2",
+      "version": "0x10",
+      "header_length": 14,
+      "typed_extent_end": "0x54600",
+      "bytes": 14,
+      "extent_in_rom": true
+    },
+    {
+      "slot": 5,
+      "name": "THERMAL DEVICES",
+      "offset": "0x58723",
+      "version": "0x10",
+      "header_length": 4,
+      "typed_extent_end": "0x5875d",
+      "bytes": 58,
+      "extent_in_rom": true,
+      "entry_size": 3,
+      "entry_count": 18,
+      "entry0": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "slot": 20,
+      "name": "THERMAL POLICY",
+      "offset": "0x58679",
+      "version": "0x10",
+      "header_length": 10,
+      "typed_extent_end": "0x58723",
+      "bytes": 170,
+      "extent_in_rom": true,
+      "entry_size": 40,
+      "entry_count": 4,
+      "entry0_mode": 1,
+      "entry0_temps_raw": [
+        2848,
+        2848,
+        2848
+      ]
+    },
+    {
+      "slot": 11,
+      "name": "POWER BUDGET",
+      "offset": "0x57e92",
+      "version": "0x30",
+      "header_length": 44,
+      "typed_extent_end": "0x583e6",
+      "bytes": 1364,
+      "extent_in_rom": true,
+      "entry_size": 66,
+      "entry_count": 20,
+      "cap_entry": 2,
+      "entry0_fields": {
+        "2": 20000,
+        "6": 5001000,
+        "10": 5001000,
+        "18": 1
+      }
+    }
+  ],
+  "accepted_scope": "Source schema and raw offsets/extent checks for these four tables only; header-only slot17 has twelve uninterpreted content bytes. Firmware runtime enforcement and most other tables remain unknown.",
+  "unsupported": "PERFORMANCE version0x60 has no supported field parser in the source used."
+}

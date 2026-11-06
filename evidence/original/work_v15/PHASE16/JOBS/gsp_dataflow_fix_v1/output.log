@@ -1,0 +1,21 @@
+Hoàn tất. Kết quả ngắn gọn:
+
+**GSP_DATAFLOW_FIX** đã tạo tại `/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_DATAFLOW_FIX/` (mới, không chạm live scripts). Chạy EXIT=0, tất cả 12 check tự kiểm tra pass.
+
+**Sửa lỗi dữ liệu dòng:**
+- `mem_size`: `lhu` = 2 byte (trước là 1)
+- `step_sym`: store không ghi `rd` (bits 11:7 là S-immediate), địa chỉ store dùng S immediate
+- Địa chỉ hiệu bộ nhớ lấy từ **trạng thái trước lệnh** trước khi ghi đè `rd` của load
+- Hạt cát `s9`/`s10` chỉ gieo ở block vào hệ (bỏ gieo toàn block chưa chứng minh); không gieo giả định `s7`/`s8`
+- Clobber chiamata: `ra` + caller-saved (`a0-a7`, `t0-t6`) + result reg
+- Lattice phẳng mỗi thanh ghi `{absent, u64, unknown}`, join agree-or-⊤, kết thúc确定: 1612 passes < cap 200000, `status=fixpoint`, không widening, hằng số không bao giờ vòng cuar
+
+**Rãnh buộc known-positive:**
+- `0x459c708 add a4,s9,s2` → `0x459c70c lw a5,0x10(a4)` flags+16, idx 0, raw `00000000` tại VA `0x45847a0`, bytes tại file offset `0x5847e0` khớp (`raw_verified=True`); `0x459c710 andi a5,a5,4`; guard `0x459c714 beqz`; reaching def: `a4` từ `0x459c708`, `s9` từ `0x459c6f4`, `s2` từ `0x459c704`, `s8=0` từ `0x459c6f0`
+- `0x459c71c lw a5,0x10(s2)`: cơ sở `s7` chưa được định nghĩa → **bịt/unresolved**, lưu riêng trong `xref_scan`, **không gộp** vào bảng `0x4584790`, đánh dấu verifier incomplete
+
+**Serializer:** `0x459c648 jalr s2 -> UNRESOLVED(target=null)` (guard `va_to_file(None)` trước `seg_for`), cobertura disasm 3898/3898 lệnh = số lệnh CFG, 2205 VA duy nhất.
+
+**Bảng 0x4584790:** chỉ `flags+16` được chứng thực (1 access); `actualSize`, `compressedSize` (9 lệnh), `pData`, `relOffset` (5 lệnh) có lệnh trưng offset nhưng cơ sở unresolved → không nhận attribuée (không có kết quả 0 access được coi là bằng chứng không dùng). 496 bản ghi, 495 nonzero, 1 zero (rec0 sentinel); riêng biệt so với archive ngoài 38 payload.
+
+Tất cả artifacts trong `GSP_DATAFLOW_FIX/`: `header_consumer_dataflow_fix.py`, `run.log`, `verified.json`, `table_accesses.json`, `records_dump.json`, `disassembly/cfg.json`, `disassembly/extended_disasm.txt`, `report.md` (báo cáo đầy đủ). Không có truy cập phần cứng, ghi thiết bị, khóa, hoặc bypass.

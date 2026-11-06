@@ -1,0 +1,65 @@
+{
+  "utc": "2026-11-04T15:21:47.439232+00:00",
+  "old_sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "new_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+  "rows": [
+    {
+      "label": "worker_prologue",
+      "old_va": "0x4b30030",
+      "length": 32,
+      "old_raw": "130101fc233881022334910223302103233c31012338410113040104233c1102",
+      "new_exact_file_offsets": [
+        "0x5becfc",
+        "0x5ef950",
+        "0x5fd5a8",
+        "0x63f10c",
+        "0x64986c",
+        "0x649974",
+        "0x6af510",
+        "0x6d5a5c",
+        "0x6d5b64",
+        "0x6fccfc",
+        "0x714174",
+        "0x7528e4",
+        "0x85aa20",
+        "0x85ab28",
+        "0x95c170",
+        "0x9c4258",
+        "0x9c4360",
+        "0x9ea56c",
+        "0x9ed7e0",
+        "0x9ed8e8"
+      ],
+      "hit_limit": 20
+    },
+    {
+      "label": "worker_store_cluster",
+      "old_va": "0x4b30120",
+      "length": 32,
+      "old_raw": "3727000063fee70023a6f9326ff05ff92384f9326ff05ff623aaf9326ff01ffb",
+      "new_exact_file_offsets": [
+        "0xb2fcf0"
+      ],
+      "hit_limit": 20
+    },
+    {
+      "label": "consumer_gate",
+      "old_va": "0x4b20f70",
+      "length": 32,
+      "old_raw": "03478708630a0702834775736382070683a7453363940704130510002380a400",
+      "new_exact_file_offsets": [],
+      "hit_limit": 20
+    },
+    {
+      "label": "consumer_output",
+      "old_va": "0x4b20f80",
+      "length": 32,
+      "old_raw": "83a7453363940704130510002380a40083308101033401018334810013050000",
+      "new_exact_file_offsets": [
+        "0xb20b50"
+      ],
+      "hit_limit": 20
+    }
+  ],
+  "boundary": "Exact raw byte search across complete outer ELF; not a function match, VA mapping, relocation analysis or runtime proof; no-hit does not prove semantic change."
+}

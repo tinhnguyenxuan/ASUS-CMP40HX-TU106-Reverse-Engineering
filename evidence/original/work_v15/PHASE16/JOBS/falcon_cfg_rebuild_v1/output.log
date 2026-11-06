@@ -1,0 +1,21 @@
+Hoàn tất. Báo cáo ngắn:
+
+**Job mới (không chạm script cũ):** `/home/REDACTED_USER/codex-work/work_v15/PHASE16/FALCON_CFG_REBUILD/`
+- `falcon_cfg_rebuild.py` — script tái lập (chạy xong, chỉ đọc đầu vào, stdlib + envydis có sẵn, không GPU/phần cứng/khóa/ bypass).
+- `machine.json` — kết quả máy chi tiết (80MB, per-slot blocks/edges/reachability/invalid spans).
+- `FALCON_CFG_REBUILD_REPORT.md` — báo cáo ngắn gọn.
+- `run.log`, `input_hashes.json` — log và hash vì tái lập.
+- `spans/cand_NNNN.bin` — bản sao span chỉ đọc từ container đã xác thực.
+
+**Đã kiểm chứng (tool output thực):**
+- envydis `-d/-l` truyền chuỗi hex rõ ràng (`%x`), sửa lỗi radix của giai đoạn trước.
+- Mọi instruction đã decode: raw bytes khớp đúng bản gốc payload (0 mismatch, cover_full span = True) trước khi dựng CFG.
+- Ngữ nghĩa Falcon: `ret`/`exit` = terminator không fallthrough; `bra <cond>`/`bra $pN imm` = nhảy có điều kiện (target + fallthrough); `bra imm` không điều kiện = target chỉ, không fallthrough; `bra $rN` = nhảy gián tiếp target UNKNOWN; `call $rN` = target UNKNOWN riêng biệt với cạnh return-continuation, không suy từ `$r1`; không thêm fallthrough sau unconditional branch/ret/exit.
+- Block tách khi target đã chứng thực rơi trong vùng đã decode; worklist hữu hạn từ entry ứng viên; mỗi cạnh chưa quyết có lý do.
+
+**Kết quả:**
+- Tất cả 8 slot: entry = **UNKNOWN** (không có crossref/metadata chứng thực entry ứng viên; 0x2A slot 20, 0x16 các slot khác chỉ là điểm neo để duyet CFG có giới hạn, không phải entry thật).
+- Code đạt được từ entry ứng viên: đúng 1 block bootstrap (slot 20: 62 B từ 0x2A; các slot khác: 30–33 B từ 0x16), sau đó chạy vào bytes không decode được, không có cạnh ra. Các block còn lại (hàng nghìn) là vùng linear-sweep không đạt được — **Không tính là code reachable**.
+- Không có mục tiêu nhảy/gọi nào rơi vào bắt đầu instruction hợp lệ nào (tất cả unresolved hoặc UNKNOWN gián tiếp); không đoán engine/vai trò từ số slot hay mật độ.
+
+**Giới hạn:** toàn span đã decode xong (không cửa sổ decode), nhưng CFG bị giới hạn bởi entry chưa chứng thực; target gọi/nhảy gián tiếp không phân tĩnh được; entry và engine/role giữ UNKNOWN.

@@ -1,0 +1,15 @@
+connector,conn_pin,signal,gpu_pin,via_component,via_pin,route_status,notes
+J1,1,IFPD_L0_C,C47,2,J1,1,CAD_ONLY,DP lane 0- ; J1 pin1 -> C47 pin2 (cap)
+J1,1,IFPD_L0,G1,BM18,C47,1,CAD_ONLY,DP lane 0+ ; C47 pin1 -> G1 BM18 (AC-coupled)
+J1,15,IFPD_AUX_C,J1,15,D3,1,C43,2,CAD_ONLY,DP AUX C ; J1 pin15 -> D3 -> C43 -> Q509 pin4 (Q509 multi-pin IC blocker)
+J1,15,IFPD_AUX_R,Q7,3,Q509,1,C43,1,CAD_ONLY,DP AUX R ; Q7 -> C43 -> Q509 pin1 (Q7/Q509 multi-pin IC blockers)
+J1,18,DP_D_HPD_C,J1,18,R720,2,C1293,1,CAD_ONLY,DP HPD C ; J1 pin18 -> R720 -> C1293
+J1,18,DP_D_HPD_R,R720,1,R742,2,C1296,1,CAD_ONLY,DP HPD R ; R720 -> C1296 -> R742 -> Q521 pin1 (Q521 multi-pin IC blocker)
+J1,20,DP_PWR_CD,,,,,,UNKNOWN,DP power ; signal DP_PWR_CD exists, full path not traced
+J5,2,IFPAB_TXD2_C,J5,2,R693,1,C1273,2,CAD_ONLY,DVI lane TXD2- ; J5 pin2 -> C1273 -> R693
+J5,2,IFPA_L0,G1,BG24,C1273,1,R7890,1,CAD_ONLY,DVI lane TXD0+ ; C1273 pin1 -> G1 BG24 (AC-coupled)
+J5,16,IFPA_HPD_C,J5,16,R101,2,C78,1,CAD_ONLY,DVI HPD C ; J5 pin16 -> R101 -> C78
+J5,16,IFPA_HPD_R,R101,1,R97,2,C82,1,CAD_ONLY,DVI HPD R ; R101 -> C82 -> R97 -> (G1 pin pending)
+J5,14,DDC_5V,U502,,,,,UNKNOWN,DVI DDC 5V ; through U502 multi-pin IC, path not traced
+J10,G19,HDMI_C_HPD_C,J10,G19,C1305,1,,CAD_ONLY,HDMI-C HPD ; J10 HDMI-C footprint only (no connector populated)
+J10,,HDMI_E_HPD_C,,,,,,UNKNOWN,HDMI-E HPD ; J10 HDMI-E footprint only (no connector populated)

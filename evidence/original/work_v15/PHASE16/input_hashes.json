@@ -1,0 +1,34 @@
+{
+  "outputs/CMP40HX_ORIGINAL_1MB.bin": {
+    "bytes": 1048576,
+    "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec"
+  },
+  "outputs/cmp40hx_t4.bin": {
+    "bytes": 495616,
+    "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb"
+  },
+  "outputs/gsp_tu10x.bin": {
+    "bytes": 22901632,
+    "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b"
+  },
+  "outputs/ucodes_tu10x.bin": {
+    "bytes": 8837632,
+    "sha256": "6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0"
+  },
+  "RAW_DATA/vbios_shadow.bin": {
+    "bytes": 1048576,
+    "sha256": "2715c0b106931b540b5ef6660201919e9297f3f5cdc61432d9a16352c55b717a"
+  },
+  "FUSE/fuse2.json": {
+    "bytes": 55233,
+    "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+  },
+  "UNKNOWN_DATABASE.json": {
+    "bytes": 23192,
+    "sha256": "600e96943f0c0191faa263e48c30a72f97188a81b8b8fc7c7b8d85472cff4ab0"
+  },
+  "TOOLS/verify_all.py": {
+    "bytes": 18953,
+    "sha256": "7d7aea6cb6625052fa822e9d18edaac4778b02ee39a92bba887672f739a62110"
+  }
+}

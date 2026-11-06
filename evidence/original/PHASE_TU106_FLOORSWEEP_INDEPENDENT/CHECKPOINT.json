@@ -1,0 +1,13 @@
+{
+  "status": "IN_PROGRESS",
+  "complete": false,
+  "created_utc": "2026-11-05T17:39:23.356880+00:00",
+  "live_capture": "COLLECTED_PASSWORD_EXISTING_BATCHMODE_STILL_FAILS",
+  "active_tpc_mask": "MEASURED",
+  "soft_override": "UNKNOWN",
+  "remaining": [
+    "trace TU106 GSP source of floorsweeping mask",
+    "determine source of disable and reconfig semantics"
+  ],
+  "tpc18_origin": "UNKNOWN"
+}

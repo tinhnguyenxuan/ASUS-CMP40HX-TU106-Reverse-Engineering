@@ -1,0 +1,28 @@
+Done. Work is complete and verified, with previous artifacts untouched.
+
+## What changed
+Created a new output directory only — `work_v15/PHASE16/GSP_HEADER_CONSUMER_FOLLOWUP/` — and ran the analysis there. `PHASE16/GSP_HEADER_CONSUMER/` was not modified (mtimes still Nov 3).
+
+## What was verified
+**CFG (cap removed, fixpoint reached)**
+- Removed the 6000-instruction cap; walk drains the worklist → **fixpoint reached** (not capped).
+- Fixed a real defect in the old run: B-type branch immediate sign-extension (e.g. `bltu` at 0x459c7fc loops to 0x459c6fc, not 0x459d6fc). All 340 branch/jal immediates re-verified vs capstone (0 mismatches). Also fixed the `auipc+jalr` resolution (was reading `block[-1]` instead of `block[-2]`, so all calls were "unresolved").
+- Result: 381 blocks, 3898 instructions (all 32-bit in this extent; decoder still honors 2/4-byte RISC-V lengths), span 0x459c5e0..0x459e94c, 1015 edges, 122 mid-block overlaps handled, 0 out-of-bounds branch targets. First sequential ret is not the function end.
+
+**JAL/JALR semantics** — `jal x0` (`j`) followed as direct jump; `jalr x0,0(ra)` = ret; 294 indirect calls recorded as callee boundaries (not entered): 269 resolved via auipc+jalr, 20 unresolved, 5 out-of-exec.
+
+**Table base 0x4584790 (file 0x5847d0), stride 24, count 496**
+- Confirmed field accesses with raw bytes + VA/file + guards:
+  - `flags+16`: `lw a5,0x10(a4)` @0x459c70c, index 0, value 0, guard `beqz a5 @0x459c714` (plus symbolic loop read)
+  - `actualSize+0`: `lw a3,0(a4)` @0x459c8a8, index 0, value 0, guard @0x459c8ac
+  - `pData+8`: `ld a5,8(s4)` @0x459c8e0, index 0, value 0, guard @0x459c8e4
+- rec0 = all-zeros sentinel; recs 1..495 nonzero (e.g. idx1: actualSize=364, compressedSize=177, pData=0x45846d8, flags=0x9).
+- `compressedSize+4` and `relOffset+20`: offset-4/20 loads exist in the CFG but base regs (s2/s3/a0/…) could not be resolved to this table base (bounded symbolic dataflow hit its pass cap), so per the "no assumed semantics" rule they are **not** attributed to this table — enumerated in `table_accesses.json` `xref_scan` (237 field-offset insns).
+
+**Descriptor names / engine mapping: UNKNOWN** — `descriptor_table.json` (base 0x41a70b0) is a different table with no cross-reference to 0x4584790.
+
+## Outputs
+`header_consumer_followup.py` (rerunnable, self-check asserts), `run.log`, `verified.json`, `table_accesses.json`, `records_dump.json`, `report.md`, `disassembly/cfg.json`, `disassembly/extended_disasm.txt`.
+
+## Limits reported honestly
+Symbolic dataflow pass cap hit (some live-in base regs unresolved → compressedSize/relOffset unconfirmed); 20 unresolved indirect calls; 5 out-of-exec indirect targets; indirect calls treated as callee boundaries. No hardware touched.

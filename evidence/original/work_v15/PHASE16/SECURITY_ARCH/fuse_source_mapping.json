@@ -1,0 +1,24 @@
+[
+  {
+    "register": "NV_FUSE_OPT_NVDEC_DISABLE",
+    "absolute_offset": "0x21378",
+    "relative_to_aperture_0x21000": "0x378",
+    "bitfield": "bits 2:0, INIT=0",
+    "source_file": "common/inc/swref/published/turing/tu102/dev_fuse.h",
+    "source_line": 31,
+    "source_hash": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+    "word_value_in_dump": null,
+    "present_in_dump": false
+  },
+  {
+    "register": "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS",
+    "absolute_offset": "0x2174c",
+    "relative_to_aperture_0x21000": "0x74c",
+    "bitfield": "bit 0:0, NO=0 YES=1",
+    "source_file": "common/inc/swref/published/turing/tu102/dev_fuse.h",
+    "source_line": 26,
+    "source_hash": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+    "word_value_in_dump": null,
+    "present_in_dump": true
+  }
+]

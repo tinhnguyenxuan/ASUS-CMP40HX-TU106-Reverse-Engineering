@@ -1,0 +1,25 @@
+Hoàn tất. Tất cả kết quả đã được thực hiện và verify bằng công cụ thực, không chỉ mô tả.
+
+## Thư mục ra đi
+`/home/REDACTED_USER/codex-work/work_v15/PHASE16/SOURCE_RELEASE_PROVENANCE/`
+- `MANIFEST.json` (13 KB, JSON hợp lệ) — manifest máy đọc được
+- `REPORT.md` (7.2 KB, tiếng Việt) — báo cáo ngắn gọn
+- `official_tag_615.78.08/` — 12 tệp bytes chính xác từ tag công khai (không kèm `cmp40_booter_load_610.h` vì vắng mặt ở tag)
+
+## Cái đã verify (thực tế, không đoán)
+- **Không có git** trong `/tmp/nvsrc` (0 `.git`, 2.133 tệp) → không trích dẫn commit cục bộ được.
+- Bản khai cục bộ: `nvUnixVersion.h` = `"615.78.08"`; cả 2 `_out/version.h` = `"615.78.08"`; `nvBldVer.h` = nhánh `r617_07`, changeset `39079891`, bản `rel/gpu_drv/r615/r617_07-228` (có hatsull nội gián với chuỗi Unix `615.78.08`, ghi như thực).
+- **Tag công khai tồn tại**: `NVIDIA/open-gpu-kernel-modules` tag `615.78.08`, commit `1a82fbfda8f321b056eb3568850f9316c5e465c5`.
+- **10/10 header đã so sánh byte-đ.byte MATCH** giữa cục bộ và tag công khai: `bin_data.h`, `bin_data_pvt.h`, `tu102/dev_fb.h`, `dev_fuse.h`, `dev_mmu.h`, `dev_gsp.h`, `ctrl2080fb.h`, `gsp_init_args.h`, `gsp_fw_wpr_meta.h`, `gsp_fw_wpr_meta_v1.h` (hầu hết MIT license).
+- `cmp40_booter_load_610.h` (214 KB, `cb6bdec8...`): **LOCAL_ONLY**, vắng ở tag `615.78.08` và ở `610.57.04`/`615.71.09`/`main`. Bình luận header tự khẳng định từ archive `610.57.04` (SHA256 `619d7b5c...2299be681`) — **không verify độc lập** (không tải archive, ngoài phạm vi). Ghi nhận riêng, tách khỏi header mở chính thống.
+- Trích dẫn cũ `main` và `580.95.05` tồn tại trong tài liệu nhưng **chưa từng verify vs cục bộ** → không dùng làm nguồn xuất hành chính xác; bị thay thế bằng so sánh thẳng tag `615.78.08` ở trên.
+
+## Đánh giá claim
+| claim | kết quả |
+|---|---|
+| Tự khai báo `615.78.08` | Hỗ trợ trực tiếp |
+| Citation `580.95.05` / `main` | Có tồn tại, chưa verify vs cục bộ → không hợp lệ làm nguồn chính xác |
+| Danh tính phiên bản chưa thiết lập | Đã giải quyết: khớp tag công khai `615.78.08` commit `1a82fbfd...` (cho các header đã so sánh) |
+
+## Giới hạn (bản rõ)
+Hash header khớp chỉ chứng minh những tệp đó, **không chứng minh** toàn cây nguồn bằng tag hoặc trùng bản nhị phân; khoảng 2.120 tệp còn lại chưa hash so với tag. Cây nguồn `/tmp/nvsrc` và job `source_release_provenance_v1` (đang giữ trạng thái cũ) không bị động vào; không cài công cụ, không truy cập phần cứng, không thao tác khóa/chữ ký.

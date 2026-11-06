@@ -1,0 +1,11 @@
+Hermes, trực tiếp tiếp tục CMP40HX/TU106. Không /goal/resume/Hermes con. Offline files/source, /usr/bin/python3; không GPU/config/model/binary changes. Output riêng PHASE16/VBIOS_TYPED/, không sửa checkpoint chung.
+
+Job vbios_perf_schema_v1 completed nhưng chỉ NAME_ONLY; chưa đáp ứng yêu cầu decode ít nhất3table theo schema nguồn. Nguồn đã có sẵn /tmp/envytools/nvbios/power.c, bit.c, nvbios.c. Đừng tìm vòng quanh hay dừng ở tên P2_tbls.
+
+Reviewer tìm được hàm ĐỊNH NGHĨA envy_bios_parse_power_unk44 tại power.c dòng1188 (đừng nhầm prototype dòng43). case0x10 chỉ đọc version tại+0 và hlen tại+1, comment không có entries. ROM slot17 file0x545f2 version0x10, hlen14, nên headerend0x54600 trùng đầuslot1. Đây là bằng chứng cụ thể giải thích14generic-overlaps; genericbyte2=70/byte3=183 KHÔNG phải entry_size/count theo parsernguồn.
+
+Làm ngay:
+1. Parse slot17 typed theo sourcefunction, lưu tênfield/version/offset/rawvalue/sourcehash/definitionline. Giữ các byte nội dung chưa biết, không đoán nghĩa. Tính lại typedextent14, đối chiếu tất cả overlap cũ.
+2. Đọc sourcefunction của slot5 THERMAL DEVICES (file0x58723 version0x10), slot20 THERMAL POLICY (file0x58679 version0x10), slot11 POWER BUDGET (file0x57e92 version0x30), slot0 PERFORMANCE (version0x60). Với từngtable, chọn branch version thật; decode field mà source thực đọc cùng index bounds/subrecords. Nếu versionkhônghỗtrợ thì ghi UNSUPPORTED, không dùnggenericheaderđểđápứng3table. Ít nhất slot17 và các schema source hỗ trợ phải được triển khai thật.
+3. Tạo typed_table_verify.py và typed_tables_verified.json, chạytool, lưurun.log. JSON chứa rawheader/entries/fields và mọi byte unknown; sourcefilename/hash/function/line. Báo cáo VBIOS_TYPED_TABLES.md nêu extent/field decoded vs unsupported/unknown và sửa tiền đề14overlaps. Không nói giải mã40table khi chỉ một vài schema cósource.
+4. Validate rawranges/sourceversion trước decode; không chỉ assert constants7/7 rồi gọi semanticsPASS. Không sửa ROM, không tuning. Trả kết quả hữu hạn và paths, không wholeGPU DONE.

@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T13:17:26.908680+00:00",
+  "target": "<REDACTED_LAB_IP>",
+  "route_file": "Iface\tDestination\tGateway \tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT                                                       \n",
+  "dns_gethostbyname": "<REDACTED_LAB_IP>",
+  "socket_result": "PermissionError: [Errno 1] Operation not permitted"
+}

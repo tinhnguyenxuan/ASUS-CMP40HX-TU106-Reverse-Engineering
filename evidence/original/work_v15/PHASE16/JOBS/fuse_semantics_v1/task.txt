@@ -1,0 +1,19 @@
+Bạn là Hermes được người dùng giao trực tiếp reverse engineering toàn diện CMP40HX/TU106; Codex điều phối và review. Không /goal, không --resume, không Hermes con. Workspace /home/REDACTED_USER/codex-work/work_v15. Chỉ phân tích offline file và source có sẵn; không đọc/ghi GPU, không nạp/flash ROM, OTP/MMIO/PCI write, reboot/reload driver, tuning, exploit/bypass hay key brute force. Không đổi model/config, không cài package. Dùng /usr/bin/python3.
+
+Nhiệm vụ FUSE/OTP: thay thống kê thô bằng bản đồ từng word gắn nguồn và unknown. Tránh khẳng định OTP physical/flag chỉ từ pattern.
+
+Inputs: RAW_DATA/fuse2.json, FUSE/fuse2.json, FUSE/fuse_map.json, FUSE/fuse_bitfields.csv, PHASE15/FUSE_SEMANTICS.md, UNKNOWN_DATABASE.json, MMIO/registers_all.json và registers_turing.json. Chỉ output vào PHASE16/FUSE_SOURCE/ để tránh xung đột job firmware đang chạy. KHÔNG sửa global CHECKPOINT/COORDINATION/UNKNOWN_DATABASE hay artifacts fw/GSP.
+
+Public source đầy đủ header có sẵn /tmp/nvsrc/common/inc/swref/published và /tmp/nvsrc/nvidia. Các nguồn bảo tồn ở PHASE16/SOURCES/manifest.json:
+- nvidia_tu102_dev_fuse.h định nghĩa GSP_DEBUG_DIS @0x2174c bit0 và NVDEC_DISABLE @0x21378 bits2:0.
+- nvidia_gm107_dev_fuse.h định nghĩa DISPLAY @0x21c04, DATA_ENABLE=0, không phải1. Đây là Maxwell, KHÔNG tự ápTU106. Header AmpereGA100 dùng aperture0x820c04 cũng DATA_ENABLE=0, cũng KHÔNG tự remapthànhTU106. Bằng chứng từ kiến trúc khác chỉ là đối chiếu, không đủ DECODED.
+- Các bảng cũ đã gán display bit1=enabled mà không có Turing fieldsource; U-FUSE-009 resolved cần đề nghị mởlại nếu không đủ evidence. NVDECfield0 chỉ nghĩa disablefield0, không tự chứng minh engine operational.
+
+Làm ngay, lưu tool/data trước report:
+1. Tạo fuse_source_verify.py (stdlib), tínhinputhash và xác nhận hai dumpJSON có khớp. Chuẩn hóa toàn bộ offsets, requestedspan/dumpedspan/nonpoisonspan, sốword, contiguous/gaps. Rawdump3072word không phải7680bytes; phân biệt extent quan sát với aperture/cellgeometry vật lý. Kiểm tra mâu thuẫn reportspan0x1dff bằng dữliệuthật.
+2. Tạo JSON/CSV cho TẤT CẢ worddump: absoluteaddress, offset, rawvalue, classification dựa poisonsdeclared, candidateerror-pattern riêng (gồm0xbadf510c nếu có), namedregister/field nếu sourceexact/Turingfamily hỗ trợ, bitmask/value, sourcepath+line+hash, applicability, evidencelevel; còn lại UNKNOWN. Đừng gán tên dựa trùng giá trị. Đếm actual dictionary mapping, không copy counts cũ.
+3. Quét header sources tìm tên/addr liên quan0x21000..0x23fff, lọc architecture, tách TU10x-compatible với Maxwell/Ampere/Blackwell reference. Tạo source_evidence.json cho những field thật tìm thấy. GPC/TPC/PDI/strap unknown: tìm nguồn thật hoặc giữUNKNOWN. PDI so archived NVML là archived-corroboration, không phải mớiđọcNVML.
+4. Xem xét unknown U-FUSE-001..013 theo evidence, tạo unknown_proposals.json ghi trạngtháiđềnghị/lýdo/support/contradiction. Không bác bỏ OTPcells vìword1rờirạc; không khẳng định32Bkhôngphảihash chỉ vì không trùng thử nghiệm hữu hạn; không xem BADF là chứngminh physicalblockremoved.
+5. Viết FUSE_OTP_SOURCE_REPORT.md (ngắn, sốcụthể và unknown giữrõ), sourcehash+offsets+lệnhtáilập. Lưustdout/stderr/exitcode fuse_source_verify_run.log. Chạy script thật và kiểm tra đủ mọiword vào output, không chỉ copy báo cáo cũ.
+
+Jobnày tập trung fuse, chưa cần giải mọi unknown của cả GPU. Trả outputfile/counts và các giải mã ngữ nghĩa cónguồn vs unknown. Không sửa dữliệugốc.

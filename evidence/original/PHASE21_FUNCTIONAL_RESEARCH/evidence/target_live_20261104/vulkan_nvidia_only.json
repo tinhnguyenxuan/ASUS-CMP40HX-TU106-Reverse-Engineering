@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T14:48:48.283387+00:00",
+  "command": "VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json VK_LOADER_DEBUG=error,warn python3 - <<'REMOTE'\nimport ctypes as c,json\nclass Info(c.Structure):\n _fields_=[('sType',c.c_uint),('next',c.c_void_p),('flags',c.c_uint),('app',c.c_void_p),('layers',c.c_uint),('layerNames',c.c_void_p),('extensions',c.c_uint),('extensionNames',c.c_void_p)]\nlib=c.CDLL('libvulkan.so.1');info=Info();info.sType=1;instance=c.c_void_p()\nlib.vkCreateInstance.argtypes=[c.POINTER(Info),c.c_void_p,c.POINTER(c.c_void_p)]\nstatus=lib.vkCreateInstance(c.byref(info),None,c.byref(instance));r={'create_result':status}\nif status==0:\n lib.vkEnumeratePhysicalDevices.argtypes=[c.c_void_p,c.POINTER(c.c_uint),c.c_void_p];count=c.c_uint();r['enumerate_result']=lib.vkEnumeratePhysicalDevices(instance,c.byref(count),None);r['device_count']=count.value\n lib.vkDestroyInstance.argtypes=[c.c_void_p,c.c_void_p];lib.vkDestroyInstance(instance,None)\nprint(json.dumps(r))\nREMOTE",
+  "returncode": 0,
+  "stdout": "{\"create_result\": -9}\n",
+  "stderr": "ERROR:             loader_scanned_icd_add: Could not get 'vkCreateInstance' via 'vk_icdGetInstanceProcAddr' for ICD libGLX_nvidia.so.0\nERROR | DRIVER:    vkCreateInstance: Found no drivers!\n"
+}

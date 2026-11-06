@@ -1,0 +1,36 @@
+{
+ "lspci_vv": "0000:03:00.0 3D controller: NVIDIA Corporation TU106 [CMP 40HX] (rev a1)\n\tSubsystem: ASUSTeK Computer Inc. TU106 [CMP 40HX]\n\tPhysical Slot: 0-1\n\tControl: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx+\n\tStatus: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-\n\tLatency: 0\n\tInterrupt: pin A routed to IRQ 50\n\tNUMA node: 0\n\tIOMMU group: 31\n\tRegion 0: Memory at fa000000 (32-bit, non-prefetchable) [size=16M]\n\tRegion 1: Memory at 381000000000 (64-bit, prefetchable) [size=64G]\n\tRegion 3: Memory at 380800000000 (64-bit, prefetchable) [size=32M]\n\tRegion 5: I/O ports at e000 [size=128]\n\tCapabilities: [60] Power Management version 3\n\t\tFlags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0+,D1-,D2-,D3hot+,D3cold+)\n\t\tStatus: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-\n\tCapabilities: [68] MSI: Enable+ Count=1/1 Maskable- 64bit+\n\t\tAddress: 00000000fee00598  Data: 0000\n\tCapabilities: [78] Express (v2) Endpoint, MSI 00\n\t\tDevCap:\tMaxPayload 256 bytes, PhantFunc 0, Latency L0s unlimited, L1 <64us\n\t\t\tExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ SlotPowerLimit 0W\n\t\tDevCtl:\tCorrErr+ NonFatalErr+ FatalErr+ UnsupReq+\n\t\t\tRlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop- FLReset-\n\t\t\tMaxPayload 256 bytes, MaxReadReq 512 bytes\n\t\tDevSta:\tCorrErr- NonFatalErr- FatalErr- UnsupReq- AuxPwr+ TransPend-\n\t\tLnkCap:\tPort #0, Speed 5GT/s, Width x16, ASPM L0s L1, Exit Latency L0s <512ns, L1 <4us\n\t\t\tClockPM+ Surprise- LLActRep- BwNot- ASPMOptComp+\n\t\tLnkCtl:\tASPM L1 Enabled; RCB 64 bytes, Disabled- CommClk+\n\t\t\tExtSynch- ClockPM+ AutWidDis- BWInt- AutBWInt-\n\t\tLnkSta:\tSpeed 2.5GT/s (downgraded), Width x16\n\t\t\tTrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-\n\t\tDevCap2: Completion Timeout: Range AB, TimeoutDis+ NROPrPrP- LTR-\n\t\t\t 10BitTagComp- 10BitTagReq- OBFF Via message, ExtFmt- EETLPPrefix-\n\t\t\t EmergencyPowerReduction Not Supported, EmergencyPowerReductionInit-\n\t\t\t FRS- TPHComp- ExtTPHComp-\n\t\t\t AtomicOpsCap: 32bit- 64bit- 128bitCAS-\n\t\tDevCtl2: Completion Timeout: 50us to 50ms, TimeoutDis- LTR- 10BitTagReq- OBFF Disabled,\n\t\t\t AtomicOpsCtl: ReqEn-\n\t\tLnkCap2: Supported Link Speeds: 2.5-5GT/s, Crosslink- Retimer- 2Retimers- DRS-\n\t\tLnkCtl2: Target Link Speed: 5GT/s, EnterCompliance- SpeedDis-\n\t\t\t Transmit Margin: Normal Operating Range, EnterModifiedCompliance- ComplianceSOS-\n\t\t\t Compliance Preset/De-emphasis: -6dB de-emphasis, 0dB preshoot\n\t\tLnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete- EqualizationPhase1-\n\t\t\t EqualizationPhase2- EqualizationPhase3- LinkEqualizationRequest-\n\t\t\t Retimer- 2Retimers- CrosslinkRes: unsupported\n\tCapabilities: [100 v1] Virtual Channel\n\t\tCaps:\tLPEVC=0 RefClk=100ns PATEntryBits=1\n\t\tArb:\tFixed- WRR32- WRR64- WRR128-\n\t\tCtrl:\tArbSelect=Fixed\n\t\tStatus:\tInProgress-\n\t\tVC0:\tCaps:\tPATOffset=00 MaxTimeSlots=1 RejSnoopTrans-\n\t\t\tArb:\tFixed- WRR32- WRR64- WRR128- TWRR128- WRR256-\n\t\t\tCtrl:\tEnable+ ID=0 ArbSelect=Fixed TC/VC=01\n\t\t\tStatus:\tNegoPending- InProgress-\n\tCapabilities: [258 v1] L1 PM Substates\n\t\tL1SubCap: PCI-PM_L1.2+ PCI-PM_L1.1+ ASPM_L1.2+ ASPM_L1.1+ L1_PM_Substates+\n\t\t\t  PortCommonModeRestoreTime=255us PortTPowerOnTime=10us\n\t\tL1SubCtl1: PCI-PM_L1.2- PCI-PM_L1.1- ASPM_L1.2- ASPM_L1.1-\n\t\t\t   T_CommonMode=0us LTR1.2_Threshold=0ns\n\t\tL1SubCtl2: T_PwrOn=10us\n\tCapabilities: [128 v1] Power Budgeting <?>\n\tCapabilities: [420 v2] Advanced Error Reporting\n\t\tUESta:\tDLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-\n\t\tUEMsk:\tDLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-\n\t\tUESvrt:\tDLP+ SDES+ TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt- RxOF+ MalfTLP+ ECRC- UnsupReq- ACSViol-\n\t\tCESta:\tRxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr-\n\t\tCEMsk:\tRxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+\n\t\tAERCap:\tFirst Error Pointer: 00, ECRCGenCap- ECRCGenEn- ECRCChkCap- ECRCChkEn-\n\t\t\tMultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-\n\t\tHeaderLog: 00000000 00000000 00000000 00000000\n\tCapabilities: [600 v1] Vendor Specific Information: ID=0001 Rev=1 Len=024 <?>\n\tCapabilities: [900 v1] Null\n\tCapabilities: [bb0 v1] Physical Resizable BAR\n\t\tBAR 0: current size: 16MB, supported: 16MB\n\t\tBAR 1: current size: 64GB, supported: 64MB 128MB 256MB 512MB 1GB 2GB 4GB 8GB 16GB 32GB 64GB 128GB 256GB\n\t\tBAR 3: current size: 32MB, supported: 32MB\n\tKernel driver in use: nvidia\n\tKernel modules: nvidiafb, nouveau, nvidia_drm, nvidia",
+ "misc": [
+  "Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx+",
+  "Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-",
+  "Latency: 0",
+  "Interrupt: pin A routed to IRQ 50",
+  "Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-",
+  "Status:\tInProgress-",
+  "Status:\tNegoPending- InProgress-"
+ ],
+ "regions": [
+  "Region 0: Memory at fa000000 (32-bit, non-prefetchable) [size=16M]",
+  "Region 1: Memory at 381000000000 (64-bit, prefetchable) [size=64G]",
+  "Region 3: Memory at 380800000000 (64-bit, prefetchable) [size=32M]",
+  "Region 5: I/O ports at e000 [size=128]"
+ ],
+ "resource_file": "0x00000000fa000000 0x00000000faffffff 0x0000000000040200\n0x0000381000000000 0x0000381fffffffff 0x000000000014220c\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x0000380800000000 0x0000380801ffffff 0x000000000014220c\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x000000000000e000 0x000000000000e07f 0x0000000000040101\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x0000000000000000 0x0000000000000000 0x0000000000000000\n0x0000000000000000 0x0000000000000000 0x0000000000000000",
+ "config_space_64": "de 10 0b 1f 07 05 10 00 a1 00 02 03 00 00 00 00\n 00 00 00 fa 0c 00 00 00 10 38 00 00 0c 00 00 00\n 08 38 00 00 01 e0 00 00 00 00 00 00 43 10 04 88\n 00 00 00 00 60 00 00 00 00 00 00 00 ff 01 00 00",
+ "current_link_speed": "2.5 GT/s PCIe",
+ "current_link_width": "16",
+ "max_link_speed": "2.5 GT/s PCIe",
+ "max_link_width": "16",
+ "capabilities": [
+  "Physical Slot: 0-1",
+  "DevCap:\tMaxPayload 256 bytes, PhantFunc 0, Latency L0s unlimited, L1 <64us",
+  "LnkCap:\tPort #0, Speed 5GT/s, Width x16, ASPM L0s L1, Exit Latency L0s <512ns, L1 <4us",
+  "LnkCtl:\tASPM L1 Enabled; RCB 64 bytes, Disabled- CommClk+",
+  "LnkSta:\tSpeed 2.5GT/s (downgraded), Width x16",
+  "DevCap2: Completion Timeout: Range AB, TimeoutDis+ NROPrPrP- LTR-",
+  "LnkCap2: Supported Link Speeds: 2.5-5GT/s, Crosslink- Retimer- 2Retimers- DRS-",
+  "LnkCtl2: Target Link Speed: 5GT/s, EnterCompliance- SpeedDis-",
+  "LnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete- EqualizationPhase1-",
+  "Capabilities: [bb0 v1] Physical Resizable BAR"
+ ]
+}

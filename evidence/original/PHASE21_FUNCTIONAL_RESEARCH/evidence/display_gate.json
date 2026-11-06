@@ -1,0 +1,41 @@
+{
+  "inputs": [
+    {
+      "path": "work_v15/PHASE16/SOURCES/nvidia_gm107_dev_fuse.h",
+      "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10"
+    },
+    {
+      "path": "work_v15/RAW_DATA/fuse2.json",
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    }
+  ],
+  "address": "0x21c04",
+  "raw_archived": "0x1",
+  "field": "0:0",
+  "data": 1,
+  "enable_encoding": 0,
+  "evaluated_support": false,
+  "classification": "ARCHIVED_STATUS_GATE_FALSE",
+  "scope": "Source predicate evaluation against saved snapshot, not current target observation or proof of physical OTP",
+  "official_dispatch": {
+    "tag": "615.78.08",
+    "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.78.08/src/nvidia/generated/g_gpu_nvoc.c",
+    "function": "__nvoc_init_funcTable_OBJGPU",
+    "selection": "TU102/TU104/TU106/TU116/TU117 -> gpuFuseSupportsDisplay_GM107",
+    "source_lines": [
+      1941,
+      1943
+    ]
+  },
+  "official_consumer": {
+    "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.78.08/src/nvidia/src/kernel/gpu/arch/maxwell/kern_gpu_gm107.c",
+    "function": "gpuFuseSupportsDisplay_GM107",
+    "predicate": "GPU_FLD_TEST_DRF_DEF on FUSE STATUS_OPT_DISPLAY DATA ENABLE"
+  },
+  "limits": [
+    "Header exact official tag bytes not fetched this turn; local snapshot hash retained",
+    "Archived dump timestamp and firmware state not tied to fresh target capture",
+    "Cannot distinguish physical fuse, shadow, strap-derived or emulated status from one read",
+    "Does not prove head/PHY absence or output routing"
+  ]
+}

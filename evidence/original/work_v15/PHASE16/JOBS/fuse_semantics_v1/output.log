@@ -1,0 +1,12 @@
+Hoàn thành. Tất cả đầu ra nằm trong `PHASE16/FUSE_SOURCE/` (không đọc/ghi GPU, không sửa global CHECKPOINT/COORDINATION/UNKNOWN_DATABASE hay fw/GSP).
+
+**Kết quả chạy script** (`/usr/bin/python3 fuse_source_verify.py`, exit_code=0, tất cả assert tự kiểm tra pass):
+
+1. **Xác nhận dump:** `FUSE/fuse2.json` == `RAW_DATA/fuse2.json` byte-identical (sha256 `0e770041...`).
+2. **Chuẩn hóa:** base `0x21000`, 3072 word (= 12288 B, **không phải 7680 B**), offset `0x0..0x2FFC` contiguous, extent thực `0x3000` B < span khai báo `0x8000` B. **Bác báo span cũ `0x1DFF`**: max offset thật là `0x2FFC`.
+3. **Phân loại 3072 word:** DATA 352 / ZERO 518 / POISON 2202. Poison `0xBADF1300` khai báo nhưng **không xuất hiện** trong dữ liệu. `0xBADF510C` xuất hiện 7 lần trong cửa sổ dữ liệu (`0x178,0x2d4,0x4a8,0x4ac,0x4b0,0x578,0xe08`) — không coi là chứng minh block OTP vật lý bị xóa.
+4. **Register có tên (chỉ áp exact/Turing):** `0x21378` NVDEC_DISABLE=0 (DECODED), `0x2174C` GSP_DEBUG_DIS=1 (DECODED). `0x21C04` DISPLAY chỉ có nguồn Maxwell gm107 (DATA_ENABLE=0, dữ liệu đọc là 1 không nằm enum) → **NOT_APPLICABLE cho TU106**, đề nghị **mở lại U-FUSE-009**. NVDEC=0 không chứng minh engine hoạt động.
+5. **Source evidence 0x21000..0x23fff:** 7 mục, chỉ 2 mục Turing/tu102 áp được TU106; Maxwell/Ampere/Blackwell/NVSwitch là đối chiếu, không đủ DECODED.
+6. **Unknown U-FUSE-001..013:** đủ trạng thái đề nghị/lý do/hỗ trợ/mâu thuẫn, không bác OTP cell do word=1 rời rác, không khẳng định 32B không phải hash do thử hữu hạn.
+
+**Files:** `fuse_source_verify.py`, `fuse_source_verify_run.log` (exit_code=0), `fuse_words.json` (3072), `fuse_words.csv` (3072), `source_evidence.json` (7), `unknown_proposals.json` (13), `FUSE_OTP_SOURCE_REPORT.md`.

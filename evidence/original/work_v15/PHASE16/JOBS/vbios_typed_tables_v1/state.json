@@ -1,0 +1,12 @@
+{
+  "job": "vbios_typed_tables_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:37:59.336748+00:00",
+  "wrapper_pid": 1640031,
+  "task_sha256": "253172a1c55f05ccc64c7dd754682665eda7084343df24b357c9b5d3f2e00a47",
+  "hermes_pid": 1640032,
+  "hermes_start_ticks": "208622522",
+  "heartbeat_at": "2026-11-03T15:44:15.589416+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:44:17.590559+00:00"
+}

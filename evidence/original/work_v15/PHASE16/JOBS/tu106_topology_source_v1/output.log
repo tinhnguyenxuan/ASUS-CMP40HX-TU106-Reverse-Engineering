@@ -1,0 +1,31 @@
+Hoàn tất. Tất cả đầu ra nằm trong thư mục mới, độc lập, không làm thay đổi đầu ra cũ.
+
+## Kết quả (tiết kiệm, không phù phiếm)
+
+**Thư mục làm việc:** `/home/REDACTED_USER/codex-work/PHASE16/TU106_TOPOLOGY_SOURCE/`
+- `t16_topology_source.py` — script stdlib-only, chỉ đọc, không chạm phần cứng, băm toàn bộ nguyên liệu (chạy được, exit 0)
+- `t16_topology_evidence.json` — JSON có cấu trúc (9 input đã băm, 2 giá trị fuse xác minh, 4 cross-check, 5 chưa giải quyết)
+- `TU106_TOPOLOGY_REPORT.md` — báo cáo ngắn gọn (tiếng Việt)
+
+**Cái CHỈ CÓ THỂ CHỨNG ĐƯỢC từ bằng chứng đã lưu:**
+- fuse `base+0x650 = 0x0004001F` (abs `0x021650`, popcount 6) — xác minh lại từ `RAW_DATA/fuse2.json`
+- fuse `base+0xc1c = 0x00000038` (abs `0x021C1C`, popcount 3) — xác minh lại từ `RAW_DATA/fuse2.json`
+
+**Bốn chỉ số topology đều `UNKNOWN` (0/4 được giải mã):**
+
+| Chỉ số | Lời 주장 truy vấn đã lưu (BAO_CAO prose) | Giá trị thanh ghi lưu trữ | Giải mã thực từ bằng chứng đã lưu |
+|--------|------------------------------------------|---------------------------|-----------------------------------|
+| GPC | 3 (gpc_nr 0x00409604=0x08040003) | fuse+0xc1c=0x38 raw | UNKNOWN — không có bitfield định nghĩa 0x38; gpc_nr không có trong MMIO snapshot |
+| TPC | 17 (bản đồ probe TPC_UNIT); 5 trong GPC0 (tpc_nr 0x00502608=0x00040005) | fuse+0x650=0x4001F raw (bits0-4=5) | UNKNOWN |
+| SM | 34 (17×2 == cudaGetDeviceProperties 34, 2176 cores) | log nvidia-smi đã lưu KHÔNG có multiProcessorCount | UNKNOWN |
+| ROP | 64 (suy từ bảng SKU RTX 2070/TU106 full) | không có thanh ghi ROP/L2/MC nào bị dump | UNKNOWN — 0% đo được trên card này |
+
+**Cross-check độc lập:** popcount(0x38)=3 nhất quán với gpc_nr low16=3, và bits0-4 của 0x4001F=5 nhất quán với tpc_nr low16=5 — nhưng hai cặp này **không chia định nghĩa bitfield chung**, nên chỉ là "nhất quán, chưa chứng thực", không phải giải mã.
+
+**Định nghĩa công khai áp dụng TU106:** `dev_fuse.h` (tu102) chỉ định nghĩa 0x21378 (NVDEC_DISABLE, đọc=0) và 0x2174C (GSP_DEBUG_DIS, đọc=1); **không có trường nào tại 0x650/0xc1c**. `dev_top.h`/`dev_gr.h`/`dev_graph.h` không tồn tại cho tu102/tu106 (chỉ có cho các thế hệ khác, không được thay thế). MMIO snapshot chỉ 52 thanh ghi ở trang [0,2,3,8,16,17,20,31,132,182], mẫu 16 byte/trang — không phải quét đầy đủ; gpc_nr/tpc_nr/TPC_UNIT đều không được chạm.
+
+**5 phần tử chưa giải quyết** (mỗi biri kèm capture còn thiếu) được ghi tại mục 7 của báo cáo: giải mã GPC, phân bố TPC, số SM, số ROP, ý nghĩa fuse 0x650/0xc1c.
+
+Kết luận: từ bằng chứng offline đã lưu, **không thể giải mã được gì về topology GPC/TPC/SM/ROP**; chỉ giá trị fuse thô hai địa chỉ là thực sự chứng thực được. Lời 주장 "3 GPC, 17 TPC, 34 SM" chỉ tồn tại trong văn bản trích án BAO_CAO, các địa chỉ nguồn chưa bao giờ dump vào snapshot đã lưu.
+
+Cần gì thêm (ví dụ: dump MMIO 0x00409604/0x00502608, toàn bộ log nvidia-smi có multiProcessorCount) thì nói, em làm tiếp.

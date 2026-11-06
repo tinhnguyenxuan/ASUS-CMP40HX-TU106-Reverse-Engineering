@@ -1,0 +1,28 @@
+{
+  "corrected_saved_page_counts": {
+    "POISON": 3278,
+    "UNINIT_FF": 72,
+    "DATA": 141,
+    "ZERO": 355,
+    "MIXED": 201
+  },
+  "classified_pages": 4047,
+  "expected_pages_16MiB": 4096,
+  "unclassified_pages": 49,
+  "poison_fraction_of_classified_pages": 0.8099827032369656,
+  "poison_fraction_of_all_4096_pages": 0.80029296875,
+  "correction_method": "arithmetic over historical summary; no new hardware read",
+  "wpr_raw_lo": 33021952,
+  "wpr_raw_hi": 33549824,
+  "raw_register_difference": 527872,
+  "wpr_decoded_lo": 8453619712,
+  "wpr_decoded_hi": 8588754944,
+  "wpr_decoded_bound_difference_bytes": 135135232,
+  "wpr_decoded_bound_difference_mib": 128.875,
+  "wpr_sources": [
+    "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/580.95.05/src/common/inc/swref/published/turing/tu102/dev_fb.h",
+    "https://raw.githubusercontent.com/torvalds/linux/master/drivers/gpu/nova-core/fb/regs.rs"
+  ],
+  "wpr_interpretation": "VAL[31:4]<<12. Linux Nova treats HI as exclusive; decoded bound difference is 128.875 MiB. Physical allocation and overlap with NVML Reserved are not established.",
+  "display_poison_implication": "Does not distinguish removed hardware, decode mapping, privilege filtering, or gating."
+}

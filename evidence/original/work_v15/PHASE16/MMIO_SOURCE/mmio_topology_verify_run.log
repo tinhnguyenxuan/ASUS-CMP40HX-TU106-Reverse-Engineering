@@ -1,0 +1,14 @@
+MMIO_TOPOLOGY_VERIFY OK
+inputs_hashed: 10
+headers_used: 37
+registers dumped=52 source_matched_tu102=52 unknown=0
+register_field_csv_rows=78
+wpr2 LO raw=0x01F7E000 field=0x001F7E00 decoded=0x01F7E00000
+wpr2 HI raw=0x01FFEE00 field=0x001FFEE0 decoded=0x01FFEE0000
+wpr2 bound_diff_bytes=135135232 mib=128.875
+pages total=4096 counts={'MIXED': 201, 'POISON': 3278, 'UNCLASSIFIED': 49, 'UNINIT_FF': 72, 'ZERO': 355, 'DATA': 141} unclassified=49
+topology gpc/tpc/sm/rop: UNKNOWN; l2 source registers listed=4
+outputs: /home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_SOURCE/mmio_topology_verified.json
+outputs: /home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_SOURCE/register_fields.csv
+outputs: /home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_SOURCE/page_inventory.csv
+EXIT=0

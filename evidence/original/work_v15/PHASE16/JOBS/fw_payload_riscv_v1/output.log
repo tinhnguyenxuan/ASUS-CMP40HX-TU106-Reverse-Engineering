@@ -1,0 +1,17 @@
+Hoàn tất. Tất cả outputs mới ở `/home/REDACTED_USER/codex-work/work_v15/PHASE16/FW_PAYLOAD_RISCV/`; outputs cũ của `FW_PAYLOAD_ISA/` giữ nguyên, chỉ đọc.
+
+**Sửa sai số khóa:** `payload_isa_verified.json` có `capstone_available=true` là **đúng**; lời khai trong `FW_PAYLOAD_ISA_REPORT.md` về "Capstone unavailable" là **sai**. Thực tế: `/usr/bin/python3` (3.12.3) có capstone 5.0.7, và probe `CS_ARCH_RISCV | CS_MODE_RISCV64 | CS_MODE_RISCVC` chạy được (mv, c.addi4spn, jalr, c.fld...). RISC-V đã bị disassemble thực trên cả 38 span.
+
+**Kết quả trên 38 external payload:**
+
+| ISA/vai trò | Slots | Cơ sở |
+|---|---|---|
+| Falcon code (medium) | 20 (+0x24), 493/487/490 (+0x10), 150/156 (+0x10), 481/484 (+0x10) | envydis -m falcon: prefix 10-17 lệnh, mật độ 0.34-0.39, dấu hiệu thanh ghi đặc quyền `$xcbase`/`$xtargets` |
+| RISC-V code | — | Không span nào đạt ngưỡng chứng minh (prefix ≥10, mật độ ≥0.70, nhánh điều khiển hợp lệ). RISC-V_decode hiện được nhưng đều mảnh, không có luồng điều khiển |
+| UNKNOWN | 21-24, 32-37, 151-154, 449, 452, 453, 456, 459-461, 464-470, 473, 474, 477, 478 | Cấu trúc nguồn bị chụp hết: RM_RISCV_UCODE_DESC@0 version=0 (ngoài tập 1-5), RM_FLCN_BL_IMG_HEADER@0 범 offset/size vượt biên; entropy ≈8 bị từ chối là code, **không kết luận mã hóa** |
+
+**Slots 32-37:** headers dạng bảng offset (`00000000 28000000 ...`; slot 37 có `32000000`), version=0 → từ chối là `RM_RISCV_UCODE_DESC` theo source, không decode được mã RISC-V → UNKNOWN, giữ bằng chứng header/bảng.
+
+**Slots 150-156:** 150 và 156 là `d0005e00...` Falcon (được công nhận mới); 151-154 entropy ≈8 → UNKNOWN.
+
+**Files:** `payload_riscv_analyze.py` (lệnh chạy lại: `/usr/bin/python3 payload_riscv_analyze.py`, cwd `PHASE16/FW_PAYLOAD_RISCV`), `payload_riscv_verified.json` (raw JSON đầy đủ per-payload), `FW_PAYLOAD_RISCV_REPORT.md`, `run.log`, `work/`. Không cài tool, không GPU, không key, không bypass, không chọn entry theo longest prefixalone.

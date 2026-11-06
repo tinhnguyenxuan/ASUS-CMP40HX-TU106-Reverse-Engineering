@@ -1,0 +1,8 @@
+source_archive,archive_sha256,archive_bytes,source_file_entries,present_before_v4,duplicate_within_v4_batch,new_content
+cmp40hx_research_v2.tar (1).gz,10ed87e65162f476642a2a31d5196cd83d64db0d1658442572fe1e5e3aea9c36,1303637,72,72,0,0
+cmp40hx_research_v3.tar (1).gz,5b3954dde50cb5920dfcd3bb861272d823d590a3388af035001637ec2a9f41bf,1326567,86,86,0,0
+cmp40hx_research_v4.tar.gz,421a0aa0884b830a76d28a48bd9eef1d79bd9ad84302a974ca3f71c564c95571,1371644,97,90,0,7
+cmp40hx_research_v5.tar.gz,b1e864aa92c27e49db09cbb3fbbb76a9bd602858e756a039211231dfd9f777de,1379728,100,94,2,4
+cmp40hx_research_v6.tar.gz,ee10e998c631ac55ffa3aca5bbcab1a339294e9202d7bb5d9915b367f5fe0cf7,2041289,114,114,0,0
+cmp40hx_research_v7_final.tar.gz,2dfa60a9c4568133aa96cafb41d8675a134e5265795d09c725294f098d602492,18754445,120,120,0,0
+cmp40hx_research.tar (1).gz,3ce87cf1bd4b65d0d68e586f2adf5c393e39bae10feca98ddfac5d8488ab2421,1122485,29,29,0,0

@@ -1,0 +1,42 @@
+falcon_payload_deep.py run log
+command: cd PHASE16/FALCON_PAYLOAD_DEEP && /usr/bin/python3 falcon_payload_deep.py  (cwd: work_v15)
+input: /home/REDACTED_USER/codex-work/work_v15/outputs/ucodes_tu10x.bin size=8837632 sha256=6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0
+envydis: /tmp/envytools/build/envydis/envydis sha256=5aa83772ac1ea3e3eb5b63ffef1b3890e6cd41086cbffa9c2cfff542b6de103a
+
+Per-byte accounting: valid_insn_bytes + gap_bytes == size for every candidate.
+
+slot=20   off=0x00002F00 size=122880 sha_ok=True ent=3.4807 regions=4518 gaps=92750 gap_bytes=103056 valid_insn_bytes=19824 code_cov=0.1613 primary=0x00002A prior_entry=0x24
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x00002A, 0x00006C, 0x00007C, 0x000094, 0x0000A1, 0x00844D, 0x008895, 0x00BE29, 0x00BEAF
+   region_stats: count=4518 total_bytes=19824 min=2 max=75 median=3 <8B=4088 <16B=4441
+   non_zero_gaps=19497 largest_gap=4
+slot=150  off=0x00161100 size=571136 sha_ok=True ent=4.8686 regions=33232 gaps=363152 gap_bytes=411628 valid_insn_bytes=159508 code_cov=0.2793 primary=0x000016 prior_entry=0x10
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x000016, 0x000038, 0x000094, 0x0000B3, 0x0000BF, 0x0000DB, 0x0000E8, 0x001009, 0x001031, 0x0010B0, 0x0010BD, 0x0010DA
+   region_stats: count=33232 total_bytes=159508 min=2 max=95 median=3 <8B=28819 <16B=32445
+   non_zero_gaps=122874 largest_gap=4
+   ESCAPE @0x0018E6 bra b 0xffffffffffffb862 raw=f5087c9f detail=abs=0xFFFFFFFFFFFFB862 rel_eff=0x-2EB8
+slot=156  off=0x0041A400 size=539136 sha_ok=True ent=4.8136 regions=30799 gaps=346802 gap_bytes=389551 valid_insn_bytes=149585 code_cov=0.2775 primary=0x000016 prior_entry=0x10
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x000016, 0x000038, 0x000094, 0x0000B3, 0x0000BF, 0x0000DB, 0x0000E8, 0x000FC5, 0x000FF9, 0x001075, 0x001082, 0x00109F
+   region_stats: count=30799 total_bytes=149585 min=2 max=154 median=3 <8B=26586 <16B=30020
+   non_zero_gaps=116133 largest_gap=4
+   ESCAPE @0x00187E bra b 0xffffffffffffb7fa raw=f5087c9f detail=abs=0xFFFFFFFFFFFFB7FA rel_eff=0x-2F88
+slot=481  off=0x007D2800 size=143360 sha_ok=True ent=4.1983 regions=5494 gaps=105079 gap_bytes=119803 valid_insn_bytes=23557 code_cov=0.1643 primary=0x000016 prior_entry=0x10
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x000016, 0x00003B, 0x000092, 0x0000A8, 0x0000C8, 0x000120, 0x000136, 0x000152, 0x00015F, 0x00167B, 0x0016B6, 0x001730
+   region_stats: count=5494 total_bytes=23557 min=2 max=51 median=3 <8B=5036 <16B=5432
+   non_zero_gaps=23504 largest_gap=4
+slot=484  off=0x007F5800 size=157440 sha_ok=True ent=4.5950 regions=6625 gaps=111258 gap_bytes=129192 valid_insn_bytes=28248 code_cov=0.1794 primary=0x000016 prior_entry=0x10
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x000016, 0x00003B, 0x000092, 0x0000A8, 0x0000C8, 0x000120, 0x000136, 0x000152, 0x00015F, 0x001C7B, 0x001CB6, 0x001D30
+   region_stats: count=6625 total_bytes=28248 min=2 max=47 median=3 <8B=6083 <16B=6555
+   non_zero_gaps=28983 largest_gap=4
+slot=487  off=0x0081BF00 size=147712 sha_ok=True ent=2.7862 regions=3835 gaps=122683 gap_bytes=130848 valid_insn_bytes=16864 code_cov=0.1142 primary=0x000016 prior_entry=0x10
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x000016, 0x00003B, 0x000092, 0x0000A8, 0x0000C8, 0x000120, 0x000136, 0x000152, 0x00015F, 0x00137B, 0x0013B6, 0x001430
+   region_stats: count=3835 total_bytes=16864 min=2 max=47 median=3 <8B=3478 <16B=3771
+   non_zero_gaps=15261 largest_gap=4
+slot=490  off=0x00840000 size=124160 sha_ok=True ent=3.7980 regions=4322 gaps=94636 gap_bytes=105698 valid_insn_bytes=18462 code_cov=0.1487 primary=0x000016 prior_entry=0x10
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x000016, 0x00003B, 0x000098, 0x0000C8, 0x000120, 0x000136, 0x000152, 0x00015F, 0x000F7B, 0x000FB6, 0x001030, 0x00103D
+   region_stats: count=4322 total_bytes=18462 min=2 max=47 median=3 <8B=3963 <16B=4268
+   non_zero_gaps=18214 largest_gap=4
+slot=493  off=0x0085E500 size=62720 sha_ok=True ent=2.4236 regions=1673 gaps=52561 gap_bytes=54979 valid_insn_bytes=7741 code_cov=0.1234 primary=0x000016 prior_entry=0x10
+   primary basis=first region writing Falcon $xcbase (bring-up core) entry_points=0x000016, 0x00003B, 0x000098, 0x0000C8, 0x0000EC, 0x000120, 0x000136, 0x000152, 0x00015F, 0x000F16, 0x000F47, 0x000FBB
+   region_stats: count=1673 total_bytes=7741 min=2 max=34 median=3 <8B=1475 <16B=1631
+   non_zero_gaps=5947 largest_gap=4
+   ESCAPE @0x0017CF bra b 0xffffffffffffb74b raw=f5087c9f detail=abs=0xFFFFFFFFFFFFB74B rel_eff=0x-30E6

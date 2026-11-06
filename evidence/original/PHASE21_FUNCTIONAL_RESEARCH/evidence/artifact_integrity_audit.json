@@ -1,0 +1,946 @@
+{
+  "schema": "phase21-artifact-integrity-v1",
+  "generated_utc": "2026-11-04T14:16:27.052528+00:00",
+  "scope": "explicit local references in core reports plus machine-readable matrix/blocker paths",
+  "report_reference_audit": {
+    "PHASE21_STATUS_REPORT.md": {
+      "references": [
+        {
+          "reference": "evidence/local_inventory_2026-11-04.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_inventory_2026-11-04.json",
+          "exists": true,
+          "sha256": "0eb199c375a01dc0965a196a1b8f2e3641efefc1f1c9944cbe19874fbfe8d14c",
+          "size": 596
+        },
+        {
+          "reference": "evidence/local_inventory_2026-11-04_rerun.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_inventory_2026-11-04_rerun.json",
+          "exists": true,
+          "sha256": "984b2623a1643336dd4c201cc57db01802f14251ab146372ca3bbadf680860b8",
+          "size": 596
+        }
+      ],
+      "missing": []
+    },
+    "PHASE21_CURRENT_STATE.md": {
+      "references": [
+        {
+          "reference": "verify_target_package.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/verify_target_package.py",
+          "exists": true,
+          "sha256": "f6a18fa19aed0b469a845c5a10f494411b10c9c70a4005ba609832568c0bae35",
+          "size": 1238
+        }
+      ],
+      "missing": []
+    },
+    "REQUIREMENTS_AUDIT.md": {
+      "references": [
+        {
+          "reference": "GSP_NVKV_CALLBACK.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_NVKV_CALLBACK.md",
+          "exists": true,
+          "sha256": "b6bf9a813971b77e735a90a650a6e66afb6e541c54e4947473f8f2d12e5c8fef",
+          "size": 5143
+        },
+        {
+          "reference": "GSP_SYSTEM_INFO_INGESTION.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_SYSTEM_INFO_INGESTION.md",
+          "exists": true,
+          "sha256": "576754e581335c17e4cd0aa3522884c682b4ed8f2ab3a6ac192a396991b57620",
+          "size": 5973
+        },
+        {
+          "reference": "HOST_REGISTRY_PRODUCER.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/HOST_REGISTRY_PRODUCER.md",
+          "exists": true,
+          "sha256": "e193f4f886936b9c1c5ed25eaab3042414b5a5cd7a7771fbd09e479d5403acc9",
+          "size": 5521
+        },
+        {
+          "reference": "TARGET_CAPTURE_CHECKLIST.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/TARGET_CAPTURE_CHECKLIST.md",
+          "exists": true,
+          "sha256": "46ec68ff42b280775f6baed22038a01023b69cbb80584e96e471b5a7838564f6",
+          "size": 3370
+        },
+        {
+          "reference": "evidence/blocker_register.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/blocker_register.json",
+          "exists": true,
+          "sha256": "33739ad19b448d235be47a78e9d46865d605df4ff510a646802823916f7d7ca3",
+          "size": 2670
+        },
+        {
+          "reference": "evidence/requirement_matrix.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/requirement_matrix.json",
+          "exists": true,
+          "sha256": "bcfddbf95d1fca42972eaf7650fcd8728ab17f179e23d702dd9072e3eb10c7f5",
+          "size": 4030
+        },
+        {
+          "reference": "prompt.txt",
+          "path": "prompt.txt",
+          "exists": true,
+          "sha256": "019a5942abd1a7fc2da704e2eee4b80f230ffcc334db0d89e4dbd03bddb68521",
+          "size": 10389
+        }
+      ],
+      "missing": []
+    },
+    "EVIDENCE_LEDGER.md": {
+      "references": [
+        {
+          "reference": "BAO_CAO_PHASE15.md",
+          "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/PHASE15/BAO_CAO_PHASE15.md",
+          "exists": true,
+          "sha256": "aa4fc9e5733b32490f616738799701c9e9a57bdc76ce1995dd0ce70ec8ee2fb6",
+          "size": 9851
+        },
+        {
+          "reference": "BAO_CAO_TONG_HOP_PHASE15_20.md",
+          "path": "BAO_CAO_TONG_HOP_PHASE15_20.md",
+          "exists": true,
+          "sha256": "8b9f3faf2ef14f389c692a7312aeaa55eca301c21a1db53c34348029b6c782fc",
+          "size": 9593
+        },
+        {
+          "reference": "CHECKPOINT.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/CHECKPOINT.json",
+          "exists": true,
+          "sha256": "4d76fbabb8f8fe2137866e6e5225b4a1df73f4ef1ad0ffe47d83f60f335d1a04",
+          "size": 21265
+        },
+        {
+          "reference": "COMPUTE_SELECTOR_EVIDENCE.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/COMPUTE_SELECTOR_EVIDENCE.md",
+          "exists": true,
+          "sha256": "ea62a1b1f1007d9aa5c11ea0ad858c20ae7e08bb15586ecaff476a4f21199ff7",
+          "size": 4206
+        },
+        {
+          "reference": "FUSE_CAPABILITY_MAP.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/FUSE_CAPABILITY_MAP.json",
+          "exists": true,
+          "sha256": "13a38129b4eaee8daffd51aa2989f655ed80df09911bcaa5caac62283d5deded",
+          "size": 1740
+        },
+        {
+          "reference": "GSP_CAPABILITY_GATES.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_CAPABILITY_GATES.md",
+          "exists": true,
+          "sha256": "f00de3603f261ebd863ff2d03fefdc3b1e4666a2e27ff2ea1a2ee4c7093110ce",
+          "size": 5679
+        },
+        {
+          "reference": "GSP_CONFIG_POPULATION.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_CONFIG_POPULATION.md",
+          "exists": true,
+          "sha256": "f83b5f2ef6b4f636dea63f779ec9a48388ec606d7dcd8566794b41085904415d",
+          "size": 4963
+        },
+        {
+          "reference": "GSP_DISPLAY_CONFIG_DATAFLOW.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_DISPLAY_CONFIG_DATAFLOW.md",
+          "exists": true,
+          "sha256": "81d365de1ce129998e2765fd1681a3a5c1d9de95cd6e5a25c68f1e986f3fa331",
+          "size": 5001
+        },
+        {
+          "reference": "GSP_DISPLAY_OBJECT_FIELDS.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_DISPLAY_OBJECT_FIELDS.md",
+          "exists": true,
+          "sha256": "2f951e6f095fafedf1c02c256c9ace7352bc2c06384daf5dfb7b4bba9b1d0ba3",
+          "size": 12117
+        },
+        {
+          "reference": "GSP_NVKV_CALLBACK.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_NVKV_CALLBACK.md",
+          "exists": true,
+          "sha256": "b6bf9a813971b77e735a90a650a6e66afb6e541c54e4947473f8f2d12e5c8fef",
+          "size": 5143
+        },
+        {
+          "reference": "GSP_SYSTEM_INFO_INGESTION.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_SYSTEM_INFO_INGESTION.md",
+          "exists": true,
+          "sha256": "576754e581335c17e4cd0aa3522884c682b4ed8f2ab3a6ac192a396991b57620",
+          "size": 5973
+        },
+        {
+          "reference": "HOST_REGISTRY_PRODUCER.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/HOST_REGISTRY_PRODUCER.md",
+          "exists": true,
+          "sha256": "e193f4f886936b9c1c5ed25eaab3042414b5a5cd7a7771fbd09e479d5403acc9",
+          "size": 5521
+        },
+        {
+          "reference": "PHASE19/FINAL_FINDINGS.md",
+          "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/PHASE19/FINAL_FINDINGS.md",
+          "exists": true,
+          "sha256": "cb5a44d7e91652290375704943dfa66410cd985a77fe178c45830d92cf1b3968",
+          "size": 5921
+        },
+        {
+          "reference": "PHASE20/FINAL_FINDINGS.md",
+          "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/PHASE20/FINAL_FINDINGS.md",
+          "exists": true,
+          "sha256": "4073769c3001dd4e774c20d0b0ba18531ee66bf20140f5b0dac2d7bdee96a522",
+          "size": 4585
+        },
+        {
+          "reference": "PHASE21_CURRENT_STATE.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/PHASE21_CURRENT_STATE.md",
+          "exists": true,
+          "sha256": "7ac6788a530fc74c781afc8c3150bfa0ee93f53cbaaa495e1bf6b88122cf506e",
+          "size": 2519
+        },
+        {
+          "reference": "PHASE21_STATUS_REPORT.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/PHASE21_STATUS_REPORT.md",
+          "exists": true,
+          "sha256": "749c3008455284e2cf9063b6d5b3445906cdc53e39648fd063dc6764ca8ff37a",
+          "size": 4883
+        },
+        {
+          "reference": "RAW_DATA/fuse2.json",
+          "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/RAW_DATA/fuse2.json",
+          "exists": true,
+          "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+          "size": 55233
+        },
+        {
+          "reference": "TOPOLOGY/display_probe.json",
+          "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/TOPOLOGY/display_probe.json",
+          "exists": true,
+          "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+          "size": 22560
+        },
+        {
+          "reference": "TOPOLOGY/silicon_topology.json",
+          "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/TOPOLOGY/silicon_topology.json",
+          "exists": true,
+          "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+          "size": 4694
+        },
+        {
+          "reference": "collect_readonly.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/collect_readonly.py",
+          "exists": true,
+          "sha256": "a858ceb3acd8a32ac46b23fe10608e4725a24dbadacc5d69c94be134b707a495",
+          "size": 2229
+        },
+        {
+          "reference": "display_probe.json",
+          "path": "work_v15/TOPOLOGY/display_probe.json",
+          "exists": true,
+          "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+          "size": 22560
+        },
+        {
+          "reference": "evidence/ampere_comparison_sources.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/ampere_comparison_sources.json",
+          "exists": true,
+          "sha256": "8abe1bbeb380e4f2a45064f28b7ab4974b75d8a73e59d2e5e0ee79d521c8db26",
+          "size": 973
+        },
+        {
+          "reference": "evidence/artifact_integrity_audit.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/artifact_integrity_audit.json",
+          "exists": true,
+          "sha256": "021d7b4680262a681fe58522a0f88b70685e006fda5d30293c7119df52235685",
+          "size": 38903
+        },
+        {
+          "reference": "evidence/blocker_register.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/blocker_register.json",
+          "exists": true,
+          "sha256": "33739ad19b448d235be47a78e9d46865d605df4ff510a646802823916f7d7ca3",
+          "size": 2670
+        },
+        {
+          "reference": "evidence/board_tables.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/board_tables.json",
+          "exists": true,
+          "sha256": "4cd5d3c55bdf6bd6927ff594dcf721a576b7d05c2d5741ef1908c8dcfb145717",
+          "size": 36211
+        },
+        {
+          "reference": "evidence/closure_readiness.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/closure_readiness.json",
+          "exists": true,
+          "sha256": "c1f52f833ce1010f998ebcf1c817034bea36076777f9709e1316ebddd2e1f470",
+          "size": 2470
+        },
+        {
+          "reference": "evidence/dcb.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/dcb.json",
+          "exists": true,
+          "sha256": "5e621d549928f4536a0c1d588dfa9c7d8a2803d09ef82682ab93c5a48aeb5aa3",
+          "size": 3478
+        },
+        {
+          "reference": "evidence/display_334_sites.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/display_334_sites.json",
+          "exists": true,
+          "sha256": "00d6c01d098ac487a2a717129df156169bceecbb86d3acdbe6ffe09d8fb6c142",
+          "size": 2018
+        },
+        {
+          "reference": "evidence/display_790_sites.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/display_790_sites.json",
+          "exists": true,
+          "sha256": "f34ecdfdca7e10a8c39136788e9da2cdb444d9c57c9749513f843e61f096ba25",
+          "size": 840
+        },
+        {
+          "reference": "evidence/display_gate.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/display_gate.json",
+          "exists": true,
+          "sha256": "492e6e8604638d2da1f57e24d6c316c062fef8a8a4e20ec00f5a0bc002f38b69",
+          "size": 1616
+        },
+        {
+          "reference": "evidence/display_object_fields.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/display_object_fields.json",
+          "exists": true,
+          "sha256": "06c360054dbd6c8941fa9d3d24975eaa0761afd07a59defdcded5dad4267998a",
+          "size": 2807
+        },
+        {
+          "reference": "evidence/firmware_capability_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/firmware_capability_inventory.json",
+          "exists": true,
+          "sha256": "9663836b856f2f6f3a8c06a187089da1407f3389325944b921ffd6f694172da5",
+          "size": 41216
+        },
+        {
+          "reference": "evidence/fuse_header_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/fuse_header_inventory.json",
+          "exists": true,
+          "sha256": "22a3a34bbbfa1760375dbc8cdd34e92d164a861ea43e68ed406b44995d609a78",
+          "size": 3162
+        },
+        {
+          "reference": "evidence/gsp_config_helpers.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/gsp_config_helpers.json",
+          "exists": true,
+          "sha256": "4c35f01701f73e752fb3d9f99c3e4f5b925f30996f4953c34dcae8ad3c83fc34",
+          "size": 38610
+        },
+        {
+          "reference": "evidence/gsp_config_population.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/gsp_config_population.json",
+          "exists": true,
+          "sha256": "37438ebc1fccbe7e431a82ff7c705ffe4ac17dc4af068aca17f1c385c195999d",
+          "size": 233682
+        },
+        {
+          "reference": "evidence/gsp_name_xrefs.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/gsp_name_xrefs.json",
+          "exists": true,
+          "sha256": "f49a83a089b2193a6197b8c672e540e0a3a26566eee5f2bcb46b32133fe8b6fd",
+          "size": 218666
+        },
+        {
+          "reference": "evidence/gsp_nvkv_callback.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/gsp_nvkv_callback.json",
+          "exists": true,
+          "sha256": "05364848e7b0ad5ef3ab2873b0aa471534c1ea7dccf6d7afa8dde84fa05fed14",
+          "size": 54968
+        },
+        {
+          "reference": "evidence/hermes_channel_capability.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/hermes_channel_capability.json",
+          "exists": true,
+          "sha256": "b23c80142d4801ff7e976f2aadd3b92523d8ae61da473708ae9626ae6b77119a",
+          "size": 840
+        },
+        {
+          "reference": "evidence/hermes_historical_report_provenance.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/hermes_historical_report_provenance.json",
+          "exists": true,
+          "sha256": "2ad447f46999e0d403f4516d543588b200f17f307ce7128f160939f4907c2868",
+          "size": 964
+        },
+        {
+          "reference": "evidence/hermes_phase19_20_comparison.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/hermes_phase19_20_comparison.json",
+          "exists": true,
+          "sha256": "57f4e0e24996e3ed163aa4a96b42a4c3503f7deec74a7b118dbdbd5aa07b16e3",
+          "size": 1774
+        },
+        {
+          "reference": "evidence/hermes_runtime_artifact_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/hermes_runtime_artifact_inventory.json",
+          "exists": true,
+          "sha256": "a2b08265e6df3ab3df1c85cb7ea37c8668fce829c93881b02fabb16f6a951be9",
+          "size": 1146
+        },
+        {
+          "reference": "evidence/host_display_gate_source_availability.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/host_display_gate_source_availability.json",
+          "exists": true,
+          "sha256": "50313660b4ac30d2c5817d2e6f1e6ed7f636d80a490b4e63a561524ecd799350",
+          "size": 1178
+        },
+        {
+          "reference": "evidence/host_registry_producer.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/host_registry_producer.json",
+          "exists": true,
+          "sha256": "9023b7e29d4ab481359b73f6b5490cf84a1a04a5565eaa64874c60527c18b247",
+          "size": 3288
+        },
+        {
+          "reference": "evidence/init_condition50_trace.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/init_condition50_trace.json",
+          "exists": true,
+          "sha256": "71f15a7ce5f9e8f46e23c229d208e5bcb566f92951fe6fa1d835eb3b5df2897a",
+          "size": 7333
+        },
+        {
+          "reference": "evidence/local_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_inventory.json",
+          "exists": true,
+          "sha256": "a4615263f704735b80851ad1bb722326ce71a55398f1c64aa3be34aa5ace8223",
+          "size": 596
+        },
+        {
+          "reference": "evidence/local_inventory_2026-11-04_141233.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_inventory_2026-11-04_141233.json",
+          "exists": true,
+          "sha256": "e79a883741b597aab608d7a927c191d038d762ab577bada84de6586239a94f88",
+          "size": 797
+        },
+        {
+          "reference": "evidence/local_target_package_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_target_package_inventory.json",
+          "exists": true,
+          "sha256": "0c1a13bcc51db0afa739c576a1d3baa34d896b6b086b5793c4f06df30bdfc6af",
+          "size": 2745
+        },
+        {
+          "reference": "evidence/local_target_package_v5.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_target_package_v5.json",
+          "exists": true,
+          "sha256": "3b51aca274776ae9ca987663fec10ab4acabf4099852972bccd9b6a9589e3f3a",
+          "size": 657
+        },
+        {
+          "reference": "evidence/pcb_evidence_provenance.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/pcb_evidence_provenance.json",
+          "exists": true,
+          "sha256": "d3bf7daa3a5ec0f5a371e467ad599d31dbb5c92f62d658a847fe8b6fd2cd45db",
+          "size": 1733
+        },
+        {
+          "reference": "evidence/raw_data_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/raw_data_inventory.json",
+          "exists": true,
+          "sha256": "694385e9bfa39d6d895f406dfcf1c5b04d8ea72a285450395525557921fa439d",
+          "size": 12540
+        },
+        {
+          "reference": "evidence/requirement_matrix.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/requirement_matrix.json",
+          "exists": true,
+          "sha256": "bcfddbf95d1fca42972eaf7650fcd8728ab17f179e23d702dd9072e3eb10c7f5",
+          "size": 4030
+        },
+        {
+          "reference": "evidence/rom_dcb_all_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_dcb_all_inventory.json",
+          "exists": true,
+          "sha256": "289a2b35fd54f99a053e9db3c2e2b931f774ba58d0a9463a612fb853b1f08689",
+          "size": 29612
+        },
+        {
+          "reference": "evidence/rom_dcb_variant_compare.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_dcb_variant_compare.json",
+          "exists": true,
+          "sha256": "64efcf4342cacd0f0f992e4f99cf957da9831c21e7cba8b3b0d854e559b2734b",
+          "size": 10494
+        },
+        {
+          "reference": "evidence/rom_delta_raw_structure.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_delta_raw_structure.json",
+          "exists": true,
+          "sha256": "1caf040e6f6bbeab0b30194394d5f90e87ca7c9cadd50a34bca6a7a6330e386e",
+          "size": 1051
+        },
+        {
+          "reference": "evidence/rom_delta_semantic_mapping.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_delta_semantic_mapping.json",
+          "exists": true,
+          "sha256": "aa5becba401d7b2cae7883543d8eb45affc6a7a5a733ba51c365f26bfd145a21",
+          "size": 798
+        },
+        {
+          "reference": "evidence/rom_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_inventory.json",
+          "exists": true,
+          "sha256": "c7abc42bfb4b9c30b03ead3c552f4352b04ff0ffa77502f7c48e0fb2010a217c",
+          "size": 6890
+        },
+        {
+          "reference": "evidence/rom_legacy_display_region_compare.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_legacy_display_region_compare.json",
+          "exists": true,
+          "sha256": "d4b905237edb996012e135ff5451812c11356469456801312f6a59106c00ae27",
+          "size": 6379
+        },
+        {
+          "reference": "evidence/rom_rescan_2026-11-04.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_rescan_2026-11-04.json",
+          "exists": true,
+          "sha256": "aaa3b2dbc8edca85f9efdaabb048f96c2963783d3669e6d17fa0e47fb5cd8f8c",
+          "size": 2357
+        },
+        {
+          "reference": "evidence/rom_script_variant_parser.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_script_variant_parser.json",
+          "exists": true,
+          "sha256": "45c4a3924b88bc82560765895b3fecaaddfe3d962f17bdf64a9363b7a0ad4903",
+          "size": 727
+        },
+        {
+          "reference": "evidence/rom_variant_distance.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_variant_distance.json",
+          "exists": true,
+          "sha256": "7b212a350897ec8b218b6bb89a316a74a03f2a94f3d2cf91c51ed92ee72da410",
+          "size": 11794
+        },
+        {
+          "reference": "evidence/saved_runtime_provenance.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/saved_runtime_provenance.json",
+          "exists": true,
+          "sha256": "34888d1bf53abf357a9cbb8ee5292f4b7e20cf5dd9df02df38ad2c9dea73b3de",
+          "size": 1747
+        },
+        {
+          "reference": "evidence/source_semantic_search.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/source_semantic_search.json",
+          "exists": true,
+          "sha256": "83b198cba58c952ba825729d230338f5fb2179da7c4188f1fa9e33d1013239e2",
+          "size": 1232
+        },
+        {
+          "reference": "evidence/sources/manifest.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/manifest.json",
+          "exists": true,
+          "sha256": "5e958e4d6313e423b9f7697c7ea2209ee96439669fc8f213b50c94d8a5353603",
+          "size": 2514
+        },
+        {
+          "reference": "evidence/target_access_capability_rerun.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_access_capability_rerun.json",
+          "exists": true,
+          "sha256": "c384a8d047e88a1b320ab7d82bf2a76439401f2e0374167ab5b160a30c9be371",
+          "size": 350
+        },
+        {
+          "reference": "evidence/vbios_fecs_condition.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/vbios_fecs_condition.json",
+          "exists": true,
+          "sha256": "456f117031af6639d012081ec8aaaeb91c59e9fd871b438f56a33bf173190bf7",
+          "size": 1365
+        },
+        {
+          "reference": "rom_inventory.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_inventory.json",
+          "exists": true,
+          "sha256": "c7abc42bfb4b9c30b03ead3c552f4352b04ff0ffa77502f7c48e0fb2010a217c",
+          "size": 6890
+        },
+        {
+          "reference": "saved_runtime_provenance.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/saved_runtime_provenance.json",
+          "exists": true,
+          "sha256": "34888d1bf53abf357a9cbb8ee5292f4b7e20cf5dd9df02df38ad2c9dea73b3de",
+          "size": 1747
+        },
+        {
+          "reference": "scan_display_334_sites.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/scan_display_334_sites.py",
+          "exists": true,
+          "sha256": "551a8d8ddd5f36709db2f0fc862aec403b7bd1a27f2ab36890df89aad2c9b081",
+          "size": 1717
+        },
+        {
+          "reference": "scan_display_790_sites.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/scan_display_790_sites.py",
+          "exists": true,
+          "sha256": "c14a5dd7fbe6f0e68a70b97417f6c341b8a2d5edd7187cefe4b4050f76d649cc",
+          "size": 1401
+        },
+        {
+          "reference": "silicon_topology.json",
+          "path": "work_v15/TOPOLOGY/silicon_topology.json",
+          "exists": true,
+          "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+          "size": 4694
+        },
+        {
+          "reference": "tools/audit_artifact_integrity.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/audit_artifact_integrity.py",
+          "exists": true,
+          "sha256": "13d182174b3c48a237428497c321fcd0ae18f81d7124582fa29af0bc7c56dfb6",
+          "size": 4608
+        },
+        {
+          "reference": "tools/scan_display_334_sites.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/scan_display_334_sites.py",
+          "exists": true,
+          "sha256": "551a8d8ddd5f36709db2f0fc862aec403b7bd1a27f2ab36890df89aad2c9b081",
+          "size": 1717
+        },
+        {
+          "reference": "tools/scan_display_790_sites.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/scan_display_790_sites.py",
+          "exists": true,
+          "sha256": "c14a5dd7fbe6f0e68a70b97417f6c341b8a2d5edd7187cefe4b4050f76d649cc",
+          "size": 1401
+        },
+        {
+          "reference": "tools/trace_config_population.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/trace_config_population.py",
+          "exists": true,
+          "sha256": "2a7f35c817c5049b09c22148ec6566c2ece7581f8fc3515932528dfdfdd484f8",
+          "size": 5614
+        },
+        {
+          "reference": "tools/verify_diagnostic_literal.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/verify_diagnostic_literal.py",
+          "exists": true,
+          "sha256": "5d36dc454948055a60b002ee50422e85317d33cd949e56f41455f9c8e0f0b707",
+          "size": 1371
+        },
+        {
+          "reference": "tools/verify_display_object_fields.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/verify_display_object_fields.py",
+          "exists": true,
+          "sha256": "cbcd80268be0450ee5b08ef24b36b0b96a3e51f6ede83e3ff98fc8ce300629d7",
+          "size": 9196
+        },
+        {
+          "reference": "tools/verify_phase21_integrity.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/verify_phase21_integrity.py",
+          "exists": true,
+          "sha256": "137957f12302a5d8a7d57596c9aa6d58c97c9cd7f24901ab2275b607ebe69134",
+          "size": 1838
+        },
+        {
+          "reference": "verify_display_object_fields.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/verify_display_object_fields.py",
+          "exists": true,
+          "sha256": "cbcd80268be0450ee5b08ef24b36b0b96a3e51f6ede83e3ff98fc8ce300629d7",
+          "size": 9196
+        },
+        {
+          "reference": "gen3_a.rom",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/gen3_a.rom",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        },
+        {
+          "reference": "t_clk.rom",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/t_clk.rom",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        },
+        {
+          "reference": "target_package.json",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/target_package.json",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        }
+      ],
+      "missing": [
+        {
+          "reference": "gen3_a.rom",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/gen3_a.rom",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        },
+        {
+          "reference": "t_clk.rom",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/t_clk.rom",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        },
+        {
+          "reference": "target_package.json",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/target_package.json",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        }
+      ]
+    },
+    "TARGET_CAPTURE_CHECKLIST.md": {
+      "references": [
+        {
+          "reference": "REQUIREMENTS_AUDIT.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/REQUIREMENTS_AUDIT.md",
+          "exists": true,
+          "sha256": "52297cd98545983dc27e22d4cf072b146e524ecb88703953bc27b6f91b29daf1",
+          "size": 6326
+        },
+        {
+          "reference": "tools/collect_readonly.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/collect_readonly.py",
+          "exists": true,
+          "sha256": "a858ceb3acd8a32ac46b23fe10608e4725a24dbadacc5d69c94be134b707a495",
+          "size": 2229
+        },
+        {
+          "reference": "tools/collect_target_package.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/collect_target_package.py",
+          "exists": true,
+          "sha256": "2d8f2fac78a75ce7c0697e77e61da421693a62270cb565cfe1c023fe4e649df7",
+          "size": 3043
+        },
+        {
+          "reference": "tools/verify_target_package.py",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/tools/verify_target_package.py",
+          "exists": true,
+          "sha256": "f6a18fa19aed0b469a845c5a10f494411b10c9c70a4005ba609832568c0bae35",
+          "size": 1238
+        },
+        {
+          "reference": "target_package.json",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/target_package.json",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        }
+      ],
+      "missing": [
+        {
+          "reference": "target_package.json",
+          "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/target_package.json",
+          "exists": false,
+          "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+        }
+      ]
+    },
+    "RESTORATION_FEASIBILITY_MATRIX.md": {
+      "references": [
+        {
+          "reference": "COMPUTE_RESTRICTION_ARCHITECTURE.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/COMPUTE_RESTRICTION_ARCHITECTURE.md",
+          "exists": true,
+          "sha256": "11b8b8489195ea066bbfd069fdbdb7b78965c697f222cbdebe11dc39dc489384",
+          "size": 3211
+        },
+        {
+          "reference": "EVIDENCE_LEDGER.md",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/EVIDENCE_LEDGER.md",
+          "exists": true,
+          "sha256": "4c6e73fc2d38abadea1ab917d52ef94442fb2b653ac832f4ec50065df114e86c",
+          "size": 32082
+        },
+        {
+          "reference": "FUSE_CAPABILITY_MAP.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/FUSE_CAPABILITY_MAP.json",
+          "exists": true,
+          "sha256": "13a38129b4eaee8daffd51aa2989f655ed80df09911bcaa5caac62283d5deded",
+          "size": 1740
+        },
+        {
+          "reference": "evidence/board_tables.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/board_tables.json",
+          "exists": true,
+          "sha256": "4cd5d3c55bdf6bd6927ff594dcf721a576b7d05c2d5741ef1908c8dcfb145717",
+          "size": 36211
+        },
+        {
+          "reference": "evidence/dcb.json",
+          "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/dcb.json",
+          "exists": true,
+          "sha256": "5e621d549928f4536a0c1d588dfa9c7d8a2803d09ef82682ab93c5a48aeb5aa3",
+          "size": 3478
+        }
+      ],
+      "missing": []
+    }
+  },
+  "structured_reference_audit": [
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "CUDA_RUNTIME_RESULTS.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/CUDA_RUNTIME_RESULTS.json",
+      "exists": true,
+      "sha256": "25e39edd11f613aca28b9001363ce3e5ea2254bba98560942aa122a8f50f376c"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "COMPUTE_SELECTOR_EVIDENCE.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/COMPUTE_SELECTOR_EVIDENCE.md",
+      "exists": true,
+      "sha256": "ea62a1b1f1007d9aa5c11ea0ad858c20ae7e08bb15586ecaff476a4f21199ff7"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "GSP_DISPLAY_OBJECT_FIELDS.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_DISPLAY_OBJECT_FIELDS.md",
+      "exists": true,
+      "sha256": "2f951e6f095fafedf1c02c256c9ace7352bc2c06384daf5dfb7b4bba9b1d0ba3"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "HEADLESS_GRAPHICS_REPORT.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/HEADLESS_GRAPHICS_REPORT.md",
+      "exists": true,
+      "sha256": "8de669f2f8f49e45f384b1be3c3e1c320a1665ea97549e5b2c55a3fef46e89c1"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "FUSE_CAPABILITY_MAP.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/FUSE_CAPABILITY_MAP.json",
+      "exists": true,
+      "sha256": "13a38129b4eaee8daffd51aa2989f655ed80df09911bcaa5caac62283d5deded"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "VBIOS_DISPLAY_ANALYSIS.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/VBIOS_DISPLAY_ANALYSIS.md",
+      "exists": true,
+      "sha256": "9261d6294c27e0207e0a2a3fd1934f51213507ce3f826a178039277d393af8a5"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "GSP_DISPLAY_CONFIG_DATAFLOW.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_DISPLAY_CONFIG_DATAFLOW.md",
+      "exists": true,
+      "sha256": "81d365de1ce129998e2765fd1681a3a5c1d9de95cd6e5a25c68f1e986f3fa331"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "RESTORATION_FEASIBILITY_MATRIX.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/RESTORATION_FEASIBILITY_MATRIX.md",
+      "exists": true,
+      "sha256": "d8f8123b414b7109102947021bd22da98a23f9d71172c1c71574b02abba4daf3"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "TARGET_CAPTURE_CHECKLIST.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/TARGET_CAPTURE_CHECKLIST.md",
+      "exists": true,
+      "sha256": "46ec68ff42b280775f6baed22038a01023b69cbb80584e96e471b5a7838564f6"
+    },
+    {
+      "source": "evidence/requirement_matrix.json",
+      "reference": "CHECKPOINT.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/CHECKPOINT.json",
+      "exists": true,
+      "sha256": "4d76fbabb8f8fe2137866e6e5225b4a1df73f4ef1ad0ffe47d83f60f335d1a04"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "evidence/local_target_package_v5.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_target_package_v5.json",
+      "exists": true,
+      "sha256": "3b51aca274776ae9ca987663fec10ab4acabf4099852972bccd9b6a9589e3f3a"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "evidence/local_inventory_2026-11-04_rerun.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_inventory_2026-11-04_rerun.json",
+      "exists": true,
+      "sha256": "984b2623a1643336dd4c201cc57db01802f14251ab146372ca3bbadf680860b8"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "TARGET_CAPTURE_CHECKLIST.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/TARGET_CAPTURE_CHECKLIST.md",
+      "exists": true,
+      "sha256": "46ec68ff42b280775f6baed22038a01023b69cbb80584e96e471b5a7838564f6"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "GSP_DISPLAY_CONFIG_DATAFLOW.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/GSP_DISPLAY_CONFIG_DATAFLOW.md",
+      "exists": true,
+      "sha256": "81d365de1ce129998e2765fd1681a3a5c1d9de95cd6e5a25c68f1e986f3fa331"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "HOST_REGISTRY_PRODUCER.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/HOST_REGISTRY_PRODUCER.md",
+      "exists": true,
+      "sha256": "e193f4f886936b9c1c5ed25eaab3042414b5a5cd7a7771fbd09e479d5403acc9"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "HEADLESS_GRAPHICS_REPORT.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/HEADLESS_GRAPHICS_REPORT.md",
+      "exists": true,
+      "sha256": "8de669f2f8f49e45f384b1be3c3e1c320a1665ea97549e5b2c55a3fef46e89c1"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "evidence/saved_runtime_provenance.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/saved_runtime_provenance.json",
+      "exists": true,
+      "sha256": "34888d1bf53abf357a9cbb8ee5292f4b7e20cf5dd9df02df38ad2c9dea73b3de"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "evidence/rom_inventory.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_inventory.json",
+      "exists": true,
+      "sha256": "c7abc42bfb4b9c30b03ead3c552f4352b04ff0ffa77502f7c48e0fb2010a217c"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "evidence/rom_dcb_all_inventory.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/rom_dcb_all_inventory.json",
+      "exists": true,
+      "sha256": "289a2b35fd54f99a053e9db3c2e2b931f774ba58d0a9463a612fb853b1f08689"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "DISPLAY_PCB_EVIDENCE.md",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/DISPLAY_PCB_EVIDENCE.md",
+      "exists": true,
+      "sha256": "53154d29e8bd4ba9ff97b514f7ef065be7d6a5a138b81a9d3dae98d46f8db0a8"
+    },
+    {
+      "source": "evidence/blocker_register.json",
+      "reference": "evidence/pcb_evidence_provenance.json",
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/pcb_evidence_provenance.json",
+      "exists": true,
+      "sha256": "d3bf7daa3a5ec0f5a371e467ad599d31dbb5c92f62d658a847fe8b6fd2cd45db"
+    }
+  ],
+  "missing_count": 0,
+  "missing": [],
+  "expected_unresolved_count": 4,
+  "expected_unresolved": [
+    {
+      "reference": "gen3_a.rom",
+      "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/gen3_a.rom",
+      "exists": false,
+      "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+    },
+    {
+      "reference": "t_clk.rom",
+      "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/t_clk.rom",
+      "exists": false,
+      "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+    },
+    {
+      "reference": "target_package.json",
+      "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/target_package.json",
+      "exists": false,
+      "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+    },
+    {
+      "reference": "target_package.json",
+      "path": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/target_package.json",
+      "exists": false,
+      "classification": "EXPECTED_EXTERNAL_OR_TEMPORARY"
+    }
+  ],
+  "status": "PASS",
+  "note": "Hash capture is an integrity snapshot; it does not prove current-target runtime or hardware capability."
+}

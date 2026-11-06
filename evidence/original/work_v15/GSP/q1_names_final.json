@@ -1,0 +1,1666 @@
+{
+ "base_vaddr": "0x041a70b0",
+ "entries": [
+  {
+   "idx": 0,
+   "id": 14687,
+   "u32": 20041,
+   "u8": 77,
+   "u16": 20301,
+   "name": null
+  },
+  {
+   "idx": 1,
+   "id": 21317,
+   "u32": 1128875855,
+   "u8": 0,
+   "u16": 21317,
+   "name": null
+  },
+  {
+   "idx": 2,
+   "id": 0,
+   "u32": 255,
+   "u8": 0,
+   "u16": 65281,
+   "name": null
+  },
+  {
+   "idx": 3,
+   "id": 1,
+   "u32": 0,
+   "u8": 17,
+   "u16": 1026,
+   "name": null
+  },
+  {
+   "idx": 4,
+   "id": 2,
+   "u32": 61,
+   "u8": 17,
+   "u16": 1029,
+   "name": null
+  },
+  {
+   "idx": 5,
+   "id": 4,
+   "u32": 208,
+   "u8": 33,
+   "u16": 1027,
+   "name": null
+  },
+  {
+   "idx": 6,
+   "id": 5,
+   "u32": 209,
+   "u8": 33,
+   "u16": 1034,
+   "name": "P0"
+  },
+  {
+   "idx": 7,
+   "id": 6,
+   "u32": 210,
+   "u8": 33,
+   "u16": 1034,
+   "name": "PERF_CF_CONTROLLER_DRAM_MIN"
+  },
+  {
+   "idx": 8,
+   "id": 10,
+   "u32": 85,
+   "u8": 18,
+   "u16": 65282,
+   "name": "PERF_CF_CONTROLLER_GPC_MIN"
+  },
+  {
+   "idx": 9,
+   "id": 11,
+   "u32": 87,
+   "u8": 18,
+   "u16": 65285,
+   "name": "ER_GPC_MIN"
+  },
+  {
+   "idx": 10,
+   "id": 12,
+   "u32": 69,
+   "u8": 18,
+   "u16": 65285,
+   "name": "CONTROLLER_NVD_MIN"
+  },
+  {
+   "idx": 11,
+   "id": 13,
+   "u32": 71,
+   "u8": 18,
+   "u16": 65282,
+   "name": "GPU_IS_IDLE"
+  },
+  {
+   "idx": 12,
+   "id": 15,
+   "u32": 213,
+   "u8": 34,
+   "u16": 65283,
+   "name": "DLE_GROUP1"
+  },
+  {
+   "idx": 13,
+   "id": 16,
+   "u32": 214,
+   "u8": 34,
+   "u16": 65285,
+   "name": null
+  },
+  {
+   "idx": 14,
+   "id": 17,
+   "u32": 215,
+   "u8": 34,
+   "u16": 65282,
+   "name": "PERF_CF_CONTROLLER_DRAM_MAX"
+  },
+  {
+   "idx": 15,
+   "id": 20,
+   "u32": 42,
+   "u8": 17,
+   "u16": 65290,
+   "name": "PERF_CF_CONTROLLER_GPC_MAX"
+  },
+  {
+   "idx": 16,
+   "id": 21,
+   "u32": 88,
+   "u8": 17,
+   "u16": 65281,
+   "name": "CONTROLLER_GPC_MAX"
+  },
+  {
+   "idx": 17,
+   "id": 22,
+   "u32": 43,
+   "u8": 21,
+   "u16": 65281,
+   "name": "PERF_CF_CONTROLLER_NVD_MAX"
+  },
+  {
+   "idx": 18,
+   "id": 23,
+   "u32": 1,
+   "u8": 18,
+   "u16": 65281,
+   "name": "ER_NVD_MAX"
+  },
+  {
+   "idx": 19,
+   "id": 24,
+   "u32": 2,
+   "u8": 18,
+   "u16": 65281,
+   "name": "BOOST"
+  },
+  {
+   "idx": 20,
+   "id": 25,
+   "u32": 3,
+   "u8": 18,
+   "u16": 65281,
+   "name": "GRP_0_MIN"
+  },
+  {
+   "idx": 21,
+   "id": 26,
+   "u32": 35,
+   "u8": 18,
+   "u16": 65281,
+   "name": "PM_DYNAMIC"
+  },
+  {
+   "idx": 22,
+   "id": 27,
+   "u32": 4,
+   "u8": 23,
+   "u16": 65281,
+   "name": "NO_CLIENT"
+  },
+  {
+   "idx": 23,
+   "id": 28,
+   "u32": 49,
+   "u8": 22,
+   "u16": 65281,
+   "name": "SCREEN_SAVER"
+  },
+  {
+   "idx": 24,
+   "id": 31,
+   "u32": 8,
+   "u8": 22,
+   "u16": 65281,
+   "name": "AVER"
+  },
+  {
+   "idx": 25,
+   "id": 32,
+   "u32": 55,
+   "u8": 22,
+   "u16": 65282,
+   "name": null
+  },
+  {
+   "idx": 26,
+   "id": 33,
+   "u32": 56,
+   "u8": 21,
+   "u16": 65282,
+   "name": null
+  },
+  {
+   "idx": 27,
+   "id": 34,
+   "u32": 57,
+   "u8": 22,
+   "u16": 65282,
+   "name": null
+  },
+  {
+   "idx": 28,
+   "id": 35,
+   "u32": 58,
+   "u8": 21,
+   "u16": 65282,
+   "name": "POWERMIZER"
+  },
+  {
+   "idx": 29,
+   "id": 36,
+   "u32": 59,
+   "u8": 22,
+   "u16": 65282,
+   "name": "CLIENT_0_MAX"
+  },
+  {
+   "idx": 30,
+   "id": 37,
+   "u32": 60,
+   "u8": 21,
+   "u16": 65282,
+   "name": "CLIENT_0_MIN"
+  },
+  {
+   "idx": 31,
+   "id": 38,
+   "u32": 116,
+   "u8": 23,
+   "u16": 65281,
+   "name": "CLIENT_1_MAX"
+  },
+  {
+   "idx": 32,
+   "id": 39,
+   "u32": 145,
+   "u8": 22,
+   "u16": 65281,
+   "name": "_MIN"
+  },
+  {
+   "idx": 33,
+   "id": 40,
+   "u32": 144,
+   "u8": 21,
+   "u16": 65281,
+   "name": "_MIN"
+  },
+  {
+   "idx": 34,
+   "id": 41,
+   "u32": 117,
+   "u8": 22,
+   "u16": 65283,
+   "name": "CLIENT_LOW_STRICT_PSTATE_MAX"
+  },
+  {
+   "idx": 35,
+   "id": 43,
+   "u32": 156,
+   "u8": 22,
+   "u16": 65287,
+   "name": "CLIENT_LOW_STRICT_PSTATE_MIN"
+  },
+  {
+   "idx": 36,
+   "id": 44,
+   "u32": 118,
+   "u8": 22,
+   "u16": 65285,
+   "name": "CLIENT_LOW_STRICT_DRAM_MAX"
+  },
+  {
+   "idx": 37,
+   "id": 45,
+   "u32": 119,
+   "u8": 22,
+   "u16": 65286,
+   "name": "CLIENT_LOW_STRICT_PCIE_MAX"
+  },
+  {
+   "idx": 38,
+   "id": 48,
+   "u32": 120,
+   "u8": 21,
+   "u16": 65283,
+   "name": "CLIENT_LOW_STRICT_GPC_MAX"
+  },
+  {
+   "idx": 39,
+   "id": 50,
+   "u32": 157,
+   "u8": 21,
+   "u16": 65287,
+   "name": "CLIENT_LOW_STRICT_DISP_MAX"
+  },
+  {
+   "idx": 40,
+   "id": 51,
+   "u32": 121,
+   "u8": 21,
+   "u16": 65285,
+   "name": "CLIENT_LOW_STRICT_DRAM_MIN"
+  },
+  {
+   "idx": 41,
+   "id": 52,
+   "u32": 122,
+   "u8": 21,
+   "u16": 65286,
+   "name": "CLIENT_LOW_STRICT_PCIE_MIN"
+  },
+  {
+   "idx": 42,
+   "id": 55,
+   "u32": 123,
+   "u8": 22,
+   "u16": 65282,
+   "name": "CLIENT_LOW_STRICT_GPC_MIN"
+  },
+  {
+   "idx": 43,
+   "id": 56,
+   "u32": 126,
+   "u8": 21,
+   "u16": 65282,
+   "name": null
+  },
+  {
+   "idx": 44,
+   "id": 57,
+   "u32": 124,
+   "u8": 22,
+   "u16": 65282,
+   "name": "T_DISP_MIN"
+  },
+  {
+   "idx": 45,
+   "id": 58,
+   "u32": 127,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_0_MAX"
+  },
+  {
+   "idx": 46,
+   "id": 59,
+   "u32": 125,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_0_MIN"
+  },
+  {
+   "idx": 47,
+   "id": 60,
+   "u32": 128,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_1_MAX"
+  },
+  {
+   "idx": 48,
+   "id": 61,
+   "u32": 176,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_1_MIN"
+  },
+  {
+   "idx": 49,
+   "id": 62,
+   "u32": 183,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_2_MAX"
+  },
+  {
+   "idx": 50,
+   "id": 63,
+   "u32": 177,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_2_MIN"
+  },
+  {
+   "idx": 51,
+   "id": 64,
+   "u32": 184,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_3_MAX"
+  },
+  {
+   "idx": 52,
+   "id": 65,
+   "u32": 178,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_3_MIN"
+  },
+  {
+   "idx": 53,
+   "id": 66,
+   "u32": 185,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_4_MAX"
+  },
+  {
+   "idx": 54,
+   "id": 67,
+   "u32": 179,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_4_MIN"
+  },
+  {
+   "idx": 55,
+   "id": 68,
+   "u32": 186,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_5_MAX"
+  },
+  {
+   "idx": 56,
+   "id": 69,
+   "u32": 180,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_5_MIN"
+  },
+  {
+   "idx": 57,
+   "id": 70,
+   "u32": 187,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_6_MAX"
+  },
+  {
+   "idx": 58,
+   "id": 71,
+   "u32": 181,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_6_MIN"
+  },
+  {
+   "idx": 59,
+   "id": 72,
+   "u32": 188,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_7_MAX"
+  },
+  {
+   "idx": 60,
+   "id": 73,
+   "u32": 182,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OW_LOOSE_7_MIN"
+  },
+  {
+   "idx": 61,
+   "id": 74,
+   "u32": 189,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OW_LOOSE_8_MAX"
+  },
+  {
+   "idx": 62,
+   "id": 75,
+   "u32": 89,
+   "u8": 18,
+   "u16": 65281,
+   "name": "OW_LOOSE_8_MIN"
+  },
+  {
+   "idx": 63,
+   "id": 76,
+   "u32": 38,
+   "u8": 22,
+   "u16": 65281,
+   "name": "OW_LOOSE_9_MAX"
+  },
+  {
+   "idx": 64,
+   "id": 77,
+   "u32": 10,
+   "u8": 18,
+   "u16": 65281,
+   "name": "CLIENT_LOW_LOOSE_9_MIN"
+  },
+  {
+   "idx": 65,
+   "id": 78,
+   "u32": 278,
+   "u8": 18,
+   "u16": 65281,
+   "name": "_9_MIN"
+  },
+  {
+   "idx": 66,
+   "id": 79,
+   "u32": 11,
+   "u8": 17,
+   "u16": 65282,
+   "name": null
+  },
+  {
+   "idx": 67,
+   "id": 80,
+   "u32": 16,
+   "u8": 17,
+   "u16": 65281,
+   "name": null
+  },
+  {
+   "idx": 68,
+   "id": 83,
+   "u32": 17,
+   "u8": 17,
+   "u16": 65291,
+   "name": null
+  },
+  {
+   "idx": 69,
+   "id": 84,
+   "u32": 7,
+   "u8": 19,
+   "u16": 65281,
+   "name": "D_SW_LICENSING"
+  },
+  {
+   "idx": 70,
+   "id": 81,
+   "u32": 6,
+   "u8": 17,
+   "u16": 65281,
+   "name": "MIN_FAN_LEVEL"
+  },
+  {
+   "idx": 71,
+   "id": 85,
+   "u32": 83,
+   "u8": 17,
+   "u16": 65282,
+   "name": "VIDEO_WAR"
+  },
+  {
+   "idx": 72,
+   "id": 86,
+   "u32": 47,
+   "u8": 17,
+   "u16": 65282,
+   "name": "SSIBLE"
+  },
+  {
+   "idx": 73,
+   "id": 87,
+   "u32": 86,
+   "u8": 19,
+   "u16": 65281,
+   "name": "DISPLAY_GLITCH"
+  },
+  {
+   "idx": 74,
+   "id": 88,
+   "u32": 45,
+   "u8": 18,
+   "u16": 65281,
+   "name": "ISMODEPOSSIBLE_DISP"
+  },
+  {
+   "idx": 75,
+   "id": 89,
+   "u32": 211,
+   "u8": 33,
+   "u16": 65287,
+   "name": "ISP"
+  },
+  {
+   "idx": 76,
+   "id": 90,
+   "u32": 212,
+   "u8": 17,
+   "u16": 65287,
+   "name": null
+  },
+  {
+   "idx": 77,
+   "id": 91,
+   "u32": 99,
+   "u8": 23,
+   "u16": 65281,
+   "name": "EXCEPT_VIDEO"
+  },
+  {
+   "idx": 78,
+   "id": 92,
+   "u32": 146,
+   "u8": 22,
+   "u16": 65281,
+   "name": "BIF_USBC_PMU_PCIE_MIN"
+  },
+  {
+   "idx": 79,
+   "id": 93,
+   "u32": 147,
+   "u8": 21,
+   "u16": 65281,
+   "name": "_RM_PCIE_MIN"
+  },
+  {
+   "idx": 80,
+   "id": 94,
+   "u32": 73,
+   "u8": 22,
+   "u16": 65283,
+   "name": "CLIENT_STRICT_PSTATE_MAX"
+  },
+  {
+   "idx": 81,
+   "id": 96,
+   "u32": 158,
+   "u8": 22,
+   "u16": 65287,
+   "name": null
+  },
+  {
+   "idx": 82,
+   "id": 97,
+   "u32": 75,
+   "u8": 22,
+   "u16": 65285,
+   "name": "TATE_MIN"
+  },
+  {
+   "idx": 83,
+   "id": 98,
+   "u32": 91,
+   "u8": 22,
+   "u16": 65286,
+   "name": "TRICT_DRAM_MAX"
+  },
+  {
+   "idx": 84,
+   "id": 101,
+   "u32": 74,
+   "u8": 21,
+   "u16": 65283,
+   "name": "TRICT_PCIE_MAX"
+  },
+  {
+   "idx": 85,
+   "id": 103,
+   "u32": 159,
+   "u8": 21,
+   "u16": 65287,
+   "name": "TRICT_GPC_MAX"
+  },
+  {
+   "idx": 86,
+   "id": 104,
+   "u32": 76,
+   "u8": 21,
+   "u16": 65285,
+   "name": "TRICT_DISP_MAX"
+  },
+  {
+   "idx": 87,
+   "id": 105,
+   "u32": 92,
+   "u8": 21,
+   "u16": 65286,
+   "name": "TRICT_DRAM_MIN"
+  },
+  {
+   "idx": 88,
+   "id": 108,
+   "u32": 93,
+   "u8": 22,
+   "u16": 65282,
+   "name": "TRICT_PCIE_MIN"
+  },
+  {
+   "idx": 89,
+   "id": 109,
+   "u32": 94,
+   "u8": 22,
+   "u16": 65282,
+   "name": "TRICT_GPC_MIN"
+  },
+  {
+   "idx": 90,
+   "id": 110,
+   "u32": 95,
+   "u8": 22,
+   "u16": 65282,
+   "name": "TRICT_DISP_MIN"
+  },
+  {
+   "idx": 91,
+   "id": 111,
+   "u32": 162,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OOSE_0_MAX"
+  },
+  {
+   "idx": 92,
+   "id": 112,
+   "u32": 163,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OOSE_1_MAX"
+  },
+  {
+   "idx": 93,
+   "id": 113,
+   "u32": 164,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OOSE_2_MAX"
+  },
+  {
+   "idx": 94,
+   "id": 114,
+   "u32": 165,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OOSE_3_MAX"
+  },
+  {
+   "idx": 95,
+   "id": 115,
+   "u32": 166,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OOSE_4_MAX"
+  },
+  {
+   "idx": 96,
+   "id": 116,
+   "u32": 167,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OOSE_5_MAX"
+  },
+  {
+   "idx": 97,
+   "id": 117,
+   "u32": 168,
+   "u8": 22,
+   "u16": 65282,
+   "name": "OOSE_6_MAX"
+  },
+  {
+   "idx": 98,
+   "id": 118,
+   "u32": 96,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_7_MAX"
+  },
+  {
+   "idx": 99,
+   "id": 119,
+   "u32": 97,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_8_MAX"
+  },
+  {
+   "idx": 100,
+   "id": 120,
+   "u32": 98,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_9_MAX"
+  },
+  {
+   "idx": 101,
+   "id": 121,
+   "u32": 169,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_0_MIN"
+  },
+  {
+   "idx": 102,
+   "id": 122,
+   "u32": 170,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_1_MIN"
+  },
+  {
+   "idx": 103,
+   "id": 123,
+   "u32": 171,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_2_MIN"
+  },
+  {
+   "idx": 104,
+   "id": 124,
+   "u32": 172,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_3_MIN"
+  },
+  {
+   "idx": 105,
+   "id": 125,
+   "u32": 173,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_4_MIN"
+  },
+  {
+   "idx": 106,
+   "id": 126,
+   "u32": 174,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_5_MIN"
+  },
+  {
+   "idx": 107,
+   "id": 127,
+   "u32": 175,
+   "u8": 21,
+   "u16": 65282,
+   "name": "OOSE_6_MIN"
+  },
+  {
+   "idx": 108,
+   "id": 128,
+   "u32": 21,
+   "u8": 31,
+   "u16": 65281,
+   "name": "OOSE_7_MIN"
+  },
+  {
+   "idx": 109,
+   "id": 129,
+   "u32": 22,
+   "u8": 27,
+   "u16": 65281,
+   "name": "IN"
+  },
+  {
+   "idx": 110,
+   "id": 130,
+   "u32": 39,
+   "u8": 27,
+   "u16": 65281,
+   "name": "IN"
+  },
+  {
+   "idx": 111,
+   "id": 134,
+   "u32": 64,
+   "u8": 22,
+   "u16": 65285,
+   "name": "IN"
+  },
+  {
+   "idx": 112,
+   "id": 135,
+   "u32": 79,
+   "u8": 21,
+   "u16": 65285,
+   "name": "FORCED_DACPERFTEST"
+  },
+  {
+   "idx": 113,
+   "id": 132,
+   "u32": 268,
+   "u8": 22,
+   "u16": 65285,
+   "name": "ST"
+  },
+  {
+   "idx": 114,
+   "id": 133,
+   "u32": 269,
+   "u8": 21,
+   "u16": 65285,
+   "name": "INKTRAIN"
+  },
+  {
+   "idx": 115,
+   "id": 136,
+   "u32": 53,
+   "u8": 18,
+   "u16": 65281,
+   "name": "RATED_TDP_MAX"
+  },
+  {
+   "idx": 116,
+   "id": 137,
+   "u32": 204,
+   "u8": 18,
+   "u16": 65285,
+   "name": "RATED_TDP_MIN"
+  },
+  {
+   "idx": 117,
+   "id": 145,
+   "u32": 152,
+   "u8": 19,
+   "u16": 65281,
+   "name": "OST_MAX"
+  },
+  {
+   "idx": 118,
+   "id": 146,
+   "u32": 153,
+   "u8": 19,
+   "u16": 65282,
+   "name": "LOCKED_DRIVER"
+  },
+  {
+   "idx": 119,
+   "id": 147,
+   "u32": 154,
+   "u8": 19,
+   "u16": 65282,
+   "name": "C_MAX"
+  },
+  {
+   "idx": 120,
+   "id": 151,
+   "u32": 155,
+   "u8": 17,
+   "u16": 65281,
+   "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_0"
+  },
+  {
+   "idx": 121,
+   "id": 139,
+   "u32": 90,
+   "u8": 18,
+   "u16": 65281,
+   "name": "IL_0"
+  },
+  {
+   "idx": 122,
+   "id": 140,
+   "u32": 217,
+   "u8": 22,
+   "u16": 65285,
+   "name": "LTAGE_RAIL_1"
+  },
+  {
+   "idx": 123,
+   "id": 141,
+   "u32": 218,
+   "u8": 21,
+   "u16": 65285,
+   "name": "RIVER_DISP"
+  },
+  {
+   "idx": 124,
+   "id": 142,
+   "u32": 216,
+   "u8": 26,
+   "u16": 65282,
+   "name": "_BOOST_MAX"
+  },
+  {
+   "idx": 125,
+   "id": 143,
+   "u32": 84,
+   "u8": 22,
+   "u16": 65282,
+   "name": "AX"
+  },
+  {
+   "idx": 126,
+   "id": 152,
+   "u32": 72,
+   "u8": 34,
+   "u16": 258,
+   "name": "K_LIMIT_MAX"
+  },
+  {
+   "idx": 127,
+   "id": 153,
+   "u32": 70,
+   "u8": 34,
+   "u16": 261,
+   "name": "K_LIMIT_MIN"
+  },
+  {
+   "idx": 128,
+   "id": 158,
+   "u32": 78,
+   "u8": 18,
+   "u16": 257,
+   "name": "CUDA_MAX"
+  },
+  {
+   "idx": 129,
+   "id": 159,
+   "u32": 80,
+   "u8": 18,
+   "u16": 65282,
+   "name": "LICY_DOM_GRP_0"
+  },
+  {
+   "idx": 130,
+   "id": 160,
+   "u32": 65,
+   "u8": 18,
+   "u16": 769,
+   "name": "LICY_DOM_GRP_1"
+  },
+  {
+   "idx": 131,
+   "id": 162,
+   "u32": 111,
+   "u8": 18,
+   "u16": 769,
+   "name": "LICY_NVVDD"
+  },
+  {
+   "idx": 132,
+   "id": 165,
+   "u32": 77,
+   "u8": 18,
+   "u16": 513,
+   "name": "CY_DOM_GRP_1"
+  },
+  {
+   "idx": 133,
+   "id": 167,
+   "u32": 112,
+   "u8": 18,
+   "u16": 513,
+   "name": "AGE_LOGIC"
+  },
+  {
+   "idx": 134,
+   "id": 170,
+   "u32": 66,
+   "u8": 18,
+   "u16": 513,
+   "name": "AGE_SRAM"
+  },
+  {
+   "idx": 135,
+   "id": 172,
+   "u32": 113,
+   "u8": 18,
+   "u16": 513,
+   "name": "ITY_ALT_LOGIC"
+  },
+  {
+   "idx": 136,
+   "id": 175,
+   "u32": 25,
+   "u8": 22,
+   "u16": 65281,
+   "name": "ITY_ALT_SRAM"
+  },
+  {
+   "idx": 137,
+   "id": 176,
+   "u32": 37,
+   "u8": 22,
+   "u16": 65281,
+   "name": "RELIABILITY_LOGIC"
+  },
+  {
+   "idx": 138,
+   "id": 177,
+   "u32": 26,
+   "u8": 18,
+   "u16": 65281,
+   "name": null
+  },
+  {
+   "idx": 139,
+   "id": 178,
+   "u32": 27,
+   "u8": 18,
+   "u16": 65281,
+   "name": "RELIABILITY_SRAM"
+  },
+  {
+   "idx": 140,
+   "id": 179,
+   "u32": 68,
+   "u8": 18,
+   "u16": 65281,
+   "name": "ITY_SRAM"
+  },
+  {
+   "idx": 141,
+   "id": 180,
+   "u32": 28,
+   "u8": 18,
+   "u16": 65282,
+   "name": "POWERMIZER_HARD"
+  },
+  {
+   "idx": 142,
+   "id": 182,
+   "u32": 54,
+   "u8": 34,
+   "u16": 2,
+   "name": "ARD"
+  },
+  {
+   "idx": 143,
+   "id": 183,
+   "u32": 67,
+   "u8": 34,
+   "u16": 5,
+   "name": "SYSPERF"
+  },
+  {
+   "idx": 144,
+   "id": 190,
+   "u32": 81,
+   "u8": 18,
+   "u16": 1282,
+   "name": "STATE"
+  },
+  {
+   "idx": 145,
+   "id": 191,
+   "u32": 82,
+   "u8": 18,
+   "u16": 1285,
+   "name": "ITY"
+  },
+  {
+   "idx": 146,
+   "id": 193,
+   "u32": 29,
+   "u8": 18,
+   "u16": 65281,
+   "name": "PMU_DOM_GRP_1"
+  },
+  {
+   "idx": 147,
+   "id": 194,
+   "u32": 30,
+   "u8": 18,
+   "u16": 65281,
+   "name": "SLI_GPU_BOOST_DOM_GRP_0"
+  },
+  {
+   "idx": 148,
+   "id": 195,
+   "u32": 31,
+   "u8": 18,
+   "u16": 65281,
+   "name": "SLI_GPU_BOOST_DOM_GRP_1"
+  },
+  {
+   "idx": 149,
+   "id": 196,
+   "u32": 32,
+   "u8": 18,
+   "u16": 65281,
+   "name": "M_GRP_1"
+  },
+  {
+   "idx": 150,
+   "id": 199,
+   "u32": 142,
+   "u8": 17,
+   "u16": 65282,
+   "name": "OWER"
+  },
+  {
+   "idx": 151,
+   "id": 201,
+   "u32": 143,
+   "u8": 17,
+   "u16": 65282,
+   "name": "_CONTROL"
+  },
+  {
+   "idx": 152,
+   "id": 204,
+   "u32": 150,
+   "u8": 17,
+   "u16": 65281,
+   "name": "MXM_ACPOWER"
+  },
+  {
+   "idx": 153,
+   "id": 205,
+   "u32": 151,
+   "u8": 17,
+   "u16": 65281,
+   "name": "VMIN_LOGIC"
+  },
+  {
+   "idx": 154,
+   "id": 213,
+   "u32": 129,
+   "u8": 23,
+   "u16": 65281,
+   "name": "GPU_STATE_LOAD_BOOST_DOM_GRP_0"
+  },
+  {
+   "idx": 155,
+   "id": 214,
+   "u32": 148,
+   "u8": 22,
+   "u16": 65281,
+   "name": "_GRP_0"
+  },
+  {
+   "idx": 156,
+   "id": 215,
+   "u32": 149,
+   "u8": 21,
+   "u16": 65281,
+   "name": "_GRP_1"
+  },
+  {
+   "idx": 157,
+   "id": 216,
+   "u32": 130,
+   "u8": 22,
+   "u16": 65283,
+   "name": "MODS_RULES_STRICT_PSTATE_MAX"
+  },
+  {
+   "idx": 158,
+   "id": 218,
+   "u32": 160,
+   "u8": 22,
+   "u16": 65287,
+   "name": "MODS_RULES_STRICT_PSTATE_MIN"
+  },
+  {
+   "idx": 159,
+   "id": 219,
+   "u32": 131,
+   "u8": 22,
+   "u16": 65285,
+   "name": "MODS_RULES_STRICT_DRAM_MAX"
+  },
+  {
+   "idx": 160,
+   "id": 220,
+   "u32": 132,
+   "u8": 22,
+   "u16": 65286,
+   "name": "MODS_RULES_STRICT_PCIE_MAX"
+  },
+  {
+   "idx": 161,
+   "id": 223,
+   "u32": 133,
+   "u8": 21,
+   "u16": 65283,
+   "name": "MODS_RULES_STRICT_GPC_MAX"
+  },
+  {
+   "idx": 162,
+   "id": 225,
+   "u32": 161,
+   "u8": 21,
+   "u16": 65287,
+   "name": "MODS_RULES_STRICT_DISP_MAX"
+  },
+  {
+   "idx": 163,
+   "id": 226,
+   "u32": 134,
+   "u8": 21,
+   "u16": 65285,
+   "name": "MODS_RULES_STRICT_DRAM_MIN"
+  },
+  {
+   "idx": 164,
+   "id": 227,
+   "u32": 135,
+   "u8": 21,
+   "u16": 65286,
+   "name": "MODS_RULES_STRICT_PCIE_MIN"
+  },
+  {
+   "idx": 165,
+   "id": 230,
+   "u32": 136,
+   "u8": 22,
+   "u16": 65282,
+   "name": "MODS_RULES_STRICT_GPC_MIN"
+  },
+  {
+   "idx": 166,
+   "id": 231,
+   "u32": 139,
+   "u8": 21,
+   "u16": 65282,
+   "name": null
+  },
+  {
+   "idx": 167,
+   "id": 232,
+   "u32": 137,
+   "u8": 22,
+   "u16": 65282,
+   "name": "T_DISP_MIN"
+  },
+  {
+   "idx": 168,
+   "id": 233,
+   "u32": 140,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_0_MAX"
+  },
+  {
+   "idx": 169,
+   "id": 234,
+   "u32": 138,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_0_MIN"
+  },
+  {
+   "idx": 170,
+   "id": 235,
+   "u32": 141,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_1_MAX"
+  },
+  {
+   "idx": 171,
+   "id": 236,
+   "u32": 190,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_1_MIN"
+  },
+  {
+   "idx": 172,
+   "id": 237,
+   "u32": 197,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_2_MAX"
+  },
+  {
+   "idx": 173,
+   "id": 238,
+   "u32": 191,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_2_MIN"
+  },
+  {
+   "idx": 174,
+   "id": 239,
+   "u32": 198,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_3_MAX"
+  },
+  {
+   "idx": 175,
+   "id": 240,
+   "u32": 192,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_3_MIN"
+  },
+  {
+   "idx": 176,
+   "id": 241,
+   "u32": 199,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_4_MAX"
+  },
+  {
+   "idx": 177,
+   "id": 242,
+   "u32": 193,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_4_MIN"
+  },
+  {
+   "idx": 178,
+   "id": 243,
+   "u32": 200,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_5_MAX"
+  },
+  {
+   "idx": 179,
+   "id": 244,
+   "u32": 194,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_5_MIN"
+  },
+  {
+   "idx": 180,
+   "id": 245,
+   "u32": 201,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_6_MAX"
+  },
+  {
+   "idx": 181,
+   "id": 246,
+   "u32": 195,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_6_MIN"
+  },
+  {
+   "idx": 182,
+   "id": 247,
+   "u32": 202,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_7_MAX"
+  },
+  {
+   "idx": 183,
+   "id": 248,
+   "u32": 196,
+   "u8": 22,
+   "u16": 65282,
+   "name": "ES_LOOSE_7_MIN"
+  },
+  {
+   "idx": 184,
+   "id": 249,
+   "u32": 203,
+   "u8": 21,
+   "u16": 65282,
+   "name": "ES_LOOSE_8_MAX"
+  },
+  {
+   "idx": 185,
+   "id": 250,
+   "u32": 44,
+   "u8": 31,
+   "u16": 65281,
+   "name": "ES_LOOSE_8_MIN"
+  }
+ ],
+ "named": 168,
+ "names": [
+  "P0",
+  "PERF_CF_CONTROLLER_DRAM_MIN",
+  "PERF_CF_CONTROLLER_GPC_MIN",
+  "ER_GPC_MIN",
+  "CONTROLLER_NVD_MIN",
+  "GPU_IS_IDLE",
+  "DLE_GROUP1",
+  "PERF_CF_CONTROLLER_DRAM_MAX",
+  "PERF_CF_CONTROLLER_GPC_MAX",
+  "CONTROLLER_GPC_MAX",
+  "PERF_CF_CONTROLLER_NVD_MAX",
+  "ER_NVD_MAX",
+  "BOOST",
+  "GRP_0_MIN",
+  "PM_DYNAMIC",
+  "NO_CLIENT",
+  "SCREEN_SAVER",
+  "AVER",
+  "POWERMIZER",
+  "CLIENT_0_MAX",
+  "CLIENT_0_MIN",
+  "CLIENT_1_MAX",
+  "_MIN",
+  "_MIN",
+  "CLIENT_LOW_STRICT_PSTATE_MAX",
+  "CLIENT_LOW_STRICT_PSTATE_MIN",
+  "CLIENT_LOW_STRICT_DRAM_MAX",
+  "CLIENT_LOW_STRICT_PCIE_MAX",
+  "CLIENT_LOW_STRICT_GPC_MAX",
+  "CLIENT_LOW_STRICT_DISP_MAX",
+  "CLIENT_LOW_STRICT_DRAM_MIN",
+  "CLIENT_LOW_STRICT_PCIE_MIN",
+  "CLIENT_LOW_STRICT_GPC_MIN",
+  "T_DISP_MIN",
+  "OW_LOOSE_0_MAX",
+  "OW_LOOSE_0_MIN",
+  "OW_LOOSE_1_MAX",
+  "OW_LOOSE_1_MIN",
+  "OW_LOOSE_2_MAX",
+  "OW_LOOSE_2_MIN",
+  "OW_LOOSE_3_MAX",
+  "OW_LOOSE_3_MIN",
+  "OW_LOOSE_4_MAX",
+  "OW_LOOSE_4_MIN",
+  "OW_LOOSE_5_MAX",
+  "OW_LOOSE_5_MIN",
+  "OW_LOOSE_6_MAX",
+  "OW_LOOSE_6_MIN",
+  "OW_LOOSE_7_MAX",
+  "OW_LOOSE_7_MIN",
+  "OW_LOOSE_8_MAX",
+  "OW_LOOSE_8_MIN",
+  "OW_LOOSE_9_MAX",
+  "CLIENT_LOW_LOOSE_9_MIN",
+  "_9_MIN",
+  "D_SW_LICENSING",
+  "MIN_FAN_LEVEL",
+  "VIDEO_WAR",
+  "SSIBLE",
+  "DISPLAY_GLITCH",
+  "ISMODEPOSSIBLE_DISP",
+  "ISP",
+  "EXCEPT_VIDEO",
+  "BIF_USBC_PMU_PCIE_MIN",
+  "_RM_PCIE_MIN",
+  "CLIENT_STRICT_PSTATE_MAX",
+  "TATE_MIN",
+  "TRICT_DRAM_MAX",
+  "TRICT_PCIE_MAX",
+  "TRICT_GPC_MAX",
+  "TRICT_DISP_MAX",
+  "TRICT_DRAM_MIN",
+  "TRICT_PCIE_MIN",
+  "TRICT_GPC_MIN",
+  "TRICT_DISP_MIN",
+  "OOSE_0_MAX",
+  "OOSE_1_MAX",
+  "OOSE_2_MAX",
+  "OOSE_3_MAX",
+  "OOSE_4_MAX",
+  "OOSE_5_MAX",
+  "OOSE_6_MAX",
+  "OOSE_7_MAX",
+  "OOSE_8_MAX",
+  "OOSE_9_MAX",
+  "OOSE_0_MIN",
+  "OOSE_1_MIN",
+  "OOSE_2_MIN",
+  "OOSE_3_MIN",
+  "OOSE_4_MIN",
+  "OOSE_5_MIN",
+  "OOSE_6_MIN",
+  "OOSE_7_MIN",
+  "IN",
+  "IN",
+  "IN",
+  "FORCED_DACPERFTEST",
+  "ST",
+  "INKTRAIN",
+  "RATED_TDP_MAX",
+  "RATED_TDP_MIN",
+  "OST_MAX",
+  "LOCKED_DRIVER",
+  "C_MAX",
+  "UNLOAD_DRIVER_VOLTAGE_RAIL_0",
+  "IL_0",
+  "LTAGE_RAIL_1",
+  "RIVER_DISP",
+  "_BOOST_MAX",
+  "AX",
+  "K_LIMIT_MAX",
+  "K_LIMIT_MIN",
+  "CUDA_MAX",
+  "LICY_DOM_GRP_0",
+  "LICY_DOM_GRP_1",
+  "LICY_NVVDD",
+  "CY_DOM_GRP_1",
+  "AGE_LOGIC",
+  "AGE_SRAM",
+  "ITY_ALT_LOGIC",
+  "ITY_ALT_SRAM",
+  "RELIABILITY_LOGIC",
+  "RELIABILITY_SRAM",
+  "ITY_SRAM",
+  "POWERMIZER_HARD",
+  "ARD",
+  "SYSPERF",
+  "STATE",
+  "ITY",
+  "PMU_DOM_GRP_1",
+  "SLI_GPU_BOOST_DOM_GRP_0",
+  "SLI_GPU_BOOST_DOM_GRP_1",
+  "M_GRP_1",
+  "OWER",
+  "_CONTROL",
+  "MXM_ACPOWER",
+  "VMIN_LOGIC",
+  "GPU_STATE_LOAD_BOOST_DOM_GRP_0",
+  "_GRP_0",
+  "_GRP_1",
+  "MODS_RULES_STRICT_PSTATE_MAX",
+  "MODS_RULES_STRICT_PSTATE_MIN",
+  "MODS_RULES_STRICT_DRAM_MAX",
+  "MODS_RULES_STRICT_PCIE_MAX",
+  "MODS_RULES_STRICT_GPC_MAX",
+  "MODS_RULES_STRICT_DISP_MAX",
+  "MODS_RULES_STRICT_DRAM_MIN",
+  "MODS_RULES_STRICT_PCIE_MIN",
+  "MODS_RULES_STRICT_GPC_MIN",
+  "T_DISP_MIN",
+  "ES_LOOSE_0_MAX",
+  "ES_LOOSE_0_MIN",
+  "ES_LOOSE_1_MAX",
+  "ES_LOOSE_1_MIN",
+  "ES_LOOSE_2_MAX",
+  "ES_LOOSE_2_MIN",
+  "ES_LOOSE_3_MAX",
+  "ES_LOOSE_3_MIN",
+  "ES_LOOSE_4_MAX",
+  "ES_LOOSE_4_MIN",
+  "ES_LOOSE_5_MAX",
+  "ES_LOOSE_5_MIN",
+  "ES_LOOSE_6_MAX",
+  "ES_LOOSE_6_MIN",
+  "ES_LOOSE_7_MAX",
+  "ES_LOOSE_7_MIN",
+  "ES_LOOSE_8_MAX",
+  "ES_LOOSE_8_MIN"
+ ],
+ "suffix_sharing": true,
+ "note": "string pool dung SUFFIX SHARING: CONTROLLER_NVD_MIN la hau to cua PERF_CF_CONTROLLER_NVD_MIN; 174/184 con tro hop le, khong phai fragment"
+}

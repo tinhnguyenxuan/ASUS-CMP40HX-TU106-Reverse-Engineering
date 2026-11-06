@@ -1,0 +1,620 @@
+{
+  "container_bytes": 8837632,
+  "magic": "NVUCODES",
+  "header_word_0c": 496,
+  "structural_payload_candidates": 38,
+  "candidate_payloads": [
+    {
+      "marker_offset": 520,
+      "length_field_offset": 504,
+      "offset": 12032,
+      "declared_length_candidate": 122880,
+      "end": 134912,
+      "sha256": "97d20357ee74678b886da6247746d84be2185c07891d1f79a038b78d5f0558e4",
+      "entropy": 3.48073,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 544,
+      "length_field_offset": 528,
+      "offset": 134912,
+      "declared_length_candidate": 122880,
+      "end": 257792,
+      "sha256": "1dbca81d8e54ab8fb4719ce0e0a8d75cdbfe44e5e11c19cb01bc311a63ef4e90",
+      "entropy": 7.997617,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 568,
+      "length_field_offset": 552,
+      "offset": 257792,
+      "declared_length_candidate": 122880,
+      "end": 380672,
+      "sha256": "05fc3b413465f0b640fccc71e6c2b2545812e14afd9410d3734c54aaba58de12",
+      "entropy": 7.997816,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 592,
+      "length_field_offset": 576,
+      "offset": 380672,
+      "declared_length_candidate": 122880,
+      "end": 503552,
+      "sha256": "302f4099e59e21d18d2e5104908362001017d262f538d85ac5d23fb6b44704aa",
+      "entropy": 7.997823,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 616,
+      "length_field_offset": 600,
+      "offset": 503552,
+      "declared_length_candidate": 122880,
+      "end": 626432,
+      "sha256": "f6e4a553f0d159e89fc88e4337d057944c470792e8cb25e0b089c16ef7680882",
+      "entropy": 7.997555,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 808,
+      "length_field_offset": 792,
+      "offset": 626432,
+      "declared_length_candidate": 126144,
+      "end": 752576,
+      "sha256": "b70c061f6755046dd63ba4dff11be15a779c2210fa33323aa63f72e582f74812",
+      "entropy": 4.917237,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 64,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 832,
+      "length_field_offset": 816,
+      "offset": 752640,
+      "declared_length_candidate": 125464,
+      "end": 878104,
+      "sha256": "726221cdc1a014e1489e919b4b3e2cda0da836e0e200e4bd168044c65521721d",
+      "entropy": 4.90468,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 232,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 856,
+      "length_field_offset": 840,
+      "offset": 878336,
+      "declared_length_candidate": 126152,
+      "end": 1004488,
+      "sha256": "598f8e529afdcf220d1b20df44fcf3a31047710e119d8c3fb370c28a82eb5ba7",
+      "entropy": 4.917987,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 56,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 880,
+      "length_field_offset": 864,
+      "offset": 1004544,
+      "declared_length_candidate": 125464,
+      "end": 1130008,
+      "sha256": "13d9bf8bf3c43071fed91f488243979bdfc6728737b3a2ee16822ff961e2376a",
+      "entropy": 4.904704,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 232,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 904,
+      "length_field_offset": 888,
+      "offset": 1130240,
+      "declared_length_candidate": 131992,
+      "end": 1262232,
+      "sha256": "24c6b1c2c21af67603c5d953b7aaeb3882aa3ef4e547028b1d731c2100a36288",
+      "entropy": 4.9559,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 104,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 928,
+      "length_field_offset": 912,
+      "offset": 1262336,
+      "declared_length_candidate": 183808,
+      "end": 1446144,
+      "sha256": "28774dc54e9800ef27ce2fdf85ebfc1f1721df82c57e86a45b3cc43605264349",
+      "entropy": 4.66425,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 3640,
+      "length_field_offset": 3624,
+      "offset": 1446144,
+      "declared_length_candidate": 571136,
+      "end": 2017280,
+      "sha256": "df6bfe19bf7b934df1fb02468f1ba6762928cd33b75e2831b827ba1b00ec4854",
+      "entropy": 4.868556,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 3664,
+      "length_field_offset": 3648,
+      "offset": 2017280,
+      "declared_length_candidate": 571136,
+      "end": 2588416,
+      "sha256": "7303f0d850b02a4d04e8271ce265ce671a54127fa18ec9af328e2c6a31169bd7",
+      "entropy": 7.999648,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 3688,
+      "length_field_offset": 3672,
+      "offset": 2588416,
+      "declared_length_candidate": 571136,
+      "end": 3159552,
+      "sha256": "5ac40dc1f3974701de90f1004c38c863a7f19fc65e459346faa27c29c4343693",
+      "entropy": 7.999691,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 3712,
+      "length_field_offset": 3696,
+      "offset": 3159552,
+      "declared_length_candidate": 571136,
+      "end": 3730688,
+      "sha256": "bf698accbe189fe4ee8c393b698ec174b80892114ff579a173ecd6f52ef1603c",
+      "entropy": 7.999615,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 3736,
+      "length_field_offset": 3720,
+      "offset": 3730688,
+      "declared_length_candidate": 571136,
+      "end": 4301824,
+      "sha256": "11e3da9990baadb819d149de1b2c73fe0e5e9cfa1366e6fd9085035d4c77a123",
+      "entropy": 7.999697,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 3784,
+      "length_field_offset": 3768,
+      "offset": 4301824,
+      "declared_length_candidate": 539136,
+      "end": 4840960,
+      "sha256": "5d5ef69692ce3065a99d3ce375f5930a8b5e6075832b5d0cf92a9ae5e0e37f91",
+      "entropy": 4.813613,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 10816,
+      "length_field_offset": 10800,
+      "offset": 4840960,
+      "declared_length_candidate": 258560,
+      "end": 5099520,
+      "sha256": "e2068f7c7a0b77e3b8e6d2c161a702ee89fa5bbd6e754baf24267291d9b8e220",
+      "entropy": 5.804235,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 10888,
+      "length_field_offset": 10872,
+      "offset": 5099520,
+      "declared_length_candidate": 258560,
+      "end": 5358080,
+      "sha256": "25e9b50cffd405b9a4a7fce752d087129db79b279190ddf4ea92799389aa6cac",
+      "entropy": 7.999048,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 10912,
+      "length_field_offset": 10896,
+      "offset": 5358080,
+      "declared_length_candidate": 160512,
+      "end": 5518592,
+      "sha256": "7250a85042ad029fab7ea342f2417cc765b5792e71ce0eba526a9103b207d8ba",
+      "entropy": 7.998644,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 10984,
+      "length_field_offset": 10968,
+      "offset": 5518592,
+      "declared_length_candidate": 145152,
+      "end": 5663744,
+      "sha256": "f38206d4dd06ccc4f689d2b640de2bfdaf3f625b7ddd4c96e8497c400241835d",
+      "entropy": 7.99853,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11056,
+      "length_field_offset": 11040,
+      "offset": 5663744,
+      "declared_length_candidate": 258560,
+      "end": 5922304,
+      "sha256": "c888b4d89f09ce90cbd09317827c19f37dcf6380931389e93a77c8824fce7d78",
+      "entropy": 7.999271,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11080,
+      "length_field_offset": 11064,
+      "offset": 5922304,
+      "declared_length_candidate": 145152,
+      "end": 6067456,
+      "sha256": "6459d8c20adb578c8f4f642a87c9d5a9c15ba779a0868b5ceaefbe7618c3373f",
+      "entropy": 7.998206,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11104,
+      "length_field_offset": 11088,
+      "offset": 6067456,
+      "declared_length_candidate": 261120,
+      "end": 6328576,
+      "sha256": "36f010e112c87137595819900c72bb01521ebad150a874ef6b71a5f02b0a9de2",
+      "entropy": 5.81727,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11176,
+      "length_field_offset": 11160,
+      "offset": 6328576,
+      "declared_length_candidate": 261120,
+      "end": 6589696,
+      "sha256": "3f012d8b56522ee27df760b7d9e7e8dedccb74bcd121d4a0d9c96e9ff3057380",
+      "entropy": 7.999216,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11200,
+      "length_field_offset": 11184,
+      "offset": 6589696,
+      "declared_length_candidate": 145408,
+      "end": 6735104,
+      "sha256": "97f20e81f087ff175041c66671f6b865939de109da46492e228023cce8ebb155",
+      "entropy": 7.998423,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11272,
+      "length_field_offset": 11256,
+      "offset": 6735104,
+      "declared_length_candidate": 261120,
+      "end": 6996224,
+      "sha256": "0379c0e446bd7694092a236beed01d8262f48afabb5cfc899506403a9b19e21d",
+      "entropy": 7.999227,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11296,
+      "length_field_offset": 11280,
+      "offset": 6996224,
+      "declared_length_candidate": 145408,
+      "end": 7141632,
+      "sha256": "47ff75ae7f28ee1281c5a6649792326530fc7e7590689406eadcc3f0a3062de5",
+      "entropy": 7.998237,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11320,
+      "length_field_offset": 11304,
+      "offset": 7141632,
+      "declared_length_candidate": 257792,
+      "end": 7399424,
+      "sha256": "bf0ff42af8b8bedbc2d20688ec92959093250a7d2f4d7b19968037efd60bece7",
+      "entropy": 5.79069,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11392,
+      "length_field_offset": 11376,
+      "offset": 7399424,
+      "declared_length_candidate": 257792,
+      "end": 7657216,
+      "sha256": "716857c23d52452381feb01024875a130732153fe992ca36773b1a859acc7616",
+      "entropy": 7.99926,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11416,
+      "length_field_offset": 11400,
+      "offset": 7657216,
+      "declared_length_candidate": 143616,
+      "end": 7800832,
+      "sha256": "ac249dea29315e5846a9435c87399ac5c8987a58ba543eea9aa8e28f767313df",
+      "entropy": 7.998408,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11488,
+      "length_field_offset": 11472,
+      "offset": 7800832,
+      "declared_length_candidate": 257792,
+      "end": 8058624,
+      "sha256": "6a3911c8b312df90cb63a2765de2d3627f157ba1f5f08d8937460ef73eb2b6c5",
+      "entropy": 7.999215,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11512,
+      "length_field_offset": 11496,
+      "offset": 8058624,
+      "declared_length_candidate": 143616,
+      "end": 8202240,
+      "sha256": "eef2a2c513463ebebd5726b84dfcdba77d2bbca670cc3e9b60dcddb95dd1adbb",
+      "entropy": 7.998349,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11584,
+      "length_field_offset": 11568,
+      "offset": 8202240,
+      "declared_length_candidate": 143360,
+      "end": 8345600,
+      "sha256": "94dfd9eda140ba5fe9ff71442554a9452c105f585ca42a48a096c01d5361ea42",
+      "entropy": 4.19832,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11656,
+      "length_field_offset": 11640,
+      "offset": 8345600,
+      "declared_length_candidate": 157440,
+      "end": 8503040,
+      "sha256": "ca91d640e5e534202f819f714fc96f03fc4f1a4a426ec21395cc7285b039b4da",
+      "entropy": 4.595021,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11728,
+      "length_field_offset": 11712,
+      "offset": 8503040,
+      "declared_length_candidate": 147712,
+      "end": 8650752,
+      "sha256": "73146509b95ef23db9d277674a6a1133173568476d930b114c450f21280e1d1f",
+      "entropy": 2.786219,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11800,
+      "length_field_offset": 11784,
+      "offset": 8650752,
+      "declared_length_candidate": 124160,
+      "end": 8774912,
+      "sha256": "e10341a3d83716e34b7a3be8363f9ebb4d3f2b5dd0e2635b6d1386dc403ffe9b",
+      "entropy": 3.797969,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    },
+    {
+      "marker_offset": 11872,
+      "length_field_offset": 11856,
+      "offset": 8774912,
+      "declared_length_candidate": 62720,
+      "end": 8837632,
+      "sha256": "1895bbf642e935c908eb4e0030115d880ad7a4e8d3e84622f9ec79125d5919da",
+      "entropy": 2.423639,
+      "interpretation": "structural candidate; marker/length semantics need external format source",
+      "gap_to_next_payload_or_eof": 0,
+      "gap_all_zero": true
+    }
+  ],
+  "all_payload_spans_nonoverlapping": true,
+  "last_candidate_end": 8837632,
+  "legacy_blob10_extent_to_eof": 7575296,
+  "corrected_blob10_length_candidate": 183808,
+  "blob6_blob8": {
+    "compared_bytes": 125696,
+    "differing_bytes": 24,
+    "diffs": [
+      {
+        "relative_offset": 28478,
+        "b6": 33,
+        "b8": 31
+      },
+      {
+        "relative_offset": 29184,
+        "b6": 68,
+        "b8": 74
+      },
+      {
+        "relative_offset": 29185,
+        "b6": 101,
+        "b8": 97
+      },
+      {
+        "relative_offset": 29186,
+        "b6": 99,
+        "b8": 110
+      },
+      {
+        "relative_offset": 29188,
+        "b6": 51,
+        "b8": 32
+      },
+      {
+        "relative_offset": 29189,
+        "b6": 49,
+        "b8": 50
+      },
+      {
+        "relative_offset": 29194,
+        "b6": 52,
+        "b8": 53
+      },
+      {
+        "relative_offset": 29196,
+        "b6": 49,
+        "b8": 48
+      },
+      {
+        "relative_offset": 29197,
+        "b6": 49,
+        "b8": 56
+      },
+      {
+        "relative_offset": 29200,
+        "b6": 57,
+        "b8": 53
+      },
+      {
+        "relative_offset": 29202,
+        "b6": 51,
+        "b8": 49
+      },
+      {
+        "relative_offset": 29203,
+        "b6": 52,
+        "b8": 54
+      },
+      {
+        "relative_offset": 46681,
+        "b6": 33,
+        "b8": 31
+      },
+      {
+        "relative_offset": 47032,
+        "b6": 68,
+        "b8": 74
+      },
+      {
+        "relative_offset": 47033,
+        "b6": 101,
+        "b8": 97
+      },
+      {
+        "relative_offset": 47034,
+        "b6": 99,
+        "b8": 110
+      },
+      {
+        "relative_offset": 47036,
+        "b6": 51,
+        "b8": 32
+      },
+      {
+        "relative_offset": 47037,
+        "b6": 49,
+        "b8": 50
+      },
+      {
+        "relative_offset": 47042,
+        "b6": 52,
+        "b8": 53
+      },
+      {
+        "relative_offset": 47044,
+        "b6": 49,
+        "b8": 48
+      },
+      {
+        "relative_offset": 47045,
+        "b6": 49,
+        "b8": 56
+      },
+      {
+        "relative_offset": 47048,
+        "b6": 57,
+        "b8": 53
+      },
+      {
+        "relative_offset": 47050,
+        "b6": 52,
+        "b8": 50
+      },
+      {
+        "relative_offset": 47051,
+        "b6": 52,
+        "b8": 53
+      }
+    ],
+    "timestamp_windows": [
+      {
+        "relative_offset": 29184,
+        "b6": "Dec 31 2024\u000011:39:34",
+        "b8": "Jan  2 2025\u000008:35:16"
+      },
+      {
+        "relative_offset": 47032,
+        "b6": "Dec 31 2024\u000011:39:44",
+        "b8": "Jan  2 2025\u000008:35:25"
+      }
+    ],
+    "differing_bytes_outside_timestamp_windows": [
+      {
+        "relative_offset": 28478,
+        "b6": 33,
+        "b8": 31
+      },
+      {
+        "relative_offset": 46681,
+        "b6": 33,
+        "b8": 31
+      }
+    ],
+    "identical": false,
+    "interpretation": "Two timestamp windows plus two unexplained bytes; no claim all changes are timestamp or no code differs."
+  }
+}

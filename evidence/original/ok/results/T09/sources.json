@@ -1,0 +1,70 @@
+{
+  "task": "T09 — Phản biện độc lập và tổng hợp khả năng phục hồi",
+  "generated_at": "2026-11-05T00:00:00+07:00",
+  "executor": "main session, sequential, no subagent",
+  "constraints": "R0 offline + live SSH read-only vào host <REDACTED_LAB_IP> (chỉ đọc, không ghi/can thiệp card). Không flash, không MMIO/PCI write, không reset/reload/reboot.",
+  "web_sources": [
+    {
+      "id": "W1",
+      "type": "web",
+      "url": "https://raw.githubusercontent.com/Cyridd/cmpunlocker/main/docs/compatibility.md",
+      "title": "cmpunlocker compatibility — CMP 40HX",
+      "accessed": "2026-11-05",
+      "relevant_quote": "CMP 40HX has no normal display outputs. Graphics use therefore requires a suitable headless, secondary-GPU, remote-display or similar setup.",
+      "applicability_tu106": "CMP 40HX/TU106 — cộng đồng đánh giá CMP 40HX không có output display vật lý thông thường; chống giả hypothèse unlock display qua strap/fuse."
+    },
+    {
+      "id": "W2",
+      "type": "web",
+      "url": "https://raw.githubusercontent.com/NoPantsNoLife/cmp40hx_unlocker/main/README.md",
+      "title": "cmp40hx_unlocker README",
+      "accessed": "2026-11-05",
+      "relevant_quote": "Compute unlock qua SEC2 Booter payload (SS0/SS1/FECS_PLM) — chỉ ripristina hiệu suất compute, KHÔNG tăng số lượng SM. 'compute is not raster graphics'.",
+      "applicability_tu106": "CMP 40HX/TU106 — không có công cụ công khai unlock thêm SM count cho CMP 40HX TU106."
+    },
+    {
+      "id": "W3",
+      "type": "web",
+      "url": "https://cmp.wiki/wiki/Driver_unlock",
+      "title": "cmp.wiki Driver_unlock (CMP 170HX GA100)",
+      "accessed": "2026-11-05",
+      "relevant_quote": "cmpunlocker unlock 'Full SM compute throughput (the SS0/SS1 speed selectors)'; ceiling 74 SM trên 8 GB card; 128 SM chỉ trên 10 GB qua RIR fuse burn.",
+      "applicability_tu106": "GA100/CMP 170HX — cơ chế trên GA100, không chuyển giao tự động cho TU106/CMP 40HX."
+    },
+    {
+      "id": "W4",
+      "type": "web",
+      "url": "https://cmp.wiki/wiki/Full_SM_unlock",
+      "title": "cmp.wiki Full_SM_unlock (CMP 170HX GA100)",
+      "accessed": "2026-11-05",
+      "relevant_quote": "CMP 170HX stock 70/128 SM; 74 SM ceiling 8 GB card; 128 SM chỉ 10 GB qua RIR fuse burn + EN_SW_OVERRIDE.",
+      "applicability_tu106": "GA100/CMP 170HX — ứng viên so sánh TU106, không áp trực tiếp."
+    }
+  ],
+  "live_ssh": {
+    "host": "<REDACTED_LAB_IP>",
+    "user": "tinh",
+    "os": "Ubuntu 24.04.5 LTS (hostname 2696)",
+    "method": "SSH read-only (không ghi/can thiệp card), không root/sudo vào resource0 hoặc /dev/mem",
+    "capture_time": "2026-11-05 (+07)",
+    "key_findings": [
+      "CMP 40HX là GPU duy nhất trong nvidia-smi: BDF 0000:03:00.0, device 10DE:1F0B-100-A1, Turing, VBIOS 90.06.67.00.06, driver/KMD 615.71.09, Board ID 0x300",
+      "Display Attached: No; Display Active: Disabled",
+      "card0-DP-1 connected thuộc card khác (BDF 04:00.0), KHÔNG phải CMP; card1 (03:00.0 = CMP) không expose connector status",
+      "nvidia-smi không expose trường SM count (multiprocessor_count bị từ chối); giữ 34 SM/2176 CUDA từ archive",
+      "resource0 và /dev/mem root-only; không đọc được raw fuse live"
+    ]
+  },
+  "local_sources": {
+    "results/T00/evidence.json": "individual evidence file",
+    "results/T01/evidence.json": "individual evidence file",
+    "results/T02/evidence.json": "individual evidence file",
+    "results/T03/evidence.json": "individual evidence file",
+    "results/T04/evidence.json": "individual evidence file",
+    "results/T05/evidence.json": "individual evidence file",
+    "results/T06/evidence.json": "individual evidence file",
+    "results/T07/evidence.json": "individual evidence file",
+    "results/T08/evidence.json": "individual evidence file"
+  },
+  "output_files": ["FINAL_FEASIBILITY_ASSESSMENT.md", "RECOVERY_DECISION_TREE.md", "CLAIM_CORRECTIONS.csv", "evidence.json", "sources.json", "LIVE_SSH_20261105.md"]
+}

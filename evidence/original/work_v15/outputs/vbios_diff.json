@@ -1,0 +1,96 @@
+{
+ "rom_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+ "t4_sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+ "rom_size": 1048576,
+ "t4_size": 495616,
+ "bytes_changed": 19,
+ "checksum": {
+  "algorithm": "sum(image) % 256 == 0",
+  "images": [
+   {
+    "image": "legacy1",
+    "start": 165376,
+    "end": 227840,
+    "rom_sum": 0,
+    "t4_sum": 0,
+    "t4_ok": true
+   },
+   {
+    "image": "EFI1",
+    "start": 227840,
+    "end": 297472,
+    "rom_sum": 0,
+    "t4_sum": 0,
+    "t4_ok": true
+   },
+   {
+    "image": "NPDS_E0_1",
+    "start": 297472,
+    "end": 344064,
+    "rom_sum": 0,
+    "t4_sum": 0,
+    "t4_ok": true
+   },
+   {
+    "image": "NPDS_E0_2",
+    "start": 344064,
+    "end": 485376,
+    "rom_sum": 0,
+    "t4_sum": 0,
+    "t4_ok": true
+   },
+   {
+    "image": "NPDS_70",
+    "start": 485376,
+    "end": 492544,
+    "rom_sum": 0,
+    "t4_sum": 0,
+    "t4_ok": true
+   }
+  ],
+  "checksum_byte_off": 485375,
+  "rom_val": 51,
+  "t4_val": 229,
+  "formula": "new = (old - sum(t4[i]-rom[i] for changed body)) % 256  <=> sum(image) % 256 == 0"
+ },
+ "floats": [
+  {
+   "off": 353948,
+   "name": "nvvdd REL clamp_lo (copy 1)",
+   "rom_uv": 1068750.0,
+   "t4_uv": 1125000.0
+  },
+  {
+   "off": 353952,
+   "name": "nvvdd REL c0 (copy 1)",
+   "rom_uv": 1068750.0,
+   "t4_uv": 1125000.0
+  },
+  {
+   "off": 353956,
+   "name": "nvvdd REL c0 (copy 2)",
+   "rom_uv": 1068750.0,
+   "t4_uv": 1125000.0
+  },
+  {
+   "off": 353972,
+   "name": "nvvdd ALT c0 (copy 1)",
+   "rom_uv": 1093750.0,
+   "t4_uv": 1125000.0
+  },
+  {
+   "off": 353976,
+   "name": "nvvdd ALT c0 (copy 2)",
+   "rom_uv": 1093750.0,
+   "t4_uv": 1125000.0
+  },
+  {
+   "off": 353980,
+   "name": "nvvdd ALT c0 (copy 3)",
+   "rom_uv": 1093750.0,
+   "t4_uv": 1125000.0
+  }
+ ],
+ "payload_rule": "payload = rom[0:0x79000] (495616 B)",
+ "payload_cut": "0x79000..0x100000 = 0x87000 B khong dua vao payload"
+}

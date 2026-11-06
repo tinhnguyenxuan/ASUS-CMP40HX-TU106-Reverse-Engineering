@@ -1,0 +1,78 @@
+{
+  "schema": "phase21-vulkan-capture-audit-v1",
+  "inputs": [
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/vulkan_nvidia_only.json",
+      "sha256": "00d688edb8e0a4a0dce804f922d50fbbfc302e1530d2bdc7ea365dba7d64e084"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/vulkan_device_query.json",
+      "sha256": "d04d3a2c95029799eff72203a5f3a1bfed31df1e13e25a984006d0f111768aed"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/nvidia_library_linkage.json",
+      "sha256": "1df1e7e71c0b62a850ea7deb028a0bb4630667d0c3e92d2d999093e043855513"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/nvidia_vk_symbols_registry.json",
+      "sha256": "a020a6ae8320c92213c5f1bb39fc66f849386f7332cc2fa5cb57e57f8790598c"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/glm_userspace_diagnostic.json",
+      "sha256": "d1289fa3a5f4db148563889e89d6ce47da8e7011c25a63e693e2be108cb121fc"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/vulkan_direct_icd_dispatch.json",
+      "sha256": "bced94ce11b5d02c54d841042d3153017343a1c12786c4af53664826da1ea233"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/vulkan_negotiated_dispatch.json",
+      "sha256": "1477fe77568bc55c4bcaa2c5b0965172a1eb64d042fb1d5603a3fa8895cf3a0b"
+    }
+  ],
+  "lp64_create_info": {
+    "field_offsets": {
+      "sType": 0,
+      "next": 8,
+      "flags": 16,
+      "app": 24,
+      "layers": 32,
+      "layerNames": 40,
+      "extensions": 48,
+      "extensionNames": 56
+    },
+    "sizeof": 64,
+    "result": "MATCHES reviewed VkInstanceCreateInfo LP64 layout",
+    "limits": "Local struct-layout audit only; no target replay or pointer/calling-convention validation for uncaptured probe code"
+  },
+  "loader_failure": {
+    "vkCreateInstance": -9,
+    "name": "VK_ERROR_INCOMPATIBLE_DRIVER",
+    "boundary": "Driver discovery/global entrypoint resolution fails; no NVIDIA physical-device render tested"
+  },
+  "software_enumeration": [
+    {
+      "name": "llvmpipe (LLVM 20.1.2, 256 bits)",
+      "vendor_id": "0x10005",
+      "device_id": "0x0",
+      "device_type": 4
+    }
+  ],
+  "denied_drm_nodes": [
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "conclusions": {
+    "missing_dynamic_export": "Contradicted for three captured ELF symbols, not all possible symbols/dependencies",
+    "dependency_resolution": "Captured ldd resolves direct dependency graph; runtime dlopen/version/initialization failure remains possible",
+    "drm_permission_causality": "EACCES observed; causal link to Vulkan not isolated",
+    "gpu_vulkan_hardware": "UNKNOWN; CUDA/GLES success neither proves nor disproves Vulkan feature support",
+    "direct_probe_abi": "Incomplete provenance: command/source absent in two direct dispatch captures"
+  },
+  "next": [
+    "Review full direct-probe pointer return declarations before trusting NULL attribution",
+    "Reproduce loader/native-C ABI query under unchanged permissions if target access returns",
+    "Check runtime library opens/version negotiation separately from shader/scanout"
+  ],
+  "hardware_actions_executed": false
+}

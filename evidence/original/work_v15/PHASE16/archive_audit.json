@@ -1,0 +1,14 @@
+{
+  "archive": "cmp40hx_transfer/cmp40hx_research_v15_final.tar.gz",
+  "archive_sha256": "323c96e5bf7d5512ae3e55f6040afa81373c7ab44d1f059165c536fbd2c51a45",
+  "clean_extract": "/tmp/cmp40hx-v15-audit-gzjlxr24",
+  "clean_root": "/tmp/cmp40hx-v15-audit-gzjlxr24",
+  "files": 157,
+  "workspace_mismatches": [],
+  "legacy_verify": {
+    "exit_code": 0,
+    "pass_lines": 161,
+    "fail_lines": 0,
+    "skip_lines": 0
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "capture_utc": "2026-11-05T18:18:44.636908+00:00",
+  "input": {
+    "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/reconciled_20261106/LIVE_RM_CANDIDATES_V2.json",
+    "sha256": "c3df01cff9b254391e157095e6728a5a7375c8b7a1a8c47cf8fd24b8f22c180f"
+  },
+  "count": 8,
+  "pairs": [
+    {
+      "index": 0,
+      "name": "FMLA16",
+      "raw_speed_select": 6
+    },
+    {
+      "index": 2,
+      "name": "FMLA32",
+      "raw_speed_select": 6
+    },
+    {
+      "index": 3,
+      "name": "FFMA",
+      "raw_speed_select": 0
+    },
+    {
+      "index": 4,
+      "name": "IMLA0",
+      "raw_speed_select": 6
+    },
+    {
+      "index": 5,
+      "name": "IMLA1",
+      "raw_speed_select": 6
+    },
+    {
+      "index": 6,
+      "name": "IMLA2",
+      "raw_speed_select": 6
+    },
+    {
+      "index": 7,
+      "name": "IMLA3",
+      "raw_speed_select": 6
+    },
+    {
+      "index": 8,
+      "name": "IMLA4",
+      "raw_speed_select": 6
+    }
+  ],
+  "denied_controls": [
+    {
+      "command": "0x2080123b",
+      "gpc": 0,
+      "status": "0x56",
+      "output_unchanged": true
+    },
+    {
+      "command": "0x208001e7",
+      "gpc": 0,
+      "status": "0x56",
+      "output_unchanged": true
+    },
+    {
+      "command": "0x2080123b",
+      "gpc": 1,
+      "status": "0x56",
+      "output_unchanged": true
+    },
+    {
+      "command": "0x208001e7",
+      "gpc": 1,
+      "status": "0x56",
+      "output_unchanged": true
+    },
+    {
+      "command": "0x2080123b",
+      "gpc": 2,
+      "status": "0x56",
+      "output_unchanged": true
+    },
+    {
+      "command": "0x208001e7",
+      "gpc": 2,
+      "status": "0x56",
+      "output_unchanged": true
+    }
+  ],
+  "limits": [
+    "Captured result, not a query executed by this reconciler",
+    "Cached API values, not direct MMIO or physical OTP",
+    "No inferred throughput divisor from code 6",
+    "Missing DP entry is not hardware-absent evidence",
+    "No TPC defect or recovery conclusion"
+  ]
+}

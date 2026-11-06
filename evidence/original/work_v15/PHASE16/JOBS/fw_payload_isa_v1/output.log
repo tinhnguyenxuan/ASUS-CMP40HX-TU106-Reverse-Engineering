@@ -1,0 +1,20 @@
+Hoàn thành PHASE16/FW_PAYLOAD_ISA. Không gọi GPU, không sửa config/driver, không xử lý key/signature, không cài tool mới.
+
+## Đã làm và xác thực
+
+**1. Inventory 38 payload** (`payload_asi_verified.json` → `inventory`): slot/offset/size/hash/entropy/bounded strings/headerraw từ `outputs/ucodes_tu10x.bin` đối chiếu `firmware_container_source_verified.json`. 5 entropy thấp nhất: 493 (2.424), 487 (2.786), 20 (3.481), 490 (3.798), 481 (4.198).
+
+**2. Source cross-check** (`/tmp/nvsrc`, sourcehash/line trong JSON): `BINDATA_UCODES_BIN_HEADER`/`BINDATA_STORAGE_PVT` (`bin_data_pvt.h:60-114`), `RM_RISCV_UCODE_DESC` (`rmRiscvUcode.h:36-93`), `RM_FLCN_BL_DESC/IMG_HEADER` (`rmflcnbl.h:45-145`), `BINDATA_LABEL` đính chính là **không phải global slot index**. `nvfw_hs` không có trong snapshot; không có generated descriptor instance. Tất cả 97 giả thuyết layout tại offset 0 (RISC-V desc, Falcon img header, high-entropy=code) đều **từ chối** — lengths/offsets bất hợp lệ hoặc version=0 ngoài tập 1-5. Không kết luận AES từ entropy.
+
+**3. Disassemble thực**: envydis (`-i -n -m falcon`) có sẵn tại `/tmp/envytools/build/envydis/envydis`. Chọn code-start qua longest initial valid prefix, không disassemble header/padding làm lệnh:
+- slot 493 @0x85E500, code +0x10, prefix 11, Falcon medium
+- slot 487 @0x81BF00, code +0x10, prefix 11, Falcon medium
+- slot 490 @0x840000, code +0x10, prefix 11, Falcon medium
+- slot 20 @0x002F00, code +0x24, prefix 17, Falcon medium
+Mẫu lệnh giữ raw/offset: `ld b32 $r15 D[$r9+0x24]`, `shr/shl/or`, `mov $xcbase`/`$xtargets` — họ Falcon. Capstone chưa cài (cấm cài thêm) → RISC-V không disassemble được, engine UNKNOWN cho các payload kém cấu trúc.
+
+**4. blob6/blob8**: blob6=slot33@0xb7c00, blob8=slot35@0xf5400; 24 byte diff = 2 outlier (0x6f3e, 0xb659: 0x21→0x1f) + 2 chuỗi timestamp nhúng (20 byte tại 0x7200, 0xb7b8). Hai offset nằm trong extent slot 33/35, vùng dữ liệu/bảng offset (header đã bị từ chối, không xác định code/header được); **không gọi checksum/version** — chưa có consumer. Evidence lưu trong `blob_diff`.
+
+**5. Outputs**: `payload_isa_verify.py` (chạy lại được), `run.log`, `payload_isa_verified.json` (97 hypotheses, accepted/rejected, sourcehash/line, rawoffsets, disasm bounded, confidence), `FW_PAYLOAD_ISA_REPORT.md`, `work/` (trích xuất p493/p487/p490/p20).
+
+**Còn lại (Unknown, giữ bằng chứng)**: engine ISA của payload entropy≈8.0 và slots 32-37/150-156 (header kiểu bảng offset + timestamp) — cần capstone hoặc source layout khớp hơn để kết luận. Không prét hơn bằng chứng đã thu.

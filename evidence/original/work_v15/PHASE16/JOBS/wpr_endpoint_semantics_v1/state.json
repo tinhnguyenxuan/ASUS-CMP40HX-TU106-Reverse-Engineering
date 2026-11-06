@@ -1,0 +1,12 @@
+{
+  "job": "wpr_endpoint_semantics_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T18:54:56.262370+00:00",
+  "wrapper_pid": 1666042,
+  "task_sha256": "a55910904b2a41a4cd627b28931a6a11de5126f9043a6612c428e7185357ef4f",
+  "hermes_pid": 1666043,
+  "hermes_start_ticks": "209804214",
+  "heartbeat_at": "2026-11-03T18:58:28.341745+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T18:58:30.342392+00:00"
+}

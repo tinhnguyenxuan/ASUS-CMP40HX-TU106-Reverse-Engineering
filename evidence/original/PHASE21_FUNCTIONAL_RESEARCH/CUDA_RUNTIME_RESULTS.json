@@ -1,0 +1,86 @@
+{
+  "schema": "phase21-runtime-reconciled-v1",
+  "generated_utc": "2026-11-06T02:45:01.947891+00:00",
+  "status": "PARTIAL_CAPTURED_TARGET",
+  "target": {
+    "bdf": "0000:03:00.0",
+    "uuid": "GPU-REDACTED",
+    "captured_driver_gsp": "615.71.09"
+  },
+  "freshly_executed_target_tests": false,
+  "tests": [
+    {
+      "feature": "FP32 kernel, allocation and synchronization",
+      "status": "PROVEN_WORKING",
+      "observed_utc": "2026-11-04T14:45:48.216349+00:00",
+      "bdf": "0000:03:00.0",
+      "stdout": "BDF=0000:03:00.0 elements=4096 mismatches=0 result=PASS\n",
+      "source": {
+        "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/cuda_correctness.json",
+        "sha256": "bdc3bca264d8e7f62456632f173ab79e2541160c866154653e05f1f8a69f2472"
+      },
+      "scope": "Bounded correctness only; no stock or performance assertion"
+    },
+    {
+      "feature": "sm_75 WMMA half-input/float-output",
+      "status": "PROVEN_WORKING",
+      "observed_utc": "2026-11-04T14:56:32.126321+00:00",
+      "bdf": "0000:03:00.0",
+      "stdout": "Selected device 0: NVIDIA CMP 40HX (PCI BDF 0000:03:00.0)\nDevice BDF: 0000:03:00.0\nPASS: all 256 elements match CPU reference\n",
+      "source": {
+        "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/tensor_correctness.json",
+        "sha256": "4c8247c5621378371dfe32a772821c353e387baee446545aa1da9a8b363699c1"
+      },
+      "scope": "Bounded correctness only; no stock or performance assertion"
+    },
+    {
+      "feature": "cuBLAS SGEMM",
+      "status": "PROVEN_WORKING",
+      "observed_utc": "2026-11-04T14:59:39.412171+00:00",
+      "bdf": "0000:03:00.0",
+      "stdout": "Selected device 0 (PCI BDF 0000:03:00.0)\\nDevice BDF: 0000:03:00.0\\nPASS: all 256 results match CPU reference\\n",
+      "source": {
+        "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/cublas_correctness.json",
+        "sha256": "161c5b1aae094c8b4b39a8ba7081d7e088744e7465a87e0586e7525a95d51aae"
+      },
+      "scope": "Bounded correctness only; no stock or performance assertion"
+    },
+    {
+      "feature": "CUPTI metadata discovery",
+      "status": "PROVEN_WORKING",
+      "observed_utc": "2026-11-04T15:02:38.387839+00:00",
+      "source": {
+        "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/cupti_query.json",
+        "sha256": "d992437d412e9faa34014e05fdb77c4e2f0917782a46458885b312df84dc9808"
+      },
+      "scope": "Library/version only, no counters, callbacks or device profiling proved"
+    }
+  ],
+  "headless_graphics": {
+    "status": "PROVEN_WORKING",
+    "feature": "OpenGL ES headless shader/raster readback",
+    "utc": "2026-11-04T15:18:52.541477+00:00",
+    "renderer": {
+      "vendor": "NVIDIA Corporation",
+      "renderer": "NVIDIA CMP 40HX/PCIe/SSE2",
+      "version": "OpenGL ES 3.2 NVIDIA 615.71.09"
+    },
+    "source": {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/target_live_20261104/egl_shader_result.json",
+      "sha256": "8cf758f7eff16cc89683c571527b8975abeba386d0c0ec3fc6e62f07fd361e7e"
+    },
+    "scope": "4x4 green triangle readback, not physical scanout or desktop OpenGL coverage"
+  },
+  "issue_rate_capture": "evidence/reconciled_20261106/issue_rate_decoded.json",
+  "unverified": [
+    "True stock state and throughput",
+    "cuBLASLt",
+    "DP4A correctness",
+    "CUDA graph execution",
+    "CUPTI device support/counter collection",
+    "CUDA/OpenGL interoperability",
+    "Vulkan render correctness",
+    "Physical display scanout"
+  ],
+  "supersedes": "Earlier NOT_RUN only described local sandbox, not retained target captures"
+}

@@ -1,0 +1,2408 @@
+{
+  "tool": "typed_table_verify.py",
+  "generated_at": "2026-11-03T15:43:16.901597+00:00Z",
+  "rom": {
+    "path": "/tmp/CMP40HX_ORIGINAL_1MB.bin",
+    "size": 1048576,
+    "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+    "expected_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+    "sha256_match": true
+  },
+  "sources": {
+    "/tmp/envytools/nvbios/power.c": "6f4d9d065dd37d8ea49ec3f7a7aeedd2723b13a1c223bc90e90de5be1802c8a6",
+    "/tmp/envytools/nvbios/bit.c": "ad7475b67203275e1fe05ac8c910ce2ad431eacb930ca3a858e085dceb87f335",
+    "/tmp/envytools/nvbios/nvbios.c": "7e9f739bf8e4b45f168e90b4d6b07c0c0d039a2bdb76f753b38069714f36907f"
+  },
+  "tables": [
+    {
+      "slot": 17,
+      "name": "PERF TEST SPEC",
+      "p2_offset": 68,
+      "p2_offset_hex": "0x44",
+      "file_offset": 345586,
+      "file_offset_hex": "0x545f2",
+      "source_file": "/tmp/envytools/nvbios/power.c",
+      "source_function": "envy_bios_parse_power_unk44",
+      "source_line": 1188,
+      "version_raw": 16,
+      "version_raw_hex": "0x10",
+      "source_supported_versions": [
+        "0x10"
+      ],
+      "branch_taken": "0x10",
+      "status": "decoded",
+      "extent": {
+        "start": 345586,
+        "end": 345600,
+        "len": 14,
+        "end_hex": "0x54600",
+        "basis": "hlen=14 read at offset+1 by source (power.c:1198)"
+      },
+      "header": {
+        "offset": 345586,
+        "size": null,
+        "raw_hex": "100e",
+        "fields": [
+          {
+            "name": "version",
+            "abs_offset": 345586,
+            "abs_offset_hex": "0x545f2",
+            "size": 1,
+            "raw_value": 16,
+            "raw_hex": "10",
+            "interpretation": "source power.c:1195 bios_u8(offset+0x0, &unk44->version)",
+            "source_line": 1195
+          },
+          {
+            "name": "hlen",
+            "abs_offset": 345587,
+            "abs_offset_hex": "0x545f3",
+            "size": 1,
+            "raw_value": 14,
+            "raw_hex": "0e",
+            "interpretation": "source power.c:1198 bios_u8(offset+0x1, &unk44->hlen)",
+            "source_line": 1198
+          }
+        ]
+      },
+      "entries": [],
+      "unknown_bytes": [
+        {
+          "offset": 345588,
+          "offset_hex": "0x545f4",
+          "size": 12,
+          "raw_hex": "46b709286c02001d5a1e1e4b"
+        }
+      ],
+      "notes": [
+        "source power.c:1200: 'it doesn't appear as if this table has entries at all' -> no entries read",
+        "offset+2 (0x46=70) and offset+3 (0xb7=183) are NOT entry_size/count for this parser; source reads hlen at offset+1 only and never reads offset+2/+3 as esz/cnt"
+      ]
+    },
+    {
+      "slot": 5,
+      "name": "THERMAL DEVICES",
+      "p2_offset": 20,
+      "p2_offset_hex": "0x14",
+      "file_offset": 362275,
+      "file_offset_hex": "0x58723",
+      "source_file": "/tmp/envytools/nvbios/power.c",
+      "source_function": "envy_bios_parse_power_therm_devices",
+      "source_line": 239,
+      "version_raw": 16,
+      "version_raw_hex": "0x10",
+      "source_supported_versions": [
+        "0x10"
+      ],
+      "branch_taken": "0x10",
+      "status": "decoded",
+      "extent": {
+        "start": 362275,
+        "end": 362333,
+        "len": 58,
+        "end_hex": "0x5875d",
+        "basis": "hlen + entriesnum*rlen (source power.c:260-268)"
+      },
+      "header": {
+        "offset": 362275,
+        "size": null,
+        "raw_hex": "10040312",
+        "fields": [
+          {
+            "name": "version",
+            "abs_offset": 362275,
+            "abs_offset_hex": "0x58723",
+            "size": 1,
+            "raw_value": 16,
+            "raw_hex": "10",
+            "interpretation": "source power.c:249 bios_u8(offset+0x0, &version)",
+            "source_line": 249
+          },
+          {
+            "name": "hlen",
+            "abs_offset": 362276,
+            "abs_offset_hex": "0x58724",
+            "size": 1,
+            "raw_value": 4,
+            "raw_hex": "04",
+            "interpretation": "source power.c:250 bios_u8(offset+0x1, &hlen)",
+            "source_line": 250
+          },
+          {
+            "name": "rlen",
+            "abs_offset": 362277,
+            "abs_offset_hex": "0x58725",
+            "size": 1,
+            "raw_value": 3,
+            "raw_hex": "03",
+            "interpretation": "source power.c:251 bios_u8(offset+0x2, &rlen)",
+            "source_line": 251
+          },
+          {
+            "name": "entriesnum",
+            "abs_offset": 362278,
+            "abs_offset_hex": "0x58726",
+            "size": 1,
+            "raw_value": 18,
+            "raw_hex": "12",
+            "interpretation": "source power.c:252 bios_u8(offset+0x3, &entriesnum)",
+            "source_line": 252
+          }
+        ]
+      },
+      "entries": [
+        {
+          "index": 0,
+          "abs_offset": 362279,
+          "abs_offset_hex": "0x58727",
+          "raw_hex": "010000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362279,
+              "abs_offset_hex": "0x58727",
+              "size": 1,
+              "raw_value": 1,
+              "raw_hex": "01",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362280,
+              "abs_offset_hex": "0x58728",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362281,
+              "abs_offset_hex": "0x58729",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 1,
+          "abs_offset": 362282,
+          "abs_offset_hex": "0x5872a",
+          "raw_hex": "020000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362282,
+              "abs_offset_hex": "0x5872a",
+              "size": 1,
+              "raw_value": 2,
+              "raw_hex": "02",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362283,
+              "abs_offset_hex": "0x5872b",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362284,
+              "abs_offset_hex": "0x5872c",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 2,
+          "abs_offset": 362285,
+          "abs_offset_hex": "0x5872d",
+          "raw_hex": "020100",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362285,
+              "abs_offset_hex": "0x5872d",
+              "size": 1,
+              "raw_value": 2,
+              "raw_hex": "02",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362286,
+              "abs_offset_hex": "0x5872e",
+              "size": 1,
+              "raw_value": 1,
+              "raw_hex": "01",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362287,
+              "abs_offset_hex": "0x5872f",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 3,
+          "abs_offset": 362288,
+          "abs_offset_hex": "0x58730",
+          "raw_hex": "020200",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362288,
+              "abs_offset_hex": "0x58730",
+              "size": 1,
+              "raw_value": 2,
+              "raw_hex": "02",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362289,
+              "abs_offset_hex": "0x58731",
+              "size": 1,
+              "raw_value": 2,
+              "raw_hex": "02",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362290,
+              "abs_offset_hex": "0x58732",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 4,
+          "abs_offset": 362291,
+          "abs_offset_hex": "0x58733",
+          "raw_hex": "000300",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362291,
+              "abs_offset_hex": "0x58733",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362292,
+              "abs_offset_hex": "0x58734",
+              "size": 1,
+              "raw_value": 3,
+              "raw_hex": "03",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362293,
+              "abs_offset_hex": "0x58735",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 5,
+          "abs_offset": 362294,
+          "abs_offset_hex": "0x58736",
+          "raw_hex": "000400",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362294,
+              "abs_offset_hex": "0x58736",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362295,
+              "abs_offset_hex": "0x58737",
+              "size": 1,
+              "raw_value": 4,
+              "raw_hex": "04",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362296,
+              "abs_offset_hex": "0x58738",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 6,
+          "abs_offset": 362297,
+          "abs_offset_hex": "0x58739",
+          "raw_hex": "000500",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362297,
+              "abs_offset_hex": "0x58739",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362298,
+              "abs_offset_hex": "0x5873a",
+              "size": 1,
+              "raw_value": 5,
+              "raw_hex": "05",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362299,
+              "abs_offset_hex": "0x5873b",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 7,
+          "abs_offset": 362300,
+          "abs_offset_hex": "0x5873c",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362300,
+              "abs_offset_hex": "0x5873c",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362301,
+              "abs_offset_hex": "0x5873d",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362302,
+              "abs_offset_hex": "0x5873e",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 8,
+          "abs_offset": 362303,
+          "abs_offset_hex": "0x5873f",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362303,
+              "abs_offset_hex": "0x5873f",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362304,
+              "abs_offset_hex": "0x58740",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362305,
+              "abs_offset_hex": "0x58741",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 9,
+          "abs_offset": 362306,
+          "abs_offset_hex": "0x58742",
+          "raw_hex": "030000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362306,
+              "abs_offset_hex": "0x58742",
+              "size": 1,
+              "raw_value": 3,
+              "raw_hex": "03",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362307,
+              "abs_offset_hex": "0x58743",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362308,
+              "abs_offset_hex": "0x58744",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 10,
+          "abs_offset": 362309,
+          "abs_offset_hex": "0x58745",
+          "raw_hex": "000100",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362309,
+              "abs_offset_hex": "0x58745",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362310,
+              "abs_offset_hex": "0x58746",
+              "size": 1,
+              "raw_value": 1,
+              "raw_hex": "01",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362311,
+              "abs_offset_hex": "0x58747",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 11,
+          "abs_offset": 362312,
+          "abs_offset_hex": "0x58748",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362312,
+              "abs_offset_hex": "0x58748",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362313,
+              "abs_offset_hex": "0x58749",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362314,
+              "abs_offset_hex": "0x5874a",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 12,
+          "abs_offset": 362315,
+          "abs_offset_hex": "0x5874b",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362315,
+              "abs_offset_hex": "0x5874b",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362316,
+              "abs_offset_hex": "0x5874c",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362317,
+              "abs_offset_hex": "0x5874d",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 13,
+          "abs_offset": 362318,
+          "abs_offset_hex": "0x5874e",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362318,
+              "abs_offset_hex": "0x5874e",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362319,
+              "abs_offset_hex": "0x5874f",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362320,
+              "abs_offset_hex": "0x58750",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 14,
+          "abs_offset": 362321,
+          "abs_offset_hex": "0x58751",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362321,
+              "abs_offset_hex": "0x58751",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362322,
+              "abs_offset_hex": "0x58752",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362323,
+              "abs_offset_hex": "0x58753",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 15,
+          "abs_offset": 362324,
+          "abs_offset_hex": "0x58754",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362324,
+              "abs_offset_hex": "0x58754",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362325,
+              "abs_offset_hex": "0x58755",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362326,
+              "abs_offset_hex": "0x58756",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 16,
+          "abs_offset": 362327,
+          "abs_offset_hex": "0x58757",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362327,
+              "abs_offset_hex": "0x58757",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362328,
+              "abs_offset_hex": "0x58758",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362329,
+              "abs_offset_hex": "0x58759",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        },
+        {
+          "index": 17,
+          "abs_offset": 362330,
+          "abs_offset_hex": "0x5875a",
+          "raw_hex": "000000",
+          "fields": [
+            {
+              "name": "class_id",
+              "abs_offset": 362330,
+              "abs_offset_hex": "0x5875a",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:266 bios_u8(data+0x0, &class_id)",
+              "source_line": 266
+            },
+            {
+              "name": "i2c_device",
+              "abs_offset": 362331,
+              "abs_offset_hex": "0x5875b",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:267 bios_u8(data+0x1, &i2c_device)",
+              "source_line": 267
+            },
+            {
+              "name": "flags",
+              "abs_offset": 362332,
+              "abs_offset_hex": "0x5875c",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:268 bios_u8(data+0x2, &flags)",
+              "source_line": 268
+            }
+          ],
+          "entry_basis": "offset = table + hlen + i*rlen (power.c:262), i in [0,entriesnum)"
+        }
+      ],
+      "unknown_bytes": [],
+      "notes": [
+        "class_id 0x01 = GPU per therm_class_types (power.c:234-237)"
+      ]
+    },
+    {
+      "slot": 20,
+      "name": "THERMAL POLICY",
+      "p2_offset": 80,
+      "p2_offset_hex": "0x50",
+      "file_offset": 362105,
+      "file_offset_hex": "0x58679",
+      "source_file": "/tmp/envytools/nvbios/power.c",
+      "source_function": "envy_bios_parse_power_unk50",
+      "source_line": 1334,
+      "version_raw": 16,
+      "version_raw_hex": "0x10",
+      "source_supported_versions": [
+        "0x10"
+      ],
+      "branch_taken": "0x10",
+      "status": "decoded",
+      "extent": {
+        "start": 362105,
+        "end": 362275,
+        "len": 170,
+        "end_hex": "0x58723",
+        "basis": "hlen + entriesnum*rlen (source power.c:1355-1368)"
+      },
+      "header": {
+        "offset": 362105,
+        "size": null,
+        "raw_hex": "100a2804",
+        "fields": [
+          {
+            "name": "version",
+            "abs_offset": 362105,
+            "abs_offset_hex": "0x58679",
+            "size": 1,
+            "raw_value": 16,
+            "raw_hex": "10",
+            "interpretation": "source power.c:1344 bios_u8(offset+0x0, &version)",
+            "source_line": 1344
+          },
+          {
+            "name": "hlen",
+            "abs_offset": 362106,
+            "abs_offset_hex": "0x5867a",
+            "size": 1,
+            "raw_value": 10,
+            "raw_hex": "0a",
+            "interpretation": "source power.c:1345 bios_u8(offset+0x1, &hlen)",
+            "source_line": 1345
+          },
+          {
+            "name": "rlen",
+            "abs_offset": 362107,
+            "abs_offset_hex": "0x5867b",
+            "size": 1,
+            "raw_value": 40,
+            "raw_hex": "28",
+            "interpretation": "source power.c:1346 bios_u8(offset+0x2, &rlen)",
+            "source_line": 1346
+          },
+          {
+            "name": "entriesnum",
+            "abs_offset": 362108,
+            "abs_offset_hex": "0x5867c",
+            "size": 1,
+            "raw_value": 4,
+            "raw_hex": "04",
+            "interpretation": "source power.c:1347 bios_u8(offset+0x3, &entriesnum)",
+            "source_line": 1347
+          }
+        ]
+      },
+      "entries": [
+        {
+          "index": 0,
+          "abs_offset": 362115,
+          "abs_offset_hex": "0x58683",
+          "raw_hex": "0100200b200b200bc8001340ffffff7f20000000e0ffa0ff88130000000000000000000000000000",
+          "fields": [
+            {
+              "name": "mode",
+              "abs_offset": 362115,
+              "abs_offset_hex": "0x58683",
+              "size": 1,
+              "raw_value": 1,
+              "raw_hex": "01",
+              "interpretation": "source power.c:1361 bios_u8(e->offset+0x0, &e->mode)",
+              "source_line": 1361
+            },
+            {
+              "name": "t0",
+              "abs_offset": 362117,
+              "abs_offset_hex": "0x58685",
+              "size": 2,
+              "raw_value": 2848,
+              "raw_hex": "200b",
+              "interpretation": "source power.c:1362 bios_u16(e->offset+0x2, &e->t0); printed /32 C",
+              "source_line": 1362
+            },
+            {
+              "name": "t1",
+              "abs_offset": 362119,
+              "abs_offset_hex": "0x58687",
+              "size": 2,
+              "raw_value": 2848,
+              "raw_hex": "200b",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x4, &e->t1); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "t2",
+              "abs_offset": 362121,
+              "abs_offset_hex": "0x58689",
+              "size": 2,
+              "raw_value": 2848,
+              "raw_hex": "200b",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x6, &e->t2); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "interval_us",
+              "abs_offset": 362123,
+              "abs_offset_hex": "0x5868b",
+              "size": 2,
+              "raw_value": 200,
+              "raw_hex": "c800",
+              "interpretation": "source power.c:1364 bios_u16(e->offset+0x8, &e->interval_us)",
+              "source_line": 1364
+            },
+            {
+              "name": "down_off",
+              "abs_offset": 362133,
+              "abs_offset_hex": "0x58695",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1366 bios_u16(e->offset+0x12, &e->down_off); int16, /32 C",
+              "source_line": 1366
+            },
+            {
+              "name": "up_off",
+              "abs_offset": 362135,
+              "abs_offset_hex": "0x58697",
+              "size": 2,
+              "raw_value": -32,
+              "raw_hex": "e0ff",
+              "interpretation": "source power.c:1367 bios_u16(e->offset+0x14, &e->up_off); int16, /32 C",
+              "source_line": 1367
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:1359), i in [0,entriesnum); mode switch prints only mode==1 (power.c:1392)"
+        },
+        {
+          "index": 1,
+          "abs_offset": 362155,
+          "abs_offset_hex": "0x586ab",
+          "raw_hex": "00ff0000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "mode",
+              "abs_offset": 362155,
+              "abs_offset_hex": "0x586ab",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:1361 bios_u8(e->offset+0x0, &e->mode)",
+              "source_line": 1361
+            },
+            {
+              "name": "t0",
+              "abs_offset": 362157,
+              "abs_offset_hex": "0x586ad",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1362 bios_u16(e->offset+0x2, &e->t0); printed /32 C",
+              "source_line": 1362
+            },
+            {
+              "name": "t1",
+              "abs_offset": 362159,
+              "abs_offset_hex": "0x586af",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x4, &e->t1); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "t2",
+              "abs_offset": 362161,
+              "abs_offset_hex": "0x586b1",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x6, &e->t2); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "interval_us",
+              "abs_offset": 362163,
+              "abs_offset_hex": "0x586b3",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1364 bios_u16(e->offset+0x8, &e->interval_us)",
+              "source_line": 1364
+            },
+            {
+              "name": "down_off",
+              "abs_offset": 362173,
+              "abs_offset_hex": "0x586bd",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1366 bios_u16(e->offset+0x12, &e->down_off); int16, /32 C",
+              "source_line": 1366
+            },
+            {
+              "name": "up_off",
+              "abs_offset": 362175,
+              "abs_offset_hex": "0x586bf",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1367 bios_u16(e->offset+0x14, &e->up_off); int16, /32 C",
+              "source_line": 1367
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:1359), i in [0,entriesnum); mode switch prints only mode==1 (power.c:1392)"
+        },
+        {
+          "index": 2,
+          "abs_offset": 362195,
+          "abs_offset_hex": "0x586d3",
+          "raw_hex": "0000600a2008000bc8001340ffffff7f20000000e0ffa0ff88130080600a0200c00a0200000b0100",
+          "fields": [
+            {
+              "name": "mode",
+              "abs_offset": 362195,
+              "abs_offset_hex": "0x586d3",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:1361 bios_u8(e->offset+0x0, &e->mode)",
+              "source_line": 1361
+            },
+            {
+              "name": "t0",
+              "abs_offset": 362197,
+              "abs_offset_hex": "0x586d5",
+              "size": 2,
+              "raw_value": 2656,
+              "raw_hex": "600a",
+              "interpretation": "source power.c:1362 bios_u16(e->offset+0x2, &e->t0); printed /32 C",
+              "source_line": 1362
+            },
+            {
+              "name": "t1",
+              "abs_offset": 362199,
+              "abs_offset_hex": "0x586d7",
+              "size": 2,
+              "raw_value": 2080,
+              "raw_hex": "2008",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x4, &e->t1); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "t2",
+              "abs_offset": 362201,
+              "abs_offset_hex": "0x586d9",
+              "size": 2,
+              "raw_value": 2816,
+              "raw_hex": "000b",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x6, &e->t2); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "interval_us",
+              "abs_offset": 362203,
+              "abs_offset_hex": "0x586db",
+              "size": 2,
+              "raw_value": 200,
+              "raw_hex": "c800",
+              "interpretation": "source power.c:1364 bios_u16(e->offset+0x8, &e->interval_us)",
+              "source_line": 1364
+            },
+            {
+              "name": "down_off",
+              "abs_offset": 362213,
+              "abs_offset_hex": "0x586e5",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1366 bios_u16(e->offset+0x12, &e->down_off); int16, /32 C",
+              "source_line": 1366
+            },
+            {
+              "name": "up_off",
+              "abs_offset": 362215,
+              "abs_offset_hex": "0x586e7",
+              "size": 2,
+              "raw_value": -32,
+              "raw_hex": "e0ff",
+              "interpretation": "source power.c:1367 bios_u16(e->offset+0x14, &e->up_off); int16, /32 C",
+              "source_line": 1367
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:1359), i in [0,entriesnum); mode switch prints only mode==1 (power.c:1392)"
+        },
+        {
+          "index": 3,
+          "abs_offset": 362235,
+          "abs_offset_hex": "0x586fb",
+          "raw_hex": "00ff0000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "mode",
+              "abs_offset": 362235,
+              "abs_offset_hex": "0x586fb",
+              "size": 1,
+              "raw_value": 0,
+              "raw_hex": "00",
+              "interpretation": "source power.c:1361 bios_u8(e->offset+0x0, &e->mode)",
+              "source_line": 1361
+            },
+            {
+              "name": "t0",
+              "abs_offset": 362237,
+              "abs_offset_hex": "0x586fd",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1362 bios_u16(e->offset+0x2, &e->t0); printed /32 C",
+              "source_line": 1362
+            },
+            {
+              "name": "t1",
+              "abs_offset": 362239,
+              "abs_offset_hex": "0x586ff",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x4, &e->t1); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "t2",
+              "abs_offset": 362241,
+              "abs_offset_hex": "0x58701",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1363 bios_u16(e->offset+0x6, &e->t2); printed /32 C",
+              "source_line": 1363
+            },
+            {
+              "name": "interval_us",
+              "abs_offset": 362243,
+              "abs_offset_hex": "0x58703",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1364 bios_u16(e->offset+0x8, &e->interval_us)",
+              "source_line": 1364
+            },
+            {
+              "name": "down_off",
+              "abs_offset": 362253,
+              "abs_offset_hex": "0x5870d",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1366 bios_u16(e->offset+0x12, &e->down_off); int16, /32 C",
+              "source_line": 1366
+            },
+            {
+              "name": "up_off",
+              "abs_offset": 362255,
+              "abs_offset_hex": "0x5870f",
+              "size": 2,
+              "raw_value": 0,
+              "raw_hex": "0000",
+              "interpretation": "source power.c:1367 bios_u16(e->offset+0x14, &e->up_off); int16, /32 C",
+              "source_line": 1367
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:1359), i in [0,entriesnum); mode switch prints only mode==1 (power.c:1392)"
+        }
+      ],
+      "unknown_bytes": [
+        {
+          "offset": 362109,
+          "offset_hex": "0x5867d",
+          "size": 6,
+          "raw_hex": "ffffffc00100"
+        }
+      ],
+      "notes": [
+        "t0/t1/t2/down_off/up_off printed as value/32 \u00b0C (power.c:1393-1396)"
+      ]
+    },
+    {
+      "slot": 11,
+      "name": "POWER BUDGET",
+      "p2_offset": 44,
+      "p2_offset_hex": "0x2c",
+      "file_offset": 360082,
+      "file_offset_hex": "0x57e92",
+      "source_file": "/tmp/envytools/nvbios/power.c",
+      "source_function": "envy_bios_parse_power_budget",
+      "source_line": 644,
+      "version_raw": 48,
+      "version_raw_hex": "0x30",
+      "source_supported_versions": [
+        "0x10",
+        "0x20",
+        "0x30"
+      ],
+      "branch_taken": "0x30",
+      "status": "decoded",
+      "extent": {
+        "start": 360082,
+        "end": 361446,
+        "len": 1364,
+        "end_hex": "0x583e6",
+        "basis": "hlen + entriesnum*rlen (source power.c:677-691)"
+      },
+      "header": {
+        "offset": 360082,
+        "size": null,
+        "raw_hex": "302c421414",
+        "fields": [
+          {
+            "name": "version",
+            "abs_offset": 360082,
+            "abs_offset_hex": "0x57e92",
+            "size": 1,
+            "raw_value": 48,
+            "raw_hex": "30",
+            "interpretation": "source power.c:657 bios_u8(offset+0x0, &version)",
+            "source_line": 657
+          },
+          {
+            "name": "hlen",
+            "abs_offset": 360083,
+            "abs_offset_hex": "0x57e93",
+            "size": 1,
+            "raw_value": 44,
+            "raw_hex": "2c",
+            "interpretation": "source power.c:658 bios_u8(offset+0x1, &hlen)",
+            "source_line": 658
+          },
+          {
+            "name": "rlen",
+            "abs_offset": 360084,
+            "abs_offset_hex": "0x57e94",
+            "size": 1,
+            "raw_value": 66,
+            "raw_hex": "42",
+            "interpretation": "source power.c:659 bios_u8(offset+0x2, &rlen)",
+            "source_line": 659
+          },
+          {
+            "name": "entriesnum",
+            "abs_offset": 360085,
+            "abs_offset_hex": "0x57e95",
+            "size": 1,
+            "raw_value": 20,
+            "raw_hex": "14",
+            "interpretation": "source power.c:660 bios_u8(offset+0x3, &entriesnum)",
+            "source_line": 660
+          },
+          {
+            "name": "cap_entry",
+            "abs_offset": 360092,
+            "abs_offset_hex": "0x57e9c",
+            "size": 1,
+            "raw_value": 2,
+            "raw_hex": "02",
+            "interpretation": "source power.c:673 bios_u8(offset+0xa, &cap_entry) [0x30 branch]",
+            "source_line": 673
+          }
+        ]
+      },
+      "entries": [
+        {
+          "index": 0,
+          "abs_offset": 360126,
+          "abs_offset_hex": "0x57ebe",
+          "raw_hex": "0a0b204e0000284f4c00284f4c000008001001000000ffff000000000000000000004000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360128,
+              "abs_offset_hex": "0x57ec0",
+              "size": 4,
+              "raw_value": 20000,
+              "raw_hex": "204e0000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360132,
+              "abs_offset_hex": "0x57ec4",
+              "size": 4,
+              "raw_value": 5001000,
+              "raw_hex": "284f4c00",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360136,
+              "abs_offset_hex": "0x57ec8",
+              "size": 4,
+              "raw_value": 5001000,
+              "raw_hex": "284f4c00",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360144,
+              "abs_offset_hex": "0x57ed0",
+              "size": 4,
+              "raw_value": 1,
+              "raw_hex": "01000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 1,
+          "abs_offset": 360192,
+          "abs_offset_hex": "0x57f00",
+          "raw_hex": "04080100000028460f0028460f0000000100000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360194,
+              "abs_offset_hex": "0x57f02",
+              "size": 4,
+              "raw_value": 1,
+              "raw_hex": "01000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360198,
+              "abs_offset_hex": "0x57f06",
+              "size": 4,
+              "raw_value": 1001000,
+              "raw_hex": "28460f00",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360202,
+              "abs_offset_hex": "0x57f0a",
+              "size": 4,
+              "raw_value": 1001000,
+              "raw_hex": "28460f00",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360210,
+              "abs_offset_hex": "0x57f12",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 2,
+          "abs_offset": 360258,
+          "abs_offset_hex": "0x57f42",
+          "raw_hex": "2109b0ad0100c0ce0200605b03000100040800000000000000000000000000000000022b07000c801001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360260,
+              "abs_offset_hex": "0x57f44",
+              "size": 4,
+              "raw_value": 110000,
+              "raw_hex": "b0ad0100",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360264,
+              "abs_offset_hex": "0x57f48",
+              "size": 4,
+              "raw_value": 184000,
+              "raw_hex": "c0ce0200",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360268,
+              "abs_offset_hex": "0x57f4c",
+              "size": 4,
+              "raw_value": 220000,
+              "raw_hex": "605b0300",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360276,
+              "abs_offset_hex": "0x57f54",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 3,
+          "abs_offset": 360324,
+          "abs_offset_hex": "0x57f84",
+          "raw_hex": "0403e803000000fa0000e028010000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360326,
+              "abs_offset_hex": "0x57f86",
+              "size": 4,
+              "raw_value": 1000,
+              "raw_hex": "e8030000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360330,
+              "abs_offset_hex": "0x57f8a",
+              "size": 4,
+              "raw_value": 64000,
+              "raw_hex": "00fa0000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360334,
+              "abs_offset_hex": "0x57f8e",
+              "size": 4,
+              "raw_value": 76000,
+              "raw_hex": "e0280100",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360342,
+              "abs_offset_hex": "0x57f96",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 4,
+          "abs_offset": 360390,
+          "abs_offset_hex": "0x57fc6",
+          "raw_hex": "0404e8030000383e0200e09f020000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360392,
+              "abs_offset_hex": "0x57fc8",
+              "size": 4,
+              "raw_value": 1000,
+              "raw_hex": "e8030000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360396,
+              "abs_offset_hex": "0x57fcc",
+              "size": 4,
+              "raw_value": 147000,
+              "raw_hex": "383e0200",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360400,
+              "abs_offset_hex": "0x57fd0",
+              "size": 4,
+              "raw_value": 172000,
+              "raw_hex": "e09f0200",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360408,
+              "abs_offset_hex": "0x57fd8",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 5,
+          "abs_offset": 360456,
+          "abs_offset_hex": "0x58008",
+          "raw_hex": "0005e8030000d078020098ab020000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360458,
+              "abs_offset_hex": "0x5800a",
+              "size": 4,
+              "raw_value": 1000,
+              "raw_hex": "e8030000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360462,
+              "abs_offset_hex": "0x5800e",
+              "size": 4,
+              "raw_value": 162000,
+              "raw_hex": "d0780200",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360466,
+              "abs_offset_hex": "0x58012",
+              "size": 4,
+              "raw_value": 175000,
+              "raw_hex": "98ab0200",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360474,
+              "abs_offset_hex": "0x5801a",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 6,
+          "abs_offset": 360522,
+          "abs_offset_hex": "0x5804a",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360524,
+              "abs_offset_hex": "0x5804c",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360528,
+              "abs_offset_hex": "0x58050",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360532,
+              "abs_offset_hex": "0x58054",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360540,
+              "abs_offset_hex": "0x5805c",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 7,
+          "abs_offset": 360588,
+          "abs_offset_hex": "0x5808c",
+          "raw_hex": "1503e8030000f82a00002c33000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360590,
+              "abs_offset_hex": "0x5808e",
+              "size": 4,
+              "raw_value": 1000,
+              "raw_hex": "e8030000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360594,
+              "abs_offset_hex": "0x58092",
+              "size": 4,
+              "raw_value": 11000,
+              "raw_hex": "f82a0000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360598,
+              "abs_offset_hex": "0x58096",
+              "size": 4,
+              "raw_value": 13100,
+              "raw_hex": "2c330000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360606,
+              "abs_offset_hex": "0x5809e",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 8,
+          "abs_offset": 360654,
+          "abs_offset_hex": "0x580ce",
+          "raw_hex": "1504e8030000684200003863000001000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360656,
+              "abs_offset_hex": "0x580d0",
+              "size": 4,
+              "raw_value": 1000,
+              "raw_hex": "e8030000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360660,
+              "abs_offset_hex": "0x580d4",
+              "size": 4,
+              "raw_value": 17000,
+              "raw_hex": "68420000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360664,
+              "abs_offset_hex": "0x580d8",
+              "size": 4,
+              "raw_value": 25400,
+              "raw_hex": "38630000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360672,
+              "abs_offset_hex": "0x580e0",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 9,
+          "abs_offset": 360720,
+          "abs_offset_hex": "0x58110",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360722,
+              "abs_offset_hex": "0x58112",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360726,
+              "abs_offset_hex": "0x58116",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360730,
+              "abs_offset_hex": "0x5811a",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360738,
+              "abs_offset_hex": "0x58122",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 10,
+          "abs_offset": 360786,
+          "abs_offset_hex": "0x58152",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360788,
+              "abs_offset_hex": "0x58154",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360792,
+              "abs_offset_hex": "0x58158",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360796,
+              "abs_offset_hex": "0x5815c",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360804,
+              "abs_offset_hex": "0x58164",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 11,
+          "abs_offset": 360852,
+          "abs_offset_hex": "0x58194",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360854,
+              "abs_offset_hex": "0x58196",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360858,
+              "abs_offset_hex": "0x5819a",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360862,
+              "abs_offset_hex": "0x5819e",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360870,
+              "abs_offset_hex": "0x581a6",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 12,
+          "abs_offset": 360918,
+          "abs_offset_hex": "0x581d6",
+          "raw_hex": "1512a0860100802c0300802c030000020100001000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360920,
+              "abs_offset_hex": "0x581d8",
+              "size": 4,
+              "raw_value": 100000,
+              "raw_hex": "a0860100",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360924,
+              "abs_offset_hex": "0x581dc",
+              "size": 4,
+              "raw_value": 208000,
+              "raw_hex": "802c0300",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360928,
+              "abs_offset_hex": "0x581e0",
+              "size": 4,
+              "raw_value": 208000,
+              "raw_hex": "802c0300",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 360936,
+              "abs_offset_hex": "0x581e8",
+              "size": 4,
+              "raw_value": 4096,
+              "raw_hex": "00100000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 13,
+          "abs_offset": 360984,
+          "abs_offset_hex": "0x58218",
+          "raw_hex": "1a13e8030000d0780200d07802000008001001000000ffff000000000000000000004000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 360986,
+              "abs_offset_hex": "0x5821a",
+              "size": 4,
+              "raw_value": 1000,
+              "raw_hex": "e8030000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 360990,
+              "abs_offset_hex": "0x5821e",
+              "size": 4,
+              "raw_value": 162000,
+              "raw_hex": "d0780200",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 360994,
+              "abs_offset_hex": "0x58222",
+              "size": 4,
+              "raw_value": 162000,
+              "raw_hex": "d0780200",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 361002,
+              "abs_offset_hex": "0x5822a",
+              "size": 4,
+              "raw_value": 1,
+              "raw_hex": "01000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 14,
+          "abs_offset": 361050,
+          "abs_offset_hex": "0x5825a",
+          "raw_hex": "000b01000000284f4c00284f4c000008001001000000ffff800200000000000000004000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 361052,
+              "abs_offset_hex": "0x5825c",
+              "size": 4,
+              "raw_value": 1,
+              "raw_hex": "01000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 361056,
+              "abs_offset_hex": "0x58260",
+              "size": 4,
+              "raw_value": 5001000,
+              "raw_hex": "284f4c00",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 361060,
+              "abs_offset_hex": "0x58264",
+              "size": 4,
+              "raw_value": 5001000,
+              "raw_hex": "284f4c00",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 361068,
+              "abs_offset_hex": "0x5826c",
+              "size": 4,
+              "raw_value": 1,
+              "raw_hex": "01000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 15,
+          "abs_offset": 361116,
+          "abs_offset_hex": "0x5829c",
+          "raw_hex": "0a0b01000000284f4c00284f4c000008001001000000ffff000000000000000000004100000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 361118,
+              "abs_offset_hex": "0x5829e",
+              "size": 4,
+              "raw_value": 1,
+              "raw_hex": "01000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 361122,
+              "abs_offset_hex": "0x582a2",
+              "size": 4,
+              "raw_value": 5001000,
+              "raw_hex": "284f4c00",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 361126,
+              "abs_offset_hex": "0x582a6",
+              "size": 4,
+              "raw_value": 5001000,
+              "raw_hex": "284f4c00",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 361134,
+              "abs_offset_hex": "0x582ae",
+              "size": 4,
+              "raw_value": 1,
+              "raw_hex": "01000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 16,
+          "abs_offset": 361182,
+          "abs_offset_hex": "0x582de",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 361184,
+              "abs_offset_hex": "0x582e0",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 361188,
+              "abs_offset_hex": "0x582e4",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 361192,
+              "abs_offset_hex": "0x582e8",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 361200,
+              "abs_offset_hex": "0x582f0",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 17,
+          "abs_offset": 361248,
+          "abs_offset_hex": "0x58320",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 361250,
+              "abs_offset_hex": "0x58322",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 361254,
+              "abs_offset_hex": "0x58326",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 361258,
+              "abs_offset_hex": "0x5832a",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 361266,
+              "abs_offset_hex": "0x58332",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 18,
+          "abs_offset": 361314,
+          "abs_offset_hex": "0x58362",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 361316,
+              "abs_offset_hex": "0x58364",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 361320,
+              "abs_offset_hex": "0x58368",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 361324,
+              "abs_offset_hex": "0x5836c",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 361332,
+              "abs_offset_hex": "0x58374",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        },
+        {
+          "index": 19,
+          "abs_offset": 361380,
+          "abs_offset_hex": "0x583a4",
+          "raw_hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000",
+          "fields": [
+            {
+              "name": "min",
+              "abs_offset": 361382,
+              "abs_offset_hex": "0x583a6",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x02, &min)",
+              "source_line": 688
+            },
+            {
+              "name": "avg",
+              "abs_offset": 361386,
+              "abs_offset_hex": "0x583aa",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:688 bios_u32(data+0x06, &avg)",
+              "source_line": 688
+            },
+            {
+              "name": "peak",
+              "abs_offset": 361390,
+              "abs_offset_hex": "0x583ae",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:689 bios_u32(data+0x0a, &peak)",
+              "source_line": 689
+            },
+            {
+              "name": "unkn12",
+              "abs_offset": 361398,
+              "abs_offset_hex": "0x583b6",
+              "size": 4,
+              "raw_value": 0,
+              "raw_hex": "00000000",
+              "interpretation": "source power.c:691 bios_u32(data+0x12, &unkn12)",
+              "source_line": 691
+            }
+          ],
+          "entry_basis": "offset = hlen + i*rlen (power.c:680); rlen!=6 path reads min/avg/peak/unkn12 (power.c:688-691)"
+        }
+      ],
+      "unknown_bytes": [],
+      "notes": [
+        "cap_entry only for version 0x20/0x30 branches (power.c:667-674)"
+      ]
+    },
+    {
+      "slot": 0,
+      "name": "PERFORMANCE",
+      "p2_offset": 0,
+      "p2_offset_hex": "0x0",
+      "file_offset": 344405,
+      "file_offset_hex": "0x54155",
+      "source_file": "/tmp/envytools/nvbios/nvbios.c",
+      "source_function": "(no table field parser)",
+      "source_line": 1095,
+      "version_raw": 96,
+      "version_raw_hex": "0x60",
+      "source_supported_versions": [],
+      "branch_taken": null,
+      "status": "unsupported",
+      "extent": null,
+      "header": {
+        "offset": 344405,
+        "size": null,
+        "raw_hex": "600a0507060a0107000107000000ff85022c41a10058021c0296009501954165",
+        "fields": []
+      },
+      "entries": [],
+      "unknown_bytes": [
+        {
+          "offset": 344405,
+          "offset_hex": "0x54155",
+          "size": 32,
+          "raw_hex": "600a0507060a0107000107000000ff85022c41a10058021c0296009501954165",
+          "note": "preserved raw bytes; no source schema to interpret"
+        }
+      ],
+      "notes": [
+        "version 0x60 not in source-supported branches none (no table field parser in source); no field schema decoded",
+        "perf.offset provenance: nvbios.c:1095 le16(bmp_offset+148); table bytes only hex-dumped in print routine nvbios.c:1477 \u2014 no envytools field parser for PERF table contents"
+      ]
+    }
+  ],
+  "overlap_reassessment": {
+    "slot17_generic_model_extent": {
+      "start": 345586,
+      "end": 358410,
+      "len": 12824,
+      "basis": "generic hdr+esz*cnt model: esz=70 cnt=183 \u2014 NOT read by source parser"
+    },
+    "slot17_source_extent": {
+      "start": 345586,
+      "end": 345600,
+      "len": 14,
+      "basis": "hlen=14 read at offset+1 by source power.c:1198"
+    },
+    "slot17_header_bytes_misread": {
+      "offset+2": 70,
+      "offset+3": 183,
+      "note": "generic model read raw bytes 0x46/0xb7 as entry_size/count; source parser (power.c:1198) reads only version@+0 and hlen@+1, never offset+2/+3"
+    },
+    "adjacency": "slot17 source extent end 0x54600 == next slot (slot 1) table start 0x054600 per prior pointer mapping \u2014 adjacent, NOT overlapping",
+    "conclusion": "the 14 generic-model overlaps involving slot17 are artifacts of the unverified generic header size (esz*cnt), not real table overlaps. Real source-schema decode: 4 tables (slots 17, 5, 20, 11). PERF slot 0 is UNSUPPORTED (no source field schema). Do not report 40 decoded tables."
+  },
+  "summary": {
+    "tables_total": 5,
+    "decoded": 4,
+    "unsupported": 1,
+    "out_of_range": 0,
+    "at_least_3_decoded": true,
+    "decoded_slots": [
+      17,
+      5,
+      20,
+      11
+    ],
+    "unsupported_slots": [
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+VBIOS_V60_STRUCTURE run log
+created: 2026-11-03T19:21:21.027905+00:00 UTC
+
+Inputs:
+  rom:   /tmp/v11chk/outputs/CMP40HX_ORIGINAL_1MB.bin  size=1048576  sha256=dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec  matches_prior=True
+  t4:    /tmp/v11chk/outputs/cmp40hx_t4.bin  size=495616  sha256=aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb  matches_prior=True
+  shadow:/tmp/v11chk/RAW_DATA/vbios_shadow.bin  size=1048576  sha256=2715c0b106931b540b5ef6660201919e9297f3f5cdc61432d9a16352c55b717a  matches_prior=True
+
+Source provenance (envytools git f102b82381f3f11cee113d16374c87091db039d9):
+  bit.c: /tmp/envytools/nvbios/bit.c  sha256=ad7475b67203275e1fe05ac8c910ce2ad431eacb930ca3a858e085dceb87f335
+  power.c: /tmp/envytools/nvbios/power.c  sha256=6f4d9d065dd37d8ea49ec3f7a7aeedd2723b13a1c223bc90e90de5be1802c8a6
+  nvbios.c: /tmp/envytools/nvbios/nvbios.c  sha256=7e9f739bf8e4b45f168e90b4d6b07c0c0d039a2bdb76f753b38069714f36907f
+  bios.c: /tmp/envytools/nvbios/bios.c  sha256=1a87fa1eab4712e120771ef9af0d5df2c81ee7a69dbf43cd38415d6bcdf09ac8
+
+BIT table (rom): header [165808, 165820] len 12; entries [165820, 165922] len 102 (17 x 6); table end 0x28822
+gap0 OLD (inconsistent): {'span': [165820, 165938], 'len': 118, 'note': 'OLD (inconsistent): header_end -> 2 target; absorbs entries region'}
+gap0 CORRECTED: {'span': [165922, 165938], 'len': 16, 'note': 'CORRECT: BIT entries end (0x28822) -> 2 target (0x28832)', 'intervening_bytes': [0, 0, 92, 4, 88, 70, 190, 104, 247, 114, 48, 232, 0, 0, 0, 0], 'intervening_bytes_hex': '00 00 5c 04 58 46 be 68 f7 72 30 e8 00 00 00 00'}
+gap0 intervening bytes: 00 00 5c 04 58 46 be 68 f7 72 30 e8 00 00 00 00
+gap1: {'span': [165942, 165950], 'len': 8, 'intervening_bytes': [0, 0, 0, 0, 0, 0, 0, 0], 'intervening_bytes_hex': '00 00 00 00 00 00 00 00'}
+gap1 intervening bytes: 00 00 00 00 00 00 00 00
+
+PERFORMANCE v60 at ROM 0x54155:
+  raw header: 60 0a 05 07 06 0a 01 07 00 01 07 00 00 00 ff 85 02 2c 41 a1 00 58 02 1c 02 96 00 95 01 95 41 65
+  version byte: 0x60
+  rom==t4: True, rom==shadow: True
+  adopted extent: NONE (opaque)
+  failed hypotheses: 1
+  conditional hypotheses unadopted: 4

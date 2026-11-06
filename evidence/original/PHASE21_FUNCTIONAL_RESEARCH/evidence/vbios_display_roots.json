@@ -1,0 +1,178 @@
+{
+  "schema": "phase21-vbios-display-roots-v1",
+  "inputs": [
+    {
+      "path": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin",
+      "bytes": 1048576,
+      "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+      "status": "BOUNDED_ROOTS_DECODED",
+      "legacy_base": "0x28600",
+      "bit": "0x287b0",
+      "roots": [
+        {
+          "token": "D",
+          "version": 1,
+          "entry_file_offset": "0x287ce",
+          "length": 4,
+          "data_file_offset": "0x2888f",
+          "raw": "7d510000",
+          "first_u16": "0x517d",
+          "scope": "DFP/panel-related pointers, detailed field semantics incomplete"
+        },
+        {
+          "token": "I",
+          "version": 1,
+          "entry_file_offset": "0x287d4",
+          "length": 36,
+          "data_file_offset": "0x28893",
+          "raw": "9846000000009c460000884b9c4687d7884b6fda5846ee070c765071f7756fdabd0c1179",
+          "first_u16": "0x4698",
+          "scope": "General init; not equivalent to display-programming root"
+        },
+        {
+          "token": "T",
+          "version": 1,
+          "entry_file_offset": "0x287f2",
+          "length": 2,
+          "data_file_offset": "0x289cc",
+          "raw": "0000",
+          "first_u16": "0x0",
+          "scope": "TMDS token; version-specific interpretation not assigned"
+        },
+        {
+          "token": "U",
+          "version": 1,
+          "entry_file_offset": "0x287f8",
+          "length": 5,
+          "data_file_offset": "0x289ce",
+          "raw": "0000020000",
+          "first_u16": "0x0",
+          "scope": "Display programming root at+0 (envytools/nvbios and Nouveau disp)"
+        },
+        {
+          "token": "d",
+          "version": 1,
+          "entry_file_offset": "0x2880a",
+          "length": 2,
+          "data_file_offset": "0x289e1",
+          "raw": "0000",
+          "first_u16": "0x0",
+          "scope": "DP INFO pointer at+0 (envytools)"
+        }
+      ],
+      "display_programming_pointer_null": true,
+      "dp_info_pointer_null": true,
+      "remaining_U_bytes": "02 00 00 retained as unknown fields, not erased/empty token",
+      "limits": [
+        "No registered display-script table through this BIT U pointer",
+        "No claim of absent hidden scripts or driver/firmware fallback",
+        "General init may still touch graphics/display-related registers",
+        "No physical silicon/PHY or restoration conclusion"
+      ]
+    },
+    {
+      "path": "work_v15/outputs/cmp40hx_t4.bin",
+      "bytes": 495616,
+      "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+      "status": "BOUNDED_ROOTS_DECODED",
+      "legacy_base": "0x28600",
+      "bit": "0x287b0",
+      "roots": [
+        {
+          "token": "D",
+          "version": 1,
+          "entry_file_offset": "0x287ce",
+          "length": 4,
+          "data_file_offset": "0x2888f",
+          "raw": "7d510000",
+          "first_u16": "0x517d",
+          "scope": "DFP/panel-related pointers, detailed field semantics incomplete"
+        },
+        {
+          "token": "I",
+          "version": 1,
+          "entry_file_offset": "0x287d4",
+          "length": 36,
+          "data_file_offset": "0x28893",
+          "raw": "9846000000009c460000884b9c4687d7884b6fda5846ee070c765071f7756fdabd0c1179",
+          "first_u16": "0x4698",
+          "scope": "General init; not equivalent to display-programming root"
+        },
+        {
+          "token": "T",
+          "version": 1,
+          "entry_file_offset": "0x287f2",
+          "length": 2,
+          "data_file_offset": "0x289cc",
+          "raw": "0000",
+          "first_u16": "0x0",
+          "scope": "TMDS token; version-specific interpretation not assigned"
+        },
+        {
+          "token": "U",
+          "version": 1,
+          "entry_file_offset": "0x287f8",
+          "length": 5,
+          "data_file_offset": "0x289ce",
+          "raw": "0000020000",
+          "first_u16": "0x0",
+          "scope": "Display programming root at+0 (envytools/nvbios and Nouveau disp)"
+        },
+        {
+          "token": "d",
+          "version": 1,
+          "entry_file_offset": "0x2880a",
+          "length": 2,
+          "data_file_offset": "0x289e1",
+          "raw": "0000",
+          "first_u16": "0x0",
+          "scope": "DP INFO pointer at+0 (envytools)"
+        }
+      ],
+      "display_programming_pointer_null": true,
+      "dp_info_pointer_null": true,
+      "remaining_U_bytes": "02 00 00 retained as unknown fields, not erased/empty token",
+      "limits": [
+        "No registered display-script table through this BIT U pointer",
+        "No claim of absent hidden scripts or driver/firmware fallback",
+        "General init may still touch graphics/display-related registers",
+        "No physical silicon/PHY or restoration conclusion"
+      ]
+    },
+    {
+      "path": "CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/03_VBIOS/geforce/rtx2070.rom",
+      "bytes": 3358,
+      "sha256": "851ee8bcb4e545b9753345e045ecf4d82901857465646248e9c83beb104ff6e1",
+      "status": "HTML_NOT_ROM",
+      "prefix_hex": "0a0a3c21646f63747970652068746d6c3e0a3c68746d6c206c616e673d22656e",
+      "limitation": "Expected image root absent; filename does not establish ROM identity or validity"
+    },
+    {
+      "path": "CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/03_VBIOS/geforce/rtx2060super.rom",
+      "bytes": 3358,
+      "sha256": "1ad423d79804125a09912f3cb6fdbe75b1429343df76f9e349c135bbc7334a59",
+      "status": "HTML_NOT_ROM",
+      "prefix_hex": "0a0a3c21646f63747970652068746d6c3e0a3c68746d6c206c616e673d22656e",
+      "limitation": "Expected image root absent; filename does not establish ROM identity or validity"
+    }
+  ],
+  "parser_sources": [
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/displayroots_nvbios.c",
+      "sha256": "7e9f739bf8e4b45f168e90b4d6b07c0c0d039a2bdb76f753b38069714f36907f"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/displayroots_bit.c",
+      "sha256": "ad7475b67203275e1fe05ac8c910ce2ad431eacb930ca3a858e085dceb87f335"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/displayroots_d.c",
+      "sha256": "30c72eebba369d4ccac8f9abf8f213935c93b16b1ad990d0c73ae4daa4a89479"
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/displayroots_D.c",
+      "sha256": "3e39f4c1746ee9d787d6bc3bec38b0dc4715f71c7177854227410105aa245f02"
+    }
+  ],
+  "nouveau_corroboration": "https://github.com/torvalds/linux/blob/master/drivers/gpu/drm/nouveau/nvkm/subdev/bios/disp.c nvbios_disp_table: BIT U version1 uses u16 at+0, null returns no table"
+}

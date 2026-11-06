@@ -1,0 +1,21 @@
+Hoàn thành. Tóm tắt công việc và bằng chứng:
+
+**Thư mục mới (không chạm script cũ):** `/home/REDACTED_USER/codex-work/work_v15/PHASE16/FALCON_RADIX_RECHECK/`
+- `falcon_radix_recheck.py` — script chạy lại, stdlib + envydis đã có, chỉ đọc input.
+- `falcon_radix_recheck.json` (444KB) — kết quả có cấu trúc: 8 probe + audit CFG.
+- `run.log`, `FALCON_RADIX_RECHECK_REPORT.md`, `input_hashes.json`, + `span_*.bin` (8 bản sao span chỉ đọc).
+
+**Lỗi radix đã xác nhận và đã chạy lại:** `payload_riscv_analyze.py:123` truyền `str(skip)/str(limit)` (thập phân) vào `envydis -d/-l`, còn `envydis.c:94,97` parse bằng `sscanf "%x"`. Decimal 36 ("36") bị hiểu là skip `0x36=54`; decimal 16 ("16") -> skip `0x16=22`; limit 150 -> `0x150=336`. Nhãn báo cáo ("0x24" slot 20, "0x10" các kia) là hex của chuỗi thập phân, không phải skip thực.
+
+**Kết quả 8 probe (slots 20, 150, 156, 481, 484, 487, 490, 493):** dùng đối số hex rõ ràng (argv "24"/"10" cho skip, "96" cho limit) nên `actual == intended`. Mỗi probe so sánh: requested skip/limit vs actual, first output address của envydis (`0x0`, base-relative), raw bytes đầu tiên và toàn bộ stream xuất ra vs slice payload gốc `[off+actual_skip : +consumed]`. Tất cả 8: `first_raw_match=True`, `stream_match=True` (byte-grounded). File offset của đầu ra = `off + actual_skip` (ví dụ slot 20: `0x2F24`).
+
+**Audit CFG (cửa sổ 0x200 từ primary entry: slot 20 -> 0x2A, các kia -> 0x16):**
+- 18 vi phạm "fallthrough sau ret/exit/unconditional bra" — mô hình deep worker thêm cạnh fallthrough sau mọi insn, không đúng sau unconditional branch/ret/exit.
+- Tất cả `call` là `call $r1` indirect (target UNKNOWN); cạnh return/fallthrough riêng biệt so với cạnh gọi.
+- 0 target nhánh rơi giữa vùng trong cửa sổ này (block split = 0 ở cửa sổ đã kiểm tra).
+
+**Kết luận:** entry = **UNKNOWN (bounded candidate only)** — không có cross-reference nhánh/gọi hoặc descriptor nào trúng vào bất kỳ offset ứng cử nào, nên không nâng linear-sweep offset thành entry đã xác minh. Engine-role = **UNKNOWN** vắng cross-reference trực tiếp. Orphan region / coverage thấp (11.4–27.9%) không được coi là bằng chứng densidad (density-as-proof đã bác).
+
+Ràng buộc tuân thủ: không GPU, không ghi phần cứng, không chữ ký/khóa, không công cụ mới; script cũ dưới `FW_PAYLOAD_RISCV` và `FALCON_PAYLOAD_DEEP` không bị sửa.
+
+Các file đầu ra nằm tại `/home/REDACTED_USER/codex-work/work_v15/PHASE16/FALCON_RADIX_RECHECK/` — `run.log` và `FALCON_RADIX_RECHECK_REPORT.md` có bảng tra cứu đầy đủ.

@@ -1,0 +1,59 @@
+[inputs] gsp=/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin size=22901632 sha256=0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b
+[elf] LOAD off=0x0 vaddr=0x4000000 filesz=0x13010 memsz=0x13010 flags=0x7 exec=True delta=0x4000000
+[elf] LOAD off=0x15c1000 vaddr=0x55c1000 filesz=0x10000 memsz=0x10000 flags=0x1200 exec=False delta=0x4000000
+[elf] LOAD off=0x0 vaddr=0x55e2000 filesz=0x0 memsz=0x21000 flags=0x200 exec=False delta=0x55e2000
+[elf] LOAD off=0x0 vaddr=0x5603000 filesz=0x0 memsz=0x1000 flags=0x200 exec=False delta=0x5603000
+[elf] LOAD off=0x15d1000 vaddr=0x5644000 filesz=0x2000 memsz=0x2000 flags=0x1100 exec=False delta=0x4073000
+[elf] LOAD off=0x0 vaddr=0x5646000 filesz=0x0 memsz=0x10000 flags=0x200 exec=False delta=0x5646000
+[elf] LOAD off=0x18000 vaddr=0x4018000 filesz=0x4000 memsz=0x4000 flags=0x1101 exec=True delta=0x4000000
+[elf] LOAD off=0x14000 vaddr=0x4014000 filesz=0x1000 memsz=0x1000 flags=0x1100 exec=False delta=0x4000000
+[elf] LOAD off=0x15000 vaddr=0x4015000 filesz=0x2000 memsz=0x2000 flags=0x1100 exec=False delta=0x4000000
+[elf] LOAD off=0x1c000 vaddr=0x401c000 filesz=0x1000 memsz=0x1000 flags=0x1201 exec=True delta=0x4000000
+[elf] LOAD off=0x17000 vaddr=0x4017000 filesz=0x1000 memsz=0x1000 flags=0x1200 exec=False delta=0x4000000
+[elf] LOAD off=0x588000 vaddr=0x4588000 filesz=0x1039000 memsz=0x1039000 flags=0x101 exec=True delta=0x4000000
+[elf] LOAD off=0x1d000 vaddr=0x401d000 filesz=0x1e4000 memsz=0x1e4000 flags=0x100 exec=False delta=0x4000000
+[elf] LOAD off=0x201000 vaddr=0x4201000 filesz=0x387000 memsz=0x387000 flags=0x100 exec=False delta=0x4000000
+[elf] LOAD off=0x13010 vaddr=0x0 filesz=0x0 memsz=0x0 flags=0x201 exec=True delta=-0x13010
+[elf] LOAD off=0x13010 vaddr=0x0 filesz=0x0 memsz=0x0 flags=0x200 exec=False delta=-0x13010
+[elf] entry=0x4009000 machine=0xf3 phnum=31 load_deltas=['-0x13010', '0x4000000', '0x4073000', '0x55e2000', '0x5603000', '0x5646000']
+[elf] candidate VA 0x459c5e0 = file 0x59c620 OK
+[cfg] blocks=381 decoded_insns=2205 walked_insns=2205 hit_cap=False
+[cfg] edges=1015 calls=294 oob=5 overlaps=122 fixpoint=True
+[cfg] span=0x459c5e0..0x459e94c
+[cfg] overlap block 0x459c6fc inside block 0x459c6e8..0x459c714 (from block 0x459c6e8)
+[cfg] overlap block 0x459c810 inside block 0x459c800..0x459c82c (from block 0x459c800)
+[cfg] overlap block 0x459c828 inside block 0x459c800..0x459c82c (from block 0x459c800)
+[cfg] overlap block 0x459c844 inside block 0x459c830..0x459c848 (from block 0x459c830)
+[cfg] overlap block 0x459c8d8 inside block 0x459c8b0..0x459c8e4 (from block 0x459c8b0)
+[cfg] overlap block 0x459c990 inside block 0x459c970..0x459ca98 (from block 0x459c970)
+[cfg] overlap block 0x459c9b4 inside block 0x459c970..0x459ca98 (from block 0x459c970)
+[cfg] overlap block 0x459c9d0 inside block 0x459c970..0x459ca98 (from block 0x459c970)
+[cfg] overlap block 0x459c9f8 inside block 0x459c970..0x459ca98 (from block 0x459c970)
+[cfg] overlap block 0x459ca14 inside block 0x459c970..0x459ca98 (from block 0x459c970)
+[cfg] oob indirect_call [73000444, 4367901132, None]
+[cfg] oob indirect_call [73001088, 4367901132, None]
+[cfg] oob indirect_call [73001152, 4367901132, None]
+[cfg] oob indirect_call [73001152, 4367901132, None]
+[cfg] oob indirect_call [73001264, 4367901132, None]
+[check] branch/jal/load/store immediates checked=1275 mismatches=0
+[check] PASS immediates-vs-capstone: mismatches=0
+[check] PASS no-compressed-in-extent: compressed transfer handling is dormant/structural only
+[dataflow] loop headers (back-edge targets): ['0x459c6fc', '0x459c7d0', '0x459ccbc', '0x459cd80', '0x459cde4', '0x459d220', '0x459d560', '0x459d738', '0x459db24', '0x459db84', '0x459dd00', '0x459de10', '0x459de54', '0x459df4c', '0x459df74', '0x459e064', '0x459e08c', '0x459e164', '0x459e5c4', '0x459e5e0', '0x459e700', '0x459e720', '0x459e808', '0x459e828', '0x459e860']
+[dataflow] passes=1612 cap=200000 hit_cap=False status=fixpoint
+[dataflow] lattice: per-register {absent, concrete u64, unknown}; join=agree-or-unknown; height 2/register => monotone termination; no widening needed, no growing constants
+[dataflow] table accesses (base 0x4584790): 1  (via s7 table: 0)
+[tbl] 0x459c70c lw     a5, 0x10(a4) base=BASE field=flags off=16 idx=0 rec_va=0x4584790 value=0 raw=00000000 guard=0x459c714 def_base_va=0x459c708 proven=True raw_verified=True
+[table] count=496 valid_nonzero=495 zero=1 out_of_bounds=0
+[xref] descriptor_table.json base 0x41a70b0 (gsp_summary) in_loaded=True; distinct from 0x4584790; no cross-reference -> names/engine = UNKNOWN
+[check] PASS mem_size width table (lhu=2): real load/store mnemonics in CFG: {'lbu': 46, 'ld': 337, 'lw': 71, 'lwu': 11, 'sb': 70, 'sd': 301, 'sh': 17, 'sw': 82}
+[check] PASS store writes no rd (t0=42 preserved): store EA from pre-state; rd field untouched
+[check] PASS load EA from pre-state even when rd overwrites base: eval=('BASE', 0, 72894352, 12288)
+[check] PASS known-positive: 0x459c708 add a4,s9,s2; 0x459c70c lw flags+16 idx0 raw=00000000 guard=0x459c714 def=0x459c708; file bytes match VA: ins708=a4, s9, s2 ins710=a5, a5, 4 ins714=a5, 0xe4 flags_file=00000000
+[check] PASS second flags load 0x459c71c lw a5,0x10(s2): separate s7-derived base, unresolved, not merged: xref=[{'ins': 72992540, 'ins_file': 5883740, 'mnemonic': 'lw', 'op_str': 'a5, 0x10(s2)', 'raw': 17377155, 'size': 4, 'base_reg': 's2', 'offset': 16, 'field': 'flags', 'tag': 'unresolved', 'base_value': None, 'def_base_va': None}]
+[check] PASS compressedSize+4 and relOffset+20: present-but-unresolved, not attributed to 0x4584790: offset4 insns=9 (resolved 0); offset20 insns=5 (resolved 0)
+[check] PASS dataflow termination: passes=1612 cap=200000
+[check] PASS records_dump rec0.flags == 0x459c70c access value (0): rec0.flags=0
+[check] PASS disasm coverage vs CFG instruction count: lines=3898 expected_total=3898 unique_vas=2205 expected_unique=2205
+[dataflow] table accesses (base 0x4584790): 1  (via s7 table: 0)
+[done] fixpoint=True hit_cap=False dataflow_status=fixpoint
+[done] wrote /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_DATAFLOW_FIX/verified.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_DATAFLOW_FIX/table_accesses.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_DATAFLOW_FIX/records_dump.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_DATAFLOW_FIX/disassembly/cfg.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_DATAFLOW_FIX/disassembly/extended_disasm.txt, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_DATAFLOW_FIX/run.log

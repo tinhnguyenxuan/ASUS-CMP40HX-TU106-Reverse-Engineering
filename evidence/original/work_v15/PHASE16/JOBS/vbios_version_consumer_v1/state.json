@@ -1,0 +1,12 @@
+{
+  "job": "vbios_version_consumer_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:23:35.146930+00:00",
+  "wrapper_pid": 1682732,
+  "task_sha256": "c5e17fc3375b7313265436b741e3d8c74551a849358e7373d29e91c4fa32ca84",
+  "hermes_pid": 1682733,
+  "hermes_start_ticks": "209976103",
+  "heartbeat_at": "2026-11-03T19:31:11.384126+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:31:13.385619+00:00"
+}

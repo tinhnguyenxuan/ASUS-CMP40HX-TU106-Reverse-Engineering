@@ -1,0 +1,51 @@
+{
+  "scope": "physical-board evidence provenance audit",
+  "inputs": [
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/DISPLAY_PCB_EVIDENCE.md",
+      "sha256": "53154d29e8bd4ba9ff97b514f7ef065be7d6a5a138b81a9d3dae98d46f8db0a8",
+      "bytes": 991
+    },
+    {
+      "path": "/tmp/BAO_CAO_CMP40HX_TU106.md",
+      "sha256": "aa43bb2dd7fe83b9c2c889539a6e2cf9dba5f0832ce9d2abc94317f9daedb64e",
+      "bytes": 13636
+    },
+    {
+      "path": "work_v15/TOPOLOGY/silicon_topology.json",
+      "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+      "bytes": 4694
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/board_tables.json",
+      "sha256": "4cd5d3c55bdf6bd6927ff594dcf721a576b7d05c2d5741ef1908c8dcfb145717",
+      "bytes": 36211
+    }
+  ],
+  "claims": [
+    {
+      "claim": "CG161P REV2 / TU106 identifiers",
+      "status": "SECONDARY_OR_SUPPLIED",
+      "source": "BAO_CAO_CMP40HX_TU106.md and saved topology metadata",
+      "limits": "not independently authenticated in this phase"
+    },
+    {
+      "claim": "SOR/DISP raw values in saved MMIO report",
+      "status": "HISTORICAL_ONLY",
+      "source": "secondary report text",
+      "limits": "no fresh capture or exact register provenance here"
+    },
+    {
+      "claim": "DCB/GPIO/connector tables",
+      "status": "STATIC_FIRMWARE",
+      "source": "board_tables.json",
+      "limits": "does not prove package pins, PCB traces, or connector routing"
+    }
+  ],
+  "required_primary": [
+    "authenticated PCB photos",
+    "schematic/boardview or documented continuity",
+    "fresh target MMIO/display response"
+  ],
+  "conclusion": "No BOARD_UNROUTED or BOARD_ROUTED classification is justified from retained artifacts"
+}

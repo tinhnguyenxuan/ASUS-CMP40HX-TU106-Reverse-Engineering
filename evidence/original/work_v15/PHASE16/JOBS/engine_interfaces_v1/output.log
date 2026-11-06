@@ -1,0 +1,35 @@
+Hoàn tất. Kết quả PHASE16/ENGINE_INTERFACES:
+
+**Nguồn đã nghiên cứu (chỉ đọc, không ghi):**
+- Snapshot `/tmp/nvsrc` (2133 file): header đăng ký `swref/published/turing/tu102/*`, giao diện điều khiển RM `ctrl*/class*`, và header booter ký `cmp40_booter_load_610.h`.
+- **Không có** mã nguồn engine driver (fifo/pbdma/pmu/gsp/ce init) và **không có** thư mục `tu106/` — TU106 dùng header chung họ Turing (tu102); TU106 chỉ được nhận diện kiến trúc qua `g_chips2halspec_nvoc.h` (DISPv0400 liệt kê TU106).
+- By chứng chính: `/tmp/BAO_CAO_CMP40HX_TU106.md` (đ dump BAR0/MMIO đầy đủ, 374 dòng) + file bằng chứng khác trong `/tmp`.
+
+**7 subsystem đã phân tích (trong `findings.json` + `report.md`):**
+
+| Subsystem | Trạng thái |
+|---|---|
+| GR/FECS/GPCCS | PARTIALLY_MEASURED |
+| FIFO/PBDMA | ARCH_ONLY |
+| Copy engines | ARCH_ONLY |
+| PMU/SEC2/GSP | PARTIALLY_MEASURED |
+| NVENC/NVDEC | ARCH_ONLY |
+| Display | MEASURED_ABSENT |
+| PCIe/GMMU-facing | PARTIALLY_MEASURED |
+
+**Điểm mấu chốt giữ nguyên nguồn-bounded:**
+- Không suy luận trạng thái hoạt động từ fuse/capability. Display: fuse=0 (không bị masked) nhưng khối vắng mặt (poison mọi đường) → chứng minh fuse vắng hiện diện.
+- Không ánh xạ engine↔firmware-slot (không có trong nguồn, không khẳng định).
+- Không có GSP firmware/FECS ucode/CE firmware/descriptor trong snapshot → không trích được.
+- Xác định chính xác sự thiếu haves: không có instance mô tả kênh/nguồn erzeugt nào cho FIFO/PBDMA, CE, NVENC, NVDEC; không có thư mục `tu106/`.
+- WHOLE-GPU REVERSE ENGINEERING CHƯA HOÀN TẤT.
+
+**Tất cả giá trị ghi kèm mức độ tin cậy MEASURED/DECODED/CORROBORATED/INFERRED/UNKNOWN/BLOCKED, trích dẫn file/hash/line, giữ nguyên offset nguyên thủy.**
+
+**Tệp tạo ra (không ghi đè file gốc nào):**
+- `PHASE16/ENGINE_INTERFACES/inputs/inputs.json` — bảng băm đầu vào (29 nguồn + 207 bằng chứng, sha256+size)
+- `PHASE16/ENGINE_INTERFACES/findings.json` — kết quả có cấu hình, JSON hợp lệ
+- `PHASE16/ENGINE_INTERFACES/report.md` — báo cáo con người đọc
+- `PHASE16/ENGINE_INTERFACES/build_log.txt` — log tái lập
+
+Thư mục `evidence/` và `subsystems/` đã có sẵn được giữ nguyên (trống). Không thực hiện probe phần cứng, ghi MMIO/PCI config, thay driver, hay cài công cụ.

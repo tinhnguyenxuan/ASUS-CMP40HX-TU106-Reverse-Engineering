@@ -1,0 +1,289 @@
+BÁO CÁO PHÂN TÍCH
+BOARDVIEW CG161P R2
+NVIDIA CMP 40HX / ASUS RTX 2060 SUPER V2
+Hardware straps • PCI Class Code 0302/0300 • Xuất hình DisplayPort / HDMI • VBIOS / firmware
+Ngày tổng hợp: 04/11/2026  |  Phiên bản báo cáo: 1.0
+Tuyên bố phạm vi
+Báo cáo này phân tích dữ liệu GenCAD do người dùng cung cấp cho bo ASUS DUAL-RTX2060S-O8G-EVO-V2 CG161P R2, kết hợp nguồn công khai về GPU NVIDIA Turing. Đây không phải sơ đồ nguyên lý/BOM xác thực của phiên bản CMP 40HX đang cầm trên tay; việc còn/thiếu linh kiện trên card thực tế cần xác nhận bằng ảnh mặt trước và phép đo.
+Nội dung
+Kết quả quan trọng
+12 vị trí điện trở strap
+Đã xác minh tên linh kiện, chân GPU, net, mặt TOP và tọa độ từ CAD.
+Ứng viên chọn VGA/3D
+STRAP3: R258 kéo lên 1V8_AON; R261 kéo xuống GND. Hiệu ứng phụ thuộc STRAP4/5.
+Chuyển PCI class
+Có cơ chế strap/PSTRAPS theo tài liệu; chưa thử nghiệm trên chính CMP 40HX.
+Xuất DP/HDMI
+Chỉ đổi PCI class là chưa đủ: cần tuyến tín hiệu, VBIOS và display engine tương thích.
+Mức chứng cứ: [BV1] = đối chiếu trực tiếp netlist do người dùng gửi; [S#] = tài liệu công khai. Không công bố pinmap/điện trở chưa xác minh như là cách mod đã thành công.
+1. Tóm tắt điều tra và mức độ chắc chắn
+Mục tiêu chính: xác định xem bo CG161P R2 có mạng điện trở “hardware strap” dùng để lựa chọn nhận dạng PCI 3D Controller [0302] hay VGA Compatible Controller [0300] không, và liệu thay đổi strap có giúp CMP 40HX xuất tín hiệu ra màn hình như RTX 2060 SUPER hay không.
+Kết luận
+Mức chứng cứ
+Nguồn
+Có sáu net STRAP0–STRAP5 nối trực tiếp GPU G1
+Xác nhận
+[BV1], khối $SIGNALS
+Mỗi STRAP có một footprint kéo lên 1,8V và một footprint kéo xuống GND
+Xác nhận
+[BV1], $SIGNALS + $COMPONENTS
+STRAP3 nối G1/BM5, R258 (lên 1,8V), R261 (xuống GND)
+Xác nhận
+[BV1]
+NVIDIA có cơ chế PSTRAPS ảnh hưởng PCI class 0302/0300
+Có tài liệu công khai
+[S1], [S2]
+STRAP3 có thể là bit quyết định VGA_DEVICE với tổ hợp S5/S4 phù hợp
+Ngoại suy TU106, cần thử
+[S2] + [BV1]
+Thay R258/R261 chắc chắn tạo hình DP/HDMI trên CMP 40HX
+Chưa chứng minh
+[S3], [S4]
+1.1. Phân biệt ba thay đổi dễ bị nhầm lẫn
+Đổi PCI class: 0x0302 (3D Controller) sang 0x0300 (VGA Compatible Controller). Đây là thông tin enumeration ở PCI configuration space.
+Đổi Device ID: ví dụ CMP 40HX 10DE:1F0B sang một ID GeForce. Đây là trường khác PCI class và còn có thể bị ràng buộc bởi fuse/firmware.
+Khôi phục xuất hình: cần khối hiển thị hoạt động, VBIOS có cấu hình cổng và các đường tín hiệu/phần tử phụ trợ vật lý đến đầu DP/HDMI/DVI. Không có phép suy luận 1:1 từ class sang output.
+Dữ liệu từ chủ sở hữu cho biết card đã dùng driver mod, unlock compute/PCIe và chạy DLSS trong game. Điều đó kiểm chứng khả năng render 3D headless/qua GPU khác, chứ chưa chứng minh có tín hiệu điện ra cổng DisplayPort/HDMI.
+LƯU Ý KỸ THUẬT  
+Không flash VBIOS GeForce, không dời điện trở hoặc hàn cổng ngay khi chưa ghi lại trạng thái strap gốc, ID, giá trị trở và linh kiện đường IFP còn trên card.
+2. Dữ liệu gốc và phương pháp đối chiếu
+Tên file: ASUS DUAL-RTX2060S-O8G-EVO-V2 CG161P R2 BOARDIEW(BDV)(.CAD).rar; bản giải nén: CG161P_R2_boardview.cad. Phân tích trực tiếp định dạng GenCAD 1.4 (dòng $HEADER, $COMPONENTS, $SIGNALS). Header ghi 6 lớp routing và thời điểm bản vẽ 14/12/2021; lưu ý đây là metadata của file, không phải ngày chế tạo card.
+SHA-256 của CAD đã kiểm tra: 7338ccead9423c8ddd61f5c1e4f0147d95b3c6da5af3e9bae0a20fbcfab6264d.
+Cách kiểm: (1) lấy phần tử COMPONENT và PLACE/LAYER; (2) với mỗi SIGNAL STRAPn, đọc NODE G1 và hai NODE điện trở; (3) tra ngược từng chân điện trở về 1V8_AON hoặc GND; (4) so khớp với tài liệu N18E/TU106 và envytools. File CAD cho biết netlist/footprint, nhưng không cho biết BOM lắp thực tế, giá trị điện trở, fuse die hoặc nội dung ROM.
+3. Bản đồ phần cứng: 6 strap và 12 điện trở
+Strap
+Chân G1
+Điện trở 1,8 V (pin 1)
+Điện trở GND (pin 2)
+Mặt
+STRAP0
+BL3
+R255
+R268
+TOP
+STRAP1
+BL4
+R257
+R269
+TOP
+STRAP2
+BM4
+R256
+R263
+TOP
+STRAP3
+BM5
+R258
+R261
+TOP
+STRAP4
+BK5
+R249
+R264
+TOP
+STRAP5
+BJ5
+R250
+R265
+TOP
+Với mọi dòng trong bảng: chân còn lại của điện trở kéo lên nối net STRAPn; chân còn lại của điện trở kéo xuống cũng nối net STRAPn. Mạch định mức điện áp không thể suy ra bằng việc chỉ biết footprint 0402.
+Hình 1. Sơ đồ kết nối tự dựng theo [BV1]. Khi được lắp đúng, điện trở kéo lên đặt strap lên mức HIGH; kéo xuống đặt LOW. Nếu lắp cả hai, trạng thái trung gian tùy giá trị của từng điện trở; nếu đều bỏ, trạng thái thả nổi không thể tự quy kết.
+Hình 2. Bản đồ tọa độ trích xuất trực tiếp [BV1], mặt TOP. Tọa độ trong đơn vị CAD; không phải bản vẽ kích thước thực để đặt mỏ hàn.
+4. STRAP3: R258 / R261 - ứng viên VGA_DEVICE
+4.1. Đối chiếu tuyệt đối từ netlist
+Tham số
+Kết quả xác minh
+Net
+STRAP3
+Chân GPU
+G1 / BM5
+R258
+Pin 1 = 1V8_AON; pin 2 = STRAP3
+R261
+Pin 1 = STRAP3; pin 2 = GND
+R258 PLACE
+X = 2272.874; Y = 2580.315; TOP
+R261 PLACE
+X = 2337.835; Y = 2579.528; TOP
+Cặp R258/R261 là hai lựa chọn điện trở cho cùng một net STRAP3. Kết luận này là chắc chắn từ CAD. Việc khởi tạo strap trên CMP 40HX thực tế cao hay thấp vẫn chưa xác định vì thiếu ảnh/đo R258, R261 trên PCB CMP. [BV1]
+4.2. Quan hệ với VGA_DEVICE theo bảng tham khảo
+Tài liệu sơ đồ N18E-G0/G1R/G2R (GPU cùng thế hệ Turing, nhưng không phải sơ đồ CG161P) có bảng lựa chọn theo tổ hợp STRAP5, STRAP4, STRAP3; các cột kết quả gồm SMB_ALT_ADDR, DEVID_SEL, PCIE_CFG và VGA_DEVICE. Các hàng mức 0/1/M thay đổi theo cả tổ hợp chứ không phải một bit STRAP3 độc lập. [S2]
+Trường hợp tham khảo có STRAP5=0, STRAP4=0 cho thấy giá trị STRAP3 có liên quan đến VGA_DEVICE. Do đó R258/R261 là vị trí kiểm tra ưu tiên, nhưng không thể đưa ra công thức “R258 = VGA, R261 = 3D” áp dụng cho mọi firmware/board khi chưa biết cả STRAP4, STRAP5, ROM và fuse. [S2], [S1]
+Bài toán đúng phải là: đo vector STRAP[5:0] thực tế → đọc class code đang được enumerate → xác minh quan hệ với các bảng strap cùng họ GPU → mới cân nhắc thay đổi.
+4.3. Nguy cơ với STRAP4 và STRAP5
+STRAP4 (R249/R264) và STRAP5 (R250/R265) cùng tạo nhóm STRAP5:3; vì vậy bỏ qua trạng thái của chúng có thể làm dự đoán VGA_DEVICE sai. Một số tài liệu laptop còn sử dụng nhóm này cho chế độ dGPU, G-Sync, device ID và các tùy chọn PCIe; ý nghĩa cụ thể thay đổi theo SKU. [S2], [S8]
+5. STRAP0–STRAP2 và ROM straps
+Các bảng tham khảo NVIDIA N18E thường sử dụng STRAP2:0 trong cấu hình RAM vendor/density; đây là lý do không nên thay đổi R255/R268, R257/R269, R256/R263 chỉ để tìm “display mode”. Chỉnh nhóm sai có thể khiến GPU không đào tạo GDDR6 hoặc không nhận thiết bị. [S2], [S8]
+Trong CAD còn có các net ROM_CS*, ROM_SCLK, ROM_SI và ROM_SO nối G1 (tương ứng BJ4, BK3, BK2, BK4). Các chân này phục vụ ROM SPI và có thể xuất hiện trong một số bảng multi-level strap tham khảo. Không được hiểu rằng đổi strap điện trở chắc chắn đủ vượt qua fuse/chính sách VBIOS.
+6. Nhận dạng PCI: điều gì thực sự thay đổi?
+Trường
+Giá trị/thí dụ
+Ý nghĩa
+PCI class 0302
+03h graphics; subclass 02h
+3D Controller
+PCI class 0300
+03h graphics; subclass 00h
+VGA Compatible Controller
+Vendor ID
+10DE
+NVIDIA
+CMP 40HX Device ID
+1F0B
+GPU mining SKU được dự án cmpunlocker xác định
+Subsystem ID
+Ví dụ ASUS 1043:8804
+Danh tính bo/nhà sản xuất; không thay thế Device ID
+envytools mô tả trong bộ PSTRAPS Set 1 một bit class: 0 = 0x030200 (3D controller), 1 = 0x030000 (VGA controller). Đây là tài liệu reverse engineering rộng qua nhiều họ GPU, không phải công bố chính thức xác nhận trực tiếp chân BM5 của CMP 40HX. [S1]
+Một kết quả CMP 40HX công khai trước đây hiện “3D controller [0302]” và ID [10de:1f0b]. Dự án cmpunlocker cũng xác nhận mã thiết bị 1F0B. [S4], [S9]
+6.1. Phép kiểm tra không hàn - Windows
+Mở Device Manager → Display adapters → GPU tương ứng → Properties → Details → Hardware IDs: ghi lại VEN_10DE, DEV_xxxx, SUBSYS_xxxx. Dùng GPU-Z/HWiNFO để ghi model, VBIOS, bus. Để đọc PCI Class Code chính xác hơn, dùng Linux live hoặc một tiện ích PCI configuration-space đáng tin cậy (GPU-Z có thể không hiển thị mọi byte).
+6.2. Phép kiểm tra không hàn - Linux
+lspci -Dnn | grep -i nvidia
+lspci -Dnn -s 0000:01:00.0
+sudo lspci -vv -s 0000:01:00.0 | head -40
+sudo setpci -s 0000:01:00.0 08.L
+Thay 0000:01:00.0 bằng địa chỉ BDF thực tế. Thanh ghi 0x08 (Revision ID + Class Code) chỉ nên đọc; tuyệt đối không viết thử vào PCI config để “đổi class”.
+6.3. Các trường hợp kiểm chứng
+Quan sát sau thử nghiệm
+Cách diễn giải
+0302 → 0300, ID 1F0B giữ nguyên
+Có thay đổi PCI class; chưa phải chuyển thành GeForce
+0302 → 0300 và màn hình vẫn tối
+Phải kiểm tra display engine/firmware/đường vật lý
+Device ID đổi, class không đổi
+Đã ảnh hưởng một nhánh SKU selection, chưa chắc ảnh hưởng class
+Máy không nhận GPU
+Có thể strap sai, RAM config sai hoặc khởi tạo ROM thất bại
+7. Vì sao đổi class không tự hồi sinh DisplayPort?
+Bản ASUS CG161P R2 trong CAD có footprint J1 = DisplayPort 20P, J10 = HDMI, J5 = DVI; các chân GPU G1 còn có IFPA_Lx, IFPC_TXDx, IFPD_Lx, IFPD_AUX và HPD. Nhưng thông tin bạn cung cấp về CMP 40HX cho thấy board thực tế đã bỏ cổng và nhiều linh kiện ngoại vi. Do đó phải coi CAD chỉ là tài liệu bố trí của bản GeForce, không phải xác nhận tuyến vật lý còn nguyên trên bản mining. [BV1]
+Chặng tín hiệu cần có
+Các ví dụ net/điểm trong CG161P
+Vấn đề cần đo/xem
+GPU display output lanes
+IFPD_L0…L3, IFPA_L0…L3
+Các cặp vi sai trên CMP còn được route hay không
+AUX / DDC
+IFPD_AUX / IFPD_AUX*
+Đường kênh phụ DP, linh kiện ghép/bảo vệ
+HPD / nhận màn hình
+GPIO17_IFPD_HPD, GPIO14_IFPA_HPD
+Pull-up/pull-down, điện áp HPD
+VBIOS display init
+SPI ROM qua ROM_CS* / ROM_SCLK / ROM_SI / ROM_SO
+Display connectors table và chính sách firmware
+Đầu cắm vật lý
+J1 (DP), J10 (HDMI), J5 (DVI)
+Footprint và các linh kiện quanh cổng có thực sự tồn tại
+Không thể tự kết luận rằng tháo vài linh kiện bảo vệ AUX/HPD rồi hàn lại sẽ có DP. Bỏ ESD diode có thể không cắt ngay tín hiệu, nhưng nếu thiếu đường vi sai hoặc cặp ghép AC, không có tín hiệu khả dụng. Phải lần net vật lý trên chính PCB CMP.
+Cyridd/cmpunlocker ghi rõ “CMP 40HX has no display outputs” và khuyến nghị dùng secondary/headless/remote-display. Dự án hiện triển khai compute, PCIe Gen2, ReBAR và một nhánh Vulkan, chứ không tuyên bố khôi phục các cổng xuất hình vật lý. [S4]
+LƯU Ý KỸ THUẬT  
+Việc ép driver nhận card, dùng DLSS/DirectX hay tăng FPS không chứng minh DisplayPort PHY đã bật hoặc tín hiệu AUX/HPD tồn tại.
+8. Kết quả thử nghiệm cộng đồng và giới hạn suy rộng
+Thảo luận “Strap modding on CMP 30HX mining GPU to make it work as a normal display card”, issue #569 của NVIDIA-patcher (08/2026), mô tả đổi strap trên TU116 và hệ thống nhận “Microsoft Basic Display Adapter” nhưng Device ID vẫn là 21C9, chưa phải ID GeForce mong muốn 21C4. Đây là dữ liệu thực địa hữu ích, nhưng là card TU116/CMP 30HX khác GPU TU106/CMP 40HX, không phải hướng dẫn thay linh kiện có thể áp dụng trực tiếp. [S3]
+Vì vậy, mức kết luận hợp lý nhất là: mạng strap đúng là tồn tại; thay nó có thể thay đổi trạng thái enumerate; còn xuất hình trên CMP 40HX chưa có bằng chứng trực tiếp từ chính card của bạn.
+9. Quy trình nghiên cứu ưu tiên và ngưỡng quyết định
+Bước
+Dữ liệu cần lưu
+Quyết định sau bước
+1. Ghi hiện trạng
+Ảnh 2 mặt PCB, ảnh R258/R261/R249/R264/R250/R265, kết quả PCI ID/class, bản VBIOS
+Xác nhận populated vs depopulated
+2. Đo thụ động khi đã ngắt nguồn
+Điện trở giữa hai pad từng footprint; đối chiếu net đến GND/1V8_AON
+Xác minh mức strap không gây đoản mạch
+3. Kiểm tra nhóm STRAP5:3
+Đánh dấu H/L/M bằng đo điện trở/ảnh; so bảng [S2]
+Chỉ khi đủ vector mới dự đoán
+4. Kiểm tra đường xuất hình
+Kiểm tra điện trở nối tiếp/cặp tụ ghép/ESD/HPD/AUX dọc đường J1/J10
+Xác định output có khả năng phần cứng
+5. Sao lưu firmware
+ROM SPI, GPU-Z info, flash dump có kiểm checksum
+Chuẩn bị phục hồi
+6. Chỉ khi có bằng chứng mạnh
+Thử nghiệm có khả năng đảo ngược trên bench, giới hạn điện năng thấp
+Quan sát PCI class/driver/signal
+9.1. Giới hạn an toàn
+Không sửa strap khi PCB đang cấp điện, không chạm probe vào 1V8_AON khi GPU đang chạy và không nối trực tiếp strap với 12V.
+Không giả định hai điện trở kéo lên/kéo xuống có cùng trị số: netlist không ghi giá trị và BOM bản mining có thể khác. Lắp cả hai chưa chắc là mức logic hợp lệ.
+Đổi strap có thể làm card mất nhận dạng PCIe, mất khởi tạo GDDR6 hoặc gây Code 43; luôn có GPU phụ/đường khôi phục bằng programmer nếu cần.
+Không mở lại nguồn 280–300W để kiểm tra display. Kiểm chứng ở giới hạn công suất nguyên bản trước, vì vấn đề VRM/12V là một bài toán độc lập.
+10. Liên quan đường nguồn 12V - giới hạn của boardview
+CAD có các footprint J7 và J8 cùng vị trí dùng chung, lần lượt loại 8P và 6P; không phải hai giắc cấp nguồn cộng dồn. Trong $SIGNALS, chân 6/7/8 của J7 nối 12V_PEX6_INP. Như người dùng đã chỉ rõ, bản CMP 40HX có một đầu 8-pin và không có footprint để bổ sung đầu thứ hai. [BV1]
+Các thông tin nguồn 12V này không chứng minh điều gì về bit VGA_DEVICE. Nếu dự định tăng lên 300W, vẫn phải phân tích riêng đường 12V, điện trở đo dòng, MOSFET công suất, dây, chân tiếp xúc và nhiệt VRM; không dùng biện pháp “mod strap” để bỏ giới hạn quá dòng.
+11. Đối chiếu vấn đề còn mở
+Câu hỏi
+Trạng thái hiện tại
+Bằng chứng cần thiết
+CMP lắp R258 hay R261?
+Chưa biết
+Ảnh macro / đo trở
+STRAP4/5 trên CMP ở H/L/M?
+Chưa biết
+Ảnh, đo trở, kiểm BOM
+CMP vẫn là PCI class 0302 sau unlock?
+Chưa kiểm trên máy của bạn
+lspci / setpci hoặc PCI config dump
+VBIOS có bảng cổng DP?
+Chưa biết
+Dump ROM đọc trong môi trường kiểm chứng
+DP lane và AUX có đủ linh kiện?
+Chưa biết
+Ảnh/mapping chính xác CMP
+Có strap-only biến CMP thành GeForce display?
+Chưa chứng minh
+Đo trên CMP 40HX thực tế
+Có fuse chặn display/PCI Gen3?
+Nghi vấn
+Phân tích fuse/bootstraps có kiểm chứng
+Nghiên cứu PCIe Gen3 của cmpunlocker lưu ý trạng thái endpoint có thể bị ràng buộc sớm trong devinit/FWSEC, VBIOS hoặc hardware strap/fuse; đường can thiệp runtime không đủ để vượt rào trong các thử nghiệm. Kết luận này nói về PCIe Gen3, không phải bằng chứng trực tiếp cho khoá display, nhưng là lời cảnh báo phù hợp khi suy luận từ register sang khả năng phần cứng. [S5]
+12. Tóm tắt kết luận có thể hành động
+A. Đã xác định chắc chắn: sáu net strap và 12 footprint; vị trí R258/R261 là đường STRAP3, chân GPU BM5. Đây là vị trí nghiên cứu phù hợp nhất cho giả thuyết 0302 ↔ 0300 trên board GeForce CG161P R2. [BV1]
+B. Cần kiểm chứng tiếp: trạng thái STRAP5:3 thực của CMP, PCI class hiện tại, tùy chọn đa mức, VBIOS, và việc đường IFP thực tế có được lắp đầy đủ. [S1], [S2], [S4]
+C. Không có căn cứ để hứa hẹn rằng dời một điện trở sẽ làm màn hình sáng. Muốn khôi phục DisplayPort/HDMI, cần chứng minh đầy đủ từ silicon đến chân connector. [S3], [S4]
+13. Tài liệu tham khảo và liên kết tra cứu
+Các ký hiệu [S1]–[S9] được dùng ở từng kết luận. URL bên dưới mở trực tiếp bằng cách nhấp liên kết. [BV1] là tài liệu do bạn cung cấp, không có đường link web công khai; số trang tra cứu dựa trên file GenCAD không có phân trang.
+[BV1] ASUS DUAL-RTX2060S-O8G-EVO-V2 CG161P R2 boardview (GenCAD 1.4)
+Dữ liệu gốc người dùng gửi; $COMPONENTS và $SIGNALS.
+[S1] envytools - NVIDIA PSTRAPS register reference
+G80+ Set 1 bit 4: 0302/0300; giải thích bit PCI class.
+https://github.com/envytools/envytools/blob/master/docs/hw/io/pstraps.rst
+[S2] NH50AF1/NH55AFW Service Manual - Straps and XTAL
+PDF, trang ảnh 81 (zero-based 80); sơ đồ N18E-G0/G1R/G2R với STRAP5:3 → VGA_DEVICE.
+https://cdn.badcaps-static.com/pdfs/8a704080c1ebbb3be4c276aa77f62c93.pdf
+[S3] dartraiden/NVIDIA-patcher, issue #569 - CMP 30HX strap mod
+Báo cáo cộng đồng TU116 08/2026, lưu ý không đồng nhất TU106.
+https://github.com/dartraiden/NVIDIA-patcher/issues/569
+[S4] Cyridd/cmpunlocker - CMP 40HX research
+Mã thiết bị 10de:1f0b, phạm vi compute/PCIe/ReBAR, thông tin không có display outputs.
+https://github.com/Cyridd/cmpunlocker
+[S5] Cyridd/cmpunlocker - PCIe Gen3 research
+Giới hạn nghiên cứu firmware/strap/fuse, không công bố Gen3 hoạt động.
+https://github.com/Cyridd/cmpunlocker/blob/main/PCIE_GEN3_CMP40HX_RESEARCH.md
+[S6] NVIDIA Support - class 0300 vs 0302 on M6/M60
+Ví dụ chính thức về cách NVIDIA phân biệt graphics/compute class.
+https://nvidia.custhelp.com/app/answers/detail/a_id/4106
+[S7] PCI-SIG - Code and ID Assignment Specification 1.17
+Chuẩn phân loại thiết bị PCI và bảng Class Code.
+https://pcisig.com/PCIExpress/Spec/Base/CodeandIDAssignment_1.17
+[S8] NVIDIA N18E-G1 New Product Notice
+Tài liệu chính thức xác nhận biến thể N18E-G1 thuộc TU106, không đồng nghĩa PCB CG161P.
+https://www.nvidia.com/content/dam/cpmassets/folder2/NPN-09178-001_v01.pdf
+[S9] Cyridd/cmpunlocker issue #4 - CMP 40HX lspci output
+Ví dụ công khai “3D controller [0302]” và 10de:1f0b.
+https://github.com/Cyridd/cmpunlocker/issues/4
+Không phát lại hình gốc từ sơ đồ của bên thứ ba trong báo cáo; các hình minh họa được dựng mới từ dữ liệu logic/bản vẽ do người dùng cung cấp.
+Phụ lục A. Bộ dữ liệu ngắn gọn
+Cụm CAD
+Chứng cứ tìm kiếm
+$HEADER
+GENCAD 1.4; ATTRIBUTE “Number of Routing Layers” = 6
+$COMPONENTS
+COMPONENT R258, PLACE 2272.874 2580.315; COMPONENT R261, PLACE 2337.835 2579.528
+$SIGNALS
+SIGNAL STRAP3; NODE G1 BM5; NODE R258 2; NODE R261 1
+$SIGNALS
+SIGNAL 1V8_AON → NODE R258 1; SIGNAL GND → NODE R261 2
+$COMPONENTS
+J1 DP 20P; J10 HDMI; J5 DVI; J7 8P / J8 6P footprint thay thế

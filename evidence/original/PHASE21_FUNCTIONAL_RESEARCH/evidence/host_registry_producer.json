@@ -1,0 +1,72 @@
+{
+  "source": {
+    "path": "work_v15/PHASE16/OFFICIAL_CONSUMER_SOURCE/kernel_gsp.c",
+    "sha256": "ed6d7020a8a1772bc44608178aa13a77a72b8bf0eabe3293c12bc9d2b122c6c9",
+    "release": "615.78.08",
+    "commit": "ca2d03e6fafd4d4b56b383497d931c25b283bfcf",
+    "immutable_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/ca2d03e6fafd4d4b56b383497d931c25b283bfcf/src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c"
+  },
+  "gmcapi_table": {
+    "path": "/tmp/nvsrc/nvidia/interface/gmcapi/gmcapi_table.h",
+    "sha256": "e2d03c9e5685809d1dc4c52d7ffb22957075b5291d1d8e0966a7d11874da9d16",
+    "verified_mapping": "GMCAPI_ID(GSP_MGMT=1, 0x0001) => command 0x00010001, GSP_INIT"
+  },
+  "checks": {
+    "walk_all_packed_entries": true,
+    "encode_name": true,
+    "encode_u32": true,
+    "encode_binary": true,
+    "encode_string": true,
+    "append_registry_to_system_info": true,
+    "package_size_query": true,
+    "package_table": true,
+    "send_gsp_init": true,
+    "send_encoded_system_info": true
+  },
+  "archived_text_search": {
+    "roots": [
+      "cmp40hx_transfer",
+      "work_v15/RAW_DATA"
+    ],
+    "suffixes": [
+      ".conf",
+      ".json",
+      ".log",
+      ".md",
+      ".out",
+      ".sh",
+      ".txt"
+    ],
+    "hits": [
+      {
+        "path": "cmp40hx_transfer/BAO_CAO_DAY_DU.md",
+        "line": 207,
+        "contains_registry_dwords": true,
+        "contains_rm_disable_display": false,
+        "text_sha256": "ba1e6ce346019afde91079c4f7cec05bd034d149fe4ffad3cd0035e96c81a77a"
+      },
+      {
+        "path": "cmp40hx_transfer/gemini-code-1793690442460.md",
+        "line": 47,
+        "contains_registry_dwords": true,
+        "contains_rm_disable_display": false,
+        "text_sha256": "55b1954ba5274aa085c4e1f134a01d1495a4209b03d35687bb9117b862b2d634"
+      }
+    ],
+    "rm_disable_display_hits": 0,
+    "scope": "Archived textual inputs only; not current target state, binary files, archives, or generated Phase-21 analysis."
+  },
+  "conclusion": "615.78.08 host RM packages registry entries, encodes each typed entry after its name into the system-info NVKV stream, and sends that stream as GMCAPI GSP_INIT (0x10001). The archived textual configuration searched contains no RmDisableDisplay entry.",
+  "online_exact_tag_corroboration": {
+    "registry_source": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.78.08/src/nvidia/arch/nvalloc/unix/src/registry.c",
+    "observed": "RmPackageRegistry counts and copies global registry first, then local per-device registry.",
+    "os_registry_source": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/615.78.08/kernel-open/nvidia/os-registry.c",
+    "observed_inputs": "NVreg_RegistryDwords global parsing and BDF-matched NVreg_RegistryDwordsPerDevice DWORD writes.",
+    "provenance_limit": "Browsed exact-tag source; these two files are not in the selected locally hashed Phase 16 source subset."
+  },
+  "limits": [
+    "osPackageRegistry implementation is not present in the saved selected public source set; exact-tag online source was inspected separately.",
+    "Absence from archived text does not prove absence from current module parameters, per-device registry, or other runtime inputs.",
+    "No effective GSP key value or display restoration is established."
+  ]
+}

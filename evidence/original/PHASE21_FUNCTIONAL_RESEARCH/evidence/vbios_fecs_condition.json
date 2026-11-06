@@ -1,0 +1,40 @@
+{
+  "input": {
+    "path": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin",
+    "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec"
+  },
+  "source": {
+    "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/sources/envytools_nvbios.c",
+    "sha256": "7e9f739bf8e4b45f168e90b4d6b07c0c0d039a2bdb76f753b38069714f36907f",
+    "usage": "BIT I+6 condition pointer, 12-byte records register/mask/value; CONDITION opcode 0x75 followed by index"
+  },
+  "bit_offset": "0x287b0",
+  "bit_i": {
+    "relative_pointer": "0x293",
+    "length": 36
+  },
+  "condition_table": "0x2cc9c",
+  "fecs_readout_conditions": [
+    {
+      "record_index": 50,
+      "file_offset": "0x2cef4",
+      "register": "0x409660",
+      "mask": "0x10000",
+      "expected": "0x10000",
+      "raw": "609640000000010000000100",
+      "interpretation": "condition test only; no write operation encoded by this record"
+    }
+  ],
+  "condition50_byte_candidates": [
+    "0x2b9e5",
+    "0x3506e"
+  ],
+  "candidate_scope": "Byte matches only, not instruction-boundary or execution/reachability proof",
+  "other_bank_readout_occurrence": "0xa5ef4",
+  "limits": [
+    "Full script traversal and branch consumers unresolved",
+    "Bit16 readout semantic label unproven on TU106",
+    "No selector write or runtime state implied",
+    "Second-bank raw copy is not independent board evidence"
+  ]
+}

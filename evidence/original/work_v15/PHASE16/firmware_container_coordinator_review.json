@@ -1,0 +1,28 @@
+{
+  "archive_manifest_input_hash": "6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0",
+  "current_input_hash": "6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0",
+  "source_unchanged_from_v15_archive": true,
+  "report_input_hash_matches": true,
+  "raw_records_checked": 496,
+  "payload_hashes_checked": 38,
+  "gaps_checked": 6,
+  "mismatches": [],
+  "payload_bytes": 8824912,
+  "header_table_bytes": 11928,
+  "padding_bytes": 792,
+  "coverage_sum": 8837632,
+  "file_bytes": 8837632,
+  "legacy_blob10": {
+    "offset": 1262336,
+    "old_size": 7575296,
+    "actual_candidate_payload_size": 183808,
+    "number_of_distinct_payloads_in_old_extent": 28
+  },
+  "acceptance": "Raw bytes, intervals, hashes, padding and structural fit verified. Header/record field semantics, marker meaning, engine and ISA identities still require producer/consumer evidence.",
+  "parser_limitations": [
+    "first_payload hardcoded 0x2f00",
+    "magic/version/count/table bounds not robustly validated for arbitrary input",
+    "no external format-source corroboration yet",
+    "semantic marker=present not proven by structural fit"
+  ]
+}

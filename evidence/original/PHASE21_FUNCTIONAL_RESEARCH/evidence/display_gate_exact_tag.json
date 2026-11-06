@@ -1,0 +1,34 @@
+{
+  "tag": "615.78.08",
+  "scope": "TU106 display-fuse dispatch and local source availability",
+  "local_inputs": [
+    {
+      "path": "/tmp/nvsrc/nvidia/generated/g_gpu_nvoc.h",
+      "sha256": "8c11f9341181e06e22bde6f1722275d057796b0a7cd796f28fb2fba0058d8a9c",
+      "bytes": 283223
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+      "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10",
+      "bytes": 1658
+    },
+    {
+      "path": "work_v15/PHASE16/SOURCES/nvidia_gm107_dev_fuse.h",
+      "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10",
+      "bytes": 1658
+    }
+  ],
+  "official_web_evidence": {
+    "dispatch_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/615.78.08/src/nvidia/generated/g_gpu_nvoc.c",
+    "dispatch_lines": "1940-1944",
+    "dispatch_claim": "TU102/TU104/TU106/TU116/TU117 select gpuFuseSupportsDisplay_GM107",
+    "gm107_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/615.78.08/src/nvidia/src/kernel/gpu/arch/maxwell/kern_gpu_gm107.c",
+    "gm107_retrieval": "web search opened file but function body was not present in returned 615.78.08 text window",
+    "local_header": "NV_FUSE_STATUS_OPT_DISPLAY=0x00021C04; DATA=bit0; ENABLE=0"
+  },
+  "limits": [
+    "Local partial tree contains declaration/header but no implementation source file for gpuFuseSupportsDisplay_GM107",
+    "Dispatch proves host HAL selection, not GSP +0x3814 semantics",
+    "Archived register read remains historical, not current target state"
+  ]
+}

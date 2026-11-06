@@ -1,0 +1,63 @@
+{
+  "task": "T03 — Giải nghĩa STRAP3/4/5, PCI class và Device ID (redo từ đầu)",
+  "generated_at": "2026-11-05T00:00:00+07:00",
+  "executor": "main session, sequential, no subagent",
+  "constraints": "R0 offline; tra cứu web nguồn gốc có mục tiêu (2 lượt); không đổi strap/MMIO/PCI config; không SSH",
+  "search_budget": "2/2 used (envytools PSTRAPS docs; TU106 device IDs)",
+  "source_hashes": {
+    "envytools pstraps.rst": "https://github.com/envytools/envytools/blob/master/docs/hw/io/pstraps.rst (directly extracted, master branch)",
+    "envytools gpu.rst": "https://github.com/envytools/envytools/blob/master/docs/hw/gpu.rst (directly extracted, master branch)",
+    "01_BOARDVIEW/CG161P_R2_boardview.cad": "7338ccead9423c8ddd61f5c1e4f0147d95b3c6da5af3e9bae0a20fbcfab6264d",
+    "04_PHASE15_EXTRACTS/PCIE/pcie_map.json": "pending_sha256"
+  },
+  "web_sources": [
+    {
+      "id": "S1",
+      "type": "web",
+      "url": "https://github.com/envytools/envytools/blob/master/docs/hw/io/pstraps.rst",
+      "title": "PSTRAPS: straps readout and override",
+      "accessed": "2026-11-05",
+      "relevant_quote": "Straps sampled on reset from pull-up/pull-down resistors placed by board manufacturer. Set1 bit4: PCI device class — 0: 0x030200 [3d controller], 1: 0x030000 [vga controller]. PSTRAPS MMIO at 0x101000-0x101FFF [NV3+] BAR0. bit31 STRAPSx_PRIMARY = override enable. Set0 bits 10-13/28/30 = DEVICE_ID bits (G80+).",
+      "applicability_tu106": "MECHANISM ONLY — EnvyTools covers NV1:GF119/G80+ families; NO TU106 pin-to-bit mapping. Every TU106 strap-to-class mapping is EXTRAPOLATION.",
+      "next_discriminator": "Find TU106-specific devinit/VBIOS strap table or read PSTRAPS register read-only"
+    },
+    {
+      "id": "S2",
+      "type": "web",
+      "url": "https://github.com/envytools/envytools/blob/master/docs/hw/gpu.rst",
+      "title": "GPU chips (envytools gpu.rst)",
+      "accessed": "2026-11-05",
+      "relevant_quote": "Turing family: TU102, TU104, TU106, TU116, TU117. TU106 pciid 1f0X# (device IDs 0x1F0X choosable by straps). Last few bits [0-6 depending on GPU] of PCI device id are changeable through straps.",
+      "applicability_tu106": "TU106 device ID range documented; confirms device ID can be strap-selected but gives no per-value strap map.",
+      "next_discriminator": "Compare VBIOS strap tables between 0x1F0B (CMP) and 0x1F06/0x1F02 (GeForce) ROMs"
+    },
+    {
+      "id": "S3",
+      "type": "web",
+      "url": "https://github.com/dartraiden/NVIDIA-patcher/issues/569",
+      "title": "TU116 strap mod: Basic Display Adapter, Device ID unchanged",
+      "accessed": "via DOCX transcribe, 2026-11-05",
+      "relevant_quote": "Strap mod on TU116/CMP 30HX → system reports 'Microsoft Basic Display Adapter', Device ID stays 21C9 (not 21C4).",
+      "applicability_tu106": "TU116 — transfer gap; evidence that ID may be fuse/firmware-locked, not freely strap-selectable.",
+      "next_discriminator": "Read original issue if detail needed"
+    },
+    {
+      "id": "LOCAL",
+      "type": "local",
+      "url": "input/ASTRA_CMP40HX_HANDOFF/04_PHASE15_EXTRACTS/PCIE/pcie_map.json",
+      "title": "Saved lspci -vv for CMP 40HX",
+      "accessed": "2026-11-05 (saved observation, timestamp unknown)",
+      "relevant_quote": "0000:03:00.0 3D controller: NVIDIA Corporation TU106 [CMP 40HX] (rev a1). Subsystem: ASUSTeK Computer Inc. TU106 [CMP 40HX]. class 0302, device 0x1F0B.",
+      "applicability_tu106": "This CMP card only (1 sample). Same TU106 die as GeForce RTX 2070/2060S but class 0302 vs 0300.",
+      "next_discriminator": "Re-read live BDF with timestamp under approved scope"
+    }
+  ],
+  "missing_inputs": [
+    "TU106-specific PSTRAPS pin-to-bit mapping (not in EnvyTools public docs)",
+    "VBIOS strap table / devinit for TU106",
+    "GeForce TU106 ROM (0x1F06/0x1F02) with provenance for comparison",
+    "Effective PSTRAPS read (read-only) on this card",
+    "Original N18E PDF (only DOCX transcribe available)"
+  ],
+  "output_files": ["STRAP_SEMANTICS_MATRIX.csv", "PCI_CLASS_CAUSAL_MAP.md", "sources.json", "evidence.json"]
+}

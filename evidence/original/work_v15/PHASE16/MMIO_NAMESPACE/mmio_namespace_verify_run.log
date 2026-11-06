@@ -1,0 +1,7 @@
+MMIO namespace verify complete.
+entries=52 confirmed_mmio_bar0=42 mmio_bar0_base=3 constants_mislabeled=3 control_space=3 pci_config=1 misaligned=3 unknown=0
+poison_as_data_states=['NV_PBDMA_SIGNATURE_HW_VALID', 'NV_XVE_ID_VENDOR_NVIDIA']
+wpr2_bound_bytes=135135232 bound_mib=128.875
+l2tlb=1052280 l2cache=1311992 conflated=False
+outputs: /home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_NAMESPACE/mmio_namespace_verified.json /home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_NAMESPACE/corrected_registers.csv
+EXIT_CODE=0

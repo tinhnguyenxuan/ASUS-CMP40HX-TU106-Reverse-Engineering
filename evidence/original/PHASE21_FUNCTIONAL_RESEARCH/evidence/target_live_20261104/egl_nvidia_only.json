@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-04T15:01:34.452986+00:00",
+  "returncode": 0,
+  "stdout": "{\n  \"vendor_library\": \"libEGL_nvidia.so.0\",\n  \"process_only\": true,\n  \"devices\": [\n    {\n      \"index\": 0,\n      \"initialize_result\": 1,\n      \"egl_error\": \"0x3000\",\n      \"version\": [\n        1,\n        5\n      ]\n    }\n  ],\n  \"query_proc_available\": true,\n  \"query_result\": 1,\n  \"count\": 1\n}\n",
+  "stderr": ""
+}

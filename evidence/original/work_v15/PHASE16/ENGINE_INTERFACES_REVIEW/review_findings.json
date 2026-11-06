@@ -1,0 +1,734 @@
+{
+  "review": {
+    "phase": "PHASE16",
+    "area": "ENGINE_INTERFACES_REVIEW",
+    "target": "NVIDIA CMP 40HX / TU106-100-A1 (PCI 10de:1f0b, subsystem 8804:1043, rev 0xA1)",
+    "output_dir": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/ENGINE_INTERFACES_REVIEW/",
+    "original_untouched": "/home/REDACTED_USER/codex-work/PHASE16/ENGINE_INTERFACES/{report.md,findings.json,inputs/inputs.json,build_log.txt} \u2014 not read as authority, not written; this review corrects its claims in new output only",
+    "method": "source-bounded re-audit against work_v15/PHASE16 reviewed artifacts + archived RAW_DATA evidence. Every technical claim cites exact file + sha256 + line/offset. No hardware probe, no MMIO/PCI-config write, no driver change, no tool install, no GPU operation, no source-file mutation, no new runtime measurement. All MMIO/fuse/PCIe values are ARCHIVED evidence.",
+    "confidence_levels": [
+      "MEASURED",
+      "DECODED",
+      "CORROBORATED",
+      "INFERRED",
+      "UNKNOWN",
+      "BLOCKED",
+      "REJECTED",
+      "UNRESOLVED_CONFLICT"
+    ],
+    "generated_by": "Hermes Agent (GLM-5.3 Flash), ponytail full"
+  },
+  "conflict_resolution": [
+    {
+      "id": "C1",
+      "area": "fuse+0x650 raw 0x0004001F as TPC mask / 5 enabled topology",
+      "original_claim": "fuse+0x650 = 0x0004001F is a named TPC mask, bits0-4 = 5 TPC enabled, corroborates tpc_nr=5 / 17 TPC / 34 SM topology (original report \u00a71 GR #9-13, confidence MEASURED+CORROBORATED).",
+      "conflict": "SECURITY_ARCH/audit_prior_claims.json SEC-FUSE-05: status REJECTED \u2014 dev_fuse.h tu102 defines only 2 registers (NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS 0x0002174C lines 26-29; NV_FUSE_OPT_NVDEC_DISABLE 0x00021378 lines 31-33; sha f96f637c...); offset 0x21650 is NOT defined, no source bitfield, INFERRED only. FUSE_TU106_AUDIT keeps it UNKNOWN and rejects popcount->topology inference (U-FUSE-005 at fuse+0xC1C: popcount 3 == GPC count but rejected, no bitfield source). Grep of /tmp/nvsrc common/ + nvidia/ found NO gpc_nr/tpc_nr/TPC_UNIT/FECS_SPEED_PLM/0x21650 definition anywhere.",
+      "evidence_for_raw_value": [
+        {
+          "item": "fuse+0x650 = 0x0004001F",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.4/\u00a75.1 lines 79-81, 168 (sha aa43bb2d...), archived silicon read",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "item": "fuse2.json base 0x21000 regs[1616] (byte offset 0x650) = 0x0004001F (0x4001F)",
+          "source": "RAW_DATA/fuse2.json sha 0e770041..., independent re-read of archived dump",
+          "confidence": "MEASURED (archived)"
+        }
+      ],
+      "evidence_against_named_semantics": [
+        {
+          "item": "no register/field definition at fuse abs 0x21650",
+          "source": "dev_fuse.h tu102 sha f96f637c..., lines 26-33 (only 2 defines)",
+          "confidence": "DECODED (source bound)"
+        }
+      ],
+      "disposition": "Retract the named 'TPC mask' semantics and the '5 enabled / corroborated topology' correlation. Raw word 0x0004001F at fuse base 0x21000 + 0x650 remains MEASURED (two archived reads agree). No TU106-applicable source definition and no consumer found -> fuse<->topology semantics are UNKNOWN. The numeric equality 0x1F == 5 (tpc_nr) is a value coincidence, not sourced correlation; do not cite as corroboration.",
+      "new_status": "raw MEASURED = 0x0004001F; semantics UNKNOWN (no source definition, no consumer)"
+    },
+    {
+      "id": "C2",
+      "area": "fuse+0xC04 display / display 'not masked'",
+      "original_claim": "fuse+0xC04 = 0, display not fuse-masked (original report \u00a76 Display: NV_FUSE_OPT_DISPLAY 0x021C04 = 0 read-only, NOT masked).",
+      "conflict": "RAW_DATA/fuse2.json and FUSE_TU106_AUDIT show raw value 1 at fuse base 0x21000 + 0xC04 (regs[3076] = 1, decoded_words offset 3076 raw 0x00000001). BAO_CAO_CMP40HX_TU106.md \u00a74.1 lines 131-136 (ARCHIVED) claims NV_FUSE_OPT_DISPLAY (0x021C04) = 0x00000000 read-only and 0x021C00 = 0x021C08 = 0. TWO ARCHIVED SOURCES DISAGREE -> UNRESOLVED_CONFLICT; list both, select none. Only DISPLAY definition anywhere in snapshot is Maxwell GM107 NV_FUSE_STATUS_OPT_DISPLAY 0x00021C04 bit 0:0, only defined value ENABLE = 0x0 (dev_fuse.h gm107 lines 27-29, sha 1b83b306...; same {0}-only enum in ga100/gb100/t234 at other addresses). tu106_applicable = false. Observed value 1 is outside the defined enum {0}; cannot import Maxwell to TU106. U-FUSE-009 stays OPEN/UNKNOWN.",
+      "evidence_value_1": [
+        {
+          "item": "fuse2.json regs[3076] (byte 0xC04) = 0x00000001",
+          "source": "RAW_DATA/fuse2.json sha 0e770041...; FUSE_TU106_AUDIT decoded_words offset 3076",
+          "confidence": "MEASURED (archived)"
+        }
+      ],
+      "evidence_value_0": [
+        {
+          "item": "NV_FUSE_OPT_DISPLAY (0x021C04) = 0x00000000 read-only; 0x021C00 = 0; 0x021C08 = 0",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a74.1 lines 131-136 (sha aa43bb2d...), archived",
+          "confidence": "MEASURED (archived, conflicts with fuse2.json)"
+        }
+      ],
+      "source_definition": {
+        "register": "NV_FUSE_STATUS_OPT_DISPLAY",
+        "address": "0x00021C04",
+        "field": "NV_FUSE_STATUS_OPT_DISPLAY_DATA 0:0",
+        "values": {
+          "0": "ENABLE (only defined value)"
+        },
+        "source_file": "common/inc/swref/published/maxwell/gm107/dev_fuse.h lines 27-29",
+        "sha": "1b83b306...",
+        "tu106_applicable": false,
+        "note": "Maxwell only; dump value 1 not in defined enum {0}; rejected for TU106"
+      },
+      "disposition": "Retract 'display not masked / fuse=0 means not disabled'. Do not infer causal relationship between fuse value and display absence (avoid causal inference). fuse+0xC04 raw = 1 per fuse2.json vs 0 per BAO_CAO -> UNRESOLVED_CONFLICT, listed, not resolved. U-FUSE-009 OPEN/UNKNOWN.",
+      "new_status": "raw UNRESOLVED_CONFLICT (fuse2.json=1 vs BAO_CAO=0); field semantics UNKNOWN, no TU106 source definition"
+    },
+    {
+      "id": "C3",
+      "area": "BAR1 capacity 8 GiB vs 64 GiB window",
+      "original_claim": "BAR1 = 8 GiB (ReBAR enabled) (original report \u00a77 PCIe #7, confidence MEASURED; tracing to archived BAO_CAO \u00a76 line 190 'BAR1: 8 GiB (ReBAR \u0111\u00e3 b\u1eadt)').",
+      "conflict": "MEMORY_PCIE reviewed resource decode + NVML show BAR1 64 GiB window; VRAM framebuffer total is separately 8 GiB. Original conflated BAR1 aperture with VRAM size.",
+      "evidence_bar1_64GiB": [
+        {
+          "item": "BAR1 resource range 0x381000000000..0x381FFFFFFFFF size 68719476736 bytes = 65536 MiB = 64 GiB, flags 0x0014220C",
+          "source": "MEMORY_PCIE_REPORT.md \u00a72 (sha ac931c72...), raw resource_file ranges from PCIE/pcie_map.json",
+          "confidence": "MEASURED (archived resource decode)"
+        },
+        {
+          "item": "lspci Region 1: Memory at 381000000000 (64-bit, prefetchable) [size=64G]",
+          "source": "RAW_DATA/p5678.json sha d004107a...",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "item": "ReBAR cap [bb0]: BAR1 current 64GB, supported 64MB..256GB",
+          "source": "RAW_DATA/q3_pcie.txt sha 6b5aa745..., lines 74-77 (archived tool output)",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "item": "NVML BAR1 Total 65536 MiB / Used 2 / Free 65534",
+          "source": "MEMORY_PCIE_REPORT.md \u00a78 (smq NVML)",
+          "confidence": "CORROBORATED (archived)"
+        }
+      ],
+      "evidence_vram_8GiB": [
+        {
+          "item": "VRAM Total 8192 MiB, Reserved 389 MiB, Used 0, Free 7804 MiB (1 MiB delta unresolved)",
+          "source": "MEMORY_PCIE_REPORT.md \u00a78 (smq memory_registers.json)",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "item": "cudaGetDeviceProperties totalGlobalMem 7803 MB (8192 MiB physical less GSP/PMT reserve)",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.3 line 71",
+          "confidence": "MEASURED (archived)"
+        }
+      ],
+      "disposition": "Correct: BAR1 aperture/window = 64 GiB (ReBAR); VRAM framebuffer total = 8 GiB, a separate quantity. Do not claim BAR1 = 8 GiB. ReBAR fuse-vs-strap determination remains UNKNOWN (MEMORY_PCIE). Archived tool outputs (q3_pcie.txt, p5678.json) labeled archived, not new measurement.",
+      "new_status": "BAR1 64 GiB window MEASURED (archived resource range + NVML); VRAM 8 GiB MEASURED separately; no conflation"
+    },
+    {
+      "id": "C4",
+      "area": "display 'hardware physically absent'",
+      "original_claim": "Display block physically absent, NOT fuse-masked, not decoded into BAR0 on any path incl. PRAMIN (original report \u00a76 status MEASURED_ABSENT).",
+      "conflict": "Poison/zero reads are limited to exact sampled offsets/pages. They prove nothing about block presence on every BAR0/PRAMIN path, BAR decode, clock/power gating, or board causes.",
+      "evidence_exact_sampled": [
+        {
+          "item": "DISP base 0x610000, control 0x610010, head 0x612300, SOR 0x616000, DAC 0x61C110 all = 0xBADF1301; PRAMIN+0x1E0200 = 0x8E0200 = 0xBADF1100",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a74 lines 110-117",
+          "confidence": "MEASURED (archived, exact offsets)"
+        },
+        {
+          "item": "scan 0x600000-0x700000 step 0x1000: 0/256 pages live; step 0x100: 0 pages",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a74 lines 119-120",
+          "confidence": "MEASURED (archived, exact strides)"
+        },
+        {
+          "item": "0x700000-0x87FFFF reads zero = mapped but uninitialized (third state, distinct from poison)",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a74 line 121",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "item": "q6.json PDISP zones 0x610000/0x611000/0x612000/0x616000/0x61C000/0x620000/0x640000 all read 0xBADF1301",
+          "source": "RAW_DATA/q6.json sha 6cf3874c...",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "item": "page_inventory.csv pages 1536-1570 (0x600000-0x622000) all POISON (POISON_BADF_like), tu06 state retained",
+          "source": "MMIO_SOURCE/page_inventory.csv sha d5339366..., source_hash a872f2ce... per row",
+          "confidence": "MEASURED (archived page sample)"
+        },
+        {
+          "item": "tu06.json full BAR0 classification: POISON 3253 / DATA 287 / ZERO 355 / MIXED 201 of 4096 pages",
+          "source": "RAW_DATA/tu06.json sha a872f2ce...",
+          "confidence": "MEASURED (archived)"
+        }
+      ],
+      "disposition": "Limit conclusion to exact sampled offsets/pages: no display decode observed at 0x610000/0x610010/0x612300/0x616000/0x61C110/0x8E0200 and no live page in scanned 0x600000-0x700000 (archived). Do NOT conclude silicon block physically absent, do not claim absence on every BAR0/PRAMIN path (PRAMIN+0x1E0200 is one sampled address only). Preserve UNKNOWN: block presence, BAR decode, clock/power gating, board causes (die binning vs strapping). Driver state (card1 0 connectors, Display Active Disabled) is archived driver observation, not silicon proof. Replace status MEASURED_ABSENT with: MEASURED at sampled offsets (poison/zero) + UNKNOWN for physical presence/decode/gating/causes.",
+      "new_status": "aperture poison/zero at exact sampled offsets/pages MEASURED; physical block presence UNKNOWN; BAR decode UNKNOWN; clock/power gating UNKNOWN; board causes UNKNOWN"
+    },
+    {
+      "id": "C5",
+      "area": "topology 3 GPC / 17 TPC / 34 SM and register field mappings",
+      "original_claim": "3 GPC / 17 TPC / 34 SM with mapped register fields; fuse popcount (0x1F=5) corroborates TPC count.",
+      "conflict": "No source definition for gpc_nr/tpc_nr/TPC_UNIT fields anywhere in /tmp/nvsrc snapshot (grep common/ + nvidia/ empty). SEC-FUSE-05 rejected fuse field name; popcount->topology inference rejected by FUSE_TU106_AUDIT. Topology counts must trace to exact archived raw values only; register bitfield semantics UNKNOWN.",
+      "evidence_raw_topology": [
+        {
+          "item": "gpc_nr 0x00409604 = 0x08040003 -> 3 GPC",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.1 lines 43-44 (sha aa43bb2d...)",
+          "confidence": "MEASURED (archived register read)"
+        },
+        {
+          "item": "tpc_nr 0x00502608 = 0x00040005 -> 5 TPC in GPC0",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.1 line 44",
+          "confidence": "MEASURED (archived register read)"
+        },
+        {
+          "item": "TPC map: GPC0 TPC0-4 LIVE, TPC5 POISON 0xBADF1300 at all 3 offsets (0x010/0x100/0x400); GPC1/GPC2 all LIVE per archive -> 17 TPC",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.2 lines 47-59",
+          "confidence": "MEASURED (archived, GPC0 exact; GPC1/GPC2 per archive claim)"
+        },
+        {
+          "item": "17 TPC x 2 = 34 SM = 2176 CUDA cores; cudaGetDeviceProperties multiProcessorCount=34, cores=2176, clock 1650 MHz",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.3 lines 63-72",
+          "confidence": "CORROBORATED (two independent archived methods: GR register vs CUDA runtime)"
+        },
+        {
+          "item": "measurement pitfall: first tpc_nr read at GR idle gave 13 TPC (PMC_ENABLE bit9 PGR=0); must wake GR via CUDA kernel -> 17 TPC",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.5 lines 85-89, \u00a711 pitfall 1",
+          "confidence": "MEASURED (archived pitfall note)"
+        },
+        {
+          "item": "write attempts to tpc_nr and fuse+0x524 read-only; fuse+0x524 unstable (0x1F before unlock, 0x00 after) - not a reference",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.5 lines 87-93, \u00a711 pitfall 5",
+          "confidence": "MEASURED (archived)"
+        }
+      ],
+      "source_applicability_topology": {
+        "gpc_nr/tpc_nr register field definition": "none found in /tmp/nvsrc snapshot (grep gpc_nr, tpc_nr, TPC_UNIT returned no hits)",
+        "tu106_applicable": false,
+        "field_semantics": "UNKNOWN \u2014 no source definition; raw values only",
+        "fuse_popcount_inference": "RETRACTED (SEC-FUSE-05, FUSE_TU106_AUDIT U-FUSE-005)"
+      },
+      "sku_table_note": "BAO_CAO \u00a710 line 315 (archived) states CMP 40HX die config 3 x (5,6,6) = 17 TPC, SKU-equals-RTX-2060-Super claim; treat as archived claim, not source-verified field decode; GPC0 measured 5/6, GPC1/GPC2 'all LIVE' per archive map.",
+      "disposition": "Replace 'mapped register fields' with: raw register values MEASURED at exact addresses with file/hash/line above; topology counts reported as archive-measured (3 GPC; GPC0 = 5 TPC live + TPC5 poison; 17 TPC total per archive map; 34 SM corroborated by CUDA). Register field names/bitfields = UNKNOWN (no source definition). Fuse popcount correlation retracted. Reconciled with prior topology review (was UNKNOWN): raw topology values now evidenced, field semantics remain UNKNOWN.",
+      "new_status": "raw topology values MEASURED/CORROBORATED as listed; register field mapping UNKNOWN; fuse-correlated topology claim RETRACTED"
+    },
+    {
+      "id": "C6",
+      "area": "archived vs new runtime work; g_chips2halspec_nvoc.h; Turing/TU102 applicability limits",
+      "original_claim": "Implied new runtime measurement; historical PCIe probe-write (XVE 0x88004 killed link) described as if performed by this audit.",
+      "conflict": "Coordinator review: distinguish archived config/resource files and archived tool output from new hardware measurements. No new probe occurred for this job.",
+      "evidence": [
+        {
+          "item": "g_chips2halspec_nvoc.h lines 140-141: 'delete DISPv0400 & ~(TU102 | TU104 | TU106 | TU116 | TU117);'",
+          "source": "/tmp/nvsrc/nvidia/generated/g_chips2halspec_nvoc.h sha 194204fd...",
+          "confidence": "DECODED (source read)"
+        },
+        {
+          "item": "no tu106/ register directory in snapshot; TU106 register namespaces = tu102/Turing-family shared headers only",
+          "source": "/tmp/nvsrc directory enumeration; inputs.json source snapshot note",
+          "confidence": "MEASURED (snapshot enumeration)"
+        },
+        {
+          "item": "all MMIO/fuse/PCIe values in this review are archived (BAO_CAO 02/11/2026, RAW_DATA dumps, q3_pcie.txt, p5678.json, q6.json, tu06.json, bar3_hot.bin)",
+          "source": "source_manifest.json archived_evidence section",
+          "confidence": "ARCHIVED_LABEL"
+        },
+        {
+          "item": "historical XVE 0x88004 probe-write killed PCIe link permanently (full power-off required)",
+          "source": "BAO_CAO_CMP40HX_TU106.md \u00a76 warning lines 207-219",
+          "confidence": "ARCHIVED (historical event, not performed by this review)"
+        }
+      ],
+      "disposition": "Label every archived measurement/tool output as archived; never describe as new runtime work. g_chips2halspec_nvoc.h gives TU106 architectural recognition in the hal spec (DISPv0400 delete expression) ONLY \u2014 no tu106-specific register header exists; applicability of tu102 headers to TU106 rests on Turing-family compatibility, not a TU106-specific definition. Historical writes (XVE 0x88004) are archived events with a warning; this review performs none.",
+      "new_status": "all evidence labeled archived; g_chips2halspec_nvoc.h applicability = hal-spec recognition only; Turing/TU102 shared-header limit stated"
+    }
+  ],
+  "fuse_word_audit": [
+    {
+      "fuse_offset": 1616,
+      "abs_addr": "0x21650",
+      "raw": 262175,
+      "sources": [
+        "BAO_CAO \u00a73.4/\u00a75.1 lines 79-81,168 (sha aa43bb2d...)",
+        "fuse2.json regs[1616] (sha 0e770041...)"
+      ],
+      "source_definition": "NONE in dev_fuse.h tu102 (only 0x21378 line 31, 0x2174C line 26; sha f96f637c...)",
+      "tu106_applicable": false,
+      "consumer": "none identified",
+      "semantics": "UNKNOWN",
+      "status": "raw MEASURED; name/semantics RETRACTED"
+    },
+    {
+      "fuse_offset": 3076,
+      "abs_addr": "0x21C04",
+      "raw": 1,
+      "sources": [
+        "fuse2.json regs[3076] = 1 (sha 0e770041...)",
+        "BAO_CAO \u00a74.1 line 134 claims 0 (sha aa43bb2d...) -> CONFLICT"
+      ],
+      "source_definition": "NV_FUSE_STATUS_OPT_DISPLAY 0x00021C04 bit 0:0, only value ENABLE=0, in maxwell/gm107/dev_fuse.h lines 27-29 (sha 1b83b306...)",
+      "tu106_applicable": false,
+      "consumer": "none for TU106",
+      "semantics": "UNKNOWN; observed 1 outside enum {0}",
+      "status": "UNRESOLVED_CONFLICT (1 vs 0); U-FUSE-009 OPEN"
+    },
+    {
+      "fuse_offset": 1868,
+      "abs_addr": "0x2174C",
+      "raw": 1,
+      "sources": [
+        "fuse2.json regs[1868]=1",
+        "SEC-FUSE-02 SUPPORTED"
+      ],
+      "source_definition": "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS 0x0002174C bit 0:0 NO/YES, dev_fuse.h tu102 lines 26-29 (sha f96f637c...)",
+      "tu106_applicable": true,
+      "semantics": "YES (GSP debug disabled)",
+      "status": "SUPPORTED"
+    },
+    {
+      "fuse_offset": 888,
+      "abs_addr": "0x21378",
+      "raw": 0,
+      "sources": [
+        "fuse2.json regs[888]=0"
+      ],
+      "source_definition": "NV_FUSE_OPT_NVDEC_DISABLE 0x00021378 bits 2:0 INIT=0, dev_fuse.h tu102 lines 31-33 (sha f96f637c...)",
+      "tu106_applicable": true,
+      "semantics": "INIT (NVDEC disable=0)",
+      "status": "SUPPORTED"
+    }
+  ],
+  "topology_audit": {
+    "raw_register_values": [
+      {
+        "addr": "0x00409604",
+        "name": "gpc_nr",
+        "raw": 134479875,
+        "decoded": "3 GPC",
+        "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.1 line 43 (sha aa43bb2d...)",
+        "confidence": "MEASURED",
+        "field_definition": "NONE in snapshot -> field semantics UNKNOWN"
+      },
+      {
+        "addr": "0x00502608",
+        "name": "tpc_nr",
+        "raw": 262149,
+        "decoded": "5 TPC in GPC0",
+        "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.1 line 44",
+        "confidence": "MEASURED",
+        "field_definition": "NONE in snapshot -> field semantics UNKNOWN"
+      },
+      {
+        "addr": "TPC_UNIT(0,t)+0x010/0x100/0x400, TPC_UNIT=0x504000+g*0x8000+t*0x800",
+        "name": "TPC map GPC0",
+        "raw": "TPC0-4 LIVE; TPC5 = 0xBADF1300 at all 3 offsets",
+        "source": "BAO_CAO_CMP40HX_TU106.md \u00a73.2 lines 47-59",
+        "confidence": "MEASURED (GPC0 exact); GPC1/GPC2 'all LIVE' per archive"
+      }
+    ],
+    "corroboration": {
+      "item": "34 SM / 2176 CUDA cores, clock 1650 MHz",
+      "source": "BAO_CAO \u00a73.3 cudaGetDeviceProperties vs register reads",
+      "confidence": "CORROBORATED (two independent archived methods)"
+    },
+    "source_applicability": "no gpc_nr/tpc_nr/TPC_UNIT definition in /tmp/nvsrc (grep empty); tu102 headers are Turing-family shared, no tu106 override dir; g_chips2halspec_nvoc.h recognizes TU106 only in DISPv0400 hal delete expression (lines 140-141)",
+    "retracted": [
+      "fuse popcount 0x1F==5 as TPC-count corroboration",
+      "named register fields for gpc_nr/tpc_nr",
+      "'17 TPC x 2 SM' as source-verified field decode (17 TPC remains archive-measured map total)"
+    ],
+    "status": "raw topology values evidenced; register field semantics UNKNOWN; whole-GPU topology beyond these raw values UNKNOWN"
+  },
+  "subsystems": [
+    {
+      "name": "GR / FECS / GPCCS",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {
+          "file": "nvidia/generated/g_chips2halspec_nvoc.h",
+          "sha": "194204fd...",
+          "lines": [
+            140,
+            141
+          ],
+          "element": "TU106 in DISPv0400 hal delete expression (TU102|TU104|TU106|TU116|TU117)",
+          "note": "TU106 recognized in hal spec; architectural only, no register field definitions",
+          "tu106_applicable": "architectural recognition only"
+        },
+        {
+          "file": "common/inc/swref/published/turing/tu102/dev_esched_pbdma.h",
+          "sha": "e9b48a49...",
+          "lines": [
+            26
+          ],
+          "element": "NV_PBDMA base 0x0 mask 0x1ffff; SIGNATURE(i)=0x10+i*8192; PB_HEADER(i)=0x84+i*8192",
+          "note": "Turing-family shared, no tu106 override",
+          "tu106_applicable": "Turing-family shared"
+        },
+        {
+          "file": "common/inc/swref/published/turing/tu102/dev_pbdma.h",
+          "sha": "f150f084...",
+          "lines": [
+            26
+          ],
+          "element": "NV_PPBDMA_SET_CHANNEL_INFO VEID/CHID bitfields",
+          "tu106_applicable": "Turing-family shared"
+        },
+        {
+          "file": "common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gr.h",
+          "sha": "64bb4cc6...",
+          "element": "NV2080_CTRL_CMD_GRP_* GR control commands",
+          "tu106_applicable": "RM ctrl header exists; no TU106-specific instance"
+        },
+        {
+          "file": "common/sdk/nvidia/inc/class/cl90cdfecs.h",
+          "sha": "0bf1d988...",
+          "element": "NV_EVENT_BUFFER_FECS_CTXSWTAG_* + record type 134/V2",
+          "note": "FECS firmware-managed context-switch engine; event tags only, no RM ctrl programming interface",
+          "tu106_applicable": "class header, generic"
+        }
+      ],
+      "observed_device_status": "PARTIALLY_MEASURED (retained; topology claim corrected per C1/C5)",
+      "evidence_runtime": [
+        {
+          "addr": "NV_PMC_BOOT_0 0x00000000",
+          "raw": "0x166000A1",
+          "decoded": "ARCH=1 Turing, IMPL=6 TU106, REV=6 A1",
+          "source": "BAO_CAO \u00a72 lines 29-34",
+          "confidence": "MEASURED"
+        },
+        {
+          "addr": "gpc_nr 0x00409604",
+          "raw": "0x08040003",
+          "decoded": "3 GPC",
+          "source": "BAO_CAO \u00a73.1 line 43",
+          "confidence": "MEASURED"
+        },
+        {
+          "addr": "tpc_nr 0x00502608",
+          "raw": "0x00040005",
+          "decoded": "5 TPC in GPC0",
+          "source": "BAO_CAO \u00a73.1 line 44",
+          "confidence": "MEASURED"
+        },
+        {
+          "addr": "fuse+0x650 abs 0x21650",
+          "raw": "0x0004001F",
+          "decoded": "raw word only; TPC-mask name RETRACTED (no source def)",
+          "source": "BAO_CAO \u00a73.4/\u00a75.1 + fuse2.json regs[1616]",
+          "confidence": "MEASURED raw / UNKNOWN semantics"
+        },
+        {
+          "addr": "GPC0 TPC5 @ 0x504000+5*0x800+{0x010,0x100,0x400}",
+          "raw": "0xBADF1300 (all 3)",
+          "decoded": "GPC0 TPC5 absent/poison",
+          "source": "BAO_CAO \u00a73.2 lines 52-59",
+          "confidence": "MEASURED"
+        },
+        {
+          "addr": "17 TPC x 2 SM",
+          "raw": "34 SM / 2176 CUDA",
+          "decoded": "matches cudaGetDeviceProperties multiProcessorCount=34",
+          "source": "BAO_CAO \u00a73.3 lines 63-72",
+          "confidence": "CORROBORATED"
+        },
+        {
+          "addr": "PMC_ENABLE 0x00000200 bit9(PGR)",
+          "raw": "0 when idle",
+          "decoded": "GR clock-gated until CUDA kernel wakes it; first idle tpc_nr read gave 13 TPC (pitfall)",
+          "source": "BAO_CAO \u00a73.5 pitfall1 / \u00a711 pitfall 1",
+          "confidence": "MEASURED"
+        },
+        {
+          "addr": "FECS shadow slots 0x40960C/0x409610/0x409634/0x40967C/0x409680",
+          "raw": "accept writes, read back",
+          "decoded": "writable, NOT connected to topology (writes do not move tpc_nr)",
+          "source": "BAO_CAO \u00a73.6 lines 95-104",
+          "confidence": "MEASURED"
+        }
+      ],
+      "corrections_vs_original": [
+        "removed named 'TPC mask 0x1F = 5 enabled' claim (C1)",
+        "removed 'corroborated by fuse' wording; fuse/tpc_nr equality treated as coincidence (C1/C5)",
+        "register field mapping for gpc_nr/tpc_nr marked UNKNOWN (C5)"
+      ],
+      "exact_unavailability": [
+        "no tu106-specific GR register header (tu102 shared only)",
+        "no FECS firmware binary/ucode descriptor/load address/Falcon slot in snapshot",
+        "no engine<->FECS-firmware-slot mapping asserted anywhere; do not infer",
+        "no GPCCS register header or control interface",
+        "no generated FIFO/GR channel descriptor instance or source tag in any dump"
+      ],
+      "unknown_unsupported": [
+        "GPCCS block (no header/interface/evidence) -> BLOCKED/UNKNOWN",
+        "FECS firmware slot/ucode -> UNKNOWN",
+        "GR channel/runlist live state -> UNKNOWN",
+        "whether fuse is sole GR gating vs strap/falcon gating -> UNKNOWN",
+        "fuse+0x650 semantics -> UNKNOWN (C1)"
+      ],
+      "status": "PARTIALLY_MEASURED"
+    },
+    {
+      "name": "FIFO / PBDMA",
+      "architectural_support_in_source": true,
+      "observed_device_status": "ARCH_ONLY (retained; no conflict)",
+      "exact_unavailability": [
+        "no tu106 FIFO/PBDMA header",
+        "no generated FIFO/PBDMA channel descriptor instance/source tag",
+        "no FIFO channel count/runlist state/userdoorbell location observed"
+      ],
+      "unknown_unsupported": [
+        "PBDMA channel count",
+        "FIFO runlist/channel state",
+        "userdoorbell aperture/location"
+      ],
+      "status": "ARCH_ONLY"
+    },
+    {
+      "name": "Copy engines (CE)",
+      "architectural_support_in_source": true,
+      "observed_device_status": "ARCH_ONLY (retained; no conflict)",
+      "exact_unavailability": [
+        "no CE register base address header (dev_ce_base.h config fields only)",
+        "no CE instance count/PCE-LCE mask/state in any dump",
+        "no CE firmware/descriptor"
+      ],
+      "unknown_unsupported": [
+        "CE count",
+        "CE PCE/LCE configuration",
+        "CE operational status (PMC CE bits not read)"
+      ],
+      "status": "ARCH_ONLY"
+    },
+    {
+      "name": "PMU / SEC2 / GSP",
+      "architectural_support_in_source": true,
+      "observed_device_status": "PARTIALLY_MEASURED (retained; no conflict; cmpunlocker SEC2 claim is archived runtime evidence for unlock path only)",
+      "evidence_runtime": [
+        {
+          "addr": "SEC2 via dmesg",
+          "raw": "FECS=0xffffff8f SS0=0x88888888 SS1=0x8; WPR2=0:0x1ffffe00; RESET_PLM=0xff; ACR_TOKEN=0xc2",
+          "decoded": "SEC2 halted RESET_PLM=0xff before signed booter executes; cmpunlocker runs NVIDIA-signed booter 610.57.04 in SEC2 (archive SHA256 619d7b5c...2299be68), host writes no MMIO",
+          "source": "BAO_CAO \u00a78 / dmesg (archived)",
+          "confidence": "MEASURED (archived, unlock path only)"
+        }
+      ],
+      "exact_unavailability": [
+        "GSP firmware binary gsp_tu10x.bin absent",
+        "no engine<->Falcon-slot mapping for GSP/SEC2/PMU asserted in source",
+        "no GSP queue head/tail/mailbox values observed",
+        "PMU register block not separately defined/observed"
+      ],
+      "unknown_unsupported": [
+        "GSP residency/RPC state",
+        "SEC2 mailbox contents",
+        "PMU register state",
+        "cmpunlocker FECS-selector claim = runtime evidence only, not structural fact"
+      ],
+      "status": "PARTIALLY_MEASURED"
+    },
+    {
+      "name": "NVENC / NVDEC",
+      "architectural_support_in_source": true,
+      "observed_device_status": "ARCH_ONLY (retained; no conflict)",
+      "exact_unavailability": [
+        "no NVENC register header",
+        "no NVENC/NVDEC instance count/capability/state in any dump",
+        "no video codec firmware/descriptor",
+        "NVDEC base formula 0x00830000+dev*16384 known but dev index/range not instantiated for TU106"
+      ],
+      "unknown_unsupported": [
+        "NVENC presence/count",
+        "NVDEC instance count/state",
+        "video codec status"
+      ],
+      "status": "ARCH_ONLY"
+    },
+    {
+      "name": "Display",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {
+          "file": "nvidia/generated/g_chips2halspec_nvoc.h",
+          "sha": "194204fd...",
+          "lines": [
+            140,
+            141
+          ],
+          "element": "DISPv0400 delete expression includes TU106",
+          "note": "hal-spec architectural recognition only; no tu106 display register header in snapshot",
+          "tu106_applicable": "architectural recognition only"
+        },
+        {
+          "file": "common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+          "sha": "1b83b306...",
+          "lines": [
+            27,
+            28,
+            29
+          ],
+          "element": "NV_FUSE_STATUS_OPT_DISPLAY 0x00021C04 bit 0:0, only value ENABLE=0",
+          "note": "Maxwell only; NOT TU106-applicable; observed fuse2.json value 1 outside enum {0}",
+          "tu106_applicable": false
+        }
+      ],
+      "register_namespaces": [
+        {
+          "unit": "DISP",
+          "header": "none in snapshot",
+          "base": "0x610000 (archived observation only, not source-defined)",
+          "tu106_applicable": "no source header; observed offsets only"
+        }
+      ],
+      "evidence_runtime": [
+        {
+          "addr": "DISP base 0x610000 / control 0x610010 / head 0x612300 / SOR 0x616000 / DAC 0x61C110",
+          "raw": "0xBADF1301 (all)",
+          "decoded": "poison = address does not exist",
+          "source": "BAO_CAO \u00a74 lines 110-116; q6.json PDISP zones all 0xBADF1301",
+          "confidence": "MEASURED (archived, exact offsets)"
+        },
+        {
+          "addr": "PRAMIN+0x1E0200 = 0x8E0200",
+          "raw": "0xBADF1100",
+          "decoded": "address does not exist",
+          "source": "BAO_CAO \u00a74 line 117",
+          "confidence": "MEASURED (archived, one sampled PRAMIN offset)"
+        },
+        {
+          "addr": "scan 0x600000-0x700000 step 0x1000",
+          "raw": "0/256 pages live",
+          "decoded": "no display aperture page live in scan",
+          "source": "BAO_CAO \u00a74 line 119; page_inventory.csv pages 1536-1563 POISON",
+          "confidence": "MEASURED (archived, exact stride)"
+        },
+        {
+          "addr": "scan step 0x100",
+          "raw": "0 pages",
+          "decoded": "confirmed",
+          "source": "BAO_CAO \u00a74 line 120",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "addr": "0x700000-0x87FFFF",
+          "raw": "reads zero",
+          "decoded": "mapped but uninitialized, third state distinct from poison",
+          "source": "BAO_CAO \u00a74 line 121",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "addr": "driver state",
+          "raw": "Display Active: Disabled; Attached: No; card1 -> 0 connectors",
+          "decoded": "display not exposed by driver",
+          "source": "BAO_CAO \u00a74 driver block",
+          "confidence": "MEASURED (archived driver observation)"
+        }
+      ],
+      "corrections_vs_original": [
+        "status no longer MEASURED_ABSENT (silicon-absence claim over-reach) (C4)",
+        "retract 'display not masked / fuse=0 not disabled' (C2)",
+        "no causal inference between fuse value and display absence",
+        "block presence / BAR decode / clock & power gating / board causes preserved as UNKNOWN"
+      ],
+      "exact_unavailability": [
+        "no tu106 display register header",
+        "no display encoder/head state observable",
+        "poison evidence limited to sampled offsets/pages only"
+      ],
+      "unknown_unsupported": [
+        "whether display absence is die-feature (TU106-100-A1 binning) vs board strapping -> UNKNOWN",
+        "physical block presence -> UNKNOWN",
+        "BAR decode of display -> UNKNOWN",
+        "clock/power gating -> UNKNOWN",
+        "fuse+0xC04 display fuse state -> UNRESOLVED_CONFLICT/UNKNOWN (C2)"
+      ],
+      "status": "MEASURED_AT_SAMPLED_OFFSETS_PRESENCE_UNKNOWN"
+    },
+    {
+      "name": "PCIe / GMMU-facing paths",
+      "architectural_support_in_source": true,
+      "source_citations": [
+        {
+          "file": "common/inc/swref/published/turing/tu102/dev_bus.h",
+          "sha": "58d106d9...",
+          "element": "NV_PBUS_BAR1_BLOCK 0x001704 PTR/TARGET/MODE (register_fields.csv lines 4-6)",
+          "tu106_applicable": "Turing-family shared"
+        },
+        {
+          "file": "common/inc/swref/published/turing/tu102/dev_mmu.h",
+          "sha": "1668eb3c...",
+          "element": "PDE/PTE format, address shift 0xc, size 8",
+          "tu106_applicable": "Turing-family shared"
+        }
+      ],
+      "evidence_runtime": [
+        {
+          "addr": "PCIe LnkCap/LnkSta",
+          "raw": "2.5GT/s x16 (downgraded); LnkCap2 advertises 2.5GT/s only",
+          "source": "BAO_CAO \u00a76; p5678.json (archived lspci)",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "addr": "BAR1 resource range",
+          "raw": "0x381000000000..0x381FFFFFFFFF size 68719476736 = 64 GiB, flags 0x0014220C",
+          "source": "MEMORY_PCIE \u00a72; p5678.json Region 1 size=64G; ReBAR [bb0] BAR1 current 64GB supported 64MB..256GB",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "addr": "NVML BAR1",
+          "raw": "Total 65536 MiB / Used 2 / Free 65534",
+          "source": "MEMORY_PCIE \u00a78 (smq NVML)",
+          "confidence": "CORROBORATED (archived)"
+        },
+        {
+          "addr": "VRAM total",
+          "raw": "8192 MiB (cuda totalGlobalMem 7803 MB after reserve)",
+          "source": "MEMORY_PCIE \u00a78 smq; BAO_CAO \u00a73.3 line 71",
+          "confidence": "MEASURED (archived, separate from BAR1)"
+        },
+        {
+          "addr": "XVE 0x88000 / 0x88008 / XP 0x118000-0x118008",
+          "raw": "0x1F0B10DE / 0x030200A1 / 0x00001000/0/0",
+          "source": "BAO_CAO \u00a76 lines 196-201",
+          "confidence": "MEASURED (archived)"
+        },
+        {
+          "addr": "fuse+0x4D8 / fuse+0x56C",
+          "raw": "0x1F0B / 0x1F4B",
+          "decoded": "observed values match Device ID/family but NOT source-defined fields (SEC-FUSE-03/04 REJECTED)",
+          "source": "BAO_CAO \u00a75.1 line 166",
+          "confidence": "MEASURED raw / semantics REJECTED"
+        }
+      ],
+      "corrections_vs_original": [
+        "BAR1 corrected from 8 GiB to 64 GiB window; VRAM 8 GiB stated separately (C3)",
+        "historical XVE 0x88004 probe-write (killed link, full power-off to recover) labeled archived event, not performed by this review (C6)",
+        "ReBAR fuse-vs-strap remains UNKNOWN"
+      ],
+      "exact_unavailability": [
+        "no tu106 PCIe/BIF register header",
+        "no GMMU/VM page-table contents or VM fault state in dumps",
+        "dev_vm.h not cross-referenced to live MMIO"
+      ],
+      "unknown_unsupported": [
+        "GMMU page-table hierarchy",
+        "whether ReBAR 64GiB is fuse or strap -> UNKNOWN",
+        "link beyond Gen1 x16 observed"
+      ],
+      "status": "PARTIALLY_MEASURED"
+    }
+  ],
+  "cross_cutting": {
+    "do_not_infer_operational_status_from_fuse_or_cap": true,
+    "do_not_assert_engine_firmware_slot_mapping": true,
+    "no_causal_inference_display": "fuse+0xC04 value (1 per fuse2.json / 0 per BAO_CAO, UNRESOLVED_CONFLICT) is NOT used to explain display absence; no causal claim",
+    "note_on_cmpunlocker": "RM->SEC2 RPC executing NVIDIA-signed booter 610.57.04 inside halted SEC2 (RESET_PLM=0xff); FECS selector written by firmware in SEC2, not host. Archived runtime evidence for unlock path only; not a source-mapped engine<->firmware-slot assignment; does not imply other engines programmable.",
+    "archived_vs_new": "Every MMIO/fuse/PCIe value in this review is ARCHIVED evidence (BAO_CAO_CMP40HX_TU106.md measurement 02/11/2026; RAW_DATA dumps; q3_pcie.txt; p5678.json; q6.json; tu06.json; bar3_hot.bin). No new hardware probe, measurement, or write performed by this review. Historical XVE 0x88004 probe-write is an archived event with warning (link killed, full power-off recovery).",
+    "exact_unavailability_summary": [
+      "no tu106/ register directory; all namespaces tu102/Turing-family shared",
+      "no RM engine driver source in snapshot",
+      "no GSP firmware/FECS ucode/CE firmware/video-codec firmware or descriptor",
+      "no generated channel/descriptor instance or source tag for FIFO/PBDMA, CE, NVENC, NVDEC",
+      "no engine<->Falcon firmware-slot mapping asserted anywhere",
+      "fuse+0x650 and fuse+0xC04 field semantics unresolved/unknown"
+    ],
+    "verdict": "WHOLE-GPU REVERSE ENGINEERING IS NOT COMPLETE. This review covers corrected engine-interface findings only. Topology register field semantics, fuse/OTP semantics beyond measured words, VBIOS tables, GSP function inventory, MMIO outside listed namespaces, display physical presence/decode/gating, and board-level causes remain UNKNOWN unless separately evidenced. Where evidence conflicts (fuse+0xC04: 1 vs 0), the conflict is listed and marked UNRESOLVED_CONFLICT; no convenient interpretation is selected."
+  }
+}

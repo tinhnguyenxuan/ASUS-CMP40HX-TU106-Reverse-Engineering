@@ -1,0 +1,14 @@
+{
+ "idle": {
+  "error": ""
+ },
+ "nvml": {
+  "GpcClkVfOffset": 0,
+  "MemClkVfOffset": 0,
+  "PowerManagementLimit": 184000,
+  "EnforcedPowerLimit": 184000,
+  "ClockInfo": "rc=2",
+  "Temperature": "rc=2"
+ },
+ "dmesg": []
+}

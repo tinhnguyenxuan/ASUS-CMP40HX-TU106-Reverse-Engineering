@@ -1,0 +1,163 @@
+{
+  "note": "BIT table validated with corrected parser (17 tokens, not 6). Source: /home/REDACTED_USER/.hermes/cache/scratch/bit_validated.json",
+  "parser_format": "sig(6) + version(2 LE) + header_size(1) + token_size(1) + token_count(1) + checksum(2 LE) + tokens[tag(1) + ver(1) + len(2 LE) + offset(2 LE)]",
+  "rom_image_base": "0x28600",
+  "token_offset_relative_to": "ROM image base (0x28600)",
+  "roms": {
+    "CMP_stock": {
+      "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+      "size": 1048576,
+      "device_id": "0x1F0B",
+      "bit_locations": ["0x287B0", "0xA17B0"],
+      "token_count": 17,
+      "header_size": 12,
+      "token_size": 6,
+      "checksum": "0x3246",
+      "token_U": {
+        "index": 10,
+        "tag": "0x55",
+        "offset": "0x03CE",
+        "data_file_off": "0x289CE",
+        "length": 5,
+        "data_hex": "0000020000",
+        "DCF": 2,
+        "NO_DISPLAY_SUBSYSTEM": 1
+      },
+      "token_B": {
+        "index": 1,
+        "tag": "0x42",
+        "offset": "0x023E",
+        "data_file_off": "0x2883E",
+        "length": 37,
+        "data_hex": "00670690060000000000a807000000000000000002005c5c2202000036020400122a4d0100",
+        "B_plus_32": "0x12",
+        "B_plus_1": "0x67",
+        "B_plus_2": "0x06"
+      }
+    },
+    "CMP_variant_253219": {
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "size": 1047040,
+      "device_id": "0x1F0B",
+      "bit_locations": ["0x287B0", "0xA17B0"],
+      "token_count": 17,
+      "header_size": 12,
+      "token_size": 6,
+      "checksum": "0x3246",
+      "token_U": {
+        "index": 10,
+        "tag": "0x55",
+        "offset": "0x03CE",
+        "data_file_off": "0x289CE",
+        "length": 5,
+        "data_hex": "0000020000",
+        "DCF": 2,
+        "NO_DISPLAY_SUBSYSTEM": 1
+      },
+      "token_B": {
+        "index": 1,
+        "tag": "0x42",
+        "offset": "0x023E",
+        "data_file_off": "0x2883E",
+        "length": 37,
+        "data_hex": "00670690060000000000a807000000000000000002005c5c2202000036020400122a4d0100",
+        "B_plus_32": "0x12",
+        "B_plus_1": "0x67",
+        "B_plus_2": "0x06"
+      }
+    },
+    "GeForce_246948": {
+      "sha256": "c468ac52bfea803a7784b02c3f0a4005115660b0087e06302056ab27a9332dcf",
+      "size": 1047040,
+      "device_id": "0x1F06",
+      "bit_locations": ["0x287B0", "0xA07B0"],
+      "token_count": 17,
+      "header_size": 12,
+      "token_size": 6,
+      "checksum": "0x3246",
+      "token_U": {
+        "index": 10,
+        "tag": "0x55",
+        "offset": "0x03A2",
+        "data_file_off": "0x289A2",
+        "length": 5,
+        "data_hex": "8f4e000000",
+        "DCF": 0,
+        "NO_DISPLAY_SUBSYSTEM": 0
+      },
+      "token_B": {
+        "index": 1,
+        "tag": "0x42",
+        "offset": "0x023E",
+        "data_file_off": "0x2883E",
+        "length": 37,
+        "data_hex": "00440690c10000000000a807000000000000000002005c5c2202000036020400105b430100",
+        "B_plus_32": "0x10",
+        "B_plus_1": "0x44",
+        "B_plus_2": "0x06"
+      }
+    },
+    "GeForce_268920": {
+      "sha256": "0a2fd8782e7bfc5b74edf1a6609b76157626cfe130188a584f0caed4a58c9cb9",
+      "size": 1047040,
+      "device_id": "0x1F06",
+      "bit_locations": ["0x287B0", "0xA07B0"],
+      "token_count": 17,
+      "header_size": 12,
+      "token_size": 6,
+      "checksum": "0x3246",
+      "token_U": {
+        "index": 10,
+        "tag": "0x55",
+        "offset": "0x03A2",
+        "data_file_off": "0x289A2",
+        "length": 5,
+        "data_hex": "8f4e000000",
+        "DCF": 0,
+        "NO_DISPLAY_SUBSYSTEM": 0
+      },
+      "token_B": {
+        "index": 1,
+        "tag": "0x42",
+        "offset": "0x023E",
+        "data_file_off": "0x2883E",
+        "length": 37,
+        "data_hex": "004c0690570000000000a807000000000000000002005c5c22020000360204001072430100",
+        "B_plus_32": "0x10",
+        "B_plus_1": "0x4C",
+        "B_plus_2": "0x06"
+      }
+    },
+    "GeForce_265590": {
+      "sha256": "560f2be1bee834c3d6acccbc5b0eaba47d3be5b9bce2ef2a40b97e1e898a0db8",
+      "size": 1047040,
+      "device_id": "0x1F07",
+      "bit_locations": ["0x287B0", "0xA07B0"],
+      "token_count": 17,
+      "header_size": 12,
+      "token_size": 6,
+      "checksum": "0x3246",
+      "token_U": {
+        "index": 10,
+        "tag": "0x55",
+        "offset": "0x03A2",
+        "data_file_off": "0x289A2",
+        "length": 5,
+        "data_hex": "8f4e000000",
+        "DCF": 0,
+        "NO_DISPLAY_SUBSYSTEM": 0
+      },
+      "token_B": {
+        "index": 1,
+        "tag": "0x42",
+        "offset": "0x023E",
+        "data_file_off": "0x2883E",
+        "length": 37,
+        "data_hex": "003d0690cb0000000000a807000000000000000002005c5c2202000036020400103a430100",
+        "B_plus_32": "0x10",
+        "B_plus_1": "0x3D",
+        "B_plus_2": "0x06"
+      }
+    }
+  }
+}

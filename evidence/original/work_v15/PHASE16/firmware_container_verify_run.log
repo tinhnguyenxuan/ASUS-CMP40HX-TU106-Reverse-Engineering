@@ -1,0 +1,9 @@
+RE-RUN: /usr/bin/python3 firmware_container_verify.py  (cwd PHASE16)
+HEADER NVUCODES ver 1 count 496 fp 0x8d1990ab6b98ae2b
+TABLE_END 11928 0x2e98 FIRST_PAYLOAD 12032 PAD 104
+CLASSES {'zero': 458, 'valid_marker4': 38}
+PAYLOADS 38 OVERLAPS 0 DUPS 0 ISSUES 0
+COVERED 8824912 UNCOVERED 12720 GAPS 6
+SCAN 38 CONFIRMED 38 EXTRA 0
+WROTE /home/REDACTED_USER/codex-work/work_v15/PHASE16/firmware_container_verified.json
+EXIT_CODE=0

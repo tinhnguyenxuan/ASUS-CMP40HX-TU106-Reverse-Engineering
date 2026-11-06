@@ -1,0 +1,21 @@
+Hoàn tất. Kết quả chạy thực (exit 0) trong `PHASE16/MMIO_NAMESPACE/`:
+
+**Lỗi gốc xác nhận:** `NV_XVE_ID_VENDOR_NVIDIA = 0x10DE /* C---V */` (constant vendor ID) bị dùng làm địa chỉ register → đọc poison `0x5040BADF` gọi là `state=data`. Cùng loại: `NV_PBDMA_SIGNATURE_HW_VALID = 0xFACE`, `NV_PBDMA_ACQUIRE_TIMEOUT_MAN_MAX = 0xFFFF` (giá trị constant, không căn 4 byte). Kết luận 52/52 matched source cũ **không hợp lệ**.
+
+**Phân loại 52 entry:**
+- 42 confirmed MMIO_BAR0 register addresses (căn 4, khớp source, access khớp)
+- 3 MMIO_BAR0_BASE (access null: FBIF/GSP_BASE)
+- 3 CONSTANT mislabelled (0x10DE, 0xFACE, 0xFFFF) + 3 misaligned (cùng 3 entry)
+- 3 CONTROL_SPACE (NV_CTRL_* 0xB668xx, access C--4R, không phải BAR0)
+- 1 PCI_CONFIG (NV_PCFG_XVE_REGISTER_MAP_START_OFFSET 0x88000)
+- 0 unknown, 0 unsupported expression trong catalog flat
+
+**Bitfield:** chỉ trích trên giá trị register thực; 6 entry poison (0xBADF1100/0xBADF5040) được đánh dấu `none_poison` (không có semantic field value); 2 entry có giá trị poison nhưng lưu `state=data` (sai trạng thái). Enum không bao giờ dùng làm bit offset.
+
+**WPR2:** LO 0x1FA824 raw 0x01F7E000 → decoded 0x1F7E0000; HI 0x1FA828 raw 0x01FFEE00 → decoded 0x1FFEE0000; hiệu 135135232 bytes = 128.875 MiB (khớp data_audit.py); inclusive/exclusive = UNKNOWN. L2TLB (0x100E78, dev_fb.h) ≠ L2 cache (0x1404F8, dev_ltc.h), không trộn.
+
+**Header:** 37 header tu102 đã sha256, mỗi entry ghi source_file/source_line/header_sha256, tu102 là định nghĩa duy nhất cho TU10x/TU106.
+
+**Files:** `mmio_namespace_verify.py`, `mmio_namespace_verify_run.log`, `mmio_namespace_verified.json`, `corrected_registers.csv`, `MMIO_NAMESPACE_REPORT.md`. Artifact cũ ở `PHASE16/MMIO_SOURCE/` giữ nguyên (timestamp 22:23-24, không chạm). Không đụng binary/dump/checkpoint chung, không whole-GPU DONE, không sửa output job còn sống.
+
+Tập tin chi tiết: `/home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_NAMESPACE/MMIO_NAMESPACE_REPORT.md`

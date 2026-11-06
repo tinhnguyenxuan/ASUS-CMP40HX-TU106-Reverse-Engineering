@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "utc": "2026-11-04T12:23:24.445304+00:00",
+  "target_match": "10de:1f0b",
+  "devices": [],
+  "warning": "Enumeration does not prove kernel execution, Tensor correctness, scanout or profiling.",
+  "nvidia_driver": {
+    "error": "[Errno 2] No such file or directory: '/proc/driver/nvidia/version'"
+  },
+  "nvidia_smi": {
+    "status": "TOOL_MISSING",
+    "argv": [
+      "nvidia-smi",
+      "--query-gpu=pci.bus_id,name,uuid,driver_version,vbios_version,pstate,clocks.current.graphics,clocks.current.memory,power.draw,temperature.gpu",
+      "--format=csv,noheader"
+    ]
+  }
+}

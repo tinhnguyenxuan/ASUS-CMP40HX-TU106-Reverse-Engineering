@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-11-05T17:41:51.661227+00:00",
+  "init_rc": 0,
+  "count_rc": 0,
+  "devices": [
+    {
+      "index": 0,
+      "bdf": "0000:03:00.0",
+      "sm_count": 34,
+      "device_rc": 0,
+      "bdf_rc": 0,
+      "attribute_rc": 0
+    }
+  ]
+}

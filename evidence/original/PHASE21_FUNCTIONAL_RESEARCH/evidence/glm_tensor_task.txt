@@ -1,0 +1,128 @@
+│ glm_work/tensor_correctness.cu
+│ @@ -0,0 +1,140 @@
+│ +#include <cuda_fp16.h>
+│ +#include <mma.h>
+│ +#include <cuda_runtime.h>
+│ +#include <stdio.h>
+│ +#include <string.h>
+│ +#include <stdlib.h>
+│ +#include <math.h>
+│ +
+│ +#define WMMA_M 16
+│ +#define WMMA_N 16
+│ +#define WMMA_K 16
+│ +#define TARGET_PCI_BDF "0000:03:00.0"
+│ +#define K_DIM 16
+│ +#define K_ELEMS (K_DIM * K_DIM) /* 256 */
+│ +
+│ +#define CUDA_CALL(x)                                                          \
+│ +    do {                                                                      \
+│ +        cudaError_t __err = (x);                                              \
+│ +        if (__err != cudaSuccess) {                                           \
+│ +            fprintf(stderr, "CUDA call failed: %s -> %s (line %d)\n", #x,   \
+│ +                    cudaGetErrorString(__err), __LINE__);                     \
+│ +            exit(1);                                                          \
+│ +        }                                                                     \
+│ +    } while (0)
+│ +
+│ +/* One warp (32 threads) computes one 16x16x16 half GEMM into float acc. */
+│ +__global__ void wmma_gemm_16x16x16(const half* A, const half* B, float* C) {
+│ +    nvcuda::wmma::fragment<nvcuda::wmma::matrix_a, WMMA_M, WMMA_N, WMMA_K,
+│ +                           half, nvcuda::wmma::row_major> a_frag;
+│ +    nvcuda::wmma::fragment<nvcuda::wmma::matrix_b, WMMA_M, WMMA_N, WMMA_K,
+│ +                           half, nvcuda::wmma::row_major> b_frag;
+│ +    nvcuda::wmma::fragment<nvcuda::wmma::accumulator, WMMA_M, WMMA_N, WMMA_K,
+│ +                           float, nvcuda::wmma::row_major> c_frag;
+│ +
+│ +    nvcuda::wmma::fill_fragment(c_frag, 0.0f);
+│ +
+│ +    nvcuda::wmma::load_matrix_sync(a_frag, A, WMMA_K); /* lda = 16 */
+│ +    nvcuda::wmma::load_matrix_sync(b_frag, B, WMMA_K); /* ldb = 16 */
+│ +    nvcuda::wmma::mma_sync(c_frag, a_frag, b_frag, c_frag);
+│ +    nvcuda::wmma::store_matrix_sync(C, c_frag, WMMA_N, /* ldc = 16 */
+│ +                                    nvcuda::wmma::mem_row_major);
+│ +}
+│ +
+│ +static int select_device_by_pci_bus_id(const char* pci_bus_id) {
+│ +    int device_count = 0;
+│ +    CUDA_CALL(cudaGetDeviceCount(&device_count));
+│ +    if (device_count == 0) {
+│ +        fprintf(stderr, "No CUDA devices found\n");
+│ +        exit(1);
+│ +    }
+│ +    for (int i = 0; i < device_count; ++i) {
+│ +        cudaDeviceProp prop;
+│ +        CUDA_CALL(cudaGetDeviceProperties(&prop, i));
+│ +        if (strcmp(prop.pciBusID, pci_bus_id) == 0) {
+│ +            CUDA_CALL(cudaSetDevice(i));
+│ +            fprintf(stdout, "Selected device %d: %s (PCI BDF %s)\n", i,
+│ +                    prop.name, prop.pciBusID);
+│ +            return i;
+│ +        }
+│ +    }
+│ +    fprintf(stderr, "No CUDA device with PCI BDF %s\n", pci_bus_id);
+│ +    exit(1);
+│ +}
+│ +
+│ +int main(void) {
+│ +    const int device = select_device_by_pci_bus_id(TARGET_PCI_BDF);
+│ +
+│ +    const size_t mat_bytes = K_ELEMS * sizeof(half);
+│ +
+│ +    /* Deterministic, non-constant small integer inputs (exact in half). */
+│ +    half h_A[K_ELEMS];
+│ +    half h_B[K_ELEMS];
+│ +    float h_C[K_ELEMS];
+│ +    float h_ref[K_ELEMS];
+│ +
+│ +    for (int i = 0; i < K_ELEMS; ++i) {
+│ +        h_A[i] = __float2half(1.0f + (float)((i * 7) % 9));  /* 1..9 */
+│ +        h_B[i] = __float2half(1.0f + (float)((i * 5) % 6));  /* 1..6 */
+│ … omitted 62 diff line(s) across 1 additional file(s)/section(s)
+│ glm_work/tensor_test_notes.md
+│ @@ -0,0 +1,33 @@
+│ +# Tensor correctness test notes
+│ +
+│ +## File
+│ +`glm_work/tensor_correctness.cu`
+│ +
+│ +## What it tests
+│ +One warp (32 threads, `<<<1, 32>>>`) computes a single 16x16x16 WMMA matrix
+│ +multiply on an sm_75 (Turing) device: half inputs (`__half`), float accumulator
+│ +(`float`), row-major layout. Device result is compared against a CPU reference
+│ +over all 256 output elements; mismatches are printed with index, device value,
+│ +reference value, and diff. The selected device's PCI BDF is reported.
+│ +
+│ +## Coverage
+│ +- CUDA API: `cudaGetDeviceCount`, `cudaGetDeviceProperties`, `cudaSetDevice`,
+│ +  `cudaMalloc` x3, `cudaMemcpy` H2D x2 + D2H x1, kernel launch + `cudaGetLastError`,
+│ +  `cudaDeviceSynchronize`, `cudaFree` x3 — every call is wrapped in `CUDA_CALL`
+│ +  and aborts with the error string on failure.
+│ +- Device selection: iterates devices and matches `prop.pciBusID` against
+│ +  `0000:03:00.0`; errors out if no match.
+│ +- WMMA path: `fill_fragment` (zero acc), `load_matrix_sync` x2, `mma_sync`,
+│ +  `store_matrix_sync` with row-major strides of 16.
+│ +- Inputs: deterministic small integers (A: 1..9, B: 1..6), non-constant,
+│ +  exactly representable in half; CPU reference uses float accumulation.
+│ +- No timing, no clocks/reset/config changes, no benchmark code.
+│ +
+│ +## Compile
+│ +```
+│ +nvcc -arch=sm_75 tensor_correctness.cu -o tensor_correctness
+│ +```
+│ +
+│ +## Status
+│ +Not executed (no GPU operations permitted in this session). Review and run on
+│ +a host with a CUDA-capable sm_75+ device at PCI BDF 0000:03:00.0.
+Done. Wrote two files in `glm_work/` (hash-verified on disk):
+
+1. `tensor_correctness.cu` — single-kernel WMMA correctness test:
+   - `cuda_fp16.h` + `mma.h` included; one warp `<<<1, 32>>>` computes 16x16x16 half GEMM with float accumulator via `fill_fragment`/`load_matrix_sync`/`mma_sync`/`store_matrix_sync`
+   - Device selected by matching `prop.pciBusID` == `0000:03:00.0`, erroring if absent
+   - Every CUDA call wrapped in `CUDA_CALL` (malloc, memcpy x3, launch via `cudaGetLastError`, `cudaDeviceSynchronize`, free); allocations freed on success
+   - Deterministic nonconstant small-int inputs (A: 1..9, B: 1..6, exact in half), CPU float reference, all 256 elements compared, mismatches + device BDF reported
+   - No timing, clocks, resets, or config changes; not executed
+
+2. `tensor_test_notes.md` — coverage summary and compile command `nvcc -arch=sm_75 tensor_correctness.cu -o tensor_correctness`
+
+Skipped: compiling/running (you said no GPU operations). To verify, build with the documented nvcc command on a host with a device at PCI BDF 0000:03:00.0 and run it — expect `PASS: all 256 elements match CPU reference` if the WMMA path is correct.

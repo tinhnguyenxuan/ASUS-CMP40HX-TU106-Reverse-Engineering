@@ -1,0 +1,223 @@
+{
+  "task": "T06 — 2 SM thiếu: floorsweeping, fuse và khả năng phục hồi (P0)",
+  "generated_at": "2026-11-05T03:49:50+07:00",
+  "constraints": "R0 OFFLINE: không SSH/sudo/GPU write/MMIO write/BAR/PCI write//dev/mem/reload/flash/collector. Chỉ đọc file + Python offline + web công khai.",
+  "tool_versions": {
+    "python": "3.14.9",
+    "coreutils_sha256sum": "9.4",
+    "method": "đọc file read-only (shell), phân tích số học offline, web_search/web_extract ngày 2026-11-05"
+  },
+  "input_hashes": {
+    "04_PHASE15_EXTRACTS/TOPOLOGY/silicon_topology.json": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+    "04_PHASE15_EXTRACTS/TOPOLOGY/silicon_topology.md": "1080d82640aa0fc8fea88454bf37569c62039ca37fc968199581a7a8b4d0406b",
+    "04_PHASE15_EXTRACTS/TOPOLOGY/topology_unknowns.md": "6e5a685ba5dd4cb1accbbf38c7e3cfe9b0248834a1d898b86fbac5ee3402d0be",
+    "04_PHASE15_EXTRACTS/FUSE/fuse2.json": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+    "04_PHASE15_EXTRACTS/FUSE/fuse_bitfields.csv": "0a3f627ec7fffb58975ee92994e49fba46ed28484fcd52bb82b6ff3a2824161e",
+    "04_PHASE15_EXTRACTS/FUSE/fuse_map.json": "01c37668156116876ab3a58c6b018670d377559a9cea952ace4add6b48a1450e",
+    "04_PHASE15_EXTRACTS/FUSE/P0_FUSE.md": "30a12008f7ac1fd57071e3df8fc7c85606d35fdfa600be5b43aeeed4ef58268a",
+    "04_PHASE15_EXTRACTS/PHASE15/fuse_analysis.json": "b40f124cd95cf100de52f51048a33969827b49cecfbbfe5016149a8948d805ff",
+    "04_PHASE15_EXTRACTS/PHASE15/fuse_deep.json": "4185ad04799541a6fbed3a5e069c450618f9197db135465a1ca8b90e2e0c77b3",
+    "04_PHASE15_EXTRACTS/PHASE15/FUSE_SEMANTICS.md": "4518520032fec6ad35bde76cb84fda8f6eb47a21bb745afeb4359dc02ef1845f",
+    "06_PRIOR_REPORTS/BAO_CAO_DAY_DU.md": "454be9fb57a72065bd555d2287b90e0d17e8bfa838a0146443dc0e5ac7be5cda",
+    "00_READ_FIRST/SESSION_SUMMARY.md": "ce47def5ec487e89907ada9c359018a2b11449e23c25465b55d5f6c9f775ff69",
+    "00_READ_FIRST/EVIDENCE_CONTRADICTIONS.md": "a4781060925274c71bc09aaf5ec6185eb8b36c58352488b5e976f0e40646edc2",
+    "00_READ_FIRST/ASTRA_MASTER_PROMPT.md": "90a114a98b5cba907320b2be0a9971fc190f331c730c4a3a86a147409bb46ae4"
+  },
+  "commands_log": [
+    "find /home/REDACTED_USER/codex-work/CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF -type f | sort",
+    "sha256sum (chạy bởi phiên thu thập trước, khối hashes ghi trong BAO_CAO_DAY_DU.md cuối — T06 dùng lại, không tự hash lại vì các file được tham chiếu qua cùng đường dẫn)",
+    "Đọc: BAO_CAO_DAY_DU.md (mục 1-2, 8-11), SESSION_SUMMARY.md, topology_unknowns.md, FUSE_SEMANTICS.md, fuse2.json (offsets 0x0650, 0x0C1C, 0x0524, 0xD8-0xF4), fuse_map.json, silicon_topology.json/md",
+    "web_search: dev_fuse.h tu102, gpcprobe GA100, 170hx_tips Gen3 unlock, gpu-unlock-ada #109 RIR/PLM, RMDISABLEFEATUREDISABLEMENT"
+  ],
+  "web_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/main/src/common/inc/swref/published/turing/tu102/dev_fuse.h",
+      "tag": "NVIDIA open-gpu-kernel-modules, branch main, commit không chốt (raw path)",
+      "accessed": "2026-11-05",
+      "relevant_quote": "#define NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS 0x0002174C ... #define NV_FUSE_OPT_NVDEC_DISABLE 0x00021378",
+      "applicability_tu106": "cùng họ published header Turing (tu102/tu106 dùng chung dev_fuse publishing); chứng minh danh mục OPT registers công khai cho Turing chỉ có 2 mục này"
+    },
+    {
+      "url": "https://github.com/matstatman/gpcprobe",
+      "tag": "GA100 floorsweep fuse probe README",
+      "accessed": "2026-11-05",
+      "relevant_quote": "OPT_GPC_DISABLE 0x00820350 ... OPT_GPC_DEFECTIVE 0x008205C4 ... disabled not defective = trimmed by the floorsweep but not fused dead ... GPC fuses are per-die (each card differs)",
+      "applicability_tu106": "chứng minh cơ chế DISABLE vs DEFECTIVE tách biệt — KHÔNG áp chỉ tự offsets/semantics cho TU106"
+    },
+    {
+      "url": "https://github.com/lixiangwuxian/170hx_tips/blob/main/Gen3_unlock_en.md",
+      "tag": "CMP 170HX GA100 fuse override guide",
+      "accessed": "2026-11-05",
+      "relevant_quote": "floorsweep masks with a _CP shadow: written to _CP with EN_SW_OVERRIDE=1 ... RM consumes STATUS_OPT_GPC (0x820c1c), not OPT_GPC_DISABLE",
+      "applicability_tu106": "cơ chế override chứng minh trên GA100; driver cmp_fuse chỉ nhắm GA100 — TU106 chưa có công cụ tương đương"
+    },
+    {
+      "url": "https://github.com/JustAResearcher/gpu-unlock-ada/issues/109",
+      "tag": "AD10x RIR/PLM fuse analysis",
+      "accessed": "2026-11-05",
+      "relevant_quote": "FUSE_DEBUGCTRL_PLM (0x00820054) is 0xffffff8f (Level-3 HS locked) on AD10x, so userland writes to 0x00820060 are ignored",
+      "applicability_tu106": "chứng minh consumer PLM khóa FUSE_DEBUGCTRL — giá trị 0xFFFFFF8F cũng xuất hiện trong dump card này nhưng offset/semantics TU106 chưa map"
+    },
+    {
+      "url": "https://github.com/kacper-daftcode/rtx-p2p/blob/main/docs/RMDISABLEFEATUREDISABLEMENT.md",
+      "tag": "GSP feature-gate analysis",
+      "accessed": "2026-11-05",
+      "relevant_quote": "ten-entry table that, on consumer SKUs, blocks feature id 5 ... bitmask1/2 set by fuse registers",
+      "applicability_tu106": "chứng minh GSP consumer có tầng feature-gate theo fuse — ứng viên S3, chưa thấy gate SM/TPC count"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "T06-C01",
+      "target_question": "2 SM thiếu — được enumerate ra sao?",
+      "claim": "Card báo 34 SM / 2176 CUDA qua count API (nvidia-smi / cudaGetDeviceProperties); đây là đầu cuối của chuỗi topology, sau khi firmware đã áp mọi floorsweep/mask.",
+      "status": "MEASURED",
+      "source_path_or_url": "input/ASTRA_CMP40HX_HANDOFF/04_PHASE15_EXTRACTS/TOPOLOGY/silicon_topology.json",
+      "source_hash_or_commit": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+      "locator": "smi_q, GPU 00000000:03:00.0",
+      "capture_time_or_unknown": "2026-11-03T08:30:53+07:00 (timestamp nội tại log smi_q)",
+      "hardware_firmware_scope": "TU106-100-A1 rev A1, 10DE:1F0B, VBIOS 90.06.67.00.06, GSP-RM 615.78.08",
+      "method": "count API qua NVML/CUDA runtime — 2 nguồn độc lập cùng giá trị",
+      "alternative_explanation": "count API có thể phản ánh topology firmware chứ không phải inventory silicon; không chứng minh nguyên nhân tầng trên",
+      "limitation": "chỉ chứng minh số hiệu quả; không nói gì về tồn tại/khỏe TPC thứ 18",
+      "next_discriminator": "đối chiếu SM count với GR/FECS registers đọc qua RM trace thay vì BAR0 thô"
+    },
+    {
+      "claim_id": "T06-C02",
+      "target_question": "nguồn số liệu fuse — giá trị thô nào đã đo?",
+      "claim": "fuse aperture 0x21000: fuse+0x0650 = 0x0004001F; fuse+0x0C1C = 0x00000038; fuse+0x0524 = 0x0000001F. Ba giá trị thô này là đo được.",
+      "status": "MEASURED",
+      "source_path_or_url": "input/ASTRA_CMP40HX_HANDOFF/04_PHASE15_EXTRACTS/FUSE/fuse2.json",
+      "source_hash_or_commit": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+      "locator": "offsets 0x0650, 0x0C1C, 0x0524 trong dump 352 word DATA",
+      "capture_time_or_unknown": "unknown (phiên đo trước; không suy từ mtime theo quy tắc)",
+      "hardware_firmware_scope": "TU106 fuse block, aperture BAR0 0x21000",
+      "method": "MMIO read-only dump",
+      "alternative_explanation": "giá trị có thể là shadow/status volatile thay vì OTP burn — lớp dump không phân biệt được",
+      "limitation": "raw values; bitfield semantics chưa được đặt tên công khai",
+      "next_discriminator": "dump đối chứng từ TU106 36-SM (RTX 2070) cùng aperture để so pattern"
+    },
+    {
+      "claim_id": "T06-C03",
+      "target_question": "0x0004001F @0x021650 nghĩa là gì?",
+      "claim": "Bitfield của 0x0004001F chưa được tài liệu công khai xác định cho Turing. Diễn giải 'bit 0-4 = 5 TPC GPC0, OTP đốt lúc binning' trong báo cáo trước là number-matching (khớp tpc_nr=5), không phải decode có tên.",
+      "status": "UNKNOWN",
+      "source_path_or_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/main/src/common/inc/swref/published/turing/tu102/dev_fuse.h",
+      "source_hash_or_commit": "branch main, commit không chốt (raw path)",
+      "locator": "toàn file: chỉ NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS (0x2174C) và NV_FUSE_OPT_NVDEC_DISABLE (0x21378)",
+      "capture_time_or_unknown": "2026-11-05",
+      "hardware_firmware_scope": "published Turing fuse headers; chưa thấy schema TPC-disable cho TU106",
+      "method": "đối chiếu header công khai + phân tích số học các mã hóa khả dĩ của 0x4001F (không decode bằng khớp số)",
+      "alternative_explanation": "header published có thể thiếu so với internal NVIDIA headers; register TPC-disable vẫn có thể tồn tại nhưng không được đặt tên công khai",
+      "limitation": "vắng mặt tên trong public header không chứng minh vắng mặt register — read-only không giải được từ giá trị",
+      "next_discriminator": "tìm handler fuse trong GSP-RM blob đã giải mã, hoặc NVIDIA công bố dev_fuse.h đầy đủ cho tu106"
+    },
+    {
+      "claim_id": "T06-C04",
+      "target_question": "floorsweeping có phân biệt 'chủ ý' và 'hỏng' không?",
+      "claim": "Trên GA100, floorsweep fuses tách biệt rõ: OPT_GPC_DISABLE (chủ ý, trim) vs OPT_GPC_DEFECTIVE (chết vật lý), và fuse là per-die. Đây là cơ sở phân loại S1 vs S4.",
+      "status": "CORROBORATED",
+      "source_path_or_url": "https://github.com/matstatman/gpcprobe",
+      "source_hash_or_commit": "GitHub README (repo main, commit không chốt)",
+      "locator": "bảng register: OPT_GPC_DISABLE 0x00820350 / OPT_GPC_DEFECTIVE 0x008205C4; ghi chú 'GPC fuses are per-die (each card differs)'",
+      "capture_time_or_unknown": "2026-11-05",
+      "hardware_firmware_scope": "GA100 — KHÔNG áp chỉ tự offset/bitfield cho TU106",
+      "method": "đọc tài liệu công khai về schema fuse GA100",
+      "alternative_explanation": "Turing có thể dùng schema hoàn toàn khác (đúng — dev_fuse.h Turing không có cặp này); CORROBORATED chỉ có nghĩa cơ chế tồn tại ở NVIDIA silicon nói chung",
+      "limitation": "không chứng minh Turing/TU106 có register DEFECTIVE tương đương",
+      "next_discriminator": "tìm OPT_*_DEFECTIVE tương đương trong dev_fuse.h tu102 nếu NVIDIA công bố, hoặc trong GSP blob"
+    },
+    {
+      "claim_id": "T06-C05",
+      "target_question": "TPC18 có tồn tại không?",
+      "claim": "Kết luận trước 'TPC thứ 18 — phần cứng không tồn tại [chắc chắn]' là overreach: PGRAPH trả poison toàn bộ 16 MB BAR0 ở phiên sau chứng minh BADF không phân biệt 'block không tồn tại' với 'block ngoài cửa sổ decode'.",
+      "status": "CONTRADICTED",
+      "source_path_or_url": "input/ASTRA_CMP40HX_HANDOFF/06_PRIOR_REPORTS/BAO_CAO_DAY_DU.md + input/ASTRA_CMP40HX_HANDOFF/04_PHASE15_EXTRACTS/TOPOLOGY/silicon_topology.md",
+      "source_hash_or_commit": "454be9fb57a72065bd555d2287b90e0d17e8bfa838a0146443dc0e5ac7be5cda / 1080d82640aa0fc8fea88454bf37569c62039ca37fc968199581a7a8b4d0406b",
+      "locator": "BAO_CAO_DAY_DU.md Phần 2.4 + Phần 11; silicon_topology.md mục PGRAPH poison",
+      "capture_time_or_unknown": "unknown (phiên đo trước)",
+      "hardware_firmware_scope": "TU106 BAR0 16 MB",
+      "method": "đối chứng logic nội tại: nếu aperture decode poison toàn dải thì BADF của TPC18 không phải bằng chứng không-tồn-tại",
+      "alternative_explanation": "TPC18 vẫn có thể thực sự không có trong die — CONTRADICTED chỉ nghĩa là bằng chứng BADF không đủ, không phải chứng minh ngược lại",
+      "limitation": "read-only không phân biệt được hai khả năng từ dữ liệu hiện có",
+      "next_discriminator": "bản đồ aperture BAR0 16 MB theo bước 64 KB (đầu mối TU-06): vùng trả data hợp lệ vs poison phân biệt cửa sổ decode"
+    },
+    {
+      "claim_id": "T06-C06",
+      "target_question": "0x38 @0x021C1C cho biết gì về GPC?",
+      "claim": "NV_FUSE_STATUS_OPT_GPC = 0x38 (bits 3,4,5) phù hợp giả thuyết '3 GPC sống' nhưng bitfield chưa xác định; các giả thuyết (a) mask 3 GPC, (b) giá trị đếm, (c) 1 GPC còn 5 TPC đều chưa loại trừ.",
+      "status": "UNKNOWN",
+      "source_path_or_url": "input/ASTRA_CMP40HX_HANDOFF/04_PHASE15_EXTRACTS/TOPOLOGY/topology_unknowns.md",
+      "source_hash_or_commit": "6e5a685ba5dd4cb1accbbf38c7e3cfe9b0248834a1d898b86fbac5ee3402d0be",
+      "locator": "đầu mối TU-02",
+      "capture_time_or_unknown": "unknown (phiên đo trước)",
+      "hardware_firmware_scope": "TU106 fuse status block",
+      "method": "đối chiếu ba giả thuyết với giá trị thô — không decode bằng khớp số",
+      "alternative_explanation": "0x38 có thể là bitmask GPC0/1/3 (bits 0,1,3)? — không: 0x38 = bits 3,4,5. Nếu mask thì GPC3,4,5 — không khớp GPC0,1,3. Điều này làm giả thuyết 'bitmask' yếu hơn 'giá trị đếm×hệ số' hoặc schema khác",
+      "limitation": "giá trị không khớp cả 3 giả thuyết một cách thuyết phục — cần schema từ nguồn nội bộ",
+      "next_discriminator": "dump STATUS_OPT_GPC từ TU106 36-SM đối chứng; đối chiếu với gpc_nr đọc được (nếu truy vết được origin)"
+    },
+    {
+      "claim_id": "T06-C07",
+      "target_question": "khả năng khôi phục — có cơ chế override đã chứng minh nào không?",
+      "claim": "SW override của floorsweep fuses qua _CP shadow + EN_SW_OVERRIDE đã hoạt động trên CMP 170HX/GA100 (gồm readback STATUS_OPT_GPC xác nhận latch cleared sau FLR), và bị PLM khóa L3 trên AD10x consumer.",
+      "status": "CORROBORATED",
+      "source_path_or_url": "https://github.com/lixiangwuxian/170hx_tips/blob/main/Gen3_unlock_en.md",
+      "source_hash_or_commit": "GitHub blob main, commit không chốt",
+      "locator": "cmp_fuse_gen3, EN_SW_OVERRIDE 0x00820040, readback STATUS_OPT_GPC 0x820c1c, ghi chú 'floorsweep masks are latched at GPU reset'",
+      "capture_time_or_unknown": "2026-11-05",
+      "hardware_firmware_scope": "GA100/CMP 170HX — driver cmp_fuse chỉ nhắm GA100; TU106 chưa có công cụ tương đương",
+      "method": "đọc hướng dẫn công khai có source kèm theo",
+      "alternative_explanation": "Turing có thể không có cặp _CP/EN_SW_OVERRIDE tương tự — cơ chế GA100 không chuyển giao tự do",
+      "limitation": "yêu cầu ghi MMIO + FLR — ngoài R0; không chứng minh die này override được ngay cả khi cơ chế tồn tại",
+      "next_discriminator": "phiên phi-R0: đọc FUSE_DEBUGCTRL_PLM/EN_SW_OVERRIDE tương đương trên TU106 trước khi thử bất kỳ ghi nào"
+    },
+    {
+      "claim_id": "T06-C08",
+      "target_question": "card này có bị khóa PLM như consumer AD10x không?",
+      "claim": "Fuse dump chứa 0xFFFFFF8F tại 5 offset liên tiếp 0xD8–0xF4, trùng mẫu PLM-mask (RESET_PLM/PLM_FECS) trong dmesg phiên trước — gợi card này cũng có tầng PLM; nhưng offset/semantics TU106 chưa map nên không khẳng định là FUSE_DEBUGCTRL_PLM.",
+      "status": "INFERRED",
+      "source_path_or_url": "input/ASTRA_CMP40HX_HANDOFF/04_PHASE15_EXTRACTS/FUSE/fuse2.json",
+      "source_hash_or_commit": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+      "locator": "offsets 0x000000D8–0x000000F4, giá trị 0xFFFFFF8F ×5",
+      "capture_time_or_unknown": "unknown (phiên đo trước)",
+      "hardware_firmware_scope": "TU106 fuse dump, so mẫu với AD10x FUSE_DEBUGCTRL_PLM=0xffffff8f (gpu-unlock-ada #109)",
+      "method": "pattern-match giá trị + đối chiếu dmesg PLM từ báo cáo cũ",
+      "alternative_explanation": "trùng giá trị có thể ngẫu nhiên (0xFFFFFF8F là mẫu phổ biến cho mask 4 bit)；offset 0xD8–0xF4 ≠ 0x00820054 (GA100/AD10x)",
+      "limitation": "không có bảng offset PLM cho TU106 — suy luận dừng ở 'gợi mạnh', không khẳng định",
+      "next_discriminator": "bảng PLM offsets TU106 khi có (header nội bộ hoặc GSP blob) để khớp offset chứ không chỉ giá trị"
+    },
+    {
+      "claim_id": "T06-C09",
+      "target_question": "2 SM thiếu — có phải binning SKU chuẩn không?",
+      "claim": "Cùng gia đình die TU106 chạy 30/34/36 SM (RTX 2060 / 2060 SUPER / 2070) — floorsweep theo binning là cơ chế hoạt động thực tế của họ này, làm cho kịch bản policy-only (S1) đáng tin hơn binning-defect (S4) nhưng không chứng minh die này thuộc S1.",
+      "status": "INFERRED",
+      "source_path_or_url": "input/ASTRA_CMP40HX_HANDOFF/00_READ_FIRST/SESSION_SUMMARY.md",
+      "source_hash_or_commit": "ce47def5ec487e89907ada9c359018a2b11449e23c25465b55d5f6c9f775ff69",
+      "locator": "cấu hình tham chiếu TU106 36 SM (RTX 2070) + số liệu 34 SM 2060S trong báo cáo cũ",
+      "capture_time_or_unknown": "unknown",
+      "hardware_firmware_scope": "gia đình TU106, rev A1",
+      "method": "suy luận từ dải SKU công khai trong cùng die family",
+      "alternative_explanation": "các SKU có thể dùng die mask vật lý khác nhau (full TU106 vs mask cut-down riêng) — không có die-shot/data sheet phân biệt; cũng có thể CMP 40HX được thêm tầng feature-gate GSP riêng (S3)",
+      "limitation": "dữ liệu SKU lấy từ tài liệu trong handoff + kiến thức công khai, không đo trên card này; không phân loại được die cụ thể",
+      "next_discriminator": "dump fuse từ 2060S/2070 thật đối chứng 0x0650/0x0C1C/0x0524 — nếu pattern khác theo SKU thì mask là per-SKU policy"
+    },
+    {
+      "claim_id": "T06-C10",
+      "target_question": "trên card này, đường ghi cấu hình nào đã bị chặn?",
+      "claim": "Mọi đường ghi đã thử trong phiên trước thất bại: 0/778 địa chỉ fuse aperture 0x21000 ghi được; tpc_nr read-only; FECS speed selector vô hiệu; quét 0x409600–0x409700 chỉ tìm 5 register ghi được nhưng không đổi topology.",
+      "status": "MEASURED",
+      "source_path_or_url": "input/ASTRA_CMP40HX_HANDOFF/06_PRIOR_REPORTS/BAO_CAO_DAY_DU.md",
+      "source_hash_or_commit": "454be9fb57a72065bd555d2287b90e0d17e8bfa838a0146443dc0e5ac7be5cda",
+      "locator": "Phần 2.3 bảng 'Đã thử và thất bại' + Phần 10.3 'Đã đóng'",
+      "capture_time_or_unknown": "unknown (phiên đo trước)",
+      "hardware_firmware_scope": "TU106-100-A1, BAR0 fuse aperture + PGRAPH registers",
+      "method": "thử ghi trực tiếp và đọc lại (phiên trước; T06 không lặp lại theo R0)",
+      "alternative_explanation": "các nỗ lực có thể dùng đường sai (RM context vs BAR0 thô); '0/778 ghi được' có thể là do quyền process chứ không phải fuse vật lý bất biến",
+      "limitation": "không chứng minh mọi đường ghi đều đóng — đường _CP/EN_SW_OVERRIDE chưa được thử trên card này (và không được thử trong T06 theo R0)",
+      "next_discriminator": "phiên phi-R0: thử chu trình _CP → EN_SW_OVERRIDE=1 → FLR → đọc lại STATUS_OPT theo đúng quy trình 170hx"
+    }
+  ],
+  "note_capture_time": "Không suy ra ngày đo từ mtime file; các timestamp 'unknown' là đo của phiên trước T06 không kèm timestamp nội tại.",
+  "no_meta_as_health": "Không dùng count/metadata (số file, số word dump) làm bằng chứng sức khỏe silicon."
+}

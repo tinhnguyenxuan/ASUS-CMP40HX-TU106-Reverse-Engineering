@@ -1,0 +1,339 @@
+{
+  "objective": "Reverse engineering toàn diện CMP40HX/TU106; Codex điều phối, Hermes thực hiện và tạo bằng chứng tái lập",
+  "goal_status": "active",
+  "source_archive": "../../cmp40hx_transfer/cmp40hx_research_v15_final.tar.gz",
+  "source_archive_sha256": "323c96e5bf7d5512ae3e55f6040afa81373c7ab44d1f059165c536fbd2c51a45",
+  "baseline_unknown_database": "../UNKNOWN_DATABASE.json",
+  "baseline_unknown_count": {
+    "total": 45,
+    "open": 35,
+    "resolved": 10
+  },
+  "baseline_warning": "Các báo cáo cũ và số unknown chưa phản ánh toàn bộ sai sót/phát hiện Phase16; phải kiểm toán từng kết luận.",
+  "execution": {
+    "worker": "Hermes via MCP hermes_ask, direct instructions without /goal",
+    "resume_target": "20261020_130845_d07427d2",
+    "resume_status": "CLI resume failed invalid_params; direct MCP tasks read supplied files/context; do not claim they run inside the original session",
+    "task_size": "Concrete bounded work with incremental artifacts; inspect artifacts before next task",
+    "observation_warning": "MCP timeout does not prove worker termination; inspect live handle/process and new artifacts before retrying.",
+    "current_task": "Audit completed payload ISA, GSP table-field consumers, and security architecture; all outputs isolated and evidence reviewed before integration.",
+    "current_jobs": [],
+    "completed_jobs": [
+      "coverage_gap_inventory_v1",
+      "engine_interfaces_review_v1",
+      "engine_interfaces_v1",
+      "falcon_payload_deep_v1",
+      "fuse_semantics_v1",
+      "fuse_tu106_audit_v1",
+      "fw_container_v1",
+      "fw_payload_isa_v1",
+      "fw_payload_riscv_v1",
+      "fw_source_v1",
+      "gsp_bindata_consumers_v1",
+      "gsp_header_consumer_followup_v1",
+      "gsp_header_consumer_v1",
+      "memory_pcie_v1",
+      "mmio_coverage_reconcile_v1",
+      "mmio_namespace_fix_v1",
+      "security_architecture_review_v1",
+      "security_architecture_v1",
+      "source_release_provenance_v1",
+      "vbios_full_token_audit_v1",
+      "vbios_perf_schema_v1",
+      "vbios_v60_structure_v1",
+      "vbios_version_consumer_v1",
+      "wpr_endpoint_semantics_v1",
+      "official_consumer_source_v1",
+      "gsp_callback_target_v1",
+      "falcon_radix_recheck_v1",
+      "gsp_dataflow_fix_v1",
+      "tu106_topology_source_v1",
+      "gsp_loop_field_proof_v1",
+      "falcon_cfg_rebuild_v1",
+      "gsp_context_writer_v1",
+      "topology_consumer_search_v1",
+      "gsp_path_feasibility_v1",
+      "falcon_decode_gap_v1"
+    ],
+    "prepared_next_job": "JOBS/engine_interfaces_v1/task.txt"
+  },
+  "queue": [
+    {
+      "id": "GSP-CALLBACK",
+      "status": "Known local argument paths reviewed; independent context+0x30 callback target/source assignment research running",
+      "requirements": [
+        "Independent ELF VA/file mapping",
+        "All callback predecessors and last definitions of a0/a1/a2",
+        "Raw bytes and branch/call targets",
+        "Callback identity or explicit unresolved evidence"
+      ]
+    },
+    {
+      "id": "FW-CONTAINER",
+      "status": "container verified; 8 medium-confidence Falcon candidates; bounded RISC-V negative scan; 30 payloads UNKNOWN",
+      "requirements": [
+        "Parse complete header and all payload spans",
+        "Validate candidate lengths, padding, overlaps, coverage",
+        "Identify ISA/load metadata from authoritative structure",
+        "Separate timestamp changes from two residual bytes",
+        "Disassemble accessible payloads with evidence"
+      ]
+    },
+    {
+      "id": "FUSE-OTP",
+      "status": "TU106 source audit completed: 2 Turing-family words decoded, U-FUSE-009 reopened, all other unresolved rows kept open",
+      "requirements": [
+        "Separate requested/dumped/nonpoison ranges",
+        "Map all available words to documented registers or unknown",
+        "Physical OTP versus shadow/strap/status evidence",
+        "Topology masks and PDI provenance",
+        "Opaque +0x718 block stays unknown until supported"
+      ]
+    },
+    {
+      "id": "VBIOS",
+      "status": "Full token inventory completed; four typed schemas; v60/other opaque tokens unresolved; structural gap inconsistency flagged",
+      "requirements": [
+        "Validate container/images and all BIT tokens",
+        "Audit all discovered table bounds and schemas",
+        "Decode fields with cross references",
+        "Reproduce original/T4 and shadow differences",
+        "Key/record/digest semantics remain explicit unknowns"
+      ]
+    },
+    {
+      "id": "MMIO-TOPOLOGY",
+      "status": "26 source flags reconciled; all49 unclassified pages accounted; byte sampling coverage0.390625%; topology/physical block presence unresolved",
+      "requirements": [
+        "Validate register addresses/bitfields against TU106 family sources",
+        "Account for 49 unclassified pages",
+        "Distinguish poison observations from physical block absence",
+        "Reconstruct GPC/TPC/SM/ROP/L2 mapping from evidence"
+      ]
+    },
+    {
+      "id": "MEMORY",
+      "status": "archived_memory_pcie_report_completed; GMMU_BAR3_mapping_unknown",
+      "requirements": [
+        "Verify WPR bitfield extraction and bounds",
+        "Explain physical/usable/reserved memory accounting",
+        "Decode available GMMU/BAR3 structures",
+        "Do not infer allocations solely from raw-register subtraction"
+      ]
+    },
+    {
+      "id": "PCIE",
+      "status": "archived_endpoint_root_dump_decoded; no_new_runtime_measurement",
+      "requirements": [
+        "Audit existing endpoint/root configuration dumps",
+        "Decode capability/runtime link and BAR mappings",
+        "Distinguish advertised size from accessible decoded span"
+      ]
+    },
+    {
+      "id": "SECURITY-ARCHITECTURE",
+      "status": "WPR arithmetic and signature evidence corrected; endpoint semantics, privilege verification and reserved-memory overlap remain open",
+      "requirements": [
+        "Map boot chain/firmware roles/privilege boundaries",
+        "Corroborate PLM/ACR/SEC2 interpretations with sources",
+        "No inference of encryption algorithm from entropy",
+        "No exploit/bypass work"
+      ]
+    },
+    {
+      "id": "GSP-FULL",
+      "status": "header_consumer_partial_6000_instruction_cap; followup_running",
+      "requirements": [
+        "Validated function inventory and reachable CFG/callgraph scope",
+        "Descriptor/name/policy consumers",
+        "RPC and engine/register access interfaces",
+        "Unknown indirect targets and undecoded regions explicitly tracked"
+      ]
+    },
+    {
+      "id": "ENGINE-INTERFACES",
+      "status": "Source survey corrected for fuse/display/BAR1 conflicts; archived topology claims not independently verified; firmware-slot/engine mappings remain open",
+      "requirements": [
+        "Identify accessible GR/FECS/GPCCS, FIFO/PBDMA, copy, PMU/SEC2/GSP, NVENC/NVDEC and display roles and interfaces",
+        "Separate architectural TU106 capabilities from measured CMP40HX enablement",
+        "Map relevant firmware/driver interfaces and unresolved data regions with provenance"
+      ]
+    },
+    {
+      "id": "INTEGRATION",
+      "status": "pending",
+      "requirements": [
+        "Evidence ledger with input hashes, VA/file offset, raw values and reproduction commands",
+        "Reconciled unknown database and per-domain coverage",
+        "Reports consistent with current machine evidence",
+        "Checkpoint and complete requirement-by-requirement audit"
+      ]
+    }
+  ],
+  "completion_rule": "Full objective remains unproven until every subsystem requirement is supported by authoritative evidence. Tests/PASS counts, file presence, or partial decoded samples never establish whole-GPU completion.",
+  "constraints": [
+    "Offline analysis of supplied files and public documentation",
+    "Preserve original binaries and archives",
+    "No new hardware probes or writes, ROM loading/flashing, OTP/MMIO/PCI configuration writes, driver reload/reboot, clock/voltage changes, exploit/bypass, or key brute force",
+    "Maintain MEASURED/DECODED/CORROBORATED/INFERRED/UNKNOWN distinctions"
+  ],
+  "last_goal_turn_classification": "progress",
+  "accepted_evidence_ledger": "EVIDENCE_LEDGER.md",
+  "progress_events": [
+    {
+      "finding": "496 raw records and 38 payload hashes verified; old blob10 extent contains 28 payloads; true first payload length 183808",
+      "evidence": "firmware_container_coordinator_review.json"
+    },
+    {
+      "finding": "Official matching header paths found locally, sources snapshotted and semantics follow-up dispatched",
+      "evidence": "SOURCES/manifest.json"
+    }
+  ],
+  "last_verified_wait": {
+    "observed_at": "2026-11-03T19:29:35.899270+00:00",
+    "method": "MCP exact worker PID/start_ticks checks; all four live, output0; GSP wrapper missing",
+    "live_jobs": [
+      {
+        "id": "gsp_header_consumer_followup_v1",
+        "hermes_pid": 1650946
+      },
+      {
+        "id": "gsp_callback_target_v1",
+        "hermes_pid": 1680266
+      },
+      {
+        "id": "falcon_radix_recheck_v1",
+        "hermes_pid": 1680893
+      },
+      {
+        "id": "vbios_version_consumer_v1",
+        "hermes_pid": 1682733
+      }
+    ],
+    "terminal": false
+  },
+  "prepared_next_job": "JOBS/engine_interfaces_v1/task.txt",
+  "latest_source_review": "SOURCE_RELEASE_PROVENANCE/COORDINATOR_REVIEW.md",
+  "latest_fuse_review": "fuse_source_coordinator_review.json",
+  "current_unknown_database": "UNKNOWN_DATABASE.json",
+  "current_unknown_count": {
+    "total": 45,
+    "open": 36,
+    "resolved": 9
+  },
+  "latest_vbios_review": "vbios_perf_overlap_review.json",
+  "prepared_vbios_followup": "JOBS/vbios_perf_schema_v1/task.txt",
+  "latest_mmio_review": "MMIO_COVERAGE_RECONCILE/COORDINATOR_REVIEW.md",
+  "latest_gsp_review": "GSP_BINDATA/COORDINATOR_REVIEW.md",
+  "prepared_memory_pcie_job": "JOBS/memory_pcie_v1/task.txt",
+  "new_outputs_to_review": [
+    "MMIO_NAMESPACE/mmio_namespace_verified.json",
+    "GSP_BINDATA/gsp_bindata_consumers.json",
+    "FW_PAYLOAD_RISCV/payload_riscv_verified.json",
+    "SECURITY_ARCH/",
+    "FW_PAYLOAD_RISCV/COORDINATOR_REVIEW.md",
+    "SECURITY_ARCH/COORDINATOR_REVIEW.md",
+    "FUSE_TU106_AUDIT/FUSE_TU106_AUDIT.md",
+    "/home/REDACTED_USER/codex-work/PHASE16/ENGINE_INTERFACES/report.md",
+    "ENGINE_INTERFACES_COORDINATOR_REVIEW.md"
+  ],
+  "latest_mmio_namespace_review": "mmio_namespace_coordinator_review.json",
+  "latest_perf_review": "vbios_perf_schema_coordinator_review.json",
+  "latest_dispatch": {
+    "job": "official_consumer_source_v1",
+    "live_verified_via_mcp": true
+  },
+  "latest_typed_vbios_review": "vbios_typed_coordinator_review.json",
+  "latest_gsp_header_review": "GSP_HEADER_CONSUMER/COORDINATOR_REVIEW.md",
+  "latest_payload_isa_review": "FW_PAYLOAD_RISCV/COORDINATOR_REVIEW.md",
+  "latest_memory_pcie_review": "MEMORY_PCIE/COORDINATOR_REVIEW.md",
+  "latest_security_review": "SECURITY_ARCH_REVIEW_COORDINATOR.md",
+  "latest_engine_review": "ENGINE_INTERFACES_REVIEW/COORDINATOR_REVIEW.md",
+  "latest_unknown_cleanup": {
+    "items": [
+      "U-MEM-001",
+      "U-TOP-001",
+      "U-SEC-001"
+    ],
+    "reason": "Remove stale raw-WPR arithmetic, unsupported display-fuse interpretation and incorrect HI label; preserve open statuses and original baseline."
+  },
+  "gsp_followup_intermediate": {
+    "evidence": "GSP_HEADER_CONSUMER_FOLLOWUP/run.log",
+    "status": "provisional; worker still live",
+    "decoded_instructions": 2205,
+    "blocks": 381,
+    "hit_cap": false,
+    "reported_fixpoint": true,
+    "overlap_events": 122,
+    "branch_jal_checks": 340,
+    "mismatches": 0,
+    "limitation": "Worker dataflow/final output pending; CFG overlaps and unresolved indirect edges require review before acceptance."
+  },
+  "wpr_endpoint_question": "Decoded LO/HI difference established; exact HI inclusion/exclusion and allocation overlap require source-consumer proof; dedicated Hermes job dispatched.",
+  "latest_gsp_dataflow_review": "GSP_FOLLOWUP_DATAFLOW_REVIEW.md",
+  "latest_wpr_endpoint_review": "WPR_ENDPOINT_SEMANTICS/COORDINATOR_REVIEW.md",
+  "prepared_gsp_dataflow_fix": "JOBS/gsp_dataflow_fix_v1/task.txt; dispatch only after original consumer-followup terminal",
+  "gsp_supervision_warning": {
+    "wrapper_pid": 1650945,
+    "wrapper_live": false,
+    "hermes_pid": 1650946,
+    "hermes_live": true,
+    "child_python_observed": false,
+    "action": "Track existing Hermes PID; no duplicate dispatch or restart; terminal unknown until worker exits."
+  },
+  "latest_falcon_review": "FALCON_PAYLOAD_DEEP/COORDINATOR_INTERMEDIATE.md",
+  "latest_wpr_machine_evidence": "WPR_ENDPOINT_SEMANTICS/findings_lossless.json; duplicate source line/excerpt fields preserved",
+  "confirmed_falcon_radix_bug": {
+    "caller": "FW_PAYLOAD_RISCV/payload_riscv_analyze.py:123",
+    "parser": "/tmp/envytools/envydis/envydis.c:94,97",
+    "effect": "Prior Falcon skip/limit strings interpreted hex; entry offsets/window metrics require recalculation; RISC-V Capstone unaffected."
+  },
+  "prepared_falcon_radix_recheck": "JOBS/falcon_radix_recheck_v1/task.txt; dispatch only after falcon_payload_deep_v1 terminal",
+  "gsp_dataflow_nonconvergence": {
+    "evidence": "GSP_HEADER_CONSUMER_FOLLOWUP/run.log",
+    "observed_pops": 650000,
+    "queue_length": 1,
+    "processed_blocks": 381,
+    "last_nochange_readd": "0x459cb28 changed=[]",
+    "status": "dataflow results unaccepted; worker still live"
+  },
+  "latest_coverage_review": "COVERAGE_GAP_INVENTORY/COORDINATOR_REVIEW.md",
+  "latest_vbios_full_review": "VBIOS_FULL_TOKEN_AUDIT/COORDINATOR_REVIEW.md",
+  "gsp_latest_revision": "within-block single pass observed; prior nonconvergence bypassed, semantic transfer defects and global register seed justification remain unresolved",
+  "latest_gsp_intermediate": "CFG emitted; dataflow0 known-positive access recovery failed; internal496record table differs in nonzero occupancy from external container; final worker not terminal",
+  "gsp_serializer_issue": "Unresolved jalr targetNone passed to va_to_file/seg_for; static TypeError path matches truncated disassembly at0x459c644; fix queued.",
+  "latest_vbios_v60_review": "VBIOS_V60_STRUCTURE/COORDINATOR_REVIEW.md",
+  "latest_source_copy_review": "source_saved_copy_review.json",
+  "source_snapshot_manifest_update": {
+    "files": [
+      "nvidia/src/kernel/core/bin_data_pvt.h",
+      "nvidia/inc/kernel/core/bin_data.h",
+      "common/inc/swref/published/turing/tu102/dev_fuse.h"
+    ],
+    "scope": "per-file provenance only; unmatched Maxwell source remains previous provenance"
+  },
+  "latest_gsp_positive_raw_evidence": "gsp_record_flags_raw_review.json; independent Capstone decode confirms0x459c70c uses internal s9+index*24,0x459c71c uses separate s7 base; no complete reachability claim",
+  "gsp_original_terminal_evidence": "MCP confirmed wrapper1650945 and worker1650946 not live; final output present; runner exit code unavailable due lost wrapper, stale running state not authoritative",
+  "latest_vbios_version_review": "VBIOS_VERSION_CONSUMER/COORDINATOR_REVIEW.md",
+  "latest_official_consumer_review": "PHASE16/OFFICIAL_CONSUMER_SOURCE/COORDINATOR_REVIEW.md: 11 saved hashes match; public API exclusive-end and BINDATA semantics accepted; GH100 margin <<20 does not convert TU106 raw WPR2_ADDR_HI to API end; missing TU106 consumer remains open.",
+  "latest_callback_review": "PHASE16/GSP_CALLBACK_TARGET/COORDINATOR_REVIEW.md: callback remains indirect; context+0x30 alias/callee writer open; followup dispatched.",
+  "latest_falcon_radix_review": "PHASE16/FALCON_RADIX_RECHECK/COORDINATOR_REVIEW.md: radix bug confirmed, prior deep CFG fallthrough unsound; rebuild dispatched.",
+  "latest_topology_dispatch": "tu106_topology_source_v1 live: seek source-grounded GPC/TPC/SM/ROP decode from saved raw evidence; no topology mask inferred from 0x650/0xc1c.",
+  "latest_gsp_dataflow_fix_review": "PHASE16/GSP_DATAFLOW_FIX/COORDINATOR_REVIEW.md: local flags+16 access accepted; cfg_complete overclaim rejected; loop field proof dispatched.",
+  "latest_topology_review": "workspace-root PHASE16/TU106_TOPOLOGY_SOURCE/COORDINATOR_REVIEW.md: raw fuse values confirmed; archived 3/17/34 topology claims lack independently saved register decode; ROP unknown.",
+  "latest_topology_followup": "topology_consumer_search_v1 dispatched and observed live to search exact public source consumers/bitfields for archived TU106 topology readings.",
+  "latest_gsp_loop_review": "PHASE16/GSP_LOOP_FIELD_PROOF/COORDINATOR_REVIEW.md: split CFG and local flags access accepted; universal dominance rejected; path feasibility followup live.",
+  "latest_falcon_cfg_review": "PHASE16/FALCON_CFG_REBUILD/COORDINATOR_REVIEW.md: byte grounding accepted, decode-gap continuation omitted from unresolved edges; new gap job live.",
+  "final_handoff_20261104": {
+    "path": "PHASE16/HERMES_FINAL_HANDOFF_20261104.md",
+    "sha256": "874cadc60ba369e973e384587225e799e1632094917d0b52e5e39de8c444a8bd",
+    "delivered_to_hermes_mcp": true,
+    "scope": "full objective remains active; report is evidence handoff, not completion",
+    "latest_jobs_terminal_exit0": [
+      "gsp_context_writer_v1",
+      "topology_consumer_search_v1",
+      "gsp_path_feasibility_v1",
+      "falcon_decode_gap_v1"
+    ]
+  }
+}

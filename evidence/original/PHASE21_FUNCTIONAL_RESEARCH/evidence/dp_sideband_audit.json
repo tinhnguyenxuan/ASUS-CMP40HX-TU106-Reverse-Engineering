@@ -1,0 +1,115 @@
+{
+  "schema": "phase21-dp-sideband-v1",
+  "cad_source": {
+    "path": "CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF/01_BOARDVIEW/CG161P_R2_boardview.cad",
+    "sha256": "7338ccead9423c8ddd61f5c1e4f0147d95b3c6da5af3e9bae0a20fbcfab6264d"
+  },
+  "cad_derived_sha256": "9d7442fcafc93e5cb8a88a51ec940a9020f10db17775f6fc751685972111caa7",
+  "source_rom": {
+    "path": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin",
+    "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec"
+  },
+  "checked_net_memberships": [
+    {
+      "component": "Q7",
+      "pin": "4",
+      "net": "IFPD_AUX",
+      "signal_line": 37701,
+      "gpu_pin_same_net": "BE11"
+    },
+    {
+      "component": "Q7",
+      "pin": "1",
+      "net": "IFPD_AUX*",
+      "signal_line": 37708,
+      "gpu_pin_same_net": "BF11"
+    },
+    {
+      "component": "Q7",
+      "pin": "3",
+      "net": "IFPD_AUX_R",
+      "signal_line": 34007,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "Q7",
+      "pin": "6",
+      "net": "IFPD_AUX_R*",
+      "signal_line": 33989,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "Q509",
+      "pin": "1",
+      "net": "IFPD_AUX_R",
+      "signal_line": 34007,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "Q509",
+      "pin": "4",
+      "net": "IFPD_AUX_C",
+      "signal_line": 34014,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "Q521",
+      "pin": "3",
+      "net": "GPIO17_IFPD_HPD",
+      "signal_line": 37867,
+      "gpu_pin_same_net": "BH1"
+    },
+    {
+      "component": "Q521",
+      "pin": "1",
+      "net": "DP_D_HPD_R_Q",
+      "signal_line": 38901,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "R742",
+      "pin": "1",
+      "net": "DP_D_HPD_R_Q",
+      "signal_line": 38901,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "R742",
+      "pin": "2",
+      "net": "DP_D_HPD_R",
+      "signal_line": 34157,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "R720",
+      "pin": "1",
+      "net": "DP_D_HPD_R",
+      "signal_line": 34157,
+      "gpu_pin_same_net": null
+    },
+    {
+      "component": "R720",
+      "pin": "2",
+      "net": "DP_D_HPD_C",
+      "signal_line": 34150,
+      "gpu_pin_same_net": null
+    }
+  ],
+  "gpio17_candidate": [
+    {
+      "record_index": 17,
+      "file_offset": "0x2d216",
+      "raw": "11ff0044ef00",
+      "line": 17,
+      "tag": "0xff",
+      "tag_unused": true
+    }
+  ],
+  "limits": [
+    "No internal connection inferred through Q7/Q509/Q521; only pin/net membership",
+    "GPIO17 net name versus ROM line17 is a candidate correlation; physical hardware numbering not independently authenticated",
+    "Unused ROM tag is a configuration-description fact, not proof that hardware pin is disabled/absent",
+    "Reference CAD correspondence to tested CMP unit still unverified",
+    "No HPD override, short, strap change or live test performed"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "dir": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/VBIOS_VERSION_CONSUMER",
+  "files": {
+    "VBIOS_VERSION_CONSUMER.json": {
+      "size": 28333,
+      "sha256": "8602e2ec6d5675dd22d8ab3c86d9152f1cbc6cc13898ed536de1831278c4ca73"
+    },
+    "VBIOS_VERSION_CONSUMER_REPORT.md": {
+      "size": 7834,
+      "sha256": "bda807312b6e28221528cd31bb1ab232b52b44854720a3e2c08248dd129d4234"
+    },
+    "output_hashes.json": {
+      "size": 666,
+      "sha256": "5f7efcce2c8b0d53fa01068b231aa8920f57400a7b89b04492052b5d185ba05c"
+    },
+    "run.log": {
+      "size": 4715,
+      "sha256": "04c12bc52e2b4d7cd7a856d500b718d06d5ae9cdf7f43fa58c3addf926c59c5d"
+    },
+    "vbios_version_consumer.py": {
+      "size": 18715,
+      "sha256": "a8805160d25aa64753c0a068bb73f47b0db512d0942da8a7e3603601c50a85b5"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+ "generated_by": "TOOLS/build_db.py",
+ "note": "KHONG quy doi cac loai coverage khac nhau thanh mot ty le chung",
+ "FUSE": {
+  "words_dumped": 3072,
+  "words_with_data": 352,
+  "words_classified_content": 352,
+  "content_coverage_pct": 100.0,
+  "words_with_register_name": 5,
+  "name_coverage_pct": 0.16,
+  "bitfields_defined": 4,
+  "bitfield_coverage_pct": 1.14,
+  "otp_cells_identified": 152,
+  "otp_cells_meaning_known": 0
+ },
+ "MMIO": {
+  "registers_in_source_turing": 938,
+  "registers_in_turing_only": 52,
+  "registers_probed": 52,
+  "registers_readable": 33,
+  "registers_zero": 13,
+  "registers_poison": 6,
+  "function_coverage_pct": "chua danh gia"
+ },
+ "VBIOS": {
+  "rom_bytes": 1048576,
+  "images_identified": 9,
+  "tables_parsed": 42,
+  "vfe_slots": 150,
+  "vfe_vars": 20,
+  "bytes_explained": "~40% (vung bang); NVGIf#2 = ban sao, da giai",
+  "unknown_fields": 3
+ },
+ "GSP": {
+  "file_bytes": 22901632,
+  "sections": 37,
+  "descriptor_tables": 60,
+  "descriptors_found": 340,
+  "descriptors_with_name": 340,
+  "descriptors_with_known_consumer": 0,
+  "f08_values": 16,
+  "f08_decoded": 0,
+  "f18_values": 13,
+  "f18_decoded": 0,
+  "strings_power_clock": 233,
+  "note": "ban cu bao 139 entry la SAI (nhieu entry la duoi chuoi)"
+ },
+ "FIRMWARE": {
+  "file_bytes": 8837632,
+  "blobs": 11,
+  "plaintext": 6,
+  "plaintext_unique": 5,
+  "high_entropy": 4,
+  "mixed": 1,
+  "data_blob": 1,
+  "entries_classified": 11,
+  "blobs_disassembled": 0,
+  "note": "blob[6] === blob[8] (24 byte khac); 4 blob khong nen duoc"
+ },
+ "UNKNOWN": {
+  "total": 38,
+  "open": 32,
+  "resolved": 6
+ }
+}

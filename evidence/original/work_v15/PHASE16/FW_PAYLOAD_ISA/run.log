@@ -1,0 +1,12 @@
+INVENTORY 38 payloads
+LOWEST_ENTROPY [(493, '0x85E500', 2.4236), (487, '0x81BF00', 2.7862), (20, '0x002F00', 3.4807), (490, '0x840000', 3.798), (481, '0x7D2800', 4.1983)]
+HYPOTHESES accepted=0 rejected=97
+DISASM slot 493 start 0x10 prefix=11 valid=63/170 ratio=0.371
+DISASM slot 487 start 0x10 prefix=11 valid=68/175 ratio=0.389
+DISASM slot 20 start 0x24 prefix=17 valid=35/258 ratio=0.136
+DISASM slot 490 start 0x10 prefix=11 valid=63/170 ratio=0.371
+ENGINE slot 493 Falcon (envydis -m falcon; code starts at payload +0x10) conf=medium
+ENGINE slot 487 Falcon (envydis -m falcon; code starts at payload +0x10) conf=medium
+ENGINE slot 20 Falcon (envydis -m falcon; code starts at payload +0x24) conf=medium
+ENGINE slot 490 Falcon (envydis -m falcon; code starts at payload +0x10) conf=medium
+WROTE /home/REDACTED_USER/codex-work/work_v15/PHASE16/FW_PAYLOAD_ISA/payload_isa_verified.json

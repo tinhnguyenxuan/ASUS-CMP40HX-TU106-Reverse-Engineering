@@ -1,0 +1,17 @@
+Hoàn tất. Kết quả thực (không sửa CHECKPOINT.json/COORDINATION.json, không ghi wholeGPU DONE, không suy AES/ISA từ entropy):
+
+**Script chạy:** `PHASE16/firmware_container_source_verify.py` — `/usr/bin/python3`, exit_code 0, log tại `PHASE16/firmware_container_source_verify_run.log`:
+```
+HEADER magic=NVUCODES version=1 numEntries=496 fingerprint=0x8D1990AB6B98AE2B
+TABLE_END 11928 (0x2E98) FIRST_PAYLOAD 12032 PAD 104
+CLASSES {'zero': 458, 'external': 38}
+FLAGS {'0x0': 458, '0x4': 38}
+PAYLOADS 38 FIRST 0x2f00
+CROSS_IDENTICAL True (38/38 payload slot+offset+length+sha256 khớp artifact cũ)
+GSP fingerprint_hits 1 (literal_match)
+```
+
+**Files đã tạo/sửa:**
+- `PHASE16/firmware_container_source_verified.json` — parse header + all 496 records theo `<IIQII` (actualSize/compressedSize/pData/flags/relOffset), rawhex mỗi record, filehash payload, source_header_sha256 + source lines (55-59, 60-67, 84-114, 98-103, 105-110), validate magic/version/tablebounds/count, first_payload derive từ min valid external relOffset (0x2F00, không hardcode), compressed records không xử lý (unsupported nếu flags khác {0,4}), GSP pairing: fingerprint64 LE `2bae986bab90198d` có 1 literal hit tại gsp file offset 140152 (section `.section_task_rm_elf_rodata_instance` #24, section VA 67248952, global VA 1073881912), magic `NVUCODES` nằm ngay trước fingerprint trong raw context, adjacent numEntries↔fingerprint = 0 (không khẳng định layout cặp, không đặt tên engine).
+- `PHASE16/FIRMWARE_SOURCE_VERIFIED.md` — lệnh tái lập, hash input + header nguồn, field meaning từ nguồn so với unknown, engine/ISA/name mapping chưa giải, GSP pairing kết quả.
+- `PHASE16/FIRMWARE_CONTAINER_VERIFIED.md` — sửa: record struct `<IIQII` (thay `<QQII`), fingerprint semantics = hash filenames index-order (không UNKNOWN), flags=4 = BINDATA_FLAG_EXTERNAL (không "present"), first_payload derived, blob10 count `≈21` → `28` (tool-tính trong extent [1262336, 10237632), trùng `number_of_distinct_payloads_in_old_extent` trong review). Cuốn giữ "Whole-GPU reverse engineering: NOT DONE".

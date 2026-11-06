@@ -1,0 +1,96 @@
+{
+  "firmware": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+  "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "selected_sites": {
+    "0x460b600": {
+      "mnemonic": "sw",
+      "op_str": "a3, 0x334(s1)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "s1"
+      ],
+      "width": "decoded"
+    },
+    "0x4616fa4": {
+      "mnemonic": "lw",
+      "op_str": "a4, 0x334(s2)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "s2"
+      ],
+      "width": "decoded"
+    },
+    "0x485ed5c": {
+      "mnemonic": "lbu",
+      "op_str": "a4, 0x334(a1)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "a1"
+      ],
+      "width": "decoded"
+    },
+    "0x487c338": {
+      "mnemonic": "lbu",
+      "op_str": "a5, 0x334(s9)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "s9"
+      ],
+      "width": "decoded"
+    },
+    "0x4894e70": {
+      "mnemonic": "lw",
+      "op_str": "a4, 0x334(a5)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "a5"
+      ],
+      "width": "decoded"
+    },
+    "0x4894e78": {
+      "mnemonic": "sw",
+      "op_str": "a4, 0x334(a5)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "a5"
+      ],
+      "width": "decoded"
+    },
+    "0x4b20f80": {
+      "mnemonic": "lw",
+      "op_str": "a5, 0x334(a1)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "a1"
+      ],
+      "width": "decoded"
+    },
+    "0x4b30138": {
+      "mnemonic": "sw",
+      "op_str": "a5, 0x334(s3)",
+      "memory_displacements": [
+        "0x334"
+      ],
+      "base_registers": [
+        "s3"
+      ],
+      "width": "decoded"
+    }
+  },
+  "missing": [],
+  "semantic_scope": "Instruction-level accesses only; same numeric offset does not prove same object/class alias."
+}

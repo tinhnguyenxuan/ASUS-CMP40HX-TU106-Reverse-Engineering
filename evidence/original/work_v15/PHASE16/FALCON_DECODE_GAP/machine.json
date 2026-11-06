@@ -1,0 +1,5073 @@
+{
+  "script": "falcon_decode_gap.py",
+  "rerun": "cd /home/REDACTED_USER/codex-work/work_v15 && /usr/bin/python3 PHASE16/FALCON_DECODE_GAP/falcon_decode_gap.py",
+  "input_file": "/home/REDACTED_USER/codex-work/work_v15/outputs/ucodes_tu10x.bin",
+  "input_size": 8837632,
+  "input_sha256": "6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0",
+  "inventory_source": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/firmware_container_verified.json",
+  "inventory_sha256": "55322f5a08755aa9d359bb419f87d6ae116aea5173e08818cd878918c68b00f5",
+  "envydis": {
+    "path": "/tmp/envytools/build/envydis/envydis",
+    "sha256": "5aa83772ac1ea3e3eb5b63ffef1b3890e6cd41086cbffa9c2cfff542b6de103a",
+    "flags": "-i -n -m falcon [-V <variant>] -b 0 -d 0 -l <size(hex)> <file> (numeric args hex)"
+  },
+  "variants_tested": [
+    "default",
+    "fuc0",
+    "fuc3",
+    "fuc4",
+    "fuc5",
+    "fuc6"
+  ],
+  "source_hashes": {
+    "envydis_falcon.c": "a4424c17145e72f31e1a9ed55296c3ee49058f3860374b2c34dd49f92cf99bd9",
+    "envydis_envydis.c": "e140e9d896141c96cbf6d91e4a2601e786af4b8c8b4c5621f131f97e36ca2a8c",
+    "envydis_dis_intern.h": "c6fd8379be947108548cd864a13cb52230bc4053b6948a1c2b5a330394447b75",
+    "firmware_container_verified.json": "55322f5a08755aa9d359bb419f87d6ae116aea5173e08818cd878918c68b00f5"
+  },
+  "slots": [
+    20,
+    150,
+    156,
+    481,
+    484,
+    487,
+    490,
+    493
+  ],
+  "expected_facts": {
+    "20": {
+      "entry": 42,
+      "prefix_end": 104,
+      "gap_hex": "3e74fe00"
+    },
+    "150": {
+      "entry": 22,
+      "prefix_end": 52,
+      "gap_hex": "89000000"
+    },
+    "156": {
+      "entry": 22,
+      "prefix_end": 52,
+      "gap_hex": "89000000"
+    },
+    "481": {
+      "entry": 22,
+      "prefix_end": 55,
+      "gap_hex": "89000000"
+    },
+    "484": {
+      "entry": 22,
+      "prefix_end": 55,
+      "gap_hex": "89000000"
+    },
+    "487": {
+      "entry": 22,
+      "prefix_end": 55,
+      "gap_hex": "89000000"
+    },
+    "490": {
+      "entry": 22,
+      "prefix_end": 55,
+      "gap_hex": "89000000"
+    },
+    "493": {
+      "entry": 22,
+      "prefix_end": 55,
+      "gap_hex": "89000000"
+    }
+  },
+  "results": [
+    {
+      "slot": 20,
+      "offset": 12032,
+      "offset_hex": "0x00002F00",
+      "size": 122880,
+      "sha256": "97d20357ee74678b886da6247746d84be2185c07891d1f79a038b78d5f0558e4",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "97d20357ee74678b886da6247746d84be2185c07891d1f79a038b78d5f0558e4",
+      "head16": "d0c0ff0000fe0400bda47e10fe00f802",
+      "head_fields_u32_le": {
+        "u32_0": "00FFC0D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F800FE"
+      },
+      "candidate_entry": 42,
+      "candidate_entry_hex": "0x002A",
+      "entry_from_bytes": 42,
+      "entry_from_bytes_hex": "0x00002A",
+      "entry_matches_expected": true,
+      "prefix_end": 104,
+      "prefix_end_hex": "0x000068",
+      "prefix_end_matches_expected": true,
+      "gap_start": 104,
+      "gap_start_hex": "0x000068",
+      "gap_end": 108,
+      "gap_end_hex": "0x00006C",
+      "gap_length": 4,
+      "gap_bytes_hex": "3e74fe00",
+      "gap_expected_hex": "3e74fe00",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 12136,
+      "gap_abs_container_offset_hex": "0x00002F68",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "3e74fe00",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "3e",
+            "text": "??? b8 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "3e",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "74fe00",
+              "text": "??? b16 $r15 0x0 [unknown: 00 0e 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "faf904",
+              "text": "xcld $r15 $r9",
+              "valid": true,
+              "mnemonic": "xcld"
+            },
+            {
+              "offset": 7,
+              "raw": "b8",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 8,
+              "raw": "990001",
+              "text": "??? b32 $r0 $r0 [unknown: 09 00 01] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 11,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "bc91f0",
+              "text": "add b32 $r15 $r9 $r1",
+              "valid": true,
+              "mnemonic": "add"
+            },
+            {
+              "offset": 15,
+              "raw": "a6",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 16,
+              "raw": "9cf408",
+              "text": "shlc b32 $r4 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shlc"
+            },
+            {
+              "offset": 19,
+              "raw": "f3",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 20,
+              "raw": "f807",
+              "text": "xcwait",
+              "valid": true,
+              "mnemonic": "xcwait"
+            },
+            {
+              "offset": 22,
+              "raw": "94e918",
+              "text": "shl b32 $r9 $r14 0x18",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 25,
+              "raw": "95df08",
+              "text": "shr b32 $r15 $r13 0x8",
+              "valid": true,
+              "mnemonic": "shr"
+            },
+            {
+              "offset": 28,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "3e",
+            "text": "??? b8 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "3e",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "74fe00",
+              "text": "??? b16 $r15 0x0 [unknown: 00 0e 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "faf904",
+              "text": "xcld $r15 $r9",
+              "valid": true,
+              "mnemonic": "xcld"
+            },
+            {
+              "offset": 7,
+              "raw": "b89900",
+              "text": "st b32 D[$r9] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 10,
+              "raw": "0100bc",
+              "text": "??? b8 $r0 $r0 0xbc [unknown: 01 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 13,
+              "raw": "91f0a6",
+              "text": "adc b32 $r0 $r15 0xa6",
+              "valid": true,
+              "mnemonic": "adc"
+            },
+            {
+              "offset": 16,
+              "raw": "9cf408",
+              "text": "shlc b32 $r4 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shlc"
+            },
+            {
+              "offset": 19,
+              "raw": "f3",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 20,
+              "raw": "f807",
+              "text": "xcwait",
+              "valid": true,
+              "mnemonic": "xcwait"
+            },
+            {
+              "offset": 22,
+              "raw": "94e918",
+              "text": "shl b32 $r9 $r14 0x18",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 25,
+              "raw": "95df08",
+              "text": "shr b32 $r15 $r13 0x8",
+              "valid": true,
+              "mnemonic": "shr"
+            },
+            {
+              "offset": 28,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "3e",
+            "text": "??? b8 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "3e",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "74fe00",
+              "text": "??? b16 $r15 0x0 [unknown: 00 0e 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "faf904",
+              "text": "xcld $r15 $r9",
+              "valid": true,
+              "mnemonic": "xcld"
+            },
+            {
+              "offset": 7,
+              "raw": "b89900",
+              "text": "st b32 D[$r9] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 10,
+              "raw": "0100bc",
+              "text": "??? b8 $r0 $r0 0xbc [unknown: 01 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 13,
+              "raw": "91f0a6",
+              "text": "adc b32 $r0 $r15 0xa6",
+              "valid": true,
+              "mnemonic": "adc"
+            },
+            {
+              "offset": 16,
+              "raw": "9cf408",
+              "text": "shlc b32 $r4 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shlc"
+            },
+            {
+              "offset": 19,
+              "raw": "f3",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 20,
+              "raw": "f807",
+              "text": "xcwait",
+              "valid": true,
+              "mnemonic": "xcwait"
+            },
+            {
+              "offset": 22,
+              "raw": "94e918",
+              "text": "shl b32 $r9 $r14 0x18",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 25,
+              "raw": "95df08",
+              "text": "shr b32 $r15 $r13 0x8",
+              "valid": true,
+              "mnemonic": "shr"
+            },
+            {
+              "offset": 28,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "3e74fe00",
+            "text": "lbra 0xfe74",
+            "valid": true,
+            "mnemonic": "lbra"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "3e74fe00",
+              "text": "lbra 0xfe74",
+              "valid": true,
+              "mnemonic": "lbra"
+            },
+            {
+              "offset": 4,
+              "raw": "faf904",
+              "text": "xcld $r15 $r9",
+              "valid": true,
+              "mnemonic": "xcld"
+            },
+            {
+              "offset": 7,
+              "raw": "b89900",
+              "text": "st b32 D[$r9] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 10,
+              "raw": "0100bc",
+              "text": "??? b8 $r0 $r0 0xbc [unknown: 01 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 13,
+              "raw": "91f0a6",
+              "text": "adc b32 $r0 $r15 0xa6",
+              "valid": true,
+              "mnemonic": "adc"
+            },
+            {
+              "offset": 16,
+              "raw": "9cf408",
+              "text": "shlc b32 $r4 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shlc"
+            },
+            {
+              "offset": 19,
+              "raw": "f3",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 20,
+              "raw": "f807",
+              "text": "xcwait",
+              "valid": true,
+              "mnemonic": "xcwait"
+            },
+            {
+              "offset": 22,
+              "raw": "94e918",
+              "text": "shl b32 $r9 $r14 0x18",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 25,
+              "raw": "95df08",
+              "text": "shr b32 $r15 $r13 0x8",
+              "valid": true,
+              "mnemonic": "shr"
+            },
+            {
+              "offset": 28,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "3e74fe00",
+            "text": "lbra 0xfe74",
+            "valid": true,
+            "mnemonic": "lbra"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "3e74fe00",
+              "text": "lbra 0xfe74",
+              "valid": true,
+              "mnemonic": "lbra"
+            },
+            {
+              "offset": 4,
+              "raw": "faf904",
+              "text": "B xcld $r15 $r9",
+              "valid": true,
+              "mnemonic": "b"
+            },
+            {
+              "offset": 7,
+              "raw": "b899000100",
+              "text": "add b32 $r9 $r9 0x100",
+              "valid": true,
+              "mnemonic": "add"
+            },
+            {
+              "offset": 12,
+              "raw": "bc91f0",
+              "text": "add b32 $r15 $r9 $r1",
+              "valid": true,
+              "mnemonic": "add"
+            },
+            {
+              "offset": 15,
+              "raw": "a69c",
+              "text": "cmp b32 $r9 $r12",
+              "valid": true,
+              "mnemonic": "cmp"
+            },
+            {
+              "offset": 17,
+              "raw": "f408f3",
+              "text": "bra b 0x4",
+              "valid": true,
+              "mnemonic": "bra"
+            },
+            {
+              "offset": 20,
+              "raw": "f807",
+              "text": "xcwait",
+              "valid": true,
+              "mnemonic": "xcwait"
+            },
+            {
+              "offset": 22,
+              "raw": "94e918",
+              "text": "shl b32 $r9 $r14 0x18",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 25,
+              "raw": "95df08",
+              "text": "shr b32 $r15 $r13 0x8",
+              "valid": true,
+              "mnemonic": "shr"
+            },
+            {
+              "offset": 28,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "3e74fe00",
+            "text": "lbra 0xfe74",
+            "valid": true,
+            "mnemonic": "lbra"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "3e74fe00",
+              "text": "lbra 0xfe74",
+              "valid": true,
+              "mnemonic": "lbra"
+            },
+            {
+              "offset": 4,
+              "raw": "faf904",
+              "text": "B xcld $r15 $r9",
+              "valid": true,
+              "mnemonic": "b"
+            },
+            {
+              "offset": 7,
+              "raw": "b899000100",
+              "text": "add b32 $r9 $r9 0x100",
+              "valid": true,
+              "mnemonic": "add"
+            },
+            {
+              "offset": 12,
+              "raw": "bc91f0",
+              "text": "add b32 $r15 $r9 $r1",
+              "valid": true,
+              "mnemonic": "add"
+            },
+            {
+              "offset": 15,
+              "raw": "a69c",
+              "text": "cmp b32 $r9 $r12",
+              "valid": true,
+              "mnemonic": "cmp"
+            },
+            {
+              "offset": 17,
+              "raw": "f408f3",
+              "text": "bra b 0x4",
+              "valid": true,
+              "mnemonic": "bra"
+            },
+            {
+              "offset": 20,
+              "raw": "f807",
+              "text": "xcwait",
+              "valid": true,
+              "mnemonic": "xcwait"
+            },
+            {
+              "offset": 22,
+              "raw": "94e918",
+              "text": "shl b32 $r9 $r14 0x18",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 25,
+              "raw": "95df08",
+              "text": "shr b32 $r15 $r13 0x8",
+              "valid": true,
+              "mnemonic": "shr"
+            },
+            {
+              "offset": 28,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    },
+    {
+      "slot": 150,
+      "offset": 1446144,
+      "offset_hex": "0x00161100",
+      "size": 571136,
+      "sha256": "df6bfe19bf7b934df1fb02468f1ba6762928cd33b75e2831b827ba1b00ec4854",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "df6bfe19bf7b934df1fb02468f1ba6762928cd33b75e2831b827ba1b00ec4854",
+      "head16": "d0005e0000fe0400bda47e105e00f802",
+      "head_fields_u32_le": {
+        "u32_0": "005E00D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F8005E"
+      },
+      "candidate_entry": 22,
+      "candidate_entry_hex": "0x0016",
+      "entry_from_bytes": 22,
+      "entry_from_bytes_hex": "0x000016",
+      "entry_matches_expected": true,
+      "prefix_end": 52,
+      "prefix_end_hex": "0x000034",
+      "prefix_end_matches_expected": true,
+      "gap_start": 52,
+      "gap_start_hex": "0x000034",
+      "gap_end": 56,
+      "gap_end_hex": "0x000038",
+      "gap_length": 4,
+      "gap_bytes_hex": "89000000",
+      "gap_expected_hex": "89000000",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 1446196,
+      "gap_abs_container_offset_hex": "0x00161134",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "89000000",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89",
+            "text": "??? b32 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 2,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "ff9fb5",
+              "text": "or $r11 $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49",
+              "text": "??? b16 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 23,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 24,
+              "raw": "5efe99",
+              "text": "??? b16 $r14 $r15 [unknown: 0e 00 99] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "03",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05ff9f",
+              "text": "??? b8 $r15 $r15 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "b5",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "??? b16 $r0 $r0 0x5e [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "??? $r9 $r9 [unknown: 00 00 03] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05ff9f",
+              "text": "??? b8 $r15 $r15 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "b5",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "??? b16 $r0 $r0 0x5e [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05ff9f",
+              "text": "??? b8 $r15 $r15 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "b5",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "??? b16 $r0 $r0 0x5e [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "ff9fb5",
+              "text": "or $r11 $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "mov $r9 0x5e00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "ff9fb5",
+              "text": "or $r11 $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "mov $r9 0x5e00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    },
+    {
+      "slot": 156,
+      "offset": 4301824,
+      "offset_hex": "0x0041A400",
+      "size": 539136,
+      "sha256": "5d5ef69692ce3065a99d3ce375f5930a8b5e6075832b5d0cf92a9ae5e0e37f91",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "5d5ef69692ce3065a99d3ce375f5930a8b5e6075832b5d0cf92a9ae5e0e37f91",
+      "head16": "d0005e0000fe0400bda47e105e00f802",
+      "head_fields_u32_le": {
+        "u32_0": "005E00D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F8005E"
+      },
+      "candidate_entry": 22,
+      "candidate_entry_hex": "0x0016",
+      "entry_from_bytes": 22,
+      "entry_from_bytes_hex": "0x000016",
+      "entry_matches_expected": true,
+      "prefix_end": 52,
+      "prefix_end_hex": "0x000034",
+      "prefix_end_matches_expected": true,
+      "gap_start": 52,
+      "gap_start_hex": "0x000034",
+      "gap_end": 56,
+      "gap_end_hex": "0x000038",
+      "gap_length": 4,
+      "gap_bytes_hex": "89000000",
+      "gap_expected_hex": "89000000",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 4301876,
+      "gap_abs_container_offset_hex": "0x0041A434",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "89000000",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89",
+            "text": "??? b32 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 2,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "ff9fb5",
+              "text": "or $r11 $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49",
+              "text": "??? b16 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 23,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 24,
+              "raw": "5efe99",
+              "text": "??? b16 $r14 $r15 [unknown: 0e 00 99] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "03",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05ff9f",
+              "text": "??? b8 $r15 $r15 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "b5",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "??? b16 $r0 $r0 0x5e [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "??? $r9 $r9 [unknown: 00 00 03] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05ff9f",
+              "text": "??? b8 $r15 $r15 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "b5",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "??? b16 $r0 $r0 0x5e [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05ff9f",
+              "text": "??? b8 $r15 $r15 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "b5",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "??? b16 $r0 $r0 0x5e [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "ff9fb5",
+              "text": "or $r11 $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "mov $r9 0x5e00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "ff9fb5",
+              "text": "or $r11 $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "febb00",
+              "text": "mov $xtargets $r11",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "49005e",
+              "text": "mov $r9 0x5e00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 25,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 28,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    },
+    {
+      "slot": 481,
+      "offset": 8202240,
+      "offset_hex": "0x007D2800",
+      "size": 143360,
+      "sha256": "94dfd9eda140ba5fe9ff71442554a9452c105f585ca42a48a096c01d5361ea42",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "94dfd9eda140ba5fe9ff71442554a9452c105f585ca42a48a096c01d5361ea42",
+      "head16": "d000f00000fe0400bda47e10fb00f802",
+      "head_fields_u32_le": {
+        "u32_0": "00F000D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F800FB"
+      },
+      "candidate_entry": 22,
+      "candidate_entry_hex": "0x0016",
+      "entry_from_bytes": 22,
+      "entry_from_bytes_hex": "0x000016",
+      "entry_matches_expected": true,
+      "prefix_end": 55,
+      "prefix_end_hex": "0x000037",
+      "prefix_end_matches_expected": true,
+      "gap_start": 55,
+      "gap_start_hex": "0x000037",
+      "gap_end": 59,
+      "gap_end_hex": "0x00003B",
+      "gap_length": 4,
+      "gap_bytes_hex": "89000000",
+      "gap_expected_hex": "89000000",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 8202295,
+      "gap_abs_container_offset_hex": "0x007D2837",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "89000000",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89",
+            "text": "??? b32 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 2,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 23,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "??? $r9 $r9 [unknown: 00 00 03] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fb00",
+              "text": "mov $r9 0xfb00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fb00",
+              "text": "mov $r9 0xfb00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    },
+    {
+      "slot": 484,
+      "offset": 8345600,
+      "offset_hex": "0x007F5800",
+      "size": 157440,
+      "sha256": "ca91d640e5e534202f819f714fc96f03fc4f1a4a426ec21395cc7285b039b4da",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "ca91d640e5e534202f819f714fc96f03fc4f1a4a426ec21395cc7285b039b4da",
+      "head16": "d000f00000fe0400bda47e10fb00f802",
+      "head_fields_u32_le": {
+        "u32_0": "00F000D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F800FB"
+      },
+      "candidate_entry": 22,
+      "candidate_entry_hex": "0x0016",
+      "entry_from_bytes": 22,
+      "entry_from_bytes_hex": "0x000016",
+      "entry_matches_expected": true,
+      "prefix_end": 55,
+      "prefix_end_hex": "0x000037",
+      "prefix_end_matches_expected": true,
+      "gap_start": 55,
+      "gap_start_hex": "0x000037",
+      "gap_end": 59,
+      "gap_end_hex": "0x00003B",
+      "gap_length": 4,
+      "gap_bytes_hex": "89000000",
+      "gap_expected_hex": "89000000",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 8345655,
+      "gap_abs_container_offset_hex": "0x007F5837",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "89000000",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89",
+            "text": "??? b32 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 2,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 23,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "??? $r9 $r9 [unknown: 00 00 03] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fb00",
+              "text": "mov $r9 0xfb00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fb00",
+              "text": "mov $r9 0xfb00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    },
+    {
+      "slot": 487,
+      "offset": 8503040,
+      "offset_hex": "0x0081BF00",
+      "size": 147712,
+      "sha256": "73146509b95ef23db9d277674a6a1133173568476d930b114c450f21280e1d1f",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "73146509b95ef23db9d277674a6a1133173568476d930b114c450f21280e1d1f",
+      "head16": "d000f00000fe0400bda47e10fb00f802",
+      "head_fields_u32_le": {
+        "u32_0": "00F000D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F800FB"
+      },
+      "candidate_entry": 22,
+      "candidate_entry_hex": "0x0016",
+      "entry_from_bytes": 22,
+      "entry_from_bytes_hex": "0x000016",
+      "entry_matches_expected": true,
+      "prefix_end": 55,
+      "prefix_end_hex": "0x000037",
+      "prefix_end_matches_expected": true,
+      "gap_start": 55,
+      "gap_start_hex": "0x000037",
+      "gap_end": 59,
+      "gap_end_hex": "0x00003B",
+      "gap_length": 4,
+      "gap_bytes_hex": "89000000",
+      "gap_expected_hex": "89000000",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 8503095,
+      "gap_abs_container_offset_hex": "0x0081BF37",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "89000000",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89",
+            "text": "??? b32 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 2,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 23,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "??? $r9 $r9 [unknown: 00 00 03] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fb",
+              "text": "??? [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 25,
+              "raw": "00fe99",
+              "text": "st b8 D[$r15+0x99] $r14",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 28,
+              "raw": "03bde4",
+              "text": "??? b8 $r11 $r13 0xe4 [unknown: 03 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fb00",
+              "text": "mov $r9 0xfb00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fb00",
+              "text": "mov $r9 0xfb00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    },
+    {
+      "slot": 490,
+      "offset": 8650752,
+      "offset_hex": "0x00840000",
+      "size": 124160,
+      "sha256": "e10341a3d83716e34b7a3be8363f9ebb4d3f2b5dd0e2635b6d1386dc403ffe9b",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "e10341a3d83716e34b7a3be8363f9ebb4d3f2b5dd0e2635b6d1386dc403ffe9b",
+      "head16": "d000f00000fe0400bda47e10fd00f802",
+      "head_fields_u32_le": {
+        "u32_0": "00F000D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F800FD"
+      },
+      "candidate_entry": 22,
+      "candidate_entry_hex": "0x0016",
+      "entry_from_bytes": 22,
+      "entry_from_bytes_hex": "0x000016",
+      "entry_matches_expected": true,
+      "prefix_end": 55,
+      "prefix_end_hex": "0x000037",
+      "prefix_end_matches_expected": true,
+      "gap_start": 55,
+      "gap_start_hex": "0x000037",
+      "gap_end": 59,
+      "gap_end_hex": "0x00003B",
+      "gap_length": 4,
+      "gap_bytes_hex": "89000000",
+      "gap_expected_hex": "89000000",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 8650807,
+      "gap_abs_container_offset_hex": "0x00840037",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "89000000",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89",
+            "text": "??? b32 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 2,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 23,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fd00",
+              "text": "mov $r9 0xfd00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fd00",
+              "text": "mov $r9 0xfd00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    },
+    {
+      "slot": 493,
+      "offset": 8774912,
+      "offset_hex": "0x0085E500",
+      "size": 62720,
+      "sha256": "1895bbf642e935c908eb4e0030115d880ad7a4e8d3e84622f9ec79125d5919da",
+      "sha256_matches_inventory": true,
+      "inventory_sha256": "1895bbf642e935c908eb4e0030115d880ad7a4e8d3e84622f9ec79125d5919da",
+      "head16": "d000790000fe0400bda47e10fd00f802",
+      "head_fields_u32_le": {
+        "u32_0": "007900D0",
+        "u32_1": "0004FE00",
+        "u32_2": "107EA4BD",
+        "u32_3": "02F800FD"
+      },
+      "candidate_entry": 22,
+      "candidate_entry_hex": "0x0016",
+      "entry_from_bytes": 22,
+      "entry_from_bytes_hex": "0x000016",
+      "entry_matches_expected": true,
+      "prefix_end": 55,
+      "prefix_end_hex": "0x000037",
+      "prefix_end_matches_expected": true,
+      "gap_start": 55,
+      "gap_start_hex": "0x000037",
+      "gap_end": 59,
+      "gap_end_hex": "0x00003B",
+      "gap_length": 4,
+      "gap_bytes_hex": "89000000",
+      "gap_expected_hex": "89000000",
+      "gap_bytes_match_expected": true,
+      "gap_abs_container_offset": 8774967,
+      "gap_abs_container_offset_hex": "0x0085E537",
+      "gap_abs_verified_from_container": true,
+      "gap_abs_container_bytes": "89000000",
+      "gap_variant_decode": {
+        "default": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89",
+            "text": "??? b32 [unknown op length] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 1,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 2,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "89",
+              "text": "??? b32 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 23,
+              "raw": "00",
+              "text": "??? b8 [unknown op length] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc0": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc3": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc4": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "890000",
+            "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+            "valid": false,
+            "mnemonic": "???"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "890000",
+              "text": "??? b32 $r0 $r0 0x0 [unknown: 09 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 3,
+              "raw": "00989f",
+              "text": "st b8 D[$r9+0x9f] $r8",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 6,
+              "raw": "0894f9",
+              "text": "??? b8 $r9 $r4 0xf9 [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 9,
+              "raw": "0894fe",
+              "text": "??? b8 $r9 $r4 0xfe [unknown: 08 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 12,
+              "raw": "0cfd9e",
+              "text": "??? b8 $r15 $r13 0x9e [unknown: 0c 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 15,
+              "raw": "05fd9f",
+              "text": "??? b8 $r15 $r13 0x9f [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 18,
+              "raw": "05fe9b",
+              "text": "??? b8 $r15 $r14 0x9b [unknown: 05 00 00] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 21,
+              "raw": "008900",
+              "text": "st b8 D[$r8] $r9",
+              "valid": true,
+              "mnemonic": "st"
+            },
+            {
+              "offset": 24,
+              "raw": "fd00fe",
+              "text": "??? $r0 $r0 [unknown: 00 00 fe] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            },
+            {
+              "offset": 27,
+              "raw": "9903bd",
+              "text": "??? b32 $r3 $r0 [unknown: 09 00 bd] [unknown instruction]",
+              "valid": false,
+              "mnemonic": "???"
+            }
+          ],
+          "window_fully_decoded": false
+        },
+        "fuc5": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fd00",
+              "text": "mov $r9 0xfd00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        },
+        "fuc6": {
+          "envydis_error": "",
+          "rc": 0,
+          "first_insn_at_gap": {
+            "offset": 0,
+            "raw": "89000000",
+            "text": "mov $r9 0x0",
+            "valid": true,
+            "mnemonic": "mov"
+          },
+          "all_lines": [
+            {
+              "offset": 0,
+              "raw": "89000000",
+              "text": "mov $r9 0x0",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 4,
+              "raw": "989f08",
+              "text": "ld b32 $r15 D[$r9+0x20]",
+              "valid": true,
+              "mnemonic": "ld"
+            },
+            {
+              "offset": 7,
+              "raw": "94f908",
+              "text": "shl b32 $r9 $r15 0x8",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 10,
+              "raw": "94fe0c",
+              "text": "shl b32 $r14 $r15 0xc",
+              "valid": true,
+              "mnemonic": "shl"
+            },
+            {
+              "offset": 13,
+              "raw": "fd9e05",
+              "text": "or $r9 $r14",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 16,
+              "raw": "fd9f05",
+              "text": "or $r9 $r15",
+              "valid": true,
+              "mnemonic": "or"
+            },
+            {
+              "offset": 19,
+              "raw": "fe9b00",
+              "text": "mov $xtargets $r9",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 22,
+              "raw": "8900fd00",
+              "text": "mov $r9 0xfd00",
+              "valid": true,
+              "mnemonic": "mov"
+            },
+            {
+              "offset": 26,
+              "raw": "fe9903",
+              "text": "vtlb $r9 $r9",
+              "valid": true,
+              "mnemonic": "vtlb"
+            },
+            {
+              "offset": 29,
+              "raw": "bde4",
+              "text": "clear b32 $r14",
+              "valid": true,
+              "mnemonic": "clear"
+            }
+          ],
+          "window_fully_decoded": true
+        }
+      },
+      "head_strings_hinting_mode": [],
+      "head_mode_hint": null,
+      "envydis_error": "",
+      "envydis_rc": 0
+    }
+  ],
+  "summary": [
+    {
+      "slot": 20,
+      "gap_start_hex": "0x000068",
+      "gap_bytes_hex": "3e74fe00",
+      "valid_under_variants": [
+        "fuc4",
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "lbra",
+        "fuc5": "lbra",
+        "fuc6": "lbra"
+      },
+      "variant_dependent": true
+    },
+    {
+      "slot": 150,
+      "gap_start_hex": "0x000034",
+      "gap_bytes_hex": "89000000",
+      "valid_under_variants": [
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3",
+        "fuc4"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "???",
+        "fuc5": "mov",
+        "fuc6": "mov"
+      },
+      "variant_dependent": true
+    },
+    {
+      "slot": 156,
+      "gap_start_hex": "0x000034",
+      "gap_bytes_hex": "89000000",
+      "valid_under_variants": [
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3",
+        "fuc4"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "???",
+        "fuc5": "mov",
+        "fuc6": "mov"
+      },
+      "variant_dependent": true
+    },
+    {
+      "slot": 481,
+      "gap_start_hex": "0x000037",
+      "gap_bytes_hex": "89000000",
+      "valid_under_variants": [
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3",
+        "fuc4"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "???",
+        "fuc5": "mov",
+        "fuc6": "mov"
+      },
+      "variant_dependent": true
+    },
+    {
+      "slot": 484,
+      "gap_start_hex": "0x000037",
+      "gap_bytes_hex": "89000000",
+      "valid_under_variants": [
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3",
+        "fuc4"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "???",
+        "fuc5": "mov",
+        "fuc6": "mov"
+      },
+      "variant_dependent": true
+    },
+    {
+      "slot": 487,
+      "gap_start_hex": "0x000037",
+      "gap_bytes_hex": "89000000",
+      "valid_under_variants": [
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3",
+        "fuc4"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "???",
+        "fuc5": "mov",
+        "fuc6": "mov"
+      },
+      "variant_dependent": true
+    },
+    {
+      "slot": 490,
+      "gap_start_hex": "0x000037",
+      "gap_bytes_hex": "89000000",
+      "valid_under_variants": [
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3",
+        "fuc4"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "???",
+        "fuc5": "mov",
+        "fuc6": "mov"
+      },
+      "variant_dependent": true
+    },
+    {
+      "slot": 493,
+      "gap_start_hex": "0x000037",
+      "gap_bytes_hex": "89000000",
+      "valid_under_variants": [
+        "fuc5",
+        "fuc6"
+      ],
+      "unknown_under_variants": [
+        "default",
+        "fuc0",
+        "fuc3",
+        "fuc4"
+      ],
+      "first_insn_mnemonic_by_variant": {
+        "default": "???",
+        "fuc0": "???",
+        "fuc3": "???",
+        "fuc4": "???",
+        "fuc5": "mov",
+        "fuc6": "mov"
+      },
+      "variant_dependent": true
+    }
+  ],
+  "conclusion": {
+    "gap_is_variant_dependent": true,
+    "default_fuc0_fuc3": "gap bytes are UNKNOWN opcodes under default (no -V; behaves as fuc0/fuc3 for 0x3e/0x89 lead bytes)",
+    "fuc4_plus_slot20": "slot 20 gap 3e74fe00 decodes as lbra 0xfe74 (valid long branch; control-flow / format boundary) under fuc4, fuc5, fuc6",
+    "fuc5_plus_others": "slots 150/156/481/484/487/490/493 gap 89000000 decodes as mov $r9, 0x0 (valid register init) under fuc5, fuc6; followed by valid ld in same variant",
+    "bytes_after_gap": "following bytes decode as valid insns (xcld for slot 20; ld for others) under the same newer variants, consistent with code continuation rather than random padding",
+    "no_mode_field": "no payload head16/manifest/header field identifies the true Falcon entry version/mode; head16 is a fixed template; no manifest consulted/found",
+    "verdict": "BOUNDED NEGATIVE: the gap cannot be definitively classified as unsupported-opcode/data/padding/branch-boundary without the true Falcon ISA version. It is UNKNOWN under fuc0/fuc3/default, a valid branch under fuc4+, and a valid code continuation under fuc5+. Missing evidence: the Falcon version/mode for these payloads."
+  }
+}

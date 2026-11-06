@@ -1,0 +1,377 @@
+{
+  "schema": "phase21-egl-render-v1",
+  "utc": "2026-11-04T15:12:03.547726+00:00",
+  "command": "egl_render_probe",
+  "read_only": true,
+  "vendor_library": "libEGL_nvidia.so.0",
+  "egl_dispatcher": "libEGL.so.1",
+  "target_nodes": [
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "manifest": {
+    "file_format_version": "1.0.0",
+    "ICD": {
+      "library_path": "libEGL_nvidia.so.0"
+    }
+  },
+  "manifest_path": "/tmp/tmpnb3necd5.json",
+  "manifest_auto_cleanup": true,
+  "steps": [
+    {
+      "step": "write_manifest",
+      "ok": true,
+      "result": {
+        "path": "/tmp/tmpnb3necd5.json",
+        "content": {
+          "file_format_version": "1.0.0",
+          "ICD": {
+            "library_path": "libEGL_nvidia.so.0"
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "step": "load_egl",
+      "ok": true,
+      "result": "libEGL.so.1",
+      "error": null
+    },
+    {
+      "step": "eglQueryDevicesEXT",
+      "ok": true,
+      "result": {
+        "count": 1,
+        "rc": true
+      },
+      "error": null
+    },
+    {
+      "step": "EGL_CUDA_DEVICE_NV_to_BDF",
+      "ok": true,
+      "result": "0000:03:00.0",
+      "error": null
+    },
+    {
+      "step": "eglGetPlatformDisplayEXT",
+      "ok": true,
+      "result": {
+        "selected_index": 0
+      },
+      "error": null
+    },
+    {
+      "step": "eglInitialize",
+      "ok": true,
+      "result": {
+        "major": 1,
+        "minor": 5
+      },
+      "error": null
+    },
+    {
+      "step": "eglBindAPI",
+      "ok": true,
+      "result": {
+        "api": "EGL_OPENGL_ES_API"
+      },
+      "error": null
+    },
+    {
+      "step": "eglChooseConfig",
+      "ok": true,
+      "result": {
+        "num_config": 1
+      },
+      "error": null
+    },
+    {
+      "step": "verify_config_attribs",
+      "ok": true,
+      "result": [
+        {
+          "attribute": "surface_type",
+          "expected": 1,
+          "actual": 2049,
+          "ok": true
+        },
+        {
+          "attribute": "renderable_type",
+          "expected": 4,
+          "actual": 77,
+          "ok": true
+        },
+        {
+          "attribute": "red_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        },
+        {
+          "attribute": "green_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        },
+        {
+          "attribute": "blue_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        },
+        {
+          "attribute": "alpha_size",
+          "expected": 8,
+          "actual": 8,
+          "ok": true
+        }
+      ],
+      "error": null
+    },
+    {
+      "step": "eglCreatePbufferSurface",
+      "ok": true,
+      "result": {
+        "width": 4,
+        "height": 4
+      },
+      "error": null
+    },
+    {
+      "step": "eglCreateContext",
+      "ok": true,
+      "result": {
+        "client_version": 2
+      },
+      "error": null
+    },
+    {
+      "step": "eglMakeCurrent",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "glClearColor+glClear",
+      "ok": true,
+      "result": {
+        "color": [
+          255,
+          0,
+          0,
+          255
+        ]
+      },
+      "error": null
+    },
+    {
+      "step": "glReadPixels",
+      "ok": true,
+      "result": {
+        "count": 16,
+        "all_red": true
+      },
+      "error": null
+    },
+    {
+      "step": "glGetString",
+      "ok": true,
+      "result": {
+        "vendor": "NVIDIA Corporation",
+        "renderer": "NVIDIA CMP 40HX/PCIe/SSE2",
+        "version": "OpenGL ES 3.2 NVIDIA 615.71.09"
+      },
+      "error": null
+    },
+    {
+      "step": "eglMakeCurrent(release)",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "eglDestroyContext",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "eglDestroySurface",
+      "ok": true,
+      "result": null,
+      "error": null
+    },
+    {
+      "step": "eglTerminate",
+      "ok": true,
+      "result": null,
+      "error": null
+    }
+  ],
+  "egl_errors": [],
+  "gl_errors": [
+    {
+      "where": "glClear",
+      "code": 0
+    },
+    {
+      "where": "glReadPixels",
+      "code": 0
+    },
+    {
+      "where": "glGetString",
+      "code": 0
+    }
+  ],
+  "devices": [
+    {
+      "index": 0,
+      "drm_device": null,
+      "render_node": null,
+      "matched": true,
+      "handle": 140276587472656
+    }
+  ],
+  "selected_device": {
+    "index": 0,
+    "drm_device": null,
+    "render_node": null,
+    "matched": true
+  },
+  "egl_version": [
+    1,
+    5
+  ],
+  "egl_client_vendor": "NVIDIA",
+  "gl": {
+    "vendor": "NVIDIA Corporation",
+    "renderer": "NVIDIA CMP 40HX/PCIe/SSE2",
+    "version": "OpenGL ES 3.2 NVIDIA 615.71.09"
+  },
+  "pixels": {
+    "size": [
+      4,
+      4
+    ],
+    "count": 16,
+    "expected_per_pixel": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "read": [
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ]
+    ],
+    "all_match": true
+  },
+  "matched_gpu": true,
+  "nvidia_hardware": true,
+  "egl_errors_clean": true,
+  "gl_errors_clean": true,
+  "pass": true,
+  "notes": [
+    "This probe verifies the clear->readback pipeline only: EGL device selection, context creation, glClear and glReadPixels on a 4x4 pbuffer.",
+    "A pass does NOT prove shader execution, draw commands, or scanout; it proves the matched NVIDIA device accepts ES2 commands and returns the cleared color.",
+    "Device selection matches eglQueryDeviceStringEXT output against /dev/dri/card1 or /dev/dri/renderD129 (BDF 03:00.0); no unverified ordinal is used.",
+    "Manifest and environment changes are process-only; the temp manifest is removed via NamedTemporaryFile cleanup. No sudo, config, group, MMIO, or driver changes.",
+    "Current evidence: TARGET_LIVE_FINDINGS.md and evidence/target_live_20261104/egl_nvidia_only.json (process-only NVIDIA EGL init via temporary manifest, EGL 1.5). Rendering correctness remains to be captured by this probe."
+  ],
+  "source_sha256": "f1b1926cb314c8c7ba53322115f6defa155a455f6b28f4e5c84f8172c6a0bd6c"
+}

@@ -1,0 +1,82 @@
+> Audit correction2026-11-06: the original exclusions of hardware incapability and all dependency failures below are too strong. CUDA/GLES success does not establish Vulkan support; ldd does not exclude runtime dlopen/version/init failure. Direct-dispatch capture sources were not retained, so their complete ABI is unverified. Use VULKAN_FAILURE_BOUNDARY.md and evidence/vulkan_capture_audit.json for current conclusions. Original notes retained below for provenance.
+
+# Chẩn đoán Vulkan — target_live_20261104 (GPU: NVIDIA CMP 40HX, BDF 0000:03:00.0)
+
+Nguồn bằng chứng: `evidence/target_live_20261104/` — `vulkan_nvidia_only.json`, `vulkan_device_query.json`, `drm_access_vulkan_inventory.json`, `nvidia_library_linkage.json`, `nvidia_vk_symbols_registry.json`, `egl_shader_result.json` — và `TARGET_LIVE_FINDINGS.md` (repo root). Hai file bổ trợ được trích trong findings: `vulkan_direct_icd_dispatch.json`, `vulkan_negotiated_dispatch.json`. Mọi quan sát dưới đây là read-only: không sudo, không sửa hệ thống, không SSH, không đọc credential.
+
+## 1. Bằng chứng quan sát (đã ghi lại)
+
+| File | Quan sát |
+|---|---|
+| `vulkan_nvidia_only.json` | `VK_ICD_FILENAMES=.../nvidia_icd.json` → `vkCreateInstance = -9` (VK_ERROR_INCOMPATIBLE_DRIVER). Loader: `Could not get 'vkCreateInstance' via 'vk_icdGetInstanceProcAddr' for ICD libGLX_nvidia.so.0` + `Found no drivers!`. |
+| `vulkan_device_query.json` | Loader mặc định (không ép ICD): instance tạo thành công, chỉ liệt kê 1 thiết bị `llvmpipe` (vendor 0x10005, loại CPU). Không thiết bị NVIDIA Vulkan được liệt kê dưới quyền/loader hiện tại. |
+| `drm_access_vulkan_inventory.json` | `open('/dev/dri/card1')` → `[Errno 13] Permission denied`; `open('/dev/dri/renderD129')` → `[Errno 13] Permission denied`. `getfacl` không cài (`[Errno 2]`). `nvidia`, `nvidia_modeset`, `nvidia_drm`, `nvidia_uvm` đều `Live`; `modeset=Y`. 8 manifest ICD; `nvidia_icd.json` → `libGLX_nvidia.so.0` (api 1.4.351). |
+| `nvidia_library_linkage.json` | `libGLX_nvidia.so.0` → `libGLX_nvidia.so.615.71.09`; `ldd` toàn bộ thư viện con đã resolve, không thiếu thư viện con. |
+| `nvidia_vk_symbols_registry.json` | `nm -D libGLX_nvidia.so.0`: `T vkCreateInstance`, `T vkGetInstanceProcAddr`, `T vk_icdGetInstanceProcAddr` — cả ba ký hiệu xuất hiện trong đoạn code. `/proc/driver/nvidia/gpus/0000:03:00.0/registry` tồn tại (nội dung `Binary: ""`, giá trị live không đọc được). |
+| `vulkan_direct_icd_dispatch.json` | Gọi trực tiếp (ctypes) `vk_icdGetInstanceProcAddr(NULL, name)`: `vkCreateInstance`, `vkEnumerateInstanceExtensionProperties`, `vkGetInstanceProcAddr` đều trả `NULL`. |
+| `vulkan_negotiated_dispatch.json` | ICD negotiate: `negotiate_result = -3` (VK_ERROR_INITIALIZATION_FAILED), negotiated_interface 7, tất cả 3 con trỏ hàm `NULL`. |
+| `egl_shader_result.json` | Probe EGL qua manifest tạm `libEGL_nvidia.so.0` (chỉ trong process): `pass=true`, `nvidia_hardware=true`; shader biên dịch/liên kết, vẽ, `glReadPixels` đọc đúng 16 pixel xanh; renderer `NVIDIA CMP 40HX/PCIe/SSE2`, OpenGL ES 3.2 NVIDIA 615.71.09; EGL/GL error sạch. |
+
+## 2. Missing ICD exports vs proc-address trả NULL
+
+**Khẳng định: đây là proc-address trả NULL, KHÔNG phải missing ICD exports.**
+
+- **Ký hiệu xuất hiện**: `nm -D` thấy ba ký hiệu Vulkan kiểu `T` (định nghĩa trong đoạn code) trong `libGLX_nvidia.so.0`. Nếu fehl export, loader sẽ báo "symbol not found", không phải thông báo hiện tại.
+- **Thông báo loader**: loader quét ICD, gọi `vk_icdGetInstanceProcAddr` để lấy `vkCreateInstance` từ `libGLX_nvidia.so.0`, nhận về `NULL` → từ chối ICD này → `Found no drivers!` → `vkCreateInstance = -9`.
+- **Dưới lớp loader**: gọi trực tiếp `vk_icdGetInstanceProcAddr(NULL, name)` trả `NULL` cho cả ba hàm, và ICD negotiate trả `-3` với tất cả con trỏ NULL. Lỗi tái lập dưới chính Vulkan loader, mặc dù ký hiệu vẫn còn trong ELF.
+
+**Luận**: `libGLX_nvidia.so.0` xuất ký hiệu nhưng từ chối cung cấp entrypoint trong process này → ICD bị cấm khi khởi tạo, không phải thiếu xuất ký hiệu.
+
+## 3. Chẩn đoán phân cấp (differential)
+
+| Giả thuyết | Mức độ | Cơ sở | Trạng thái |
+|---|---|---|---|
+| H1 Quyền truy cập thiết bị userspace (DRM card/render node, có thể là /dev/nvidia*) làm ICD init thất bại | Có bằng chứng phần, chưa tách | `open` cả hai node DRM đều `EACCES`; ICD Vulkan NVIDIA thường mở thiết bị karakter khi init | **Mở** — cần kiểm tra `/dev/nvidia*` |
+| H2 ICD từ chối entrypoint do môi trường process (ví dụ `DISPLAY` chưa đặt, libGLX ICD yêu cầu display/X11; hoặc thất bại mở /dev/nvidia*) | Suy luận | Ký hiệu xuất hiện, `ldd` sạch, nhưng entrypoint vẫn NULL; EGL NVIDIA path lại thành công mà không đụng node DRM | **Suy luận** — chưa chứng minh |
+| H3 Thiếu xuất ký hiệu ICD | — | `nm -D`: có ký hiệu | **Đã loại** |
+| H4 Thiếu/sai thư viện con ICD | — | `ldd`: toàn bộ resolve | **Đã loại** |
+| H5 GPU vật lý không khả năng Vulkan | — | CUDA kernel PASS + EGL shader/raster PASS trên BDF `0000:03:00.0`; `nvidia_*` modules `Live` | **Đã loại** |
+
+## 4. Hạn chế quyền truy cập đã quan sát
+
+1. `/dev/dri/card1`: `open(O_RDONLY)` → `[Errno 13] Permission denied` (quan sát trực tiếp, 14:47:44).
+2. `/dev/dri/renderD129`: `open(O_RDONLY)` → `[Errno 13] Permission denied` (quan sát trực tiếp).
+3. `getfacl`: không cài (`[Errno 2] No such file or directory`) → không thể chéo kiểm tra ACL của node.
+4. `/proc/driver/nvidia/gpus/0000:03:00.0/registry`: tệp tồn tại nhưng nội dung `Binary: ""` → giá trị cấu hình live (ví dụ `RmDisableDisplay`) không đọc được.
+5. (báo cáo từ `review.md`/`TARGET_LIVE_FINDINGS.md`) `tinh` (uid 1000) không trong nhóm `video`/`render`; node DRM mode `0660 root:video` / `root:render`.
+
+## 5. Tại sao KHÔNG kết luận "GPU vật lý không khả năng" từ sự thất bại này
+
+Thất bại Vulkan là lỗi tầng userspace (loader/ICD/quyền), không phải phần cứng:
+
+- EGL probe qua NVIDIA vendor library đã **pass**: shader biên dịch/liên kết, vẽ, `glReadPixels` đọc đúng tất cả 16 pixel xanh trên pbuffer 4x4; renderer `NVIDIA CMP 40HX/PCIe/SSE2` tại BDF `0000:03:00.0`, driver 615.71.09. Đây là bounded shader/raster correctness (không phải scanout), nhưng đã chứng minh GPU thực hiện đồ họa.
+- CUDA Driver API: `cuInit` thành công, 1 thiết bị CUDA khớp BDF `0000:03:00.0` (compute 7.5), kernel correctness `PASS` (mismatches=0).
+- Kernel modules `nvidia/nvidia_modeset/nvidia_drm/nvidia_uvm` đều `Live`; `/proc/driver/nvidia/gpus/0000:03:00.0` tồn tại.
+
+Vì vậy: Vulkan không liệt kê thiết bị NVIDIA là một quan sát phần mềm dưới quyền/loader hiện tại, **không chứng minh** phần cứng Vulkan-khả năng bị tắt hoặc hỏng.
+
+## 6. Lệnh chẩn đoán tiếp theo (chỉ đọc, không sudo, không sửa hệ thống; biến môi trường chỉ thiết lập trong quá trình)
+
+Chạy trên target, mỗi lệnh độc lập, không ghi config hay thay đổi thiết bị:
+
+1. `id; groups`
+   - Xác nhận `tinh` có/thiếu nhóm `video`/`render` → gắn với H1.
+2. `ls -l /dev/dri/card1 /dev/dri/renderD129 /dev/nvidia*`
+   - Xem owner/mode của node DRM và NVIDIA char device. Nếu `/dev/nvidia*` không liệt kê hoặc mode 0660 nhóm khác → chỉ số ICD.
+3. `python3 - <<'EOF'\nimport os\nfor n in range(4):\n    p = f'/dev/nvidia{n}'\n    if os.path.exists(p):\n        try:\n            f = open(p, 'rb'); f.close(); print(p, 'OK')\n        except PermissionError as e:\n            print(p, 'EACCES', e)\nEOF`
+   - Test read-only mở các thiết bị NVIDIA (không sửa thiết bị). EACCES ở đây là bằng chứng mạnh cho H1.
+4. `cat /proc/driver/nvidia/gpus/0000:03:00.0/information; cat /proc/driver/nvidia/version`
+   - Trạng thái GPU và phiên bản driver từ procfs (read-only).
+5. `VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json VK_LOADER_DEBUG=warn python3 -c "import ctypes as c; c.CDLL('libvulkan.so.1')"` (hoặc lặp lại probe ban đầu với `VK_LOADER_DEBUG=all` nếu loader hỗ trợ)
+   - Xem loader chi tiết lý do từ chối ICD; biến chỉ trong process.
+6. `LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu python3 -c "import ctypes; ctypes.CDLL('libGLX_nvidia.so.0'); print('icd_load_ok')"`
+   - Kiểm tra ICD nạp độc lập trong process, không qua loader Vulkan. Biến chỉ trong process.
+7. `command -v vulkaninfo && vulkaninfo --summary`
+   - Nếu `vulkan-utils` có sẵn: tóm tắt ICD/thiết bị Vulkan loader thấy. Không có trong PATH theo findings → lệnh này có thể bỏ qua.
+8. `DISPLAY=:0 VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json python3 - <<'REMOTE'\nimport ctypes as c, json\nclass Info(c.Structure):\n    _fields_ = [('sType', c.c_uint), ('next', c.c_void_p), ('flags', c.c_uint), ('app', c.c_void_p), ('layers', c.c_uint), ('layerNames', c.c_void_p), ('extensions', c.c_uint), ('extensionNames', c.c_void_p)]\nlib = c.CDLL('libvulkan.so.1'); info = Info(); info.sType = 1; instance = c.c_void_p()\nlib.vkCreateInstance.argtypes = [c.POINTER(Info), c.c_void_p, c.POINTER(c.c_void_p)]\nprint(json.dumps({'create_result': lib.vkCreateInstance(c.byref(info), None, c.byref(instance))}))\nREMOTE`
+   - Test suy luận H2: libGLX ICD có yêu cầu X11 display không. Chỉ thiết lập `DISPLAY` trong process, không sửa hệ thống. Nếu thành công → H2 được hỗ trợ; nếu vẫn NULL → H1 hoặc lý do khác. **Đây là test suy luận, không phải bằng chứng.**
+
+## 7. Gói rõ: đã chứng minh vs suy luận
+
+- **Đã chứng minh**: exports ICD tồn tại; entrypoint trả NULL qua loader và gọi trực tiếp; hai node DRM bị từ chối mở; `nvidia_library_linkage` sạch; CUDA + EGL NVIDIA PASS cùng BDF `0000:03:00.0`; Vulkan mặc định chỉ llvmpipe.
+- **Suy luận (chưa chứng minh)**: EACCES DRM là nguyên nhân đơn độc của ICD thất bại; ICD yêu cầu `DISPLAY`; `/dev/nvidia*` cũng bị EACCES. Các lệnh ở mục 6 tách từng giả thiết này.

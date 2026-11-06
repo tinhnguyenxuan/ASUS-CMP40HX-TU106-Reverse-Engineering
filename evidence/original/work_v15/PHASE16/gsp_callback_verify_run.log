@@ -1,0 +1,37 @@
+{
+  "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "windows": {
+    "callback_block": 39,
+    "entry_helper": 45
+  },
+  "resolved": {
+    "0x4f575bc": 16086524,
+    "0x4f57644": 16086660,
+    "0x4f57648": 16086664,
+    "0x4f5764c": 16086668,
+    "0x4f57650": 16086672,
+    "0x4f575d4": 16086548,
+    "0x4f575e0": 16086560,
+    "0x4f075ec": 15758892,
+    "0x41a70b0": 1732848
+  },
+  "entry0": {
+    "f00_u16_0x00": 0,
+    "f04_u32_0x04": 255,
+    "f08_u8_0x08": 0,
+    "f10_u64_0x10": 68837376,
+    "f18_u16_0x18": 65281
+  },
+  "control_flow": {
+    "auipc_pairs": 2,
+    "branches": 3,
+    "preds_cb": 0,
+    "fallthrough_cb": 1
+  },
+  "regs_at_call": {
+    "a0": 83195356,
+    "a1": null,
+    "a2": null
+  }
+}
+EXITCODE=0

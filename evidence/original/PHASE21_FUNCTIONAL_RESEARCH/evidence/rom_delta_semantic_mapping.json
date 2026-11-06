@@ -1,0 +1,29 @@
+{
+  "offsets": [
+    {
+      "variant": "gen3_a",
+      "offsets": [
+        "0x30060",
+        "0x3016f"
+      ],
+      "baseline_window": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin:0x30058..0x30178"
+    },
+    {
+      "variant": "t_clk",
+      "offsets": [
+        "0x2fbb5",
+        "0x2fbb8",
+        "0x2fbb9",
+        "0x2fbd6",
+        "0x2fbd9"
+      ],
+      "baseline_window": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin:0x2fbb0..0x2fbe9"
+    }
+  ],
+  "parser_output": "evidence/nvbios_scripts.txt is decoded in ROM-relative script addresses and does not carry a complete file-offset map for these malformed variants",
+  "result": "NO_SEMANTIC_MAPPING",
+  "limits": [
+    "do not infer register/script meaning from raw bytes alone",
+    "variant parser crashed after BIT/DCB errors"
+  ]
+}

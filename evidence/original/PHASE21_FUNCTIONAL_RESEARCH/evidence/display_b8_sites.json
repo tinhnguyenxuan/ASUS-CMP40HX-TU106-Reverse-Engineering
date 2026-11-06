@@ -1,0 +1,294 @@
+{
+  "firmware": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+  "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "all_access_count": 10037,
+  "initialization_window": "0x04b70000-0x04b7ffff",
+  "initialization_window_accesses": [
+    {
+      "va": "0x4b701e0",
+      "mnemonic": "sd",
+      "op_str": "s1, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b70264",
+      "mnemonic": "sd",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b70750",
+      "mnemonic": "sd",
+      "op_str": "s8, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7076c",
+      "mnemonic": "ld",
+      "op_str": "a0, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b70778",
+      "mnemonic": "ld",
+      "op_str": "s1, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b70918",
+      "mnemonic": "sd",
+      "op_str": "s3, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b709f0",
+      "mnemonic": "sd",
+      "op_str": "s2, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b70ce4",
+      "mnemonic": "sd",
+      "op_str": "s3, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b70d20",
+      "mnemonic": "sd",
+      "op_str": "a1, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b70e40",
+      "mnemonic": "ld",
+      "op_str": "a2, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b70f2c",
+      "mnemonic": "ld",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b70fcc",
+      "mnemonic": "ld",
+      "op_str": "a2, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b71118",
+      "mnemonic": "ld",
+      "op_str": "a2, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b71230",
+      "mnemonic": "ld",
+      "op_str": "s3, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b71334",
+      "mnemonic": "ld",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b71448",
+      "mnemonic": "ld",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b726ac",
+      "mnemonic": "sd",
+      "op_str": "s3, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b72790",
+      "mnemonic": "ld",
+      "op_str": "a5, 0xb8(s1)"
+    },
+    {
+      "va": "0x4b72814",
+      "mnemonic": "sw",
+      "op_str": "zero, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7295c",
+      "mnemonic": "sd",
+      "op_str": "zero, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b729ec",
+      "mnemonic": "sd",
+      "op_str": "zero, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b72bb4",
+      "mnemonic": "sw",
+      "op_str": "zero, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b72c4c",
+      "mnemonic": "ld",
+      "op_str": "s3, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b72cd4",
+      "mnemonic": "lbu",
+      "op_str": "a0, 0xb8(a5)"
+    },
+    {
+      "va": "0x4b742e8",
+      "mnemonic": "sb",
+      "op_str": "s10, 0xb8(s3)"
+    },
+    {
+      "va": "0x4b74ac8",
+      "mnemonic": "sd",
+      "op_str": "s7, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b74d88",
+      "mnemonic": "ld",
+      "op_str": "s7, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b74e58",
+      "mnemonic": "sd",
+      "op_str": "a1, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b74e68",
+      "mnemonic": "ld",
+      "op_str": "a1, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b74ea8",
+      "mnemonic": "sd",
+      "op_str": "a6, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b74eb8",
+      "mnemonic": "ld",
+      "op_str": "a6, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b74ed8",
+      "mnemonic": "sd",
+      "op_str": "a6, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b74ee8",
+      "mnemonic": "ld",
+      "op_str": "a6, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b75068",
+      "mnemonic": "sd",
+      "op_str": "t6, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b750bc",
+      "mnemonic": "ld",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b755f0",
+      "mnemonic": "sd",
+      "op_str": "t3, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b75600",
+      "mnemonic": "ld",
+      "op_str": "t3, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b75d70",
+      "mnemonic": "sd",
+      "op_str": "s3, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b75dec",
+      "mnemonic": "sd",
+      "op_str": "a4, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b75e9c",
+      "mnemonic": "ld",
+      "op_str": "a1, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b75ed8",
+      "mnemonic": "sd",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b75f20",
+      "mnemonic": "ld",
+      "op_str": "a4, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b76028",
+      "mnemonic": "sd",
+      "op_str": "a2, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b76038",
+      "mnemonic": "ld",
+      "op_str": "a2, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b76104",
+      "mnemonic": "ld",
+      "op_str": "s3, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b780e0",
+      "mnemonic": "sb",
+      "op_str": "zero, 0xb8(a0)"
+    },
+    {
+      "va": "0x4b7d258",
+      "mnemonic": "sd",
+      "op_str": "ra, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b7d2c0",
+      "mnemonic": "sd",
+      "op_str": "a3, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7d304",
+      "mnemonic": "ld",
+      "op_str": "ra, 0xb8(sp)"
+    },
+    {
+      "va": "0x4b7d398",
+      "mnemonic": "ld",
+      "op_str": "a0, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7d430",
+      "mnemonic": "sd",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7d43c",
+      "mnemonic": "ld",
+      "op_str": "a5, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7d444",
+      "mnemonic": "ld",
+      "op_str": "a4, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7d53c",
+      "mnemonic": "ld",
+      "op_str": "a0, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7d5ac",
+      "mnemonic": "sd",
+      "op_str": "ra, -0xb8(s0)"
+    },
+    {
+      "va": "0x4b7d5b8",
+      "mnemonic": "ld",
+      "op_str": "a2, -0xb8(s0)"
+    }
+  ],
+  "consumer_load": {
+    "va": "0x4b72790",
+    "mnemonic": "ld",
+    "op_str": "a5, 0xb8(s1)"
+  },
+  "interpretation": "bounded access inventory; offset collisions elsewhere prevent global slot ownership inference"
+}

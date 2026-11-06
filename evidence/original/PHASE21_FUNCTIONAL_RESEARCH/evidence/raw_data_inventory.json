@@ -1,0 +1,363 @@
+{
+  "scope": "retained raw-data inventory for possible Phase19/20 recovery",
+  "files": 54,
+  "unique_hashes": 5,
+  "records": [
+    {
+      "path": "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v10chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v10chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v10chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v10chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v10chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v11chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v11chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v11chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v11chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v11chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v12chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v12chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v12chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v12chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v12chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v13chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v13chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v13chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v13chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v13chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v14chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v14chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v14chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v14chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v14chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v15chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v15chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v15chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v15chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v15chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v5cmp/cmp40hx_research/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v5cmp/cmp40hx_research/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v5cmp/cmp40hx_research/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v5cmp/cmp40hx_research/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v7chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v7chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v7chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v7chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v7chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v8chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v8chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v8chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v8chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v8chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    },
+    {
+      "path": "/tmp/v9chk/RAW_DATA/fuse2.json",
+      "bytes": 55233,
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+    },
+    {
+      "path": "/tmp/v9chk/RAW_DATA/p5678.json",
+      "bytes": 17350,
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+    },
+    {
+      "path": "/tmp/v9chk/RAW_DATA/q3_pcie.txt",
+      "bytes": 9279,
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+    },
+    {
+      "path": "/tmp/v9chk/RAW_DATA/q6.json",
+      "bytes": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+    },
+    {
+      "path": "/tmp/v9chk/RAW_DATA/tu06.json",
+      "bytes": 772991,
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca"
+    }
+  ],
+  "hash_groups": [
+    {
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+      "paths": [
+        "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/fuse2.json",
+        "/tmp/v10chk/RAW_DATA/fuse2.json",
+        "/tmp/v11chk/RAW_DATA/fuse2.json",
+        "/tmp/v12chk/RAW_DATA/fuse2.json",
+        "/tmp/v13chk/RAW_DATA/fuse2.json",
+        "/tmp/v14chk/RAW_DATA/fuse2.json",
+        "/tmp/v15chk/RAW_DATA/fuse2.json",
+        "/tmp/v5cmp/cmp40hx_research/RAW_DATA/fuse2.json",
+        "/tmp/v7chk/RAW_DATA/fuse2.json",
+        "/tmp/v8chk/RAW_DATA/fuse2.json",
+        "/tmp/v9chk/RAW_DATA/fuse2.json"
+      ]
+    },
+    {
+      "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165",
+      "paths": [
+        "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/p5678.json",
+        "/tmp/v10chk/RAW_DATA/p5678.json",
+        "/tmp/v11chk/RAW_DATA/p5678.json",
+        "/tmp/v12chk/RAW_DATA/p5678.json",
+        "/tmp/v13chk/RAW_DATA/p5678.json",
+        "/tmp/v14chk/RAW_DATA/p5678.json",
+        "/tmp/v15chk/RAW_DATA/p5678.json",
+        "/tmp/v5cmp/cmp40hx_research/RAW_DATA/p5678.json",
+        "/tmp/v7chk/RAW_DATA/p5678.json",
+        "/tmp/v8chk/RAW_DATA/p5678.json",
+        "/tmp/v9chk/RAW_DATA/p5678.json"
+      ]
+    },
+    {
+      "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce",
+      "paths": [
+        "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/q3_pcie.txt",
+        "/tmp/v10chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v11chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v12chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v13chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v14chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v15chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v5cmp/cmp40hx_research/RAW_DATA/q3_pcie.txt",
+        "/tmp/v7chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v8chk/RAW_DATA/q3_pcie.txt",
+        "/tmp/v9chk/RAW_DATA/q3_pcie.txt"
+      ]
+    },
+    {
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "paths": [
+        "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/q6.json",
+        "/tmp/v10chk/RAW_DATA/q6.json",
+        "/tmp/v11chk/RAW_DATA/q6.json",
+        "/tmp/v12chk/RAW_DATA/q6.json",
+        "/tmp/v13chk/RAW_DATA/q6.json",
+        "/tmp/v14chk/RAW_DATA/q6.json",
+        "/tmp/v15chk/RAW_DATA/q6.json",
+        "/tmp/v5cmp/cmp40hx_research/RAW_DATA/q6.json",
+        "/tmp/v7chk/RAW_DATA/q6.json",
+        "/tmp/v8chk/RAW_DATA/q6.json",
+        "/tmp/v9chk/RAW_DATA/q6.json"
+      ]
+    },
+    {
+      "sha256": "a872f2ce4fb2bd1f069127d04bd937f28d324c0023841e49c97cd8490276d5ca",
+      "paths": [
+        "/tmp/cmp40hx-v15-audit-gzjlxr24/RAW_DATA/tu06.json",
+        "/tmp/v10chk/RAW_DATA/tu06.json",
+        "/tmp/v11chk/RAW_DATA/tu06.json",
+        "/tmp/v12chk/RAW_DATA/tu06.json",
+        "/tmp/v13chk/RAW_DATA/tu06.json",
+        "/tmp/v14chk/RAW_DATA/tu06.json",
+        "/tmp/v15chk/RAW_DATA/tu06.json",
+        "/tmp/v7chk/RAW_DATA/tu06.json",
+        "/tmp/v8chk/RAW_DATA/tu06.json",
+        "/tmp/v9chk/RAW_DATA/tu06.json"
+      ]
+    }
+  ],
+  "limits": [
+    "directory names are not authenticated capture provenance",
+    "raw files may be duplicate checkpoint copies",
+    "no runtime claim is promoted without timestamp/command metadata"
+  ]
+}

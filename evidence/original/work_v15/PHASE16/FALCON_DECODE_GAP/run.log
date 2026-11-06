@@ -1,0 +1,113 @@
+falcon_decode_gap.py run log
+command: cd /home/REDACTED_USER/codex-work/work_v15 && /usr/bin/python3 PHASE16/FALCON_DECODE_GAP/falcon_decode_gap.py
+input: /home/REDACTED_USER/codex-work/work_v15/outputs/ucodes_tu10x.bin size=8837632 sha256=6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0
+envydis: /tmp/envytools/build/envydis/envydis sha256=5aa83772ac1ea3e3eb5b63ffef1b3890e6cd41086cbffa9c2cfff542b6de103a
+variants tested: default, fuc0, fuc3, fuc4, fuc5, fuc6
+
+Per-slot decode-gap findings (gap = first undecodable span after bootstrap prefix):
+
+slot=20   span_off=0x00002F00 size=122880 sha_ok=True entry=0x00002A prefix_end=0x000068 gap_start=0x000068 gap_len=4 gap_bytes=3e74fe00
+  abs_container_off=0x00002F68 gap_abs_verified=True abs_bytes=3e74fe00 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d0c0ff0000fe0400bda47e10fe00f802
+  -V default: first_insn=3e valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=3e valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=3e valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=3e74fe00 valid=True mnemonic=lbra window_fully_decoded=False
+  -V fuc5: first_insn=3e74fe00 valid=True mnemonic=lbra window_fully_decoded=True
+  -V fuc6: first_insn=3e74fe00 valid=True mnemonic=lbra window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+slot=150  span_off=0x00161100 size=571136 sha_ok=True entry=0x000016 prefix_end=0x000034 gap_start=0x000034 gap_len=4 gap_bytes=89000000
+  abs_container_off=0x00161134 gap_abs_verified=True abs_bytes=89000000 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d0005e0000fe0400bda47e105e00f802
+  -V default: first_insn=89 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc5: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  -V fuc6: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+slot=156  span_off=0x0041A400 size=539136 sha_ok=True entry=0x000016 prefix_end=0x000034 gap_start=0x000034 gap_len=4 gap_bytes=89000000
+  abs_container_off=0x0041A434 gap_abs_verified=True abs_bytes=89000000 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d0005e0000fe0400bda47e105e00f802
+  -V default: first_insn=89 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc5: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  -V fuc6: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+slot=481  span_off=0x007D2800 size=143360 sha_ok=True entry=0x000016 prefix_end=0x000037 gap_start=0x000037 gap_len=4 gap_bytes=89000000
+  abs_container_off=0x007D2837 gap_abs_verified=True abs_bytes=89000000 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d000f00000fe0400bda47e10fb00f802
+  -V default: first_insn=89 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc5: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  -V fuc6: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+slot=484  span_off=0x007F5800 size=157440 sha_ok=True entry=0x000016 prefix_end=0x000037 gap_start=0x000037 gap_len=4 gap_bytes=89000000
+  abs_container_off=0x007F5837 gap_abs_verified=True abs_bytes=89000000 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d000f00000fe0400bda47e10fb00f802
+  -V default: first_insn=89 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc5: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  -V fuc6: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+slot=487  span_off=0x0081BF00 size=147712 sha_ok=True entry=0x000016 prefix_end=0x000037 gap_start=0x000037 gap_len=4 gap_bytes=89000000
+  abs_container_off=0x0081BF37 gap_abs_verified=True abs_bytes=89000000 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d000f00000fe0400bda47e10fb00f802
+  -V default: first_insn=89 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc5: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  -V fuc6: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+slot=490  span_off=0x00840000 size=124160 sha_ok=True entry=0x000016 prefix_end=0x000037 gap_start=0x000037 gap_len=4 gap_bytes=89000000
+  abs_container_off=0x00840037 gap_abs_verified=True abs_bytes=89000000 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d000f00000fe0400bda47e10fd00f802
+  -V default: first_insn=89 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc5: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  -V fuc6: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+slot=493  span_off=0x0085E500 size=62720 sha_ok=True entry=0x000016 prefix_end=0x000037 gap_start=0x000037 gap_len=4 gap_bytes=89000000
+  abs_container_off=0x0085E537 gap_abs_verified=True abs_bytes=89000000 match_expected=True
+  entry_matches_expected=True prefix_end_matches_expected=True head16=d000790000fe0400bda47e10fd00f802
+  -V default: first_insn=89 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc0: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc3: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc4: first_insn=890000 valid=False mnemonic=??? window_fully_decoded=False
+  -V fuc5: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  -V fuc6: first_insn=89000000 valid=True mnemonic=mov window_fully_decoded=True
+  mode_strings_in_head64=[]
+
+SUMMARY slot=20 gap=0x000068 valid_under=['fuc4', 'fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3'] variant_dependent=True
+SUMMARY slot=150 gap=0x000034 valid_under=['fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3', 'fuc4'] variant_dependent=True
+SUMMARY slot=156 gap=0x000034 valid_under=['fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3', 'fuc4'] variant_dependent=True
+SUMMARY slot=481 gap=0x000037 valid_under=['fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3', 'fuc4'] variant_dependent=True
+SUMMARY slot=484 gap=0x000037 valid_under=['fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3', 'fuc4'] variant_dependent=True
+SUMMARY slot=487 gap=0x000037 valid_under=['fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3', 'fuc4'] variant_dependent=True
+SUMMARY slot=490 gap=0x000037 valid_under=['fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3', 'fuc4'] variant_dependent=True
+SUMMARY slot=493 gap=0x000037 valid_under=['fuc5', 'fuc6'] unknown_under=['default', 'fuc0', 'fuc3', 'fuc4'] variant_dependent=True
+
+CONCLUSION:
+  gap_is_variant_dependent: True
+  default_fuc0_fuc3: gap bytes are UNKNOWN opcodes under default (no -V; behaves as fuc0/fuc3 for 0x3e/0x89 lead bytes)
+  fuc4_plus_slot20: slot 20 gap 3e74fe00 decodes as lbra 0xfe74 (valid long branch; control-flow / format boundary) under fuc4, fuc5, fuc6
+  fuc5_plus_others: slots 150/156/481/484/487/490/493 gap 89000000 decodes as mov $r9, 0x0 (valid register init) under fuc5, fuc6; followed by valid ld in same variant
+  bytes_after_gap: following bytes decode as valid insns (xcld for slot 20; ld for others) under the same newer variants, consistent with code continuation rather than random padding
+  no_mode_field: no payload head16/manifest/header field identifies the true Falcon entry version/mode; head16 is a fixed template; no manifest consulted/found
+  verdict: BOUNDED NEGATIVE: the gap cannot be definitively classified as unsupported-opcode/data/padding/branch-boundary without the true Falcon ISA version. It is UNKNOWN under fuc0/fuc3/default, a valid branch under fuc4+, and a valid code continuation under fuc5+. Missing evidence: the Falcon version/mode for these payloads.

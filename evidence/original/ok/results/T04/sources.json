@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "task": "T04 display fuse-status / OTP / host driver chain",
+    "generated_utc": "2026-11-04T20:56Z",
+    "tools": {
+      "python": "3.14.9",
+      "fetch": "Hermes web_extract (raw.githubusercontent + GitHub REST API + Sourcegraph stream API)",
+      "local": "terminal (sha256sum, grep, python3 json)"
+    },
+    "input_root": "/home/REDACTED_USER/codex-work/CMP40HX_INDEPENDENT_REVIEW/input/ASTRA_CMP40HX_HANDOFF",
+    "notes": [
+      "TOOLS/ thực tế tại 04_PHASE15_EXTRACTS/TOOLS/ (không phải cấp gốc)",
+      "không suy capture_time từ mtime; hash đối chiếu CHECKSUMS.sha256 ngày 2026-11-04"
+    ]
+  },
+  "local_sources": [
+    {"path": "04_PHASE15_EXTRACTS/FUSE/fuse2.json", "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc", "used_for": "giá trị 0x21C04=1, lân cận, NVDEC/GSP_DEBUG regs; base=0x21000, key=byte offset"},
+    {"path": "04_PHASE15_EXTRACTS/FUSE/P0_FUSE.md", "sha256": "30a12008f7ac1fd57071e3df8fc7c85606d35fdfa600be5b43aeeed4ef58268a", "used_for": "aperture 0x820000 trả 0x166000a1 + poison; giải dịch cũ cần bác bỏ"},
+    {"path": "04_PHASE15_EXTRACTS/FUSE/fuse_bitfields.csv", "sha256": "0a3f627ec7fffb58975ee92994e49fba46ed28484fcd52bb82b6ff3a2824161e", "used_for": "3 reg DECODED lưu trữ"},
+    {"path": "04_PHASE15_EXTRACTS/PHASE15/FUSE_SEMANTICS.md", "sha256": "4518520032fec6ad35bde76cb84fda8f6eb47a21bb745afeb4359dc02ef1845f", "used_for": "dòng 33: giải dịch 'bit0=1 → display bật' (bị bác bỏ)"},
+    {"path": "04_PHASE15_EXTRACTS/PHASE15/fuse_analysis.json", "sha256": "b40f124cd95cf100de52f51048a33969827b49cecfbbfe5016149a8948d805ff", "used_for": "bối cảnh phân tích"},
+    {"path": "04_PHASE15_EXTRACTS/PHASE15/fuse_deep.json", "sha256": "4185ad04799541a6fbed3a5e069c450618f9197db135465a1ca8b90e2e0c77b3", "used_for": "topology DISPLAY_EN/GSP_DIS/NVDEC_DIS; thống kê không dùng làm chứng silicon"},
+    {"path": "04_PHASE15_EXTRACTS/TOOLS/fuse_dump2.py", "sha256": "c2484927990fb684cec3ae7d54540394a94d509e1dda625f67da66f078e4efd4", "used_for": "provenance mmap: BDF 0000:03:00.0, resource0 PROT_READ, FUSE=0x021000, trang 4KB, key=byte offset"},
+    {"path": "04_PHASE15_EXTRACTS/TOOLS/fuse_read.py", "sha256": "58a99a695eb97fabd5a5d6d0719d0944ccb0e6d5c0970684643c62b6665d989c", "used_for": "provenance aperture kép 0x820000/0x21000"},
+    {"path": "05_PHASE21_EXTRACTS/evidence/display_gate.json", "sha256": "492e6e8604638d2da1f57e24d6c316c062fef8a8a4e20ec00f5a0bc002f38b69", "used_for": "đối chiếu; correction số dòng dispatch 1941/1943 → 2096"},
+    {"path": "05_PHASE21_EXTRACTS/evidence/display_gate_exact_tag.json", "sha256": "496516018277f2561b1dfa602324eb5091f412245239e3476265c6f79f855cb8", "used_for": "local_header ENABLE=0"},
+    {"path": "05_PHASE21_EXTRACTS/evidence/host_display_gate_source_availability.json", "sha256": "50313660b4ac30d2c5817d2e6f1e6ed7f636d80a490b4e63a561524ecd799350", "used_for": "local snapshot thiếu implementation body"},
+    {"path": "05_PHASE21_EXTRACTS/evidence/fuse_header_inventory.json", "sha256": "22a3a34bbbfa1760375dbc8cdd34e92d164a861ea43e68ed406b44995d609a78", "used_for": "chỉ GM107 header có STATUS_OPT_DISPLAY"}
+  ],
+  "web_sources": [
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/common/inc/swref/published/maxwell/gm107/dev_fuse.h", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-04", "snippet": "NV_FUSE_STATUS_OPT_DISPLAY 0x00021C04 R-I4R; ..._DATA 0:0 R-IVF; ..._DATA_ENABLE 0x00000000 R---V", "applicability_TU106": "cầu nối địa chỉ cho họ TU (TU102 header không chứa reg này)"},
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/common/inc/swref/published/turing/tu102/dev_fuse.h", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-04", "snippet": "chỉ OPT_SECURE_GSP_DEBUG_DIS 0x2174C RWIVF và OPT_NVDEC_DISABLE 0x21378 RWIVF INIT=0", "applicability_TU106": "chứng minh TU102 header thiếu STATUS_OPT_DISPLAY"},
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/nvidia/src/kernel/gpu/arch/maxwell/kern_gpu_gm107.c", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-04", "snippet": "gpuFuseSupportsDisplay_GM107: return GPU_FLD_TEST_DRF_DEF(pGpu, _FUSE, _STATUS_OPT_DISPLAY, _DATA, _ENABLE); comment 'Some chips not marked displayless do not support display'", "applicability_TU106": "TU106 chọn HAL GM107 ⇒ thân này áp dụng"},
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/nvidia/generated/g_gpu_nvoc.c", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-03", "snippet": "gán gpuFuseSupportsDisplay_GM107 tại dòng 2096 (block 2093-2114, __nvoc_init_funcTable_OBJGPU)", "applicability_TU106": "dispatch trực tiếp"},
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/61dcc93722ecb418bb5f2e00923f05b4b8051dd1/src/nvidia/generated/g_gpu_nvoc.c", "tag": "615.71.09", "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1", "accessed": "2026-11-03", "snippet": "gán GM107 tại dòng 2107 (block 2104-2125)", "applicability_TU106": "dispatch ở tag thứ hai"},
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/nvidia/arch/nvalloc/unix/src/osinit.c", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-04", "snippet": "RmSetConsolePreservationParams: if (!gpuFuseSupportsDisplay_HAL(pGpu)) return; (dòng 1097; cache hiển thị 1098 do wrapper)", "applicability_TU106": "caller host"},
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/nvidia/src/kernel/gpu/disp/kern_disp.c", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-03", "snippet": "kdispStatePreInitLocked_IMPL (dòng 435): if (!gpuFuseSupportsDisplay_HAL(pGpu)) return NV_ERR_NOT_SUPPORTED; (443-444)", "applicability_TU106": "caller display pre-init"},
+    {"url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/nvidia/src/kernel/gpu/gsp/arch/turing/kernel_gsp_tu102.c", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-04", "snippet": "dòng 651: if (gpuFuseSupportsDisplay_HAL(pGpu) && kdispGetVgaWorkspaceBase(...)) else vgaWorkspaceOffset = fbSize − DRF_SIZE(NV_PRAMIN)", "applicability_TU106": "caller GSP VGA workspace"},
+    {"url": "https://sourcegraph.com/.api/search/stream?q=repo:%5Egithub%5C.com/NVIDIA/open-gpu-kernel-modules%24@1a82fbfda8f321b056eb3568850f9316c5e465c5%20gpuFuseSupportsDisplay_HAL%20count:100", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-04", "snippet": "matchCount 4 exhaustive: g_gpu_nvoc.h:3841 (macro), osinit.c:1097, kern_disp.c:443, kernel_gsp_tu102.c:651", "applicability_TU106": "danh sách caller đầy đủ @78.08"},
+    {"url": "https://sourcegraph.com/.api/search/stream (71.09 gpuFuseSupportsDisplay count:31)", "tag": "615.71.09", "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1", "accessed": "2026-11-03", "snippet": "31 matches read-side; thân GM107 @71.09 dòng 62-84 giống 78.08; caller osinit.c:1097, kern_disp.c:443, kernel_gsp_tu102.c:650", "applicability_TU106": "ổn định giữa hai tag"},
+    {"url": "https://api.github.com/repos/NVIDIA/open-gpu-kernel-modules/git/tags/4bfe30bb78e7364959e59c16cfefd88e8c14670e", "tag": "615.78.08", "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5", "accessed": "2026-11-04", "snippet": "annotated tag → commit 1a82fbf…, tagger 2026-10-07, SSH sig verification=unknown_key", "applicability_TU106": "chốt tag"},
+    {"url": "https://api.github.com/repos/NVIDIA/open-gpu-kernel-modules/git/tags/d2a24f90e843359450ab313a286f43a88d95c6ce", "tag": "615.71.09", "commit": "61dcc93722ecb418bb5f2e00923f05b4b8051dd1", "accessed": "2026-11-04", "snippet": "annotated tag → commit 61dcc93…, tagger 2026-09-09", "applicability_TU106": "chốt tag"}
+  ]
+}

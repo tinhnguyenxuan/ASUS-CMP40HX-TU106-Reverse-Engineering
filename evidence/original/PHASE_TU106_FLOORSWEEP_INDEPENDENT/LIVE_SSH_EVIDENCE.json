@@ -1,0 +1,17 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "REDACTED_USER@<REDACTED_LAB_IP>"
+  ],
+  "started_utc": "2026-11-05T17:38:36.031997+00:00",
+  "finished_utc": "2026-11-05T17:38:36.305636+00:00",
+  "exit_code": 255,
+  "stdout": "",
+  "stderr": "Pseudo-terminal will not be allocated because stdin is not a terminal.\ntinh@<REDACTED_LAB_IP>: Permission denied (publickey,password).\n",
+  "authentication": "BatchMode only",
+  "remote_commands_executed": false
+}

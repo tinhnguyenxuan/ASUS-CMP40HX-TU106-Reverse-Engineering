@@ -1,0 +1,20 @@
+{
+  "input_hash_matches": true,
+  "source_header_hash_matches": true,
+  "records_checked": 496,
+  "external_records": 38,
+  "compressed_size_nonzero": 0,
+  "pdata_nonzero": 0,
+  "fingerprint_review": [
+    {
+      "file_offset": 140152,
+      "raw_matches_fingerprint": true,
+      "correct_va_for_this_rodata_mapping": "0x4022338",
+      "reported_section_va": "0x4022338",
+      "reported_global_va_invalid": "0x40022338",
+      "reported_global_va_matches": false
+    }
+  ],
+  "accepted": "Source-backed header/record meanings and observed raw fingerprint equality. Exact driver release and full compatibility/engine names remain unproven.",
+  "required_correction": "Discard global_va derived with 0x40000000; correct code/rodata delta is 0x03ffffc0. Do not treat matching filename-list fingerprint as proof of byte-identical firmware versions."
+}

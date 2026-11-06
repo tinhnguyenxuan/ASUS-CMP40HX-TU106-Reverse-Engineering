@@ -1,0 +1,19 @@
+Bạn là Hermes thực hiện trực tiếp nghiên cứu CMP40HX/TU106 theo ủy quyền người dùng; Codex điều phối và kiểm tra kết quả. Không dùng /goal, không resume session, không mở thêm Hermes con. Workspace /home/REDACTED_USER/codex-work/work_v15. Chỉ offline trên file, giữ nguyên binary/archive; không quét/ghi phần cứng, không flash/nạp ROM, OTP/MMIO/PCI writes, reboot/driver reload, đổi clock/voltage, exploit/bypass hay brute-force key. Không đổi model/config. Dùng /usr/bin/python3.
+
+Nhiệm vụ: giải cấu trúc TOÀN BỘ container outputs/ucodes_tu10x.bin, thay vì kế thừa danh sách11blob không đầy đủ. Tạo script và kết quả thật, lưu từng bước; đây là job chạy riêng nên không cần hoàn tất nghiên cứu toàn GPU trong một lời đáp.
+
+Đọc CODEX_CMP40HX_HANDOFF.md ở thư mục cha workspace và PHASE16/firmware_audit.json để biết bối cảnh; coi artifact là đầu mối cần kiểm chứng, không là sự thật mặc định.
+
+Giả thuyết cấu trúc cần kiểm tra độc lập (không tự gọi là format spec):
+- Header có thể là struct <8sIIQ ở offset0: magic NVUCODES, version, count=496 ở0x0c, fingerprint64. Không mặc định496 là header_size.
+- Header dài24, theo sau496 record dài24; thử record <QQII gồm length64, unknown64, marker32, file_offset32. Với giả thuyết này marker của record20 nằm0x208; length tại0x1f8; offset dữ liệu0x2f00. Không hardcode38 như total nếu có record hợp lệ khác.
+- Lập danh sách TOÀN BỘ496slot kể cả zero, size-only, marker khác4; kiểm tra bounds, overflow, alignment, duplicate/overlap, table end, padding header tới payload đầu, khoảng cách giữa payload và EOF.
+- Đối chiếu độc lập scan marker+offset trước0x2f00 với parse record, giải thích chênh lệch nếu có; không dùng EOF làm độ dài blob10 khi còn payload sau nó.
+
+Deliverables dưới PHASE16:
+1. firmware_container_verify.py, không quá150dòng nếu có thể: tự đọc binary bằng struct, tính SHA256; parse header/allslots và payload intervals, SHA256/entropy từngpayload, gap zero/nonzero. Không cài package mới.
+2. firmware_container_verified.json gồm inputhash, headerraw, hypothesis, mọi raw record/offset, phân loại record, extents với evidence, invalid/unresolved entries, covered/uncovered spans. Viết JSON trước báo cáo.
+3. FIRMWARE_CONTAINER_VERIFIED.md tối đa100dòng: cấu trúc đã chứng minh từbyte so với trường còn UNKNOWN, inventory/padding/coverage, bác bỏ hoặc xác nhận “chỉ11blob”. Không suy luận AES/ISA/chức năng chỉ từ entropy. Chưa có source producer/consumer thì ghi INFERRED cho layout ngữnghĩa, DECODED cho raw field/extent.
+4. Lưu stdout/stderr/exitcode trong firmware_container_verify_run.log; ghi chính xác lệnh tái lập. Cập nhật PHASE16/CHECKPOINT.json nhánh firmware, giữ các nhánh khác; không đánh dấu toàn GPU DONE.
+
+Chạy tool thật, tự kiểm tra output trước trả lời. Nếu có lỗi thì sửa theo traceback, không báo đãchạy chỉ vì đãviếtfile. Trả kết quả ngắn với sốrecord/payload đã kiểm, các unknown và file. Đừng mở rộng ngoài container trong job này.

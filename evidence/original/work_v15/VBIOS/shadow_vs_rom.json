@@ -1,0 +1,15 @@
+{
+ "shadow_size": 1048576,
+ "shadow_sha256": "2715c0b106931b540b5ef6660201919e9297f3f5cdc61432d9a16352c55b717a",
+ "shadow_starts_55aa": true,
+ "shadow_pcir_off": 368,
+ "rom_size": 1048576,
+ "rom_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+ "rom_starts": "b'NVGI'",
+ "best_match": {
+  "cand": 165376,
+  "offset_hex": "0x028600",
+  "ratio": 1.0
+ },
+ "conclusion": "BAR0 0x300000 = VBIOS shadow bat dau bang legacy 55AA header; ROM file la container bat dau NVGIf"
+}

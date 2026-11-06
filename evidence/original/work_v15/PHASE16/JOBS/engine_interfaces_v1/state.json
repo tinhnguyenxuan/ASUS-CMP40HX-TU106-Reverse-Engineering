@@ -1,0 +1,12 @@
+{
+  "job": "engine_interfaces_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T18:42:24.074158+00:00",
+  "wrapper_pid": 1653448,
+  "task_sha256": "4302e5874c5c0dc0fab715be1c6718e52becd276f46a4533e2973e54f57f7e99",
+  "hermes_pid": 1653449,
+  "hermes_start_ticks": "209728995",
+  "heartbeat_at": "2026-11-03T18:48:38.269886+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T18:48:40.271709+00:00"
+}

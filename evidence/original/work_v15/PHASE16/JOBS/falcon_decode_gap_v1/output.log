@@ -1,0 +1,26 @@
+Hoàn tất. Tóm tắt kết quả (tiếng Việt, theo yêu cầu người dùng):
+
+## Đã làm
+Tạo thư mục độc lập `/home/REDACTED_USER/codex-work/work_v15/PHASE16/FALCON_DECODE_GAP/` chứa:
+- `falcon_decode_gap.py` — script tái lập (chỉ đọc đầu vào, không GPU/MMIO/flash/khí/chí/brute-force, không đụng outputs cũ)
+- `machine.json`, `FALCON_DECODE_GAP_REPORT.md`, `run.log`, `input_hashes.json`
+- Bản sao các span + cửa sổ gap để kiểm tra lại
+
+Outputs cũ (`FALCON_CFG_REBUILD/`, `FALCON_PAYLOAD_DEEP/`) không bị sửa (mtime giữ nguyên).
+
+## Sự kiện đã tự kiểm lập (khớp 100% task)
+| slot | entry | prefix_end | gap_start | gap bytes | abs offset | verified từ container gốc |
+|------|-------|------------|-----------|-----------|------------|---------------------------|
+| 20 | 0x2A | 0x68 | 0x68 | `3e74fe00` | 0x2F68 | True |
+| 150/156 | 0x16 | 0x34 | 0x34 | `89000000` | 0x161134 / 0x41A434 | True |
+| 481/484/487/490/493 | 0x16 | 0x37 | 0x37 | `89000000` | 0x7D2837 … | True |
+
+## Kết luận (bounded negative, PHẢI SỐ)
+Khoảng cáchgap **phụ thuộc phiên bản Falcon ISA** của envydis, không phân loại ràng buộc được mà không biết phiên bản thực:
+- **mặc định / fuc0 / fuc3**: byte `0x3e` / `0x89` là opcode **UNKNOWN (undecodable)** → dưới bản dùng trong phase trước, gap thực sự không giải mã được.
+- **fuc4/fuc5/fuc6**: slot20 `3e74fe00` = `lbra 0xfe74` (nhánh dài → biên định dạng/nhánh nhảy); byte sau (`xcld`) cũng hợp lệ.
+- **fuc5/fuc6**: các gap còn lại `89000000` = `mov $r9, 0x0` (khởi tạo thanh ghi), theo sau là `ld` hợp lệ → giống tiếp tục mã, không phải padding/ngẫu nhiên.
+
+Nhưng "cú pháp hợp lệ không bằng chứng là mã": phiên bản Falcon thực **không được xác định** bởi bất kỳ trường head16/manifest/header nào (head16 là mẫu cố định, không có trường phiên bản/mode; không tìm thấy manifest). Do đó verdict: **BOUNDED NEGATIVE** — gap là UNKNOWN cho đến khi có bằng chứng phiên bản/mode Falcon. Bằng chứng còn thiếu: phiên bản/mode ISA của các payload này.
+
+Không đẩy mục anni vào mã, không suy luận vai trò engine từ số slot hoặc entropy, không thao tác phần cứng.

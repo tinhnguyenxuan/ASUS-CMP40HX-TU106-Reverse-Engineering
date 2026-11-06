@@ -1,0 +1,12 @@
+{
+  "job": "fw_payload_isa_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:45:41.403516+00:00",
+  "wrapper_pid": 1643134,
+  "task_sha256": "5c97185da0d42b5c29f407513cb0816819c5ab09811a279069f9b143769ef6ae",
+  "hermes_pid": 1643135,
+  "hermes_start_ticks": "208668728",
+  "heartbeat_at": "2026-11-03T15:57:33.865311+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:57:35.866751+00:00"
+}

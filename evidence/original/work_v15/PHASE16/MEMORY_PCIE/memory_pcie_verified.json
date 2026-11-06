@@ -1,0 +1,1142 @@
+{
+ "schema": "memory_pcie_verified/v1",
+ "gpu": "TU106 [CMP 40HX] 0000:03:00.0",
+ "mode": "offline read-only; no /sys /dev /GPU probe; no config/write changes",
+ "inputs": {
+  "PCIE/pcie_map.json": {
+   "sha256": "083aecf49a60e26458cd0785af80c0e935b65873064530609b1d0c1c2baa8e00"
+  },
+  "PCIE/q3_link.json": {
+   "sha256": "b94b56c7c37caef87a0bb2ddf1606d4ac2a9221cbf64d94eec2f23613a6e84a0"
+  },
+  "RAW_DATA/q3_pcie.txt": {
+   "sha256": "6b5aa7450b8e1d4ee9d48236d2c332922302c06fcd754ff362ea7d29f2744bce"
+  },
+  "MEMORY/memory_registers.json": {
+   "sha256": "4cc3aae6abf2317589f172f240ee7451b76114bf80b54e5797ded9e61a445077"
+  },
+  "RAW_DATA/bar3_hot.bin": {
+   "sha256": "956c7b3ef2322c5ad5603f0cbc7f7defefa0bfb5678c276c0d91854099712d9c",
+   "bytes": 262144
+  },
+  "TOPOLOGY/p9_bar3_parsed.json": {
+   "sha256": "98f5851407c17f098fc1baf69c18477c8f63256157fc04eed4fe5813096726f2"
+  },
+  "TOPOLOGY/p9_barscan.json": {
+   "sha256": "46487c9cb6d21003b495c7c2db66e70e2d92e75a1e6d295c448b55a58320bcdc"
+  },
+  "TOPOLOGY/p9_stability.json": {
+   "sha256": "b77c839bc79cfd22dc10c816c2f93a1abdb63f06810a41af4c149f49591e0e01"
+  },
+  "TOOLS/p9_bar3dump.py": {
+   "sha256": "0223295028ff7a0141203a0e2eb2e5bb598882194ebf166d0f717ef6b8d5729e"
+  },
+  "SECURITY/security_registers.json": {
+   "sha256": "a52f335a75b2176c4790f02198fa79faa448b58b1bd7f406f94085e6a9f129f9"
+  },
+  "source/tu102/dev_mmu.h": {
+   "sha256": "1668eb3c9399b35fc2e2c6a5f6986ff65be6151d9f110f569b9ca6cc25104c06"
+  },
+  "source/tu102/dev_vm.h": {
+   "sha256": "8ea9a40bed9a857385f38f94d074081ac3d775676c6204ba72a2e883898faea6"
+  }
+ },
+ "pcie_config_raw": {
+  "file": "PCIE/pcie_map.json config_space_64",
+  "bytes_offset": "0x00..0x3F",
+  "hex": "de100b1f07051000a100020300000000000000fa0c000000103800000c0000000838000001e000000000000043100488000000006000000000000000ff010000"
+ },
+ "pcie_identity": {
+  "vendor": "0x10DE",
+  "device": "0x1F0B",
+  "revision": "0xA1",
+  "class": "030200",
+  "subsystem": "0x1043:0x8804",
+  "cap_ptr_first": "0x60 @ config+0x34",
+  "basis_lines": "RAW_DATA/q3_pcie.txt lines 1-4, 81-83; PCIE/pcie_map.json config_space_64"
+ },
+ "bars": [
+  {
+   "reg_off": 16,
+   "raw": 4194304000,
+   "io": false,
+   "mem64": false,
+   "prefetch": false,
+   "addr_lo": 4194304000
+  },
+  {
+   "reg_off": 20,
+   "raw": 12,
+   "io": false,
+   "mem64": false,
+   "prefetch": true,
+   "addr_lo": 0
+  },
+  {
+   "reg_off": 24,
+   "raw": 14352,
+   "io": false,
+   "mem64": false,
+   "prefetch": false,
+   "addr_lo": 14352
+  },
+  {
+   "reg_off": 28,
+   "raw": 12,
+   "io": false,
+   "mem64": false,
+   "prefetch": true,
+   "addr_lo": 0
+  },
+  {
+   "reg_off": 32,
+   "raw": 14344,
+   "io": false,
+   "mem64": false,
+   "prefetch": true,
+   "addr_lo": 14336
+  },
+  {
+   "reg_off": 36,
+   "raw": 57345,
+   "io": true,
+   "mem64": false,
+   "prefetch": false,
+   "addr_lo": 57344
+  }
+ ],
+ "bar_decode": [
+  {
+   "bar": 0,
+   "pair": [
+    0
+   ],
+   "base": 4194304000,
+   "raw_lo": 4194304000,
+   "raw_hi": null
+  },
+  {
+   "bar": 1,
+   "pair": [
+    1
+   ],
+   "base": 0,
+   "raw_lo": 12,
+   "raw_hi": null
+  },
+  {
+   "bar": 2,
+   "pair": [
+    2
+   ],
+   "base": 14352,
+   "raw_lo": 14352,
+   "raw_hi": null
+  },
+  {
+   "bar": 3,
+   "pair": [
+    3
+   ],
+   "base": 0,
+   "raw_lo": 12,
+   "raw_hi": null
+  },
+  {
+   "bar": 4,
+   "pair": [
+    4
+   ],
+   "base": 14336,
+   "raw_lo": 14344,
+   "raw_hi": null
+  },
+  {
+   "bar": 5,
+   "pair": [
+    5
+   ],
+   "base": 57344,
+   "raw_lo": 57345,
+   "raw_hi": null
+  }
+ ],
+ "resource_ranges_raw": [
+  {
+   "lo": "0x0000FA000000",
+   "hi": "0x0000FAFFFFFF",
+   "size_bytes": 16777216,
+   "size_MiB": 16.0,
+   "flags": "0x00040200"
+  },
+  {
+   "lo": "0x381000000000",
+   "hi": "0x381FFFFFFFFF",
+   "size_bytes": 68719476736,
+   "size_MiB": 65536.0,
+   "flags": "0x0014220C"
+  },
+  {
+   "lo": "0x380800000000",
+   "hi": "0x380801FFFFFF",
+   "size_bytes": 33554432,
+   "size_MiB": 32.0,
+   "flags": "0x0014220C"
+  },
+  {
+   "lo": "0x00000000E000",
+   "hi": "0x00000000E07F",
+   "size_bytes": 128,
+   "size_MiB": 0.0,
+   "flags": "0x00040101"
+  }
+ ],
+ "capabilities_from_lspci_text": [
+  {
+   "cap": "[60]",
+   "name": "Power Management v3",
+   "line": 47
+  },
+  {
+   "cap": "[68]",
+   "name": "MSI 64bit",
+   "line": 48
+  },
+  {
+   "cap": "[78]",
+   "name": "Express v2 Endpoint",
+   "line": 49
+  },
+  {
+   "cap": "[bb0]",
+   "name": "Physical Resizable BAR v1",
+   "line": 74
+  }
+ ],
+ "root_port": {
+  "bdf": "0000:00:02.0",
+  "type": "Express v2 Root Port",
+  "DLActive": true,
+  "line": 82
+ },
+ "link": {
+  "card": {
+   "LnkCap": "5GT/s x16",
+   "LnkCtl2_target": "5GT/s",
+   "LnkSta_runtime": "2.5GT/s (downgraded) x16",
+   "lines": "q3_pcie.txt 27,38,40"
+  },
+  "root": {
+   "LnkCap": "8GT/s x16",
+   "LnkCtl2_target": "5GT/s",
+   "LnkSta_runtime": "2.5GT/s x16",
+   "DLActive": true,
+   "lines": "q3_pcie.txt 108,124,126"
+  },
+  "conclusion": "ca hai dau target 5 GT/s nhung runtime 2.5 GT/s -> link training chua dat target; khong duoc bao gio boi root port gioi han",
+  "conclusion_source": "PCIE/q3_link.json conclusion + q3_pcie.txt lines 21-24"
+ },
+ "rebar": {
+  "evidence": "q3_pcie.txt line 74 (cap [bb0]) + lines 75-77 + resource ranges",
+  "BAR0": "current 16MB / supported 16MB",
+  "BAR1": "current 64GB / supported 64MB..256GB (64GB trong danh sach duoc ho tro)",
+  "BAR3": "current 32MB / supported 32MB",
+  "note": "'64G' chuoi duy khong chung minh duoc day du khoi giai ma; span duoc chung minh bo resource range raw 381000000000-381fffffffff (64 GiB) va 380800000000-380801ffffff (32 MiB)"
+ },
+ "bar3_provenance": {
+  "tool": "TOOLS/p9_bar3dump.py",
+  "tool_mapping_source": "mo /sys/bus/pci/devices/0000:03:00.0/resource3, doc mmap [0x0:0x40000), ghi file byte 1:1",
+  "mapping": "file_offset == BAR3_window_offset == BAR3_address - 0x380800000000",
+  "bar3_base_from_config": "BAR3 reg config+0x1C = 0x0000000C (64-bit prefetchable mem), BAR4 reg config+0x20 = 0x00003808 -> base 0x380800000000",
+  "bar3_size_from_resource": "resource3 0x380800000000..0x380801FFFFFF = 32 MiB",
+  "file_size": 262144,
+  "file_sha256": "956c7b3ef2322c5ad5603f0cbc7f7defefa0bfb5678c276c0d91854099712d9c",
+  "size_matches_tool_window": true,
+  "archived_parse_match_recompute": true,
+  "note": "khong the lay lai tu thiet lam (offline, doc only); mapping co so la config decode + nguon tool p9_bar3dump.py"
+ },
+ "bar3_inventory": {
+  "pages_total": 64,
+  "pages_with_data": 48,
+  "nonzero_bytes_total": 47069,
+  "nonzero_u32_total": 17774,
+  "nonzero_u64_total": 9245,
+  "csv": "bar3_entries.csv"
+ },
+ "id_patterns": {
+  "scan": "tat ca u32 le 4 byte trong bar3_hot.bin; pattern: hi16/lo16/full == 0x1F4F hoac 0x1F4E",
+  "matches": 50,
+  "matches_detail": [
+   {
+    "off": 65536,
+    "off_hex": "0x10000",
+    "align4": true,
+    "align16": true,
+    "page_align": true,
+    "u32_le": "0x1F4F4D02",
+    "u32_be": "0x024D4F1F",
+    "bytes": "024d4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 69632,
+    "off_hex": "0x11000",
+    "align4": true,
+    "align16": true,
+    "page_align": true,
+    "u32_le": "0x1F4F4C02",
+    "u32_be": "0x024C4F1F",
+    "bytes": "024c4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 73792,
+    "off_hex": "0x12040",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F4B02",
+    "u32_be": "0x024B4F1F",
+    "bytes": "024b4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 85984,
+    "off_hex": "0x14FE0",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F17F2",
+    "u32_be": "0xF2174F1F",
+    "bytes": "f2174f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 85992,
+    "off_hex": "0x14FE8",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F1602",
+    "u32_be": "0x02164F1F",
+    "bytes": "02164f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 86000,
+    "off_hex": "0x14FF0",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F17E2",
+    "u32_be": "0xE2174F1F",
+    "bytes": "e2174f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 86008,
+    "off_hex": "0x14FF8",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F1502",
+    "u32_be": "0x02154F1F",
+    "bytes": "02154f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 86016,
+    "off_hex": "0x15000",
+    "align4": true,
+    "align16": true,
+    "page_align": true,
+    "u32_le": "0x1F4F4802",
+    "u32_be": "0x02484F1F",
+    "bytes": "02484f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90112,
+    "off_hex": "0x16000",
+    "align4": true,
+    "align16": true,
+    "page_align": true,
+    "u32_le": "0x1F4EFB02",
+    "u32_be": "0x02FB4E1F",
+    "bytes": "02fb4e1f",
+    "hits": [
+     "hi16==0x1F4E"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90120,
+    "off_hex": "0x16008",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F4702",
+    "u32_be": "0x02474F1F",
+    "bytes": "02474f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90128,
+    "off_hex": "0x16010",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F4602",
+    "u32_be": "0x02464F1F",
+    "bytes": "02464f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90136,
+    "off_hex": "0x16018",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F4502",
+    "u32_be": "0x02454F1F",
+    "bytes": "02454f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90144,
+    "off_hex": "0x16020",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F4402",
+    "u32_be": "0x02444F1F",
+    "bytes": "02444f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90152,
+    "off_hex": "0x16028",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F4302",
+    "u32_be": "0x02434F1F",
+    "bytes": "02434f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90160,
+    "off_hex": "0x16030",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F4202",
+    "u32_be": "0x02424F1F",
+    "bytes": "02424f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90168,
+    "off_hex": "0x16038",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F4102",
+    "u32_be": "0x02414F1F",
+    "bytes": "02414f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90176,
+    "off_hex": "0x16040",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F4002",
+    "u32_be": "0x02404F1F",
+    "bytes": "02404f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90184,
+    "off_hex": "0x16048",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F1F02",
+    "u32_be": "0x021F4F1F",
+    "bytes": "021f4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90192,
+    "off_hex": "0x16050",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F1E02",
+    "u32_be": "0x021E4F1F",
+    "bytes": "021e4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90200,
+    "off_hex": "0x16058",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F1D02",
+    "u32_be": "0x021D4F1F",
+    "bytes": "021d4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90208,
+    "off_hex": "0x16060",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F1C02",
+    "u32_be": "0x021C4F1F",
+    "bytes": "021c4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90216,
+    "off_hex": "0x16068",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F1B02",
+    "u32_be": "0x021B4F1F",
+    "bytes": "021b4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90224,
+    "off_hex": "0x16070",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F1A02",
+    "u32_be": "0x021A4F1F",
+    "bytes": "021a4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90232,
+    "off_hex": "0x16078",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F1902",
+    "u32_be": "0x02194F1F",
+    "bytes": "02194f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 90240,
+    "off_hex": "0x16080",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F1802",
+    "u32_be": "0x02184F1F",
+    "bytes": "02184f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 91128,
+    "off_hex": "0x163F8",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F4A02",
+    "u32_be": "0x024A4F1F",
+    "bytes": "024a4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 159744,
+    "off_hex": "0x27000",
+    "align4": true,
+    "align16": true,
+    "page_align": true,
+    "u32_le": "0x1F4F4902",
+    "u32_be": "0x02494F1F",
+    "bytes": "02494f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 167232,
+    "off_hex": "0x28D40",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4E0001",
+    "u32_be": "0x01004E1F",
+    "bytes": "01004e1f",
+    "hits": [
+     "hi16==0x1F4E"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 171328,
+    "off_hex": "0x29D40",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4E0001",
+    "u32_be": "0x01004E1F",
+    "bytes": "01004e1f",
+    "hits": [
+     "hi16==0x1F4E"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 180224,
+    "off_hex": "0x2C000",
+    "align4": true,
+    "align16": true,
+    "page_align": true,
+    "u32_le": "0x1F4F1202",
+    "u32_be": "0x02124F1F",
+    "bytes": "02124f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 184320,
+    "off_hex": "0x2D000",
+    "align4": true,
+    "align16": true,
+    "page_align": true,
+    "u32_le": "0x1F4F1102",
+    "u32_be": "0x02114F1F",
+    "bytes": "02114f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188480,
+    "off_hex": "0x2E040",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F1002",
+    "u32_be": "0x02104F1F",
+    "bytes": "02104f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188488,
+    "off_hex": "0x2E048",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F0F02",
+    "u32_be": "0x020F4F1F",
+    "bytes": "020f4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188496,
+    "off_hex": "0x2E050",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F0E02",
+    "u32_be": "0x020E4F1F",
+    "bytes": "020e4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188504,
+    "off_hex": "0x2E058",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F0D02",
+    "u32_be": "0x020D4F1F",
+    "bytes": "020d4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188512,
+    "off_hex": "0x2E060",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F0C02",
+    "u32_be": "0x020C4F1F",
+    "bytes": "020c4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188520,
+    "off_hex": "0x2E068",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F0B02",
+    "u32_be": "0x020B4F1F",
+    "bytes": "020b4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188528,
+    "off_hex": "0x2E070",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F0A02",
+    "u32_be": "0x020A4F1F",
+    "bytes": "020a4f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188536,
+    "off_hex": "0x2E078",
+    "align4": true,
+    "align16": false,
+    "page_align": false,
+    "u32_le": "0x1F4F0902",
+    "u32_be": "0x02094F1F",
+    "bytes": "02094f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   },
+   {
+    "off": 188544,
+    "off_hex": "0x2E080",
+    "align4": true,
+    "align16": true,
+    "page_align": false,
+    "u32_le": "0x1F4F0802",
+    "u32_be": "0x02084F1F",
+    "bytes": "02084f1f",
+    "hits": [
+     "hi16==0x1F4F"
+    ],
+    "matches_pci_id": false
+   }
+  ],
+  "pci_ids_checked": {
+   "vendor": 4318,
+   "device": 7947,
+   "subvendor": 4163,
+   "subdevice": 34820
+  },
+  "conclusion": "KHONG duoc goi bang bang SKU table: khong gia tri nao trung ID PCI, xuat hien bo trong trang, khong co cau truc bang"
+ },
+ "gmmue_source": {
+  "file": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_mmu.h",
+  "PDE": {
+   "size_bytes": null,
+   "word0": {
+    "APERTURE_[1:0]": "0 invalid/1 vid/2 syscoh/3 sysnoncoh",
+    "SIZE_[3:2]": "0 full/1 half/2 quarter/3 eighth",
+    "ADDRESS_[31:4]": "SYNS or VID"
+   }
+  },
+  "PTE": {
+   "size_bytes": null,
+   "word0": [
+    "VALID_[0] (bit0=1)",
+    "PRIVILEGE_[1]",
+    "READ_ONLY_[2]",
+    "ENCRYPTED_[3]",
+    "ADDRESS_SYS_[31:4]",
+    "ADDRESS_VID_[28:4]",
+    "KIND_[11:4]"
+   ],
+   "word1": [
+    "VOL_[0]",
+    "APERTURE_[2:1] (0=vid mem)",
+    "LOCK_[3]",
+    "COMPTAGLINE_[63:44]",
+    "READ_DISABLE_[30]",
+    "WRITE_DISABLE_[31]"
+   ]
+  },
+  "KIND_encodings": {
+   "0": "PITCH",
+   "1": "Z16",
+   "2": "S8",
+   "3": "S8Z24",
+   "4": "ZF32_X24S8",
+   "5": "Z24S8",
+   "6": "GENERIC_MEMORY",
+   "7": "INVALID"
+  }
+ },
+ "driver_bar_mapping_source": {
+  "file": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_vm.h",
+  "found": {
+   "NV_VIRTUAL_FUNCTION_PRIV_BAR1_BLOCK": 3904,
+   "NV_VIRTUAL_FUNCTION_PRIV_BAR2_BLOCK": 3912
+  },
+  "note": "chi tim duoc register khoi BAR VF (BAR1_BLOCK 0xF40, BAR2_BLOCK 0xF48) voi TARGET/MODE; khong co dong source nao rang buoc CPU BAR3 aperture -> mapping driver BAR3 con UNKNOWN; khong doc BAR1_BLOCK theo yeu cau task"
+ },
+ "hypotheses": [
+  {
+   "id": "H1",
+   "name": "u32 0x1f4f../0x1f4e.. o BAR3 la bang ma SKU / ID thiet lap PCI",
+   "result": "REJECTED",
+   "basis": "bar3_hot.bin u32 inventory; config_space_64 +0x00/+0x02/+0x2C/+0x2E",
+   "reasons": [
+    "tat ca 50 lan xuat hien 0x1f4f/0x1f4e khong trung bat cu ID PCI nao (10de:1f0b, sub 1043:8804), khong co doi tuong alignment/endian bang bang, khong co cau truc bang"
+   ]
+  },
+  {
+   "id": "H2",
+   "name": "lap 0x00000008 tai 0x14000 la page directory / page table",
+   "result": "REJECTED",
+   "basis": "bar3_hot.bin +0x14000..",
+   "reasons": [
+    "gia tri hang lan = 0x00000008 khong chua dia chi (khong co bit [31:4] hop le nhu dev_mmu.h PTE/PDE_ADDRESS)",
+    "khong co bit VALID (bit 0 cua word0 PTE/PDE) danh dau entry co hai",
+    "stride 0x10 voi 12 byte zero giua cac gia tri khong phai kich thuc 8 byte cua PDE/PTE (NV_MMU_PDE__SIZE=8, NV_MMU_PTE__SIZE=8)",
+    "khong giam duoc page directory chi tu bit lap luan (yeu cau cau truy van task)"
+   ],
+   "detail": {
+    "run_at_0x14000": [
+     "0x14000",
+     "0x14FD0"
+    ],
+    "const8_runs": [
+     [
+      "0x14000",
+      "0x14FD0"
+     ],
+     [
+      "0x16088",
+      "0x16088"
+     ],
+     [
+      "0x16090",
+      "0x16090"
+     ],
+     [
+      "0x16098",
+      "0x16098"
+     ],
+     [
+      "0x160A0",
+      "0x160A0"
+     ],
+     [
+      "0x160A8",
+      "0x160A8"
+     ],
+     [
+      "0x160B0",
+      "0x160B0"
+     ],
+     [
+      "0x160B8",
+      "0x160B8"
+     ],
+     [
+      "0x160C0",
+      "0x160C0"
+     ],
+     [
+      "0x160C8",
+      "0x160C8"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "H3",
+   "name": "vung cuoi 0x3FE00..0x3FFF4 cua BAR3 la mang PTE GMMU (dev_mmu.h, 8 byte/entry)",
+   "result": "REJECTED (mang PTE lien ke) / word0 tuong thich PTE ca le",
+   "basis": "bar3_hot.bin +0x3FE00..+0x3FFF4; dev_mmu.h NV_MMU_PTE_*, NV_MMU_PTE__SIZE=8",
+   "reasons": [
+    "co 31 ban ghi 16 byte tai 0x3FE00..0x3FFF4: word0 co VALID=1, dia chi [31:4] 16-byte aligned, aperture=video memory, KIND=PITCH; word1 lap lai 0x06000000 (VOL=0, LOCK=0)",
+    "dia chi tang 131072 (0x20000) muc giua cac ban ghi",
+    "TU CHAP: stride cua ban ghi la 0x10 byte, khac PTE__SIZE=8 byte tu dev_mmu.h; 8 byte cua moi ban ghi (w2,w3) luon zero -> khong phai mang PTE lien ke theo dinh nghia source",
+    "tat ca ban ghi nam trong mot trang (0x3F000); khong the kiem tra duong bien trang ngoai cua cua so 0x40000"
+   ],
+   "records": [
+    {
+     "off": 261632,
+     "w0": "0x1FC00001",
+     "w1": "0x06000000",
+     "fields0": {
+      "VALID": 1,
+      "PRIVILEGE": 0,
+      "READ_ONLY": 0,
+      "ENCRYPTED": 0,
+      "ADDR_SYS_31_4": 33292288,
+      "ADDR_VID_28_4": 33292288,
+      "KIND_11_4": 0
+     },
+     "fields1": {
+      "VOL": 0,
+      "APERTURE_2_1": 0,
+      "LOCK": 0,
+      "COMPTAGLINE_63_44": 24576,
+      "READ_DISABLE": 0,
+      "WRITE_DISABLE": 0
+     }
+    },
+    {
+     "off": 261648,
+     "w0": "0x1FC20001",
+     "w1": "0x06000000",
+     "fields0": {
+      "VALID": 1,
+      "PRIVILEGE": 0,
+      "READ_ONLY": 0,
+      "ENCRYPTED": 0,
+      "ADDR_SYS_31_4": 33300480,
+      "ADDR_VID_28_4": 33300480,
+      "KIND_11_4": 0
+     },
+     "fields1": {
+      "VOL": 0,
+      "APERTURE_2_1": 0,
+      "LOCK": 0,
+      "COMPTAGLINE_63_44": 24576,
+      "READ_DISABLE": 0,
+      "WRITE_DISABLE": 0
+     }
+    },
+    {
+     "off": 261664,
+     "w0": "0x1FC40001",
+     "w1": "0x06000000",
+     "fields0": {
+      "VALID": 1,
+      "PRIVILEGE": 0,
+      "READ_ONLY": 0,
+      "ENCRYPTED": 0,
+      "ADDR_SYS_31_4": 33308672,
+      "ADDR_VID_28_4": 33308672,
+      "KIND_11_4": 0
+     },
+     "fields1": {
+      "VOL": 0,
+      "APERTURE_2_1": 0,
+      "LOCK": 0,
+      "COMPTAGLINE_63_44": 24576,
+      "READ_DISABLE": 0,
+      "WRITE_DISABLE": 0
+     }
+    },
+    {
+     "off": 261680,
+     "w0": "0x1FC60001",
+     "w1": "0x06000000",
+     "fields0": {
+      "VALID": 1,
+      "PRIVILEGE": 0,
+      "READ_ONLY": 0,
+      "ENCRYPTED": 0,
+      "ADDR_SYS_31_4": 33316864,
+      "ADDR_VID_28_4": 33316864,
+      "KIND_11_4": 0
+     },
+     "fields1": {
+      "VOL": 0,
+      "APERTURE_2_1": 0,
+      "LOCK": 0,
+      "COMPTAGLINE_63_44": 24576,
+      "READ_DISABLE": 0,
+      "WRITE_DISABLE": 0
+     }
+    },
+    {
+     "off": 261696,
+     "w0": "0x1FC80001",
+     "w1": "0x06000000",
+     "fields0": {
+      "VALID": 1,
+      "PRIVILEGE": 0,
+      "READ_ONLY": 0,
+      "ENCRYPTED": 0,
+      "ADDR_SYS_31_4": 33325056,
+      "ADDR_VID_28_4": 33325056,
+      "KIND_11_4": 0
+     },
+     "fields1": {
+      "VOL": 0,
+      "APERTURE_2_1": 0,
+      "LOCK": 0,
+      "COMPTAGLINE_63_44": 24576,
+      "READ_DISABLE": 0,
+      "WRITE_DISABLE": 0
+     }
+    }
+   ],
+   "record_count": 31
+  }
+ ],
+ "vram": {
+  "smi_text_block": "MEMORY/memory_registers.json smq",
+  "Total_MiB": 8192,
+  "Reserved_MiB": 389,
+  "Used_MiB": 0,
+  "Free_MiB": 7804,
+  "check_Total_Reserved_Used_vs_Free": 7803,
+  "delta_Free_MiB": 1,
+  "NVML_Reserved_vs_Total_Free_Used": {
+   "Reserved": 389,
+   "Total-Free-Used": 388,
+   "delta": 1
+  },
+  "BAR1_memory_MiB": {
+   "Total": 65536,
+   "Used": 2,
+   "Free": 65534
+  },
+  "basis": "memory_registers.json smq lines 2-4 (raw text)",
+  "unknowns": [
+   "hieu 1 MiB giua Free va Total-Reserved-Used chua ro (lam tron hay overlap)",
+   "Reserved (389) khong bang Total-Free-Used (388)"
+  ]
+ },
+ "wpr": {
+  "registers_runtime": {
+   "0x1FA824_NV_PFB_PRI_MMU_WPR2_ADDR_LO": "0x01F7E000",
+   "0x1FA828_NV_PFB_PRI_MMU_WPR2_ADDR_HI": "0x01FFEE00"
+  },
+  "source": "SECURITY/security_registers.json registers (runtime MMIO doc duoc)",
+  "corrected_formula": "VAL[31:4] << 12 == (val & 0xFFFFFFF0) << 8 (low nibble = 0)",
+  "WPR2_base": "0x1F7E00000",
+  "WPR2_end": "0x1FFEE0000",
+  "WPR2_size_bytes": 135135232,
+  "WPR2_size_MiB": 128.875,
+  "fits_within_8GiB_FB": true,
+  "conflicting_archived_values": {
+   "runtime_register_LO": "0x01F7E000",
+   "dmesg_boot_WPR_at_boot_lo": "0x1FFE000 (security_registers.json dmesg_facts.WPR_at_boot)",
+   "dmesg_facts_WPR2_lo": "0x1FFFFE00",
+   "dmesg_boot_commit_WPR2": "0:0x1FFFFE00"
+  },
+  "rule_applied": "KHONG tru WPR2 mac dinh khoi NVML Reserved: chua biet overlap/bo nho cap phat; gioi thue giua WPR2 va Reserved chua ro",
+  "corroboration": "EVIDENCE_LEDGER.md E16-007 deu same base/end (0x1F7E00000/0x1FFEE0000) va khoang cach 128.875 MiB"
+ },
+ "evidence_levels": {
+  "MEASURED": "doc thuc tu bytes file thau vao (config bytes, bar3_hot.bin, smq text)",
+  "DECODED": "gia quyet chuan PCIe / bitfield tu source dev_mmu.h tren du lieu thau",
+  "CORROBORATED": "hai nguon luu thau thuan nhat (vd config vs lspci text; parsed.json vs recompute)",
+  "INFERRED": "gia thuyet tu cau truc, chua duoc chuong trinh chu nghiem",
+  "REJECTED": "da kiem tra va bo loc boi rang buoc source",
+  "UNKNOWN": "co du lieu nhung chua du xu ly xac dinh"
+ },
+ "limitations": [
+  "Khong co moi tram PCIe/thuc runtime moi duoc doc: tat ca duong lien toc tu lspci luu cu (q3_pcie.txt).",
+  "Khong xac duoc whole GPU reverse engineering da HOAN TAT.",
+  "Khong doc VRAM/WPR khoi thiet lam, khong ghi BAR1_BLOCK."
+ ]
+}

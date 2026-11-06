@@ -1,0 +1,228 @@
+{
+ "data_count": 352,
+ "zero_count": 518,
+ "poison_count": 2202,
+ "distinct_values": 126,
+ "word_ones_count": 152,
+ "word_ones_regions": {
+  "unk1(0x100-0x1FF)": 32,
+  "unk2(0x200-0x3FF)": 18,
+  "unk3(0x400-0x5FF)": 42,
+  "unk4(0x600-0x7FF)": 33,
+  "unk5(0x800-0xBFF)": 14,
+  "unk6(0xC00-0xFFF)": 10,
+  "high(0x144C+)": 1,
+  "high(0x1458+)": 1,
+  "high(0x1470+)": 1
+ },
+ "top_values": [
+  {
+   "value": "0x2",
+   "count": 12
+  },
+  {
+   "value": "0x3",
+   "count": 11
+  },
+  {
+   "value": "0x4",
+   "count": 10
+  },
+  {
+   "value": "0x6",
+   "count": 8
+  },
+  {
+   "value": "0xbadf510c",
+   "count": 7
+  },
+  {
+   "value": "0xffffffff",
+   "count": 6
+  },
+  {
+   "value": "0xffffff8f",
+   "count": 5
+  },
+  {
+   "value": "0x7",
+   "count": 5
+  },
+  {
+   "value": "0x8000004f",
+   "count": 5
+  },
+  {
+   "value": "0xfffffffc",
+   "count": 4
+  },
+  {
+   "value": "0x5",
+   "count": 4
+  },
+  {
+   "value": "0x20",
+   "count": 4
+  },
+  {
+   "value": "0x3f",
+   "count": 3
+  },
+  {
+   "value": "0x80000043",
+   "count": 3
+  },
+  {
+   "value": "0x1b",
+   "count": 2
+  },
+  {
+   "value": "0x24",
+   "count": 2
+  },
+  {
+   "value": "0xc0040000",
+   "count": 1
+  },
+  {
+   "value": "0xff",
+   "count": 1
+  },
+  {
+   "value": "0x2000000c",
+   "count": 1
+  }
+ ],
+ "top_runs": [
+  {
+   "start": "0x1700",
+   "end": "0x1780",
+   "count": 33
+  },
+  {
+   "start": "0xb20",
+   "end": "0xb6c",
+   "count": 20
+  },
+  {
+   "start": "0x6f8",
+   "end": "0x734",
+   "count": 16
+  },
+  {
+   "start": "0xd4",
+   "end": "0x100",
+   "count": 12
+  },
+  {
+   "start": "0x7c0",
+   "end": "0x7ec",
+   "count": 12
+  },
+  {
+   "start": "0xbd0",
+   "end": "0xbfc",
+   "count": 12
+  },
+  {
+   "start": "0x3bc",
+   "end": "0x3e4",
+   "count": 11
+  },
+  {
+   "start": "0x638",
+   "end": "0x658",
+   "count": 9
+  },
+  {
+   "start": "0x16c",
+   "end": "0x188",
+   "count": 8
+  },
+  {
+   "start": "0x4a0",
+   "end": "0x4bc",
+   "count": 8
+  },
+  {
+   "start": "0x1e0",
+   "end": "0x1f8",
+   "count": 7
+  },
+  {
+   "start": "0x24c",
+   "end": "0x264",
+   "count": 7
+  },
+  {
+   "start": "0x464",
+   "end": "0x47c",
+   "count": 7
+  },
+  {
+   "start": "0x144c",
+   "end": "0x1464",
+   "count": 7
+  },
+  {
+   "start": "0xe08",
+   "end": "0xe1c",
+   "count": 6
+  }
+ ],
+ "topology": {
+  "PCI_ID": "0x1f0b",
+  "FAMILY": "0x1f4b",
+  "TPC_SM": "0x4001f",
+  "GPC": "0x38",
+  "GSP_DIS": "0x1",
+  "NVDEC_DIS": "0x0",
+  "DISPLAY_EN": "0x1"
+ },
+ "fuse718_raw": [
+  "0x57c095dc",
+  "0x839cf28e",
+  "0xbf493942",
+  "0x51c51e03",
+  "0x64375730",
+  "0xca078f03",
+  "0xe13b9d22",
+  "0x1e38c5b9"
+ ],
+ "fuse718_crc32": 1906181767,
+ "fuse718_adler32": 4184018454,
+ "bit_counts": {
+  "0": 249,
+  "2": 116,
+  "1": 114,
+  "3": 90,
+  "4": 71,
+  "31": 62,
+  "5": 61,
+  "16": 61,
+  "10": 58,
+  "17": 56,
+  "8": 55,
+  "28": 55,
+  "12": 54,
+  "9": 52,
+  "6": 51,
+  "22": 50,
+  "11": 50,
+  "14": 50,
+  "18": 49,
+  "19": 49,
+  "7": 48,
+  "23": 48,
+  "25": 47,
+  "20": 47,
+  "27": 47,
+  "15": 45,
+  "29": 43,
+  "26": 42,
+  "21": 40,
+  "30": 38,
+  "24": 38,
+  "13": 37
+ }
+}

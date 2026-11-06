@@ -1,0 +1,17 @@
+Hoàn tất. Deep dive đã chạy xong, tất cả artifacts ở `/home/REDACTED_USER/codex-work/work_v15/PHASE16/FALCON_PAYLOAD_DEEP/` (script, run.log, machine.json, report, input_hashes.json, spans/ + file .disasm đầy đủ mỗi ứng viên). Phân tích cũ dưới `FW_PAYLOAD_RISCV/` không bị đụng vào. Không dùng GPU/MMIO/khi/ký, không cài tool.
+
+Kết quả chính (tiếng Việt):
+
+- **8/8 span** đọc tại offset/length đã xác nhận trong `firmware_container_verified.json`, sha256 khớp hết; mỗi byte được phân loại thành lệnh hợp lệ hoặc khoảng không giải mã (dữ liệu), byte-pair accounting khớp chính xác (valid + gap = size).
+- **Sửa lỗi entry-offset của phase trước**: `envydis -d` nhận số **hæs**, phase trước truyền số thập phân → slot 20 bị ghi nhầm "0x24" (mã đầu tiên thực tế 0x2A; 0x36 là giữa dòng lệnh), 7 mục còn lại ghi nhầm "0x10" (thực tế 0x16). Entry được lấy lại từ bytes, không tin labels cũ.
+- **Mã Bootstrap Falcon giống hệt nhau trong 8 payload**: tải từ cấu trúc do thanh ghi live-in index, xây dựng giá trị cơ sở 64-bit, ghi `$xcbase`/`$xtargets`/`$xdbase`, thao tác XRAM (`xcld`/`xdld`/`xdst`), `xcwait`/`xdwait`, sau đó gọi gián tiếp `$r1`. Đây là dấu hiệu Falcon cụ thể — **không định danh engine từ ISA/kích thước/entropy/header tương đồng**.
+- **Nhiều vùng mã/điểm vào**: liệt kê tất cả vùng ghi thanh ghi đặc biệt Falcon. Điểm vào chính: slot 20 = **0x2A**, các mục khác = **0x16** (dấu `xcld`/`xdld` ở 0x6C/0xDB, `xcwait`/`xdwait`, `mov $xdbase` ở 0x7C/0xBF...).
+- **Luồng điều khiển**: tất cả lệnh `call` đều gián tiếp qua `$r1` (mục tiêu = UNKNOWN). Các nhánh với giá trị lớn (`0xFFFF...`) được ghi theo cả hai nghĩa tuyệt đối và PC-tương đối; các nhánh thoát biên được ghi kèm bytes/tham số thô (slot 150: 0x18E6; 156: 0x187E; 481: 0x4689; 484: 0x5889; 487: 0x461B; 490: 0x3DB0; 493: 0x17CF). Vùng không reachable từ điểm vào chính giữ UNKNOWN (hàng ngàn vùng nhỏ — nhất quán với bảng mã/bảng dữ liệu nhúng, không được phân loại là code).
+- **So sánh cặp**: header giống nhau theo nhóm (150=156; 481=484=487); prefix chung 268B (150-156), 512-919B (481/484/487); cấu trúc bootstrap chung trên cả 8.
+- **Chéo tham chiếu: KHÔNG có** tham số nào trùng offset container, địa chỉ đăng ký GSP/SEC2 (`0x110xxx`/`0x840xxx`), VA descriptor-table, hoặc địa chỉ disassemble GSP; không có chuỗi ASCII có ý nghĩa (rác 4-6 byte). → **Vai trò engine (GSP vs SEC2 vs khác) = UNKNOWN**, không được đoán từ dạng mã.
+
+**UNKNOWN được bảo toàn**: vai trò engine, mục tiêu gọi gián tiếp `$r1`, nhánh ambiguousabsolute/tương đối, vai trò các vùng nhỏ lẻ tẻ (dữ liệu/bảng, chưa phân loại).
+
+Các file: `falcon_payload_deep.py` (lệnh chạy lại), `run.log`, `machine.json` (tất cả chi tiết máy), `FALCON_PAYLOAD_DEEP_REPORT.md`, `input_hashes.json` (hash container/inventory/prior-source/envydis/script/nguồn), `spans/cand_NNNN.bin`, `cand_NNNN.disasm` (disassembly đầy đủ envydis).
+
+Cần thêm gì không (ví dụ: dump disassembly của vùng cụ thể, hoặc so sánh sâu hơn cặp nào)?

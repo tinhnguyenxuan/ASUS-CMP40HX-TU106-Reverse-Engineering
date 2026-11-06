@@ -1,0 +1,12 @@
+{
+  "job": "gsp_dataflow_fix_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:32:38.302395+00:00",
+  "wrapper_pid": 1688606,
+  "task_sha256": "51807d78efce81ab1dace8d943f24701f421d69f121541970d1586392c1f9d79",
+  "hermes_pid": 1688607,
+  "hermes_start_ticks": "210030418",
+  "heartbeat_at": "2026-11-03T19:43:56.688871+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:43:58.690161+00:00"
+}

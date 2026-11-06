@@ -1,0 +1,17 @@
+Bạn là Hermes được giao trực tiếp nghiên cứu CMP40HX/TU106. Không /goal, không --resume, không Hermes con. Workspace /home/REDACTED_USER/codex-work/work_v15. Chỉ phân tích file/public-source, không đụng GPU/config/model hay sửa binary/archive. Dùng /usr/bin/python3.
+
+Job firmware_container_v1 đã completed. Codex đối chiếu toàn bộ496record/38payloadhash với binary, không mismatch; review ở PHASE16/firmware_container_coordinator_review.json. Bây giờ làm BƯỚC TIẾN NGỮ NGHĨA, không chỉ báo cáo byte.
+
+Nguồn chính thức đã tìm được và bảo tồn tại PHASE16/SOURCES:
+- nvidia_bin_data_pvt.h (bản gốc /tmp/nvsrc/nvidia/src/kernel/core/bin_data_pvt.h). Định nghĩa BINDATA_UCODES_BIN_HEADER, BINDATA_STORAGE_PVT và các flags.
+- nvidia_bin_data.h: API và BINDATA_ARCHIVE_ENTRY; hai không gian index BINDATA_LABEL và global file slot không được đồng nhất tùy tiện.
+- manifest.json có hash/provenance/URL. Header tương ứng cũng có ở official https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/main/src/nvidia/src/kernel/core/bin_data_pvt.h . Không tự gán exact driver tag khi chưa biết.
+
+Làm các việc sau, lưu từng bước và chạy tool thật:
+1. Đọc header nguồn và sửa model record: BINDATA_STORAGE_PVT là actualSize u32, compressedSize u32, pData pointer64, flags u32, relOffset u32. Candidate struct cần kiểm tra <IIQII dài24, không phải coi8byteđầu là length64 độc lập. Tất cả input hiện tại flags=4 có thể là EXTERNAL chứ không phải enum “present”. Header numEntries nghĩa số possible bindata files tại build, fingerprint nghĩa hash danh sách filenames theoindex, không phải hash nội dung/chữký payload. Chỉ gọi CORROBORATED khi đối chiếu định nghĩa nguồn và raw thật.
+2. Tạo PHASE16/firmware_container_source_verify.py và firmware_container_source_verified.json: parse header/all496slots theo namedfields, lưu rawhex mỗi record, filehash và sourceheaderhash/line; kiểm tra tất cả actualSize/compressedSize/pData/flags/relOffset; đối chiếu all38payload hash/extents với artifact trước. Validate magic/version/tablebounds/count trước parse; derive first_payload từ validexternaloffsets, không hardcode0x2f00. Không tự xử lý record compressed nếu chưa có consumer: flags khác quan sát thì ghi unsupported, không giả định.
+3. Tìm fingerprint64 bytesLE và numEntries/fingerprint phối hợp trong outputs/gsp_tu10x.bin; lưu tất cả offsets/section+VA khi cómapping, raw context bounded. Nếu không có literal match thì ghi0, không kết luận cặp mismatch vì compiler có thể dựng hằng số. Không gán tênengine từ index nếu thiếu generated mapping.
+4. Ghi PHASE16/FIRMWARE_SOURCE_VERIFIED.md có lệnh tái lập, hash, field meanings từ nguồn so với unknown, engine/ISA/name mapping chưa giải. Sửa câu trong FIRMWARE_CONTAINER_VERIFIED.md dùng marker=present và fingerprintUNKNOWN khi nguồn đã trả lời; sửa count “blob10 chứa~21payload” thành số thực từ review (28), dùng tool tính chứ không đoán. Đừng ghi wholeGPU DONE.
+5. Chạy script và lưu PHASE16/firmware_container_source_verify_run.log stdout/stderr/exitcode. KHÔNG sửa CHECKPOINT.json/COORDINATION.json hay báo cáo subsystem khác để tránh xung đột; Codex sẽ merge.
+
+Không mở rộng ngoài format source verification và GSP pairing search. Trả kết quả thật + path, không suy AES/ISA/function từ entropy.

@@ -1,0 +1,74 @@
+{
+  "outer_sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+  "inner_sha256": "afa9ce3f65c28e1f6ab8c449e20e08bbb273855e3a97b1f5d332f57dfa9d68ea",
+  "entries": [
+    {
+      "command": "0x20800a26",
+      "hits": [
+        {
+          "inner_file_offset": "0x61498",
+          "outer_file_offset": "0x614d8",
+          "record_hex": "906cbb0400000000c0c0010000000000260a8020602a0000a804070400000000",
+          "function_va": "0x4bb6c90",
+          "flags": "0x1c0c0",
+          "access": "0x0",
+          "method": "0x20800a26",
+          "size": 10848,
+          "class_pointer": "0x40704a8"
+        }
+      ]
+    },
+    {
+      "command": "0x20800a27",
+      "hits": [
+        {
+          "inner_file_offset": "0x614b8",
+          "outer_file_offset": "0x614f8",
+          "record_hex": "c463bc04000000008000010000000000270a8020602a0000a804070400000000",
+          "function_va": "0x4bc63c4",
+          "flags": "0x10080",
+          "access": "0x0",
+          "method": "0x20800a27",
+          "size": 10848,
+          "class_pointer": "0x40704a8"
+        }
+      ]
+    },
+    {
+      "command": "0x2080123b",
+      "hits": [
+        {
+          "inner_file_offset": "0x63858",
+          "outer_file_offset": "0x63898",
+          "record_hex": "1cddbb040000000080000000000000003b12802018000000a804070400000000",
+          "function_va": "0x4bbdd1c",
+          "flags": "0x80",
+          "access": "0x0",
+          "method": "0x2080123b",
+          "size": 24,
+          "class_pointer": "0x40704a8"
+        }
+      ]
+    },
+    {
+      "command": "0x208001e7",
+      "hits": []
+    },
+    {
+      "command": "0x2080123c",
+      "hits": [
+        {
+          "inner_file_offset": "0x63878",
+          "outer_file_offset": "0x638b8",
+          "record_hex": "cc54c7040000000008000000000000003c128020fc070000a804070400000000",
+          "function_va": "0x4c754cc",
+          "flags": "0x8",
+          "access": "0x0",
+          "method": "0x2080123c",
+          "size": 2044,
+          "class_pointer": "0x40704a8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,373 @@
+/goal NVIDIA CMP 40HX FUNCTIONAL RESTORATION RESEARCH — CUDA, TENSOR CORES AND DISPLAY ENGINE
+
+Bạn là Autonomous NVIDIA TU106 Silicon and Firmware Reverse Engineering Agent.
+
+GPU mục tiêu:
+
+- NVIDIA CMP 40HX
+- TU106-100-A1
+- PCI ID 10DE:1F0B
+- Subsystem 8804:1043
+- Board CG161P REV 2.00
+- Linux NVIDIA driver 615.78.08
+
+Đọc toàn bộ dự án CMP40HX hiện có, đặc biệt Phase 15–20, mọi dữ liệu fuse/MMIO, VBIOS, GSP-RM, SEC2 và các báo cáo kiểm chứng.
+
+MỤC TIÊU CUỐI CÙNG:
+
+Xác định từng chức năng tính toán và đồ họa của TU106 bị giới hạn ở tầng nào, bằng cơ chế gì, và khả năng khôi phục chức năng đó.
+
+Ưu tiên CUDA, Tensor Core, display engine, graphics pipeline và các khối bị vô hiệu hóa khác.
+
+Không ưu tiên overclock, voltage.
+
+1. COMPUTE / CUDA CAPABILITY AUDIT
+* Nếu tìm trên internet có rồi thì có thể bỏ qua phần này không động vào tránh lãng phí thời gian và token
+Không mặc định CUDA bị vô hiệu hóa hoàn toàn.
+
+Phân biệt rõ:
+
+- CUDA runtime initialization
+- CUDA driver API
+- CUDA device enumeration
+- CUDA kernel execution
+- FP32/FP16 execution
+- Tensor Core WMMA/MMA
+- INT8 DP4A
+- cuBLAS/cuBLASLt
+- CUDA graph and synchronization
+- CUDA profiling / CUPTI
+- NVIDIA developer-tool policy
+- Driver/RM capability restrictions
+- Hardware-level compute throttling
+
+Xây dựng các chương trình thử nghiệm CUDA nhỏ, độc lập, có kiểm tra lỗi, để xác định:
+
+1. CUDA có nhận GPU không?
+2. GPU báo compute capability nào?
+3. Có cấp phát VRAM được không?
+4. Kernel FP32 cơ bản có thực thi đúng không?
+5. Tensor Core thực thi đúng nhưng chậm, hay không thực thi?
+6. Các thư viện CUDA có nhận card không?
+7. Profiling bị từ chối tại API nào?
+8. So sánh kết quả với các công bố công khai về CMP 40HX.
+
+Các bài thử runtime phải được giới hạn tài nguyên, không thay đổi clock, điện áp hay cấu hình thiết bị.
+
+Mọi kết quả cần phân biệt giữa:
+
+- Unsupported
+- Disabled by driver
+- Firmware restricted
+- Functionally available but throttled
+- Hardware absent
+- Unknown
+
+2. COMPUTE UNLOCK MECHANISM RE
+
+Phân tích tĩnh cơ chế bảo vệ hiệu năng tính toán.
+
+Đối chiếu:
+
+- NVIDIA open-gpu-kernel-modules
+- cmpunlocker source
+- GSP-RM
+- SEC2
+- FECS/GPCCS
+- GPU topology
+- Fuse/strap information
+
+Báo cáo Phase 19–20 cho biết:
+
+- FECS_SPEED0: 0x409664
+- FECS_SPEED1: 0x40966C
+- Stock có giá trị 0.
+- Trạng thái unlock có giá trị 0x88888888 và 0x8.
+- Các giá trị ghi thủ công có thể bị GSP khôi phục.
+
+NHIỆM VỤ:
+
+- Xác định chính xác vai trò các selector.
+- Truy nguyên thành phần khởi tạo chúng.
+- Xác định firmware/driver nào quản lý trạng thái.
+- Phân biệt giới hạn năng lực CUDA và giới hạn throughput.
+- Tìm nguồn kiểm chứng cho từng trạng thái.
+- Phân tích vì sao các thao tác ghi runtime không tồn tại lâu.
+- Tìm các giới hạn khác chưa được nhận dạng.
+- Thử exploit
+Không tự động thực hiện unlock, firmware patch, ghi MMIO hoặc .
+
+3. DISPLAY ENGINE REVERSE ENGINEERING — HIGH PRIORITY
+
+Đây là một trong hai mục tiêu quan trọng nhất.
+
+Câu hỏi cần trả lời:
+
+CMP 40HX có giữ lại phần cứng display engine của TU106 không?
+
+Nếu có, thành phần nào vô hiệu hóa nó?
+
+Phải phân biệt các tầng:
+
+A. Silicon
+
+- PDISP engine
+- Display heads
+- Window/plane engines
+- SOR
+- DisplayPort PHY
+- HDMI/TMDS PHY
+- AUX
+- Hot-plug detect
+- Display clock/reset domains
+
+B. Fuse/OTP
+
+- Display-related fuse
+- SKU capability mask
+- Disabled engine configuration
+- Physical vs shadow registers
+
+C. VBIOS
+
+- Display Configuration Block (DCB)
+- Connector table
+- GPIO table
+- I2C/DDC mappings
+- DP AUX mappings
+- Display init scripts
+- Board-specific feature flags
+
+D. Firmware
+
+- GSP-RM display initialization
+- Display capability reporting
+- Display engine discovery
+- Head and SOR enumeration
+- Failure/error paths
+
+E. Driver
+
+- NVIDIA DRM/KMS
+- DRM connector registration
+- Display capability queries
+- Headless graphics support
+- NVK/Vulkan/EGL capabilities where applicable
+
+F. PCB
+
+- Có chân tín hiệu display đi ra package không?
+- PCB có đi dây tới mạch xuất hình không?
+- Có thiếu linh kiện bảo vệ, chuyển mức hoặc connector không?
+- Có thể xác định từ ảnh PCB, boardview hoặc sơ đồ công khai không?
+- Có bằng chứng phân biệt thiếu đường tín hiệu vật lý với bị khóa bởi firmware không?
+
+Không suy luận rằng PDISP tồn tại chỉ vì chip dùng TU106.
+
+Không suy luận rằng PDISP bị đốt fuse chỉ vì không có DRM connector.
+
+Không suy luận rằng NV_FUSE_OPT_DISPLAY=0 có nghĩa display bị khóa khi chưa xác định bit semantics.
+
+Đầu ra: DISPLAY_ENGINE_ARCHITECTURE.md, DISPLAY_DISABLE_MATRIX.md và DISPLAY_PCB_EVIDENCE.md.
+
+4. HEADLESS GRAPHICS VS PHYSICAL DISPLAY
+
+Phân biệt hai khái niệm:
+
+- GPU có thể render đồ họa 3D nhưng không xuất tín hiệu màn hình.
+- GPU có thể điều khiển trực tiếp HDMI/DisplayPort qua display controller và PHY.
+
+Nghiên cứu:
+
+- EGL headless context
+- Vulkan headless rendering
+- OpenGL offscreen framebuffer
+- CUDA/OpenGL interoperability nếu được hỗ trợ
+- DRM render node
+- DRM connector and CRTC enumeration
+- NVIDIA graphics capability restrictions
+
+Mục tiêu:
+Chứng minh khả năng render độc lập với khả năng scanout.
+
+Nếu GPU render được nhưng không xuất hình, không được gọi đó là display engine đã unlock.
+
+5. FUSE/OTP — DISPLAY AND COMPUTE
+
+Tiếp tục giải nghĩa fuse theo mục tiêu chức năng.
+
+Ưu tiên:
+
+- Display capability and disable indicators
+- Graphics/compute SKU
+- SM/TPC masks
+- ROP/L2 configuration
+- Feature and privilege masks
+- Engine discovery
+- Security/production state
+
+Dùng dump hiện có và dữ liệu công khai.
+
+So sánh với TU106 GeForce/Tesla tương đương khi có dữ liệu đáng tin cậy.
+
+Mọi phép đối chiếu phải ghi chip revision, board revision và firmware version.
+
+Không đọc quét địa chỉ chưa xác định an toàn.
+
+Không ghi fuse/OTP hoặc thực hiện thao tác một lần không thể đảo ngược.
+
+6. VBIOS CROSS-SKU COMPARISON
+
+Phân tích ROM gốc CMP 40HX 1 MiB.
+
+Tìm các mục:
+
+- DCB/display tables
+- Connector routing
+- GPU SKU/configuration
+- Devinit scripts
+- Memory configuration
+- Engine policy
+- GPIO/AUX/I2C information
+- Firmware loading descriptors
+
+So sánh có cấu trúc với các ROM TU106 tham chiếu.
+
+Xác định:
+
+- Field có mặt trên GeForce nhưng không có trên CMP
+- Field mang giá trị khác
+- Table bị bỏ trống
+- Table pointer null
+- Chính sách GPU khác nhau
+
+Không flash ROM và không thử nạp VBIOS khác.
+
+Việc một bảng có thể sửa được không có nghĩa phần cứng được khôi phục.
+
+7. GSP-RM AND DRIVER CAPABILITY GATES
+
+Tìm các hàm chịu trách nhiệm:
+
+- Detect CMP SKU
+- Classify GPU capabilities
+- Initialize graphics engines
+- Initialize display engine
+- Enumerate CUDA/compute support
+- Apply performance restrictions
+- Return unsupported-feature errors
+
+Sử dụng Ghidra, source NVIDIA và dữ liệu GSP đã có.
+
+Ưu tiên khôi phục dữ liệu đầu vào và nhánh quyết định, không chỉ tên hàm.
+
+Phân biệt:
+
+- Policy check trong userspace
+- Policy check trong host RM
+- Policy check trong GSP-RM
+- SEC2 security restriction
+- Fuse/strap-derived capability
+- Missing hardware
+
+Không gọi việc sửa Device ID là một unlock thành công nếu chức năng chưa được chứng minh.
+
+8. FUNCTIONAL RESTORATION FEASIBILITY MATRIX
+
+Tạo ma trận cho từng chức năng:
+
+- CUDA runtime
+- CUDA kernel execution
+- Tensor Core
+- FP32/FP16
+- Profiling/CUPTI
+- OpenGL
+- Vulkan
+- Display scanout
+- HDMI
+- DisplayPort
+- NVENC
+- NVDEC
+- RT Core
+- PCIe capability
+
+Mỗi dòng phải có:
+
+1. Trạng thái stock.
+2. Trạng thái hệ thống hiện tại.
+3. Bằng chứng phần cứng.
+4. Tầng hạn chế nghi ngờ.
+5. Độ tin cậy.
+6. Khả năng khôi phục bằng phần mềm.
+7. Có cần can thiệp PCB không.
+8. Dữ liệu cần bổ sung.
+9. Phương pháp kiểm chứng an toàn.
+
+Phân loại kết luận:
+PROVEN_WORKING
+PROVEN_THROTTLED
+SOFTWARE_RESTRICTED
+FIRMWARE_RESTRICTED
+SILICON_DISABLED
+BOARD_UNROUTED
+UNKNOWN
+
+Chỉ dùng SILICON_DISABLED nếu thực sự có bằng chứng phần cứng.
+
+9. RESEARCH SAFETY AND REPRODUCIBILITY
+
+Được phép:
+
+- Static reverse engineering
+- Parse firmware/VBIOS
+- Ghidra disassembly
+- Source code comparison
+- Read-only hardware diagnostics
+- CUDA correctness tests with limited workloads
+- Headless graphics tests
+- Analyze PCB photos
+- Generate scripts and reports
+
+Không tự động:
+
+- Flash VBIOS
+- Write MMIO/BAR0
+- Program fuse/OTP
+- Force enable unknown engines
+- Trigger privileged firmware functions
+- Change clock/voltage
+- Driver reload or GPU reset
+- Reboot
+
+Khi cần thử nghiệm thay đổi trạng thái, tạo TEST_PROPOSAL.md với bằng chứng và kế hoạch rollback; yêu cầu chủ sở hữu phê duyệt.
+
+10. OUTPUT
+
+Tạo PHASE21_FUNCTIONAL_RESEARCH/:
+
+- CUDA_CAPABILITY_AUDIT.md
+- CUDA_RUNTIME_RESULTS.json
+- COMPUTE_RESTRICTION_ARCHITECTURE.md
+- DISPLAY_ENGINE_ARCHITECTURE.md
+- DISPLAY_DISABLE_MATRIX.md
+- DISPLAY_PCB_EVIDENCE.md
+- HEADLESS_GRAPHICS_REPORT.md
+- FUSE_CAPABILITY_MAP.json
+- VBIOS_DISPLAY_ANALYSIS.md
+- GSP_CAPABILITY_GATES.md
+- RESTORATION_FEASIBILITY_MATRIX.md
+- EVIDENCE_LEDGER.md
+- UNKNOWN_DATABASE.json
+- CHECKPOINT.json
+
+Đề xuất kế hoạch cho giai đoạn sau dựa trên phần chức năng nào có bằng chứng khả thi nhất.
+
+Không đánh dấu toàn bộ nghiên cứu hoàn thành chỉ vì không tìm được exploit.
+
+START:
+
+1. Kiểm tra chính xác CUDA trên card hiện tại.
+2. Kiểm toán compute/Tensor restrictions.
+3. Phân tích display engine và VBIOS DCB.
+4. Đối chiếu fuse/OTP với TU106 tham chiếu.
+5. Kết luận khả năng khôi phục từng chức năng theo bằng chứng.

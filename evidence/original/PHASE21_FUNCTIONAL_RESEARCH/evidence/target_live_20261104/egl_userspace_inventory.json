@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T14:47:04.527222+00:00",
+  "command": "id; ls -l /dev/dri/card1 /dev/dri/renderD129; ldconfig -p | grep -E 'libEGL|libGLX_nvidia|libnvidia-egl'; ls /usr/share/glvnd/egl_vendor.d; cat /usr/share/glvnd/egl_vendor.d/*.json",
+  "returncode": 0,
+  "stdout": "uid=1000(tinh) gid=1000(tinh) groups=1000(tinh),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),101(lxd)\ncrw-rw---- 1 root video  226,   1 Nov  4 14:41 /dev/dri/card1\ncrw-rw---- 1 root render 226, 129 Nov  4 14:41 /dev/dri/renderD129\n\tlibnvidia-eglcore.so.615.71.09 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-eglcore.so.615.71.09\n\tlibnvidia-egl-xlib.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-egl-xlib.so.1\n\tlibnvidia-egl-xcb.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-egl-xcb.so.1\n\tlibnvidia-egl-wayland2.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-egl-wayland2.so.1\n\tlibnvidia-egl-wayland.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-egl-wayland.so.1\n\tlibnvidia-egl-gbm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-egl-gbm.so.1\n\tlibGLX_nvidia.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLX_nvidia.so.0\n\tlibEGL_nvidia.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libEGL_nvidia.so.0\n\tlibEGL_mesa.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libEGL_mesa.so.0\n\tlibEGL.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libEGL.so.1\n50_mesa.json\n{\n    \"file_format_version\" : \"1.0.0\",\n    \"ICD\" : {\n        \"library_path\" : \"libEGL_mesa.so.0\"\n    }\n}\n",
+  "stderr": ""
+}

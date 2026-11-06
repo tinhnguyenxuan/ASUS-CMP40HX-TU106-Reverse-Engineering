@@ -1,0 +1,460 @@
+{
+  "baseline": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin",
+  "baseline_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+  "variants": [
+    {
+      "path": "/tmp/A.rom",
+      "size": 1047040,
+      "sha256": "add5fb175445745f2787ef8b38a8f1d182f601e9fb08dab76f9ee24c00de881a",
+      "diff_bytes": 20,
+      "diff_ratio": 1.9101466992665037e-05,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 9,
+        "0x70000": 1,
+        "0xd0000": 9,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/B1_fan4k_only.bin.rom",
+      "size": 1047040,
+      "sha256": "cf325d85817fff274a5473cab717a518f939f82a9f79b43b34dd6578c421e9c9",
+      "diff_bytes": 66,
+      "diff_ratio": 6.303484107579462e-05,
+      "first_diff": "0x5883a",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 32,
+        "0x70000": 1,
+        "0xd0000": 32,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x5883a",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/B2_power270_only.bin.rom",
+      "size": 1047040,
+      "sha256": "c32601bdda8e19ef0c27c76eaee9e578cb383c1c71e38b48d050b4ba75091ed0",
+      "diff_bytes": 52,
+      "diff_ratio": 4.966381418092909e-05,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 25,
+        "0x70000": 1,
+        "0xd0000": 25,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/B3_offset200_only.bin.rom",
+      "size": 1047040,
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "diff_bytes": 0,
+      "diff_ratio": 0.0,
+      "first_diff": null,
+      "last_diff": null,
+      "diff_regions_64k": {},
+      "diff_span": null
+    },
+    {
+      "path": "/tmp/BS100.rom",
+      "size": 1047040,
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "diff_bytes": 0,
+      "diff_ratio": 0.0,
+      "first_diff": null,
+      "last_diff": null,
+      "diff_regions_64k": {},
+      "diff_span": null
+    },
+    {
+      "path": "/tmp/BS125_125.rom",
+      "size": 1047040,
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "diff_bytes": 0,
+      "diff_ratio": 0.0,
+      "first_diff": null,
+      "last_diff": null,
+      "diff_regions_64k": {},
+      "diff_span": null
+    },
+    {
+      "path": "/tmp/BS150.rom",
+      "size": 1047040,
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "diff_bytes": 0,
+      "diff_ratio": 0.0,
+      "first_diff": null,
+      "last_diff": null,
+      "diff_regions_64k": {},
+      "diff_span": null
+    },
+    {
+      "path": "/tmp/BS50.rom",
+      "size": 1047040,
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "diff_bytes": 0,
+      "diff_ratio": 0.0,
+      "first_diff": null,
+      "last_diff": null,
+      "diff_regions_64k": {},
+      "diff_span": null
+    },
+    {
+      "path": "/tmp/E.rom",
+      "size": 1047040,
+      "sha256": "41d961f30dea60968a98fda0424f7b5a6049fd79e9ffcb248e9f9b29e47adcd0",
+      "diff_bytes": 64,
+      "diff_ratio": 6.112469437652811e-05,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 31,
+        "0x70000": 1,
+        "0xd0000": 31,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/F.rom",
+      "size": 1047040,
+      "sha256": "41d961f30dea60968a98fda0424f7b5a6049fd79e9ffcb248e9f9b29e47adcd0",
+      "diff_bytes": 64,
+      "diff_ratio": 6.112469437652811e-05,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 31,
+        "0x70000": 1,
+        "0xd0000": 31,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/GF_125.rom",
+      "size": 1047040,
+      "sha256": "99813f1c67125d76e684838a41d00d3c67e2e23fb37256f5bab495d32f3b3bde",
+      "diff_bytes": 46,
+      "diff_ratio": 4.3933374083129586e-05,
+      "first_diff": "0x57f44",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 22,
+        "0x70000": 1,
+        "0xd0000": 22,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f44",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/GF_60.rom",
+      "size": 1047040,
+      "sha256": "99813f1c67125d76e684838a41d00d3c67e2e23fb37256f5bab495d32f3b3bde",
+      "diff_bytes": 46,
+      "diff_ratio": 4.3933374083129586e-05,
+      "first_diff": "0x57f44",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 22,
+        "0x70000": 1,
+        "0xd0000": 22,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f44",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/V1.rom",
+      "size": 1047040,
+      "sha256": "2d48f5ce364da49347befdf63c50fbbf91c7e7a4cfb822d3c0fabc26b09a8172",
+      "diff_bytes": 82,
+      "diff_ratio": 7.831601466992665e-05,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 40,
+        "0x70000": 1,
+        "0xd0000": 40,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/V2.rom",
+      "size": 1047040,
+      "sha256": "2d48f5ce364da49347befdf63c50fbbf91c7e7a4cfb822d3c0fabc26b09a8172",
+      "diff_bytes": 82,
+      "diff_ratio": 7.831601466992665e-05,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 40,
+        "0x70000": 1,
+        "0xd0000": 40,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/V3.rom",
+      "size": 1047040,
+      "sha256": "bdf44cb8fb9f8e629f9fbdf29e102108fd86ba83fb0ac4eb49d86ea176f2a761",
+      "diff_bytes": 114,
+      "diff_ratio": 0.0001088783618581907,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 56,
+        "0x70000": 1,
+        "0xd0000": 56,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/V4.rom",
+      "size": 1047040,
+      "sha256": "bdf44cb8fb9f8e629f9fbdf29e102108fd86ba83fb0ac4eb49d86ea176f2a761",
+      "diff_bytes": 114,
+      "diff_ratio": 0.0001088783618581907,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 56,
+        "0x70000": 1,
+        "0xd0000": 56,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/V5.rom",
+      "size": 1047040,
+      "sha256": "2784db8badd37f93ecfb48b848516f42b5bc084699fa1a26db5010c7c352d421",
+      "diff_bytes": 116,
+      "diff_ratio": 0.00011078850855745721,
+      "first_diff": "0x57f48",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 57,
+        "0x70000": 1,
+        "0xd0000": 57,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f48",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/base_edit.rom",
+      "size": 1047040,
+      "sha256": "75eb9c0e7ca06716d60da23a8760ecffbd392c91bd956ede691a7b5b857a557f",
+      "diff_bytes": 6,
+      "diff_ratio": 5.730440097799511e-06,
+      "first_diff": "0x57f4c",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 2,
+        "0x70000": 1,
+        "0xd0000": 2,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f4c",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/edit1.rom",
+      "size": 1047040,
+      "sha256": "368df73294336a14dc39011cbdb973fa881ba37165f4fc6f6e06445c6c5cecbc",
+      "diff_bytes": 6,
+      "diff_ratio": 5.730440097799511e-06,
+      "first_diff": "0x57f4c",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 2,
+        "0x70000": 1,
+        "0xd0000": 2,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x57f4c",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/gen3_a.rom",
+      "size": 1047040,
+      "sha256": "d4fa7c93a5bbbc86848b34bc7f2b6271dc0bff83d94eadb4c43e38cc77e11f3c",
+      "diff_bytes": 10,
+      "diff_ratio": 9.550733496332518e-06,
+      "first_diff": "0x30060",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x30000": 2,
+        "0x50000": 2,
+        "0x70000": 1,
+        "0xa0000": 2,
+        "0xd0000": 2,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x30060",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/repro_1093.rom",
+      "size": 1048576,
+      "sha256": "09acb1cda57f6483c7a743634538d2b4f5f9766bbb9047abda8ad6a8a537b650",
+      "diff_bytes": 14,
+      "diff_ratio": 1.33514404296875e-05,
+      "first_diff": "0x566a0",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 6,
+        "0x70000": 1,
+        "0xc0000": 6,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x566a0",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/t.rom",
+      "size": 1047040,
+      "sha256": "612eaa72cc1ed8e83c53eb7aa1fb6e0edb1d6afc47201953f0272efd9d6bc435",
+      "diff_bytes": 5,
+      "diff_ratio": 4.775366748166259e-06,
+      "first_diff": "0x2fbb5",
+      "last_diff": "0x2fbd9",
+      "diff_regions_64k": {
+        "0x20000": 5
+      },
+      "diff_span": [
+        "0x2fbb5",
+        "0x2fbd9"
+      ]
+    },
+    {
+      "path": "/tmp/t2.rom",
+      "size": 1048576,
+      "sha256": "09acb1cda57f6483c7a743634538d2b4f5f9766bbb9047abda8ad6a8a537b650",
+      "diff_bytes": 14,
+      "diff_ratio": 1.33514404296875e-05,
+      "first_diff": "0x566a0",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 6,
+        "0x70000": 1,
+        "0xc0000": 6,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x566a0",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/t3.rom",
+      "size": 1048576,
+      "sha256": "09acb1cda57f6483c7a743634538d2b4f5f9766bbb9047abda8ad6a8a537b650",
+      "diff_bytes": 14,
+      "diff_ratio": 1.33514404296875e-05,
+      "first_diff": "0x566a0",
+      "last_diff": "0xef7ff",
+      "diff_regions_64k": {
+        "0x50000": 6,
+        "0x70000": 1,
+        "0xc0000": 6,
+        "0xe0000": 1
+      },
+      "diff_span": [
+        "0x566a0",
+        "0xef7ff"
+      ]
+    },
+    {
+      "path": "/tmp/t_clk.rom",
+      "size": 1047040,
+      "sha256": "612eaa72cc1ed8e83c53eb7aa1fb6e0edb1d6afc47201953f0272efd9d6bc435",
+      "diff_bytes": 5,
+      "diff_ratio": 4.775366748166259e-06,
+      "first_diff": "0x2fbb5",
+      "last_diff": "0x2fbd9",
+      "diff_regions_64k": {
+        "0x20000": 5
+      },
+      "diff_span": [
+        "0x2fbb5",
+        "0x2fbd9"
+      ]
+    },
+    {
+      "path": "/tmp/t_gpc.rom",
+      "size": 1047040,
+      "sha256": "263a6d902e85abb8b615cb0947a62fddc247917572ebe8df4fdccecf6af6e9c3",
+      "diff_bytes": 4,
+      "diff_ratio": 3.820293398533007e-06,
+      "first_diff": "0x588e5",
+      "last_diff": "0xd18e6",
+      "diff_regions_64k": {
+        "0x50000": 2,
+        "0xd0000": 2
+      },
+      "diff_span": [
+        "0x588e5",
+        "0xd18e6"
+      ]
+    }
+  ],
+  "interpretation": "byte-distance from the saved CMP40HX original; similarity supports derivative classification but cannot establish provenance",
+  "limits": [
+    "no authenticated external source metadata",
+    "same-size variants may still encode meaningful changes",
+    "not a reference-SKU identity proof"
+  ]
+}

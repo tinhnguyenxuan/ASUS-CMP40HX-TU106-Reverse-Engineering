@@ -1,0 +1,748 @@
+{
+ "phase": "PHASE16/TU106_TOPOLOGY_SOURCE",
+ "target": "NVIDIA CMP 40HX (TU106-100-A1), PCI 10de:1f0b, subsystem 8804:1043, rev 0xA1, BDF 0000:03:00.0, BAR0 0xfa000000 size 16 MiB",
+ "mode": "offline read-only, stdlib-only, no hardware access, no MMIO/PCI writes",
+ "generated_utc": "2026-11-03T19:47:23Z",
+ "inputs": [
+  {
+   "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/fuse2.json",
+   "role": "archived fuse array dump (base 0x21000)",
+   "present": true,
+   "bytes": 55233,
+   "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+  },
+  {
+   "path": "/home/REDACTED_USER/codex-work/work_v15/RAW_DATA/p5678.json",
+   "role": "saved NVML / nvidia-smi query archive",
+   "present": true,
+   "bytes": 17350,
+   "sha256": "d004107aae6356cb7849c2ac77f3504aaac38393214ad70419e523f7eefca165"
+  },
+  {
+   "path": "/home/REDACTED_USER/codex-work/work_v15/TOPOLOGY/silicon_topology.json",
+   "role": "saved NVML sm_count fragment",
+   "present": true,
+   "bytes": 4694,
+   "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee"
+  },
+  {
+   "path": "/home/REDACTED_USER/codex-work/work_v15/MMIO/mmio.json",
+   "role": "saved MMIO snapshot (52 registers)",
+   "present": true,
+   "bytes": 18248,
+   "sha256": "8782ce5628383a19d73121396c4032f9f67f6275c0c897455ea1c5913c61e0b8"
+  },
+  {
+   "path": "/home/REDACTED_USER/codex-work/work_v15/MMIO/registers_turing.json",
+   "role": "saved turing register namespace",
+   "present": true,
+   "bytes": 14974,
+   "sha256": "a7e084bcb153e8413927843b77b3dab89fd113bff4c77b5a4de17480961b91a9"
+  },
+  {
+   "path": "/home/REDACTED_USER/codex-work/PHASE16/ENGINE_INTERFACES/findings.json",
+   "role": "archived coordinator findings",
+   "present": true,
+   "bytes": 27911,
+   "sha256": "832ab402f235dc6da098a1fc4fa4f8c6020973e2f894685aa42835f14826570b"
+  },
+  {
+   "path": "/tmp/BAO_CAO_CMP40HX_TU106.md",
+   "role": "archived primary technical report (prose)",
+   "present": true,
+   "bytes": 13636,
+   "sha256": "aa43bb2dd7fe83b9c2c889539a6e2cf9dba5f0832ce9d2abc94317f9daedb64e"
+  },
+  {
+   "path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fuse.h",
+   "role": "public Turing fuse register definitions",
+   "present": true,
+   "bytes": 2150,
+   "sha256": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d"
+  },
+  {
+   "path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fault.h",
+   "role": "public fault client IDs (indices, not counts)",
+   "present": true,
+   "bytes": 8852,
+   "sha256": "8410c458867a942f03358e94333ae274caa1a7adafca5bb4331f52500d855f50"
+  }
+ ],
+ "raw_fuse_verified": [
+  {
+   "offset_hex": "0x650",
+   "offset_dec": 1616,
+   "abs_addr_hex": "0x021650",
+   "abs_addr": 136784,
+   "fuse_base_hex": "0x021000",
+   "raw_value": 262175,
+   "raw_value_hex": "0x0004001F",
+   "popcount": 6,
+   "verified_from_saved_dump": true,
+   "note": "raw value only; no bitfield definition in public TU106-applicable source"
+  },
+  {
+   "offset_hex": "0xc1c",
+   "offset_dec": 3100,
+   "abs_addr_hex": "0x021C1C",
+   "abs_addr": 138268,
+   "fuse_base_hex": "0x021000",
+   "raw_value": 56,
+   "raw_value_hex": "0x00000038",
+   "popcount": 3,
+   "verified_from_saved_dump": true,
+   "note": "raw value only; no bitfield definition in public TU106-applicable source"
+  }
+ ],
+ "saved_mmio_coverage": {
+  "registers_dumped": 52,
+  "pages_touched": [
+   0,
+   2,
+   3,
+   8,
+   16,
+   17,
+   20,
+   31,
+   132,
+   182
+  ],
+  "sample_rule": "tu06: 4 u32 (16 bytes) per 4 KiB page; not a full-page capture",
+  "coverage_statement": "sparse 16-byte-per-page sample is NOT a complete MMIO scan; only sampled addresses may be used as decode input",
+  "topology_registers_in_saved_snapshot": {
+   "gpc_nr_0x00409604_page_1033": false,
+   "tpc_nr_0x00502608_page_1282": false,
+   "TPC_UNIT_0x00504000_page_1284": false
+  },
+  "all_dumped_registers": [
+   {
+    "name": "NV_XVE_ID_VENDOR_NVIDIA",
+    "addr": 4318,
+    "addr_hex": "0x000010de",
+    "value": 1346419423,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_CPU_INTR_LEAF_TRIGGER",
+    "addr": 5696,
+    "addr_hex": "0x00001640",
+    "value": 143,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_PBUS_BAR1_BLOCK",
+    "addr": 5892,
+    "addr_hex": "0x00001704",
+    "value": 2149547200,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_PBUS_BAR2_BLOCK",
+    "addr": 5908,
+    "addr_hex": "0x00001714",
+    "value": 3223289025,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_PAGE_FAULT_CTRL",
+    "addr": 12400,
+    "addr_hex": "0x00003070",
+    "value": 3135197248,
+    "state": "poison",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_ADDR_LO",
+    "addr": 12416,
+    "addr_hex": "0x00003080",
+    "value": 268963848,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_ADDR_HI",
+    "addr": 12420,
+    "addr_hex": "0x00003084",
+    "value": 268963848,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_INST_LO",
+    "addr": 12424,
+    "addr_hex": "0x00003088",
+    "value": 286068744,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_INST_HI",
+    "addr": 12428,
+    "addr_hex": "0x0000308c",
+    "value": 421533728,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_INFO",
+    "addr": 12432,
+    "addr_hex": "0x00003090",
+    "value": 280760508,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_FAULT_STATUS",
+    "addr": 12436,
+    "addr_hex": "0x00003094",
+    "value": 311104002,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_PDB",
+    "addr": 12448,
+    "addr_hex": "0x000030a0",
+    "value": 337645568,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE_UPPER_PDB",
+    "addr": 12452,
+    "addr_hex": "0x000030a4",
+    "value": 268513281,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE",
+    "addr": 12464,
+    "addr_hex": "0x000030b0",
+    "value": 3135197248,
+    "state": "poison",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_CONFIG",
+    "addr": 12544,
+    "addr_hex": "0x00003100",
+    "value": 2050564,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_LO",
+    "addr": 12552,
+    "addr_hex": "0x00003108",
+    "value": 134264615,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_HI",
+    "addr": 12556,
+    "addr_hex": "0x0000310c",
+    "value": 265878711,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_SIZE",
+    "addr": 12560,
+    "addr_hex": "0x00003110",
+    "value": 685920793,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_GET",
+    "addr": 12564,
+    "addr_hex": "0x00003114",
+    "value": 21018020,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_PUT",
+    "addr": 12568,
+    "addr_hex": "0x00003118",
+    "value": 1072584642,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_PRIV_ACCESS_COUNTER_NOTIFY_BUFFER_INFO",
+    "addr": 12572,
+    "addr_hex": "0x0000311c",
+    "value": 191724970,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_PTIMER_INTR_0",
+    "addr": 37120,
+    "addr_hex": "0x00009100",
+    "value": 1,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_PTIMER_INTR_EN_0",
+    "addr": 37184,
+    "addr_hex": "0x00009140",
+    "value": 1,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_PBDMA_SIGNATURE_HW_VALID",
+    "addr": 64206,
+    "addr_hex": "0x0000face",
+    "value": 1346419423,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_PBDMA_ACQUIRE_TIMEOUT_MAN_MAX",
+    "addr": 65535,
+    "addr_hex": "0x0000ffff",
+    "value": 3489726650,
+    "state": "data",
+    "page": 0
+   },
+   {
+    "name": "NV_FUSE_OPT_NVDEC_DISABLE",
+    "addr": 136056,
+    "addr_hex": "0x00021378",
+    "value": 0,
+    "state": "zero",
+    "page": 2
+   },
+   {
+    "name": "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS",
+    "addr": 137036,
+    "addr_hex": "0x0002174c",
+    "value": 1,
+    "state": "data",
+    "page": 2
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_TIME_0",
+    "addr": 196736,
+    "addr_hex": "0x00030080",
+    "value": 3135181056,
+    "state": "poison",
+    "page": 3
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_TIME_1",
+    "addr": 196740,
+    "addr_hex": "0x00030084",
+    "value": 3135181056,
+    "state": "poison",
+    "page": 3
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_DOORBELL",
+    "addr": 196752,
+    "addr_hex": "0x00030090",
+    "value": 3135181056,
+    "state": "poison",
+    "page": 3
+   },
+   {
+    "name": "NV_VIRTUAL_FUNCTION_ERR_CONT",
+    "addr": 196756,
+    "addr_hex": "0x00030094",
+    "value": 3135181056,
+    "state": "poison",
+    "page": 3
+   },
+   {
+    "name": "NV_PCFG_XVE_REGISTER_MAP_START_OFFSET",
+    "addr": 557056,
+    "addr_hex": "0x00088000",
+    "value": 520818910,
+    "state": "data",
+    "page": 8
+   },
+   {
+    "name": "NV_PFB_NISO_ACCESS_COUNTER_NOTIFY_BUFFER_INFO",
+    "addr": 1051160,
+    "addr_hex": "0x00100a18",
+    "value": 0,
+    "state": "zero",
+    "page": 16
+   },
+   {
+    "name": "NV_PFB_PRI_MMU_PAGE_FAULT_CTRL",
+    "addr": 1051896,
+    "addr_hex": "0x00100cf8",
+    "value": 0,
+    "state": "zero",
+    "page": 16
+   },
+   {
+    "name": "NV_PFB_PRI_MMU_L2TLB_ECC_UNCORRECTED_ERR_COUNT",
+    "addr": 1052280,
+    "addr_hex": "0x00100e78",
+    "value": 0,
+    "state": "zero",
+    "page": 16
+   },
+   {
+    "name": "NV_PFB_PRI_MMU_HUBTLB_ECC_UNCORRECTED_ERR_COUNT",
+    "addr": 1052300,
+    "addr_hex": "0x00100e8c",
+    "value": 0,
+    "state": "zero",
+    "page": 16
+   },
+   {
+    "name": "NV_PFB_PRI_MMU_FILLUNIT_ECC_UNCORRECTED_ERR_COUNT",
+    "addr": 1052320,
+    "addr_hex": "0x00100ea0",
+    "value": 0,
+    "state": "zero",
+    "page": 16
+   },
+   {
+    "name": "NV_PGSP_FALCON_MAILBOX0",
+    "addr": 1114176,
+    "addr_hex": "0x00110040",
+    "value": 0,
+    "state": "zero",
+    "page": 17
+   },
+   {
+    "name": "NV_PGSP_FALCON_MAILBOX1",
+    "addr": 1114180,
+    "addr_hex": "0x00110044",
+    "value": 0,
+    "state": "zero",
+    "page": 17
+   },
+   {
+    "name": "NV_PGSP_FALCON_ENGINE",
+    "addr": 1115072,
+    "addr_hex": "0x001103c0",
+    "value": 0,
+    "state": "zero",
+    "page": 17
+   },
+   {
+    "name": "NV_PGSP_FBIF_BASE",
+    "addr": 1115648,
+    "addr_hex": "0x00110600",
+    "value": 272,
+    "state": "data",
+    "page": 17
+   },
+   {
+    "name": "NV_FALCON2_GSP_BASE",
+    "addr": 1118208,
+    "addr_hex": "0x00111000",
+    "value": 0,
+    "state": "zero",
+    "page": 17
+   },
+   {
+    "name": "NV_PGC6_BSI_SECURE_SCRATCH_14",
+    "addr": 1147128,
+    "addr_hex": "0x001180f8",
+    "value": 389021696,
+    "state": "data",
+    "page": 17
+   },
+   {
+    "name": "NV_PGC6_AON_SECURE_SCRATCH_GROUP_05_PRIV_LEVEL_MASK",
+    "addr": 1147176,
+    "addr_hex": "0x00118128",
+    "value": 4294967183,
+    "state": "data",
+    "page": 17
+   },
+   {
+    "name": "NV_PLTCG_LTC0_LTS0_L2_CACHE_ECC_UNCORRECTED_ERR_COUNT",
+    "addr": 1311992,
+    "addr_hex": "0x001404f8",
+    "value": 0,
+    "state": "zero",
+    "page": 20
+   },
+   {
+    "name": "NV_PFB_PRI_MMU_WPR2_ADDR_LO",
+    "addr": 2074660,
+    "addr_hex": "0x001fa824",
+    "value": 33021952,
+    "state": "data",
+    "page": 31
+   },
+   {
+    "name": "NV_PFB_PRI_MMU_WPR2_ADDR_HI",
+    "addr": 2074664,
+    "addr_hex": "0x001fa828",
+    "value": 33549824,
+    "state": "data",
+    "page": 31
+   },
+   {
+    "name": "NV_PSEC_FALCON_ENGINE",
+    "addr": 8651712,
+    "addr_hex": "0x008403c0",
+    "value": 0,
+    "state": "zero",
+    "page": 132
+   },
+   {
+    "name": "NV_PSEC_FBIF_BASE",
+    "addr": 8652288,
+    "addr_hex": "0x00840600",
+    "value": 65540,
+    "state": "data",
+    "page": 132
+   },
+   {
+    "name": "NV_CTRL_CPU_DOORBELL_VECTORID",
+    "addr": 11954300,
+    "addr_hex": "0x00b6687c",
+    "value": 129,
+    "state": "data",
+    "page": 182
+   },
+   {
+    "name": "NV_CTRL_LEGACY_ENGINE_STALL_INTR_BASE_VECTORID",
+    "addr": 11954304,
+    "addr_hex": "0x00b66880",
+    "value": 192,
+    "state": "data",
+    "page": 182
+   },
+   {
+    "name": "NV_CTRL_LEGACY_ENGINE_NONSTALL_INTR_BASE_VECTORID",
+    "addr": 11954308,
+    "addr_hex": "0x00b66884",
+    "value": 0,
+    "state": "zero",
+    "page": 182
+   }
+  ]
+ },
+ "nvidia_smi_saved_log": {
+  "multiProcessorCount_present_in_saved_log": false,
+  "cuda_cores_present_in_saved_log": false,
+  "sm_count_field_value": "NVIDIA CMP 40HX, 7.5",
+  "gpu_uuid": "GPU-REDACTED",
+  "saved_log_contains": {
+   "product_name": true,
+   "architecture_turing": true,
+   "display_attached_no": true,
+   "display_active_disabled": true
+  },
+  "fb_memory_usage": "8192 MiB, 0 MiB, 7804 MiB",
+  "note": "saved nvidia-smi -q log does NOT contain multiProcessorCount/CUDA cores; the 34-SM figure appears only in archived BAO_CAO prose",
+  "silicon_topology_sm_count_field": "NVIDIA CMP 40HX, 7.5",
+  "silicon_topology_gpu_uuid": "GPU-REDACTED"
+ },
+ "public_register_definitions_checked": {
+  "dev_fuse_h": {
+   "path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fuse.h",
+   "sha256": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+   "registers_defined": [
+    {
+     "name": "NV_FUSE_OPT_NVDEC_DISABLE",
+     "addr": 136056,
+     "field": "NV_FUSE_OPT_NVDEC_DISABLE_DATA",
+     "bits": "2:0",
+     "saved_read": 0,
+     "topic": "NVDEC, NOT topology"
+    },
+    {
+     "name": "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS",
+     "addr": 137036,
+     "field": "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS_DATA",
+     "bits": "0:0",
+     "saved_read": 1,
+     "topic": "GSP debug, NOT topology"
+    }
+   ],
+   "definitions_at_fuse_0x650": false,
+   "definitions_at_fuse_0xc1c": false,
+   "tu106_applicable_note": "tu102 Turing-family header, accepted as TU10x/TU106-shared; no TU106-specific override directory exists"
+  },
+  "dev_fault_h": {
+   "path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fault.h",
+   "sha256": "8410c458867a942f03358e94333ae274caa1a7adafca5bb4331f52500d855f50",
+   "content": "NV_PFAULT_CLIENT_GPC_TPCCS_* / NV_PFAULT_CLIENT_GPC_T1_* fault CLIENT IDs only (client index space, NOT engine counts)",
+   "topic": "fault client IDs, not topology counts"
+  },
+  "absent_headers": {
+   "dev_top_h_tu102": false,
+   "dev_gr_h_tu102": false,
+   "dev_graph_h_tu102": false,
+   "tu106_register_directory": false,
+   "note": "dev_top.h/dev_gr.h/dev_graph.h exist only for OTHER generations (ampere/ga100, blackwell/gb100, volta/gv100, pascal/gp100, rubin/gr100) and must not stand in for TU106"
+  }
+ },
+ "archived_query_claims": [
+  {
+   "count": "GPC",
+   "claim": "3 GPC",
+   "basis": "archived prose: gpc_nr (0x00409604) = 0x08040003 -> low 16 bits = 3",
+   "source": "BAO_CAO_CMP40HX_TU106.md section 3.1",
+   "register_address": "0x00409604",
+   "register_address_captured_in_saved_MMIO": false,
+   "status": "ARCHIVED_QUERY_CLAIM"
+  },
+  {
+   "count": "TPC (in GPC0)",
+   "claim": "5 TPC",
+   "basis": "archived prose: tpc_nr (0x00502608) = 0x00040005 -> low 16 bits = 5",
+   "source": "BAO_CAO_CMP40HX_TU106.md section 3.1",
+   "register_address": "0x00502608",
+   "register_address_captured_in_saved_MMIO": false,
+   "status": "ARCHIVED_QUERY_CLAIM"
+  },
+  {
+   "count": "TPC (total)",
+   "claim": "17 TPC",
+   "basis": "archived prose: TPC map probe TPC_UNIT = 0x504000 + g*0x8000 + t*0x800; GPC0: 5 live + TPC5 poison; GPC1: 6 live; GPC2: 6 live -> 5+6+6 = 17",
+   "source": "BAO_CAO_CMP40HX_TU106.md section 3.2",
+   "register_address": "0x00504000 + g*0x8000 + t*0x800",
+   "register_address_captured_in_saved_MMIO": false,
+   "status": "ARCHIVED_QUERY_CLAIM"
+  },
+  {
+   "count": "SM",
+   "claim": "34 SM / 2176 CUDA cores",
+   "basis": "archived prose: 17 TPC x 2 SM == cudaGetDeviceProperties() multiProcessorCount = 34, CUDA cores = 2176",
+   "source": "BAO_CAO_CMP40HX_TU106.md section 3.3",
+   "register_address": "none (CUDA runtime query, not MMIO register)",
+   "register_address_captured_in_saved_MMIO": false,
+   "saved_nvidia_smi_contains_multiProcessorCount": false,
+   "status": "ARCHIVED_QUERY_CLAIM"
+  },
+  {
+   "count": "ROP",
+   "claim": "64 ROP (16 per L2 partition, 4 partitions)",
+   "basis": "archived prose: inferred from TU106 reference comparison (RTX 2070 SKU table)",
+   "source": "BAO_CAO_CMP40HX_TU106.md section 10",
+   "register_address": "none",
+   "register_address_captured_in_saved_MMIO": false,
+   "status": "ARCHIVED_INFERENCE_FROM_OTHER_SKU"
+  },
+  {
+   "count": "fuse TPC mask",
+   "claim": "fuse+0x650 = 0x0004001F, bits 0-4 = 0x1F = 5 TPC enabled",
+   "basis": "archived prose; raw value VERIFIED against saved fuse2.json (0x4001f)",
+   "source": "BAO_CAO_CMP40HX_TU106.md sections 3.4 / 5.1",
+   "register_address": "fuse base 0x21000 + 0x650",
+   "register_address_captured_in_saved_MMIO": "n/a (fuse array, not MMIO)",
+   "raw_verified": true,
+   "status": "RAW_VALUE_VERIFIED_MEANING_UNKNOWN"
+  }
+ ],
+ "decode_results": {
+  "GPC": {
+   "topology": "GPC",
+   "archived_query_claim": "3 GPC — archived gpc_nr 0x00409604 = 0x08040003 (low16=3)",
+   "register_value_raw": "fuse+0xC1C = 0x38 raw (popcount 3), verified from saved fuse2.json",
+   "register_captured_in_saved_MMIO": false,
+   "public_TU106_definition": "None: dev_fuse.h has no field at fuse+0xC1C; dev_top.h/dev_gr.h absent for tu106",
+   "actual_decoded_topology": "UNKNOWN — popcount(0x38)==3 is consistent with the archived claim but is not a bitfield decode; no source field names these bits as GPC count/enable mask",
+   "proved": false
+  },
+  "TPC": {
+   "topology": "TPC",
+   "archived_query_claim": "17 TPC total — archived TPC map probe (5+6+6); 5 TPC in GPC0 — archived tpc_nr 0x00502608 = 0x00040005",
+   "register_value_raw": "fuse+0x650 = 0x4001F raw (bits0-4 = 5), verified from saved fuse2.json",
+   "register_captured_in_saved_MMIO": false,
+   "public_TU106_definition": "None: dev_fuse.h has no field at fuse+0x650",
+   "actual_decoded_topology": "UNKNOWN — bits0-4 of 0x4001F == 5 matches archived tpc_nr low16 but is not a decode; 17 not divisible by 3, per-GPC distribution undecidable from saved evidence",
+   "proved": false
+  },
+  "SM": {
+   "topology": "SM",
+   "archived_query_claim": "34 SM — archived: 17 TPC x 2 == cudaGetDeviceProperties multiProcessorCount=34, CUDA cores=2176",
+   "register_value_raw": "saved nvidia-smi log contains NO multiProcessorCount/CUDA cores; silicon_topology.json sm_count field is 'NVIDIA CMP 40HX, 7.5' (fragment, not 34)",
+   "register_captured_in_saved_MMIO": false,
+   "public_TU106_definition": "None: no dev_top.h/dev_gr.h for tu106",
+   "actual_decoded_topology": "UNKNOWN — 34 SM exists only as an archived query claim; not present in the saved NVML log, not decodable from any captured register",
+   "proved": false
+  },
+  "ROP": {
+   "topology": "ROP",
+   "archived_query_claim": "64 ROP — archived inference from TU106/RTX-2070 reference SKU table",
+   "register_value_raw": "no ROP/L2/MC register captured in saved MMIO snapshot",
+   "register_captured_in_saved_MMIO": false,
+   "public_TU106_definition": "None: no dev_top.h/dev_gr.h for tu106; dev_ltc.h/dev_fb.h hold only ECC/invalidate regs",
+   "actual_decoded_topology": "UNKNOWN — 0% measured on this card; inferred only from other-SKU reference",
+   "proved": false
+  }
+ },
+ "cross_checks": [
+  {
+   "pair": "fuse+0xC1C popcount(0x38)==3 vs archived gpc_nr 0x08040003 low16==3",
+   "raw_a": "fuse2.json base+0xc1c = 0x38",
+   "raw_b": "BAO_CAO archived gpc_nr register = 0x08040003 (not in saved MMIO snapshot)",
+   "result": "consistent value (3), two independent raw datums, but NO shared bitfield definition -> 'consistent, not proven'; popcount inference explicitly rejected"
+  },
+  {
+   "pair": "fuse+0x650 bits0-4 == 5 vs archived tpc_nr 0x00040005 low16==5",
+   "raw_a": "fuse2.json base+0x650 = 0x4001F",
+   "raw_b": "BAO_CAO archived tpc_nr register = 0x00040005 (not in saved MMIO snapshot)",
+   "result": "consistent value (5), two independent raw datums, but NO shared bitfield definition -> 'consistent, not proven'"
+  },
+  {
+   "pair": "17 TPC vs 3 GPC divisibility",
+   "raw_a": "archived TPC map total 17",
+   "raw_b": "archived GPC count 3",
+   "result": "17 % 3 != 0 -> per-GPC TPC distribution (5/6/6 claimed) is NOT provable from saved evidence; GPC0 TPC5 poison claim contradicts '3x6 uniform' assumption"
+  },
+  {
+   "pair": "17 x 2 == 34 SM vs cudaGetDeviceProperties 34",
+   "raw_a": "archived TPC-map-derived 34 SM",
+   "raw_b": "archived CUDA runtime multiProcessorCount=34, cores=2176",
+   "result": "both figures exist only in archived BAO_CAO prose; NEITHER appears in the saved nvidia-smi log or any captured register -> mutual corroboration within archived prose only, not saved-evidence proof"
+  }
+ ],
+ "unresolved": [
+  {
+   "id": "U-TOP-GPC-DECODE",
+   "element": "GPC count and fuse+0xC1C=0x38 field semantics",
+   "reason": "no dev_top.h/dev_gr.h for tu106; dev_fuse.h lacks any field at fuse+0xC1C; gpc_nr register 0x00409604 not captured in saved MMIO snapshot",
+   "missing_capture": "MMIO read of 0x00409604 (gpc_nr) PLUS a TU106-applicable public header defining the gpc_nr/tpc_nr bitfields (dev_top.h/dev_gr.h tu106)"
+  },
+  {
+   "id": "U-TOP-TPC-DIST",
+   "element": "TPC count (17) and per-GPC distribution",
+   "reason": "tpc_nr 0x00502608 and TPC_UNIT map 0x504000+ not captured in saved MMIO snapshot; no public bitfield source; 17 not divisible by 3",
+   "missing_capture": "MMIO read of 0x00502608 and per-TPC unit probe addresses 0x504000 + g*0x8000 + t*0x800 (+0x010/+0x100/+0x400) across all GPC/TPC, plus header definitions"
+  },
+  {
+   "id": "U-TOP-SM-COUNT",
+   "element": "SM count (34) and CUDA cores (2176)",
+   "reason": "saved nvidia-smi -q log lacks multiProcessorCount/CUDA cores; silicon_topology sm_count is a fragment ('NVIDIA CMP 40HX, 7.5'); no SM-count register captured",
+   "missing_capture": "complete nvidia-smi -q / NVML query archive containing multiProcessorCount and CUDA cores, OR MMIO capture of an SM-count register with TU106-applicable definition"
+  },
+  {
+   "id": "U-TOP-ROP-COUNT",
+   "element": "ROP count (64 claimed), L2 partitions, memory controllers",
+   "reason": "0% measured on this card; every L2/MC/ROP-related MMIO address outside the captured 52-register set; dev_ltc.h/dev_fb.h contain only ECC/invalidate registers, not instance counts",
+   "missing_capture": "MMIO capture of L2/ROP/MC address space with TU106-applicable register definitions, or official TU106 die topology document"
+  },
+  {
+   "id": "U-FUSE-0x650-0xC1C",
+   "element": "fuse+0x650=0x4001F and fuse+0xC1C=0x38 semantics",
+   "reason": "raw values verified, but no public Turing/TU106 dev_fuse.h field at either offset; popcount-to-topology inference rejected by prior coordinator review",
+   "missing_capture": "official TU106 fuse bitfield definition (or RM fuse-consuming code) naming these offsets"
+  }
+ ],
+ "conclusion": "From the SAVED offline evidence alone, nothing about GPC/TPC/SM/ROP topology can be decoded: the saved MMIO snapshot contains no topology register (gpc_nr/tpc_nr/TPC_UNIT all absent), the saved nvidia-smi log lacks multiProcessorCount, and the public TU106-applicable header set (tu102, 37 headers) has no dev_top.h/dev_gr.h and no dev_fuse.h field at fuse+0x650 or 0xc1c. The only PROVED raw facts are fuse base+0x650 = 0x4001f and base+0xc1c = 0x38 (verified against saved fuse2.json). The archived claims '3 GPC, 17 TPC, 34 SM' are query/register claims from BAO_CAO prose whose source addresses were never captured in the saved snapshot; they are consistent with each other and with the raw fuse popcounts, but consistency is not a decode. Every topology count remains UNKNOWN with the missing capture listed above."
+}

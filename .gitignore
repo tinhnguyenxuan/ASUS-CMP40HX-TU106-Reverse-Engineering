@@ -1,0 +1,14 @@
+# Private input and binaries: never commit them by accident
+*.bin
+*.rom
+*.cad
+*.rar
+*.pyc
+__pycache__/
+node_modules/
+*.tar.gz
+*.zip
+*.key
+*.pem
+.env
+.env.*

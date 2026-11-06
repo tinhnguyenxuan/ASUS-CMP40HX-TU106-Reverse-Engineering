@@ -1,0 +1,125 @@
+│ glm_work/cupti_query.py
+│ @@ -0,0 +1,185 @@
+│ +#!/usr/bin/env python3
+│ +"""
+│ +Read-only discovery probe for libcupti via stdlib ctypes.
+│ +
+│ +Locates an existing libcupti on the filesystem (fixed common CUDA
+│ +directories + bounded globs only), loads it, calls the two documented
+│ +basic APIs cuptiGetVersion and cuptiGetResultString, and writes a JSON
+│ +report to stdout.
+│ +
+│ +Does NOT: use profiling counters, subscribe callbacks, change permissions
+│ +or config, use sudo, touch GPU/MMIO, read secrets, or modify the system.
+│ +Existing policy RmProfilingAdminOnly=1 is left unchanged.
+│ +
+│ +A successful cuptiGetVersion only proves the CUPTI library is loadable and
+│ +exports version metadata -- it does NOT prove counter access or profiling
+│ +correctness.
+│ +
+│ +Intended to run on the target machine by a later step; this file is only
+│ +authored here, not executed on the target.
+│ +"""
+│ +import argparse
+│ +import ctypes
+│ +import datetime
+│ +import glob
+│ +import json
+│ +import os
+│ +import sys
+│ +
+│ +SCHEMA = "phase21-cupti-query-v1"
+│ +COMMAND = "cupti_query"
+│ +MAX_GLOB_MATCHES = 8
+│ +
+│ +BASE_DIRS = [
+│ +    "/usr/local/cuda/lib64",
+│ +    "/usr/local/cuda/lib64/stubs",
+│ +    "/usr/lib/x86_64-linux-gnu",
+│ +    "/usr/lib",
+│ +    "/opt/cuda/lib64",
+│ +]
+│ +
+│ +CUPTI_GLOBS = ["libcupti.so*", "libcupti.so"]
+│ +
+│ +
+│ +def utc_now():
+│ +    return datetime.datetime.now(datetime.timezone.utc).isoformat()
+│ +
+│ +
+│ +def candidate_dirs():
+│ +    """Fixed common CUDA library dirs, plus $CUDA_HOME/$CUDA_PATH/lib64 if set (not a secret)."""
+│ +    dirs = list(BASE_DIRS)
+│ +    for env_name in ("CUDA_HOME", "CUDA_PATH"):
+│ +        value = os.environ.get(env_name)
+│ +        if value:
+│ +            dirs.append(os.path.join(value, "lib64"))
+│ +            dirs.append(os.path.join(value, "lib64", "stubs"))
+│ +    seen = []
+│ +    for d in dirs:
+│ +        if d not in seen and os.path.isdir(d):
+│ +            seen.append(d)
+│ +    return seen
+│ +
+│ +
+│ +def bounded_glob(directory, pattern):
+│ +    """Sorted, capped glob matches for one directory (bounded scan)."""
+│ +    matches = glob.glob(os.path.join(directory, pattern))
+│ +    matches = sorted(matches)
+│ +    return matches[:MAX_GLOB_MATCHES]
+│ +
+│ +
+│ +def collect_paths():
+│ +    paths = []
+│ +    for directory in candidate_dirs():
+│ +        for pattern in CUPTI_GLOBS:
+│ +            for path in bounded_glob(directory, pattern):
+│ +                if path not in paths:
+│ +                    paths.append(path)
+│ +    return paths
+│ +
+│ … omitted 107 diff line(s) across 1 additional file(s)/section(s)
+│ glm_work/cupti_query_notes.md
+│ @@ -0,0 +1,24 @@
+│ +# Ghi notes: cupti_query.py (PHASE21 / glm_work)
+│ +
+│ +## Mục đích
+│ +Probe chỉ đọc (read-only) để phát hiện libcupti trên hệ thống mục tiêu và gọi hai API cơ bản đã dokument của CUPTI qua Python stdlib ctypes. Xuất JSON ra stdout. Cha sẽ chạy file này trên mục tiêu sau; tại đây chỉ tác giả, không thực thi GPU, không SSH.
+│ +
+│ +## File
+│ +- `glm_work/cupti_query.py` — stdout JSON, schema `phase21-cupti-query-v1`, có `utc` (ISO 8601 UTC) và `command` cho mỗi lần chạy.
+│ +
+│ +## API CUPTI gọi (chỉ hai API cơ bản)
+│ +- `cuptiGetVersion(unsigned int *version)` → `CUptiResult`
+│ +- `cuptiGetResultString(CUptiResult result)` → `const char *`
+│ +
+│ +ABI qua ctypes mặc định Linux x86-64 (restype `c_int`; argtypes con trỏ `c_uint` / `c_int`). Không gọi bộ đếm profiling, không đăng ký callback.
+│ +
+│ +## Đường dẫn quét (giới hạn, cố định)
+│ +Thư mục: `/usr/local/cuda/lib64`, `/usr/local/cuda/lib64/stubs`, `/usr/lib/x86_64-linux-gnu`, `/usr/lib`, `/opt/cuda/lib64`, bổ sung `$CUDA_HOME`/`$CUDA_PATH/lib64` nếu biến env tồn tại (đây là đường dẫn, không phải bí mật). Mỗi thư mục dùng glob bị giới hạn (`MAX_GLOB_MATCHES=8`). JSON báo cáo: `searched_dirs`, `paths_tried`, `lib_load` (lỗi tải mỗi đường dẫn), `selected`.
+│ +
+│ +## Ràng buộc quan trọng
+│ +- Truy vấn phiên bản chỉ chứng minh thư viện tải được và xuất metadata phiên bản — **KHÔNG** chứng minh quyền truy cập bộ đếm hay độ chính xác của profiling.
+│ +- `RmProfilingAdminOnly=1` không được đọc, không được sửa, giữ nguyên.
+│ +- Không sudo, không thay quyền/cấu hình, không đọc bí mật (secret), không chạm MMIO/GPU.
+│ +
+│ +## Khi mở rộng
+│ +Cần tra bộ đếm profiling → thêm `cuptiSubscribe` / các API counter — chỉ khi cha yêu cầu, đây chỉ là giai đoạn khám phá.
+│ glm_work/cupti_query.py
+│ @@ -129,7 +129,7 @@
+│          if h is not None and handle is None:
+│              handle = h
+│              selected = path
+│ -    version_out = {}
+│ +    version_out = {"rc": None, "version": None, "result_string": None, "result_string_rc": None}
+│      if handle is not None:
+│          bind_basic_api(handle)
+│          version_out = query_version(handle)
+Hoàn tất. Kết quả:
+
+- `glm_work/cupti_query.py` — probe stdlib ctypes, JSON stdout, schema `phase21-cupti-query-v1` + `utc` mỗi lần chạy. Quét thư mục CUDA cố định (giới hạn glob 8 kết quả/thư mục) + `$CUDA_HOME`/`$CUDA_PATH` nếu có. Gọi `cuptiGetVersion` rồi `cuptiGetResultString` với mã trả về, ABI `c_int` / con trỏ `c_uint` đúng convention Linux x86-64. Báo cáo `paths_tried`, `lib_load` (lỗi tải mỗi đường dẫn), mã trả về. Không profiling, không callback, không sudo, không đọc bí mật, không sửa hệ thống, `RmProfilingAdminOnly=1` giữ nguyên. Có `--self-check` (không cần GPU) đã chạy PASS.
+- `glm_work/cupti_query_notes.md` — ghi chú tiếng Việt: mục đích, API gọi, đường dẫn quét, ràng buộc, notably: truy vấn phiên bản **không chứng minh** quyền truy cập bộ đếm hay độ chính xác profiling.
+
+Chạy_local (máy này không có CUDA): self-check PASS, JSON xuất được với `selected: null`, `paths_tried: []` — trên máy mục tiêu có CUDA sẽ điền đầy đủ.
+
+Đã bỏ:クライ套 cache/library-loader riêng (stdlib ctypes đủ), đối số CLI chọn thư mục (fixed dirs theo yêu cầu), đọc `/proc` hay env nhạy cảm. Thêm sau khi cha yêu cầu.

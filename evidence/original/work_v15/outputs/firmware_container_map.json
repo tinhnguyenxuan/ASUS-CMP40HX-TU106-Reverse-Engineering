@@ -1,0 +1,150 @@
+{
+ "file": "ucodes_tu10x.bin",
+ "size": 8837632,
+ "magic": "NVUCODES",
+ "header": {
+  "version": 1,
+  "header_size": 496,
+  "hash64": "0x8d1990ab6b98ae2b"
+ },
+ "entry_table": {
+  "offset": 496,
+  "stride": 32,
+  "marker": "04 00 00 00",
+  "count": 11
+ },
+ "blobs": [
+  {
+   "idx": 0,
+   "offset": 12032,
+   "offset_hex": "0x00002f00",
+   "size": 122880,
+   "entropy": 3.4807,
+   "nonzero_ratio": 0.3725,
+   "classification": "plaintext",
+   "head16": "d0c0ff0000fe0400bda47e10fe00f802",
+   "tail16": "00000000000000000000000000000000"
+  },
+  {
+   "idx": 1,
+   "offset": 134912,
+   "offset_hex": "0x00020f00",
+   "size": 122880,
+   "entropy": 7.9976,
+   "nonzero_ratio": 0.9939,
+   "classification": "high-entropy",
+   "head16": "f09f472255d1909cbfbc4203f329b45d",
+   "tail16": "c4a4853091bf47809bc31ce578d295e6"
+  },
+  {
+   "idx": 2,
+   "offset": 257792,
+   "offset_hex": "0x0003ef00",
+   "size": 122880,
+   "entropy": 7.9978,
+   "nonzero_ratio": 0.9942,
+   "classification": "high-entropy",
+   "head16": "730e154e731616656ba7aeb777322a63",
+   "tail16": "b606eeb72700a3423d7dcd94608dbab6"
+  },
+  {
+   "idx": 3,
+   "offset": 380672,
+   "offset_hex": "0x0005cf00",
+   "size": 122880,
+   "entropy": 7.9978,
+   "nonzero_ratio": 0.994,
+   "classification": "high-entropy",
+   "head16": "790985d2c678b51b4702af25d0582444",
+   "tail16": "f1eac06a12e71cc7fef5752f11b0c43c"
+  },
+  {
+   "idx": 4,
+   "offset": 503552,
+   "offset_hex": "0x0007af00",
+   "size": 122880,
+   "entropy": 7.9976,
+   "nonzero_ratio": 0.9937,
+   "classification": "high-entropy",
+   "head16": "6832cc3a12b765ee5aeccdf2b613a5d4",
+   "tail16": "431183562ac434d3ed5a305ee251a0d5"
+  },
+  {
+   "idx": 5,
+   "offset": 626432,
+   "offset_hex": "0x00098f00",
+   "size": 126208,
+   "entropy": 4.9154,
+   "nonzero_ratio": 0.5676,
+   "classification": "plaintext",
+   "head16": "000000002800000001000000b1720000",
+   "tail16": "00000000000000000000000000000000"
+  },
+  {
+   "idx": 6,
+   "offset": 752640,
+   "offset_hex": "0x000b7c00",
+   "size": 125696,
+   "entropy": 4.8978,
+   "nonzero_ratio": 0.5652,
+   "classification": "plaintext",
+   "head16": "00000000280000000100000015700000",
+   "tail16": "00000000000000000000000000000000"
+  },
+  {
+   "idx": 7,
+   "offset": 878336,
+   "offset_hex": "0x000d6700",
+   "size": 126208,
+   "entropy": 4.9163,
+   "nonzero_ratio": 0.5677,
+   "classification": "plaintext",
+   "head16": "000000002800000001000000bd720000",
+   "tail16": "00000000000000000000000000000000"
+  },
+  {
+   "idx": 8,
+   "offset": 1004544,
+   "offset_hex": "0x000f5400",
+   "size": 125696,
+   "entropy": 4.8979,
+   "nonzero_ratio": 0.5652,
+   "classification": "plaintext",
+   "head16": "00000000280000000100000015700000",
+   "tail16": "00000000000000000000000000000000"
+  },
+  {
+   "idx": 9,
+   "offset": 1130240,
+   "offset_hex": "0x00113f00",
+   "size": 132096,
+   "entropy": 4.953,
+   "nonzero_ratio": 0.5743,
+   "classification": "plaintext",
+   "head16": "000000002800000001000000457b0000",
+   "tail16": "00000000000000000000000000000000"
+  },
+  {
+   "idx": 10,
+   "offset": 1262336,
+   "offset_hex": "0x00134300",
+   "size": 7575296,
+   "entropy": 7.2614,
+   "nonzero_ratio": 0.8307,
+   "classification": "mixed",
+   "head16": "000000003200000001000000797c0000",
+   "tail16": "00000000000000000000000000000000"
+  }
+ ],
+ "summary": {
+  "plaintext": 6,
+  "high_entropy": 4,
+  "mixed": 1
+ },
+ "encryption_note": "entropy 7.998 cannot distinguish AES from LZMA/deflate; no IV, no magic, no header found. NOT evidence of AES.",
+ "coverage_check": {
+  "last_blob_end": 8837632,
+  "file_size": 8837632,
+  "complete": true
+ }
+}

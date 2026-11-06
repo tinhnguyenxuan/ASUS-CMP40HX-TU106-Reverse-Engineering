@@ -1,0 +1,87 @@
+warning: No strap specified
+requested OOB u16 at 0xf400
+BIT table 'B' not empty!
+Failed to parse BIT table 'B' at 0x023e version 2
+BIT table 'C' not empty!
+Failed to parse BIT table 'C' at 0x0263 version 2
+BIT table 'I' not empty!
+Failed to parse BIT table 'I' at 0x0293 version 1
+BIT 'i' table has strange size: 0x0068 > 0x0044
+Unknown IUNK21 table version 1.1
+Failed to parse IUNK21 table at 0xe7ed version 1.1
+requested OOB u8 at 0xf5e2
+requested OOB u8 at 0xf5e3
+requested OOB u8 at 0xf5e4
+requested OOB u8 at 0xf5e5
+requested OOB u8 at 0xf5e6
+requested OOB u8 at 0xf5e7
+requested OOB u8 at 0xf637
+requested OOB u8 at 0xf638
+requested OOB u8 at 0xf639
+requested OOB u8 at 0xf63a
+requested OOB u8 at 0xf63b
+requested OOB u8 at 0x1f123
+Unknown THERMAL DEVICES table version 0x0
+requested OOB u8 at 0x1e3e0
+Unknown SENSE table version 0x0
+requested OOB u8 at 0x1e892
+Unknown POWER BUDGET table version 0x0
+requested OOB u8 at 0x1ad26
+BASE CLOCKS table version 0x0
+requested OOB u8 at 0x1e53f
+Unknown POWER TOPOLOGY table version 0x0
+requested OOB u8 at 0x1ef61
+Unknown POWER LEAKAGE table version 0x0
+requested OOB u8 at 0x1aff2
+Unknown PERF TEST SPEC table version 0x0
+requested OOB u8 at 0x1f15d
+Unknown THERMAL CHANNEL table version 0x0
+requested OOB u8 at 0x1f206
+Unknown THERMAL ADJUSTMENT table version 0x0
+requested OOB u8 at 0x1f079
+Unknown THERMAL POLICY table version 0x0
+requested OOB u8 at 0x1f224
+Unknown FAN table version 0x0
+requested OOB u8 at 0x1f25e
+Unknown FAN_MGMT table version 0x0
+requested OOB u8 at 0x1f2d0
+Unknown FAN TEST table version 0x0
+requested OOB u8 at 0x1cc22
+Unknown LOW POWER table version 0x0
+requested OOB u8 at 0x1cc4b
+Unknown LOW POWER PCIe table version 0x0
+requested OOB u8 at 0x1cc8c
+Unknown LOW POWER PCIe-PLATFORM table version 0x0
+requested OOB u8 at 0x1ccd1
+Unknown LOW POWER GR table version 0x0
+requested OOB u8 at 0x1ccf4
+Unknown LOW POWER MS table version 0x0
+requested OOB u8 at 0x1cd46
+Unknown LOW POWER DI table version 0x0
+requested OOB u8 at 0x1cd6d
+Unknown LOW POWER GC6 table version 0x0
+requested OOB u8 at 0x1cddc
+Unknown LOW POWER PSI table version 0x0
+requested OOB u8 at 0x1f214
+Unknown THERM MONITOR table version 0x0
+requested OOB u8 at 0x1f2de
+Unknown OVERCLOCKING table version 0x0
+requested OOB u8 at 0xf554
+Unknown FALCON UCODE table version 0x0
+BIT table 'S' not empty!
+Failed to parse BIT table 'S' at 0x03b4 version 2
+BIT table 'U' not empty!
+Failed to parse BIT table 'U' at 0x03ce version 1
+BIT table 'u' not empty!
+Failed to parse BIT table 'u' at 0x03e7 version 1
+BIT table 'V' not empty!
+Failed to parse BIT table 'V' at 0x03d3 version 1
+BIT table 'x' not empty!
+Failed to parse BIT table 'x' at 0x03d9 version 1
+DCB table header longer than expected [35 > 27]
+I2C table header longer than expected [6 > 5]
+GPIO table record longer than expected [6 > 5]
+XPIO table record longer than expected [6 > 5]
+XPIO table record longer than expected [6 > 5]
+XPIO table record longer than expected [6 > 5]
+HWINFO ext sig mismatch [0x50]

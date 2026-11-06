@@ -1,0 +1,39 @@
+T07 bounded annotated disassembly — GSP 615.78.08
+SHA256: 0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b
+VA is inner-ELF VA; raw bytes and assertions are in evidence/display_object_fields.json and gsp_name_xrefs.json.
+
+[worker 0x04b30030]
+0x04b30050  addi s3,a1,0                 ; worker second arg becomes object base
+0x04b30128  sw a5,0x32c(s3)              ; RMFubUseCaseMask-derived word
+0x04b30130  sb a5,0x328(s3)              ; RMRunFub-derived byte
+0x04b30138  sw a5,0x334(s3)              ; RmDisableDisplay == 1 cached field
+
+[site A 0x04840368]
+0x04840368  ... compute RmDisableDisplay string
+0x04840374  auipc/jalr                  ; resolves to helper 0x045e130c
+0x04840380  bnez a0,...                 ; nonzero helper result path
+0x0484038c  beq a4,a5,...               ; on successful read, compare value with 1
+0x04840390  ld a5,0x1c8(s1)             ; normal HAL predicate slot
+0x0484039c  jalr a5                     ; indirect predicate call
+
+[site B 0x04b300c0]
+0x04b300c0  ... compute RmDisableDisplay string
+0x04b300d0  auipc/jalr                  ; resolves to helper 0x045e130c
+0x04b300dc  bnez a0,...                 ; nonzero helper result path
+0x04b300e8  beq ...                     ; value == 1 edge
+0x04b30138  sw a5,0x334(s3)              ; store cached policy value
+
+[consumer 0x04b20f54]
+0x04b20f80  lw a5,0x334(a1)              ; read cached configuration field
+0x04b20f84  bnez a5,0x04b20fcc         ; nonzero veto/diagnostic path
+0x04b20f88  addi a0,zero,1
+0x04b20f8c  sb a0,0(s1)                  ; zero field => output byte 1
+0x04b20fe0  addi a0,zero,0
+0x04b20fe4  sb a0,0(s1)                  ; nonzero field => output byte 0
+
+[HAL predicates]
+0x04b19ea4  target for slot +0x1b0       ; selector 0x3814; mask 0x000c0000
+0x04b1a018  target for slot +0x1c8       ; selector 0x3814; bit 27
+
+[limits]
+This is bounded static evidence only. It does not establish runtime reachability, effective registry values, exact TU106 selector semantics, or display hardware/output capability.

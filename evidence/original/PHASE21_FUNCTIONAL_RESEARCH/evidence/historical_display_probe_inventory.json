@@ -1,0 +1,124 @@
+{
+  "artifact": "historical_display_probe_inventory",
+  "unique_sha256": [
+    "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf"
+  ],
+  "count": 11,
+  "records": [
+    {
+      "path": "/tmp/v10chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v11chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v12chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v13chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v14chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v15chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v7chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v8chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/v9chk/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "/tmp/cmp40hx-v15-audit-gzjlxr24/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    },
+    {
+      "path": "work_v15/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bdf": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "zones": 11
+    }
+  ],
+  "interpretation": "all retained probe copies are byte-identical; they are duplicate historical captures, not independent runtime observations",
+  "limits": [
+    "probe JSON has no timestamp or command metadata",
+    "resource0 readout is historical and cannot establish current target state"
+  ]
+}

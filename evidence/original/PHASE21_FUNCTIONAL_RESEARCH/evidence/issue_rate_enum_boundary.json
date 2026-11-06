@@ -1,0 +1,153 @@
+{
+  "schema": "phase21-issue-rate-enum-boundary-v1",
+  "header": {
+    "path": "/tmp/nvsrc/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080gr.h",
+    "sha256": "3606a7eca1edab791659af041ecbe207596e516db2f94db261dadd57f939b478",
+    "scope": "Saved local header; exact615.71.09 tag byte identity not verified by this script"
+  },
+  "capture_input_sha256": "bf6db9b2eb4cb5f40d61b95f7db5ca248ef78737205219abdcbc228e6a045b58",
+  "rows": [
+    {
+      "index": 0,
+      "name": "FMLA16",
+      "raw_speed_select": 6,
+      "legacy_definitions_with_same_value": [],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    },
+    {
+      "index": 2,
+      "name": "FMLA32",
+      "raw_speed_select": 6,
+      "legacy_definitions_with_same_value": [],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    },
+    {
+      "index": 3,
+      "name": "FFMA",
+      "raw_speed_select": 0,
+      "legacy_definitions_with_same_value": [
+        "FULL_SPEED"
+      ],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    },
+    {
+      "index": 4,
+      "name": "IMLA0",
+      "raw_speed_select": 6,
+      "legacy_definitions_with_same_value": [
+        "REDUCED_SPEED_1_64"
+      ],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    },
+    {
+      "index": 5,
+      "name": "IMLA1",
+      "raw_speed_select": 6,
+      "legacy_definitions_with_same_value": [
+        "REDUCED_SPEED_1_64"
+      ],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    },
+    {
+      "index": 6,
+      "name": "IMLA2",
+      "raw_speed_select": 6,
+      "legacy_definitions_with_same_value": [
+        "REDUCED_SPEED_1_64"
+      ],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    },
+    {
+      "index": 7,
+      "name": "IMLA3",
+      "raw_speed_select": 6,
+      "legacy_definitions_with_same_value": [
+        "REDUCED_SPEED_1_64"
+      ],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    },
+    {
+      "index": 8,
+      "name": "IMLA4",
+      "raw_speed_select": 6,
+      "legacy_definitions_with_same_value": [
+        "REDUCED_SPEED_1_64"
+      ],
+      "legacy_defined_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "conclusion": "Candidate numeric correspondence only; V2 consumer translation and effective throughput not established"
+    }
+  ],
+  "limits": [
+    "Legacy query20801230 enum names do not by themselves define V2 query2080123c values",
+    "No generic divisor=2^code interpretation is authorized",
+    "Not hardware execution, raw OTP or production defect evidence"
+  ]
+}

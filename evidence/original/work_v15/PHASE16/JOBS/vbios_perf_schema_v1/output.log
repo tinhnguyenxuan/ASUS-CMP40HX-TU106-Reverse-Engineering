@@ -1,0 +1,35 @@
+All tasks complete. Here's the summary:
+
+## Kết quả
+
+**1. BIT P token schema (từ source envytools/nvbios/bit.c, power.c):**
+- BIT entry: 6 byte = type(u8) + version(u8) + t_len(u16 LE) + t_offset(u16 LE)
+- Token 'P' (index 7): version=2, t_len=224, t_offset=724 → PERF_OFF=0x288D4
+- **56 slots × 4B = 224B == t_len 224B** → tất cả 56 slot nằm trong token length thật. Không slot nào vượt ra.
+- ptr=0 = null (bỏ qua), ptr≠0 = con trỏ thực qua công thức Turing ptr_map (ROM_IMG + p, +EFI_SZ nếu p ≥ LEGACY_SZ). Không bao giờ hiểu ptr=0 là imagebase.
+
+**2. Nguồn đã tìm:**
+- `/tmp/envytools/nvbios/bit.c` — BIT header/entry schema, 6-byte stride
+- `/tmp/envytools/nvbios/power.c` — P token = Power table, P2_tbls map byte-offset → tên bảng (version 2)
+- `/tmp/envytools/nvbios/nvbios.c` — PM_Mode table parse (slot 0 = PERFORMANCE, header fields khác model ver/hdr/esz/cnt chung)
+- `perf_tables.py`, `vbios_tables.py` (scratch) — script cũ, chỉ là đầu mối, không phải bằng chứng thẩm quyền
+
+**3. Slot 17 và 3 bảng khác có tên từ nguồn:**
+| Slot | P2 offset | Tên bảng (P2_tbls) | Raw ptr | Mapped | Generic header | Schema |
+|------|-----------|-------------------|---------|--------|----------------|--------|
+| 17 | 0x44 | PERF TEST SPEC | 0x01aff2 | 0x0545f2 | ver=16 hdr=14 esz=70 cnt=183 size=12824 | **UNKNOWN fields** |
+| 0 | 0x00 | PERFORMANCE | 0x01ab55 | 0x054155 | ver=0x60 hdr=10 esz=5 cnt=7 | NAME_ONLY |
+| 11 | 0x2c | POWER BUDGET | 0x01e892 | 0x057e92 | ver=0x30 hdr=44 esz=66 cnt=20 | NAME_ONLY |
+| 20 | 0x50 | THERMAL POLICY | 0x01f079 | 0x058679 | ver=0x10 hdr=10 esz=40 cnt=4 | NAME_ONLY |
+
+Slot 17 raw32: `10 0e 46 b7 09 28 6c 02 00 1d 5a 1e 1e 4b 11 1a 3c 21 0a 07 00 40 00 00 00 00 00 00 00 00 f7 72`
+
+**4. 14 overlaps** — đều liên quan slot 17. Được phân loại là **generic-model-artifact** (do mô hình unverified `hdr+esz*cnt`), không phải realtableoverlap. Không kết luận overlap thật vì schema slot 17 chưa biết.
+
+**5. Hypothèses bị bác bỏ:** (a) mọi BIT token data là pointerlist — sai, chỉ P token mới được iterate như vậy; (b) mọi non-null slot có header ver/hdr/esz/cnt — sai, đây là model cũ; (c) 14 overlap là thật — chưa chứng minh.
+
+**Files đầu ra (PHASE16/VBIOS_PERF/, không sửa VBIOS_SOURCE):**
+- `perf_schema_verify.py` — script tự kiểm tra (demo: 7/7 PASS)
+- `perf_schema_verified.json` — kết quả máy đọc được (115 KB)
+- `run.log` — nhật ký chạy
+- `PERF_SCHEMA_REPORT.md` — báo cáo đầy đủ

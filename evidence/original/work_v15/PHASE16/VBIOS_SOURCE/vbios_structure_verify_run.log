@@ -1,0 +1,14 @@
+JSON ghi: /home/REDACTED_USER/codex-work/work_v15/PHASE16/VBIOS_SOURCE/vbios_structure_verified.json
+=== VBIOS structure verify ===
+ROM 1,048,576 B  sha256 dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec
+T4  495,616 B  sha256 aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb
+shadow 1,048,576 B  sha256 2715c0b106931b540b5ef6660201919e9297f3f5cdc61432d9a16352c55b717a
+Signature hits: 64  accepted boundaries: 4  rejected: 60
+BIT: 17 tokens (1 null) @ 0x287B0
+PERF: 56 slots, 40 non-null, 40 parsed tables, 40 valid-header, 14 table-table overlaps
+Key block: bank1 38/38 present, bank2 0/38 present (all 0xFF in key range)
+Repeated banks: 1212/495,616 bytes differ (denominator), runs=[['0x003000', '0x0034bf']]
+T4 shared-prefix: 19/495,616 bytes differ
+Shadow vs ROM[0x28600:]: 14/883,200 bytes differ (NOT 100%; denominator 883,200)
+Unresolved: 4 regions
+DONE

@@ -1,0 +1,26 @@
+{
+  "scope": "host display-gate source availability",
+  "records": [
+    {
+      "path": "/tmp/nvsrc/nvidia/generated/g_gpu_nvoc.h",
+      "sha256": "8c11f9341181e06e22bde6f1722275d057796b0a7cd796f28fb2fba0058d8a9c",
+      "gpuFuseSupportsDisplay_GM107_declaration": true,
+      "implementation_body_present": false,
+      "status_opt_display_present": false
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+      "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10",
+      "gpuFuseSupportsDisplay_GM107_declaration": false,
+      "implementation_body_present": false,
+      "status_opt_display_present": true
+    }
+  ],
+  "official_dispatch_reference": {
+    "tag": "615.78.08",
+    "url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/615.78.08/src/nvidia/generated/g_gpu_nvoc.c",
+    "lines": "1940-1944",
+    "claim": "TU102/TU104/TU106/TU116/TU117 select gpuFuseSupportsDisplay_GM107"
+  },
+  "conclusion": "local source snapshot contains dispatch declaration and GM107 field header but not implementation body; host gate linkage is bounded, GSP selector semantics remain unresolved"
+}

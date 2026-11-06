@@ -1,0 +1,25 @@
+test_auipc_pair_uses_own_pc_and_signed_halves (test_riscv_audit.DecoderTests.test_auipc_pair_uses_own_pc_and_signed_halves) ... ok
+test_auipc_zero_and_register_mismatch (test_riscv_audit.DecoderTests.test_auipc_zero_and_register_mismatch) ... ok
+test_compressed_control_exhaustive_against_capstone (test_riscv_audit.DecoderTests.test_compressed_control_exhaustive_against_capstone) ... ok
+test_compressed_indirect_and_return (test_riscv_audit.DecoderTests.test_compressed_indirect_and_return) ... ok
+test_instruction_walk_handles_halfword_aligned_word (test_riscv_audit.DecoderTests.test_instruction_walk_handles_halfword_aligned_word) ... ok
+test_jal_extremes_and_random_against_capstone (test_riscv_audit.DecoderTests.test_jal_extremes_and_random_against_capstone) ... ok
+test_known_backward_jal_and_true_va (test_riscv_audit.DecoderTests.test_known_backward_jal_and_true_va) ... ok
+test_lengths (test_riscv_audit.DecoderTests.test_lengths) ... ok
+test_non_jal_rejected (test_riscv_audit.DecoderTests.test_non_jal_rejected) ... ok
+test_rv64_c_addiw_is_not_rv32_c_jal (test_riscv_audit.DecoderTests.test_rv64_c_addiw_is_not_rv32_c_jal) ... ok
+test_truncated_instruction_rejected (test_riscv_audit.DecoderTests.test_truncated_instruction_rejected) ... ok
+test_capstone_known_branch_targets (test_riscv_audit.FirmwareEvidenceTests.test_capstone_known_branch_targets) ... ok
+test_inner_elf_header (test_riscv_audit.FirmwareEvidenceTests.test_inner_elf_header) ... ok
+test_no_file_bytes_for_nobits_or_unmapped_va (test_riscv_audit.FirmwareEvidenceTests.test_no_file_bytes_for_nobits_or_unmapped_va) ... ok
+test_old_mapping_is_not_validated_by_signature (test_riscv_audit.FirmwareEvidenceTests.test_old_mapping_is_not_validated_by_signature) ... ok
+test_table_and_loop_offsets (test_riscv_audit.FirmwareEvidenceTests.test_table_and_loop_offsets) ... ok
+test_table_names_resolve_without_suffix_guessing (test_riscv_audit.FirmwareEvidenceTests.test_table_names_resolve_without_suffix_guessing) ... ok
+test_true_section_and_segment_mapping_agree (test_riscv_audit.FirmwareEvidenceTests.test_true_section_and_segment_mapping_agree) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.182s
+
+OK
+
+EXIT_CODE=0

@@ -1,0 +1,172 @@
+{
+  "baseline": "/tmp/A.rom",
+  "range": "0x28600:0x37a00",
+  "records": [
+    {
+      "path": "/tmp/A.rom",
+      "sha256": "add5fb175445745f2787ef8b38a8f1d182f601e9fb08dab76f9ee24c00de881a",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/B1_fan4k_only.bin.rom",
+      "sha256": "cf325d85817fff274a5473cab717a518f939f82a9f79b43b34dd6578c421e9c9",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/B2_power270_only.bin.rom",
+      "sha256": "c32601bdda8e19ef0c27c76eaee9e578cb383c1c71e38b48d050b4ba75091ed0",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/BS50.rom",
+      "sha256": "bbdac1e982f4a1e6b5a442633dbdf96ea07f5a0cc1bc7836c6267caf6c8b6a78",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/CMP40HX_ORIGINAL_1MB.bin",
+      "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/F.rom",
+      "sha256": "41d961f30dea60968a98fda0424f7b5a6049fd79e9ffcb248e9f9b29e47adcd0",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/GF_60.rom",
+      "sha256": "99813f1c67125d76e684838a41d00d3c67e2e23fb37256f5bab495d32f3b3bde",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/V2.rom",
+      "sha256": "2d48f5ce364da49347befdf63c50fbbf91c7e7a4cfb822d3c0fabc26b09a8172",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/V4.rom",
+      "sha256": "bdf44cb8fb9f8e629f9fbdf29e102108fd86ba83fb0ac4eb49d86ea176f2a761",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/V5.rom",
+      "sha256": "2784db8badd37f93ecfb48b848516f42b5bc084699fa1a26db5010c7c352d421",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/base_edit.rom",
+      "sha256": "75eb9c0e7ca06716d60da23a8760ecffbd392c91bd956ede691a7b5b857a557f",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/edit1.rom",
+      "sha256": "368df73294336a14dc39011cbdb973fa881ba37165f4fc6f6e06445c6c5cecbc",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/gen3_a.rom",
+      "sha256": "d4fa7c93a5bbbc86848b34bc7f2b6271dc0bff83d94eadb4c43e38cc77e11f3c",
+      "region_sha256": "bc518d6cfb983f9cd07f6747deb55cebd69e0ab7c2ab6d78eeecd5c940486d28",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": false,
+      "diff_bytes": 2,
+      "first_diff": "0x30060",
+      "last_diff": "0x3016f"
+    },
+    {
+      "path": "/tmp/t3.rom",
+      "sha256": "09acb1cda57f6483c7a743634538d2b4f5f9766bbb9047abda8ad6a8a537b650",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    },
+    {
+      "path": "/tmp/t_clk.rom",
+      "sha256": "612eaa72cc1ed8e83c53eb7aa1fb6e0edb1d6afc47201953f0272efd9d6bc435",
+      "region_sha256": "5899cbd889d5ca079beb8325e60430cc2be0c4508ff8ee120732356b55e536cc",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": false,
+      "diff_bytes": 5,
+      "first_diff": "0x2fbb5",
+      "last_diff": "0x2fbd9"
+    },
+    {
+      "path": "/tmp/t_gpc.rom",
+      "sha256": "263a6d902e85abb8b615cb0947a62fddc247917572ebe8df4fdccecf6af6e9c3",
+      "region_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+      "region_bytes": 62464,
+      "legacy_dcb_script_equal_baseline": true,
+      "diff_bytes": 0,
+      "first_diff": null,
+      "last_diff": null
+    }
+  ],
+  "all_equal": false,
+  "interpretation": "bounded byte-region comparison covering legacy DCB/script extraction window; equal bytes do not prove all VBIOS display behavior",
+  "limits": [
+    "range selection follows saved nvbios extraction, not a complete semantic VBIOS parser",
+    "ROM provenance remains unauthenticated"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "firmware": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+  "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "selected_sites": {
+    "0x462ec60": {
+      "mnemonic": "ld",
+      "op_str": "s1, 0x790(s1)",
+      "displacements": [
+        "0x790"
+      ],
+      "bases": [
+        "s1"
+      ]
+    },
+    "0x49852b4": {
+      "mnemonic": "sw",
+      "op_str": "a3, 0x790(t1)",
+      "displacements": [
+        "0x790"
+      ],
+      "bases": [
+        "t1"
+      ]
+    },
+    "0x4b20f68": {
+      "mnemonic": "ld",
+      "op_str": "a4, 0x790(a0)",
+      "displacements": [
+        "0x790"
+      ],
+      "bases": [
+        "a0"
+      ]
+    }
+  },
+  "missing": [],
+  "semantic_scope": "The same numeric offset occurs in distinct object contexts; only consumer-local interpretation is asserted."
+}

@@ -1,0 +1,12 @@
+{
+  "job": "falcon_radix_recheck_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:20:40.973784+00:00",
+  "wrapper_pid": 1680892,
+  "task_sha256": "0b4da0f08e02dbee46d16c833ed43c8e0f45203aaae856738626d8c051c15243",
+  "hermes_pid": 1680893,
+  "hermes_start_ticks": "209958685",
+  "heartbeat_at": "2026-11-03T19:39:03.576654+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:39:05.578629+00:00"
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "phase21-requirement-matrix-v1",
+  "generated_utc": "2026-11-06T02:51:14.552933+00:00",
+  "source": "prompt scope and current workspace artifacts",
+  "rows": [
+    {
+      "id": "cuda_capability",
+      "requirement": "CUDA capability/current correctness",
+      "artifact": "CUDA_CAPABILITY_AUDIT.md",
+      "exists": true,
+      "sha256": "5a95d4df85046c396de741729a6bcfd6381ac6968f8c7fa421c35e7fd3042aac",
+      "status": "PARTIAL_CURRENT",
+      "note": "Retained FP32, WMMA, SGEMM correctness; CUPTI discovery only; graphs/DP4A/cuBLASLt/counters unverified"
+    },
+    {
+      "id": "compute_restriction",
+      "requirement": "Compute restriction and selector semantics",
+      "artifact": "COMPUTE_SELECTOR_EVIDENCE.md",
+      "exists": true,
+      "sha256": "5d0977b6290147d8086632d69ff9a8fc3b32cad36de86b46dc98a2cec4fc2c85",
+      "status": "PROVEN_STATIC",
+      "note": "Static selector evidence exists; exact runtime consumer mapping remains open"
+    },
+    {
+      "id": "display",
+      "requirement": "Display policy, fuse gate and physical capability",
+      "artifact": "GSP_DISPLAY_OBJECT_FIELDS.md",
+      "exists": true,
+      "sha256": "2f951e6f095fafedf1c02c256c9ace7352bc2c06384daf5dfb7b4bba9b1d0ba3",
+      "status": "PROVEN_STATIC",
+      "note": "Static policy/fuse dataflow recovered; current physical capability missing"
+    },
+    {
+      "id": "headless_graphics",
+      "requirement": "EGL/OpenGL/Vulkan/KMS correctness",
+      "artifact": "HEADLESS_GRAPHICS_REPORT.md",
+      "exists": true,
+      "sha256": "bd122d52d78fc5d89264ae8567b448b09bdfd3c2ce088b8121b8fa23a30e6995",
+      "status": "PARTIAL_CURRENT",
+      "note": "Retained BDF-matched EGL/OpenGL ES shader pixels correct; Vulkan/interop/scanout unverified"
+    },
+    {
+      "id": "fuse",
+      "requirement": "Fuse capability and physical-vs-shadow origin",
+      "artifact": "FUSE_CAPABILITY_MAP.json",
+      "exists": true,
+      "sha256": "13a38129b4eaee8daffd51aa2989f655ed80df09911bcaa5caac62283d5deded",
+      "status": "HISTORICAL_ONLY",
+      "note": "Saved raw subset and archived predicate; current origin unresolved"
+    },
+    {
+      "id": "cross_sku_vbios",
+      "requirement": "Revision-matched independent TU106 ROM comparison",
+      "artifact": "VBIOS_DISPLAY_ANALYSIS.md",
+      "exists": true,
+      "sha256": "3a147b192d390dd37c0d8f7fbac32f104b3f8303d70fbca0fc91f514e23cc61c",
+      "status": "UNKNOWN",
+      "note": "Local original/derivative comparison only"
+    },
+    {
+      "id": "gsp_gates",
+      "requirement": "GSP/RM display gate and registry path",
+      "artifact": "GSP_DISPLAY_CONFIG_DATAFLOW.md",
+      "exists": true,
+      "sha256": "81d365de1ce129998e2765fd1681a3a5c1d9de95cd6e5a25c68f1e986f3fa331",
+      "status": "PROVEN_STATIC",
+      "note": "Static dataflow verified; effective target values/runtime reachability open"
+    },
+    {
+      "id": "feasibility",
+      "requirement": "Per-function restoration feasibility",
+      "artifact": "RESTORATION_FEASIBILITY_MATRIX.md",
+      "exists": true,
+      "sha256": "0de41f6ae3a4b09ec9113ab4a027491739f75f531619a95edc05c90afabf01d4",
+      "status": "PARTIAL_CURRENT",
+      "note": "20 function-specific rows with6 bounded working captures; stock/performance/physical restoration unresolved"
+    },
+    {
+      "id": "safety_repro",
+      "requirement": "Safe reproducible collection",
+      "artifact": "TARGET_CAPTURE_CHECKLIST.md",
+      "exists": true,
+      "sha256": "1abebf4a02c432a9aa5a0d53229ec090dddde9c95e64be759250e4c7c0c37f07",
+      "status": "PROVEN_STATIC",
+      "note": "Read-only checklist and package collector/verifier exist"
+    },
+    {
+      "id": "deliverables",
+      "requirement": "Reports/evidence/checkpoint integrity",
+      "artifact": "CHECKPOINT.json",
+      "exists": true,
+      "sha256": "8e7d20382eaace88adf529b1f981a8ba10db2a76ead8dcc5267bdf9965f44ef1",
+      "status": "PROVEN_STATIC",
+      "note": "Artifact suite and full integrity sweep pass"
+    }
+  ],
+  "completion_rule": "Only rows with authoritative current-target evidence can be promoted from MISSING_CURRENT/HISTORICAL_ONLY/UNKNOWN; static artifact presence alone is insufficient."
+}

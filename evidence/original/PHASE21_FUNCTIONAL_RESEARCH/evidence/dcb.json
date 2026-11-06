@@ -1,0 +1,122 @@
+[
+  {
+    "path": "work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin",
+    "bytes": 1048576,
+    "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+    "legacy_base": "0x28600",
+    "pointer_field": "0x28636",
+    "dcb_offset": "0x2d9ac",
+    "version": "0x41",
+    "header_size": 35,
+    "entry_count": 0,
+    "entry_size": 8,
+    "header_hex": "412300084f54cbbddc4eaa4b0000000000004055c55501000000000000000000000000",
+    "tables": {
+      "communications": {
+        "relative_pointer": "0x544f",
+        "absolute_offset": "0x2da4f",
+        "prefix_hex": "41060f040201e0030010e1030030e203"
+      },
+      "gpio": {
+        "relative_pointer": "0x4baa",
+        "absolute_offset": "0x2d1aa",
+        "prefix_hex": "41062006915400815d804f0001ff0000"
+      },
+      "input": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "cinema": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "spread_spectrum": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "i2c_devices": {
+        "relative_pointer": "0x5540",
+        "absolute_offset": "0x2db40",
+        "prefix_hex": "4005200401474a0000ff000000ff0000"
+      },
+      "connector": {
+        "relative_pointer": "0x55c5",
+        "absolute_offset": "0x2dbc5",
+        "prefix_hex": "4005000400ff000000ff000000ff0000"
+      },
+      "hdtv": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "switched_outputs": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      }
+    }
+  },
+  {
+    "path": "work_v15/outputs/cmp40hx_t4.bin",
+    "bytes": 495616,
+    "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+    "legacy_base": "0x28600",
+    "pointer_field": "0x28636",
+    "dcb_offset": "0x2d9ac",
+    "version": "0x41",
+    "header_size": 35,
+    "entry_count": 0,
+    "entry_size": 8,
+    "header_hex": "412300084f54cbbddc4eaa4b0000000000004055c55501000000000000000000000000",
+    "tables": {
+      "communications": {
+        "relative_pointer": "0x544f",
+        "absolute_offset": "0x2da4f",
+        "prefix_hex": "41060f040201e0030010e1030030e203"
+      },
+      "gpio": {
+        "relative_pointer": "0x4baa",
+        "absolute_offset": "0x2d1aa",
+        "prefix_hex": "41062006915400815d804f0001ff0000"
+      },
+      "input": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "cinema": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "spread_spectrum": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "i2c_devices": {
+        "relative_pointer": "0x5540",
+        "absolute_offset": "0x2db40",
+        "prefix_hex": "4005200401474a0000ff000000ff0000"
+      },
+      "connector": {
+        "relative_pointer": "0x55c5",
+        "absolute_offset": "0x2dbc5",
+        "prefix_hex": "4005000400ff000000ff000000ff0000"
+      },
+      "hdtv": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      },
+      "switched_outputs": {
+        "relative_pointer": "0x0",
+        "absolute_offset": null,
+        "prefix_hex": null
+      }
+    }
+  }
+]

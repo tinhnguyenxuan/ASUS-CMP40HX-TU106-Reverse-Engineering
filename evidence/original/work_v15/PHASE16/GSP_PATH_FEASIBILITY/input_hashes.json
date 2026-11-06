@@ -1,0 +1,27 @@
+{
+  "gsp": {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+    "size": 22901632,
+    "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b"
+  },
+  "script": {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_PATH_FEASIBILITY/gsp_path_feasibility.py",
+    "sha256": "eba81f17a2bb9136c29857cf6220bdebaa4af2aff2c416be01ea89d10c538d21"
+  },
+  "cfg_json": {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/disassembly/cfg.json",
+    "sha256": "7b08b646a0e804c8566a435bc833e3da4b3c8ae6503156e321fb68e48bddc7b0"
+  },
+  "extended_disasm": {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/disassembly/extended_disasm.txt",
+    "sha256": "c2b590cf85bca14f924409b3e5554e56f9956de603513ba863077c619188cc92"
+  },
+  "loop_field_proof_script": {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/loop_field_proof.py",
+    "sha256": "e0148ef44cd071d950fdf97a49fd14bc67ac812ea7fe94cc9495fd3d3b9aaa99"
+  },
+  "riscv_audit_reused": {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/riscv_audit.py",
+    "sha256": "b71e2b2132d689ba4e946bda13b0d9e6aec129065e2d84e8d8722b7e6038394c"
+  }
+}

@@ -1,0 +1,285 @@
+{
+ "targets": [
+  {
+   "name": "RMClkVfOverride",
+   "file_off": 601576,
+   "vaddr": 67710440,
+   "u32_ptr": 0,
+   "u64_ptr": 0,
+   "entries": []
+  },
+  {
+   "name": "RmAtsVolOverride",
+   "file_off": 686736,
+   "vaddr": 67795600,
+   "u32_ptr": 0,
+   "u64_ptr": 0,
+   "entries": []
+  },
+  {
+   "name": "RmClkControllersOverride",
+   "file_off": 602072,
+   "vaddr": 67710936,
+   "u32_ptr": 0,
+   "u64_ptr": 0,
+   "entries": []
+  },
+  {
+   "name": "OVERVOLTAGE_LOGIC",
+   "file_off": 1731488,
+   "vaddr": 68840352,
+   "u32_ptr": 0,
+   "u64_ptr": 0,
+   "entries": []
+  },
+  {
+   "name": "OVERVOLTAGE_NVVDD_0",
+   "file_off": 1742744,
+   "vaddr": 68851608,
+   "u32_ptr": 0,
+   "u64_ptr": 0,
+   "entries": []
+  },
+  {
+   "name": "OVERVOLTAGE_NVVDD_1",
+   "file_off": 1742768,
+   "vaddr": 68851632,
+   "u32_ptr": 0,
+   "u64_ptr": 0,
+   "entries": []
+  },
+  {
+   "name": "PERFORMANCE_CAP0",
+   "file_off": 1728768,
+   "vaddr": 68837632,
+   "u32_ptr": 0,
+   "u64_ptr": 0,
+   "entries": []
+  }
+ ],
+ "sections": [
+  {
+   "name": "",
+   "vaddr": 0,
+   "file_off": 64,
+   "size": 0
+  },
+  {
+   "name": ".ga100_data",
+   "vaddr": 67112960,
+   "file_off": 4160,
+   "size": 4464
+  },
+  {
+   "name": ".tu10x_data",
+   "vaddr": 67121152,
+   "file_off": 12352,
+   "size": 4464
+  },
+  {
+   "name": ".ga100_text",
+   "vaddr": 67129344,
+   "file_off": 20544,
+   "size": 5140
+  },
+  {
+   "name": ".tu10x_text",
+   "vaddr": 67137536,
+   "file_off": 28736,
+   "size": 5140
+  },
+  {
+   "name": ".bootstrap",
+   "vaddr": 67145728,
+   "file_off": 36928,
+   "size": 116
+  },
+  {
+   "name": ".gnext_resident_text",
+   "vaddr": 67149824,
+   "file_off": 22884416,
+   "size": 0
+  },
+  {
+   "name": ".gh100_resident_text",
+   "vaddr": 67149824,
+   "file_off": 22884416,
+   "size": 0
+  },
+  {
+   "name": ".ga10x_resident_text",
+   "vaddr": 67149824,
+   "file_off": 22884416,
+   "size": 0
+  },
+  {
+   "name": ".ga100_resident_text",
+   "vaddr": 67149824,
+   "file_off": 41024,
+   "size": 12288
+  },
+  {
+   "name": ".ga100_resident_data",
+   "vaddr": 67162112,
+   "file_off": 53312,
+   "size": 4096
+  },
+  {
+   "name": ".tu10x_resident_text",
+   "vaddr": 67166208,
+   "file_off": 57408,
+   "size": 12288
+  },
+  {
+   "name": ".tu10x_resident_data",
+   "vaddr": 67178496,
+   "file_off": 69696,
+   "size": 4096
+  },
+  {
+   "name": ".acl",
+   "vaddr": 67182592,
+   "file_off": 73792,
+   "size": 331
+  },
+  {
+   "name": ".manifest",
+   "vaddr": 67182928,
+   "file_off": 74128,
+   "size": 3760
+  },
+  {
+   "name": ".section_task_init_stack_instance",
+   "vaddr": 90456064,
+   "file_off": 22876224,
+   "size": 8192
+  },
+  {
+   "name": ".section_task_rm_stack_instance",
+   "vaddr": 90464256,
+   "file_off": 22884416,
+   "size": 65536
+  },
+  {
+   "name": ".header",
+   "vaddr": 67186688,
+   "file_off": 77888,
+   "size": 16
+  },
+  {
+   "name": ".memory_region_init_arguments",
+   "vaddr": 67186704,
+   "file_off": 22884432,
+   "size": 96
+  },
+  {
+   "name": ".section_task_init_elf_rodata_instance",
+   "vaddr": 67190784,
+   "file_off": 81984,
+   "size": 4096
+  },
+  {
+   "name": ".section_task_init_elf_data_instance",
+   "vaddr": 67194880,
+   "file_off": 86080,
+   "size": 8192
+  },
+  {
+   "name": ".section_task_init_elf_paged_data_instance",
+   "vaddr": 67203072,
+   "file_off": 94272,
+   "size": 4096
+  },
+  {
+   "name": ".section_task_init_elf_text_instance",
+   "vaddr": 67207168,
+   "file_off": 98368,
+   "size": 16384
+  },
+  {
+   "name": ".section_task_init_elf_paged_text_instance",
+   "vaddr": 67223552,
+   "file_off": 114752,
+   "size": 4096
+  },
+  {
+   "name": ".section_task_rm_elf_rodata_instance",
+   "vaddr": 67227648,
+   "file_off": 118848,
+   "size": 1982464
+  },
+  {
+   "name": ".section_task_rm_elf_data_instance",
+   "vaddr": 69210112,
+   "file_off": 2101312,
+   "size": 3698688
+  },
+  {
+   "name": ".section_task_rm_elf_paged_data_instance",
+   "vaddr": 72908800,
+   "file_off": 22884528,
+   "size": 0
+  },
+  {
+   "name": ".section_task_rm_elf_text_instance",
+   "vaddr": 72908800,
+   "file_off": 5800000,
+   "size": 17010688
+  },
+  {
+   "name": ".section_task_rm_elf_paged_text_instance",
+   "vaddr": 89919488,
+   "file_off": 22884528,
+   "size": 0
+  },
+  {
+   "name": ".section_task_init_dmem_64kb_instance",
+   "vaddr": 89919488,
+   "file_off": 22810688,
+   "size": 65536
+  },
+  {
+   "name": ".section_log_init_buffer_instance",
+   "vaddr": 89985024,
+   "file_off": 64,
+   "size": 65536
+  },
+  {
+   "name": ".section_task_rm_args_buffer_instance",
+   "vaddr": 90050560,
+   "file_off": 64,
+   "size": 4096
+  },
+  {
+   "name": ".section_task_rm_msgq_work_areas_instance",
+   "vaddr": 90054656,
+   "file_off": 22876224,
+   "size": 135168
+  },
+  {
+   "name": ".section_task_rm_memset_buffer_instance",
+   "vaddr": 90189824,
+   "file_off": 22876224,
+   "size": 4096
+  },
+  {
+   "name": ".section_log_rm_buffer_instance",
+   "vaddr": 90193920,
+   "file_off": 64,
+   "size": 262144
+  },
+  {
+   "name": ".comment",
+   "vaddr": 0,
+   "file_off": 22884528,
+   "size": 86
+  },
+  {
+   "name": ".shstrtab",
+   "vaddr": 0,
+   "file_off": 22884614,
+   "size": 957
+  }
+ ],
+ "note": "quet entry-style (u64 ptr + truong so) trong .rodata/.data, loai .text"
+}

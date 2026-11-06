@@ -1,0 +1,52 @@
+{
+  "W1_clr_cond": {
+    "target": "0x4a127fc",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W2_main_init": {
+    "target": "0x4b6f190",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W3_clr_poll": {
+    "target": "0x4c896cc",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W4_clr_vercheck": {
+    "target": "0x4c95efc",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W5_ctor_bf": {
+    "target": "0x5306d20",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W6_ctor_bf2": {
+    "target": "0x5307018",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W7_clr_cold": {
+    "target": "0x53075f0",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W8_clr_cold2": {
+    "target": "0x53076a8",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W9_ctor_sec": {
+    "target": "0x5382c14",
+    "caller_count": 0,
+    "callers": []
+  },
+  "W10_ctor_sec2": {
+    "target": "0x538307c",
+    "caller_count": 0,
+    "callers": []
+  }
+}

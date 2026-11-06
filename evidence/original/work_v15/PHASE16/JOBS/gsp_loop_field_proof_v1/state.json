@@ -1,0 +1,12 @@
+{
+  "job": "gsp_loop_field_proof_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:45:00.365531+00:00",
+  "wrapper_pid": 1696047,
+  "task_sha256": "6cd4108ac6454d7f1a3912a070bed850eca502d23865245ddcd999023d0c7790",
+  "hermes_pid": 1696050,
+  "hermes_start_ticks": "210104625",
+  "heartbeat_at": "2026-11-03T19:55:10.654271+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:55:12.654965+00:00"
+}

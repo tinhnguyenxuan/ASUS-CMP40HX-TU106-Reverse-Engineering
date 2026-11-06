@@ -1,0 +1,21 @@
+WPR2 raw MMIO inputs (security_registers.json registers_read):
+  0x1FA824 NV_PFB_PRI_MMU_WPR2_ADDR_LO = 0x01F7E000
+  0x1FA828 NV_PFB_PRI_MMU_WPR2_ADDR_HI = 0x01FFEE00
+
+Field mapping (source dev_fb.h tu102, VAL 31:4, 4 KiB units):
+  decoded = (raw & 0xFFFFFFF0) << 8  == (raw >> 4) << 12
+
+Decoded byte addresses:
+  base = decode(0x01F7E000) = 0x1F7E00000 (8453619712)
+  end  = decode(0x01FFEE00) = 0x1FFEE0000 (8588754944)  [exclusive]
+  size = end - base = 0x80E0000 = 135135232 bytes = 128.875 MiB
+
+Erroneous prior path (raw-encoding subtraction):
+  0x01FFEE00 - 0x01F7E000 = 0x80E00 = 527872 bytes = 0.5034 MiB (~0.50 MiB)
+  -> INVALID: raw encodings are 4 KiB address units, not bytes.
+
+Expected candidate (accepted E16-007 + memory report):
+  [0x1F7E00000, 0x1FFEE0000), 0x80E0000 bytes, 128.875 MiB
+
+RESULT: PASS -- decoded range matches expected candidate;
+        prior 0.50 MiB claim is invalid (raw-encoding subtraction).

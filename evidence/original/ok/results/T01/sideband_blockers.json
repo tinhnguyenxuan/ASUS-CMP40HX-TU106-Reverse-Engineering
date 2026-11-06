@@ -1,0 +1,292 @@
+[
+ {
+  "conn": "J1",
+  "pin": "11",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "13",
+  "net": "DP1_MODE_C"
+ },
+ {
+  "conn": "J1",
+  "pin": "14",
+  "net": "DP1_CEC"
+ },
+ {
+  "conn": "J1",
+  "pin": "15",
+  "net": "IFPD_AUX_C"
+ },
+ {
+  "conn": "J1",
+  "pin": "16",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "17",
+  "net": "IFPD_AUX_C*"
+ },
+ {
+  "conn": "J1",
+  "pin": "18",
+  "net": "DP_D_HPD_C"
+ },
+ {
+  "conn": "J1",
+  "pin": "19",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "2",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "20",
+  "net": "DP_PWR_CD"
+ },
+ {
+  "conn": "J1",
+  "pin": "21",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "22",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "23",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "24",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "5",
+  "net": "GND"
+ },
+ {
+  "conn": "J1",
+  "pin": "8",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "11",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "14",
+  "net": "DDC_5V"
+ },
+ {
+  "conn": "J5",
+  "pin": "15",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "16",
+  "net": "IFPA_HPD_C"
+ },
+ {
+  "conn": "J5",
+  "pin": "19",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "22",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "25",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "26",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "3",
+  "net": "GND"
+ },
+ {
+  "conn": "J5",
+  "pin": "6",
+  "net": "IFPA_I2CW_SCL_C"
+ },
+ {
+  "conn": "J5",
+  "pin": "7",
+  "net": "IFPA_I2CW_SDA_C"
+ },
+ {
+  "conn": "J5",
+  "pin": "8",
+  "net": "SNN_VS_DVI"
+ },
+ {
+  "conn": "J10",
+  "pin": "2",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "3",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "4",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "5",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "6",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "7",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "8",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "9",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "G11",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "G13",
+  "net": "SNN_HDMI_CEC2"
+ },
+ {
+  "conn": "J10",
+  "pin": "G14",
+  "net": "SNN_HDMI_RESERVED2"
+ },
+ {
+  "conn": "J10",
+  "pin": "G15",
+  "net": "I2CW_SCL_C"
+ },
+ {
+  "conn": "J10",
+  "pin": "G16",
+  "net": "I2CW_SDA_C"
+ },
+ {
+  "conn": "J10",
+  "pin": "G17",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "G18",
+  "net": "DDC_5V"
+ },
+ {
+  "conn": "J10",
+  "pin": "G19",
+  "net": "HDMI_C_HPD_C"
+ },
+ {
+  "conn": "J10",
+  "pin": "G2",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "G5",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "G8",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "P11",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "P13",
+  "net": "SNN_HDMI_CEC1"
+ },
+ {
+  "conn": "J10",
+  "pin": "P14",
+  "net": "SNN_HDMI_RESERVED1"
+ },
+ {
+  "conn": "J10",
+  "pin": "P15",
+  "net": "I2EW_SCL_C"
+ },
+ {
+  "conn": "J10",
+  "pin": "P16",
+  "net": "I2EW_SDA_C"
+ },
+ {
+  "conn": "J10",
+  "pin": "P17",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "P18",
+  "net": "DDC_5V"
+ },
+ {
+  "conn": "J10",
+  "pin": "P19",
+  "net": "HDMI_E_HPD_C"
+ },
+ {
+  "conn": "J10",
+  "pin": "P2",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "P5",
+  "net": "GND"
+ },
+ {
+  "conn": "J10",
+  "pin": "P8",
+  "net": "GND"
+ }
+]

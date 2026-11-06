@@ -1,0 +1,16 @@
+{
+  "input_hash_mismatches": [],
+  "page_rows": 4096,
+  "unique_pages": 4096,
+  "constant_names_misclassified_as_registers": {
+    "NV_XVE_ID_VENDOR_NVIDIA": "C---V",
+    "NV_CTRL_CPU_DOORBELL_VECTORID": "C--4R",
+    "NV_CTRL_LEGACY_ENGINE_STALL_INTR_BASE_VECTORID": "C--4R",
+    "NV_CTRL_LEGACY_ENGINE_NONSTALL_INTR_BASE_VECTORID": "C--4R"
+  },
+  "constant_unique_count": 4,
+  "register_match_claim": "52/52 is not accepted until constants/enum values are removed from the address namespace. Name/address equality with a flawed input catalog is not independent proof.",
+  "wpr_extraction_arithmetic_matches": true,
+  "sampling_limit": "Only four u32 samples per 4KiB page; classifications are sample-level, not exhaustive page contents.",
+  "topology_semantics": "GPC/TPC/SM/ROP remain unknown; L2TLB and L2 cache must not be conflated."
+}

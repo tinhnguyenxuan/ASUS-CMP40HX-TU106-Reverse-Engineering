@@ -1,0 +1,17 @@
+Hoàn tất. Kết quả thực (chạy bằng `/usr/bin/python3`, capstone thật `CS_MODE_RISCV64|RISCVC`, offline, chỉ ghi vào `PHASE16/GSP_HEADER_CONSUMER/`, không chạm artifact job khác):
+
+**File đầu ra:**
+- `header_consumer_analysis.py` — script
+- `run.log` — EXIT=0
+- `disassembly/cfg.json`, `disassembly/extended_disasm.txt` — CFG mở rộng (raw/VA/file/mnemonic/operands, nhánh + goal)
+- `header_consumer_verified.json` — kết quả có cấu trúc (JSON parse OK)
+- `GSP_HEADER_CONSUMER_REPORT.md` — báo cáo
+
+**Kết quả chính:**
+- Mapping ELF qua PT_LOAD: `VA = outer_file + 0x03ffffc0`; candidate `0x459c5e0 = file 0x59c620` ✓, fingerprint `0x4022338 = file 0x22378` ✓ (artifact `0x40022338` sai, đã loại).
+- Extent CFG (trực tiếp flujo; goal = callee riêng, không tính extent): `0x459c5e0..0x45a0fb0` (file `0x59c620..0x5a0fec`), 603 block, 6000 lệnh (đã chạm giới hạn, chưa fixpoint toàn bộ). Return đầu tiên `0x459c7cc` **không** là hết hàm — mã không tới được (sau `ebreak` `0x459c760`, không edge vào); ret đầu tiên tới được `0x459cc2c` cũng không hết hàm.
+- Header validation VERIFIED: gọi `jalr s2` (@`0x459c648`, `a3=0x18`=24B, `a1=s0-0x90` stack buf) → magic@stack-0x90 vs `0x4022330` "NVUCODES", version@stack-0x88 vs 1, count@stack-0x84 vs 496, fingerprint@stack-0x80 vs `0x4022338` (`0x8D1990AB6B98AE2B` ✓). Mỗi sai nhánh dẫn block lỗi (`0x459c9b4/990/9f8/9d0`, call1→`0x459c970`, call2 +`0x3d4`→`0x459caa8`), target tính từ raw bytes.
+- Bảng ghi VERIFIED phần lệnh: cơ sở `s9=0x4584790` (file `0x5847d0`), bước 24 (`s10=0x18`), chỉ số `s8=0`, địa chỉ bản ghi `a4 = base + index*24` (@`0x459c708`), flags@+0x10 `&4` rồi `&-6` (@`0x459c710/720`). Bản ghi đầu tiên (index 0) tại `0x4584790`; callback args `a0=2,a1=0x29,a2=0x58e7990` trước goal @`0x459c738→0x55c04d8`.
+- `actualSize@+0/relOffset@+20` chưa thấy lệnh đọc trực tiếp → chưa chứng minh. Engine/name mapping → UNKNOWN (không ký hiệu/bảng nhãn). Không whole-GPU DONE.
+
+Skipped: custom ELF parser (stdlib `struct` đủ), goal callee dive (đã ghi unresolved, không speculative), chỉnh artifact job khác. Cần thêm khi: quét sâu hơn cho `actualSize`/`relOffset` hoặc phân giải tên engine qua source.

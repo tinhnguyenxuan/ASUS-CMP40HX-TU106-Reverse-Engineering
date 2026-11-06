@@ -1,0 +1,57 @@
+{
+  "schema": "phase21-local-target-package-inventory-v1",
+  "generated_utc": "2026-11-04T13:35:51.083044+00:00",
+  "scope": "all retained /tmp/phase21-target-package-local*/target_package.json packages",
+  "rows": [
+    {
+      "package": "/tmp/phase21-target-package-local-v2/target_package.json",
+      "created_utc": "2026-11-04T12:47:17.649409+00:00",
+      "bdf": "0000:03:00.0",
+      "read_only": true,
+      "record_count": 14,
+      "successful_reads": 0,
+      "failed_reads": 14,
+      "package_sha256": "d60031c7f791a9238ca2eb864b781456ae907ea048d82fe09207c1a15ee6d847",
+      "manifest_sha256": "f6d313ba3a0a6b5c0db75d6098f2d4cab8901479f2631ac4163bd648dc616467",
+      "warning": "Missing files/tools are recorded as observations; this package does not prove absence of hardware."
+    },
+    {
+      "package": "/tmp/phase21-target-package-local-v3/target_package.json",
+      "created_utc": "2026-11-04T12:47:37.533164+00:00",
+      "bdf": "0000:03:00.0",
+      "read_only": true,
+      "record_count": 14,
+      "successful_reads": 0,
+      "failed_reads": 14,
+      "package_sha256": "05b4b3bfd161c750213f95ff9637544022a776567854c02bb9b313c7e0b39596",
+      "manifest_sha256": "de1bd71511d3e2c7bdbc856e0998c20236b991f6e54aa36ab0a9d8b645522096",
+      "warning": "Missing files/tools are recorded as observations; this package does not prove absence of hardware."
+    },
+    {
+      "package": "/tmp/phase21-target-package-local-v4/target_package.json",
+      "created_utc": "2026-11-04T12:48:22.098460+00:00",
+      "bdf": "0000:03:00.0",
+      "read_only": true,
+      "record_count": 14,
+      "successful_reads": 0,
+      "failed_reads": 14,
+      "package_sha256": "4b4581272bb285238059169ea99504d1f99fbd536341a03fcea2ab0f6857404b",
+      "manifest_sha256": "400f90b602836c6b6d33a2513606038f6dae0a590651a8c916177bca876bff4b",
+      "warning": "Missing files/tools are recorded as observations; this package does not prove absence of hardware."
+    },
+    {
+      "package": "/tmp/phase21-target-package-local/target_package.json",
+      "created_utc": "2026-11-04T12:46:19.274354+00:00",
+      "bdf": "0000:03:00.0",
+      "read_only": true,
+      "record_count": 14,
+      "successful_reads": 0,
+      "failed_reads": 14,
+      "package_sha256": "bc630d5f6c843f20b5adb594cacabe725d6ac22f3973fc5826cdf2e6162e0688",
+      "manifest_sha256": "a29ff8542329be21e4888d0ddd1aa86293892ae02f8683b9ea5d4ac47680bcb0",
+      "warning": "Missing files/tools are recorded as observations; this package does not prove absence of hardware."
+    }
+  ],
+  "classification": "LOCAL_SANDBOX_ONLY",
+  "conclusion": "No package contains a successful target read; these packages do not close B-RUNTIME-TARGET or prove target hardware absence."
+}

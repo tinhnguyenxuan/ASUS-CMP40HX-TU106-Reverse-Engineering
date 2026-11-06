@@ -1,0 +1,15 @@
+Hoàn tất. Tất cả outputs đã được sinh dưới `/home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_CONTEXT_WRITER/` (script chạy được, JSON báo cáo máy, report ngắn, input_hashes, run.log). Các file cũ không bị động.
+
+**Kết quả chính:**
+
+- **Mapping (tự verify từ raw bytes):** inner ELF64-LE tại file off 0x40; `file_off = VA - 0x3FFFFC0`, khớp toàn bộ 12 raw-byte triple. Cửa sổ 0x04F5733C..0x04F57A00 (433 insns) nằm section index 28 (exec=1). Tên section không tin cậy từ shstrtab parse tổng hợp nên không khẳng định; va/offset/size/flags đã verify.
+- **Call targets (từ raw bytes):** caller `auipc ra,80 @0x04F06C18 + jalr ra,ra,0x724 @0x04F06C1C` → 0x04F5733C ✓; internal call `auipc ra,0x32a @0x04F5739C + jalr ra,ra,0x594 @0x04F573A0` → **0x05281930 ✓**, nằm section exec (code của callee có trong bản lưu); helper → 0x04F075EC ✓.
+- **Callee 0x05281930:** quét tuyến tính 4096 insns, first ret tại 0x5281c48 trả về `a0 = 0` (path thất bại); 20 ret được tìm (capped, ret sau đó là của hàm kế tiếp); 173 store, 9 store có immediate +0x30 nhưng cơ sở sp/a5/s1 — **không có store nào chứng nhận là *(context+0x30)**.
+- **Slice alias-aware của s3:** s3 được thiết lập làm context base tại `mv s3, a0 @0x04F573AC` (return của internal call), không bị viết lại trước callback; 48 store được phân loại: **direct *(s3+0x30): 0**, **aliased *(s3_alias+off==0x30): 0**, 17 ctx-based store ở offset khác (s3+0x11d8..s3+0x19a0 = khởi tạo trường context, không phải phân bổ, không phải +0x30), 31 store cơ sở không xác định (liệt kê, không loại trừ nhưng không phải bằng chứng s3+0x30). Bảo lưu a1 (path-sensitive) và caveat a2 (helper có thể mutate slot s0-0x88) như review trước.
+- **Gọi gián tiếp:** 0x04F573E8 (s3+0x20 chain), 0x04F575E0 (s3+0x30 callback), 0x04F57850 — target đều không xác định từ bytes. 0x0459C5E0 không động vào.
+
+**Kết luận:** giá trị tại context+0x30 cho `jalr a5 @0x04F575E0` = **UNKNOWN**. Liên kết thất bại chính xác: không có store nào trong hàm viết *(s3+0x30) trực tiếp hoặc qua alias s3 nào chứng nhận; s3 là return của callee bên ngoài 0x05281930, và store (nếu có) tại +0x30 nằm ngoài cửa sổ hàm, chưa giải quyết được statically.
+
+**Cần tiếp theo:** phân tích CFG đầy đủ của callee 0x05281930 (tất cả path return, giá trị a0 tại mỗi ret, store đến context-base+0x30 trước khi return), hoặc dump context tại runtime. Đã không làm gì với phần cứng/khóa/bypass.
+
+Các artifact: `gsp_context_writer.py` (chạy được, sinh lại tất cả), `gsp_context_writer.json`, `report.md`, `input_hashes.json`, `run.log`.

@@ -1,0 +1,29 @@
+{
+ "found_strings": {
+  "RMClkVfOverride": [
+   601576,
+   1808160
+  ],
+  "RmAtsVolOverride": [
+   686736
+  ],
+  "RmClkControllersOverride": [
+   602072
+  ],
+  "OVERVOLTAGE_LOGIC": [
+   1731488,
+   1745472
+  ],
+  "OVERVOLTAGE_NVVDD_0": [
+   1742744
+  ],
+  "OVERVOLTAGE_NVVDD_1": [
+   1742768
+  ],
+  "PERFORMANCE_CAP0": [
+   1728768,
+   1739296
+  ]
+ },
+ "entry_chains": []
+}

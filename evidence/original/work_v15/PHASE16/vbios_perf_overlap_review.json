@@ -1,0 +1,37 @@
+{
+  "pointer_slots_checked": 56,
+  "raw_pointer_mismatches": [],
+  "overlap_count_in_generic_model": 14,
+  "indices_in_every_overlap": [
+    17
+  ],
+  "slot17": {
+    "index": 17,
+    "slot_offset": 166168,
+    "slot_offset_hex": "0x028918",
+    "raw_pointer": 110578,
+    "raw_pointer_hex": "0x0001aff2",
+    "null": false,
+    "mapped_offset": 345586,
+    "mapped_offset_hex": "0x0545f2",
+    "table": {
+      "off": 345586,
+      "off_hex": "0x0545f2",
+      "ver": 16,
+      "header_size": 14,
+      "entry_size": 70,
+      "count": 183,
+      "size": 12824,
+      "extent_start": 345586,
+      "extent_end": 358410,
+      "extent_end_hex": "0x05780a"
+    },
+    "valid_header_shape": true,
+    "in_bounds": true,
+    "overlaps_BIT_table": false,
+    "semantic_status": "UNKNOWN (header shape chua xac dinh nghia bang)"
+  },
+  "slot17_raw_header_32bytes": "100e46b709286c02001d5a1e1e4b111a3c210a0700400000000000000000f772",
+  "acceptance": "Raw pointers verified; every reported overlap involves slot17. This is a diagnostic of the generic header model, not proof real firmware tables overlap.",
+  "next_action": "Use table-specific source schema for slot17 and BIT P pointer length before decoding all table extents."
+}

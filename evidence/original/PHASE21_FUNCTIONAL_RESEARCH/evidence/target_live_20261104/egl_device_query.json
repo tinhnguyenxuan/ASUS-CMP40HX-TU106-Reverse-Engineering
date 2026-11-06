@@ -1,0 +1,39 @@
+{
+  "utc": "2026-11-04T14:46:14.887269+00:00",
+  "devices": [
+    {
+      "index": 0,
+      "extensions": "EGL_EXT_device_drm EGL_EXT_device_drm_render_node EGL_EXT_device_query_name EGL_EXT_device_persistent_id",
+      "drm_device": "/dev/dri/card1",
+      "render_node": "/dev/dri/renderD129",
+      "initialize_success": 0,
+      "egl_version": [
+        0,
+        0
+      ]
+    },
+    {
+      "index": 1,
+      "extensions": "EGL_EXT_device_drm EGL_EXT_device_drm_render_node EGL_EXT_device_query_name EGL_EXT_device_persistent_id",
+      "drm_device": "/dev/dri/card0",
+      "render_node": "/dev/dri/renderD128",
+      "initialize_success": 0,
+      "egl_version": [
+        0,
+        0
+      ]
+    },
+    {
+      "index": 2,
+      "extensions": "EGL_MESA_device_software EGL_EXT_device_drm_render_node",
+      "drm_device": null,
+      "render_node": null,
+      "initialize_success": 1,
+      "egl_version": [
+        1,
+        5
+      ]
+    }
+  ],
+  "query_success": 1
+}

@@ -1,0 +1,27 @@
+{
+  "rows": 3072,
+  "unique_offsets": 3072,
+  "raw_mismatches": [],
+  "classification_counts": {
+    "DATA": 352,
+    "ZERO": 518,
+    "POISON": 2202
+  },
+  "badf510c_offsets": [
+    "0x178",
+    "0x2d4",
+    "0x4a8",
+    "0x4ac",
+    "0x4b0",
+    "0x578",
+    "0xe08"
+  ],
+  "accepted": "Complete archived raw-word inventory; two Turing-family source field definitions. Physical OTP geometry and other inferred meanings not accepted as solved.",
+  "proposal_rejections": {
+    "U-FUSE-001": "Sparse ones do not rule out physical OTP readout; remove categorical rejection.",
+    "U-FUSE-005": "Popcount matching GPC count is insufficient to identify a GPC bitfield.",
+    "U-FUSE-009": "Reason says reopen but action says keep_resolved. Recommend open/UNKNOWN until target-applicable source supports the field meaning.",
+    "U-FUSE-013": "GB100-only is too narrow: published GA100 also uses the 0x820000 fuse aperture. Preserve architecture-specific applicability."
+  },
+  "status": "partial_accepted_semantic_proposals_require_correction"
+}

@@ -1,0 +1,274 @@
+{
+  "utc": "2026-11-04T15:22:21.120368+00:00",
+  "sha256": "78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909",
+  "inner_elf_base": 64,
+  "rows": [
+    {
+      "label": "worker_store_cluster",
+      "file_offset": "0xb2fcf0",
+      "sections": [
+        {
+          "section": ".section_task_rm_elf_text_instance",
+          "flags": 6,
+          "hit_va": "0x4b2fcb0",
+          "context": [
+            {
+              "pc": "0x4b2fc90",
+              "bytes": "83308103",
+              "instruction": "ld ra, 0x38(sp)"
+            },
+            {
+              "pc": "0x4b2fc94",
+              "bytes": "03340103",
+              "instruction": "ld s0, 0x30(sp)"
+            },
+            {
+              "pc": "0x4b2fc98",
+              "bytes": "83348102",
+              "instruction": "ld s1, 0x28(sp)"
+            },
+            {
+              "pc": "0x4b2fc9c",
+              "bytes": "03390102",
+              "instruction": "ld s2, 0x20(sp)"
+            },
+            {
+              "pc": "0x4b2fca0",
+              "bytes": "83398101",
+              "instruction": "ld s3, 0x18(sp)"
+            },
+            {
+              "pc": "0x4b2fca4",
+              "bytes": "033a0101",
+              "instruction": "ld s4, 0x10(sp)"
+            },
+            {
+              "pc": "0x4b2fca8",
+              "bytes": "13010104",
+              "instruction": "addi sp, sp, 0x40"
+            },
+            {
+              "pc": "0x4b2fcac",
+              "bytes": "67800000",
+              "instruction": "ret "
+            },
+            {
+              "pc": "0x4b2fcb0",
+              "bytes": "37270000",
+              "instruction": "lui a4, 2"
+            },
+            {
+              "pc": "0x4b2fcb4",
+              "bytes": "63fee700",
+              "instruction": "bgeu a5, a4, 0x1c"
+            },
+            {
+              "pc": "0x4b2fcb8",
+              "bytes": "23a6f932",
+              "instruction": "sw a5, 0x32c(s3)"
+            },
+            {
+              "pc": "0x4b2fcbc",
+              "bytes": "6ff05ff9",
+              "instruction": "j -0x6c"
+            },
+            {
+              "pc": "0x4b2fcc0",
+              "bytes": "2384f932",
+              "instruction": "sb a5, 0x328(s3)"
+            },
+            {
+              "pc": "0x4b2fcc4",
+              "bytes": "6ff05ff6",
+              "instruction": "j -0x9c"
+            },
+            {
+              "pc": "0x4b2fcc8",
+              "bytes": "23aaf932",
+              "instruction": "sw a5, 0x334(s3)"
+            },
+            {
+              "pc": "0x4b2fccc",
+              "bytes": "6ff01ffb",
+              "instruction": "j -0x50"
+            },
+            {
+              "pc": "0x4b2fcd0",
+              "bytes": "b7459905",
+              "instruction": "lui a1, 0x5994"
+            },
+            {
+              "pc": "0x4b2fcd4",
+              "bytes": "93850538",
+              "instruction": "addi a1, a1, 0x380"
+            },
+            {
+              "pc": "0x4b2fcd8",
+              "bytes": "13051000",
+              "instruction": "addi a0, zero, 1"
+            },
+            {
+              "pc": "0x4b2fcdc",
+              "bytes": "9700a900",
+              "instruction": "auipc ra, 0xa90"
+            },
+            {
+              "pc": "0x4b2fce0",
+              "bytes": "e7800009",
+              "instruction": "jalr ra, ra, 0x90"
+            },
+            {
+              "pc": "0x4b2fce4",
+              "bytes": "b7459905",
+              "instruction": "lui a1, 0x5994"
+            },
+            {
+              "pc": "0x4b2fce8",
+              "bytes": "93858536",
+              "instruction": "addi a1, a1, 0x368"
+            },
+            {
+              "pc": "0x4b2fcec",
+              "bytes": "13051000",
+              "instruction": "addi a0, zero, 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "consumer_output",
+      "file_offset": "0xb20b50",
+      "sections": [
+        {
+          "section": ".section_task_rm_elf_text_instance",
+          "flags": 6,
+          "hit_va": "0x4b20b10",
+          "context": [
+            {
+              "pc": "0x4b20af0",
+              "bytes": "233c1100",
+              "instruction": "sd ra, 0x18(sp)"
+            },
+            {
+              "pc": "0x4b20af4",
+              "bytes": "13040102",
+              "instruction": "addi s0, sp, 0x20"
+            },
+            {
+              "pc": "0x4b20af8",
+              "bytes": "03370579",
+              "instruction": "ld a4, 0x790(a0)"
+            },
+            {
+              "pc": "0x4b20afc",
+              "bytes": "93040600",
+              "instruction": "mv s1, a2"
+            },
+            {
+              "pc": "0x4b20b00",
+              "bytes": "03478708",
+              "instruction": "lbu a4, 0x88(a4)"
+            },
+            {
+              "pc": "0x4b20b04",
+              "bytes": "630a0702",
+              "instruction": "beqz a4, 0x34"
+            },
+            {
+              "pc": "0x4b20b08",
+              "bytes": "83478573",
+              "instruction": "lbu a5, 0x738(a0)"
+            },
+            {
+              "pc": "0x4b20b0c",
+              "bytes": "63820706",
+              "instruction": "beqz a5, 0x64"
+            },
+            {
+              "pc": "0x4b20b10",
+              "bytes": "83a74533",
+              "instruction": "lw a5, 0x334(a1)"
+            },
+            {
+              "pc": "0x4b20b14",
+              "bytes": "63940704",
+              "instruction": "bnez a5, 0x48"
+            },
+            {
+              "pc": "0x4b20b18",
+              "bytes": "13051000",
+              "instruction": "addi a0, zero, 1"
+            },
+            {
+              "pc": "0x4b20b1c",
+              "bytes": "2380a400",
+              "instruction": "sb a0, 0(s1)"
+            },
+            {
+              "pc": "0x4b20b20",
+              "bytes": "83308101",
+              "instruction": "ld ra, 0x18(sp)"
+            },
+            {
+              "pc": "0x4b20b24",
+              "bytes": "03340101",
+              "instruction": "ld s0, 0x10(sp)"
+            },
+            {
+              "pc": "0x4b20b28",
+              "bytes": "83348100",
+              "instruction": "ld s1, 8(sp)"
+            },
+            {
+              "pc": "0x4b20b2c",
+              "bytes": "13050000",
+              "instruction": "mv a0, zero"
+            },
+            {
+              "pc": "0x4b20b30",
+              "bytes": "13010102",
+              "instruction": "addi sp, sp, 0x20"
+            },
+            {
+              "pc": "0x4b20b34",
+              "bytes": "67800000",
+              "instruction": "ret "
+            },
+            {
+              "pc": "0x4b20b38",
+              "bytes": "8337051b",
+              "instruction": "ld a5, 0x1b0(a0)"
+            },
+            {
+              "pc": "0x4b20b3c",
+              "bytes": "e7800700",
+              "instruction": "jalr a5"
+            },
+            {
+              "pc": "0x4b20b40",
+              "bytes": "2380a400",
+              "instruction": "sb a0, 0(s1)"
+            },
+            {
+              "pc": "0x4b20b44",
+              "bytes": "83308101",
+              "instruction": "ld ra, 0x18(sp)"
+            },
+            {
+              "pc": "0x4b20b48",
+              "bytes": "03340101",
+              "instruction": "ld s0, 0x10(sp)"
+            },
+            {
+              "pc": "0x4b20b4c",
+              "bytes": "83348100",
+              "instruction": "ld s1, 8(sp)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "boundary": "Bounded disassembly from halfword location, no CFG or runtime reachability; matching sequences alone do not prove same method identity."
+}

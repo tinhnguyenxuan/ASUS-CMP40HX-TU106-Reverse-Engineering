@@ -1,0 +1,849 @@
+{
+  "inventory_id": "CMP40HX-TU106-PHASE16-COVERAGE_GAP_INVENTORY",
+  "objective": "Comprehensive CMP40HX / TU106 reverse engineering: VBIOS 1 MiB, MMIO/BAR0, fuse/OTP, GSP-RM, Falcon firmware, GPU topology, PCIe, memory subsystem, unknown fields/bits/registers; evidence-backed, distinguishing readably-decoded data from genuinely-decoded semantics.",
+  "scope": "Offline read-only evidence audit of the supplied cmp40hx_research_v15_final.tar.gz archive and public NVIDIA/envytools sources. No new hardware access, no MMIO/OTP/PCIe writes, no ROM flash/reload, no driver reload/reboot, no clock/voltage changes, no exploit/bypass, no key extraction.",
+  "completion_rule": "Full objective remains unproven until every subsystem requirement is supported by authoritative evidence. Test/PASS counts, file presence, manifests, prose reports, and live worker state never establish whole-GPU completion.",
+  "input_hashes_file": "input_hashes.json",
+  "evidence_levels": [
+    "MEASURED",
+    "DECODED",
+    "CORROBORATED",
+    "INFERRED",
+    "UNKNOWN",
+    "BLOCKED"
+  ],
+  "requirement_statuses": [
+    "VERIFIED",
+    "PARTIAL",
+    "CONTRADICTED",
+    "MISSING"
+  ],
+  "workstreams": [
+    {
+      "id": "GSP-CALLBACK",
+      "title": "GSP-RM callback: ELF mapping, caller/callback, dataflow",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item GSP-CALLBACK",
+      "requirements": [
+        {
+          "id": "GSP-CB-1",
+          "text": "Independent ELF VA/file mapping",
+          "status": "VERIFIED",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/CHECKPOINT.json (verified_this_turn.elf_mapping)",
+            "PHASE16/EVIDENCE_LEDGER.md E16-002",
+            "PHASE16/gsp_summary.json"
+          ],
+          "detail": "VA = file_offset + 0x3FFFFC0 (inner ELF offset 0x40), verified on 6 mappings (loop, entry, JAL, callback, descriptor table, caller). Not a global mapping for NOBITS/every section.",
+          "gaps": "Global mapping for all sections not established."
+        },
+        {
+          "id": "GSP-CB-2",
+          "text": "All callback predecessors and last definitions of a0/a1/a2",
+          "status": "PARTIAL",
+          "level": "DECODED (path-scoped)",
+          "evidence": [
+            "PHASE16/gsp_callback_verified.txt/.json",
+            "PHASE16/gsp_callback_coordinator_review.json",
+            "PHASE16/CHECKPOINT.json (gsp_callback)"
+          ],
+          "detail": "Taken-branch path decoded: 0x4f57644/48 AUIPC/JALR -> helper 0x4f075ec; 0x4f5764c mv a1,a0; 0x4f57650 bnez a0 -> 0x4f575d4; callback at 0x4f575e0 via jalr a5 where a5=ld [s3+0x30], a2=lhu [s0-0x88], a0=s3. a1 retains helper return on this path.",
+          "gaps": "Full-function predecessors not exhaustively verified; callback target *(s3+0x30) unknown; helper alias/mutation of temp struct unknown; a1 on all paths unknown; parent caller of 0x04F06C18 not found."
+        },
+        {
+          "id": "GSP-CB-3",
+          "text": "Raw bytes and branch/call targets",
+          "status": "VERIFIED",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/gsp_callback_verified.txt/.json (84 instruction rows compared to original bytes, 0 mismatches)",
+            "PHASE16/gsp_callback_coordinator_review.json"
+          ],
+          "detail": "Raw bytes preserved: 93050500 (mv a1,a0), e31205f8 (bnez a0), c8dff06f (JAL x0 -0x374 -> 0x4F575BC), 6ff0dfc8 (jump to loop).",
+          "gaps": "Only the observed instruction window, not the whole function."
+        },
+        {
+          "id": "GSP-CB-4",
+          "text": "Callback identity or explicit unresolved evidence",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/gsp_callback_coordinator_review.json (callback target remains unknown)",
+            "PHASE16/CHECKPOINT.json (unknown_or_blocked)"
+          ],
+          "detail": "Callback dispatched through indirect pointer *(s3+0x30); target not resolved. Explicitly tracked as unresolved, not inferred.",
+          "gaps": "Callback identity entirely missing; dataflow bugs in follow-up (lhu size, store no rd, S-immediate) block acceptance."
+        }
+      ]
+    },
+    {
+      "id": "FW-CONTAINER",
+      "title": "Firmware container (ucodes_tu10x.bin): header, payloads, ISA",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item FW-CONTAINER",
+      "requirements": [
+        {
+          "id": "FW-CTR-1",
+          "text": "Parse complete header and all payload spans",
+          "status": "VERIFIED",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/firmware_container_verified.json",
+            "PHASE16/firmware_container_coordinator_review.json",
+            "PHASE16/EVIDENCE_LEDGER.md E16-004",
+            "PHASE16/firmware_audit.json"
+          ],
+          "detail": "NVUCODES header ver=1 count=496@0x0c fp=0x8D1990AB6B98AE2B; 496 x 24-byte records; 38 payloads; all spans non-overlapping; coverage sum 8,824,912 + header/table 11,928 + padding 792 = file size 8,837,632; last payload ends exactly at EOF. Independent marker scan: 38 hits/38 confirmed/0 extra/0 missing.",
+          "gaps": "None for raw structure."
+        },
+        {
+          "id": "FW-CTR-2",
+          "text": "Validate candidate lengths, padding, overlaps, coverage",
+          "status": "VERIFIED",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/firmware_container_coordinator_review.json (0 mismatches, 6 gaps checked)",
+            "PHASE16/firmware_audit.json"
+          ],
+          "detail": "496 raw records and 38 payload hashes checked against binary; no overlap/hash mismatch.",
+          "gaps": "None for raw structure."
+        },
+        {
+          "id": "FW-CTR-3",
+          "text": "Identify ISA/load metadata from authoritative structure",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/firmware_container_coordinator_review.json (acceptance: engine and ISA identities still require producer/consumer evidence)",
+            "PHASE16/SOURCES/manifest.json (bin_data_pvt.h defines BINDATA_STORAGE_PVT but payload semantics unapplied)"
+          ],
+          "detail": "Header/record field semantics, marker meaning, engine and ISA identities not established. Source defs (actualSize/compressedSize/flags/relOffset) exist locally but are not applied to payload semantics.",
+          "gaps": "ISA, load address, engine, slot, role for all 38 payloads missing."
+        },
+        {
+          "id": "FW-CTR-4",
+          "text": "Separate timestamp changes from two residual bytes",
+          "status": "PARTIAL",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/firmware_audit.json (blob6_blob8)"
+          ],
+          "detail": "blob[6]='Dec 31 2024 11:39:34' vs blob[8]='Jan  2 2025 08:35:16' (two timestamp windows); 2 differing bytes outside timestamps (rel offsets 28478, 46681, b6=33/b8=31) unexplained; identical:false.",
+          "gaps": "Meaning of the 2 non-timestamp differing bytes unknown; cannot claim all changes are timestamps."
+        },
+        {
+          "id": "FW-CTR-5",
+          "text": "Disassemble accessible payloads with evidence",
+          "status": "PARTIAL",
+          "level": "UNKNOWN/BLOCKED",
+          "evidence": [
+            "PHASE16/FW_PAYLOAD_RISCV/COORDINATOR_REVIEW.md",
+            "PHASE16/payload_isa_verified.json",
+            "PHASE16/FW_PAYLOAD_ISA/COORDINATOR_REVIEW.md"
+          ],
+          "detail": "38 entries: 8 medium-confidence Falcon labels, 30 UNKNOWN. Bounded scan (aligned candidate starts in first 512 bytes, bounded windows, chosen thresholds). Low valid-instruction ratios 0.136-0.389. Capstone 5.0.7 present at /usr/bin/python3 but RISC-V decode of payloads not proven.",
+          "gaps": "No authoritative engine/slot/role mapping; heuristic absence not a global negative; 30 payloads unresolved."
+        }
+      ]
+    },
+    {
+      "id": "FUSE-OTP",
+      "title": "Fuse/OTP: dump classification, source mapping, physical geometry",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item FUSE-OTP",
+      "requirements": [
+        {
+          "id": "FUSE-1",
+          "text": "Separate requested/dumped/nonpoison ranges",
+          "status": "VERIFIED",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/fuse_audit.json",
+            "PHASE16/EVIDENCE_LEDGER.md E16-006",
+            "PHASE16/fuse_source_coordinator_review.json"
+          ],
+          "detail": "3072 words / 12,288 bytes contiguous (offset 0..12284); classes 352 DATA / 518 ZERO / 2202 POISON / 152 ones (value 1); last nonpoison offset 6140; ones range 272..5232. Old 7,680-byte calculation declared wrong.",
+          "gaps": "Requested span vs dumped span vs physical aperture remain distinct, unmapped concepts."
+        },
+        {
+          "id": "FUSE-2",
+          "text": "Map all available words to documented registers or unknown",
+          "status": "PARTIAL",
+          "level": "INFERRED/UNKNOWN",
+          "evidence": [
+            "PHASE16/fuse_source_coordinator_review.json (2 Turing-family source field definitions accepted)",
+            "PHASE16/SOURCES/nvidia_tu102_dev_fuse.h",
+            "PHASE16/REVIEW_NOTES.md (dev_fuse.h fields at 0x2174c and 0x21378)",
+            "PHASE16/fuse_words.json / fuse_words.csv"
+          ],
+          "detail": "Only 2 Turing-family source field definitions mapped; the remaining ~3070 words are not source-mapped. Per-word audit assigned to JOBS/fuse_semantics_v1.",
+          "gaps": "Vast majority of fuse words unmapped to registers."
+        },
+        {
+          "id": "FUSE-3",
+          "text": "Physical OTP versus shadow/strap/status evidence",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/fuse_audit.json (physical_otp_cell_meaning: UNKNOWN)",
+            "PHASE16/EVIDENCE_LEDGER.md E16-006"
+          ],
+          "detail": "Values alone do not identify OTP geometry or flags. No geometry/consumer proof. Sparse ones neither establish nor rule out physical OTP readout.",
+          "gaps": "Physical OTP cell meaning entirely missing."
+        },
+        {
+          "id": "FUSE-4",
+          "text": "Topology masks and PDI provenance",
+          "status": "PARTIAL",
+          "level": "CORROBORATED (PDI) / UNKNOWN (topology mask)",
+          "evidence": [
+            "work_v15/UNKNOWN_DATABASE.json U-FUSE-007 (PDI 0x0000000000000000 matches nvidia-smi -q; CORROBORATED, resolved)",
+            "PHASE16/fuse_source_coordinator_review.json (rejects U-FUSE-005 popcount->GPC inference)"
+          ],
+          "detail": "GPU PDI corroborated by two independent sources (OTP fuse + NVML). Topology mask inference (3 GPC from popcount of 0x38) rejected as insufficient.",
+          "gaps": "No TU106 source field for topology mask bits; fuse+0x0C1C GPC hypothesis unproven."
+        },
+        {
+          "id": "FUSE-5",
+          "text": "Opaque +0x718 block stays unknown until supported",
+          "status": "MISSING",
+          "level": "BLOCKED",
+          "evidence": [
+            "work_v15/UNKNOWN_DATABASE.json U-FUSE-002 (8 words high entropy, 32 bytes; 0 hash matches across 455,689 + 12,883 trials; BLOCKED)",
+            "PHASE16/fuse_source_coordinator_review.json"
+          ],
+          "detail": "SHA-256/HMAC/public-key hypotheses all failed (0 matches). Not 2x16-byte hash concat. No second TU106 fuse dump or key/HMAC available for cross-check.",
+          "gaps": "Block semantics blocked; requires external source/key material."
+        }
+      ]
+    },
+    {
+      "id": "VBIOS",
+      "title": "VBIOS ROM: container, tables, BIT tokens, shadow, unknown fields",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item VBIOS",
+      "requirements": [
+        {
+          "id": "VBIOS-1",
+          "text": "Validate container/images and all BIT tokens",
+          "status": "PARTIAL",
+          "level": "DECODED (structure)",
+          "evidence": [
+            "work_v15/EVIDENCE_LEDGER.md E01-E05",
+            "PHASE16/vbios_audit.json",
+            "PHASE16/vbios_structure_verified.json"
+          ],
+          "detail": "ROM 1,048,576 B sha256 dc5395dd...; T4 495,616 B; 19-byte diffs (6 float32 uV fields + checksum byte); payload = rom[0:0x79000] (NVGIf #1); 8-bit additive checksum reproduced; shadow @0x300000 matches rom[0x28600:] except 14 bytes (serial). BIT header @0x28700: 12-byte header, stride 6, count 17 tokens mapped via inherited Turing pointer formula (not a general parser).",
+          "gaps": "BIT pointer formula is inherited/Turing-specific, not general; NVGIf #2 nature unknown; historical image ranges overlap (audit warning)."
+        },
+        {
+          "id": "VBIOS-2",
+          "text": "Audit all discovered table bounds and schemas",
+          "status": "PARTIAL",
+          "level": "PARTIAL",
+          "evidence": [
+            "PHASE16/vbios_typed_coordinator_review.json (4 source-schema checks: slots 17, 5, 20, 11; perf v0x60 unsupported)",
+            "PHASE16/VBIOS_TYPED/typed_tables_verified.json",
+            "PHASE16/VBIOS_PERF/PERF_SCHEMA_REPORT.md"
+          ],
+          "detail": "42 tables historically parsed; few fully decoded. Slot17 (PERF TEST SPEC) header shape valid, semantics unknown. Generic overlap model: 14 overlaps, all involve slot17 — diagnostic of generic header model, not proof of real firmware table overlap.",
+          "gaps": "Most table schemas unsupported; version 0x60 tables unsupported; field meanings mostly unknown."
+        },
+        {
+          "id": "VBIOS-3",
+          "text": "Decode fields with cross references",
+          "status": "PARTIAL",
+          "level": "DECODED structure / UNKNOWN meaning",
+          "evidence": [
+            "work_v15/EVIDENCE_LEDGER.md E03/E06 (NVVDD voltage fields decoded to HIGH confidence: IEEE-754 + nvbios + selector)",
+            "PHASE16/vbios_audit.json (U-VBIOS-001: 38 record x 32 B structure decoded, meaning unknown)"
+          ],
+          "detail": "Voltage/slot/selector structure decoded and cross-checked with nvbios. Key-block/certificate-table records: structure decoded (sig 0x6700, ver, 16 B hash, flags), meaning unknown; timestamp field reads 1972-2102 (not unix time).",
+          "gaps": "Key block / certificate table / signed config record semantics missing."
+        },
+        {
+          "id": "VBIOS-4",
+          "text": "Reproduce original/T4 and shadow differences",
+          "status": "VERIFIED",
+          "level": "DECODED/CORROBORATED",
+          "evidence": [
+            "work_v15/EVIDENCE_LEDGER.md E02/E04/E05",
+            "PHASE16/vbios_audit.json (shadow_differences: 883,200 B compared, 14 byte diffs, ratio 0.999984)",
+            "PHASE16/UNKNOWN_DATABASE.json U-VBIOS-SHADOW (CORROBORATED, resolved)"
+          ],
+          "detail": "Shadow vs ROM: 883,200 bytes, 14 differences all in PPID serial field ('CMP40HX-8G#REDACTED' vs '...304974'). PCIR @0x170 vendor 0x10DE device 0x1F0B. 3 stable reads, 32/32 words re-read identical.",
+          "gaps": "None for this narrow reproduction."
+        },
+        {
+          "id": "VBIOS-5",
+          "text": "Key/record/digest semantics explicit unknowns",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "work_v15/UNKNOWN_DATABASE.json U-VBIOS-001 (open), U-VBIOS-003 (NPDS type-0x70, 12 digest 32 B; UNKNOWN)",
+            "PHASE16/vbios_audit.json"
+          ],
+          "detail": "NPDS 0x70 digest list: 0/1,365,939 hash trials matched any region. Signature/key semantics unsupported.",
+          "gaps": "Key/record/digest semantics entirely open."
+        }
+      ]
+    },
+    {
+      "id": "MMIO-TOPOLOGY",
+      "title": "MMIO aperture: sampling, bitfields, poison vs absence, topology",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item MMIO-TOPOLOGY",
+      "requirements": [
+        {
+          "id": "MMIO-1",
+          "text": "Validate register addresses/bitfields against TU106 family sources",
+          "status": "PARTIAL",
+          "level": "DECODED (sample-scoped)",
+          "evidence": [
+            "PHASE16/mmio_audit.json",
+            "PHASE16/mmio_namespace_coordinator_review.json",
+            "PHASE16/mmio_topology_coordinator_review.json"
+          ],
+          "detail": "52 saved entries, 54 source bit ranges independently checked, 0 range mismatches; but 52/52 match claim NOT accepted (constants/enum values mixed into address namespace; control-space classification alone doesn't prove outside BAR0). 4 constant names misclassified as registers.",
+          "gaps": "Full bitfield validation per-stepping TU106 not established; namespace corrections useful but incomplete."
+        },
+        {
+          "id": "MMIO-2",
+          "text": "Account for 49 unclassified pages",
+          "status": "PARTIAL",
+          "level": "DECODED (sampling)",
+          "evidence": [
+            "PHASE16/mmio_audit.json (corrected_stats: POISON 3278, UNINIT_FF 72, DATA 141, ZERO 355, MIXED 201 = 4047 classified; 49 unclassified of 4096)",
+            "PHASE16/MMIO_COVERAGE_RECONCILE/COORDINATOR_REVIEW.md"
+          ],
+          "detail": "Sampling: 4 u32 per 4 KiB page = 0.390625% byte coverage. Poison fraction 80.0% of all pages / 81.0% of classified — explicitly NOT an exhaustive whole-aperture fraction. 49 pages: 1 poison, 46 data-like, 2 all-ones (sample-level, not full-page).",
+          "gaps": "Sample-level classifications are not exhaustive page contents; unclassified pages unresolved."
+        },
+        {
+          "id": "MMIO-3",
+          "text": "Distinguish poison observations from physical block absence",
+          "status": "PARTIAL",
+          "level": "DECODED observation / UNKNOWN conclusion",
+          "evidence": [
+            "work_v15/UNKNOWN_DATABASE.json U-MMIO-ADDRDEC (RESOLVED: PGRAPH 0x400000 poison = outside BAR0 decode window, not proven absence)",
+            "PHASE16/mmio_audit.json (display_poison_implication: does not distinguish removed hardware/decode mapping/privilege filtering/gating)"
+          ],
+          "detail": "BAR0 does not decode full 16 MiB; PGRAPH 0x400000 returns 0xBADF5040 throughout while PBUS 0x0 and FUSE 0x21000 read fine. VBIOS shadow region 0x300000-0x3FFFFF matches ROM.",
+          "gaps": "Physical block presence vs decode mapping vs gating vs privilege filtering unresolved for all poisoned pages."
+        },
+        {
+          "id": "MMIO-4",
+          "text": "Reconstruct GPC/TPC/SM/ROP/L2 mapping from evidence",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/mmio_topology_coordinator_review.json (topology_semantics: GPC/TPC/SM/ROP unknown; L2TLB/L2 must not be conflated)",
+            "PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md (rejects un-sourced 3 GPC/17 TPC/34 SM mapping)"
+          ],
+          "detail": "Archived topology values 3 GPC/17 TPC/34 SM not traced to raw register values or TU106 field definitions; fuse-popcount inference rejected.",
+          "gaps": "Entire topology reconstruction missing."
+        }
+      ]
+    },
+    {
+      "id": "MEMORY",
+      "title": "Memory subsystem: WPR bounds, VRAM accounting, GMMU/BAR3",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item MEMORY",
+      "requirements": [
+        {
+          "id": "MEM-1",
+          "text": "Verify WPR bitfield extraction and bounds",
+          "status": "VERIFIED",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/mmio_audit.json",
+            "work_v15/EVIDENCE_LEDGER.md E16-007",
+            "PHASE16/WPR_ENDPOINT_SEMANTICS/COORDINATOR_REVIEW.md"
+          ],
+          "detail": "Raw LO 0x01f7e000 / HI 0x01ffee00; VAL[31:4] << 12 -> LO 0x1F7E00000, HI 0x1FFEE0000; decoded bound difference 135,135,232 bytes = 128.875 MiB. Raw-register subtraction (0.5 MiB) invalidated; 20-bit mask in scratch repro incorrect for 28-bit field.",
+          "gaps": "HI exclusivity: API docs describe exclusive end but hardware convention unproven; allocation size and NVML Reserved overlap open."
+        },
+        {
+          "id": "MEM-2",
+          "text": "Explain physical/usable/reserved memory accounting",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "work_v15/UNKNOWN_DATABASE.json U-MEM-001 (8192 MiB physical vs 7762 MiB available, 430 MiB gap; WPR2 only 528 KB cannot explain gap)",
+            "PHASE16/EVIDENCE_LEDGER.md E16-007"
+          ],
+          "detail": "VRAM accounting snapshot distinction retained (archived Total 8192 / Reserved 389 / Used 0 / Free 7804 MiB vs 7762 available). WPR2 range far smaller than the 430 MiB gap.",
+          "gaps": "Carveout (WPR/GSP/ECC/reserved) explanation missing."
+        },
+        {
+          "id": "MEM-3",
+          "text": "Decode available GMMU/BAR3 structures",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "COORDINATION.json queue MEMORY (GMMU_BAR3_mapping_unknown)",
+            "work_v15/UNKNOWN_DATABASE.json U-BAR3-001/U-BAR3-002 (BAR3 32 MB contents unknown; 48/64 head pages data, 130 hot pages; no 0x1F0B device ID)",
+            "PHASE16/RAW_DATA/bar3_hot.bin referenced"
+          ],
+          "detail": "BAR3 hypotheses (page directory/GMMU L0, VBIOS SKU lookup, boot strap table) unproven. Device ID 0x1F0B absent from BAR3 (has 0x1F4F x43, 0x1F4E x2).",
+          "gaps": "GMMU/BAR3 structures undecoded; BAR3 contents unknown."
+        },
+        {
+          "id": "MEM-4",
+          "text": "Do not infer allocations solely from raw-register subtraction",
+          "status": "VERIFIED",
+          "level": "DECODED (methodological)",
+          "evidence": [
+            "PHASE16/mmio_audit.json (raw_register_difference 527,872 B vs invalid 0.5 MiB claim)",
+            "work_v15/EVIDENCE_LEDGER.md E16-007"
+          ],
+          "detail": "Constraint applied and verified in audit.",
+          "gaps": "None (constraint satisfied)."
+        }
+      ]
+    },
+    {
+      "id": "PCIE",
+      "title": "PCIe: endpoint/root config, link, BAR mappings",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item PCIE",
+      "requirements": [
+        {
+          "id": "PCIE-1",
+          "text": "Audit existing endpoint/root configuration dumps",
+          "status": "PARTIAL",
+          "level": "DECODED (archived)",
+          "evidence": [
+            "PHASE16/MEMORY_PCIE/COORDINATOR_REVIEW.md",
+            "PHASE16/MEMORY_PCIE/memory_pcie_verified.json"
+          ],
+          "detail": "PCI identity and BAR span claims cite archived config/resource bytes; BAR3 dump provenance tied to the dump tool's 256 KiB window — archived evidence, not fresh runtime measurement.",
+          "gaps": "No new runtime measurement; dump-window provenance limits scope."
+        },
+        {
+          "id": "PCIE-2",
+          "text": "Decode capability/runtime link and BAR mappings",
+          "status": "PARTIAL",
+          "level": "PARTIAL",
+          "evidence": [
+            "PHASE16/MEMORY_PCIE/COORDINATOR_REVIEW.md (link: endpoint target 5 GT/s, runtime 2.5 GT/s x16; no inference root port capped it)",
+            "PHASE16/MEMORY_PCIE/memory_pcie_verify.py"
+          ],
+          "detail": "Link status correctly reported from saved q3_pcie.txt. BAR mappings claimed but not independently validated against accessible decoded span.",
+          "gaps": "Capability/runtime link decode incomplete; BAR mapping validation missing."
+        },
+        {
+          "id": "PCIE-3",
+          "text": "Distinguish advertised size from accessible decoded span",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md (BAR1 64 GiB window vs 8 GiB VRAM not reconciled; cite raw resource range)",
+            "PHASE16/MEMORY_PCIE/COORDINATOR_REVIEW.md"
+          ],
+          "detail": "BAR1 capacity conflict unresolved: decoded endpoint BAR1 resource window/NVML as 64 GiB vs VRAM total separately 8 GiB.",
+          "gaps": "Advertised vs accessible span not distinguished."
+        }
+      ]
+    },
+    {
+      "id": "SECURITY-ARCHITECTURE",
+      "title": "Security architecture: boot chain, WPR, PLM/ACR/SEC2, privilege",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item SECURITY-ARCHITECTURE",
+      "requirements": [
+        {
+          "id": "SEC-1",
+          "text": "Map boot chain/firmware roles/privilege boundaries",
+          "status": "PARTIAL",
+          "level": "MEASURED (log assertions)",
+          "evidence": [
+            "PHASE16/SECURITY_ARCH/REPORT.md",
+            "PHASE16/SECURITY_ARCH/boot_chain.json",
+            "work_v15/EVIDENCE_LEDGER.md (P8 security findings)"
+          ],
+          "detail": "5-step boot chain measured via dmesg (CMP40_COMPUTE_UNLOCK_* lines); WPR0/WPR1/WPR2/WPR2-alt measured via BAR0 reads; SEC2 DMEM zeroed 64 KB after use; 7 gadget addresses measured; driver nvidia.ko unsigned (module verification failed, kernel taint); Secure Boot inferred OFF; DMA mask 47-bit; IOMMU group 31; Confidential Computing OFF (0 MiB).",
+          "gaps": "Roles and privilege boundaries not source-corroborated; dmesg assertions are log assertions, not independent memory readback."
+        },
+        {
+          "id": "SEC-2",
+          "text": "Corroborate PLM/ACR/SEC2 interpretations with sources",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/SECURITY_ARCH_REVIEW_COORDINATOR.md (signature validity unverified; source metadata doesn't establish crypto validity)",
+            "work_v15/UNKNOWN_DATABASE.json U-SEC-002 (PLM_FECS/PLM_RESET/ACR_CMD/ACR_STATUS/SEC2_STATUS poison 0xBADF5040; WPR_CFG=0)",
+            "PHASE16/WPR_ENDPOINT_SEMANTICS/COORDINATOR_REVIEW.md"
+          ],
+          "detail": "PLM/ACR/SEC2 registers read poison; WPR_CFG=0 (possibly unprogrammed). No source corroboration of PLM/ACR/SEC2 roles. Cross-generation register shapes add no direct TU106 endpoint proof.",
+          "gaps": "PLM/ACR/SEC2 semantics missing; privilege boundaries missing."
+        },
+        {
+          "id": "SEC-3",
+          "text": "No inference of encryption algorithm from entropy",
+          "status": "VERIFIED",
+          "level": "DECODED (constraint applied)",
+          "evidence": [
+            "work_v15/EVIDENCE_LEDGER.md E09/E16-005 (4 blobs entropy 7.998; entropy does not distinguish AES from LZMA/zip; no IV, no magic)",
+            "PHASE16/FW_PAYLOAD_RISCV/COORDINATOR_REVIEW.md"
+          ],
+          "detail": "Constraint explicitly applied; high-entropy blobs not claimed as AES.",
+          "gaps": "None (constraint satisfied)."
+        },
+        {
+          "id": "SEC-4",
+          "text": "No exploit/bypass work",
+          "status": "VERIFIED",
+          "level": "DECODED (compliance)",
+          "evidence": [
+            "PHASE16/CHECKPOINT.json (safety_compliance: all false, all_readonly true)",
+            "COORDINATION.json constraints"
+          ],
+          "detail": "No hardware writes, no bypass, no key brute force.",
+          "gaps": "None (constraint satisfied)."
+        }
+      ]
+    },
+    {
+      "id": "GSP-FULL",
+      "title": "GSP-RM full: function inventory, CFG, consumers, RPC, indirect targets",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item GSP-FULL",
+      "requirements": [
+        {
+          "id": "GSP-1",
+          "text": "Validated function inventory and reachable CFG/callgraph scope",
+          "status": "PARTIAL",
+          "level": "DECODED (capped)",
+          "evidence": [
+            "PHASE16/gsp_summary.json",
+            "PHASE16/GSP_HEADER_CONSUMER/COORDINATOR_REVIEW.md",
+            "PHASE16/GSP_HEADER_CONSUMER_FOLLOWUP/run.log",
+            "PHASE16/GSP_FOLLOWUP_DATAFLOW_REVIEW.md"
+          ],
+          "detail": "gsp_tu10x.bin 22,901,632 B; inner ELF EXEC RISC-V 37 sections/11 PT_LOAD; call_edges 185,486; unique_candidate_targets 11,416; section-level instruction counts (e.g. .section_task_rm_elf_text_instance 4,242,803 length-4 insns). Follow-up: 603 blocks / 6,000 decoded instructions = configured cap, not fixpoint; CFG extent partial. Worker live; do not restart.",
+          "gaps": "CFG not at fixpoint; 6,000-instruction cap reached; unseen table-field accesses unclaimed; worker output pending."
+        },
+        {
+          "id": "GSP-2",
+          "text": "Descriptor/name/policy consumers",
+          "status": "PARTIAL",
+          "level": "DECODED structure / UNKNOWN consumers",
+          "evidence": [
+            "work_v15/EVIDENCE_LEDGER.md E16-002 (186-entry descriptor table, base 0x041A70B0, stride 32, layout u16@0,u32@4,u8@8,pad,u64@0x10,u16@0x18; all 186 entries resolve bounded ASCII)",
+            "work_v15/COVERAGE.json (descriptors_with_known_consumer: 0)",
+            "work_v15/UNKNOWN_DATABASE.json U-GSP-006/BLOCKED (7 names without descriptor entries)"
+          ],
+          "detail": "Descriptor table structure decoded; entry[0] f10 -> VA 0x041A6000 / file 0x1A6040 -> bounded ASCII 'NOT_SET'. Zero descriptors have known consumers. 7 names (RMClkVfOverride, RmAtsVolOverride, RmClkControllersOverride, OVERVOLTAGE_LOGIC, OVERVOLTAGE_NVVDD_0/1, PERFORMANCE_CAP0) have no descriptor entry (BLOCKED, 0 pointers across 3 encodings).",
+          "gaps": "Consumer for all 340 descriptors in 60 tables unknown; union/subtable layout for 130 entries blocked."
+        },
+        {
+          "id": "GSP-3",
+          "text": "RPC and engine/register access interfaces",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/GSP_BINDATA/COORDINATOR_REVIEW.md (consumer scan partially executed; struct.error on truncated buffer; not exhaustive negative evidence)",
+            "PHASE16/FW_PAYLOAD_RISCV/COORDINATOR_REVIEW.md (engine names, descriptor instantiations unresolved)"
+          ],
+          "detail": "No RPC/engine/register access interface consumer established. BINDATA consumer scan did not complete successfully.",
+          "gaps": "All RPC/engine/register interfaces missing."
+        },
+        {
+          "id": "GSP-4",
+          "text": "Unknown indirect targets and undecoded regions explicitly tracked",
+          "status": "PARTIAL",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/gsp_summary.json (xrefs: 2 entries; indirect_jump/call counts per section)",
+            "work_v15/UNKNOWN_DATABASE.json U-GSP-005 (f08 16 values, f18 13 values; UNKNOWN)",
+            "PHASE16/GSP_FOLLOWUP_DATAFLOW_REVIEW.md (dataflow not converged; unresolved indirect edges require review)"
+          ],
+          "detail": "Indirect targets unresolved; f08/f18 field meanings undecoded (0 decoded per COVERAGE.json); dataflow issues: lhu maps to 1 byte (should be 2), store uses f[rd] though stores have no destination register (bits 11:7 are immediate), store address uses S-immediate not I-immediate, step_sym called before memory base recovery.",
+          "gaps": "Indirect edge targets, f08/f18 semantics, dataflow convergence all open."
+        }
+      ]
+    },
+    {
+      "id": "ENGINE-INTERFACES",
+      "title": "Engine interfaces: GR/FECS/GPCCS, FIFO/PBDMA, copy, PMU/SEC2/GSP, NVENC/NVDEC, display",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item ENGINE-INTERFACES",
+      "requirements": [
+        {
+          "id": "ENG-1",
+          "text": "Identify accessible engines and their roles/interfaces",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md (source inventory useful; all GPU-specific conclusions rejected pending evidence)",
+            "PHASE16/mmio_audit.json (display-register sampled reads BADF1301 — poison, not proof of absence)"
+          ],
+          "detail": "No engine role/interface mapping accepted. Display-register poison reads support only that sampled offsets were unavailable in archived aperture data.",
+          "gaps": "All engine identifications missing."
+        },
+        {
+          "id": "ENG-2",
+          "text": "Separate architectural TU106 capabilities from measured CMP40HX enablement",
+          "status": "MISSING",
+          "level": "UNKNOWN",
+          "evidence": [
+            "PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md (conflicts: fuse+0x650 TPC mask, display fuse state, BAR1 8 GiB, 'hardware absent', topology 3/17/34 — all rejected/not accepted)"
+          ],
+          "detail": "Report's GPU-specific conclusions not integrated. Architectural capability vs measured enablement not separated.",
+          "gaps": "Separation entirely missing."
+        },
+        {
+          "id": "ENG-3",
+          "text": "Map firmware/driver interfaces and unresolved data regions with provenance",
+          "status": "PARTIAL",
+          "level": "SOURCE-INVENTORY ONLY",
+          "evidence": [
+            "PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md",
+            "PHASE16/SOURCES/manifest.json"
+          ],
+          "detail": "Source-bounded register/control namespace survey retained as useful, but kept separate from unsupported applicability/operational/topology claims. No files in original output directory changed.",
+          "gaps": "Firmware-slot/engine mappings open; provenance for data regions incomplete."
+        }
+      ]
+    },
+    {
+      "id": "INTEGRATION",
+      "title": "Integration: ledger, unknown DB reconciliation, report consistency, checkpoint audit",
+      "overall_status": "PARTIAL",
+      "source": "COORDINATION.json queue item INTEGRATION",
+      "requirements": [
+        {
+          "id": "INT-1",
+          "text": "Evidence ledger with input hashes, VA/file offset, raw values, reproduction commands",
+          "status": "PARTIAL",
+          "level": "DECODED",
+          "evidence": [
+            "PHASE16/EVIDENCE_LEDGER.md (E16-001..E16-008 with hashes, offsets, raw values)",
+            "PHASE16/input_hashes.json (subset of inputs)",
+            "PHASE16/CHECKPOINT.json",
+            "PHASE16/archive_audit.json (157 archived files matched at intake)",
+            "PHASE16/CODEX_CMP40HX_HANDOFF.md -> /home/REDACTED_USER/codex-work/CODEX_CMP40HX_HANDOFF.md"
+          ],
+          "detail": "Ledger entries E16-001..E16-008 include source, hash, offset, output, interpretation, confidence. Reproduction commands given for some entries (gsp_callback_verify.py, firmware_container_verify.py) but not all.",
+          "gaps": "Hash coverage incomplete across artifacts; not every evidence entry has a reproduction command."
+        },
+        {
+          "id": "INT-2",
+          "text": "Reconciled unknown database and per-domain coverage",
+          "status": "CONTRADICTED",
+          "level": "UNKNOWN",
+          "evidence": [
+            "work_v15/UNKNOWN_DATABASE.json (45 total, 35 open, 10 resolved; sha256 600e9694...)",
+            "work_v15/PHASE16/UNKNOWN_DATABASE.json (45 total, 36 open, 9 resolved; sha256 281c0082...)",
+            "PHASE16/unknown_audit.json (flags U-GSP-008 missing from database; phase15 blocker ids missing)"
+          ],
+          "detail": "Baseline unknown counts disagree between work_v15 (35 open/10 resolved) and PHASE16 (36 open/9 resolved). U-GSP-008 is a phase-15 blocker id missing from the database. No reconciliation performed.",
+          "gaps": "Database version divergence and missing id U-GSP-008 unreconciled."
+        },
+        {
+          "id": "INT-3",
+          "text": "Reports consistent with current machine evidence",
+          "status": "CONTRADICTED",
+          "level": "—",
+          "evidence": [
+            "PHASE16/archive_audit.json (legacy_verify pass_lines=161, contradicting 162/162 PASS claim)",
+            "PHASE16/REVIEW_NOTES.md (GSP_AUDIT.md/CHECKPOINT.json not accepted as fully verified; hand-edited numbers; a1=s4 claim omits helper path)",
+            "PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md (report claims rejected)",
+            "PHASE16/gsp_callback_coordinator_review.json (older Markdown report contradicts raw callback evidence)"
+          ],
+          "detail": "Multiple contradictions: 162 vs 161 PASS; unknown counts 35/10 vs 36/9; callback a1=s4 disproved; ENGINE_INTERFACES claims (fuse+0x650 mask, display fuse=0, BAR1=8GiB, hardware absent, topology) rejected; old GSP markdown not accepted as final semantic report.",
+          "gaps": "Reports require correction before integration."
+        },
+        {
+          "id": "INT-4",
+          "text": "Checkpoint and complete requirement-by-requirement audit",
+          "status": "MISSING",
+          "level": "—",
+          "evidence": [
+            "PHASE16/CHECKPOINT.json (status: in_progress; no prior requirement-by-requirement gap matrix exists)",
+            "COORDINATION.json (completion_rule: whole-GPU unproven)",
+            "This inventory (COVERAGE_GAP_INVENTORY/)"
+          ],
+          "detail": "No complete requirement-by-requirement audit existed prior to this inventory. Checkpoint status in_progress.",
+          "gaps": "This inventory is the first requirement-by-requirement audit; it must be maintained as work continues."
+        }
+      ]
+    }
+  ],
+  "cross_cutting_contradictions": [
+    {
+      "id": "CC-1",
+      "claim": "Hermes reported 162/162 PASS",
+      "evidence": "PHASE16/archive_audit.json legacy_verify pass_lines=161, fail=0, skip=0",
+      "assessment": "CONTRADICTED — test count does not establish semantic coverage in either case."
+    },
+    {
+      "id": "CC-2",
+      "claim": "Unknown database counts",
+      "evidence": "work_v15/UNKNOWN_DATABASE.json status_counts open=35 resolved=10 vs work_v15/PHASE16/UNKNOWN_DATABASE.json open=36 resolved=9",
+      "assessment": "CONTRADICTED — unreconciled divergence; U-GSP-008 missing from database (unknown_audit.json)."
+    },
+    {
+      "id": "CC-3",
+      "claim": "Callback argument a1=s4",
+      "evidence": "PHASE16/gsp_callback_verified.txt/.json and gsp_callback_coordinator_review.json (84 raw rows, 0 mismatches; a1 retains helper return on taken-branch path)",
+      "assessment": "CONTRADICTED — old report disproved on observed path; older Markdown report not accepted as final semantic report."
+    },
+    {
+      "id": "CC-4",
+      "claim": "ENGINE_INTERFACES report conclusions (fuse+0x650 TPC mask, display fuse=0, BAR1=8 GiB, display hardware absent, topology 3/17/34)",
+      "evidence": "PHASE16/ENGINE_INTERFACES_COORDINATOR_REVIEW.md (all rejected; RAW_DATA/fuse2.json shows fuse+0xC04=1 not 0; MEMORY_PCIE decoded BAR1 window 64 GiB)",
+      "assessment": "CONTRADICTED/REJECTED — not integrated."
+    },
+    {
+      "id": "CC-5",
+      "claim": "Firmware '11 blobs' with blob10-to-EOF of 7,575,296 B (~21 payloads)",
+      "evidence": "PHASE16/firmware_container_verified.json + coordinator review (496 is count not header_size; stride 24 not 32; actual blob10 candidate 183,808 B; old extent contains 28 distinct payloads, not 21)",
+      "assessment": "CONTRADICTED — legacy theory refuted."
+    },
+    {
+      "id": "CC-6",
+      "claim": "52/52 MMIO register match",
+      "evidence": "PHASE16/mmio_namespace_coordinator_review.json (not accepted until constants/enums removed from address namespace)",
+      "assessment": "CONTRADICTED — name/address equality with flawed input catalog is not independent proof."
+    }
+  ],
+  "preserved_unresolved_gaps": [
+    "Firmware payload/engine mapping: 30 of 38 payloads UNKNOWN; 8 Falcon labels medium-confidence only; ISA/load metadata unidentified; blob6/8 differ by 2 timestamp windows + 2 unexplained bytes; 4 high-entropy blobs (encryption vs compression unproven, explicitly not inferred).",
+    "GSP caller/callback/CFG/dataflow: callback target *(s3+0x30) unresolved; callback predecessors not exhaustive; last definitions of a0/a1/a2 partial (a1 path-scoped only); CFG capped at 6,000 instructions / 603 blocks, not fixpoint; indirect targets unknown; symbolic dataflow has uncorrected defects (lhu width, store destination, S-immediate address, operand capture order).",
+    "Fuse semantics: physical OTP cell geometry unknown; +0x718 opaque 32-byte block hash-blocked (0 matches); ~3,070 fuse words unmapped to registers; topology mask inference rejected (popcount insufficient); fuse+0x0C04 display meaning TU106-unestablished.",
+    "VBIOS unsupported schemas: version 0x60 tables unsupported; key block / certificate table (U-VBIOS-001) and NPDS 0x70 digest list (U-VBIOS-003) meanings unknown; NVGIf #2 nature unknown; general BIT parser missing (inherited Turing pointer formula not general); slot17 header shape valid but semantics unknown.",
+    "MMIO sampling: 0.390625% byte coverage (4 u32 per 4 KiB page); 49 unclassified pages; poison vs physical-block-absence vs decode-window vs gating vs privilege unresolved.",
+    "Topology: GPC/TPC/SM/ROP/L2 mapping not reconstructed from raw values; L2TLB/L2 conflation warned; archived 3/17/34 values un-sourced.",
+    "Memory allocation: GMMU/BAR3 structures undecoded; 430 MiB VRAM gap (8192 physical vs 7762 available) unexplained; WPR2 (528 KB) cannot explain gap; WPR/NVML Reserved overlap unknown; HI bound exclusivity unproven.",
+    "PCIe: capability/runtime link decode incomplete; advertised vs accessible BAR span not distinguished (BAR1 64 GiB vs 8 GiB VRAM unreconciled).",
+    "Security architecture: PLM/ACR/SEC2 roles and privilege boundaries uncorroborated; signature validity unverified; historical dmesg assertions not independent readback."
+  ],
+  "next_actions": [
+    {
+      "id": "NA-1",
+      "domain": "GSP-CALLBACK",
+      "action": "Fix gsp_callback_verify.py ELF base/section-offset handling (REVIEW_NOTES #5: embedded ELF base omitted; section-name vs identifier comparison); re-run with /usr/bin/python3; enumerate ALL callback predecessors and last definitions of a0/a1/a2 on every path using raw bytes; resolve the *(s3+0x30) store sites for the callback target.",
+      "evidence_paths": [
+        "PHASE16/gsp_callback_verify.py",
+        "PHASE16/gsp_callback_verified.json",
+        "PHASE16/gsp_callback_coordinator_review.json",
+        "PHASE16/REVIEW_NOTES.md",
+        "work_v15/PHASE16/outputs/gsp_tu10x.bin (sha256 0c6124c1...)"
+      ]
+    },
+    {
+      "id": "NA-2",
+      "domain": "GSP-FULL",
+      "action": "Remove the 6,000-instruction cap in GSP_HEADER_CONSUMER_FOLLOWUP/header_consumer_followup.py; run to fixpoint; correct dataflow defects (lhu=2 bytes, stores have no destination register, store uses S-immediate, capture pre-instruction operands, call ABI clobbers, compressed handling, join monotonicity); poll the existing live worker (PID 1650946) — do not launch a duplicate.",
+      "evidence_paths": [
+        "PHASE16/GSP_HEADER_CONSUMER_FOLLOWUP/header_consumer_followup.py",
+        "PHASE16/GSP_HEADER_CONSUMER_FOLLOWUP/run.log",
+        "PHASE16/GSP_FOLLOWUP_DATAFLOW_REVIEW.md",
+        "PHASE16/GSP_HEADER_CONSUMER/COORDINATOR_REVIEW.md"
+      ]
+    },
+    {
+      "id": "NA-3",
+      "domain": "FW-CONTAINER",
+      "action": "Apply SOURCES/nvidia_bin_data_pvt.h (BINDATA_STORAGE_PVT: actualSize/compressedSize/flags/relOffset) to all 38 payloads; disassemble plaintext payloads with capstone RISCV64 (+RISCVC) on /usr/bin/python3 (capstone 5.0.7 confirmed); record high-entropy blobs as UNKNOWN, not non-code.",
+      "evidence_paths": [
+        "PHASE16/firmware_container_verified.json",
+        "PHASE16/firmware_container_coordinator_review.json",
+        "PHASE16/SOURCES/manifest.json",
+        "PHASE16/payload_isa_verified.json",
+        "PHASE16/FW_PAYLOAD_RISCV/COORDINATOR_REVIEW.md"
+      ]
+    },
+    {
+      "id": "NA-4",
+      "domain": "FUSE-OTP",
+      "action": "Source-map all 3,072 fuse words against SOURCES/nvidia_tu102_dev_fuse.h (fields at 0x2174c and 0x21378 per REVIEW_NOTES); classify the +0x718 block; obtain a second TU106/TU104 fuse dump for comparison; document hash trials as blocked (0 matches; no key/HMAC available).",
+      "evidence_paths": [
+        "PHASE16/fuse_audit.json",
+        "PHASE16/fuse_source_coordinator_review.json",
+        "PHASE16/SOURCES/nvidia_tu102_dev_fuse.h",
+        "work_v15/FUSE/fuse2.json",
+        "work_v15/UNKNOWN_DATABASE.json U-FUSE-002/U-FUSE-005"
+      ]
+    },
+    {
+      "id": "NA-5",
+      "domain": "VBIOS",
+      "action": "Write a general BIT table parser (not the inherited Turing pointer formula); decode slot17 and power/perf tables via envytools nvbios source (/tmp/envytools/nvbios/power.c, bit.c, nvbios.c — hashes recorded in vbios_perf_schema_coordinator_review.json); resolve U-VBIOS-001 key-block meaning and U-VBIOS-003 NPDS 0x70 digest list; determine NVGIf #2 nature.",
+      "evidence_paths": [
+        "PHASE16/vbios_audit.json",
+        "PHASE16/vbios_typed_coordinator_review.json",
+        "PHASE16/vbios_perf_schema_coordinator_review.json",
+        "PHASE16/SOURCES/manifest.json",
+        "work_v15/UNKNOWN_DATABASE.json U-VBIOS-001/U-VBIOS-003"
+      ]
+    },
+    {
+      "id": "NA-6",
+      "domain": "MMIO-TOPOLOGY",
+      "action": "Extend classification beyond 4-u32-per-page sampling to full-page contents; reconcile the 49 unclassified pages; map register bitfields from TU106 dev_top/dev_gr headers; maintain poison != physical absence distinction; reconstruct GPC/TPC/SM/ROP/L2 only from traced raw values.",
+      "evidence_paths": [
+        "PHASE16/mmio_audit.json",
+        "PHASE16/mmio_topology_coordinator_review.json",
+        "PHASE16/MMIO_COVERAGE_RECONCILE/COORDINATOR_REVIEW.md",
+        "work_v15/MMIO/page_inventory.csv",
+        "work_v15/MMIO/register_fields.csv",
+        "work_v15/TOPOLOGY/aperture_map.json"
+      ]
+    },
+    {
+      "id": "NA-7",
+      "domain": "MEMORY/PCIE",
+      "action": "Decode GMMU/BAR3 structures (bar3_hot.bin, bar3_entries.csv); verify WPR HI exclusivity from implementation (API docs only describe it); reconcile BAR1 64 GiB window vs 8 GiB VRAM using raw resource ranges; explain the 430 MiB VRAM gap without raw-register subtraction.",
+      "evidence_paths": [
+        "PHASE16/mmio_audit.json",
+        "PHASE16/MEMORY_PCIE/memory_pcie_verified.json",
+        "work_v15/RAW_DATA/bar3_hot.bin",
+        "work_v15/TOPOLOGY/p9_bar3_parsed.json",
+        "work_v15/UNKNOWN_DATABASE.json U-MEM-001/U-BAR3-001/U-BAR3-002"
+      ]
+    },
+    {
+      "id": "NA-8",
+      "domain": "SECURITY-ARCHITECTURE",
+      "action": "Source-corroborate PLM/ACR/SEC2 roles and privilege boundaries; record signature validity as unverified; treat historical dmesg (boot chain, WPR, SEC2 cleanup) as log assertions only, not independent readback.",
+      "evidence_paths": [
+        "PHASE16/SECURITY_ARCH/REPORT.md",
+        "PHASE16/SECURITY_ARCH/boot_chain.json",
+        "PHASE16/SECURITY_ARCH_REVIEW_COORDINATOR.md",
+        "PHASE16/WPR_ENDPOINT_SEMANTICS/findings_lossless.json",
+        "work_v15/EVIDENCE_LEDGER.md P8 findings"
+      ]
+    },
+    {
+      "id": "NA-9",
+      "domain": "INTEGRATION",
+      "action": "Reconcile the two UNKNOWN_DATABASE.json versions (35 open/10 resolved vs 36 open/9 resolved), add missing id U-GSP-008; add reproduction commands to ledger entries lacking them; correct all citations of 162/162 PASS to 161 PASS; maintain this requirement-by-requirement inventory as work continues.",
+      "evidence_paths": [
+        "work_v15/UNKNOWN_DATABASE.json",
+        "work_v15/PHASE16/UNKNOWN_DATABASE.json",
+        "PHASE16/unknown_audit.json",
+        "PHASE16/EVIDENCE_LEDGER.md",
+        "PHASE16/archive_audit.json"
+      ]
+    }
+  ],
+  "required_missing_source_data": [
+    "NVIDIA open-gpu-kernel-modules Turing headers applicable to TU106: dev_top.h, dev_gr.h, dev_fb.h (SOURCES/ currently holds only nvidia_tu102_dev_fuse.h and nvidia_gm107_dev_fuse.h plus bin_data_pvt.h/bin_data.h).",
+    "Exact driver release tag for source provenance — SOURCES/manifest.json records local /tmp/nvsrc snapshots; 'exact driver tag not established.'",
+    "A second TU106/TU104 fuse dump for cross-comparison of fuse word semantics (none currently available).",
+    "GSP-RM source/consumer documentation for descriptor-table semantics (name_ptr union, f08/f18 fields) and RPC/engine register-access interfaces.",
+    "VBIOS key block / certificate format specification and NPDS type-0x70 digest-list semantics source.",
+    "envytools nvbios source already snapshotted (/tmp/envytools/nvbios/bit.c, power.c, nvbios.c) with SHA-256 recorded — treat as available input, not missing."
+  ],
+  "methodology_notes": [
+    "Every status is tied to exact evidence paths and raw values; none is derived from PASS counts, file presence, manifests, prose, or live worker state.",
+    "MEASURED = direct read/ground-truth match; DECODED = structure/layout verified; CORROBORATED = two independent sources; INFERRED = hypothesis without proof; UNKNOWN = no evidence; BLOCKED = tested and failed or requires external material.",
+    "Deliberately NOT completed: whole-GPU reverse engineering. This is a planning inventory grounded in inspected evidence.",
+    "No global coordination/unknown files or ongoing worker outputs were modified. All outputs are isolated under COVERAGE_GAP_INVENTORY/."
+  ]
+}

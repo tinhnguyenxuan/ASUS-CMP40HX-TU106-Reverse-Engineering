@@ -1,0 +1,9 @@
+  PASS  test_hash
+  PASS  test_ptr_formula
+  PASS  test_checksum
+  PASS  test_vfe
+  PASS  test_perf_tables
+  PASS  test_payload_boundary
+  PASS  test_diff_bytes
+
+  7/7 test pass

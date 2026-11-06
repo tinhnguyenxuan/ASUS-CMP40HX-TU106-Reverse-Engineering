@@ -1,0 +1,22 @@
+Hoàn tất. Tất cả artifacts đã được tạo và verified dưới `work_v15/PHASE16/SECURITY_ARCH/`:
+
+**12 tập tin:**
+- `verify.py` — script sinh toàn bộ bằng chứng, chạy độc lập, 19/19 assertion PASS
+- `REPORT.md` — báo cáo chính (Tiếng Việt)
+- `run_log.md` — nhật ký chạy, nguồn vào, buoc thực hiện, kết quả
+- 9 file JSON bằng chứng: `source_provenance`, `source_facts`, `measured_facts`, `fuse_source_mapping`, `boot_chain`, `privilege_boundaries`, `audit_prior_claims`, `unknowns`, `run_summary`
+- `assertions.log`
+
+**Kết quả chính:**
+
+| Mục | Nội dung |
+|---|---|
+| **Boot chain** | 12 bước từ dmesg (FWSEC → WPR-down → GSP handoff → RefWSEC + RISCV args → SEC2 DMEM zero → stock relock) |
+| **Vai trò firmware** | GSP-RM (WPR2), Booter (610.57.04, có SIG metadata), FWSEC, SEC2 (EMEM channel 0, 1 KiB), ACR (token 0xC2), PLM (0xFFFFFF8F/0x000000FF), PMU/Falcon (alignment chỉ) |
+| **WPR2** | `0x01F7E000..0x01FFEE00` = 0.50 MiB, khớp MMIO `0x1FA824`/`0x1FA828` + dmesg 100% |
+| **Secure boot** | Driver Linux **chưa ký** (taint, Secure Boot tắt host); firmware GPU **có ký** + khôi phục in-place |
+| **Ran giới** | 7 ran giới documented; Confidential Computing **TẤT** (0 MiB); IOMMU group 31, DMA 47-bit |
+| **Kiểm toán 23 tuyên bố trước** | 3 SUPPORTED, 4 MEASURED, **13 REJECTED** (4 vùng WPR, 0x1FA820=WPR2_LO, PLM đọc được BAR0, 11 blob firmware, entropy=AES, driver ký, CC bật, 6 tên fuse không có trong source, 152 word==1 là OTP cell), 2 INFERRED, 1 UNKNOWN |
+| **Unknown giữ nguyên** | 15 mục, không đoán |
+
+**Không vi phạm ràng buộc:** không ghi MMIO/fuse/PCIe, không flash ROM, không trình extractor/bruteforce/key extraction, không behaupt entropy = mã hóa. Tất cả hoạt động offline, read-only, tái lập được bằng `verify.py`.

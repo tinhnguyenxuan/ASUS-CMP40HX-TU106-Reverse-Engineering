@@ -1,0 +1,26 @@
+{
+  "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin": {
+    "bytes": 22901632,
+    "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b"
+  },
+  "/home/REDACTED_USER/codex-work/work_v15/PHASE16/gsp_callback_verified.json": {
+    "bytes": 26552,
+    "sha256": "3679575b93c9cdfbb53cd8e901b62ee30fb2f74057db34368006d02ef426931b"
+  },
+  "/home/REDACTED_USER/codex-work/work_v15/PHASE16/gsp_callback_verified.txt": {
+    "bytes": 6427,
+    "sha256": "7a6c9e4da0c9590bbd6c620af4d1612a0b3a9bd3d03ae3bdc837235774de2d36"
+  },
+  "/home/REDACTED_USER/codex-work/work_v15/PHASE16/gsp_callback_coordinator_review.json": {
+    "bytes": 842,
+    "sha256": "b35e901579a6c3a393d0689abb9e4000b83b09735bc35876de88eba1b098b95c"
+  },
+  "/home/REDACTED_USER/codex-work/work_v15/PHASE16/REVIEW_NOTES.md": {
+    "bytes": 3615,
+    "sha256": "9086f3d272b4cb1ebd3b6a08b9c076a88ac60712b572be180098259936708f71"
+  },
+  "/home/REDACTED_USER/codex-work/work_v15/PHASE16/gsp_scan.json": {
+    "bytes": 2665,
+    "sha256": "ff0c0ee1465446829a406d59666d9790f39f0f34d077ad42ff731005058f4ac4"
+  }
+}

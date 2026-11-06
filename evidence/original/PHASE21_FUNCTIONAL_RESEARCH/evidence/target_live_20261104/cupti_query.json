@@ -1,0 +1,48 @@
+{
+  "schema": "phase21-cupti-query-v1",
+  "utc": "2026-11-04T15:02:38.387839+00:00",
+  "command": "cupti_query",
+  "read_only": true,
+  "cuda_home_env": {
+    "CUDA_HOME": null,
+    "CUDA_PATH": null
+  },
+  "searched_dirs": [
+    "/usr/lib/x86_64-linux-gnu",
+    "/usr/lib"
+  ],
+  "paths_tried": [
+    "/usr/lib/x86_64-linux-gnu/libcupti.so",
+    "/usr/lib/x86_64-linux-gnu/libcupti.so.12",
+    "/usr/lib/x86_64-linux-gnu/libcupti.so.2022.4.1"
+  ],
+  "lib_load": [
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcupti.so",
+      "loaded": true,
+      "error": null
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcupti.so.12",
+      "loaded": true,
+      "error": null
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libcupti.so.2022.4.1",
+      "loaded": true,
+      "error": null
+    }
+  ],
+  "selected": "/usr/lib/x86_64-linux-gnu/libcupti.so",
+  "cuptiGetVersion": {
+    "rc": 0,
+    "version": 18,
+    "result_string": "CUPTI_SUCCESS",
+    "result_string_rc": 0
+  },
+  "notes": [
+    "Version query is discovery only: a successful cuptiGetVersion proves the library loads and exports version metadata; it does NOT prove counter access or profiling correctness.",
+    "No profiling counters, callbacks, permissions, config changes, or sudo were used.",
+    "Existing policy RmProfilingAdminOnly=1 was not read or modified by this script."
+  ]
+}

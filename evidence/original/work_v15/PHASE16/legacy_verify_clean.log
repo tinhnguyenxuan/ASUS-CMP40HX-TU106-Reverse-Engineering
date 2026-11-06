@@ -1,0 +1,182 @@
+=== 1. FUSE ===
+  PASS  fuse dump 3072 word
+  PASS  fuse co du lieu 352
+  PASS  fuse+0x4D8 = 1F0B
+  PASS  fuse+0x56C = 1F4B
+  PASS  fuse+0x650 = 0x4001F
+  PASS  NVDEC_DISABLE = 0
+  PASS  GSP_DEBUG_DIS = 1
+  PASS  DISPLAY ENABLE = 1
+  PASS  GPC = 0x38
+  PASS  trang 0x2000 toan poison
+
+=== 2. MMIO ===
+  PASS  boot0 = 0x166000A1
+  PASS  WPR2 lo = 0x1F7E000
+  PASS  WPR2 hi = 0x1FFEE00
+  PASS  xve map = 1f0b10de
+  PASS  33 register doc duoc
+
+=== 3. VBIOS ===
+  PASS  ROM 1 MiB
+  PASS  NVGIf @0x79000
+  PASS  2 ban sao khac 1212 byte
+  PASS  cum khac 0x3000..0x34BF
+  PASS  key block ban1 co du lieu
+  PASS  key block ban2 toan 0xFF
+  PASS  38 record x 32
+
+=== 4. GSP-RM ===
+  PASS  340 entry that
+  PASS  60 bang
+  PASS  co RELIABILITY_NVVDD
+  PASS  co VMIN_NVVDD_1
+  PASS  co UNLOAD_DRIVER_VOLTAGE_RAIL_0
+  PASS  co MCLK_LIMIT
+  PASS  KHONG co RMClkVfOverride
+  PASS  khong con fragment chuoi
+
+=== 5. FIRMWARE ===
+  PASS  11 blob
+  PASS  blob[6] vs blob[8] khac 24 byte
+  PASS  blob cuoi ket thuc dung file
+
+=== 6. PCIe / Memory ===
+  PASS  BAR1 = 64G
+  PASS  link runtime Gen1
+  PASS  link cap Gen2
+  PASS  Reserved 389 MiB
+
+=== 7. Phat hien vong Q2-Q9 ===
+  PASS  display 0 word du lieu
+  PASS  doi chung co du lieu
+  PASS  card cap 5GT/s
+  PASS  root cap 8GT/s
+  PASS  ca 2 dau target 5GT/s
+  PASS  ca 2 dau runtime 2.5GT/s
+  PASS  FALCON_DATA esz=6 cnt=16
+  PASS  FALCON_DATA 7 entry co du lieu
+  PASS  NVINIT 9 con tro hop le
+  PASS  blob6/8 khac 24 byte
+  PASS  co 4 cum khac
+  PASS  cum 20 B la build timestamp ASCII
+  PASS  hash tren fuse 0 khop
+  PASS  Q1: tim thay LUI khop base
+  PASS  Q1: 381665 LUI trong 17 MB text
+  PASS  Q1: disasm capstone <5% invalid
+  PASS  Q1: suffix KHONG phan giai duy nhat duoc
+  PASS  Q1: 159 con tro ambiguous
+  PASS  Q1: 186 entry trong bang
+  PASS  Q1: u16(+0x18) co nhom 0xFFxx
+  PASS  Q1: u16(+0x18) toi da la 0xFF0B (khong phai do dai ten)
+
+=== 7b. TU-06/07 VBIOS shadow ===
+  PASS  shadow bat dau 55AA
+  PASS  shadow PCIR @0x170
+  PASS  khop rom[0x28600] 100%
+  PASS  rom file bat dau NVGI
+  PASS  14 byte khac shadow vs rom
+  PASS  BAR0 79.4% poison (do lan 1)
+  PASS  BAR0 287 trang DATA (do lan 1)
+  PASS  P9 poison moi 0xBAD00100 = 25 trang
+  PASS  P9 0xFFFFFFFF = 72 trang
+  PASS  P9 DATA that = 141 trang
+  PASS  P9 POISON sua tu 3253 -> 3278
+  PASS  P9 DATA sua tu 287 -> 141
+  PASS  POISON = 81.0%
+  PASS  DATA = 3.5%
+  PASS  '79.4% poison' chi xuat hien 1 lan (dong thay doi)
+  PASS  MASTER_REPORT khong con '7.0% DATA'
+  PASS  MASTER_REPORT ghi 81.0% poison
+  PASS  MASTER_REPORT ghi 3.5% DATA
+  PASS  security_architecture: ten WPR gia xuat hien <= 1 lan (dong noi ve loi cu)
+  PASS  security_architecture: khong con '23.75 KB'
+  PASS  security_architecture: khong con 'WPR2 alt'
+  PASS  security_architecture: co NV_PFB_PRI_MMU_WPR2_ADDR_LO
+  PASS  trust_boundaries: ten WPR gia xuat hien <= 1 lan (dong noi ve loi cu)
+  PASS  trust_boundaries: khong con '23.75 KB'
+  PASS  trust_boundaries: khong con 'WPR2 alt'
+  PASS  trust_boundaries: co NV_PFB_PRI_MMU_WPR2_ADDR_LO
+  PASS  COVERAGE: ten WPR gia xuat hien <= 1 lan (dong noi ve loi cu)
+  PASS  COVERAGE: khong con '23.75 KB'
+  PASS  COVERAGE: khong con 'WPR2 alt'
+  PASS  COVERAGE: co NV_PFB_PRI_MMU_WPR2_ADDR_LO
+  PASS  MASTER_REPORT: khong con 23.75 KB
+  PASS  MASTER_REPORT: U-SEC-001 RESOLVED
+  PASS  MASTER_REPORT: WPR2 = 0.50 MiB (khong phai 457)
+  PASS  BAR3 0x17000 on dinh 3 lan
+  PASS  BAR3 0x2b000 on dinh 3 lan
+  PASS  BAR3 xen ke khong doi
+  PASS  positive control BAR0 co du lieu
+  PASS  DISCOVERIES co D-P9-004 (REDACTED_USER on dinh)
+  PASS  P9 0x010000 chu ky lap 4 B
+  PASS  P9 0x010000 16 trang giong het
+  PASS  GPU PDI khop nvidia-smi
+
+=== 8. P8 security ===
+  PASS  P8 co 17 register
+  PASS  P8 10 register DATA
+  PASS  P8 5 register poison
+  PASS  0x1FA824 = NV_PFB_PRI_MMU_WPR2_ADDR_LO
+  PASS  0x1FA828 = NV_PFB_PRI_MMU_WPR2_ADDR_HI
+  PASS  0x1FA820 khong con goi la WPR2_LO
+  PASS  0x1FA820 gan nhan UNK_
+  PASS  WPR2_ADDR_LO = 0x01F7E000
+  PASS  WPR2_ADDR_HI = 0x01FFEE00
+  PASS  U-SEC-001 da resolved
+  PASS  U-SEC-001 co giai thich
+  PASS  FECS_PLM = 0xFFFFFF8F
+  PASS  RESET_PLM = 0x000000FF
+  PASS  ACR_TOKEN = 0xC2
+  PASS  DMA 47 bit
+  PASS  Conf Compute 0 MiB
+  PASS  SECURITY/security_architecture.md ton tai
+  PASS  SECURITY/trust_boundaries.md ton tai
+  PASS  security_architecture.md khong con '~128.0 MB' (WPR1 khong ton tai)
+  PASS  trust_boundaries.md khong con '~128.0 MB'
+  PASS  WPR2 = 0x80E00 (515.5 KiB)
+  PASS  WPR2 < 1 MiB
+  PASS  security_architecture: '457' xuat hien <= 1 lan (dong noi ve loi cu)
+  PASS  security_architecture: khong con '480.0 MB'
+  PASS  security_architecture: ghi 0.50 MiB
+  PASS  trust_boundaries: '457' xuat hien <= 1 lan (dong noi ve loi cu)
+  PASS  trust_boundaries: khong con '480.0 MB'
+  PASS  trust_boundaries: ghi 0.50 MiB
+  PASS  COVERAGE: '457' xuat hien <= 1 lan (dong noi ve loi cu)
+  PASS  COVERAGE: khong con '480.0 MB'
+  PASS  COVERAGE: ghi 0.50 MiB
+  PASS  MASTER_REPORT: '457' xuat hien <= 1 lan
+  PASS  MASTER_REPORT: ghi 0.50 MiB
+  PASS  FINAL_REPORT.md ton tai
+  PASS  FINAL_REPORT: co BUOC TIEP THEO
+  PASS  FINAL_REPORT: co ket luan CVE
+  PASS  VF sweep: H3 CONFIRMED
+  PASS  VF sweep: H4 not hard cap
+  PASS  VF sweep: +0->1905
+  PASS  VF sweep: +240->2130
+  PASS  VF sweep: all rc=0
+  PASS  HYPOTHESIS H3 XAC NHAN
+  PASS  HYPOTHESIS H4 KHONG PHAI TRAN CUNG
+  PASS  ca 2 file deu khong ghi 'chac chan'
+  PASS  U-SEC-001 trong DB
+  PASS  U-SEC-002 trong DB
+  PASS  DISCOVERIES co D-P9-006 (tu sua loi 457 MiB)
+  PASS  DISCOVERIES co D-P9-005 (U-SEC-001 resolved)
+  PASS  U-MMIO-012 trong DB
+  PASS  DISCOVERIES co D-P9-001
+  PASS  DISCOVERIES co D-P9-002 (BAR3)
+  PASS  U-BAR3-001 trong DB
+  PASS  U-BAR3-002 trong DB
+  PASS  BLOCKERS co B-P9-001
+  PASS  RAW_DATA/bar3_hot.bin ton tai
+  PASS  BAR1 khong decode (nonzero_total = 0)
+  PASS  BAR1 quet 18 offset
+  PASS  BAR3 co data (nonzero_total > 0)
+  PASS  BAR3 48 trang nong trong 256 KB
+
+=== 9. Database ===
+  PASS  UNKNOWN co items
+  PASS  COVERAGE co FUSE/MMIO
+  PASS  QUEUE co muc
+
+=== TAT CA PASS ===

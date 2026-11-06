@@ -1,0 +1,71 @@
+{
+  "generated_utc": "2026-11-04T12:42:39.005802+00:00",
+  "layers": [
+    {
+      "layer": "static_firmware",
+      "evidence": [
+        "gsp_tu10x.bin",
+        "display_object_fields.json",
+        "display_b8_sites.json",
+        "display_334_sites.json",
+        "display_790_sites.json"
+      ],
+      "claim": "RmDisableDisplay latch and veto dataflow statically recovered; runtime reachability unknown"
+    },
+    {
+      "layer": "host_fuse_snapshot",
+      "evidence": [
+        "display_gate.json"
+      ],
+      "claim": "archived bit0 at 0x21c04 evaluates against GM107 ENABLE=0 as false; physical/shadow/current status unknown"
+    },
+    {
+      "layer": "historical_runtime",
+      "evidence": [
+        "saved_runtime_provenance.json",
+        "historical_display_probe_inventory.json"
+      ],
+      "claim": "one timestamped nvidia-smi record plus one undated BAR/resource capture; historical only"
+    },
+    {
+      "layer": "current_sandbox",
+      "evidence": [
+        "local_inventory_2026-11-04_rerun.json"
+      ],
+      "claim": "no matching GPU or NVIDIA runtime in current sandbox; does not describe remote target"
+    }
+  ],
+  "input_hashes": [
+    {
+      "path": "work_v15/outputs/gsp_tu10x.bin",
+      "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+      "bytes": 22901632
+    },
+    {
+      "path": "work_v15/RAW_DATA/fuse2.json",
+      "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+      "bytes": 55233
+    },
+    {
+      "path": "work_v15/PHASE16/SOURCES/nvidia_gm107_dev_fuse.h",
+      "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10",
+      "bytes": 1658
+    },
+    {
+      "path": "work_v15/TOPOLOGY/silicon_topology.json",
+      "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+      "bytes": 4694
+    },
+    {
+      "path": "work_v15/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bytes": 22560
+    },
+    {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/local_inventory_2026-11-04_rerun.json",
+      "sha256": "984b2623a1643336dd4c201cc57db01802f14251ab146372ca3bbadf680860b8",
+      "bytes": 596
+    }
+  ],
+  "decision_boundary": "No layer alone proves current display silicon, current registry value, or functional scanout; fresh target capture remains required"
+}

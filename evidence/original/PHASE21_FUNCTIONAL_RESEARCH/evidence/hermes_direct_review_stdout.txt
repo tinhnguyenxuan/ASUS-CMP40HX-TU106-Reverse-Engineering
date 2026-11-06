@@ -1,0 +1,33 @@
+Tìm thấy 8 vấn đề, mỗi kèm tên file và trích dẫn ngắn từ văn bản đã cung cấp:
+
+1. **Lỗi thời chí/provenance: tổng hợp đọc nhầm file cũ** — BAO_CAO_BAN_GIAO_PHASE21.md  
+   Trích: "summary `local_inventory_2026-11-04_141233.json` dùng nguồn cũ, không phải capture mới. Output collector mới đã lưu nguyên văn trong `evidence/local_inventory_resume_raw.json` lúc `2026-11-04T14:40:37.565111Z`"; "Collector đã in output tại `2026-11-04T14:12:33.240212Z`, nhưng summary sau đó đọc nhầm file cũ lúc `09:03:29Z`."  
+   Đánh giá: artifact gắn mốc 14:12:33 không thực sự là capture mới lúc đó; hai thời điểm mâu thuẫn và chưa được giải thích.
+
+2. **Kết luận chưa chứng minh: gán `display: PROVEN_STATIC` từ predicate host lưu trữ** — BAO_CAO_BAN_GIAO_PHASE21.md  
+   Trích: "Raw archived value tại `0x21c04` là `1`, nên archived predicate đánh giá false. Đây chỉ là historical host-side result; không chứng minh OTP/shadow hiện tại hoặc display silicon vắng mặt."  
+   Đánh giá: văn bản tự承认 đây chỉ là bằng chứng lưu trữ của host, nhưng ma trận yêu cầu vẫn đánh dấu `display: PROVEN_STATIC` và `fuse: HISTORICAL_ONLY` — vươn quá bằng chứng có sẵn.
+
+3. **Quan sát khác thời điểm bị nhầm thành mâu thuẫn trạng thái hiện tại** — BAO_CAO_BAN_GIAO_PHASE21.md  
+   Trích: "Phase 19 và Phase 20 mâu thuẫn về trạng thái card (300 MHz so với 1905 MHz), nên không dùng làm current state." Đồng thời saved runtime topology (VBIOS 90.06.67.00.06, Display Attached No) được gọi là "historical evidence".  
+   Đánh giá: hai con số khác nhau thể hiện sự thay đổi theo thời gian, chứ không phải mâu thuẫn logic cùng một khoảnh khắc; historischen artifact không được dùng làm trạng thái hiện tại.
+
+4. **Năm yêu cầu hiện tại không thể đóng** — BAO_CAO_BAN_GIAO_PHASE21.md  
+   Trích blocker register: `B-RUNTIME-TARGET`, `B-EFFECTIVE-REGISTRY`, `B-FUNCTIONAL-DISPLAY`, `B-REFERENCE-ROM`, `B-PCB-ROUTING` đều ở trạng thái `OPEN`; điều kiện đóng yêu cầu "Target package có successful reads, đúng BDF, timestamp và verifier PASS" hoặc hardware authentication.  
+   Đánh giá: không có bằng chứng current-target hoặc authenticated hardware, nên năm blocker này không thể đóng từ văn bản đã cho.
+
+5. **Bằng chứng GPU cục bộ suy yếu: dùng BDF lịch sử thay cho enumeration mới** — BAO_CAO_BAN_GIAO_PHASE21.md  
+   Trích: target-package v5: "14 records, 0 successful reads, 14 failed reads", "BDF requested: `0000:03:00.0`" (BDF này từ `silicon_topology.json` saved), kết luận "Không có `10de:1f0b` local device."  
+   Đánh giá: quét thất bại trên một BDF lịch sử không bằng chứng không có GPU cục bộ; thiếu enumeration mới.
+
+6. **Semantic trường `+0x334` chưa được gán danh nghĩa rõ ràng** — GSP_DISPLAY_OBJECT_FIELDS.md  
+   Trích: `0x04894e70` "increments `+0x334`; because the base is `s1+0x1000`, this is not proven to be the same object ... recorded as an unresolved alias candidate only."  
+   Đánh giá: BAO_CAO trình bày `+0x334` là latch `RmDisableDisplay` như đã xác định, nhưng chính tài liệu trường ghi nhận đây là ứng viên alias chưa chứng minh và tên class nguồn chưa khôi phục.
+
+7. **Ma trận yêu cầu đánh giá không nhất quán với bản thân kiểm toán** — REQUIREMENTS_AUDIT.md so với BAO_CAO_BAN_GIAO_PHASE21.md  
+   Trích REQUIREMENTS_AUDIT: "UNKNOWN rows remain unresolved, not completed findings." RESTORATION_FEASIBILITY_MATRIX đánh giá tất cả current-target là `UNKNOWN`.  
+   Đánh giá: BAO_CAO lại đánh dấu `compute_restriction`, `display`, `gsp_gates`, `safety_repro`, `deliverables` là `PROVEN_STATIC` — coi bằng chứng tĩnh/policy như đã chứng minh trạng thái mục tiêu, trái với kết luận kiểm toán của chính nó.
+
+8. **Bước nghiên cứu ngoại tuyến khả thi bị bỏ qua: ROM tham chiếu chưa được đối chiếu nguồn công khai** — BAO_CAO_BAN_GIAO_PHASE21.md / REQUIREMENTS_AUDIT.md  
+   Trích: 16 unique ROM nhưng "none has authenticated source metadata"; "Chưa có ROM tham chiếu độc lập, revision-matched, có chain-of-custody đủ mạnh."  
+   Đánh giá: vấn đề chỉ được khung khẳng là thiếu hardware evidence, chưa ghi lại bước ngoại tuyến có thể thực hiện (xác thực ROM qua lưu trữ công khai, đối chiếu byte-distance với bản gốc) trước khi kết luận không thể đóng.

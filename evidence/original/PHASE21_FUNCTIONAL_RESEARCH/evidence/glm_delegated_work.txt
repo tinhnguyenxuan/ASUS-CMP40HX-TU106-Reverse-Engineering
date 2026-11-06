@@ -1,0 +1,203 @@
+│ glm_work/review.md
+│ @@ -0,0 +1,46 @@
+│ +# Review: nguyên nhân thất bại EGL/Vulkan trên target (2026-11-04)
+│ +
+│ +Nguồn bằng chứng: `evidence/target_live_20261104/` (capture read-only, không sửa hệ thống, không sudo, không MMIO/reset).
+│ +
+│ +## 1. Bằng chứng đã thu
+│ +
+│ +- CUDA Driver API: `cuInit=0`, `cuDeviceGetCount=1`, thiết bị duy nhất khớp BDF `0000:03:00.0` (CMP 40HX / TU106), compute 7.5, 34 multiprocessors, mọi thuộc tính truy vấn thành công. Nguồn: `cuda_driver_query.json`.
+│ +- CUDA correctness: kernel 4096 phần tử trên BDF `0000:03:00.0`, `mismatches=0`, `result=PASS`. Nguồn: `cuda_correctness.json`.
+│ +- DRM/KMD: kernel liệt kê `card1` và `renderD129` dưới BDF `0000:03:00.0`; `nvidia_drm` loaded, tham số `modeset=Y`. Nguồn: `drm_tool_inventory.json`, `drm_access_vulkan_inventory.json`.
+│ +- EGL thiết bị: `card1` (CMP40HX) và `card0` (R5 430) đều `eglInitialize` thất bại, `egl_version=[0,0]`; thiết bị phần mềm (llvmpipe) init thành công EGL 1.5. Nguồn: `egl_device_query.json`.
+│ +- Userspace `tinh` (uid=1000) không trong nhóm `video`/`render`; mở `O_RDONLY` `/dev/dri/card1` (0660 root:video) và `/dev/dri/renderD129` (0660 root:render) đều bị `EACCES`. Nguồn: `egl_userspace_inventory.json`, `drm_access_vulkan_inventory.json`.
+│ +- Vulkan ICD: `/usr/share/vulkan/icd.d/nvidia_icd.json` trỏ `library_path=libGLX_nvidia.so.0`; với `VK_ICD_FILENAMES=nvidia_icd.json`, `vkCreateInstance=-9`, loader báo `"Could not get 'vkCreateInstance' via 'vk_icdGetInstanceProcAddr' for ICD libGLX_nvidia.so.0"` và `"Found no drivers!"`. Nguồn: `vulkan_nvidia_only.json`.
+│ +- Vulkan mặc định (không ép ICD): instance tạo thành công nhưng chỉ liệt kê `llvmpipe` (vendor 0x10005, loại CPU), không có thiết bị NVIDIA vật lý. Nguồn: `vulkan_device_query.json`.
+│ +- EGL loader/glvnd: `/usr/share/glvnd/egl_vendor.d` chỉ chứa `50_mesa.json` (`libEGL_mesa.so.0`); không có manifest NVIDIA (`10_nvidia.json`), mặc dù `libEGL_nvidia.so.0` và `libGLX_nvidia.so.0` đã cài qua `ldconfig`. Nguồn: `egl_userspace_inventory.json`.
+│ +- `eglinfo`/`glxinfo`/`vulkaninfo`/`deviceQuery` không có trong PATH. Nguồn: `drm_tool_inventory.json`.
+│ +
+│ +## 2. Đã chứng minh (khẳng định được từ bằng chứng)
+│ +
+│ +1. Phần cứng CMP40HX **không** bị tắt: CUDA driver khởi tạo và kernel chạy đúng trên `card1`.
+│ +2. DRM/KMD không ẩn thiết bị: `card1`/`renderD129` được liệt kê, `nvidia_drm` chạy, `modeset=Y`.
+│ +3. EGL phần mềm (llvmpipe) hoạt động → stack EGL cơ bản không hỏng toàn bộ.
+│ +4. Quyền truy cập DRM node của `tinh` thực sự bị từ chối (`EACCES`), không chỉ là suy luận từ nhóm.
+│ +
+│ +## 3. Nguyên nhân gợi ý, theo thứ tự ưu tiên (loader → ICD → permissions)
+│ +
+│ +**H1 — EGL loader / nhà cung cấp glvnd (đánh giá cao nhất).**
+│ +Chỉ có `50_mesa.json` trong `egl_vendor.d`, nên `libEGL` của glvnd chọn Mesa, không phải NVIDIA. `libEGL_nvidia.so.0` có sẵn nhưng không được đăng ký làm nhà cung cấp EGL. `eglInitialize` thất bại đồng thời trên `card1` và `card0` (R5 430, có DP-1 kết nối) → thất bại không gắn liền với phần cứng CMP40HX.
+│ +
+│ +**H2 — ICD Vulkan / liên kết thư viện.**
+│ +`nvidia_icd.json` trỏ `libGLX_nvidia.so.0` (thư viện GLX/NVIDIA, không phải `libvulkan_nvidia.so` thông thường). Ép loader dùng ICD này → `vkCreateInstance=-9` vì loader không lấy được `vkCreateInstance` qua `vk_icdGetInstanceProcAddr`. Có nghĩa là `libGLX_nvidia.so.0` thiếu thư viện con, sai ABI, hoặc ICD bị từ chối khởi tạo (ví dụ không mở được render node do quyền). Cần `ldd` để tách biệt.
+│ +
+│ +**H3 — Quyền DRM node.**
+│ +`card1`/`renderD129` mode `0660` root:`video`/`render`; `tinh` không thành viên; mở thực tế bị `EACCES`. Đủ để làm Vulkan ICD và EGL trên render node thất bại, nhưng **chưa được tách** khỏi H1/H2 (ví dụ `eglInitialize` có thể thất bại trước khi attempt mở node, hoặc do vendor manifest thiếu).
+│ +
+│ +## 4. Chưa chứng minh (suy luận còn mở — diagnose_userspace.py sẽ kiểm tra)
+│ +
+│ +- `ldd` trên `libGLX_nvidia.so.0` / `libEGL_nvidia.so.0` chưa chạy → thư viện con thiếu/sai phiên bản chưa được loại trừ.
+│ +- Chưa tách được xem `EACCES` là nguyên nhân đơn độc hay đồng nguyên nhân với loader/ICD.
+│ +- Chưa tách được xem Vulkan ICD thất bại do quyền hay do liên kết ICD.
+│ +- "Không có connector dưới `card1`" **không** bằng chứng CMP40HX không có đầu ra vật lý (theo `TARGET_CAPTURE_CHECKLIST.md`: thiếu file connector không kết luận mất scanout); headless render không cần connector.
+│ +- GSP/RM (`RmDisableDisplay`…) có đang tắt display path hay không — giá trị registry/NVKV live chưa thu được.
+│ +- Tensor core, interop CUDA-GL/Vulkan, quét đồ họa/scanout thực tế chưa kiểm tra. CUDA correctness chỉ chứng minh compute, không chứng minh Tensor hay đồ họa.
+│ +
+│ +## 5. Kết luận
+│ +
+│ +Thất bại EGL/Vulkan nằm ở **userspace** (loader/ICD/permissions), chưa phải phần cứng bị disable. Ưu tiên chạy `diagnose_userspace.py` trên target trước khi kết luận về phần cứng hoặc GSP/RM gate.
+│ glm_work/diagnose_userspace.py
+│ @@ -0,0 +1,334 @@
+│ +#!/usr/bin/env python3
+│ +"""
+│ +Read-only userspace diagnostic for EGL/Vulkan/NVIDIA linkage.
+│ +
+│ +Writes a JSON report to stdout. Reads filesystem and runs read-only subprocesses
+│ +with a timeout. Does NOT modify the system, does NOT use sudo, does NOT touch
+│ +GPU registers/MMIO, does NOT reset or reload drivers, and does NOT open device
+│ +nodes for writing.
+│ +
+│ +Usage: python3 diagnose_userspace.py [--nodes /dev/dri/card1 /dev/dri/renderD129]
+│ +                                 [--icd-dir /usr/share/vulkan/icd.d]
+│ +                                 [--egl-dir /usr/share/glvnd/egl_vendor.d]
+│ +                                 [--timeout 10] [--self-check]
+│ +
+│ +Intended to run on the target machine by a later step; this file is only
+│ +authored here, not executed on the target.
+│ +"""
+│ +import argparse
+│ +import datetime
+│ +import grp
+│ +import json
+│ +import os
+│ +import pwd
+│ +import shutil
+│ +import stat
+│ +import subprocess
+│ +import sys
+│ +import tempfile
+│ +
+│ +DEFAULT_NODES = ["/dev/dri/card1", "/dev/dri/renderD129"]
+│ +DEFAULT_ICD_DIR = "/usr/share/vulkan/icd.d"
+│ +DEFAULT_EGL_DIR = "/usr/share/glvnd/egl_vendor.d"
+│ +LIBS = ["libGLX_nvidia.so.0", "libEGL_nvidia.so.0", "libEGL.so.1", "libvulkan.so.1"]
+│ +TOOLS = ["nvcc", "nvidia-smi", "eglinfo", "glxinfo", "vulkaninfo", "deviceQuery"]
+│ +PROC_MODULES = "/proc/modules"
+│ +PROC_NVIDIA_VERSION = "/proc/driver/nvidia/version"
+│ +MODSET_PARAM = "/sys/module/nvidia_drm/parameters/modeset"
+│ +
+│ +
+│ +def run(argv, timeout=10):
+│ +    """Run a read-only command, never raise on failure."""
+│ +    if not shutil.which(argv[0]):
+│ +        return {"argv": argv, "status": "TOOL_MISSING"}
+│ +    try:
+│ +        result = subprocess.run(
+│ +            argv, capture_output=True, text=True, timeout=timeout, check=False
+│ +        )
+│ +        out = {
+│ +            "argv": argv,
+│ +            "returncode": result.returncode,
+│ +            "stdout": result.stdout[:200000],
+│ +            "stderr": result.stderr[:65536],
+│ +        }
+│ +    except subprocess.TimeoutExpired:
+│ +        return {"argv": argv, "status": "TIMEOUT", "timeout": timeout}
+│ +    except OSError as exc:  # pragma: no cover - defensive
+│ +        return {"argv": argv, "status": "OS_ERROR", "error": str(exc)}
+│ +    return out
+│ +
+│ +
+│ +def read_text(path, limit=65536):
+│ +    """Best-effort read-only text read; returns content or an error object."""
+│ +    try:
+│ +        with open(path, "rb") as handle:
+│ +            data = handle.read(limit)
+│ +        return data.decode("utf-8", errors="replace")
+│ +    except OSError as exc:
+│ +        return {"error": str(exc), "path": str(path)}
+│ +
+│ +
+│ +def stat_node(path):
+│ +    """Read-only stat + permission probe of a device node."""
+│ +    result = {"path": path, "exists": False}
+│ +    try:
+│ +        st = os.stat(path)
+│ +    except OSError as exc:
+│ +        result["error"] = str(exc)
+│ +        return result
+│ … omitted 256 diff line(s) across 1 additional file(s)/section(s)
+│ glm_work/status_changes.md
+│ @@ -0,0 +1,47 @@
+│ +# Đề xuất cập nhật blocker/matrix (dựa trên capture target_live_20261104 + CUDA PASS)
+│ +
+│ +## By chứng mới thay đổi trạng thái
+│ +
+│ +- **cuda_capability**: có bằng chứng current-target thực sự.
+│ +  - `cuda_driver_query.json`: `cuInit=0`, `cuDeviceGetCount=1`, thiết bị duy nhất khớp BDF `0000:03:00.0` (CMP 40HX), compute 7.5, 34 multiprocessors, mọi thuộc tính trả thành công.
+│ +  - `cuda_correctness.json`: kernel 4096 phần tử trên BDF `0000:03:00.0`, `mismatches=0`, `result=PASS`.
+│ +  - Còn mở: throughput, Tensor core, interop CUDA-GL/Vulkan. CUDA correctness chỉ chứng minh compute, không chứng minh Tensor hay đồ họa.
+│ +- **headless_graphics**: vẫn chưa chứng minh. EGL `eglInitialize` thất bại trên cả `card1` (CMP40HX) và `card0` (R5 430, có DP-1 kết nối); Vulkan mặc định chỉ liệt kê llvmpipe (CPU); ép ICD NVIDIA → `vkCreateInstance=-9`. Nguyên nhân gợi ý là userspace (loader/ICD/permissions), **chưa tách biệt**, chưa phải chứng minh phần cứng bị disable (CUDA PASS + DRM liệt kê card1). Không được đánh `PROVEN_STATIC`, không được đóng `B-FUNCTIONAL-DISPLAY` bằng bằng chứng tĩnh/lịch sử.
+│ +- Quyền DRM node của `tinh` thực sự bị `EACCES` (mở `card1`/`renderD129`), không chỉ suy luận từ nhóm.
+│ +
+│ +## requirement_matrix.json — đề xuất đổi status
+│ +
+│ +| id | status cũ | status mới | lý do |
+│ +|---|---|---|---|
+│ +| `cuda_capability` | `MISSING_CURRENT` | `PROVEN_CURRENT` | capture target có `cuInit`/`cuDeviceGetCount` thành công và kernel correctness PASS gắn BDF `0000:03:00.0` (nguồn: `cuda_driver_query.json`, `cuda_correctness.json`) |
+│ +| `headless_graphics` | `MISSING_CURRENT` | `MISSING_CURRENT` (giữ) | chưa có functional EGL/OpenGL/Vulkan/KMS trên target; lỗi userspace chưa tách nguyên nhân |
+│ +| `compute_restriction` | `PROVEN_STATIC` | giữ | bằng chứng tĩnh; runtime consumer mapping còn mở |
+│ +| `display` | `PROVEN_STATIC` | giữ | bằng chứng tĩnh; current physical capability còn mở |
+│ +| `gsp_gates` | `PROVEN_STATIC` | giữ | bằng chứng tĩnh; giá trị live registry/NVKV còn mở |
+│ +| `fuse` | `HISTORICAL_ONLY` | giữ | |
+│ +| `cross_sku_vbios` | `UNKNOWN` | giữ | |
+│ +| `feasibility` | `UNKNOWN` | giữ | |
+│ +
+│ +Lưu ý: sự hiện diện của artifact tĩnh không đủ để đổi `MISSING_CURRENT/HISTORICAL_ONLY/UNKNOWN` (theo completion_rule của ma trận).
+│ +
+│ +## blocker_register.json — đề xuất đổi status
+│ +
+│ +| id | status cũ | status mới | lý do |
+│ +|---|---|---|---|
+│ +| `B-RUNTIME-TARGET` | `OPEN` | `CLOSED` | fresh target package từ BDF `0000:03:00.0` đã `verify_target_package.py` PASS, có timestamp và GPU UUID (TARGET_LIVE_FINDINGS: "Package verifier PASS"). Đây không phải sandbox v5 không đọc được target. Không ép giữ OPEN khi evidence thật đã đáp ứng. |
+│ +| `B-EFFECTIVE-REGISTRY` | `OPEN` | `OPEN` (giữ) | giá trị live `RmDisableDisplay`/`RMRunFub`/`RMFubUseCaseMask`/NVKV vẫn thiếu; chỉ có static ingestion path. |
+│ +| `B-FUNCTIONAL-DISPLAY` | `OPEN` | `OPEN` (giữ) | chưa có fresh functional EGL/OpenGL/Vulkan/KMS gắn UUID target; EGL/Vulkan thất bại ở userspace, nguyên nhân chưa tách (loader vs ICD vs permissions). |
+│ +| `B-REFERENCE-ROM` | `OPEN` | `OPEN` (giữ) | |
+│ +| `B-PCB-ROUTING` | `OPEN` | `OPEN` (giữ) | |
+│ +
+│ +Nguyên tắc: không ép tất cả blocker thành `OPEN` nếu evidence thật đã đáp ứng (`B-RUNTIME-TARGET` đóng); đồng thời không mở wide các blocker khác chỉ vì lỗi userspace chưa tách biệt.
+│ +
+│ +## Yêu cầu vẫn chưa xác minh (giữ nguyên, không force)
+│ +
+│ +- **Tensor core**: CUDA correctness chạy kernel tính toán thường, không chứng minh Tensor.
+│ +- **Đồ họa / scanout**: EGL/OpenGL/Vulkan/KMS correctness chưa chứng minh trên target; thiếu connector dưới `card1` không bằng chứng mất đầu ra vật lý (theo checklist).
+│ +- **PCB CG161P REV2**: chỉ có supplied identifiers, static DCB và secondary prose; chưa có authenticated PCB photos / schematic / boardview hoặc documented continuity.
+│ +
+│ +## Bước kế điểm
+│ +
+│ +Chạy `glm_work/diagnose_userspace.py` trên target (chỉ đọc, mỗi subprocess có timeout, JSON ghi stdout) để tách H1 loader/glvnd, H2 liên kết ICD (`ldd libGLX_nvidia.so.0`), H3 quyền DRM node trước khi cập nhật `B-FUNCTIONAL-DISPLAY` hoặc kết luận phần cứng/GSP-RM.
+Đã ghi 3 deliverables vào `/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/glm_work/` (verified bởi write_file; `diagnose_userspace.py` đã qua syntax check, stdlib-only, chỉ đọc, chưa chạy trên target theo yêu cầu).
+
+### Paths
+- `glm_work/review.md` — phân tích nguyên nhân EGL/Vulkan
+- `glm_work/diagnose_userspace.py` — script chẩn đoán userspace (JSON stdout, timeout, không sudo/MMIO/reset)
+- `glm_work/status_changes.md` — đề xuất cập nhật blocker/matrix
+
+### Phát hiện chính (từ bằng chứng `evidence/target_live_20261104/`)
+- **CUDA PASS**: `cuInit=0`, 1 thiết bị khớp BDF `0000:03:00.0` (cc 7.5, 34 MPs), kernel 4096 phần tử mismatch=0 → CMP40HX **không bị hardware-disable**.
+- **EGL**: `card1` và `card0` đều `eglInitialize` thất bại (`egl_version=[0,0]`); chỉ llvmpipe phần mềm thành công. glvnd chỉ có `50_mesa.json`, không có manifest NVIDIA (`libEGL_nvidia.so.0` có cài nhưng không được chọn).
+- **Vulkan**: mặc định chỉ liệt kê llvmpipe (CPU); ép `nvidia_icd.json` → `vkCreateInstance=-9`, loader không resolve `vkCreateInstance` qua `vk_icdGetInstanceProcAddr` cho `libGLX_nvidia.so.0`.
+- **Permissions**: `/dev/dri/card1` + `renderD129` mode `0660` root:`video`/`render`; `tinh` không trong nhóm; mở `O_RDONLY` thực tế bị `EACCES` (đã chứng minh, không chỉ suy luận).
+- `nvidia_drm` loaded, `modeset=Y`; DRM node được kernel liệt kê.
+
+### Suy luận (review.md)
+Thất bại nằm ở **userspace**, thứ tự ưu tiên: (1) EGL loader/glvnd thiếu nhà cung cấp NVIDIA, (2) ICD Vulkan/liên kết `libGLX_nvidia.so.0` (`ldd` chưa chạy → chưa loại trừ thư viện con thiếu), (3) quyền DRM node `EACCES` (chưa tách được là nguyên nhân đơn độc hay đồng nguyên nhân). Chưa chứng minh: Tensor, đồ họa/scanout, GSP-RM `RmDisableDisplay` live, mất đầu ra vật lý từ missing connector.
+
+### status_changes.md (đề xuất)
+- `cuda_capability`: `MISSING_CURRENT` → `PROVEN_CURRENT` (by chứng current-target đã có).
+- `headless_graphics`: giữ `MISSING_CURRENT`; không force `PROVEN_STATIC`.
+- `B-RUNTIME-TARGET`: `OPEN` → `CLOSED` (target package đã verifier PASS, BDF/UUID khớp — không ep giữ OPEN).
+- `B-EFFECTIVE-REGISTRY`, `B-FUNCTIONAL-DISPLAY`, `B-REFERENCE-ROM`, `B-PCB-ROUTING`: giữ `OPEN`.
+- Tensor/đồ họa/PCB giữ **chưa xác minh**, không force OPEN.
+
+Tiếp theo: chạy `diagnose_userspace.py` trên target để tách H1/H2/H3 trước khi quyết định `B-FUNCTIONAL-DISPLAY`. Không gửi Telegram.

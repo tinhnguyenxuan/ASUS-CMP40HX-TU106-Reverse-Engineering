@@ -1,0 +1,194 @@
+{
+ "arch": "TU106 (turing) trong CMP 40HX",
+ "device": "0000:03:00.0",
+ "method": "read-only mmap BAR0 /sys/bus/pci/devices/0000:03:00.0/resource0",
+ "boot_log": "[    0.701440] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (Ubuntu Core 2019): c1d57b8f6b743f23ee41f4f7ee292f06eecadfb9'\n[    3.945834] nvidia: module verification failed: signature and/or required key missing - tainting kernel\n[    4.754233] NVRM: GPU0 _kgspCreateSignatureMemdesc: CMP40_COMPUTE_UNLOCK_V526: signed fullspeed stock-relock WPR-down commit FECS=0xffffff8f SS0=0x88888888 SS1=8 WPR2=0:0x1ffffe00 RESET_PLM=0xff ACR_TOKEN=0xc2 MB0=0 MB1=0 header=0x00020001 ls_version=0x344 ls_id=1 tail=0x3988 mutex_release=0x0d27 mailbox=0x1cdd cleanup=0x7c43@0xbcac g_resetPLM=f stack=0xff14 stage=0xc100 gadgets=0x0cc8,0x0cbd,0x0c1d,0x1d62,0x1f89,0x5ff,0x64ec\n[    4.864024] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V274: POST_FWSEC_PRE_GSP_ENTRY WPR=01ffee00:01ffe000 FECS=ffffff8f RESET=000000ff\n[    4.864034] NVRM: GPU0 _kgspCmp40ExecuteBooterFreshMeta: CMP40_COMPUTE_UNLOCK_V140: fresh WPR metadata phys=0x8efde000 signature=0xffe40000 size=0xfa00\n[    4.891951] NVRM: GPU0 kgspExecuteBooterLoad_TU102: CMP40_FECS_FEATURE_PLM_V140_RESULT: status=0x0 mailbox0=0x00000000 tracepc=0x00007d11 wpr2_lo=0x1ffffe00 plm_before=0xffffff8f plm_after=0xffffff8f plm_restored=0xffffff8f\n[    4.891957] NVRM: GPU0 kgspExecuteBooterLoad_TU102: CMP40_COMPUTE_UNLOCK_V526: SIGNED_FULLSPEED_STOCK_RELOCK_WPR_DOWN_PASS\n[    4.891984] NVRM: GPU0 kgspCmp40RebuildStockSignature: CMP40_COMPUTE_UNLOCK_V132: restored stock signature in-place phys=0xffe40000 backing=0xfa00 advertised=0x1000\n[    4.891986] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V523: WPR_META_BEFORE_RESET bootCount=0x0000000000000000 verified=0x0000000000000000\n[    4.891987] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V523: WPR_META_INPUT_RESET_PASS bootCount=0 verified=0\n[    4.892013] NVRM: GPU0 kgspCmp40SanitizeSec2AfterExploit: CMP40_COMPUTE_UNLOCK_V534: NATIVE_CLEANUP_DMEM_PRESERVED_PASS\n[    4.892023] NVRM: GPU0 kgspCmp40SanitizeSec2AfterExploit: CMP40_COMPUTE_UNLOCK_V534: TOKEN_RELEASE_NATIVE_CLEANUP_PASS RESET=000000ff CPUCTL=00000010 mailbox0=00000000 mailbox1=00000000 tracepc=00007d11\n[    4.892030] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V526: FULLSPEED_STOCK_RELOCK_WPR_DOWN_HANDOFF_PASS WPR=00000000:1ffffe00 FECS=ffffff8f RESET=000000ff SS0=88888888 SS1=00000008\n[    4.892034] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V534: TOKEN_RELEASE_RESETPLM_FF_PHASE_BOUNDARY_PASS idx=96 WPR=00000000:1ffffe00 FECS=ffffff8f RESET=000000ff SS0=88888888 SS1=00000008 retry_guard=armed\n[    4.955664] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V524: REFWSEC_STOCK_WPR_PASS WPR=01ffee00:01ffe000 FECS=ffffff8f SS0=88888888 SS1=00000008\n[    4.955702] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V525: RISCV_MODE_BOOTARGS_PASS WPR=01ffee00:01ffe000 FECS=ffffff8f SS0=88888888 SS1=00000008\n[    4.955704] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V274: POST_FWSEC_PRE_GSP_HANDOFF_PASS WPR=01ffee00:01ffe000 FECS=ffffff8f RESET=000000ff SS0=88888888 SS1=00000008\n[    4.955763] NVRM: GPU0 _kgspCmp40ExecuteBooterFreshMeta: CMP40_COMPUTE_UNLOCK_V140: fresh WPR metadata phys=0x8efdd000 signature=0xffe40000 size=0x1000\n[    4.958105] NVRM: GPU0 s_clearCmp40Sec2ExploitDmem: CMP40_COMPUTE_UNLOCK_V526: FULL_DMEM_ZERO_PASS [0x00000000,0x00010000)\n[    5.005265] NVRM: GPU0 kgspBootstrap_TU102: CMP40_COMPUTE_UNLOCK_V525: INPLACE_STOCK_BOOTER_AFTER_UNLOCK_PASS WPR=01ffee00:01f7e000 SS0=0x88888888 SS1=0x00000008 FECS_PLM=0xffffff8f RESET_PLM=0x000000ff",
+ "iommu_group": "DMA-FQ",
+ "dma_mask": "47",
+ "registers_read": [
+  {
+   "name": "NV_PGC6_AON_SECURE_SCRATCH_GROUP_00",
+   "off": "0x1180f8",
+   "value": "0x17300000",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR0_LO",
+   "off": "0x1fa800",
+   "value": "0x001001c0",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR0_HI",
+   "off": "0x1fa804",
+   "value": "0x1ffff000",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR1_LO",
+   "off": "0x1fa810",
+   "value": "0x00000000",
+   "state": "zero"
+  },
+  {
+   "name": "WPR1_HI",
+   "off": "0x1fa814",
+   "value": "0x08000880",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_LO",
+   "off": "0x1fa820",
+   "value": "0x01f78200",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_HI",
+   "off": "0x1fa824",
+   "value": "0x01f7e000",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_LO_ALT",
+   "off": "0x1fa828",
+   "value": "0x01ffee00",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR2_HI_ALT",
+   "off": "0x1fa82c",
+   "value": "0x1ffffff0",
+   "state": "DATA"
+  },
+  {
+   "name": "WPR_CFG",
+   "off": "0x1fa830",
+   "value": "0x00000000",
+   "state": "zero"
+  },
+  {
+   "name": "PLM_FECS",
+   "off": "0x1fa840",
+   "value": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "PLM_RESET",
+   "off": "0x1fa844",
+   "value": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "ACR_CMD",
+   "off": "0x1fa850",
+   "value": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "ACR_STATUS",
+   "off": "0x1fa854",
+   "value": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "SEC2_STATUS",
+   "off": "0x1fa860",
+   "value": "0xbadf5040",
+   "state": "poison"
+  },
+  {
+   "name": "NV_PMC_BOOT_0",
+   "off": "0x000000",
+   "value": "0x166000a1",
+   "state": "DATA"
+  },
+  {
+   "name": "NV_PMC_ENABLE",
+   "off": "0x000200",
+   "value": "0x90fdd1c1",
+   "state": "DATA"
+  }
+ ],
+ "registers_summary": {
+  "total": 17,
+  "data": 10,
+  "zero": 2,
+  "poison": 5
+ },
+ "wpr_regions": [
+  {
+   "region": "WPR0",
+   "lo": 1049024,
+   "hi": 536866816,
+   "size_bytes": 535817793
+  },
+  {
+   "region": "WPR1",
+   "lo": 0,
+   "hi": 134219904,
+   "size_bytes": 134219905
+  },
+  {
+   "region": "WPR2",
+   "lo": 32997888,
+   "hi": 33021952,
+   "size_bytes": 24065
+  },
+  {
+   "region": "WPR2_alt",
+   "lo": 33549824,
+   "hi": 536870896,
+   "size_bytes": 503321073
+  }
+ ],
+ "dmesg_facts": {
+  "WPR2_lo": 536870400,
+  "WPR_at_boot": "01FFEE00:01FFE000",
+  "FECS_PLM": 4294967183,
+  "RESET_PLM": 255,
+  "SS0": 2290649224,
+  "SS1": 8,
+  "ACR_TOKEN": 194,
+  "fresh_wpr_phys_1": 2399002624,
+  "fresh_wpr_sig": 4293132288,
+  "fresh_wpr_size_1": 64000,
+  "fresh_wpr_phys_2": 2398998528,
+  "fresh_wpr_size_2": 4096,
+  "advertised": 4096,
+  "backing": 64000,
+  "mailbox": 7389,
+  "mutex_release": 3367,
+  "stack": 65300,
+  "stage": 49408,
+  "tail": 14728,
+  "ls_version": 836,
+  "ls_id": 1,
+  "header": 131073,
+  "gadgets": [
+   3272,
+   3261,
+   3101,
+   7522,
+   8073,
+   1535,
+   25836
+  ],
+  "tracepc": 32017,
+  "CPUCTL": 16,
+  "idx_phase_boundary": 96,
+  "conf_compute_protected_total": "0 MiB",
+  "dma_mask_bits": 47,
+  "iommu_group": 31,
+  "bar1_size": "64 GiB",
+  "rebar_bar0": "16 MiB",
+  "rebar_bar1": "64 GiB",
+  "rebar_bar3": "32 MiB"
+ },
+ "notes": [
+  "WPR2_LO @0x1FA820 = 0x01F78200 nhung dmesg bao wpr2_lo=0x1FFFFE00 -> U-SEC-001",
+  "WPR2_HI @0x1FA824 = 0x01F7E000 TRUNG voi dong INPLACE_STOCK_BOOTER_AFTER_UNLOCK_PASS WPR=01ffee00:01f7e000",
+  "PLM_FECS/PLM_RESET/ACR_CMD/ACR_STATUS/SEC2_STATUS = poison 0xBADF5040 -> khong doc qua BAR0",
+  "Conf Compute Protected Memory = 0 MiB -> CC TAT",
+  "driver nvidia.ko KHONG co chu ky -> kernel taint, Secure Boot host TAT"
+ ]
+}

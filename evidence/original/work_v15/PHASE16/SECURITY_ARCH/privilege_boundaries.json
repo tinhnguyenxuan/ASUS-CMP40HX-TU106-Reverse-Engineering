@@ -1,0 +1,81 @@
+{
+  "boundaries": [
+    {
+      "boundary": "Host <-> Driver",
+      "controller": "Linux kernel",
+      "authenticated": false,
+      "reason": "driver module verification failed (taint); Secure Boot off",
+      "readable": "yes"
+    },
+    {
+      "boundary": "Driver <-> GSP-RM",
+      "controller": "NVIDIA API (GSP_ARGUMENTS_CACHED)",
+      "authenticated": true,
+      "reason": "official ABI, magic value, <=4KB cached args",
+      "readable": "yes"
+    },
+    {
+      "boundary": "GSP-RM <-> FWSEC",
+      "controller": "PLM",
+      "authenticated": true,
+      "reason": "FECS_PLM=0xFFFFFF8F from dmesg",
+      "readable": "log only (BAR0 poison)"
+    },
+    {
+      "boundary": "GSP-RM <-> SEC2",
+      "controller": "PLM + token",
+      "authenticated": true,
+      "reason": "ACR_TOKEN=0xC2 from dmesg",
+      "readable": "log only"
+    },
+    {
+      "boundary": "GSP-RM <-> Silicon",
+      "controller": "PLM + WPR",
+      "authenticated": true,
+      "reason": "WPR2 locks GSP image in FB",
+      "readable": "partial"
+    },
+    {
+      "boundary": "Silicon <-> VRAM",
+      "controller": "WPR2",
+      "authenticated": true,
+      "reason": "WPR2 = 0x01F7E000..0x01FFEE00 (0.50 MiB), not host-readable",
+      "readable": "no"
+    },
+    {
+      "boundary": "DMA <-> System",
+      "controller": "IOMMU",
+      "authenticated": true,
+      "reason": "IOMMU group 31 dedicated, DMA mask 47-bit",
+      "readable": "yes"
+    }
+  ],
+  "wpr2": {
+    "lo": "0x1f7e000",
+    "hi": "0x1ffee00",
+    "size_bytes": 527872,
+    "size_mib": 0.503,
+    "source_registers": {
+      "LO": "0x1FA824 NV_PFB_PRI_MMU_WPR2_ADDR_LO",
+      "HI": "0x1FA828 NV_PFB_PRI_MMU_WPR2_ADDR_HI"
+    },
+    "dmesg_match": true
+  },
+  "sec2_dmem": {
+    "range": "[0x00000000, 0x00010000)",
+    "size_bytes": 65536,
+    "action": "zeroed after use",
+    "source": "dmesg"
+  },
+  "confidential_compute": {
+    "enabled": false,
+    "total": "0 MiB",
+    "used": "0 MiB",
+    "free": "0 MiB"
+  },
+  "dma": {
+    "iommu_group": 31,
+    "dma_mask_bits": 47,
+    "bar1_size": "64 GiB"
+  }
+}

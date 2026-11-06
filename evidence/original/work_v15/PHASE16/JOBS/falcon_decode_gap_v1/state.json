@@ -1,0 +1,12 @@
+{
+  "job": "falcon_decode_gap_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T20:07:32.030970+00:00",
+  "wrapper_pid": 1713460,
+  "task_sha256": "ca3ba29aa3eff0310c517e470613c755e1cfded60042c127e3daf1b7cf8d97ed",
+  "hermes_pid": 1713461,
+  "hermes_start_ticks": "210239791",
+  "heartbeat_at": "2026-11-03T20:16:52.415653+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T20:16:54.416369+00:00"
+}

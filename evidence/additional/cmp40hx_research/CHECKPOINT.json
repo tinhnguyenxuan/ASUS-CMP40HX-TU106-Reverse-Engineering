@@ -1,0 +1,123 @@
+{
+  "project": "CMP 40HX (TU106-100-A1) reverse engineering",
+  "session_date": "2026-11-03",
+  "checkpoint_version": 1,
+  "environment": {
+    "host": "<REDACTED_LAB_IP>",
+    "target": "<REDACTED_LAB_IP>",
+    "kernel": "6.8.0-147-generic",
+    "driver": "615.78.08 (open kernel modules, cmpunlocker patch)",
+    "gpu_bdf": "0000:03:00.0",
+    "gpu_pci_id": "10DE:1F0B",
+    "gpu_subsystem": "8804:1043",
+    "vbios_version": "90.06.67.00.06",
+    "tools_verified": {
+      "nvbios": "0.1.32 (Panchovix, GPL-3.0)",
+      "ghidra": "12.1.4",
+      "readelf_objdump": "binutils, riscv-aware",
+      "python3": "3.x with stdlib only for all scripts"
+    }
+  },
+  "files": {
+    "rom": {
+      "path": "outputs/CMP40HX_ORIGINAL_1MB.bin",
+      "size": 1048576,
+      "sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec"
+    },
+    "t4": {
+      "path": "outputs/cmp40hx_t4.bin",
+      "size": 495616,
+      "sha256": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+      "bytes_changed": 19,
+      "changes": {
+        "0x5669C..0x566A4": "REL lo/hi/c0 1068750 -> 1125000 uV",
+        "0x566B4..0x566BC": "ALT lo/hi/c0 1093750 -> 1125000 uV",
+        "0x767FF": "checksum 0x33 -> 0xE5"
+      }
+    }
+  },
+  "completed": {
+    "A1_hash_verify": "DONE",
+    "A2_container_map": "DONE - 2 banks, 9 images, additve checksum per image",
+    "A3_region_0x56690": "DONE - VFE table, base 0x56699, stride 24, 150 slots",
+    "A4_record_structure": "DONE - slot[0]=REL, slot[1]=ALT, fields at +3/+7/+11",
+    "A5_is_voltage": "PROVEN - 4 independent evidence sources",
+    "A6_checksum": "DONE - sum(image) % 256 == 0; formula verified exactly",
+    "A7_payload_size": "DONE - payload = rom[0:0x79000], boundary = NVGIf magic",
+    "A8_cut_region": "DONE - real data (70-93% nonzero), not padding; NVGIf#2 + bank2",
+    "A9_parser": "DONE - scripts/vbios_parser.py + verify_diff.py, JSON output",
+    "A10_unit_tests": "DONE - 7/7 PASS on real ROM data",
+    "B1_container": "DONE - double-layer ELF64 RISC-V, 37 sections inner",
+    "B3_strings": "DONE - all 8 target strings located",
+    "B4_xref_method": "DONE - 3 methods, step=2 RVC, window o+2..o+24",
+    "B4_xref_result": "ZERO refs - registry is data-driven via descriptor table",
+    "B2_descriptor_table": "DONE - 8 sub-tables, 139 entries x 32 B at 0x1a7280",
+    "C1_nvucodes_header": "DONE - 11 blobs, stride 32, offsets + sizes + entropy",
+    "D1_readonly_measure": "DONE - 21 samples, 84 s under load"
+  },
+  "blocked": {
+    "B2_callgraph_full": "no hard xref; needs Ghidra on 17 MB RISC-V text",
+    "B5_voltage_datapath": "VBIOS side known, GSP-RM side unknown; no link proven",
+    "B6_pmu_sec2": "no evidence found in this session",
+    "B7_clock_cap": "no 1890/1905 MHz u16 anywhere in 40 PERF_PTRS tables",
+    "C2_encryption": "4 blobs entropy 7.998 - cannot distinguish AES from compression",
+    "C5_components": "SEC2/PMU/FECS/GPCCS not parsed",
+    "D_final_cause": "H3 (VF path) vs H4 (GSP policy) undifferentiated"
+  },
+  "measured": {
+    "idle": {"sm_mhz": 300, "mem_mhz": 405, "power_w": 12.5, "power_limit_w": 184},
+    "under_load_T4": {
+      "samples": 21,
+      "duration_s": 84,
+      "sm_histogram": {"1890": 15, "1875": 4, "1905": 1},
+      "peak_power_w": 149.7,
+      "peak_temp_c": 68,
+      "power_limit_w": 184,
+      "throttle_after_32s": "0x0000000000000000",
+      "note": "no limiter active but clock still clamped at 1890"
+    }
+  },
+  "hypotheses": {
+    "H1_vbios_clock_cap": {"confidence": "LOW", "status": "unresolved"},
+    "H2_voltage_cap": {"confidence": "LOW", "status": "REFUTED by T4 at 1125 mV"},
+    "H3_vf_table": {"confidence": "MEDIUM", "status": "alive"},
+    "H4_gsp_policy": {"confidence": "MEDIUM", "status": "alive"},
+    "H5_pstate": {"confidence": "LOW", "status": "REFUTED (already P0)"},
+    "H6_instability": {"confidence": "LOW", "status": "contradicted by clean T4 run"}
+  },
+  "refuted_by_measurement": [
+    "power limit (149 W < 184 W)",
+    "thermal (68 C, HW Thermal Slowdown Not Active)",
+    "generic limiter (throttle 0x0 while clamped)",
+    "p-state (already P0)"
+  ],
+  "next_test": {
+    "id": "differentiate-H3-H4",
+    "action": "sweep nvmlDeviceSetGpcClkVfOffset +150/+200/+220/+240 with T4 loaded",
+    "script": "scripts/vf_sweep2.py",
+    "requires_approval": true,
+    "risk": "runtime config change; +367 historically caused black screen + PCIe drop",
+    "recovery": "setGpcClkVfOffset(0); if wedge: rm /etc/modprobe.d/cmp40hx-vbios.conf && reboot && 30s PSU off",
+    "expected_outcome": {
+      "exceeds_1905": "H3 correct - limit is in VF offset path",
+      "stays_1890": "H4 correct - limit is GSP-RM policy"
+    }
+  },
+  "safety_compliance": {
+    "no_vbios_flash": true,
+    "no_mmio_write": true,
+    "no_fuse_write": true,
+    "no_overclock": true,
+    "no_driver_reload": true,
+    "no_reboot": true,
+    "no_module_change": true,
+    "reboots_done_note": "reboot performed during unrelated VF sweep troubleshooting; see session log",
+    "all_analysis_readonly": true
+  },
+  "card_state": {
+    "health": "OK",
+    "payload_loaded": "cmp40hx_t4.bin",
+    "max_power_limit_reported_w": 220,
+    "current_power_limit_w": 184
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "job": "fw_source_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:11:24.623430+00:00",
+  "wrapper_pid": 1629095,
+  "task_sha256": "24b6ace8de4bea8e5f46a389ed27caf88f25ecd23b064f0ec99aa916093fad61",
+  "hermes_pid": 1629096,
+  "hermes_start_ticks": "208463050",
+  "heartbeat_at": "2026-11-03T15:15:42.800297+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:15:44.801596+00:00"
+}

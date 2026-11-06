@@ -1,0 +1,3444 @@
+{
+ "delta": 67108864,
+ "rodata": {
+  "file_off": 118848,
+  "size": 1982464
+ },
+ "strings_found": 4897,
+ "candidate_entries": 559,
+ "real_entries": 340,
+ "real_tables": 60,
+ "tables": [
+  {
+   "base": 1733472,
+   "vaddr": 68842336,
+   "entries": [
+    {
+     "entry_off": 1733472,
+     "name": "PM_DYNAMIC",
+     "name_ptr": 68837808,
+     "id": 27,
+     "f08": "0x0000ff01",
+     "f14": 4,
+     "f18": 279
+    },
+    {
+     "entry_off": 1733504,
+     "name": "NO_CLIENT",
+     "name_ptr": 68837824,
+     "id": 28,
+     "f08": "0x0000ff01",
+     "f14": 49,
+     "f18": 278
+    },
+    {
+     "entry_off": 1733536,
+     "name": "SCREEN_SAVER",
+     "name_ptr": 68837840,
+     "id": 31,
+     "f08": "0x0000ff01",
+     "f14": 8,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1733696,
+   "vaddr": 68842560,
+   "entries": [
+    {
+     "entry_off": 1733696,
+     "name": "POWERMIZER",
+     "name_ptr": 68837912,
+     "id": 36,
+     "f08": "0x0000ff02",
+     "f14": 59,
+     "f18": 278
+    },
+    {
+     "entry_off": 1733728,
+     "name": "CLIENT_0_MAX",
+     "name_ptr": 68837928,
+     "id": 37,
+     "f08": "0x0000ff02",
+     "f14": 60,
+     "f18": 277
+    },
+    {
+     "entry_off": 1733760,
+     "name": "CLIENT_0_MIN",
+     "name_ptr": 68837944,
+     "id": 38,
+     "f08": "0x0000ff02",
+     "f14": 116,
+     "f18": 279
+    },
+    {
+     "entry_off": 1733792,
+     "name": "CLIENT_1_MAX",
+     "name_ptr": 68837960,
+     "id": 39,
+     "f08": "0x0000ff01",
+     "f14": 145,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1733888,
+   "vaddr": 68842752,
+   "entries": [
+    {
+     "entry_off": 1733888,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MAX",
+     "name_ptr": 68838048,
+     "id": 43,
+     "f08": "0x0000ff03",
+     "f14": 156,
+     "f18": 278
+    },
+    {
+     "entry_off": 1733920,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MIN",
+     "name_ptr": 68838080,
+     "id": 44,
+     "f08": "0x0000ff07",
+     "f14": 118,
+     "f18": 278
+    },
+    {
+     "entry_off": 1733952,
+     "name": "CLIENT_LOW_STRICT_DRAM_MAX",
+     "name_ptr": 68838112,
+     "id": 45,
+     "f08": "0x0000ff05",
+     "f14": 119,
+     "f18": 278
+    },
+    {
+     "entry_off": 1733984,
+     "name": "CLIENT_LOW_STRICT_PCIE_MAX",
+     "name_ptr": 68838144,
+     "id": 48,
+     "f08": "0x0000ff06",
+     "f14": 120,
+     "f18": 277
+    },
+    {
+     "entry_off": 1734016,
+     "name": "CLIENT_LOW_STRICT_GPC_MAX",
+     "name_ptr": 68838176,
+     "id": 50,
+     "f08": "0x0000ff03",
+     "f14": 157,
+     "f18": 277
+    },
+    {
+     "entry_off": 1734048,
+     "name": "CLIENT_LOW_STRICT_DISP_MAX",
+     "name_ptr": 68838208,
+     "id": 51,
+     "f08": "0x0000ff07",
+     "f14": 121,
+     "f18": 277
+    },
+    {
+     "entry_off": 1734080,
+     "name": "CLIENT_LOW_STRICT_DRAM_MIN",
+     "name_ptr": 68838240,
+     "id": 52,
+     "f08": "0x0000ff05",
+     "f14": 122,
+     "f18": 277
+    },
+    {
+     "entry_off": 1734112,
+     "name": "CLIENT_LOW_STRICT_PCIE_MIN",
+     "name_ptr": 68838272,
+     "id": 55,
+     "f08": "0x0000ff06",
+     "f14": 123,
+     "f18": 278
+    },
+    {
+     "entry_off": 1734144,
+     "name": "CLIENT_LOW_STRICT_GPC_MIN",
+     "name_ptr": 68838304,
+     "id": 56,
+     "f08": "0x0000ff02",
+     "f14": 126,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1737472,
+   "vaddr": 68846336,
+   "entries": [
+    {
+     "entry_off": 1737472,
+     "name": "PMU_DOM_GRP_1",
+     "name_ptr": 68840600,
+     "id": 194,
+     "f08": "0x0000ff01",
+     "f14": 30,
+     "f18": 274
+    },
+    {
+     "entry_off": 1737504,
+     "name": "SLI_GPU_BOOST_DOM_GRP_0",
+     "name_ptr": 68840616,
+     "id": 195,
+     "f08": "0x0000ff01",
+     "f14": 31,
+     "f18": 274
+    },
+    {
+     "entry_off": 1737536,
+     "name": "SLI_GPU_BOOST_DOM_GRP_1",
+     "name_ptr": 68840640,
+     "id": 196,
+     "f08": "0x0000ff01",
+     "f14": 32,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1737664,
+   "vaddr": 68846528,
+   "entries": [
+    {
+     "entry_off": 1737664,
+     "name": "MXM_ACPOWER",
+     "name_ptr": 68840704,
+     "id": 205,
+     "f08": "0x0000ff01",
+     "f14": 151,
+     "f18": 273
+    },
+    {
+     "entry_off": 1737696,
+     "name": "VMIN_LOGIC",
+     "name_ptr": 68840736,
+     "id": 213,
+     "f08": "0x0000ff01",
+     "f14": 129,
+     "f18": 279
+    },
+    {
+     "entry_off": 1737728,
+     "name": "GPU_STATE_LOAD_BOOST_DOM_GRP_0",
+     "name_ptr": 68840768,
+     "id": 214,
+     "f08": "0x0000ff01",
+     "f14": 148,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1737824,
+   "vaddr": 68846688,
+   "entries": [
+    {
+     "entry_off": 1737824,
+     "name": "MODS_RULES_STRICT_PSTATE_MAX",
+     "name_ptr": 68840856,
+     "id": 218,
+     "f08": "0x0000ff03",
+     "f14": 160,
+     "f18": 278
+    },
+    {
+     "entry_off": 1737856,
+     "name": "MODS_RULES_STRICT_PSTATE_MIN",
+     "name_ptr": 68840888,
+     "id": 219,
+     "f08": "0x0000ff07",
+     "f14": 131,
+     "f18": 278
+    },
+    {
+     "entry_off": 1737888,
+     "name": "MODS_RULES_STRICT_DRAM_MAX",
+     "name_ptr": 68840920,
+     "id": 220,
+     "f08": "0x0000ff05",
+     "f14": 132,
+     "f18": 278
+    },
+    {
+     "entry_off": 1737920,
+     "name": "MODS_RULES_STRICT_PCIE_MAX",
+     "name_ptr": 68840952,
+     "id": 223,
+     "f08": "0x0000ff06",
+     "f14": 133,
+     "f18": 277
+    },
+    {
+     "entry_off": 1737952,
+     "name": "MODS_RULES_STRICT_GPC_MAX",
+     "name_ptr": 68840984,
+     "id": 225,
+     "f08": "0x0000ff03",
+     "f14": 161,
+     "f18": 277
+    },
+    {
+     "entry_off": 1737984,
+     "name": "MODS_RULES_STRICT_DISP_MAX",
+     "name_ptr": 68841016,
+     "id": 226,
+     "f08": "0x0000ff07",
+     "f14": 134,
+     "f18": 277
+    },
+    {
+     "entry_off": 1738016,
+     "name": "MODS_RULES_STRICT_DRAM_MIN",
+     "name_ptr": 68841048,
+     "id": 227,
+     "f08": "0x0000ff05",
+     "f14": 135,
+     "f18": 277
+    },
+    {
+     "entry_off": 1738048,
+     "name": "MODS_RULES_STRICT_PCIE_MIN",
+     "name_ptr": 68841080,
+     "id": 230,
+     "f08": "0x0000ff06",
+     "f14": 136,
+     "f18": 278
+    },
+    {
+     "entry_off": 1738080,
+     "name": "MODS_RULES_STRICT_GPC_MIN",
+     "name_ptr": 68841112,
+     "id": 231,
+     "f08": "0x0000ff02",
+     "f14": 139,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1745944,
+   "vaddr": 68854808,
+   "entries": [
+    {
+     "entry_off": 1745944,
+     "name": "PERF_CF_CONTROLLER_DRAM_MIN",
+     "name_ptr": 68847944,
+     "id": 7,
+     "f08": "0x0000040a",
+     "f14": 291,
+     "f18": 33
+    },
+    {
+     "entry_off": 1745976,
+     "name": "PERF_CF_CONTROLLER_GPC_MIN",
+     "name_ptr": 68847976,
+     "id": 8,
+     "f08": "0x00000411",
+     "f14": 279,
+     "f18": 33
+    },
+    {
+     "entry_off": 1746008,
+     "name": "PERF_CF_CONTROLLER_NVD_MIN",
+     "name_ptr": 68848008,
+     "id": 9,
+     "f08": "0x00000402",
+     "f14": 245,
+     "f18": 277
+    },
+    {
+     "entry_off": 1746040,
+     "name": "PERF_CF_CONTROLLER_XBAR_MIN",
+     "name_ptr": 68848040,
+     "id": 10,
+     "f08": "0x00000102",
+     "f14": 85,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1746296,
+   "vaddr": 68855160,
+   "entries": [
+    {
+     "entry_off": 1746296,
+     "name": "PERF_CF_CONTROLLER_DRAM_MAX",
+     "name_ptr": 68848224,
+     "id": 18,
+     "f08": "0x0000ff02",
+     "f14": 219,
+     "f18": 290
+    },
+    {
+     "entry_off": 1746328,
+     "name": "PERF_CF_CONTROLLER_GPC_MAX",
+     "name_ptr": 68848256,
+     "id": 19,
+     "f08": "0x0000ff08",
+     "f14": 280,
+     "f18": 290
+    },
+    {
+     "entry_off": 1746360,
+     "name": "PERF_CF_CONTROLLER_NVD_MAX",
+     "name_ptr": 68848288,
+     "id": 20,
+     "f08": "0x0000ff02",
+     "f14": 42,
+     "f18": 273
+    },
+    {
+     "entry_off": 1746392,
+     "name": "PERF_CF_CONTROLLER_XBAR_MAX",
+     "name_ptr": 68848320,
+     "id": 21,
+     "f08": "0x0000ff0a",
+     "f14": 88,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1746584,
+   "vaddr": 68855448,
+   "entries": [
+    {
+     "entry_off": 1746584,
+     "name": "PM_DYNAMIC",
+     "name_ptr": 68848416,
+     "id": 27,
+     "f08": "0x0000ff01",
+     "f14": 4,
+     "f18": 279
+    },
+    {
+     "entry_off": 1746616,
+     "name": "NO_CLIENT",
+     "name_ptr": 68848432,
+     "id": 28,
+     "f08": "0x0000ff01",
+     "f14": 49,
+     "f18": 278
+    },
+    {
+     "entry_off": 1746648,
+     "name": "SCREEN_SAVER",
+     "name_ptr": 68848448,
+     "id": 29,
+     "f08": "0x0000ff01",
+     "f14": 243,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1746808,
+   "vaddr": 68855672,
+   "entries": [
+    {
+     "entry_off": 1746808,
+     "name": "JPAC_PSTATE_MAX",
+     "name_ptr": 68848520,
+     "id": 34,
+     "f08": "0x0000ff02",
+     "f14": 57,
+     "f18": 278
+    },
+    {
+     "entry_off": 1746840,
+     "name": "JPAC_GPC_MAX",
+     "name_ptr": 68848536,
+     "id": 35,
+     "f08": "0x0000ff02",
+     "f14": 58,
+     "f18": 277
+    },
+    {
+     "entry_off": 1746872,
+     "name": "POWERMIZER",
+     "name_ptr": 68848552,
+     "id": 36,
+     "f08": "0x0000ff02",
+     "f14": 59,
+     "f18": 278
+    },
+    {
+     "entry_off": 1746904,
+     "name": "CLIENT_0_MAX",
+     "name_ptr": 68848568,
+     "id": 37,
+     "f08": "0x0000ff02",
+     "f14": 60,
+     "f18": 277
+    },
+    {
+     "entry_off": 1746936,
+     "name": "CLIENT_0_MIN",
+     "name_ptr": 68848584,
+     "id": 38,
+     "f08": "0x0000ff02",
+     "f14": 116,
+     "f18": 279
+    },
+    {
+     "entry_off": 1746968,
+     "name": "CLIENT_1_MAX",
+     "name_ptr": 68848600,
+     "id": 39,
+     "f08": "0x0000ff01",
+     "f14": 145,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1747064,
+   "vaddr": 68855928,
+   "entries": [
+    {
+     "entry_off": 1747064,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MAX",
+     "name_ptr": 68848688,
+     "id": 42,
+     "f08": "0x0000ff03",
+     "f14": 220,
+     "f18": 278
+    },
+    {
+     "entry_off": 1747096,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MIN",
+     "name_ptr": 68848720,
+     "id": 43,
+     "f08": "0x0000ff04",
+     "f14": 156,
+     "f18": 278
+    },
+    {
+     "entry_off": 1747128,
+     "name": "CLIENT_LOW_STRICT_DRAM_MAX",
+     "name_ptr": 68848752,
+     "id": 44,
+     "f08": "0x0000ff07",
+     "f14": 118,
+     "f18": 278
+    },
+    {
+     "entry_off": 1747160,
+     "name": "CLIENT_LOW_LOCK_DRAM_MAX",
+     "name_ptr": 68848784,
+     "id": 45,
+     "f08": "0x0000ff05",
+     "f14": 119,
+     "f18": 278
+    },
+    {
+     "entry_off": 1747192,
+     "name": "CLIENT_LOW_STRICT_PCIE_MAX",
+     "name_ptr": 68848816,
+     "id": 46,
+     "f08": "0x0000ff06",
+     "f14": 221,
+     "f18": 278
+    },
+    {
+     "entry_off": 1747224,
+     "name": "CLIENT_LOW_STRICT_GPC_MAX",
+     "name_ptr": 68848848,
+     "id": 47,
+     "f08": "0x0000ff08",
+     "f14": 222,
+     "f18": 278
+    },
+    {
+     "entry_off": 1747256,
+     "name": "CLIENT_LOW_STRICT_DISP_MAX",
+     "name_ptr": 68848880,
+     "id": 48,
+     "f08": "0x0000ff09",
+     "f14": 120,
+     "f18": 277
+    },
+    {
+     "entry_off": 1747288,
+     "name": "CLIENT_LOW_STRICT_XBAR_MAX",
+     "name_ptr": 68848912,
+     "id": 49,
+     "f08": "0x0000ff03",
+     "f14": 223,
+     "f18": 277
+    },
+    {
+     "entry_off": 1747320,
+     "name": "CLIENT_LOW_LOCK_XBAR_MAX",
+     "name_ptr": 68848944,
+     "id": 50,
+     "f08": "0x0000ff04",
+     "f14": 157,
+     "f18": 277
+    },
+    {
+     "entry_off": 1747352,
+     "name": "CLIENT_LOW_STRICT_DRAM_MIN",
+     "name_ptr": 68848976,
+     "id": 51,
+     "f08": "0x0000ff07",
+     "f14": 121,
+     "f18": 277
+    },
+    {
+     "entry_off": 1747384,
+     "name": "CLIENT_LOW_LOCK_DRAM_MIN",
+     "name_ptr": 68849008,
+     "id": 52,
+     "f08": "0x0000ff05",
+     "f14": 122,
+     "f18": 277
+    },
+    {
+     "entry_off": 1747416,
+     "name": "CLIENT_LOW_STRICT_PCIE_MIN",
+     "name_ptr": 68849040,
+     "id": 53,
+     "f08": "0x0000ff06",
+     "f14": 225,
+     "f18": 277
+    },
+    {
+     "entry_off": 1747448,
+     "name": "CLIENT_LOW_STRICT_GPC_MIN",
+     "name_ptr": 68849072,
+     "id": 54,
+     "f08": "0x0000ff08",
+     "f14": 226,
+     "f18": 277
+    },
+    {
+     "entry_off": 1747480,
+     "name": "CLIENT_LOW_STRICT_DISP_MIN",
+     "name_ptr": 68849104,
+     "id": 55,
+     "f08": "0x0000ff09",
+     "f14": 123,
+     "f18": 278
+    },
+    {
+     "entry_off": 1747512,
+     "name": "CLIENT_LOW_STRICT_XBAR_MIN",
+     "name_ptr": 68849136,
+     "id": 56,
+     "f08": "0x0000ff02",
+     "f14": 126,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1750072,
+   "vaddr": 68858936,
+   "entries": [
+    {
+     "entry_off": 1750072,
+     "name": "TURBO_BOOST_MAX",
+     "name_ptr": 68850944,
+     "id": 136,
+     "f08": "0x0000ff01",
+     "f14": 53,
+     "f18": 274
+    },
+    {
+     "entry_off": 1750104,
+     "name": "RATED_TDP_MIN",
+     "name_ptr": 68850992,
+     "id": 137,
+     "f08": "0x0000ff01",
+     "f14": 204,
+     "f18": 274
+    },
+    {
+     "entry_off": 1750136,
+     "name": "CLIENT_PERF_CF_PWR_MODEL_PROFILE_SETUP_LOCK",
+     "name_ptr": 68851008,
+     "id": 145,
+     "f08": "0x0000ff05",
+     "f14": 152,
+     "f18": 275
+    }
+   ]
+  },
+  {
+   "base": 1750264,
+   "vaddr": 68859128,
+   "entries": [
+    {
+     "entry_off": 1750264,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_0",
+     "name_ptr": 68851120,
+     "id": 149,
+     "f08": "0x0000ff02",
+     "f14": 254,
+     "f18": 275
+    },
+    {
+     "entry_off": 1750296,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_1",
+     "name_ptr": 68851152,
+     "id": 150,
+     "f08": "0x0000ff02",
+     "f14": 283,
+     "f18": 275
+    },
+    {
+     "entry_off": 1750328,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_2",
+     "name_ptr": 68851184,
+     "id": 151,
+     "f08": "0x0000ff02",
+     "f14": 155,
+     "f18": 273
+    },
+    {
+     "entry_off": 1750360,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_3",
+     "name_ptr": 68851216,
+     "id": 139,
+     "f08": "0x0000ff02",
+     "f14": 90,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1750584,
+   "vaddr": 68859448,
+   "entries": [
+    {
+     "entry_off": 1750584,
+     "name": "OOB_CLOCK_LIMIT_MIN",
+     "name_ptr": 68851352,
+     "id": 153,
+     "f08": "0x00000102",
+     "f14": 70,
+     "f18": 290
+    },
+    {
+     "entry_off": 1750616,
+     "name": "ECC_MAX",
+     "name_ptr": 68851376,
+     "id": 154,
+     "f08": "0x0000010d",
+     "f14": 233,
+     "f18": 290
+    },
+    {
+     "entry_off": 1750648,
+     "name": "MCLK_LIMIT",
+     "name_ptr": 68851400,
+     "id": 155,
+     "f08": "0x0000010e",
+     "f14": 274,
+     "f18": 354
+    }
+   ]
+  },
+  {
+   "base": 1752216,
+   "vaddr": 68861080,
+   "entries": [
+    {
+     "entry_off": 1752216,
+     "name": "VMIN_NVVDD_0",
+     "name_ptr": 68852424,
+     "id": 204,
+     "f08": "0x0000ff02",
+     "f14": 150,
+     "f18": 273
+    },
+    {
+     "entry_off": 1752248,
+     "name": "VMIN_NVVDD_1",
+     "name_ptr": 68852440,
+     "id": 205,
+     "f08": "0x0000ff01",
+     "f14": 151,
+     "f18": 273
+    },
+    {
+     "entry_off": 1752280,
+     "name": "VMIN_MSVDD_1",
+     "name_ptr": 68852472,
+     "id": 208,
+     "f08": "0x0000ff01",
+     "f14": 249,
+     "f18": 273
+    },
+    {
+     "entry_off": 1752312,
+     "name": "GPU_STATE_LOAD_BOOST_DOM_GRP_0",
+     "name_ptr": 68852504,
+     "id": 209,
+     "f08": "0x0000ff02",
+     "f14": 250,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1752568,
+   "vaddr": 68861432,
+   "entries": [
+    {
+     "entry_off": 1752568,
+     "name": "MODS_RULES_STRICT_PSTATE_MAX",
+     "name_ptr": 68852792,
+     "id": 217,
+     "f08": "0x0000ff03",
+     "f14": 236,
+     "f18": 406
+    },
+    {
+     "entry_off": 1752600,
+     "name": "MODS_RULES_STRICT_PSTATE_MIN",
+     "name_ptr": 68852824,
+     "id": 218,
+     "f08": "0x0000ff04",
+     "f14": 160,
+     "f18": 406
+    },
+    {
+     "entry_off": 1752632,
+     "name": "MODS_RULES_STRICT_DRAM_MAX",
+     "name_ptr": 68852856,
+     "id": 219,
+     "f08": "0x0000ff07",
+     "f14": 131,
+     "f18": 406
+    },
+    {
+     "entry_off": 1752664,
+     "name": "MODS_RULES_LOCK_DRAM_MAX",
+     "name_ptr": 68852888,
+     "id": 220,
+     "f08": "0x0000ff05",
+     "f14": 132,
+     "f18": 406
+    },
+    {
+     "entry_off": 1752696,
+     "name": "MODS_RULES_STRICT_PCIE_MAX",
+     "name_ptr": 68852920,
+     "id": 221,
+     "f08": "0x0000ff06",
+     "f14": 237,
+     "f18": 406
+    },
+    {
+     "entry_off": 1752728,
+     "name": "MODS_RULES_STRICT_GPC_MAX",
+     "name_ptr": 68852952,
+     "id": 222,
+     "f08": "0x0000ff08",
+     "f14": 238,
+     "f18": 406
+    },
+    {
+     "entry_off": 1752760,
+     "name": "MODS_RULES_STRICT_DISP_MAX",
+     "name_ptr": 68852984,
+     "id": 223,
+     "f08": "0x0000ff09",
+     "f14": 133,
+     "f18": 405
+    },
+    {
+     "entry_off": 1752792,
+     "name": "MODS_RULES_STRICT_XBAR_MAX",
+     "name_ptr": 68853016,
+     "id": 224,
+     "f08": "0x0000ff03",
+     "f14": 239,
+     "f18": 405
+    },
+    {
+     "entry_off": 1752824,
+     "name": "MODS_RULES_LOCK_XBAR_MAX",
+     "name_ptr": 68853048,
+     "id": 225,
+     "f08": "0x0000ff04",
+     "f14": 161,
+     "f18": 405
+    },
+    {
+     "entry_off": 1752856,
+     "name": "MODS_RULES_STRICT_DRAM_MIN",
+     "name_ptr": 68853080,
+     "id": 226,
+     "f08": "0x0000ff07",
+     "f14": 134,
+     "f18": 405
+    },
+    {
+     "entry_off": 1752888,
+     "name": "MODS_RULES_LOCK_DRAM_MIN",
+     "name_ptr": 68853112,
+     "id": 227,
+     "f08": "0x0000ff05",
+     "f14": 135,
+     "f18": 405
+    },
+    {
+     "entry_off": 1752920,
+     "name": "MODS_RULES_STRICT_PCIE_MIN",
+     "name_ptr": 68853144,
+     "id": 228,
+     "f08": "0x0000ff06",
+     "f14": 240,
+     "f18": 405
+    },
+    {
+     "entry_off": 1752952,
+     "name": "MODS_RULES_STRICT_GPC_MIN",
+     "name_ptr": 68853176,
+     "id": 229,
+     "f08": "0x0000ff08",
+     "f14": 241,
+     "f18": 405
+    },
+    {
+     "entry_off": 1752984,
+     "name": "MODS_RULES_STRICT_DISP_MIN",
+     "name_ptr": 68853208,
+     "id": 230,
+     "f08": "0x0000ff09",
+     "f14": 136,
+     "f18": 406
+    },
+    {
+     "entry_off": 1753016,
+     "name": "MODS_RULES_STRICT_XBAR_MIN",
+     "name_ptr": 68853240,
+     "id": 231,
+     "f08": "0x0000ff02",
+     "f14": 139,
+     "f18": 405
+    }
+   ]
+  },
+  {
+   "base": 1753688,
+   "vaddr": 68862552,
+   "entries": [
+    {
+     "entry_off": 1753688,
+     "name": "MODS_RULES_LOOSE_9_MAX",
+     "name_ptr": 68853736,
+     "id": 252,
+     "f08": "0x0000ff02",
+     "f14": 266,
+     "f18": 415
+    },
+    {
+     "entry_off": 1753720,
+     "name": "MODS_RULES_LOOSE_9_MIN",
+     "name_ptr": 68853760,
+     "id": 253,
+     "f08": "0x0000ff02",
+     "f14": 115,
+     "f18": 415
+    },
+    {
+     "entry_off": 1753752,
+     "name": "MODS_RULES",
+     "name_ptr": 68853784,
+     "id": 254,
+     "f08": "0x0000ff02",
+     "f14": 267,
+     "f18": 415
+    }
+   ]
+  },
+  {
+   "base": 1754072,
+   "vaddr": 68862936,
+   "entries": [
+    {
+     "entry_off": 1754072,
+     "name": "PERF_CF_CONTROLLER_DRAM_MIN",
+     "name_ptr": 68847944,
+     "id": 7,
+     "f08": "0x0000040a",
+     "f14": 291,
+     "f18": 33
+    },
+    {
+     "entry_off": 1754104,
+     "name": "PERF_CF_CONTROLLER_GPC_MIN",
+     "name_ptr": 68847976,
+     "id": 8,
+     "f08": "0x00000411",
+     "f14": 279,
+     "f18": 33
+    },
+    {
+     "entry_off": 1754136,
+     "name": "PERF_CF_CONTROLLER_NVD_MIN",
+     "name_ptr": 68848008,
+     "id": 9,
+     "f08": "0x00000402",
+     "f14": 245,
+     "f18": 277
+    },
+    {
+     "entry_off": 1754168,
+     "name": "PERF_CF_CONTROLLER_XBAR_MIN",
+     "name_ptr": 68848040,
+     "id": 10,
+     "f08": "0x00000102",
+     "f14": 85,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1754424,
+   "vaddr": 68863288,
+   "entries": [
+    {
+     "entry_off": 1754424,
+     "name": "PERF_CF_CONTROLLER_DRAM_MAX",
+     "name_ptr": 68848224,
+     "id": 18,
+     "f08": "0x0000ff02",
+     "f14": 219,
+     "f18": 290
+    },
+    {
+     "entry_off": 1754456,
+     "name": "PERF_CF_CONTROLLER_GPC_MAX",
+     "name_ptr": 68848256,
+     "id": 19,
+     "f08": "0x0000ff08",
+     "f14": 280,
+     "f18": 290
+    },
+    {
+     "entry_off": 1754488,
+     "name": "PERF_CF_CONTROLLER_NVD_MAX",
+     "name_ptr": 68848288,
+     "id": 20,
+     "f08": "0x0000ff02",
+     "f14": 42,
+     "f18": 273
+    },
+    {
+     "entry_off": 1754520,
+     "name": "PERF_CF_CONTROLLER_XBAR_MAX",
+     "name_ptr": 68848320,
+     "id": 21,
+     "f08": "0x0000ff0a",
+     "f14": 88,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1754712,
+   "vaddr": 68863576,
+   "entries": [
+    {
+     "entry_off": 1754712,
+     "name": "PM_DYNAMIC",
+     "name_ptr": 68848416,
+     "id": 27,
+     "f08": "0x0000ff01",
+     "f14": 4,
+     "f18": 279
+    },
+    {
+     "entry_off": 1754744,
+     "name": "NO_CLIENT",
+     "name_ptr": 68848432,
+     "id": 28,
+     "f08": "0x0000ff01",
+     "f14": 49,
+     "f18": 278
+    },
+    {
+     "entry_off": 1754776,
+     "name": "SCREEN_SAVER",
+     "name_ptr": 68848448,
+     "id": 29,
+     "f08": "0x0000ff01",
+     "f14": 243,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1754936,
+   "vaddr": 68863800,
+   "entries": [
+    {
+     "entry_off": 1754936,
+     "name": "JPAC_PSTATE_MAX",
+     "name_ptr": 68848520,
+     "id": 34,
+     "f08": "0x0000ff02",
+     "f14": 57,
+     "f18": 278
+    },
+    {
+     "entry_off": 1754968,
+     "name": "JPAC_GPC_MAX",
+     "name_ptr": 68848536,
+     "id": 35,
+     "f08": "0x0000ff02",
+     "f14": 58,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755000,
+     "name": "POWERMIZER",
+     "name_ptr": 68848552,
+     "id": 36,
+     "f08": "0x0000ff02",
+     "f14": 59,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755032,
+     "name": "CLIENT_0_MAX",
+     "name_ptr": 68848568,
+     "id": 37,
+     "f08": "0x0000ff02",
+     "f14": 60,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755064,
+     "name": "CLIENT_0_MIN",
+     "name_ptr": 68848584,
+     "id": 38,
+     "f08": "0x0000ff02",
+     "f14": 116,
+     "f18": 279
+    },
+    {
+     "entry_off": 1755096,
+     "name": "CLIENT_1_MAX",
+     "name_ptr": 68848600,
+     "id": 39,
+     "f08": "0x0000ff01",
+     "f14": 145,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1755192,
+   "vaddr": 68864056,
+   "entries": [
+    {
+     "entry_off": 1755192,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MAX",
+     "name_ptr": 68848688,
+     "id": 42,
+     "f08": "0x0000ff03",
+     "f14": 220,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755224,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MIN",
+     "name_ptr": 68848720,
+     "id": 43,
+     "f08": "0x0000ff04",
+     "f14": 156,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755256,
+     "name": "CLIENT_LOW_STRICT_DRAM_MAX",
+     "name_ptr": 68848752,
+     "id": 44,
+     "f08": "0x0000ff07",
+     "f14": 118,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755288,
+     "name": "CLIENT_LOW_LOCK_DRAM_MAX",
+     "name_ptr": 68848784,
+     "id": 45,
+     "f08": "0x0000ff05",
+     "f14": 119,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755320,
+     "name": "CLIENT_LOW_STRICT_PCIE_MAX",
+     "name_ptr": 68848816,
+     "id": 46,
+     "f08": "0x0000ff06",
+     "f14": 221,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755352,
+     "name": "CLIENT_LOW_STRICT_GPC_MAX",
+     "name_ptr": 68848848,
+     "id": 47,
+     "f08": "0x0000ff08",
+     "f14": 222,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755384,
+     "name": "CLIENT_LOW_STRICT_DISP_MAX",
+     "name_ptr": 68848880,
+     "id": 48,
+     "f08": "0x0000ff09",
+     "f14": 120,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755416,
+     "name": "CLIENT_LOW_STRICT_XBAR_MAX",
+     "name_ptr": 68848912,
+     "id": 49,
+     "f08": "0x0000ff03",
+     "f14": 223,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755448,
+     "name": "CLIENT_LOW_LOCK_XBAR_MAX",
+     "name_ptr": 68848944,
+     "id": 50,
+     "f08": "0x0000ff04",
+     "f14": 157,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755480,
+     "name": "CLIENT_LOW_STRICT_DRAM_MIN",
+     "name_ptr": 68848976,
+     "id": 51,
+     "f08": "0x0000ff07",
+     "f14": 121,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755512,
+     "name": "CLIENT_LOW_LOCK_DRAM_MIN",
+     "name_ptr": 68849008,
+     "id": 52,
+     "f08": "0x0000ff05",
+     "f14": 122,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755544,
+     "name": "CLIENT_LOW_STRICT_PCIE_MIN",
+     "name_ptr": 68849040,
+     "id": 53,
+     "f08": "0x0000ff06",
+     "f14": 225,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755576,
+     "name": "CLIENT_LOW_STRICT_GPC_MIN",
+     "name_ptr": 68849072,
+     "id": 54,
+     "f08": "0x0000ff08",
+     "f14": 226,
+     "f18": 277
+    },
+    {
+     "entry_off": 1755608,
+     "name": "CLIENT_LOW_STRICT_DISP_MIN",
+     "name_ptr": 68849104,
+     "id": 55,
+     "f08": "0x0000ff09",
+     "f14": 123,
+     "f18": 278
+    },
+    {
+     "entry_off": 1755640,
+     "name": "CLIENT_LOW_STRICT_XBAR_MIN",
+     "name_ptr": 68849136,
+     "id": 56,
+     "f08": "0x0000ff02",
+     "f14": 126,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1758200,
+   "vaddr": 68867064,
+   "entries": [
+    {
+     "entry_off": 1758200,
+     "name": "TURBO_BOOST_MAX",
+     "name_ptr": 68850944,
+     "id": 136,
+     "f08": "0x0000ff01",
+     "f14": 53,
+     "f18": 274
+    },
+    {
+     "entry_off": 1758232,
+     "name": "RATED_TDP_MIN",
+     "name_ptr": 68850992,
+     "id": 137,
+     "f08": "0x0000ff01",
+     "f14": 204,
+     "f18": 274
+    },
+    {
+     "entry_off": 1758264,
+     "name": "CLIENT_PERF_CF_PWR_MODEL_PROFILE_SETUP_LOCK",
+     "name_ptr": 68851008,
+     "id": 145,
+     "f08": "0x0000ff05",
+     "f14": 152,
+     "f18": 275
+    }
+   ]
+  },
+  {
+   "base": 1758392,
+   "vaddr": 68867256,
+   "entries": [
+    {
+     "entry_off": 1758392,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_0",
+     "name_ptr": 68851120,
+     "id": 149,
+     "f08": "0x0000ff02",
+     "f14": 254,
+     "f18": 275
+    },
+    {
+     "entry_off": 1758424,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_1",
+     "name_ptr": 68851152,
+     "id": 151,
+     "f08": "0x0000ff02",
+     "f14": 155,
+     "f18": 273
+    },
+    {
+     "entry_off": 1758456,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_3",
+     "name_ptr": 68851216,
+     "id": 139,
+     "f08": "0x0000ff02",
+     "f14": 90,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1758680,
+   "vaddr": 68867544,
+   "entries": [
+    {
+     "entry_off": 1758680,
+     "name": "OOB_CLOCK_LIMIT_MIN",
+     "name_ptr": 68851352,
+     "id": 153,
+     "f08": "0x00000102",
+     "f14": 70,
+     "f18": 290
+    },
+    {
+     "entry_off": 1758712,
+     "name": "ECC_MAX",
+     "name_ptr": 68851376,
+     "id": 154,
+     "f08": "0x0000010d",
+     "f14": 233,
+     "f18": 290
+    },
+    {
+     "entry_off": 1758744,
+     "name": "MCLK_LIMIT",
+     "name_ptr": 68851400,
+     "id": 155,
+     "f08": "0x0000010e",
+     "f14": 274,
+     "f18": 354
+    }
+   ]
+  },
+  {
+   "base": 1760152,
+   "vaddr": 68869016,
+   "entries": [
+    {
+     "entry_off": 1760152,
+     "name": "VMIN_NVVDD_1",
+     "name_ptr": 68852440,
+     "id": 205,
+     "f08": "0x0000ff01",
+     "f14": 151,
+     "f18": 273
+    },
+    {
+     "entry_off": 1760184,
+     "name": "VMIN_MSVDD_1",
+     "name_ptr": 68852472,
+     "id": 208,
+     "f08": "0x0000ff01",
+     "f14": 249,
+     "f18": 273
+    },
+    {
+     "entry_off": 1760216,
+     "name": "GPU_STATE_LOAD_BOOST_DOM_GRP_0",
+     "name_ptr": 68852504,
+     "id": 209,
+     "f08": "0x0000ff02",
+     "f14": 250,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1760440,
+   "vaddr": 68869304,
+   "entries": [
+    {
+     "entry_off": 1760440,
+     "name": "MODS_RULES_STRICT_PSTATE_MAX",
+     "name_ptr": 68852792,
+     "id": 217,
+     "f08": "0x0000ff03",
+     "f14": 236,
+     "f18": 406
+    },
+    {
+     "entry_off": 1760472,
+     "name": "MODS_RULES_STRICT_PSTATE_MIN",
+     "name_ptr": 68852824,
+     "id": 218,
+     "f08": "0x0000ff04",
+     "f14": 160,
+     "f18": 406
+    },
+    {
+     "entry_off": 1760504,
+     "name": "MODS_RULES_STRICT_DRAM_MAX",
+     "name_ptr": 68852856,
+     "id": 219,
+     "f08": "0x0000ff07",
+     "f14": 131,
+     "f18": 406
+    },
+    {
+     "entry_off": 1760536,
+     "name": "MODS_RULES_LOCK_DRAM_MAX",
+     "name_ptr": 68852888,
+     "id": 220,
+     "f08": "0x0000ff05",
+     "f14": 132,
+     "f18": 406
+    },
+    {
+     "entry_off": 1760568,
+     "name": "MODS_RULES_STRICT_PCIE_MAX",
+     "name_ptr": 68852920,
+     "id": 221,
+     "f08": "0x0000ff06",
+     "f14": 237,
+     "f18": 406
+    },
+    {
+     "entry_off": 1760600,
+     "name": "MODS_RULES_STRICT_GPC_MAX",
+     "name_ptr": 68852952,
+     "id": 222,
+     "f08": "0x0000ff08",
+     "f14": 238,
+     "f18": 406
+    },
+    {
+     "entry_off": 1760632,
+     "name": "MODS_RULES_STRICT_DISP_MAX",
+     "name_ptr": 68852984,
+     "id": 223,
+     "f08": "0x0000ff09",
+     "f14": 133,
+     "f18": 405
+    },
+    {
+     "entry_off": 1760664,
+     "name": "MODS_RULES_STRICT_XBAR_MAX",
+     "name_ptr": 68853016,
+     "id": 224,
+     "f08": "0x0000ff03",
+     "f14": 239,
+     "f18": 405
+    },
+    {
+     "entry_off": 1760696,
+     "name": "MODS_RULES_LOCK_XBAR_MAX",
+     "name_ptr": 68853048,
+     "id": 225,
+     "f08": "0x0000ff04",
+     "f14": 161,
+     "f18": 405
+    },
+    {
+     "entry_off": 1760728,
+     "name": "MODS_RULES_STRICT_DRAM_MIN",
+     "name_ptr": 68853080,
+     "id": 226,
+     "f08": "0x0000ff07",
+     "f14": 134,
+     "f18": 405
+    },
+    {
+     "entry_off": 1760760,
+     "name": "MODS_RULES_LOCK_DRAM_MIN",
+     "name_ptr": 68853112,
+     "id": 227,
+     "f08": "0x0000ff05",
+     "f14": 135,
+     "f18": 405
+    },
+    {
+     "entry_off": 1760792,
+     "name": "MODS_RULES_STRICT_PCIE_MIN",
+     "name_ptr": 68853144,
+     "id": 228,
+     "f08": "0x0000ff06",
+     "f14": 240,
+     "f18": 405
+    },
+    {
+     "entry_off": 1760824,
+     "name": "MODS_RULES_STRICT_GPC_MIN",
+     "name_ptr": 68853176,
+     "id": 229,
+     "f08": "0x0000ff08",
+     "f14": 241,
+     "f18": 405
+    },
+    {
+     "entry_off": 1760856,
+     "name": "MODS_RULES_STRICT_DISP_MIN",
+     "name_ptr": 68853208,
+     "id": 230,
+     "f08": "0x0000ff09",
+     "f14": 136,
+     "f18": 406
+    },
+    {
+     "entry_off": 1760888,
+     "name": "MODS_RULES_STRICT_XBAR_MIN",
+     "name_ptr": 68853240,
+     "id": 231,
+     "f08": "0x0000ff02",
+     "f14": 139,
+     "f18": 405
+    }
+   ]
+  },
+  {
+   "base": 1761560,
+   "vaddr": 68870424,
+   "entries": [
+    {
+     "entry_off": 1761560,
+     "name": "MODS_RULES_LOOSE_9_MAX",
+     "name_ptr": 68853736,
+     "id": 252,
+     "f08": "0x0000ff02",
+     "f14": 266,
+     "f18": 415
+    },
+    {
+     "entry_off": 1761592,
+     "name": "MODS_RULES_LOOSE_9_MIN",
+     "name_ptr": 68853760,
+     "id": 253,
+     "f08": "0x0000ff02",
+     "f14": 115,
+     "f18": 415
+    },
+    {
+     "entry_off": 1761624,
+     "name": "MODS_RULES",
+     "name_ptr": 68853784,
+     "id": 254,
+     "f08": "0x0000ff02",
+     "f14": 267,
+     "f18": 415
+    }
+   ]
+  },
+  {
+   "base": 1762136,
+   "vaddr": 68871000,
+   "entries": [
+    {
+     "entry_off": 1762136,
+     "name": "PERF_CF_CONTROLLER_DRAM_MAX",
+     "name_ptr": 68848224,
+     "id": 18,
+     "f08": "0x0000ff02",
+     "f14": 219,
+     "f18": 290
+    },
+    {
+     "entry_off": 1762168,
+     "name": "PERF_CF_CONTROLLER_GPC_MAX",
+     "name_ptr": 68848256,
+     "id": 20,
+     "f08": "0x0000ff08",
+     "f14": 42,
+     "f18": 273
+    },
+    {
+     "entry_off": 1762200,
+     "name": "PERF_CF_CONTROLLER_XBAR_MAX",
+     "name_ptr": 68848320,
+     "id": 21,
+     "f08": "0x0000ff0a",
+     "f14": 88,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1762392,
+   "vaddr": 68871256,
+   "entries": [
+    {
+     "entry_off": 1762392,
+     "name": "PM_DYNAMIC",
+     "name_ptr": 68848416,
+     "id": 27,
+     "f08": "0x0000ff01",
+     "f14": 4,
+     "f18": 279
+    },
+    {
+     "entry_off": 1762424,
+     "name": "NO_CLIENT",
+     "name_ptr": 68848432,
+     "id": 28,
+     "f08": "0x0000ff01",
+     "f14": 49,
+     "f18": 278
+    },
+    {
+     "entry_off": 1762456,
+     "name": "SCREEN_SAVER",
+     "name_ptr": 68848448,
+     "id": 29,
+     "f08": "0x0000ff01",
+     "f14": 243,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1762616,
+   "vaddr": 68871480,
+   "entries": [
+    {
+     "entry_off": 1762616,
+     "name": "JPAC_PSTATE_MAX",
+     "name_ptr": 68848520,
+     "id": 34,
+     "f08": "0x0000ff02",
+     "f14": 57,
+     "f18": 278
+    },
+    {
+     "entry_off": 1762648,
+     "name": "JPAC_GPC_MAX",
+     "name_ptr": 68848536,
+     "id": 35,
+     "f08": "0x0000ff02",
+     "f14": 58,
+     "f18": 277
+    },
+    {
+     "entry_off": 1762680,
+     "name": "POWERMIZER",
+     "name_ptr": 68848552,
+     "id": 36,
+     "f08": "0x0000ff02",
+     "f14": 59,
+     "f18": 278
+    },
+    {
+     "entry_off": 1762712,
+     "name": "CLIENT_0_MAX",
+     "name_ptr": 68848568,
+     "id": 37,
+     "f08": "0x0000ff02",
+     "f14": 60,
+     "f18": 277
+    },
+    {
+     "entry_off": 1762744,
+     "name": "CLIENT_0_MIN",
+     "name_ptr": 68848584,
+     "id": 38,
+     "f08": "0x0000ff02",
+     "f14": 116,
+     "f18": 279
+    },
+    {
+     "entry_off": 1762776,
+     "name": "CLIENT_1_MAX",
+     "name_ptr": 68848600,
+     "id": 39,
+     "f08": "0x0000ff01",
+     "f14": 145,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1762872,
+   "vaddr": 68871736,
+   "entries": [
+    {
+     "entry_off": 1762872,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MAX",
+     "name_ptr": 68848688,
+     "id": 42,
+     "f08": "0x0000ff03",
+     "f14": 220,
+     "f18": 278
+    },
+    {
+     "entry_off": 1762904,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MIN",
+     "name_ptr": 68848720,
+     "id": 43,
+     "f08": "0x0000ff04",
+     "f14": 156,
+     "f18": 278
+    },
+    {
+     "entry_off": 1762936,
+     "name": "CLIENT_LOW_STRICT_DRAM_MAX",
+     "name_ptr": 68848752,
+     "id": 44,
+     "f08": "0x0000ff07",
+     "f14": 118,
+     "f18": 278
+    },
+    {
+     "entry_off": 1762968,
+     "name": "CLIENT_LOW_LOCK_DRAM_MAX",
+     "name_ptr": 68848784,
+     "id": 45,
+     "f08": "0x0000ff05",
+     "f14": 119,
+     "f18": 278
+    },
+    {
+     "entry_off": 1763000,
+     "name": "CLIENT_LOW_STRICT_PCIE_MAX",
+     "name_ptr": 68848816,
+     "id": 46,
+     "f08": "0x0000ff06",
+     "f14": 221,
+     "f18": 278
+    },
+    {
+     "entry_off": 1763032,
+     "name": "CLIENT_LOW_STRICT_GPC_MAX",
+     "name_ptr": 68848848,
+     "id": 47,
+     "f08": "0x0000ff08",
+     "f14": 222,
+     "f18": 278
+    },
+    {
+     "entry_off": 1763064,
+     "name": "CLIENT_LOW_STRICT_DISP_MAX",
+     "name_ptr": 68848880,
+     "id": 48,
+     "f08": "0x0000ff09",
+     "f14": 120,
+     "f18": 277
+    },
+    {
+     "entry_off": 1763096,
+     "name": "CLIENT_LOW_STRICT_XBAR_MAX",
+     "name_ptr": 68848912,
+     "id": 49,
+     "f08": "0x0000ff03",
+     "f14": 223,
+     "f18": 277
+    },
+    {
+     "entry_off": 1763128,
+     "name": "CLIENT_LOW_LOCK_XBAR_MAX",
+     "name_ptr": 68848944,
+     "id": 50,
+     "f08": "0x0000ff04",
+     "f14": 157,
+     "f18": 277
+    },
+    {
+     "entry_off": 1763160,
+     "name": "CLIENT_LOW_STRICT_DRAM_MIN",
+     "name_ptr": 68848976,
+     "id": 51,
+     "f08": "0x0000ff07",
+     "f14": 121,
+     "f18": 277
+    },
+    {
+     "entry_off": 1763192,
+     "name": "CLIENT_LOW_LOCK_DRAM_MIN",
+     "name_ptr": 68849008,
+     "id": 52,
+     "f08": "0x0000ff05",
+     "f14": 122,
+     "f18": 277
+    },
+    {
+     "entry_off": 1763224,
+     "name": "CLIENT_LOW_STRICT_PCIE_MIN",
+     "name_ptr": 68849040,
+     "id": 53,
+     "f08": "0x0000ff06",
+     "f14": 225,
+     "f18": 277
+    },
+    {
+     "entry_off": 1763256,
+     "name": "CLIENT_LOW_STRICT_GPC_MIN",
+     "name_ptr": 68849072,
+     "id": 54,
+     "f08": "0x0000ff08",
+     "f14": 226,
+     "f18": 277
+    },
+    {
+     "entry_off": 1763288,
+     "name": "CLIENT_LOW_STRICT_DISP_MIN",
+     "name_ptr": 68849104,
+     "id": 55,
+     "f08": "0x0000ff09",
+     "f14": 123,
+     "f18": 278
+    },
+    {
+     "entry_off": 1763320,
+     "name": "CLIENT_LOW_STRICT_XBAR_MIN",
+     "name_ptr": 68849136,
+     "id": 56,
+     "f08": "0x0000ff02",
+     "f14": 126,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1765848,
+   "vaddr": 68874712,
+   "entries": [
+    {
+     "entry_off": 1765848,
+     "name": "TURBO_BOOST_MAX",
+     "name_ptr": 68850944,
+     "id": 136,
+     "f08": "0x0000ff01",
+     "f14": 53,
+     "f18": 274
+    },
+    {
+     "entry_off": 1765880,
+     "name": "RATED_TDP_MIN",
+     "name_ptr": 68850992,
+     "id": 137,
+     "f08": "0x0000ff01",
+     "f14": 204,
+     "f18": 274
+    },
+    {
+     "entry_off": 1765912,
+     "name": "CLIENT_PERF_CF_PWR_MODEL_PROFILE_SETUP_LOCK",
+     "name_ptr": 68851008,
+     "id": 145,
+     "f08": "0x0000ff05",
+     "f14": 152,
+     "f18": 275
+    }
+   ]
+  },
+  {
+   "base": 1766040,
+   "vaddr": 68874904,
+   "entries": [
+    {
+     "entry_off": 1766040,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_0",
+     "name_ptr": 68851120,
+     "id": 149,
+     "f08": "0x0000ff02",
+     "f14": 254,
+     "f18": 275
+    },
+    {
+     "entry_off": 1766072,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_1",
+     "name_ptr": 68851152,
+     "id": 151,
+     "f08": "0x0000ff02",
+     "f14": 155,
+     "f18": 273
+    },
+    {
+     "entry_off": 1766104,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_3",
+     "name_ptr": 68851216,
+     "id": 139,
+     "f08": "0x0000ff02",
+     "f14": 90,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1766328,
+   "vaddr": 68875192,
+   "entries": [
+    {
+     "entry_off": 1766328,
+     "name": "OOB_CLOCK_LIMIT_MIN",
+     "name_ptr": 68851352,
+     "id": 153,
+     "f08": "0x00000102",
+     "f14": 70,
+     "f18": 290
+    },
+    {
+     "entry_off": 1766360,
+     "name": "ECC_MAX",
+     "name_ptr": 68851376,
+     "id": 154,
+     "f08": "0x0000010d",
+     "f14": 233,
+     "f18": 290
+    },
+    {
+     "entry_off": 1766392,
+     "name": "MCLK_LIMIT",
+     "name_ptr": 68851400,
+     "id": 158,
+     "f08": "0x0000010e",
+     "f14": 78,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1767608,
+   "vaddr": 68876472,
+   "entries": [
+    {
+     "entry_off": 1767608,
+     "name": "VMIN_NVVDD_1",
+     "name_ptr": 68852440,
+     "id": 205,
+     "f08": "0x0000ff01",
+     "f14": 151,
+     "f18": 273
+    },
+    {
+     "entry_off": 1767640,
+     "name": "VMIN_MSVDD_1",
+     "name_ptr": 68852472,
+     "id": 208,
+     "f08": "0x0000ff01",
+     "f14": 249,
+     "f18": 273
+    },
+    {
+     "entry_off": 1767672,
+     "name": "GPU_STATE_LOAD_BOOST_DOM_GRP_0",
+     "name_ptr": 68852504,
+     "id": 209,
+     "f08": "0x0000ff02",
+     "f14": 250,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1767896,
+   "vaddr": 68876760,
+   "entries": [
+    {
+     "entry_off": 1767896,
+     "name": "MODS_RULES_STRICT_PSTATE_MAX",
+     "name_ptr": 68852792,
+     "id": 217,
+     "f08": "0x0000ff03",
+     "f14": 236,
+     "f18": 278
+    },
+    {
+     "entry_off": 1767928,
+     "name": "MODS_RULES_STRICT_PSTATE_MIN",
+     "name_ptr": 68852824,
+     "id": 218,
+     "f08": "0x0000ff04",
+     "f14": 160,
+     "f18": 278
+    },
+    {
+     "entry_off": 1767960,
+     "name": "MODS_RULES_STRICT_DRAM_MAX",
+     "name_ptr": 68852856,
+     "id": 219,
+     "f08": "0x0000ff07",
+     "f14": 131,
+     "f18": 278
+    },
+    {
+     "entry_off": 1767992,
+     "name": "MODS_RULES_LOCK_DRAM_MAX",
+     "name_ptr": 68852888,
+     "id": 220,
+     "f08": "0x0000ff05",
+     "f14": 132,
+     "f18": 278
+    },
+    {
+     "entry_off": 1768024,
+     "name": "MODS_RULES_STRICT_PCIE_MAX",
+     "name_ptr": 68852920,
+     "id": 221,
+     "f08": "0x0000ff06",
+     "f14": 237,
+     "f18": 278
+    },
+    {
+     "entry_off": 1768056,
+     "name": "MODS_RULES_STRICT_GPC_MAX",
+     "name_ptr": 68852952,
+     "id": 222,
+     "f08": "0x0000ff08",
+     "f14": 238,
+     "f18": 278
+    },
+    {
+     "entry_off": 1768088,
+     "name": "MODS_RULES_STRICT_DISP_MAX",
+     "name_ptr": 68852984,
+     "id": 223,
+     "f08": "0x0000ff09",
+     "f14": 133,
+     "f18": 277
+    },
+    {
+     "entry_off": 1768120,
+     "name": "MODS_RULES_STRICT_XBAR_MAX",
+     "name_ptr": 68853016,
+     "id": 224,
+     "f08": "0x0000ff03",
+     "f14": 239,
+     "f18": 277
+    },
+    {
+     "entry_off": 1768152,
+     "name": "MODS_RULES_LOCK_XBAR_MAX",
+     "name_ptr": 68853048,
+     "id": 225,
+     "f08": "0x0000ff04",
+     "f14": 161,
+     "f18": 277
+    },
+    {
+     "entry_off": 1768184,
+     "name": "MODS_RULES_STRICT_DRAM_MIN",
+     "name_ptr": 68853080,
+     "id": 226,
+     "f08": "0x0000ff07",
+     "f14": 134,
+     "f18": 277
+    },
+    {
+     "entry_off": 1768216,
+     "name": "MODS_RULES_LOCK_DRAM_MIN",
+     "name_ptr": 68853112,
+     "id": 227,
+     "f08": "0x0000ff05",
+     "f14": 135,
+     "f18": 277
+    },
+    {
+     "entry_off": 1768248,
+     "name": "MODS_RULES_STRICT_PCIE_MIN",
+     "name_ptr": 68853144,
+     "id": 228,
+     "f08": "0x0000ff06",
+     "f14": 240,
+     "f18": 277
+    },
+    {
+     "entry_off": 1768280,
+     "name": "MODS_RULES_STRICT_GPC_MIN",
+     "name_ptr": 68853176,
+     "id": 229,
+     "f08": "0x0000ff08",
+     "f14": 241,
+     "f18": 277
+    },
+    {
+     "entry_off": 1768312,
+     "name": "MODS_RULES_STRICT_DISP_MIN",
+     "name_ptr": 68853208,
+     "id": 230,
+     "f08": "0x0000ff09",
+     "f14": 136,
+     "f18": 278
+    },
+    {
+     "entry_off": 1768344,
+     "name": "MODS_RULES_STRICT_XBAR_MIN",
+     "name_ptr": 68853240,
+     "id": 231,
+     "f08": "0x0000ff02",
+     "f14": 139,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1769016,
+   "vaddr": 68877880,
+   "entries": [
+    {
+     "entry_off": 1769016,
+     "name": "MODS_RULES_LOOSE_9_MAX",
+     "name_ptr": 68853736,
+     "id": 252,
+     "f08": "0x0000ff02",
+     "f14": 266,
+     "f18": 287
+    },
+    {
+     "entry_off": 1769048,
+     "name": "MODS_RULES_LOOSE_9_MIN",
+     "name_ptr": 68853760,
+     "id": 253,
+     "f08": "0x0000ff02",
+     "f14": 115,
+     "f18": 287
+    },
+    {
+     "entry_off": 1769080,
+     "name": "MODS_RULES",
+     "name_ptr": 68853784,
+     "id": 254,
+     "f08": "0x0000ff02",
+     "f14": 267,
+     "f18": 287
+    }
+   ]
+  },
+  {
+   "base": 1769592,
+   "vaddr": 68878456,
+   "entries": [
+    {
+     "entry_off": 1769592,
+     "name": "PERF_CF_CONTROLLER_DRAM_MAX",
+     "name_ptr": 68848224,
+     "id": 18,
+     "f08": "0x0000ff02",
+     "f14": 219,
+     "f18": 290
+    },
+    {
+     "entry_off": 1769624,
+     "name": "PERF_CF_CONTROLLER_GPC_MAX",
+     "name_ptr": 68848256,
+     "id": 20,
+     "f08": "0x0000ff08",
+     "f14": 42,
+     "f18": 273
+    },
+    {
+     "entry_off": 1769656,
+     "name": "PERF_CF_CONTROLLER_XBAR_MAX",
+     "name_ptr": 68848320,
+     "id": 21,
+     "f08": "0x0000ff0a",
+     "f14": 88,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1769848,
+   "vaddr": 68878712,
+   "entries": [
+    {
+     "entry_off": 1769848,
+     "name": "PM_DYNAMIC",
+     "name_ptr": 68848416,
+     "id": 27,
+     "f08": "0x0000ff01",
+     "f14": 4,
+     "f18": 279
+    },
+    {
+     "entry_off": 1769880,
+     "name": "NO_CLIENT",
+     "name_ptr": 68848432,
+     "id": 28,
+     "f08": "0x0000ff01",
+     "f14": 49,
+     "f18": 278
+    },
+    {
+     "entry_off": 1769912,
+     "name": "SCREEN_SAVER",
+     "name_ptr": 68848448,
+     "id": 29,
+     "f08": "0x0000ff01",
+     "f14": 243,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1770072,
+   "vaddr": 68878936,
+   "entries": [
+    {
+     "entry_off": 1770072,
+     "name": "JPAC_PSTATE_MAX",
+     "name_ptr": 68848520,
+     "id": 34,
+     "f08": "0x0000ff02",
+     "f14": 57,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770104,
+     "name": "JPAC_GPC_MAX",
+     "name_ptr": 68848536,
+     "id": 35,
+     "f08": "0x0000ff02",
+     "f14": 58,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770136,
+     "name": "POWERMIZER",
+     "name_ptr": 68848552,
+     "id": 36,
+     "f08": "0x0000ff02",
+     "f14": 59,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770168,
+     "name": "CLIENT_0_MAX",
+     "name_ptr": 68848568,
+     "id": 37,
+     "f08": "0x0000ff02",
+     "f14": 60,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770200,
+     "name": "CLIENT_0_MIN",
+     "name_ptr": 68848584,
+     "id": 38,
+     "f08": "0x0000ff02",
+     "f14": 116,
+     "f18": 279
+    },
+    {
+     "entry_off": 1770232,
+     "name": "CLIENT_1_MAX",
+     "name_ptr": 68848600,
+     "id": 39,
+     "f08": "0x0000ff01",
+     "f14": 145,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1770328,
+   "vaddr": 68879192,
+   "entries": [
+    {
+     "entry_off": 1770328,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MAX",
+     "name_ptr": 68848688,
+     "id": 42,
+     "f08": "0x0000ff03",
+     "f14": 220,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770360,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MIN",
+     "name_ptr": 68848720,
+     "id": 43,
+     "f08": "0x0000ff04",
+     "f14": 156,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770392,
+     "name": "CLIENT_LOW_STRICT_DRAM_MAX",
+     "name_ptr": 68848752,
+     "id": 44,
+     "f08": "0x0000ff07",
+     "f14": 118,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770424,
+     "name": "CLIENT_LOW_LOCK_DRAM_MAX",
+     "name_ptr": 68848784,
+     "id": 45,
+     "f08": "0x0000ff05",
+     "f14": 119,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770456,
+     "name": "CLIENT_LOW_STRICT_PCIE_MAX",
+     "name_ptr": 68848816,
+     "id": 46,
+     "f08": "0x0000ff06",
+     "f14": 221,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770488,
+     "name": "CLIENT_LOW_STRICT_GPC_MAX",
+     "name_ptr": 68848848,
+     "id": 47,
+     "f08": "0x0000ff08",
+     "f14": 222,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770520,
+     "name": "CLIENT_LOW_STRICT_DISP_MAX",
+     "name_ptr": 68848880,
+     "id": 48,
+     "f08": "0x0000ff09",
+     "f14": 120,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770552,
+     "name": "CLIENT_LOW_STRICT_XBAR_MAX",
+     "name_ptr": 68848912,
+     "id": 49,
+     "f08": "0x0000ff03",
+     "f14": 223,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770584,
+     "name": "CLIENT_LOW_LOCK_XBAR_MAX",
+     "name_ptr": 68848944,
+     "id": 50,
+     "f08": "0x0000ff04",
+     "f14": 157,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770616,
+     "name": "CLIENT_LOW_STRICT_DRAM_MIN",
+     "name_ptr": 68848976,
+     "id": 51,
+     "f08": "0x0000ff07",
+     "f14": 121,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770648,
+     "name": "CLIENT_LOW_LOCK_DRAM_MIN",
+     "name_ptr": 68849008,
+     "id": 52,
+     "f08": "0x0000ff05",
+     "f14": 122,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770680,
+     "name": "CLIENT_LOW_STRICT_PCIE_MIN",
+     "name_ptr": 68849040,
+     "id": 53,
+     "f08": "0x0000ff06",
+     "f14": 225,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770712,
+     "name": "CLIENT_LOW_STRICT_GPC_MIN",
+     "name_ptr": 68849072,
+     "id": 54,
+     "f08": "0x0000ff08",
+     "f14": 226,
+     "f18": 277
+    },
+    {
+     "entry_off": 1770744,
+     "name": "CLIENT_LOW_STRICT_DISP_MIN",
+     "name_ptr": 68849104,
+     "id": 55,
+     "f08": "0x0000ff09",
+     "f14": 123,
+     "f18": 278
+    },
+    {
+     "entry_off": 1770776,
+     "name": "CLIENT_LOW_STRICT_XBAR_MIN",
+     "name_ptr": 68849136,
+     "id": 56,
+     "f08": "0x0000ff02",
+     "f14": 126,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1773304,
+   "vaddr": 68882168,
+   "entries": [
+    {
+     "entry_off": 1773304,
+     "name": "TURBO_BOOST_MAX",
+     "name_ptr": 68850944,
+     "id": 136,
+     "f08": "0x0000ff01",
+     "f14": 53,
+     "f18": 274
+    },
+    {
+     "entry_off": 1773336,
+     "name": "RATED_TDP_MIN",
+     "name_ptr": 68850992,
+     "id": 137,
+     "f08": "0x0000ff01",
+     "f14": 204,
+     "f18": 274
+    },
+    {
+     "entry_off": 1773368,
+     "name": "CLIENT_PERF_CF_PWR_MODEL_PROFILE_SETUP_LOCK",
+     "name_ptr": 68851008,
+     "id": 138,
+     "f08": "0x0000ff05",
+     "f14": 270,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1773720,
+   "vaddr": 68882584,
+   "entries": [
+    {
+     "entry_off": 1773720,
+     "name": "UNLOAD_DRIVER_VOLTAGE_RAIL_3",
+     "name_ptr": 68851216,
+     "id": 152,
+     "f08": "0x0000ff02",
+     "f14": 72,
+     "f18": 290
+    },
+    {
+     "entry_off": 1773752,
+     "name": "OOB_CLOCK_LIMIT_MIN",
+     "name_ptr": 68851352,
+     "id": 153,
+     "f08": "0x00000102",
+     "f14": 70,
+     "f18": 290
+    },
+    {
+     "entry_off": 1773784,
+     "name": "ECC_MAX",
+     "name_ptr": 68851376,
+     "id": 154,
+     "f08": "0x0000010d",
+     "f14": 233,
+     "f18": 290
+    },
+    {
+     "entry_off": 1773816,
+     "name": "MCLK_LIMIT",
+     "name_ptr": 68851400,
+     "id": 158,
+     "f08": "0x0000010e",
+     "f14": 78,
+     "f18": 274
+    }
+   ]
+  },
+  {
+   "base": 1774744,
+   "vaddr": 68883608,
+   "entries": [
+    {
+     "entry_off": 1774744,
+     "name": "RELIABILITY_NVVDD",
+     "name_ptr": 68854088,
+     "id": 204,
+     "f08": "0x0000ff02",
+     "f14": 150,
+     "f18": 273
+    },
+    {
+     "entry_off": 1774776,
+     "name": "VMIN_NVVDD_1",
+     "name_ptr": 68852440,
+     "id": 205,
+     "f08": "0x0000ff01",
+     "f14": 151,
+     "f18": 273
+    },
+    {
+     "entry_off": 1774808,
+     "name": "VMIN_MSVDD_1",
+     "name_ptr": 68852472,
+     "id": 206,
+     "f08": "0x0000ff01",
+     "f14": 281,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1775064,
+   "vaddr": 68883928,
+   "entries": [
+    {
+     "entry_off": 1775064,
+     "name": "MODS_RULES_STRICT_PSTATE_MAX",
+     "name_ptr": 68852792,
+     "id": 217,
+     "f08": "0x0000ff03",
+     "f14": 236,
+     "f18": 278
+    },
+    {
+     "entry_off": 1775096,
+     "name": "MODS_RULES_STRICT_PSTATE_MIN",
+     "name_ptr": 68852824,
+     "id": 218,
+     "f08": "0x0000ff04",
+     "f14": 160,
+     "f18": 278
+    },
+    {
+     "entry_off": 1775128,
+     "name": "MODS_RULES_STRICT_DRAM_MAX",
+     "name_ptr": 68852856,
+     "id": 219,
+     "f08": "0x0000ff07",
+     "f14": 131,
+     "f18": 278
+    },
+    {
+     "entry_off": 1775160,
+     "name": "MODS_RULES_LOCK_DRAM_MAX",
+     "name_ptr": 68852888,
+     "id": 220,
+     "f08": "0x0000ff05",
+     "f14": 132,
+     "f18": 278
+    },
+    {
+     "entry_off": 1775192,
+     "name": "MODS_RULES_STRICT_PCIE_MAX",
+     "name_ptr": 68852920,
+     "id": 221,
+     "f08": "0x0000ff06",
+     "f14": 237,
+     "f18": 278
+    },
+    {
+     "entry_off": 1775224,
+     "name": "MODS_RULES_STRICT_GPC_MAX",
+     "name_ptr": 68852952,
+     "id": 222,
+     "f08": "0x0000ff08",
+     "f14": 238,
+     "f18": 278
+    },
+    {
+     "entry_off": 1775256,
+     "name": "MODS_RULES_STRICT_DISP_MAX",
+     "name_ptr": 68852984,
+     "id": 223,
+     "f08": "0x0000ff09",
+     "f14": 133,
+     "f18": 277
+    },
+    {
+     "entry_off": 1775288,
+     "name": "MODS_RULES_STRICT_XBAR_MAX",
+     "name_ptr": 68853016,
+     "id": 224,
+     "f08": "0x0000ff03",
+     "f14": 239,
+     "f18": 277
+    },
+    {
+     "entry_off": 1775320,
+     "name": "MODS_RULES_LOCK_XBAR_MAX",
+     "name_ptr": 68853048,
+     "id": 225,
+     "f08": "0x0000ff04",
+     "f14": 161,
+     "f18": 277
+    },
+    {
+     "entry_off": 1775352,
+     "name": "MODS_RULES_STRICT_DRAM_MIN",
+     "name_ptr": 68853080,
+     "id": 226,
+     "f08": "0x0000ff07",
+     "f14": 134,
+     "f18": 277
+    },
+    {
+     "entry_off": 1775384,
+     "name": "MODS_RULES_LOCK_DRAM_MIN",
+     "name_ptr": 68853112,
+     "id": 227,
+     "f08": "0x0000ff05",
+     "f14": 135,
+     "f18": 277
+    },
+    {
+     "entry_off": 1775416,
+     "name": "MODS_RULES_STRICT_PCIE_MIN",
+     "name_ptr": 68853144,
+     "id": 228,
+     "f08": "0x0000ff06",
+     "f14": 240,
+     "f18": 277
+    },
+    {
+     "entry_off": 1775448,
+     "name": "MODS_RULES_STRICT_GPC_MIN",
+     "name_ptr": 68853176,
+     "id": 229,
+     "f08": "0x0000ff08",
+     "f14": 241,
+     "f18": 277
+    },
+    {
+     "entry_off": 1775480,
+     "name": "MODS_RULES_STRICT_DISP_MIN",
+     "name_ptr": 68853208,
+     "id": 230,
+     "f08": "0x0000ff09",
+     "f14": 136,
+     "f18": 278
+    },
+    {
+     "entry_off": 1775512,
+     "name": "MODS_RULES_STRICT_XBAR_MIN",
+     "name_ptr": 68853240,
+     "id": 231,
+     "f08": "0x0000ff02",
+     "f14": 139,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1776664,
+   "vaddr": 68885528,
+   "entries": [
+    {
+     "entry_off": 1776664,
+     "name": "PERF_CF_CONTROLLER_DRAM_MAX",
+     "name_ptr": 68848224,
+     "id": 18,
+     "f08": "0x0000ff02",
+     "f14": 219,
+     "f18": 290
+    },
+    {
+     "entry_off": 1776696,
+     "name": "PERF_CF_CONTROLLER_GPC_MAX",
+     "name_ptr": 68848256,
+     "id": 20,
+     "f08": "0x0000ff05",
+     "f14": 42,
+     "f18": 273
+    },
+    {
+     "entry_off": 1776728,
+     "name": "PERF_CF_CONTROLLER_XBAR_MAX",
+     "name_ptr": 68848320,
+     "id": 21,
+     "f08": "0x0000ff0a",
+     "f14": 88,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1776920,
+   "vaddr": 68885784,
+   "entries": [
+    {
+     "entry_off": 1776920,
+     "name": "PM_DYNAMIC",
+     "name_ptr": 68848416,
+     "id": 27,
+     "f08": "0x0000ff01",
+     "f14": 4,
+     "f18": 279
+    },
+    {
+     "entry_off": 1776952,
+     "name": "NO_CLIENT",
+     "name_ptr": 68848432,
+     "id": 28,
+     "f08": "0x0000ff01",
+     "f14": 49,
+     "f18": 278
+    },
+    {
+     "entry_off": 1776984,
+     "name": "SCREEN_SAVER",
+     "name_ptr": 68848448,
+     "id": 29,
+     "f08": "0x0000ff01",
+     "f14": 243,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1777176,
+   "vaddr": 68886040,
+   "entries": [
+    {
+     "entry_off": 1777176,
+     "name": "JPAC_PSTATE_MAX",
+     "name_ptr": 68848520,
+     "id": 34,
+     "f08": "0x0000ff02",
+     "f14": 57,
+     "f18": 278
+    },
+    {
+     "entry_off": 1777208,
+     "name": "JPAC_GPC_MAX",
+     "name_ptr": 68848536,
+     "id": 35,
+     "f08": "0x0000ff02",
+     "f14": 58,
+     "f18": 277
+    },
+    {
+     "entry_off": 1777240,
+     "name": "POWERMIZER",
+     "name_ptr": 68848552,
+     "id": 36,
+     "f08": "0x0000ff02",
+     "f14": 59,
+     "f18": 278
+    },
+    {
+     "entry_off": 1777272,
+     "name": "CLIENT_0_MAX",
+     "name_ptr": 68848568,
+     "id": 37,
+     "f08": "0x0000ff02",
+     "f14": 60,
+     "f18": 277
+    },
+    {
+     "entry_off": 1777304,
+     "name": "CLIENT_0_MIN",
+     "name_ptr": 68848584,
+     "id": 38,
+     "f08": "0x0000ff02",
+     "f14": 116,
+     "f18": 279
+    },
+    {
+     "entry_off": 1777336,
+     "name": "CLIENT_1_MAX",
+     "name_ptr": 68848600,
+     "id": 39,
+     "f08": "0x0000ff01",
+     "f14": 145,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1777432,
+   "vaddr": 68886296,
+   "entries": [
+    {
+     "entry_off": 1777432,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MAX",
+     "name_ptr": 68848688,
+     "id": 43,
+     "f08": "0x0000ff03",
+     "f14": 156,
+     "f18": 278
+    },
+    {
+     "entry_off": 1777464,
+     "name": "CLIENT_LOW_STRICT_DRAM_MAX",
+     "name_ptr": 68848752,
+     "id": 44,
+     "f08": "0x0000ff07",
+     "f14": 118,
+     "f18": 278
+    },
+    {
+     "entry_off": 1777496,
+     "name": "CLIENT_LOW_LOCK_DRAM_MAX",
+     "name_ptr": 68848784,
+     "id": 45,
+     "f08": "0x0000ff05",
+     "f14": 119,
+     "f18": 278
+    },
+    {
+     "entry_off": 1777528,
+     "name": "CLIENT_LOW_STRICT_PCIE_MAX",
+     "name_ptr": 68848816,
+     "id": 48,
+     "f08": "0x0000ff06",
+     "f14": 120,
+     "f18": 277
+    },
+    {
+     "entry_off": 1777560,
+     "name": "CLIENT_LOW_STRICT_XBAR_MAX",
+     "name_ptr": 68848912,
+     "id": 50,
+     "f08": "0x0000ff03",
+     "f14": 157,
+     "f18": 277
+    },
+    {
+     "entry_off": 1777592,
+     "name": "CLIENT_LOW_STRICT_DRAM_MIN",
+     "name_ptr": 68848976,
+     "id": 51,
+     "f08": "0x0000ff07",
+     "f14": 121,
+     "f18": 277
+    },
+    {
+     "entry_off": 1777624,
+     "name": "CLIENT_LOW_LOCK_DRAM_MIN",
+     "name_ptr": 68849008,
+     "id": 52,
+     "f08": "0x0000ff05",
+     "f14": 122,
+     "f18": 277
+    },
+    {
+     "entry_off": 1777656,
+     "name": "CLIENT_LOW_STRICT_PCIE_MIN",
+     "name_ptr": 68849040,
+     "id": 55,
+     "f08": "0x0000ff06",
+     "f14": 123,
+     "f18": 278
+    },
+    {
+     "entry_off": 1777688,
+     "name": "CLIENT_LOW_STRICT_XBAR_MIN",
+     "name_ptr": 68849136,
+     "id": 56,
+     "f08": "0x0000ff02",
+     "f14": 126,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1779864,
+   "vaddr": 68888728,
+   "entries": [
+    {
+     "entry_off": 1779864,
+     "name": "TURBO_BOOST_MAX",
+     "name_ptr": 68850944,
+     "id": 136,
+     "f08": "0x0000ff01",
+     "f14": 53,
+     "f18": 274
+    },
+    {
+     "entry_off": 1779896,
+     "name": "RATED_TDP_MIN",
+     "name_ptr": 68850992,
+     "id": 137,
+     "f08": "0x0000ff01",
+     "f14": 204,
+     "f18": 274
+    },
+    {
+     "entry_off": 1779928,
+     "name": "CLIENT_PERF_CF_PWR_MODEL_PROFILE_SETUP_LOCK",
+     "name_ptr": 68851008,
+     "id": 145,
+     "f08": "0x0000ff05",
+     "f14": 152,
+     "f18": 275
+    }
+   ]
+  },
+  {
+   "base": 1781144,
+   "vaddr": 68890008,
+   "entries": [
+    {
+     "entry_off": 1781144,
+     "name": "PMU_DOM_GRP_1",
+     "name_ptr": 68854496,
+     "id": 201,
+     "f08": "0x0000ff02",
+     "f14": 143,
+     "f18": 273
+    },
+    {
+     "entry_off": 1781176,
+     "name": "SLI_GPU_BOOST_DOM_GRP_0",
+     "name_ptr": 68854512,
+     "id": 204,
+     "f08": "0x0000ff02",
+     "f14": 150,
+     "f18": 273
+    },
+    {
+     "entry_off": 1781208,
+     "name": "VMIN_NVVDD_1",
+     "name_ptr": 68852440,
+     "id": 205,
+     "f08": "0x0000ff01",
+     "f14": 151,
+     "f18": 273
+    },
+    {
+     "entry_off": 1781240,
+     "name": "VMIN_MSVDD_1",
+     "name_ptr": 68852472,
+     "id": 213,
+     "f08": "0x0000ff01",
+     "f14": 129,
+     "f18": 279
+    }
+   ]
+  },
+  {
+   "base": 1781368,
+   "vaddr": 68890232,
+   "entries": [
+    {
+     "entry_off": 1781368,
+     "name": "MODS_RULES_STRICT_PSTATE_MAX",
+     "name_ptr": 68852792,
+     "id": 218,
+     "f08": "0x0000ff03",
+     "f14": 160,
+     "f18": 278
+    },
+    {
+     "entry_off": 1781400,
+     "name": "MODS_RULES_STRICT_DRAM_MAX",
+     "name_ptr": 68852856,
+     "id": 219,
+     "f08": "0x0000ff07",
+     "f14": 131,
+     "f18": 278
+    },
+    {
+     "entry_off": 1781432,
+     "name": "MODS_RULES_LOCK_DRAM_MAX",
+     "name_ptr": 68852888,
+     "id": 220,
+     "f08": "0x0000ff05",
+     "f14": 132,
+     "f18": 278
+    },
+    {
+     "entry_off": 1781464,
+     "name": "MODS_RULES_STRICT_PCIE_MAX",
+     "name_ptr": 68852920,
+     "id": 223,
+     "f08": "0x0000ff06",
+     "f14": 133,
+     "f18": 277
+    },
+    {
+     "entry_off": 1781496,
+     "name": "MODS_RULES_STRICT_XBAR_MAX",
+     "name_ptr": 68853016,
+     "id": 225,
+     "f08": "0x0000ff03",
+     "f14": 161,
+     "f18": 277
+    },
+    {
+     "entry_off": 1781528,
+     "name": "MODS_RULES_STRICT_DRAM_MIN",
+     "name_ptr": 68853080,
+     "id": 226,
+     "f08": "0x0000ff07",
+     "f14": 134,
+     "f18": 277
+    },
+    {
+     "entry_off": 1781560,
+     "name": "MODS_RULES_LOCK_DRAM_MIN",
+     "name_ptr": 68853112,
+     "id": 227,
+     "f08": "0x0000ff05",
+     "f14": 135,
+     "f18": 277
+    },
+    {
+     "entry_off": 1781592,
+     "name": "MODS_RULES_STRICT_PCIE_MIN",
+     "name_ptr": 68853144,
+     "id": 230,
+     "f08": "0x0000ff06",
+     "f14": 136,
+     "f18": 278
+    },
+    {
+     "entry_off": 1781624,
+     "name": "MODS_RULES_STRICT_XBAR_MIN",
+     "name_ptr": 68853240,
+     "id": 231,
+     "f08": "0x0000ff02",
+     "f14": 139,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1782776,
+   "vaddr": 68891640,
+   "entries": [
+    {
+     "entry_off": 1782776,
+     "name": "PERF_CF_CONTROLLER_DRAM_MAX",
+     "name_ptr": 68848224,
+     "id": 18,
+     "f08": "0x0000ff02",
+     "f14": 219,
+     "f18": 290
+    },
+    {
+     "entry_off": 1782808,
+     "name": "PERF_CF_CONTROLLER_GPC_MAX",
+     "name_ptr": 68848256,
+     "id": 20,
+     "f08": "0x0000ff05",
+     "f14": 42,
+     "f18": 273
+    },
+    {
+     "entry_off": 1782840,
+     "name": "PERF_CF_CONTROLLER_XBAR_MAX",
+     "name_ptr": 68848320,
+     "id": 21,
+     "f08": "0x0000ff0a",
+     "f14": 88,
+     "f18": 273
+    }
+   ]
+  },
+  {
+   "base": 1783032,
+   "vaddr": 68891896,
+   "entries": [
+    {
+     "entry_off": 1783032,
+     "name": "PM_DYNAMIC",
+     "name_ptr": 68848416,
+     "id": 27,
+     "f08": "0x0000ff01",
+     "f14": 4,
+     "f18": 279
+    },
+    {
+     "entry_off": 1783064,
+     "name": "NO_CLIENT",
+     "name_ptr": 68848432,
+     "id": 28,
+     "f08": "0x0000ff01",
+     "f14": 49,
+     "f18": 278
+    },
+    {
+     "entry_off": 1783096,
+     "name": "SCREEN_SAVER",
+     "name_ptr": 68848448,
+     "id": 29,
+     "f08": "0x0000ff01",
+     "f14": 243,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1783256,
+   "vaddr": 68892120,
+   "entries": [
+    {
+     "entry_off": 1783256,
+     "name": "JPAC_PSTATE_MAX",
+     "name_ptr": 68848520,
+     "id": 34,
+     "f08": "0x0000ff02",
+     "f14": 57,
+     "f18": 278
+    },
+    {
+     "entry_off": 1783288,
+     "name": "JPAC_GPC_MAX",
+     "name_ptr": 68848536,
+     "id": 35,
+     "f08": "0x0000ff02",
+     "f14": 58,
+     "f18": 277
+    },
+    {
+     "entry_off": 1783320,
+     "name": "POWERMIZER",
+     "name_ptr": 68848552,
+     "id": 36,
+     "f08": "0x0000ff02",
+     "f14": 59,
+     "f18": 278
+    },
+    {
+     "entry_off": 1783352,
+     "name": "CLIENT_0_MAX",
+     "name_ptr": 68848568,
+     "id": 37,
+     "f08": "0x0000ff02",
+     "f14": 60,
+     "f18": 277
+    },
+    {
+     "entry_off": 1783384,
+     "name": "CLIENT_0_MIN",
+     "name_ptr": 68848584,
+     "id": 38,
+     "f08": "0x0000ff02",
+     "f14": 116,
+     "f18": 279
+    },
+    {
+     "entry_off": 1783416,
+     "name": "CLIENT_1_MAX",
+     "name_ptr": 68848600,
+     "id": 39,
+     "f08": "0x0000ff01",
+     "f14": 145,
+     "f18": 278
+    }
+   ]
+  },
+  {
+   "base": 1783512,
+   "vaddr": 68892376,
+   "entries": [
+    {
+     "entry_off": 1783512,
+     "name": "CLIENT_LOW_STRICT_PSTATE_MAX",
+     "name_ptr": 68848688,
+     "id": 43,
+     "f08": "0x0000ff03",
+     "f14": 156,
+     "f18": 278
+    },
+    {
+     "entry_off": 1783544,
+     "name": "CLIENT_LOW_STRICT_DRAM_MAX",
+     "name_ptr": 68848752,
+     "id": 44,
+     "f08": "0x0000ff07",
+     "f14": 118,
+     "f18": 278
+    },
+    {
+     "entry_off": 1783576,
+     "name": "CLIENT_LOW_LOCK_DRAM_MAX",
+     "name_ptr": 68848784,
+     "id": 45,
+     "f08": "0x0000ff05",
+     "f14": 119,
+     "f18": 278
+    },
+    {
+     "entry_off": 1783608,
+     "name": "CLIENT_LOW_STRICT_PCIE_MAX",
+     "name_ptr": 68848816,
+     "id": 48,
+     "f08": "0x0000ff06",
+     "f14": 120,
+     "f18": 277
+    },
+    {
+     "entry_off": 1783640,
+     "name": "CLIENT_LOW_STRICT_XBAR_MAX",
+     "name_ptr": 68848912,
+     "id": 50,
+     "f08": "0x0000ff03",
+     "f14": 157,
+     "f18": 277
+    },
+    {
+     "entry_off": 1783672,
+     "name": "CLIENT_LOW_STRICT_DRAM_MIN",
+     "name_ptr": 68848976,
+     "id": 51,
+     "f08": "0x0000ff07",
+     "f14": 121,
+     "f18": 277
+    },
+    {
+     "entry_off": 1783704,
+     "name": "CLIENT_LOW_LOCK_DRAM_MIN",
+     "name_ptr": 68849008,
+     "id": 52,
+     "f08": "0x0000ff05",
+     "f14": 122,
+     "f18": 277
+    },
+    {
+     "entry_off": 1783736,
+     "name": "CLIENT_LOW_STRICT_PCIE_MIN",
+     "name_ptr": 68849040,
+     "id": 55,
+     "f08": "0x0000ff06",
+     "f14": 123,
+     "f18": 278
+    },
+    {
+     "entry_off": 1783768,
+     "name": "CLIENT_LOW_STRICT_XBAR_MIN",
+     "name_ptr": 68849136,
+     "id": 56,
+     "f08": "0x0000ff02",
+     "f14": 126,
+     "f18": 277
+    }
+   ]
+  },
+  {
+   "base": 1786072,
+   "vaddr": 68894936,
+   "entries": [
+    {
+     "entry_off": 1786072,
+     "name": "FORCED_DACPERFTEST",
+     "name_ptr": 68850896,
+     "id": 136,
+     "f08": "0x0000ff05",
+     "f14": 53,
+     "f18": 274
+    },
+    {
+     "entry_off": 1786104,
+     "name": "RATED_TDP_MIN",
+     "name_ptr": 68850992,
+     "id": 137,
+     "f08": "0x0000ff01",
+     "f14": 204,
+     "f18": 274
+    },
+    {
+     "entry_off": 1786136,
+     "name": "CLIENT_PERF_CF_PWR_MODEL_PROFILE_SETUP_LOCK",
+     "name_ptr": 68851008,
+     "id": 145,
+     "f08": "0x0000ff05",
+     "f14": 152,
+     "f18": 275
+    }
+   ]
+  },
+  {
+   "base": 1787224,
+   "vaddr": 68896088,
+   "entries": [
+    {
+     "entry_off": 1787224,
+     "name": "PMU_DOM_GRP_1",
+     "name_ptr": 68854496,
+     "id": 201,
+     "f08": "0x0000ff02",
+     "f14": 143,
+     "f18": 273
+    },
+    {
+     "entry_off": 1787256,
+     "name": "SLI_GPU_BOOST_DOM_GRP_0",
+     "name_ptr": 68854512,
+     "id": 204,
+     "f08": "0x0000ff02",
+     "f14": 150,
+     "f18": 273
+    },
+    {
+     "entry_off": 1787288,
+     "name": "VMIN_NVVDD_1",
+     "name_ptr": 68852440,
+     "id": 205,
+     "f08": "0x0000ff01",
+     "f14": 151,
+     "f18": 273
+    },
+    {
+     "entry_off": 1787320,
+     "name": "VMIN_MSVDD_1",
+     "name_ptr": 68852472,
+     "id": 213,
+     "f08": "0x0000ff01",
+     "f14": 129,
+     "f18": 279
+    }
+   ]
+  },
+  {
+   "base": 1787448,
+   "vaddr": 68896312,
+   "entries": [
+    {
+     "entry_off": 1787448,
+     "name": "MODS_RULES_STRICT_PSTATE_MAX",
+     "name_ptr": 68852792,
+     "id": 218,
+     "f08": "0x0000ff03",
+     "f14": 160,
+     "f18": 278
+    },
+    {
+     "entry_off": 1787480,
+     "name": "MODS_RULES_STRICT_DRAM_MAX",
+     "name_ptr": 68852856,
+     "id": 219,
+     "f08": "0x0000ff07",
+     "f14": 131,
+     "f18": 278
+    },
+    {
+     "entry_off": 1787512,
+     "name": "MODS_RULES_LOCK_DRAM_MAX",
+     "name_ptr": 68852888,
+     "id": 220,
+     "f08": "0x0000ff05",
+     "f14": 132,
+     "f18": 278
+    },
+    {
+     "entry_off": 1787544,
+     "name": "MODS_RULES_STRICT_PCIE_MAX",
+     "name_ptr": 68852920,
+     "id": 223,
+     "f08": "0x0000ff06",
+     "f14": 133,
+     "f18": 277
+    },
+    {
+     "entry_off": 1787576,
+     "name": "MODS_RULES_STRICT_XBAR_MAX",
+     "name_ptr": 68853016,
+     "id": 225,
+     "f08": "0x0000ff03",
+     "f14": 161,
+     "f18": 277
+    },
+    {
+     "entry_off": 1787608,
+     "name": "MODS_RULES_STRICT_DRAM_MIN",
+     "name_ptr": 68853080,
+     "id": 226,
+     "f08": "0x0000ff07",
+     "f14": 134,
+     "f18": 277
+    },
+    {
+     "entry_off": 1787640,
+     "name": "MODS_RULES_LOCK_DRAM_MIN",
+     "name_ptr": 68853112,
+     "id": 227,
+     "f08": "0x0000ff05",
+     "f14": 135,
+     "f18": 277
+    },
+    {
+     "entry_off": 1787672,
+     "name": "MODS_RULES_STRICT_PCIE_MIN",
+     "name_ptr": 68853144,
+     "id": 230,
+     "f08": "0x0000ff06",
+     "f14": 136,
+     "f18": 278
+    },
+    {
+     "entry_off": 1787704,
+     "name": "MODS_RULES_STRICT_XBAR_MIN",
+     "name_ptr": 68853240,
+     "id": 231,
+     "f08": "0x0000ff02",
+     "f14": 139,
+     "f18": 277
+    }
+   ]
+  }
+ ],
+ "targets_present": {
+  "RMClkVfOverride": false,
+  "RmAtsVolOverride": false,
+  "RmClkControllersOverride": false,
+  "OVERVOLTAGE_LOGIC": false,
+  "OVERVOLTAGE_NVVDD_0": false,
+  "OVERVOLTAGE_NVVDD_1": false,
+  "PERFORMANCE_CAP0": false,
+  "PERF_CF_CONTROLLER_GPC_MAX": true
+ },
+ "note": "ban cu dem 139 entry la SAI: nhieu 'entry' chi la duoi chuoi cua entry truoc (vd CONTROLLER_GPC_MAX sau PERF_CF_CONTROLLER_GPC_MAX)"
+}

@@ -1,0 +1,16 @@
+{
+  "raw_input_hash_checks": {
+    "outputs/CMP40HX_ORIGINAL_1MB.bin": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+    "outputs/cmp40hx_t4.bin": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+    "RAW_DATA/vbios_shadow.bin": "2715c0b106931b540b5ef6660201919e9297f3f5cdc61432d9a16352c55b717a"
+  },
+  "worker_log_observations": {
+    "signature_hits": 64,
+    "accepted_boundary_candidates": 3,
+    "BIT_tokens": 17,
+    "PERF_non_null_pointers": 40,
+    "generic_table_header_candidates": 40,
+    "reported_table_overlaps_requiring_review": 14
+  },
+  "limits": "40 plausible headers are not 40 semantically decoded tables. 3 accepted boundary candidates are not proof all ROM images discovered. Inspect overlap provenance and per-format lengths before accepting them."
+}

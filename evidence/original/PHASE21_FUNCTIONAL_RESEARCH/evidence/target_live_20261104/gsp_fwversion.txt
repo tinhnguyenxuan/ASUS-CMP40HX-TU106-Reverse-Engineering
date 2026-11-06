@@ -1,0 +1,4 @@
+
+String dump of section '.fwversion':
+  [     0]  615.71.09
+

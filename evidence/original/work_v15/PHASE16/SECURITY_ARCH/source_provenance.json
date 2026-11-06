@@ -1,0 +1,77 @@
+{
+  "dev_fuse_tu102": {
+    "path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fuse.h",
+    "sha256": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+    "lines": 35
+  },
+  "ctrl2080fuse": {
+    "path": "/tmp/nvsrc/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fuse.h",
+    "sha256": "1f7e76836a6ed3243057d3bbd3cd47f303f81f5e6f1165ae0a2a2aaa8b6a866d",
+    "lines": 34
+  },
+  "ctrl2080acr": {
+    "path": "/tmp/nvsrc/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080acr.h",
+    "sha256": "b2d1e136d5fe9f19c8a4e4b89d15ebb1843b2a9e9f830b977bb3a880f9919206",
+    "lines": 32
+  },
+  "ctrl208fsec2": {
+    "path": "/tmp/nvsrc/common/sdk/nvidia/inc/ctrl/ctrl208f/ctrl208fsec2.h",
+    "sha256": "fd8332d2bd6e46b16974b6b7e72c4ca89a0298d73b909d686d0f568b9c0dfa18",
+    "lines": 54
+  },
+  "gsp_fw_wpr_meta": {
+    "path": "/tmp/nvsrc/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h",
+    "sha256": "f3b615a6d87b557ddab986b6ba6a5209901f09edcf0e5b9c983e0d8112538fc5",
+    "lines": 221
+  },
+  "gsp_fw_wpr_meta_v1": {
+    "path": "/tmp/nvsrc/nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta_v1.h",
+    "sha256": "04e2da01f1c1cedc6b740b1bab881f868419d93fb4701fbe1885bed09063f2b3",
+    "lines": 117
+  },
+  "sec2_emem_channels": {
+    "path": "/tmp/nvsrc/nvidia/arch/nvalloc/common/inc/sec2/sec2_emem_channels.h",
+    "sha256": "2f900d61edce2fb914a97959382f497bb5b5b03eadbcd7b1dffb13eb7bddc602",
+    "lines": 39
+  },
+  "gsp_init_args": {
+    "path": "/tmp/nvsrc/nvidia/inc/kernel/gpu/gsp/gsp_init_args.h",
+    "sha256": "b6996ab98e25f124ad4526e51bd1ad36d579ce325afb7f9d8a4432db5ddff760",
+    "lines": 117
+  },
+  "gsp_static_config": {
+    "path": "/tmp/nvsrc/nvidia/inc/kernel/gpu/gsp/gsp_static_config.h",
+    "sha256": "5fcd5c3b75204df47e893d59358d6d44d8de3993a2550508cd649d58d5077b4f",
+    "lines": 270
+  },
+  "message_queue": {
+    "path": "/tmp/nvsrc/nvidia/inc/kernel/gpu/gsp/message_queue.h",
+    "sha256": "1953d2b43c0e785ca3c91d7f8d8f68d82c24ee2fefb31f50cb9c56e6436c1d6f",
+    "lines": 44
+  },
+  "falcon_common": {
+    "path": "/tmp/nvsrc/nvidia/inc/kernel/gpu/falcon/falcon_common.h",
+    "sha256": "afb1b1b88477bf85c8334b08e4a8bd088ca7cf7986234e6701d483e0df788278",
+    "lines": 74
+  },
+  "cmp40_booter_load_610": {
+    "path": "/tmp/nvsrc/nvidia/src/kernel/gpu/gsp/cmp40_booter_load_610.h",
+    "sha256": "cb6bdec8f8dbf48b6554d6cb9f291f880dff500c2d6b8b89fe44e6d68ed03418",
+    "lines": 4334
+  },
+  "kernel_sec2": {
+    "path": "/tmp/nvsrc/nvidia/inc/kernel/gpu/sec2/kernel_sec2.h",
+    "sha256": "179ad2dc9c8720cd10d9ecb3dd26df47d15fb5dde20cfbdef8cbff5f5c461479",
+    "lines": 3
+  },
+  "sec2_context": {
+    "path": "/tmp/nvsrc/nvidia/inc/kernel/gpu/sec2/sec2_context.h",
+    "sha256": "49042c1e613862b9162ca9b4e9687dae783d0255d4f8dcf66dd46b4a9c9dd1db",
+    "lines": 3
+  },
+  "sec2_utils": {
+    "path": "/tmp/nvsrc/nvidia/inc/kernel/gpu/mem_mgr/sec2_utils.h",
+    "sha256": "493cedc15e5dbbefd37e1e233dcd1675ec29eaabbc351e9440803abb21631cb4",
+    "lines": 3
+  }
+}

@@ -1,0 +1,9 @@
+2026-11-05T18:15:26+00:00
+00000000:03:00.0, GPU-REDACTED, 615.71.09, 90.06.67.00.06
+        vGPU Heterogeneous Mode                        : N/A
+    GPU Recovery Action                                : None
+    GSP Firmware Version                               : 615.71.09
+    IBMNPU
+        Relaxed Ordering Mode                          : N/A
+    PCI
+78e0a2c8e4bd8a2faa1ff36137209669cdf60bd698b8f723dcf52869df82b909  /lib/firmware/nvidia/615.71.09/gsp_tu10x.bin

@@ -1,0 +1,15 @@
+{
+  "script": "verify.py",
+  "source_snapshot": "/tmp/nvsrc",
+  "source_files_catalogued": 15,
+  "source_files_missing": 0,
+  "audit_items": 23,
+  "audit_supported": 3,
+  "audit_rejected": 13,
+  "audit_inferred": 2,
+  "audit_measured": 4,
+  "audit_unknown": 1,
+  "assertions_pass": true,
+  "assertions_total": 19,
+  "failures": []
+}

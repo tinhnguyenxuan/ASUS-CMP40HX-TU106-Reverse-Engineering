@@ -1,0 +1,5466 @@
+{
+  "input_file": "/home/REDACTED_USER/codex-work/work_v15/outputs/ucodes_tu10x.bin",
+  "input_size": 8837632,
+  "input_sha256": "6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0",
+  "header": {
+    "magic": "NVUCODES",
+    "version": 1,
+    "count": 496,
+    "fingerprint64": 10167316699684580907,
+    "fingerprint64_hex": "0x8D1990AB6B98AE2B",
+    "header_size": 24,
+    "table_end": 11928,
+    "first_payload": 12032,
+    "padding_to_first_payload": 104
+  },
+  "hypothesis": {
+    "header_struct": "<8sIIQ (24 B)",
+    "record_struct": "<QQII (24 B)",
+    "record_count_from_header": 496
+  },
+  "record_counts": {
+    "zero": 458,
+    "valid_marker4": 38
+  },
+  "invalid_unresolved": [],
+  "records": [
+    {
+      "slot": 0,
+      "record_offset": 24,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 1,
+      "record_offset": 48,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 2,
+      "record_offset": 72,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 3,
+      "record_offset": 96,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 4,
+      "record_offset": 120,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 5,
+      "record_offset": 144,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 6,
+      "record_offset": 168,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 7,
+      "record_offset": 192,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 8,
+      "record_offset": 216,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 9,
+      "record_offset": 240,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 10,
+      "record_offset": 264,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 11,
+      "record_offset": 288,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 12,
+      "record_offset": 312,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 13,
+      "record_offset": 336,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 14,
+      "record_offset": 360,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 15,
+      "record_offset": 384,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 16,
+      "record_offset": 408,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 17,
+      "record_offset": 432,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 18,
+      "record_offset": 456,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 19,
+      "record_offset": 480,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 20,
+      "record_offset": 504,
+      "length": 122880,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 12032,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 21,
+      "record_offset": 528,
+      "length": 122880,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 134912,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 22,
+      "record_offset": 552,
+      "length": 122880,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 257792,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 23,
+      "record_offset": 576,
+      "length": 122880,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 380672,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 24,
+      "record_offset": 600,
+      "length": 122880,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 503552,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 25,
+      "record_offset": 624,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 26,
+      "record_offset": 648,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 27,
+      "record_offset": 672,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 28,
+      "record_offset": 696,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 29,
+      "record_offset": 720,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 30,
+      "record_offset": 744,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 31,
+      "record_offset": 768,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 32,
+      "record_offset": 792,
+      "length": 126144,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 626432,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 33,
+      "record_offset": 816,
+      "length": 125464,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 752640,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 34,
+      "record_offset": 840,
+      "length": 126152,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 878336,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 35,
+      "record_offset": 864,
+      "length": 125464,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 1004544,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 36,
+      "record_offset": 888,
+      "length": 131992,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 1130240,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 37,
+      "record_offset": 912,
+      "length": 183808,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 1262336,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 38,
+      "record_offset": 936,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 39,
+      "record_offset": 960,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 40,
+      "record_offset": 984,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 41,
+      "record_offset": 1008,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 42,
+      "record_offset": 1032,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 43,
+      "record_offset": 1056,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 44,
+      "record_offset": 1080,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 45,
+      "record_offset": 1104,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 46,
+      "record_offset": 1128,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 47,
+      "record_offset": 1152,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 48,
+      "record_offset": 1176,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 49,
+      "record_offset": 1200,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 50,
+      "record_offset": 1224,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 51,
+      "record_offset": 1248,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 52,
+      "record_offset": 1272,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 53,
+      "record_offset": 1296,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 54,
+      "record_offset": 1320,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 55,
+      "record_offset": 1344,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 56,
+      "record_offset": 1368,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 57,
+      "record_offset": 1392,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 58,
+      "record_offset": 1416,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 59,
+      "record_offset": 1440,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 60,
+      "record_offset": 1464,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 61,
+      "record_offset": 1488,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 62,
+      "record_offset": 1512,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 63,
+      "record_offset": 1536,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 64,
+      "record_offset": 1560,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 65,
+      "record_offset": 1584,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 66,
+      "record_offset": 1608,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 67,
+      "record_offset": 1632,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 68,
+      "record_offset": 1656,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 69,
+      "record_offset": 1680,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 70,
+      "record_offset": 1704,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 71,
+      "record_offset": 1728,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 72,
+      "record_offset": 1752,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 73,
+      "record_offset": 1776,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 74,
+      "record_offset": 1800,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 75,
+      "record_offset": 1824,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 76,
+      "record_offset": 1848,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 77,
+      "record_offset": 1872,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 78,
+      "record_offset": 1896,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 79,
+      "record_offset": 1920,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 80,
+      "record_offset": 1944,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 81,
+      "record_offset": 1968,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 82,
+      "record_offset": 1992,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 83,
+      "record_offset": 2016,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 84,
+      "record_offset": 2040,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 85,
+      "record_offset": 2064,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 86,
+      "record_offset": 2088,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 87,
+      "record_offset": 2112,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 88,
+      "record_offset": 2136,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 89,
+      "record_offset": 2160,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 90,
+      "record_offset": 2184,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 91,
+      "record_offset": 2208,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 92,
+      "record_offset": 2232,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 93,
+      "record_offset": 2256,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 94,
+      "record_offset": 2280,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 95,
+      "record_offset": 2304,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 96,
+      "record_offset": 2328,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 97,
+      "record_offset": 2352,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 98,
+      "record_offset": 2376,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 99,
+      "record_offset": 2400,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 100,
+      "record_offset": 2424,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 101,
+      "record_offset": 2448,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 102,
+      "record_offset": 2472,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 103,
+      "record_offset": 2496,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 104,
+      "record_offset": 2520,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 105,
+      "record_offset": 2544,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 106,
+      "record_offset": 2568,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 107,
+      "record_offset": 2592,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 108,
+      "record_offset": 2616,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 109,
+      "record_offset": 2640,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 110,
+      "record_offset": 2664,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 111,
+      "record_offset": 2688,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 112,
+      "record_offset": 2712,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 113,
+      "record_offset": 2736,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 114,
+      "record_offset": 2760,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 115,
+      "record_offset": 2784,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 116,
+      "record_offset": 2808,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 117,
+      "record_offset": 2832,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 118,
+      "record_offset": 2856,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 119,
+      "record_offset": 2880,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 120,
+      "record_offset": 2904,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 121,
+      "record_offset": 2928,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 122,
+      "record_offset": 2952,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 123,
+      "record_offset": 2976,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 124,
+      "record_offset": 3000,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 125,
+      "record_offset": 3024,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 126,
+      "record_offset": 3048,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 127,
+      "record_offset": 3072,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 128,
+      "record_offset": 3096,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 129,
+      "record_offset": 3120,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 130,
+      "record_offset": 3144,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 131,
+      "record_offset": 3168,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 132,
+      "record_offset": 3192,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 133,
+      "record_offset": 3216,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 134,
+      "record_offset": 3240,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 135,
+      "record_offset": 3264,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 136,
+      "record_offset": 3288,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 137,
+      "record_offset": 3312,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 138,
+      "record_offset": 3336,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 139,
+      "record_offset": 3360,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 140,
+      "record_offset": 3384,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 141,
+      "record_offset": 3408,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 142,
+      "record_offset": 3432,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 143,
+      "record_offset": 3456,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 144,
+      "record_offset": 3480,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 145,
+      "record_offset": 3504,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 146,
+      "record_offset": 3528,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 147,
+      "record_offset": 3552,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 148,
+      "record_offset": 3576,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 149,
+      "record_offset": 3600,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 150,
+      "record_offset": 3624,
+      "length": 571136,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 1446144,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 151,
+      "record_offset": 3648,
+      "length": 571136,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 2017280,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 152,
+      "record_offset": 3672,
+      "length": 571136,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 2588416,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 153,
+      "record_offset": 3696,
+      "length": 571136,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 3159552,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 154,
+      "record_offset": 3720,
+      "length": 571136,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 3730688,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 155,
+      "record_offset": 3744,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 156,
+      "record_offset": 3768,
+      "length": 539136,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 4301824,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 157,
+      "record_offset": 3792,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 158,
+      "record_offset": 3816,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 159,
+      "record_offset": 3840,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 160,
+      "record_offset": 3864,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 161,
+      "record_offset": 3888,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 162,
+      "record_offset": 3912,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 163,
+      "record_offset": 3936,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 164,
+      "record_offset": 3960,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 165,
+      "record_offset": 3984,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 166,
+      "record_offset": 4008,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 167,
+      "record_offset": 4032,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 168,
+      "record_offset": 4056,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 169,
+      "record_offset": 4080,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 170,
+      "record_offset": 4104,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 171,
+      "record_offset": 4128,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 172,
+      "record_offset": 4152,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 173,
+      "record_offset": 4176,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 174,
+      "record_offset": 4200,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 175,
+      "record_offset": 4224,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 176,
+      "record_offset": 4248,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 177,
+      "record_offset": 4272,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 178,
+      "record_offset": 4296,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 179,
+      "record_offset": 4320,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 180,
+      "record_offset": 4344,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 181,
+      "record_offset": 4368,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 182,
+      "record_offset": 4392,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 183,
+      "record_offset": 4416,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 184,
+      "record_offset": 4440,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 185,
+      "record_offset": 4464,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 186,
+      "record_offset": 4488,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 187,
+      "record_offset": 4512,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 188,
+      "record_offset": 4536,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 189,
+      "record_offset": 4560,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 190,
+      "record_offset": 4584,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 191,
+      "record_offset": 4608,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 192,
+      "record_offset": 4632,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 193,
+      "record_offset": 4656,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 194,
+      "record_offset": 4680,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 195,
+      "record_offset": 4704,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 196,
+      "record_offset": 4728,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 197,
+      "record_offset": 4752,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 198,
+      "record_offset": 4776,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 199,
+      "record_offset": 4800,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 200,
+      "record_offset": 4824,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 201,
+      "record_offset": 4848,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 202,
+      "record_offset": 4872,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 203,
+      "record_offset": 4896,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 204,
+      "record_offset": 4920,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 205,
+      "record_offset": 4944,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 206,
+      "record_offset": 4968,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 207,
+      "record_offset": 4992,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 208,
+      "record_offset": 5016,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 209,
+      "record_offset": 5040,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 210,
+      "record_offset": 5064,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 211,
+      "record_offset": 5088,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 212,
+      "record_offset": 5112,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 213,
+      "record_offset": 5136,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 214,
+      "record_offset": 5160,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 215,
+      "record_offset": 5184,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 216,
+      "record_offset": 5208,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 217,
+      "record_offset": 5232,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 218,
+      "record_offset": 5256,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 219,
+      "record_offset": 5280,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 220,
+      "record_offset": 5304,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 221,
+      "record_offset": 5328,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 222,
+      "record_offset": 5352,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 223,
+      "record_offset": 5376,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 224,
+      "record_offset": 5400,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 225,
+      "record_offset": 5424,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 226,
+      "record_offset": 5448,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 227,
+      "record_offset": 5472,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 228,
+      "record_offset": 5496,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 229,
+      "record_offset": 5520,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 230,
+      "record_offset": 5544,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 231,
+      "record_offset": 5568,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 232,
+      "record_offset": 5592,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 233,
+      "record_offset": 5616,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 234,
+      "record_offset": 5640,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 235,
+      "record_offset": 5664,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 236,
+      "record_offset": 5688,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 237,
+      "record_offset": 5712,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 238,
+      "record_offset": 5736,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 239,
+      "record_offset": 5760,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 240,
+      "record_offset": 5784,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 241,
+      "record_offset": 5808,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 242,
+      "record_offset": 5832,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 243,
+      "record_offset": 5856,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 244,
+      "record_offset": 5880,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 245,
+      "record_offset": 5904,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 246,
+      "record_offset": 5928,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 247,
+      "record_offset": 5952,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 248,
+      "record_offset": 5976,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 249,
+      "record_offset": 6000,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 250,
+      "record_offset": 6024,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 251,
+      "record_offset": 6048,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 252,
+      "record_offset": 6072,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 253,
+      "record_offset": 6096,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 254,
+      "record_offset": 6120,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 255,
+      "record_offset": 6144,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 256,
+      "record_offset": 6168,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 257,
+      "record_offset": 6192,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 258,
+      "record_offset": 6216,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 259,
+      "record_offset": 6240,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 260,
+      "record_offset": 6264,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 261,
+      "record_offset": 6288,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 262,
+      "record_offset": 6312,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 263,
+      "record_offset": 6336,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 264,
+      "record_offset": 6360,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 265,
+      "record_offset": 6384,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 266,
+      "record_offset": 6408,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 267,
+      "record_offset": 6432,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 268,
+      "record_offset": 6456,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 269,
+      "record_offset": 6480,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 270,
+      "record_offset": 6504,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 271,
+      "record_offset": 6528,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 272,
+      "record_offset": 6552,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 273,
+      "record_offset": 6576,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 274,
+      "record_offset": 6600,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 275,
+      "record_offset": 6624,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 276,
+      "record_offset": 6648,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 277,
+      "record_offset": 6672,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 278,
+      "record_offset": 6696,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 279,
+      "record_offset": 6720,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 280,
+      "record_offset": 6744,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 281,
+      "record_offset": 6768,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 282,
+      "record_offset": 6792,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 283,
+      "record_offset": 6816,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 284,
+      "record_offset": 6840,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 285,
+      "record_offset": 6864,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 286,
+      "record_offset": 6888,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 287,
+      "record_offset": 6912,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 288,
+      "record_offset": 6936,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 289,
+      "record_offset": 6960,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 290,
+      "record_offset": 6984,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 291,
+      "record_offset": 7008,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 292,
+      "record_offset": 7032,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 293,
+      "record_offset": 7056,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 294,
+      "record_offset": 7080,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 295,
+      "record_offset": 7104,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 296,
+      "record_offset": 7128,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 297,
+      "record_offset": 7152,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 298,
+      "record_offset": 7176,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 299,
+      "record_offset": 7200,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 300,
+      "record_offset": 7224,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 301,
+      "record_offset": 7248,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 302,
+      "record_offset": 7272,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 303,
+      "record_offset": 7296,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 304,
+      "record_offset": 7320,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 305,
+      "record_offset": 7344,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 306,
+      "record_offset": 7368,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 307,
+      "record_offset": 7392,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 308,
+      "record_offset": 7416,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 309,
+      "record_offset": 7440,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 310,
+      "record_offset": 7464,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 311,
+      "record_offset": 7488,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 312,
+      "record_offset": 7512,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 313,
+      "record_offset": 7536,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 314,
+      "record_offset": 7560,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 315,
+      "record_offset": 7584,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 316,
+      "record_offset": 7608,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 317,
+      "record_offset": 7632,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 318,
+      "record_offset": 7656,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 319,
+      "record_offset": 7680,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 320,
+      "record_offset": 7704,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 321,
+      "record_offset": 7728,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 322,
+      "record_offset": 7752,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 323,
+      "record_offset": 7776,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 324,
+      "record_offset": 7800,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 325,
+      "record_offset": 7824,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 326,
+      "record_offset": 7848,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 327,
+      "record_offset": 7872,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 328,
+      "record_offset": 7896,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 329,
+      "record_offset": 7920,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 330,
+      "record_offset": 7944,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 331,
+      "record_offset": 7968,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 332,
+      "record_offset": 7992,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 333,
+      "record_offset": 8016,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 334,
+      "record_offset": 8040,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 335,
+      "record_offset": 8064,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 336,
+      "record_offset": 8088,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 337,
+      "record_offset": 8112,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 338,
+      "record_offset": 8136,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 339,
+      "record_offset": 8160,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 340,
+      "record_offset": 8184,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 341,
+      "record_offset": 8208,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 342,
+      "record_offset": 8232,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 343,
+      "record_offset": 8256,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 344,
+      "record_offset": 8280,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 345,
+      "record_offset": 8304,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 346,
+      "record_offset": 8328,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 347,
+      "record_offset": 8352,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 348,
+      "record_offset": 8376,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 349,
+      "record_offset": 8400,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 350,
+      "record_offset": 8424,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 351,
+      "record_offset": 8448,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 352,
+      "record_offset": 8472,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 353,
+      "record_offset": 8496,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 354,
+      "record_offset": 8520,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 355,
+      "record_offset": 8544,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 356,
+      "record_offset": 8568,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 357,
+      "record_offset": 8592,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 358,
+      "record_offset": 8616,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 359,
+      "record_offset": 8640,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 360,
+      "record_offset": 8664,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 361,
+      "record_offset": 8688,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 362,
+      "record_offset": 8712,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 363,
+      "record_offset": 8736,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 364,
+      "record_offset": 8760,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 365,
+      "record_offset": 8784,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 366,
+      "record_offset": 8808,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 367,
+      "record_offset": 8832,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 368,
+      "record_offset": 8856,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 369,
+      "record_offset": 8880,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 370,
+      "record_offset": 8904,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 371,
+      "record_offset": 8928,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 372,
+      "record_offset": 8952,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 373,
+      "record_offset": 8976,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 374,
+      "record_offset": 9000,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 375,
+      "record_offset": 9024,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 376,
+      "record_offset": 9048,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 377,
+      "record_offset": 9072,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 378,
+      "record_offset": 9096,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 379,
+      "record_offset": 9120,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 380,
+      "record_offset": 9144,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 381,
+      "record_offset": 9168,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 382,
+      "record_offset": 9192,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 383,
+      "record_offset": 9216,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 384,
+      "record_offset": 9240,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 385,
+      "record_offset": 9264,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 386,
+      "record_offset": 9288,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 387,
+      "record_offset": 9312,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 388,
+      "record_offset": 9336,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 389,
+      "record_offset": 9360,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 390,
+      "record_offset": 9384,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 391,
+      "record_offset": 9408,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 392,
+      "record_offset": 9432,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 393,
+      "record_offset": 9456,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 394,
+      "record_offset": 9480,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 395,
+      "record_offset": 9504,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 396,
+      "record_offset": 9528,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 397,
+      "record_offset": 9552,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 398,
+      "record_offset": 9576,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 399,
+      "record_offset": 9600,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 400,
+      "record_offset": 9624,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 401,
+      "record_offset": 9648,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 402,
+      "record_offset": 9672,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 403,
+      "record_offset": 9696,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 404,
+      "record_offset": 9720,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 405,
+      "record_offset": 9744,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 406,
+      "record_offset": 9768,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 407,
+      "record_offset": 9792,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 408,
+      "record_offset": 9816,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 409,
+      "record_offset": 9840,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 410,
+      "record_offset": 9864,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 411,
+      "record_offset": 9888,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 412,
+      "record_offset": 9912,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 413,
+      "record_offset": 9936,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 414,
+      "record_offset": 9960,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 415,
+      "record_offset": 9984,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 416,
+      "record_offset": 10008,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 417,
+      "record_offset": 10032,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 418,
+      "record_offset": 10056,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 419,
+      "record_offset": 10080,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 420,
+      "record_offset": 10104,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 421,
+      "record_offset": 10128,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 422,
+      "record_offset": 10152,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 423,
+      "record_offset": 10176,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 424,
+      "record_offset": 10200,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 425,
+      "record_offset": 10224,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 426,
+      "record_offset": 10248,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 427,
+      "record_offset": 10272,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 428,
+      "record_offset": 10296,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 429,
+      "record_offset": 10320,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 430,
+      "record_offset": 10344,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 431,
+      "record_offset": 10368,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 432,
+      "record_offset": 10392,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 433,
+      "record_offset": 10416,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 434,
+      "record_offset": 10440,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 435,
+      "record_offset": 10464,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 436,
+      "record_offset": 10488,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 437,
+      "record_offset": 10512,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 438,
+      "record_offset": 10536,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 439,
+      "record_offset": 10560,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 440,
+      "record_offset": 10584,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 441,
+      "record_offset": 10608,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 442,
+      "record_offset": 10632,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 443,
+      "record_offset": 10656,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 444,
+      "record_offset": 10680,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 445,
+      "record_offset": 10704,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 446,
+      "record_offset": 10728,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 447,
+      "record_offset": 10752,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 448,
+      "record_offset": 10776,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 449,
+      "record_offset": 10800,
+      "length": 258560,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 4840960,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 450,
+      "record_offset": 10824,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 451,
+      "record_offset": 10848,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 452,
+      "record_offset": 10872,
+      "length": 258560,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 5099520,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 453,
+      "record_offset": 10896,
+      "length": 160512,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 5358080,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 454,
+      "record_offset": 10920,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 455,
+      "record_offset": 10944,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 456,
+      "record_offset": 10968,
+      "length": 145152,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 5518592,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 457,
+      "record_offset": 10992,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 458,
+      "record_offset": 11016,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 459,
+      "record_offset": 11040,
+      "length": 258560,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 5663744,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 460,
+      "record_offset": 11064,
+      "length": 145152,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 5922304,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 461,
+      "record_offset": 11088,
+      "length": 261120,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 6067456,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 462,
+      "record_offset": 11112,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 463,
+      "record_offset": 11136,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 464,
+      "record_offset": 11160,
+      "length": 261120,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 6328576,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 465,
+      "record_offset": 11184,
+      "length": 145408,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 6589696,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 466,
+      "record_offset": 11208,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 467,
+      "record_offset": 11232,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 468,
+      "record_offset": 11256,
+      "length": 261120,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 6735104,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 469,
+      "record_offset": 11280,
+      "length": 145408,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 6996224,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 470,
+      "record_offset": 11304,
+      "length": 257792,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 7141632,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 471,
+      "record_offset": 11328,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 472,
+      "record_offset": 11352,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 473,
+      "record_offset": 11376,
+      "length": 257792,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 7399424,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 474,
+      "record_offset": 11400,
+      "length": 143616,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 7657216,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 475,
+      "record_offset": 11424,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 476,
+      "record_offset": 11448,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 477,
+      "record_offset": 11472,
+      "length": 257792,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 7800832,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 478,
+      "record_offset": 11496,
+      "length": 143616,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 8058624,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 479,
+      "record_offset": 11520,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 480,
+      "record_offset": 11544,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 481,
+      "record_offset": 11568,
+      "length": 143360,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 8202240,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 482,
+      "record_offset": 11592,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 483,
+      "record_offset": 11616,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 484,
+      "record_offset": 11640,
+      "length": 157440,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 8345600,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 485,
+      "record_offset": 11664,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 486,
+      "record_offset": 11688,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 487,
+      "record_offset": 11712,
+      "length": 147712,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 8503040,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 488,
+      "record_offset": 11736,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 489,
+      "record_offset": 11760,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 490,
+      "record_offset": 11784,
+      "length": 124160,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 8650752,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 491,
+      "record_offset": 11808,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 492,
+      "record_offset": 11832,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 493,
+      "record_offset": 11856,
+      "length": 62720,
+      "unknown": 0,
+      "marker": 4,
+      "file_offset": 8774912,
+      "class": "valid_marker4",
+      "issues": []
+    },
+    {
+      "slot": 494,
+      "record_offset": 11880,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    },
+    {
+      "slot": 495,
+      "record_offset": 11904,
+      "length": 0,
+      "unknown": 0,
+      "marker": 0,
+      "file_offset": 0,
+      "class": "zero",
+      "issues": []
+    }
+  ],
+  "payloads": [
+    {
+      "slot": 20,
+      "offset": 12032,
+      "length": 122880,
+      "offset_hex": "0x00002F00",
+      "sha256": "97d20357ee74678b886da6247746d84be2185c07891d1f79a038b78d5f0558e4",
+      "entropy": 3.48073,
+      "nonzero_ratio": 0.372477,
+      "head16": "d0c0ff0000fe0400bda47e10fe00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 21,
+      "offset": 134912,
+      "length": 122880,
+      "offset_hex": "0x00020F00",
+      "sha256": "1dbca81d8e54ab8fb4719ce0e0a8d75cdbfe44e5e11c19cb01bc311a63ef4e90",
+      "entropy": 7.997617,
+      "nonzero_ratio": 0.993937,
+      "head16": "f09f472255d1909cbfbc4203f329b45d",
+      "tail16": "c4a4853091bf47809bc31ce578d295e6"
+    },
+    {
+      "slot": 22,
+      "offset": 257792,
+      "length": 122880,
+      "offset_hex": "0x0003EF00",
+      "sha256": "05fc3b413465f0b640fccc71e6c2b2545812e14afd9410d3734c54aaba58de12",
+      "entropy": 7.997816,
+      "nonzero_ratio": 0.994181,
+      "head16": "730e154e731616656ba7aeb777322a63",
+      "tail16": "b606eeb72700a3423d7dcd94608dbab6"
+    },
+    {
+      "slot": 23,
+      "offset": 380672,
+      "length": 122880,
+      "offset_hex": "0x0005CF00",
+      "sha256": "302f4099e59e21d18d2e5104908362001017d262f538d85ac5d23fb6b44704aa",
+      "entropy": 7.997823,
+      "nonzero_ratio": 0.994043,
+      "head16": "790985d2c678b51b4702af25d0582444",
+      "tail16": "f1eac06a12e71cc7fef5752f11b0c43c"
+    },
+    {
+      "slot": 24,
+      "offset": 503552,
+      "length": 122880,
+      "offset_hex": "0x0007AF00",
+      "sha256": "f6e4a553f0d159e89fc88e4337d057944c470792e8cb25e0b089c16ef7680882",
+      "entropy": 7.997555,
+      "nonzero_ratio": 0.993685,
+      "head16": "6832cc3a12b765ee5aeccdf2b613a5d4",
+      "tail16": "431183562ac434d3ed5a305ee251a0d5"
+    },
+    {
+      "slot": 32,
+      "offset": 626432,
+      "length": 126144,
+      "offset_hex": "0x00098F00",
+      "sha256": "b70c061f6755046dd63ba4dff11be15a779c2210fa33323aa63f72e582f74812",
+      "entropy": 4.917237,
+      "nonzero_ratio": 0.567843,
+      "head16": "000000002800000001000000b1720000",
+      "tail16": "00000000000000001800000000000000"
+    },
+    {
+      "slot": 33,
+      "offset": 752640,
+      "length": 125464,
+      "offset_hex": "0x000B7C00",
+      "sha256": "726221cdc1a014e1489e919b4b3e2cda0da836e0e200e4bd168044c65521721d",
+      "entropy": 4.90468,
+      "nonzero_ratio": 0.56621,
+      "head16": "00000000280000000100000015700000",
+      "tail16": "00000000000000000c00000000000000"
+    },
+    {
+      "slot": 34,
+      "offset": 878336,
+      "length": 126152,
+      "offset_hex": "0x000D6700",
+      "sha256": "598f8e529afdcf220d1b20df44fcf3a31047710e119d8c3fb370c28a82eb5ba7",
+      "entropy": 4.917987,
+      "nonzero_ratio": 0.56791,
+      "head16": "000000002800000001000000bd720000",
+      "tail16": "00000000000000001800000000000000"
+    },
+    {
+      "slot": 35,
+      "offset": 1004544,
+      "length": 125464,
+      "offset_hex": "0x000F5400",
+      "sha256": "13d9bf8bf3c43071fed91f488243979bdfc6728737b3a2ee16822ff961e2376a",
+      "entropy": 4.904704,
+      "nonzero_ratio": 0.56621,
+      "head16": "00000000280000000100000015700000",
+      "tail16": "00000000000000000c00000000000000"
+    },
+    {
+      "slot": 36,
+      "offset": 1130240,
+      "length": 131992,
+      "offset_hex": "0x00113F00",
+      "sha256": "24c6b1c2c21af67603c5d953b7aaeb3882aa3ef4e547028b1d731c2100a36288",
+      "entropy": 4.9559,
+      "nonzero_ratio": 0.574747,
+      "head16": "000000002800000001000000457b0000",
+      "tail16": "00000000000000001800000000000000"
+    },
+    {
+      "slot": 37,
+      "offset": 1262336,
+      "length": 183808,
+      "offset_hex": "0x00134300",
+      "sha256": "28774dc54e9800ef27ce2fdf85ebfc1f1721df82c57e86a45b3cc43605264349",
+      "entropy": 4.66425,
+      "nonzero_ratio": 0.518182,
+      "head16": "000000003200000001000000797c0000",
+      "tail16": "00000000000000001500000000000000"
+    },
+    {
+      "slot": 150,
+      "offset": 1446144,
+      "length": 571136,
+      "offset_hex": "0x00161100",
+      "sha256": "df6bfe19bf7b934df1fb02468f1ba6762928cd33b75e2831b827ba1b00ec4854",
+      "entropy": 4.868556,
+      "nonzero_ratio": 0.552515,
+      "head16": "d0005e0000fe0400bda47e105e00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 151,
+      "offset": 2017280,
+      "length": 571136,
+      "offset_hex": "0x001EC800",
+      "sha256": "7303f0d850b02a4d04e8271ce265ce671a54127fa18ec9af328e2c6a31169bd7",
+      "entropy": 7.999648,
+      "nonzero_ratio": 0.996031,
+      "head16": "d0f4986b651551c585a62601ee0d98b3",
+      "tail16": "8f32f8b758090330f093f38eac334dce"
+    },
+    {
+      "slot": 152,
+      "offset": 2588416,
+      "length": 571136,
+      "offset_hex": "0x00277F00",
+      "sha256": "5ac40dc1f3974701de90f1004c38c863a7f19fc65e459346faa27c29c4343693",
+      "entropy": 7.999691,
+      "nonzero_ratio": 0.996118,
+      "head16": "80053db2516ac93eb021a1bff44b5b6e",
+      "tail16": "3d5fe74c648a5e06ba21d78feb2ff32b"
+    },
+    {
+      "slot": 153,
+      "offset": 3159552,
+      "length": 571136,
+      "offset_hex": "0x00303600",
+      "sha256": "bf698accbe189fe4ee8c393b698ec174b80892114ff579a173ecd6f52ef1603c",
+      "entropy": 7.999615,
+      "nonzero_ratio": 0.996053,
+      "head16": "380b0a9cccf5a417fcef438a8d422921",
+      "tail16": "f74c31f483cfbe68aff49ae2952676f7"
+    },
+    {
+      "slot": 154,
+      "offset": 3730688,
+      "length": 571136,
+      "offset_hex": "0x0038ED00",
+      "sha256": "11e3da9990baadb819d149de1b2c73fe0e5e9cfa1366e6fd9085035d4c77a123",
+      "entropy": 7.999697,
+      "nonzero_ratio": 0.996176,
+      "head16": "24e50b4f3644dd95e6e2d82a4dcfddb5",
+      "tail16": "fafc51f9812f20d446a467b08e39f53d"
+    },
+    {
+      "slot": 156,
+      "offset": 4301824,
+      "length": 539136,
+      "offset_hex": "0x0041A400",
+      "sha256": "5d5ef69692ce3065a99d3ce375f5930a8b5e6075832b5d0cf92a9ae5e0e37f91",
+      "entropy": 4.813613,
+      "nonzero_ratio": 0.546178,
+      "head16": "d0005e0000fe0400bda47e105e00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 449,
+      "offset": 4840960,
+      "length": 258560,
+      "offset_hex": "0x0049DE00",
+      "sha256": "e2068f7c7a0b77e3b8e6d2c161a702ee89fa5bbd6e754baf24267291d9b8e220",
+      "entropy": 5.804235,
+      "nonzero_ratio": 0.656811,
+      "head16": "d000790000fe0400bda47e10fd00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 452,
+      "offset": 5099520,
+      "length": 258560,
+      "offset_hex": "0x004DD000",
+      "sha256": "25e9b50cffd405b9a4a7fce752d087129db79b279190ddf4ea92799389aa6cac",
+      "entropy": 7.999048,
+      "nonzero_ratio": 0.995073,
+      "head16": "59132e902effcc280056a928e89518cd",
+      "tail16": "9e25706a003583c7122672577edbbf91"
+    },
+    {
+      "slot": 453,
+      "offset": 5358080,
+      "length": 160512,
+      "offset_hex": "0x0051C200",
+      "sha256": "7250a85042ad029fab7ea342f2417cc765b5792e71ce0eba526a9103b207d8ba",
+      "entropy": 7.998644,
+      "nonzero_ratio": 0.994891,
+      "head16": "0564c88452a8a3e9f51cd118b765c49a",
+      "tail16": "155e3a9d040137180cbebf277e840a5a"
+    },
+    {
+      "slot": 456,
+      "offset": 5518592,
+      "length": 145152,
+      "offset_hex": "0x00543500",
+      "sha256": "f38206d4dd06ccc4f689d2b640de2bfdaf3f625b7ddd4c96e8497c400241835d",
+      "entropy": 7.99853,
+      "nonzero_ratio": 0.99473,
+      "head16": "1c5ca9dd439bcb54737fbe8ef6c4f4d4",
+      "tail16": "054b3fe1875a13643d235580906e2a64"
+    },
+    {
+      "slot": 459,
+      "offset": 5663744,
+      "length": 258560,
+      "offset_hex": "0x00566C00",
+      "sha256": "c888b4d89f09ce90cbd09317827c19f37dcf6380931389e93a77c8824fce7d78",
+      "entropy": 7.999271,
+      "nonzero_ratio": 0.995266,
+      "head16": "15da5a950814d4c1ec8fee03db4792a6",
+      "tail16": "4999bf83985ee8442c1e84848a01a1e2"
+    },
+    {
+      "slot": 460,
+      "offset": 5922304,
+      "length": 145152,
+      "offset_hex": "0x005A5E00",
+      "sha256": "6459d8c20adb578c8f4f642a87c9d5a9c15ba779a0868b5ceaefbe7618c3373f",
+      "entropy": 7.998206,
+      "nonzero_ratio": 0.994406,
+      "head16": "8cfe589d205c6f64200625c13891c6fb",
+      "tail16": "5b895f5557aad4b133ed30f171853da6"
+    },
+    {
+      "slot": 461,
+      "offset": 6067456,
+      "length": 261120,
+      "offset_hex": "0x005C9500",
+      "sha256": "36f010e112c87137595819900c72bb01521ebad150a874ef6b71a5f02b0a9de2",
+      "entropy": 5.81727,
+      "nonzero_ratio": 0.657858,
+      "head16": "d000790000fe0400bda47e10fd00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 464,
+      "offset": 6328576,
+      "length": 261120,
+      "offset_hex": "0x00609100",
+      "sha256": "3f012d8b56522ee27df760b7d9e7e8dedccb74bcd121d4a0d9c96e9ff3057380",
+      "entropy": 7.999216,
+      "nonzero_ratio": 0.995209,
+      "head16": "408935307b6f84bd3d9d98343f0e787c",
+      "tail16": "ee5bea5d6353801ce80148589498ca4f"
+    },
+    {
+      "slot": 465,
+      "offset": 6589696,
+      "length": 145408,
+      "offset_hex": "0x00648D00",
+      "sha256": "97f20e81f087ff175041c66671f6b865939de109da46492e228023cce8ebb155",
+      "entropy": 7.998423,
+      "nonzero_ratio": 0.994787,
+      "head16": "b58a836f6f32573ab59b6f94abbb82e3",
+      "tail16": "8de593ca8e844f02265de32da17114bc"
+    },
+    {
+      "slot": 468,
+      "offset": 6735104,
+      "length": 261120,
+      "offset_hex": "0x0066C500",
+      "sha256": "0379c0e446bd7694092a236beed01d8262f48afabb5cfc899506403a9b19e21d",
+      "entropy": 7.999227,
+      "nonzero_ratio": 0.995182,
+      "head16": "25a96a2393fcdfe436666a3e4c67bd18",
+      "tail16": "0e9b973c143abac41cd22352ffaacfeb"
+    },
+    {
+      "slot": 469,
+      "offset": 6996224,
+      "length": 145408,
+      "offset_hex": "0x006AC100",
+      "sha256": "47ff75ae7f28ee1281c5a6649792326530fc7e7590689406eadcc3f0a3062de5",
+      "entropy": 7.998237,
+      "nonzero_ratio": 0.994718,
+      "head16": "40864d823d4f4a2a15fc56965f5bc33f",
+      "tail16": "8ee40cb45e1478d066e9092bc561fe7b"
+    },
+    {
+      "slot": 470,
+      "offset": 7141632,
+      "length": 257792,
+      "offset_hex": "0x006CF900",
+      "sha256": "bf0ff42af8b8bedbc2d20688ec92959093250a7d2f4d7b19968037efd60bece7",
+      "entropy": 5.79069,
+      "nonzero_ratio": 0.654927,
+      "head16": "d000790000fe0400bda47e10fd00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 473,
+      "offset": 7399424,
+      "length": 257792,
+      "offset_hex": "0x0070E800",
+      "sha256": "716857c23d52452381feb01024875a130732153fe992ca36773b1a859acc7616",
+      "entropy": 7.99926,
+      "nonzero_ratio": 0.995093,
+      "head16": "5d30895c356e5ff0c7aba18c2ccaf15b",
+      "tail16": "32049407e5e2f99e0ddd701c7af075bf"
+    },
+    {
+      "slot": 474,
+      "offset": 7657216,
+      "length": 143616,
+      "offset_hex": "0x0074D700",
+      "sha256": "ac249dea29315e5846a9435c87399ac5c8987a58ba543eea9aa8e28f767313df",
+      "entropy": 7.998408,
+      "nonzero_ratio": 0.994583,
+      "head16": "0818041aa27d10e0c1dff4e70d8ae546",
+      "tail16": "d1ce9d117878ec1d528293d08bd66876"
+    },
+    {
+      "slot": 477,
+      "offset": 7800832,
+      "length": 257792,
+      "offset_hex": "0x00770800",
+      "sha256": "6a3911c8b312df90cb63a2765de2d3627f157ba1f5f08d8937460ef73eb2b6c5",
+      "entropy": 7.999215,
+      "nonzero_ratio": 0.99507,
+      "head16": "eaa98f01c10b3cf08d3dfa7d30bb76ce",
+      "tail16": "429e7b636beea910da78f88013dfb059"
+    },
+    {
+      "slot": 478,
+      "offset": 8058624,
+      "length": 143616,
+      "offset_hex": "0x007AF700",
+      "sha256": "eef2a2c513463ebebd5726b84dfcdba77d2bbca670cc3e9b60dcddb95dd1adbb",
+      "entropy": 7.998349,
+      "nonzero_ratio": 0.994806,
+      "head16": "09bc3af97e182120e50bb88bc578fc17",
+      "tail16": "a8c03f8f60d4af354626d576228f416d"
+    },
+    {
+      "slot": 481,
+      "offset": 8202240,
+      "length": 143360,
+      "offset_hex": "0x007D2800",
+      "sha256": "94dfd9eda140ba5fe9ff71442554a9452c105f585ca42a48a096c01d5361ea42",
+      "entropy": 4.19832,
+      "nonzero_ratio": 0.415158,
+      "head16": "d000f00000fe0400bda47e10fb00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 484,
+      "offset": 8345600,
+      "length": 157440,
+      "offset_hex": "0x007F5800",
+      "sha256": "ca91d640e5e534202f819f714fc96f03fc4f1a4a426ec21395cc7285b039b4da",
+      "entropy": 4.595021,
+      "nonzero_ratio": 0.462265,
+      "head16": "d000f00000fe0400bda47e10fb00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 487,
+      "offset": 8503040,
+      "length": 147712,
+      "offset_hex": "0x0081BF00",
+      "sha256": "73146509b95ef23db9d277674a6a1133173568476d930b114c450f21280e1d1f",
+      "entropy": 2.786219,
+      "nonzero_ratio": 0.25786,
+      "head16": "d000f00000fe0400bda47e10fb00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 490,
+      "offset": 8650752,
+      "length": 124160,
+      "offset_hex": "0x00840000",
+      "sha256": "e10341a3d83716e34b7a3be8363f9ebb4d3f2b5dd0e2635b6d1386dc403ffe9b",
+      "entropy": 3.797969,
+      "nonzero_ratio": 0.367598,
+      "head16": "d000f00000fe0400bda47e10fd00f802",
+      "tail16": "00000000000000000000000000000000"
+    },
+    {
+      "slot": 493,
+      "offset": 8774912,
+      "length": 62720,
+      "offset_hex": "0x0085E500",
+      "sha256": "1895bbf642e935c908eb4e0030115d880ad7a4e8d3e84622f9ec79125d5919da",
+      "entropy": 2.423639,
+      "nonzero_ratio": 0.235061,
+      "head16": "d000790000fe0400bda47e10fd00f802",
+      "tail16": "00000000000000000000000000000000"
+    }
+  ],
+  "overlaps": [],
+  "duplicates": [],
+  "gaps": [
+    {
+      "start": 11928,
+      "end": 12032,
+      "size": 104,
+      "all_zero": true,
+      "nonzero_ratio": 0.0
+    },
+    {
+      "start": 752576,
+      "end": 752640,
+      "size": 64,
+      "all_zero": true,
+      "nonzero_ratio": 0.0
+    },
+    {
+      "start": 878104,
+      "end": 878336,
+      "size": 232,
+      "all_zero": true,
+      "nonzero_ratio": 0.0
+    },
+    {
+      "start": 1004488,
+      "end": 1004544,
+      "size": 56,
+      "all_zero": true,
+      "nonzero_ratio": 0.0
+    },
+    {
+      "start": 1130008,
+      "end": 1130240,
+      "size": 232,
+      "all_zero": true,
+      "nonzero_ratio": 0.0
+    },
+    {
+      "start": 1262232,
+      "end": 1262336,
+      "size": 104,
+      "all_zero": true,
+      "nonzero_ratio": 0.0
+    }
+  ],
+  "coverage": {
+    "covered_bytes": 8824912,
+    "uncovered_bytes": 12720,
+    "payload_count": 38
+  },
+  "independent_scan": {
+    "region": "[header_end, first_payload)",
+    "hits": 38,
+    "confirmed": 38,
+    "extra": [],
+    "parsed_not_in_scan": []
+  }
+}

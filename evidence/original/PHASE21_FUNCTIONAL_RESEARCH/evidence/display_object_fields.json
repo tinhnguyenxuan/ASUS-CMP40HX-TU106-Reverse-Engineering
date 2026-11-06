@@ -1,0 +1,90 @@
+{
+  "firmware": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+  "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "worker": "0x04b30030",
+  "second_argument_copy": {
+    "va": "0x04b30050",
+    "from": "a1",
+    "to": "s3"
+  },
+  "configuration_names": {
+    "0x40b3010": "RMRunFub",
+    "0x40b3020": "RMFubUseCaseMask",
+    "0x40b3038": "RmDisableDisplay"
+  },
+  "conditional_field_stores": [
+    {
+      "va": "0x4b30130",
+      "funct3": 0,
+      "base_register": 19,
+      "source_register": 15,
+      "displacement": 808
+    },
+    {
+      "va": "0x4b30128",
+      "funct3": 2,
+      "base_register": 19,
+      "source_register": 15,
+      "displacement": 812
+    },
+    {
+      "va": "0x4b30138",
+      "funct3": 2,
+      "base_register": 19,
+      "source_register": 15,
+      "displacement": 820
+    }
+  ],
+  "wrapper": "0x04b301b8",
+  "wrapper_direct_call_site": "0x04b301e0",
+  "wrapper_pointer_file_offsets": [
+    "0x33e90"
+  ],
+  "downstream_gate": {
+    "entry": "0x04b20f54",
+    "field_read": "0x04b20f80: lw a5,0x334(a1)",
+    "zero_field_fallthrough": "writes byte 1 to caller output at 0x04b20f8c",
+    "nonzero_field_branch": "writes byte 0 to caller output at 0x04b20fe4",
+    "other_prerequisites": [
+      "byte at *(a0+0x790)+0x88",
+      "byte at a0+0x737"
+    ],
+    "installed_function_slot": "three explicit construction paths store the consumer at a0+0x158",
+    "explicit_install_address_sites": [
+      "0x5571a18",
+      "0x5571b28",
+      "0x5572800"
+    ],
+    "first_prerequisite_false_fallback": "indirect call through a0+0x1b0",
+    "second_prerequisite_writer": "0x04b72790 loads slot +0xb8 from the same object, calls it, and 0x04b7279c caches its return byte at +0x737"
+  },
+  "site_a_gate": {
+    "entry": "0x04840310",
+    "rm_disable_display_one": "bypasses the +0x1c8 HAL predicate and returns byte zero",
+    "normal_dispatch": "indirect call through second argument +0x1c8",
+    "missing_key_prerequisites": [
+      "a0+0x6dd",
+      "a0+0x737",
+      "a0+0x6d0",
+      "a0+0x4f80"
+    ]
+  },
+  "recovered_hal_predicates": {
+    "+0x1b0": {
+      "target": "0x04b19ea4",
+      "register_selector": "0x3814",
+      "result": "(word & 0x000c0000) != 0"
+    },
+    "+0x1c8": {
+      "target": "0x04b1a018",
+      "register_selector": "0x3814",
+      "result": "(word >> 27) & 1"
+    },
+    "semantic_limit": "No exact-tag source field definition for selector 0x3814 or these bits was recovered."
+  },
+  "limits": [
+    "The second argument's original class/type name is not recovered.",
+    "The stores prove cached configuration fields, not runtime reachability or effective target values.",
+    "A value of one for RmDisableDisplay is a software policy input, not evidence that display silicon or PCB routes exist."
+  ]
+}

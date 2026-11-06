@@ -1,0 +1,28 @@
+Đã xong. Kết quả kiểm toán tại:
+
+`/home/REDACTED_USER/codex-work/work_v15/PHASE16/FUSE_TU106_AUDIT/`
+
+- `fuse_tu106_audit.py` — script stdlib-only, tự verify hash đầu vào và tự kiểm tra (assert) trước khi ghi.
+- `fuse_tu106_audit_report.json` — báo cáo máy đọc được, chứa toàn bộ 3072 word inventory (offset, địa chỉ tuyệt đối, giá trị thô, phân loại, ánh xạ nguồn).
+- `FUSE_TU106_AUDIT.md` — báo cáo con người đọc.
+- `fuse_tu106_audit_run.log` — nhật ký chạy.
+
+Không chạm đến raw dump (`RAW_DATA/fuse2.json`, sha256 không đổi `0e770041…`) và không sửa `UNKNOWN_DATABASE.json`.
+
+**Kết quả chính:**
+- Dump: base `0x21000`, dumped `3072 word` (offset `0x0..0x2FFC`, 12288 B, liên tục). Span khai báo `32768 B` chỉ nửa đầu được dump. Phân loại: `352 DATA / 518 ZERO / 2202 POISON`, 152 word bằng 1, last non-poison offset `0x17FC (6140)` — khớp fuse_audit.json.
+- Chỉ 2 word có nguồn Turing/TU10x áp được TU106 (từ `turing/tu102/dev_fuse.h`, hash `f96f637c…`, dòng 26-33):
+  - `0x378/0x21378 NV_FUSE_OPT_NVDEC_DISABLE` bits2:0 = 0
+  - `0x74C/0x2174C NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS` bit0 = 1
+- `0xC04/0x21C04` chỉ có nguồn Maxwell `gm107` (DATA_ENABLE=0), dump đọc là 1 (ngoài enum) → **không áp TU106**.
+
+**Revisit (không sống lại các giả định bị bác trước):**
+- U-FUSE-001/003/004/005/006/008/010/011/012: giữ OPEN/UNKNOWN, gap nêu rõ là "không có định nghĩa Turing/TU106 tại offset này; không có mã consume xác định". 005 không decode thành GPC mask (bác popcount), 006 không coi là block OTP bị xóa (bác fixed poison).
+- U-FUSE-009: **MỞ LẠI** → OPEN/UNKNOWN, INSUFFICIENT_EVIDENCE (Maxwell source không đủ, giá trị 1 ngoài enum).
+- U-FUSE-007 (PDI) giữ RESOLVED/CORROBORATED; U-FUSE-013 giữ RESOLVED/DECODED nhưng einschränken áp dụng (không phải GB100-only, GA100 cũng dùng aperture `0x820000`; không liên quan đến dump fuse `0x21000` của TU106).
+
+**Danh sách khuyến nghị (chỉ trong báo cáo này, không sửa DB):** OPEN 11 (001-006, 008-012), RESOLVED 2 (007, 013), newly decoded 2 (0x378, 0x74C).
+
+**Lưu ý minh bạch:** `input_hashes.json` ghi `UNKNOWN_DATABASE.json` là 23192 B / sha256 `600e9694…`; file trên đĩa hiện là 26429 B / sha256 `65241527…` (đã cập nhật sau khi hash đó được ghi). Kiểm toán băm file trên đĩa như hiện tại và không sửa nó.
+
+**Bỏ qua (theo ràng buộc, không bổ sung sau này):** brute-force hash/key, nhận dạng mã hóa từ độ dài 32 byte, probe/ghi phần cứng, suy diễn topology từ popcount.

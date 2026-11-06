@@ -1,0 +1,12 @@
+{
+  "source": "target_package.json",
+  "source_started_utc": "2026-11-04T14:44:03.864887+00:00",
+  "matching_lines": [
+    "RmProfilingAdminOnly: 1",
+    "EnableGpuFirmware: 18",
+    "EnableGpuFirmwareLogs: 2",
+    "RegistryDwords: \"\"",
+    "RegistryDwordsPerDevice: \"\""
+  ],
+  "boundary": "Host module parameters only; no CUPTI correctness or counter access test."
+}

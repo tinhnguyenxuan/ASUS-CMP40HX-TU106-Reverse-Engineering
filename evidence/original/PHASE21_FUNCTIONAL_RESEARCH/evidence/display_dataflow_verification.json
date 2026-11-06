@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "kind": "call",
+      "pc": "0x4840374",
+      "target": "0x45e130c"
+    },
+    {
+      "kind": "call",
+      "pc": "0x4b300d0",
+      "target": "0x45e130c"
+    },
+    {
+      "kind": "branch",
+      "pc": "0x4840380",
+      "target": "0x48403d4"
+    },
+    {
+      "kind": "branch",
+      "pc": "0x484038c",
+      "target": "0x48403fc"
+    },
+    {
+      "kind": "branch",
+      "pc": "0x4b300dc",
+      "target": "0x4b300ec"
+    },
+    {
+      "kind": "branch",
+      "pc": "0x4b300e8",
+      "target": "0x4b30138"
+    },
+    {
+      "kind": "store",
+      "pc": "0x4b30138",
+      "source_register": "a5",
+      "base_register": "s3",
+      "displacement": "0x334",
+      "width": 4
+    },
+    {
+      "kind": "string",
+      "file_offset": "0x9e968",
+      "text": "RmDisableDisplay"
+    },
+    {
+      "kind": "string",
+      "file_offset": "0xb3078",
+      "text": "RmDisableDisplay"
+    }
+  ],
+  "result": "PASS",
+  "scope": "Only documented raw branch/call/store/string facts; not reachability, helper semantics or target runtime"
+}

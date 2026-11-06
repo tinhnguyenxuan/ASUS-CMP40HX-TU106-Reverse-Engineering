@@ -1,0 +1,12 @@
+{
+  "job": "mmio_namespace_fix_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:25:19.298320+00:00",
+  "wrapper_pid": 1634381,
+  "task_sha256": "2c0d5c01cfe9b76d0308c3099bf78b15c73f7164ead3e7ea84ac73e77dc48edb",
+  "hermes_pid": 1634382,
+  "hermes_start_ticks": "208546518",
+  "heartbeat_at": "2026-11-03T15:32:49.540654+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:32:51.541436+00:00"
+}

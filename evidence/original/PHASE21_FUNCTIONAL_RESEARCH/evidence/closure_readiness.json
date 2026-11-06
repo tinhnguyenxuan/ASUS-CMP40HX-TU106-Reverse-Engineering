@@ -1,0 +1,60 @@
+{
+  "schema": "phase21-closure-readiness-v1",
+  "generated_utc": "2026-11-04T14:08:26.670811+00:00",
+  "hermes_event_cursor": 3,
+  "hermes_new_events": false,
+  "rows": [
+    {
+      "id": "B-RUNTIME-TARGET",
+      "status": "OPEN",
+      "authoritative_close": "timestamped target package from BDF 0000:03:00.0 verified by verify_target_package.py",
+      "required_inputs": [
+        "evidence/local_inventory_2026-11-04_rerun.json",
+        "TARGET_CAPTURE_CHECKLIST.md"
+      ],
+      "next_safe_action": "Collect or verify the authoritative closure artifact; no write/reset/privileged operation permitted."
+    },
+    {
+      "id": "B-EFFECTIVE-REGISTRY",
+      "status": "OPEN",
+      "authoritative_close": "target package containing readable registry/NVKV source with command and timestamp",
+      "required_inputs": [
+        "GSP_DISPLAY_CONFIG_DATAFLOW.md",
+        "HOST_REGISTRY_PRODUCER.md"
+      ],
+      "next_safe_action": "Collect or verify the authoritative closure artifact; no write/reset/privileged operation permitted."
+    },
+    {
+      "id": "B-FUNCTIONAL-DISPLAY",
+      "status": "OPEN",
+      "authoritative_close": "fresh display/KMS plus EGL/OpenGL/Vulkan/CUDA results tied to target UUID",
+      "required_inputs": [
+        "HEADLESS_GRAPHICS_REPORT.md",
+        "saved_runtime_provenance.json"
+      ],
+      "next_safe_action": "Collect or verify the authoritative closure artifact; no write/reset/privileged operation permitted."
+    },
+    {
+      "id": "B-REFERENCE-ROM",
+      "status": "OPEN",
+      "authoritative_close": "externally sourced ROM with chain-of-custody and exact SKU/revision metadata",
+      "required_inputs": [
+        "evidence/rom_inventory.json",
+        "evidence/rom_dcb_all_inventory.json"
+      ],
+      "next_safe_action": "Collect or verify the authoritative closure artifact; no write/reset/privileged operation permitted."
+    },
+    {
+      "id": "B-PCB-ROUTING",
+      "status": "OPEN",
+      "authoritative_close": "authenticated PCB photos plus schematic/boardview or documented continuity",
+      "required_inputs": [
+        "DISPLAY_PCB_EVIDENCE.md",
+        "evidence/pcb_evidence_provenance.json"
+      ],
+      "next_safe_action": "Collect or verify the authoritative closure artifact; no write/reset/privileged operation permitted."
+    }
+  ],
+  "rule": "Readiness is planning metadata only; it does not promote any blocker or infer target capability.",
+  "current_state": "IN_PROGRESS"
+}

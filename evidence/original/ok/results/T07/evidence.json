@@ -1,0 +1,135 @@
+{
+  "task": "T07 — GSP policy display bounded verification",
+  "generated_at": "2026-11-05T00:00:00+07:00",
+  "executor": "main session cx/gpt-5.5; no subagent output used",
+  "constraints": "R0 offline only; no GPU/SSH/MMIO/BAR/PCI operation, patch, reload, reset or firmware write",
+  "binary": {
+    "path": "/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin",
+    "fwversion": "615.78.08",
+    "sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+    "identity_source": "PHASE21_FUNCTIONAL_RESEARCH/evidence/firmware_capability_inventory.json"
+  },
+  "runtime_version_gap": {
+    "version": "615.71.09",
+    "status": "NEEDS_INPUT",
+    "reason": "Exact GSP binary/hash for runtime version is not in the review package; no fixed address delta was assumed."
+  },
+  "tool_versions": {
+    "python": "3.14.9",
+    "verifiers": [
+      "verify_display_object_fields.py PASS",
+      "verify_display_dataflow.py PASS",
+      "verify_host_registry_producer.py PASS"
+    ]
+  },
+  "input_hashes": {
+    "evidence/firmware_capability_inventory.json": "read from package-adjacent Phase21 workspace",
+    "evidence/display_object_fields.json": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b firmware identity",
+    "evidence/display_dataflow_verification.json": "PASS output",
+    "evidence/gsp_name_xrefs.json": "bounded raw windows; hash retained in workspace"
+  },
+  "claims": [
+    {
+      "claim_id": "T07-C01",
+      "target_question": "GSP binary exact version/hash có đủ để phân tích không?",
+      "claim": "615.78.08 GSP exact binary is present and its .fwversion and SHA-256 match the independent inventory; 615.71.09 binary is absent.",
+      "status": "VERIFIED",
+      "classification": "CORROBORATED",
+      "source_path_or_url": "work_v15/outputs/gsp_tu10x.bin; PHASE21_FUNCTIONAL_RESEARCH/evidence/firmware_capability_inventory.json",
+      "source_hash_or_commit": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+      "locator": ".fwversion section and inventory record",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "project GSP 615.78.08; runtime target history says 615.71.09",
+      "method": "sha256 plus bounded ELF inventory read",
+      "alternative_explanation": "615.78.08 may be an old/local artifact, not the current loaded firmware",
+      "limitation": "installation/loading on target not verified",
+      "next_discriminator": "exact 615.71.09 GSP with provenance/hash"
+    },
+    {
+      "claim_id": "T07-C02",
+      "target_question": "RmDisableDisplay có static consumers/dataflow không?",
+      "claim": "Two bounded sites form the RmDisableDisplay name and call helper 0x045e130c; worker 0x04b30030 caches value 1 at object +0x334.",
+      "status": "VERIFIED",
+      "classification": "DECODED",
+      "source_path_or_url": "PHASE21_FUNCTIONAL_RESEARCH/evidence/gsp_name_xrefs.json; evidence/display_object_fields.json",
+      "source_hash_or_commit": "firmware SHA above",
+      "locator": "0x04840368, 0x04b300c0, 0x04b30050, 0x04b30138",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "GSP 615.78.08",
+      "method": "raw RISC-V instruction windows and assertion verifier",
+      "alternative_explanation": "static references do not prove the callers are reached in target boot",
+      "limitation": "helper fallback and runtime key value unresolved",
+      "next_discriminator": "read-only capture of effective packaged registry or exact runtime trace"
+    },
+    {
+      "claim_id": "T07-C03",
+      "target_question": "+0x334 có ảnh hưởng capability output không?",
+      "claim": "Consumer 0x04b20f54 reads +0x334; zero falls through to byte 1 and nonzero branches to a path writing byte 0, after other prerequisites.",
+      "status": "VERIFIED",
+      "classification": "DECODED",
+      "source_path_or_url": "PHASE21_FUNCTIONAL_RESEARCH/evidence/display_object_fields.json; verify_display_object_fields.py",
+      "source_hash_or_commit": "firmware SHA above",
+      "locator": "0x04b20f80–0x04b20fe4",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "GSP 615.78.08",
+      "method": "raw instruction assertions",
+      "alternative_explanation": "output byte semantics are local to this consumer; source-level result name unknown",
+      "limitation": "other prerequisites and runtime reachability unresolved",
+      "next_discriminator": "bounded caller/response identity or runtime capability response"
+    },
+    {
+      "claim_id": "T07-C04",
+      "target_question": "Host registry có đường đến GSP list không?",
+      "claim": "Official 615.78.08 host source and firmware dataflow connect osPackageRegistry -> packed registry -> NVKV -> GMCAPI_CMD_GSP_INIT 0x00010001 -> typed configuration list.",
+      "status": "CORROBORATED",
+      "classification": "CORROBORATED",
+      "source_path_or_url": "PHASE21_FUNCTIONAL_RESEARCH/HOST_REGISTRY_PRODUCER.md; GSP_SYSTEM_INFO_INGESTION.md; GSP_NVKV_CALLBACK.md",
+      "source_hash_or_commit": "host manifest commit ca2d03e6fafd4d4b56b383497d931c25b283bfcf; firmware SHA above",
+      "locator": "host encoder and firmware packet 0x10001 paths",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "host 615.78.08 source and project GSP 615.78.08",
+      "method": "official source correlation plus bounded raw firmware verification",
+      "alternative_explanation": "saved source and saved binary build linkage is not cryptographically proven",
+      "limitation": "target effective key/value not captured",
+      "next_discriminator": "live read-only effective registry/GSP trace"
+    },
+    {
+      "claim_id": "T07-C05",
+      "target_question": "Selector 0x3814 có semantic TU106 exact không?",
+      "claim": "The two local predicates use selector 0x3814 with masks 0x000c0000 and bit 27, but exact TU106 field name/physical source is not proven.",
+      "status": "UNKNOWN",
+      "classification": "DECODED + UNKNOWN semantic",
+      "source_path_or_url": "evidence/display_object_fields.json",
+      "source_hash_or_commit": "firmware SHA above",
+      "locator": "targets 0x04b19ea4 and 0x04b1a018",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "GSP 615.78.08; TU106 semantic mapping unresolved",
+      "method": "raw instruction decode with cross-generation names deliberately rejected",
+      "alternative_explanation": "selector may be an internal accessor index rather than BAR0 fuse offset",
+      "limitation": "no exact-tag TU106 header field found",
+      "next_discriminator": "exact GSP/runtime trace plus TU106-specific field definition"
+    },
+    {
+      "claim_id": "T07-C06",
+      "target_question": "GSP path có đủ để kết luận khôi phục display không?",
+      "claim": "No. Static GSP policy path is one layer; it does not prove effective value, host fuse bypass, display engine/PHY presence, VBIOS routing, or DP/DVI signal.",
+      "status": "UNKNOWN",
+      "classification": "UNKNOWN",
+      "source_path_or_url": "T04, T05, T07 reports",
+      "source_hash_or_commit": "individual evidence files",
+      "locator": "T07 GSP_BOUNDED_VERIFICATION.md §5",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "CMP 40HX/TU106",
+      "method": "cross-layer bounded analysis",
+      "alternative_explanation": "multiple simultaneous blockers",
+      "limitation": "R0 excludes runtime intervention and target trace",
+      "next_discriminator": "safe read-only target capture under separately approved scope"
+    }
+  ],
+  "output_files": [
+    "GSP_BOUNDED_VERIFICATION.md",
+    "VERSION_FUNCTION_MAP.csv",
+    "annotated_bounded_disassembly.txt",
+    "evidence.json"
+  ]
+}

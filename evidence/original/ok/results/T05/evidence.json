@@ -1,0 +1,160 @@
+{
+  "task": "T05 — VBIOS/DCB và điều kiện đủ khôi phục cổng display",
+  "generated_at": "2026-11-05T00:00:00+07:00",
+  "constraints": "R0 offline; chỉ đọc hai ROM trong package và source/spec đã có; không flash, patch, SSH, GPU/MMIO/PCI read-write, reset hoặc reload",
+  "executor": "main session cx/gpt-5.5; không dùng subagent cho phân tích này",
+  "tool_versions": {
+    "python": "3.14.9",
+    "method": "Python stdlib struct/hashlib/json; bounds-checked parser",
+    "source_parser": "EnvyTools snapshot /tmp/envytools/nvbios (upstream commit unknown)",
+    "web_source_accessed": "2026-11-05"
+  },
+  "inputs": {
+    "03_VBIOS/CMP40HX_ORIGINAL_1MB.bin": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+    "03_VBIOS/cmp40hx_t4_derivative.bin": "aa0ebd6d74326bb4630c473caeb6a5ae2bf55598b80a38d41a65ffee0b40cfdb",
+    "05_PHASE21_EXTRACTS/evidence/dcb.json": "5e621d549928f4536a0c1d588dfa9c7d8a2803d09ef82682ab93c5a48aeb5aa3",
+    "05_PHASE21_EXTRACTS/evidence/rom_inventory.json": "c7abc42bfb4b9c30b03ead3c552f4352b04ff0ffa77502f7c48e0fb2010a217c",
+    "05_PHASE21_EXTRACTS/evidence/rom_dcb_all_inventory.json": "289a2b35fd54f99a053e9db3c2e2b931f774ba58d0a9463a612fb853b1f08689"
+  },
+  "commands_log": [
+    "python3 results/T05/parse_vbios_corrected.py",
+    "sha256sum input ROMs, corrected parser and corrected JSON",
+    "offline inspection of /tmp/envytools/nvbios/dcb.c, conn.c, gpio.c",
+    "web_search for NVIDIA DCB 4.x specification"
+  ],
+  "web_sources": [
+    {
+      "url": "https://nvidia.github.io/open-gpu-doc/DCB/DCB-4.x-Specification.html",
+      "tag": "NVIDIA open-gpu-doc DCB 4.x Specification; version/commit not pinned by page",
+      "accessed": "2026-11-05",
+      "relevant_quote": "DCB 4.x header contains version, header size, entry count, entry size, table pointers and signature 0x4EDCBDCB; DCB 4.1 repurposes assignment masks for pad macro/pad link; connector table entry count describes connector records.",
+      "applicability_tu106": "format-level applicability to supplied DCB 0x41; does not prove CMP board hardware capability"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "T05-C01",
+      "target_question": "Hai ROM có cấu trúc PCIR hợp lệ và nhận diện device nào?",
+      "claim": "Cả hai ROM có PCIR images với vendor 0x10de và device 0x1f0b; ROM gốc có 4 image records, derivative có 2.",
+      "status": "VERIFIED",
+      "classification": "DECODED",
+      "source_path_or_url": "results/T05/VBIOS_DISPLAY_TABLES.json; supplied ROM bytes",
+      "source_hash_or_commit": "ROM hashes in inputs",
+      "locator": "PCIR scan on 512-byte aligned image blocks",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "two supplied CMP 40HX/TU106 ROM artifacts",
+      "method": "independent bounds-checked PCIR parser",
+      "alternative_explanation": "PCIR identity does not establish board provenance or physical display capability",
+      "limitation": "file names and PCIR IDs are not provenance authentication",
+      "next_discriminator": "reference ROM with board/revision/provenance"
+    },
+    {
+      "claim_id": "T05-C02",
+      "target_question": "DCB pointer/version/signature có đúng không?",
+      "claim": "Legacy image base 0x28600, pointer at +0x36 = 0x53ac, DCB absolute 0x2d9ac, version 0x41, header size 35, signature 0x4edcbdcb valid, entry count 0, entry size 8.",
+      "status": "VERIFIED",
+      "classification": "DECODED",
+      "source_path_or_url": "results/T05/VBIOS_DISPLAY_TABLES.json; results/T05/parse_vbios_corrected.py",
+      "source_hash_or_commit": "parser sha256 90f3ba3916fe6ac648c78e51f8f73002601535e23e8ccc02c66c3a43682cc086",
+      "locator": "ROM offsets 0x28636 and 0x2d9ac; DCB header bytes recorded in VBIOS_RECOVERY_REPORT.md",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "both supplied ROMs",
+      "method": "bounds-checked little-endian parse plus EnvyTools source comparison",
+      "alternative_explanation": "wrong pointer base could create false table headers; corrected parser uses legacy image base and matches saved handoff offsets",
+      "limitation": "parser correctness is format evidence, not runtime VBIOS execution evidence",
+      "next_discriminator": "independent nvbios tool run or reference ROM comparison"
+    },
+    {
+      "claim_id": "T05-C03",
+      "target_question": "ROM có DCB display device entries không?",
+      "claim": "DCB entry_count = 0 ở cả hai ROM; không có DCB device entry để decode output type, connector index, output resource hoặc DP link mask.",
+      "status": "VERIFIED",
+      "classification": "DECODED",
+      "source_path_or_url": "results/T05/VBIOS_DISPLAY_TABLES.json",
+      "source_hash_or_commit": "corrected JSON sha256 d54f17b89fb3c1e99c0ff6fd597ae7869be33e4b87fbacdb0bad331b437978bd",
+      "locator": "dcb.entry_count for both result objects",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "both supplied ROMs",
+      "method": "raw header decode and spec comparison",
+      "alternative_explanation": "devinit or another metadata path could configure hardware outside DCB entries",
+      "limitation": "zero entries is VBIOS metadata evidence, not proof display silicon/PHY is absent",
+      "next_discriminator": "bounded devinit/display-init analysis and independent reference ROM"
+    },
+    {
+      "claim_id": "T05-C04",
+      "target_question": "Connector table có tồn tại và có records không?",
+      "claim": "Connector pointer = 0x55c5 is nonzero; table at 0x2dbc5 has version 0x40, header size 5, count 0, record size 4.",
+      "status": "VERIFIED",
+      "classification": "DECODED",
+      "source_path_or_url": "results/T05/VBIOS_DISPLAY_TABLES.json; DCB spec",
+      "source_hash_or_commit": "ROM hashes in T05 evidence",
+      "locator": "legacy_base + 0x55c5 = 0x2dbc5; raw header 40 05 00 04 00",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "both supplied ROMs",
+      "method": "corrected pointer-base calculation",
+      "alternative_explanation": "table may be placeholder metadata; count zero still means no connector records available to host DCB parser",
+      "limitation": "does not identify physical connector population or routing",
+      "next_discriminator": "VBIOS init path plus physical CMP BOM/continuity evidence"
+    },
+    {
+      "claim_id": "T05-C05",
+      "target_question": "CCB/GPIO/I2C tables có đủ để chứng minh DP/DVI hoạt động không?",
+      "claim": "CCB 4.1, GPIO 4.1 và I2C Devices tables còn records; CCB records 3–9 decode thành DPAUX ports 0–6, nhưng không có DCB device entries tham chiếu chúng.",
+      "status": "VERIFIED",
+      "classification": "DECODED",
+      "source_path_or_url": "results/T05/VBIOS_DISPLAY_TABLES.json; PHASE21_FUNCTIONAL_RESEARCH/evidence/board_tables.json",
+      "source_hash_or_commit": "source parser hashes in VBIOS_RECOVERY_REPORT.md",
+      "locator": "communications table 0x2da4f; GPIO 0x2d1aa; I2C 0x2db40",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "both supplied ROMs",
+      "method": "CCB 4.1 field decode; raw-preserving GPIO/I2C extraction",
+      "alternative_explanation": "records may be generic resources or vendor-specific; AUX/HPD declaration is not a physical signal test",
+      "limitation": "no runtime display init or physical output evidence",
+      "next_discriminator": "independent devinit trace and direct output test, outside current R0"
+    },
+    {
+      "claim_id": "T05-C06",
+      "target_question": "cmp40hx_t4_derivative có phải reference control độc lập không?",
+      "claim": "Không. Derivative giữ cùng DCB offset/header and display-related table bytes as original; package không có reference RTX 2060S/2070 với provenance đủ mạnh.",
+      "status": "VERIFIED",
+      "classification": "CORROBORATED",
+      "source_path_or_url": "results/T05/VBIOS_DISPLAY_TABLES.json; input/05_PHASE21_EXTRACTS/evidence/rom_dcb_all_inventory.json",
+      "source_hash_or_commit": "derivative aa0ebd6d...; original dc5395dd...",
+      "locator": "both result objects and package dcb inventory",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "supplied CMP ROM pair",
+      "method": "byte-level DCB comparison",
+      "alternative_explanation": "other ROMs outside specified two-file scope could be valid controls, but their provenance is not established",
+      "limitation": "cannot generalize zero-entry result to all TU106 boards",
+      "next_discriminator": "obtain and authenticate one RTX 2060 SUPER and one RTX 2070 TU106 ROM"
+    },
+    {
+      "claim_id": "T05-C07",
+      "target_question": "Có đủ bằng chứng để tuyên bố khôi phục DP/DVI bằng phần mềm không?",
+      "claim": "Không. Với dữ liệu hiện tại không có RECOVERY_VERIFIED; DP và DVI đều còn phụ thuộc display fuse/policy, init metadata, hardware routing/population and driver compatibility.",
+      "status": "UNKNOWN",
+      "classification": "UNKNOWN",
+      "source_path_or_url": "results/T04/DISPLAY_FUSE_CHAIN.md; results/T01/PCB_DISPLAY_REPORT.md; results/T05/VBIOS_RECOVERY_REPORT.md",
+      "source_hash_or_commit": "cross-artifact; hashes in individual evidence files",
+      "locator": "T05 report §5",
+      "capture_time_or_unknown": "2026-11-05 offline",
+      "hardware_firmware_scope": "CMP 40HX/TU106",
+      "method": "cross-layer decision analysis; no intervention",
+      "alternative_explanation": "multiple independent blockers may coexist; zero DCB entries may be only one blocker",
+      "limitation": "no current output signal test, no authenticated GeForce control ROM, no VBIOS patch/flash allowed",
+      "next_discriminator": "authenticated reference ROM + bounded init analysis + physical/runtimes tests only under separately approved scope"
+    }
+  ],
+  "missing_inputs": [
+    "Reference TU106 GeForce ROM with authenticated board/revision provenance",
+    "Runtime display-init trace for this CMP BDF",
+    "Direct physical output proof for DP or DVI",
+    "Independent proof that DCB zero-entry is or is not overridden by devinit"
+  ],
+  "output_files": [
+    "VBIOS_DISPLAY_TABLES.json",
+    "VBIOS_RECOVERY_REPORT.md",
+    "parse_vbios_corrected.py",
+    "evidence.json"
+  ]
+}

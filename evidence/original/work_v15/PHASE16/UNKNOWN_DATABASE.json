@@ -1,0 +1,763 @@
+{
+  "generated_by": "TOOLS/build_db.py",
+  "total": 45,
+  "items": [
+    {
+      "id": "U-FUSE-001",
+      "component": "FUSE",
+      "address": "0x021000+0x0110..0x0198",
+      "observed": "152 word gia tri dung 0x00000001",
+      "hypotheses": [
+        "OTP bit cell readout (moi bit 1 word)",
+        "mang 152 enable flag doc lap"
+      ],
+      "supporting": "moi word chi bat bit 0; khoang cach la boi so 4",
+      "contradicting": "Sparse values alone neither establish nor rule out physical OTP readout. No geometry/consumer proof.",
+      "confidence": "UNKNOWN",
+      "priority": "P0",
+      "methods": "doi chieu dump fuse cua TU106 khac; tra nouveau/envytools",
+      "next": "tim dump fuse TU106/TU104 khac tren mang",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-002",
+      "component": "FUSE",
+      "address": "0x021000+0x0718..0x0734",
+      "observed": "8 word lien tuc entropy cao (32 byte)",
+      "hypotheses": [
+        "SHA-256 cua vung nao do",
+        "HMAC",
+        "khoa cong khai"
+      ],
+      "supporting": "32 byte dung kich thuoc SHA-256; khong cau truc",
+      "confidence": "BLOCKED",
+      "priority": "P0",
+      "status": "open",
+      "methods": "TOOLS/q289.py q2(): 455,689 phep thu tren rom+gsp+ucodes; TOOLS/q5_fusehash.py: 12,883 phep thu tren chinh khoi fuse (7 vung co nghia + 8 co cua so truot)",
+      "contradicting": "0 khop; 32 B khong phai 2x hash 16 B ghep",
+      "next": "DA THU hash tren chinh vung fuse: 0 khop. Can ROM TU106 khac hoac khoa/HMAC de doi chieu",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-003",
+      "component": "FUSE",
+      "address": "0x021000+0x0000",
+      "observed": "0xC0040000",
+      "hypotheses": [
+        "fuse strap mirror",
+        "chip config"
+      ],
+      "supporting": "khac NV_PMC_BOOT_0 (0x166000A1)",
+      "contradicting": "bit cao 0xC0 khong giong format nao da biet",
+      "confidence": "UNKNOWN",
+      "priority": "P0",
+      "methods": "tra strap bitfield",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-004",
+      "component": "FUSE",
+      "address": "0x021000+0x00D4..0x00F4",
+      "observed": "0xFFFFFFFC / 0xFFFFFF8F (11 word)",
+      "hypotheses": [
+        "fuse programming complete marker",
+        "mask da dot"
+      ],
+      "supporting": "tat ca bit bat tru vai bit",
+      "contradicting": "chua ro bit nao",
+      "confidence": "INFERRED",
+      "priority": "P1",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-005",
+      "component": "FUSE",
+      "address": "0x021000+0x0C1C",
+      "observed": "0x00000038 (0b00111000)",
+      "hypotheses": [
+        "bit 3/4/5 = 3 GPC?"
+      ],
+      "supporting": "Raw 0x38 has three set bits; semantic identity as GPC mask is unproven.",
+      "contradicting": "chua co bitfield",
+      "confidence": "UNKNOWN",
+      "priority": "P0",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-006",
+      "component": "FUSE",
+      "address": "0x021000+0x0178,0x02D4,0x0578,0x0E08",
+      "observed": "0xBADF510C at 7 offsets: +0x178,+0x2d4,+0x4a8,+0x4ac,+0x4b0,+0x578,+0xe08; meaning UNKNOWN",
+      "hypotheses": [
+        "o fuse bi khoa",
+        "doc loi co ban"
+      ],
+      "supporting": "All seven values independently matched against archived raw dump.",
+      "contradicting": "khong phai poison ngoai khoi",
+      "confidence": "UNKNOWN",
+      "priority": "P1",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-007",
+      "component": "FUSE",
+      "address": "0x021000+0x0344..0x034B",
+      "observed": "fuse+0x0344+0x0348 = 0x0000000000000000 = GPU PDI 64-bit",
+      "hypotheses": [
+        "da xac dinh"
+      ],
+      "supporting": "khop CHINH XAC field 'GPU PDI' cua nvidia-smi -q; hai nguon doc lap (OTP fuse + NVML)",
+      "contradicting": "P3 tung doan la 'hash/trim' -- SAI",
+      "confidence": "CORROBORATED",
+      "priority": "P0",
+      "status": "resolved",
+      "methods": "TOOLS/fuse_dump2.py + nvidia-smi -q",
+      "note": "PDI khong co trong VBIOS/gsp/ucodes (0 lan); 6 word sau (0x34C..0x363) = 1,0,1,0,0,0 = struct header + padding",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-008",
+      "component": "FUSE",
+      "address": "0x021000+0x0100..0x0240",
+      "observed": "155 word gia tri 1..7 (khong phai bitmask)",
+      "hypotheses": [
+        "version field",
+        "counter",
+        "index"
+      ],
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-009",
+      "component": "FUSE",
+      "address": "0x021000+0x0C04",
+      "observed": "Archived offset +0x0c04 is 1. A TU106-applicable display field definition has not been established.",
+      "hypotheses": [
+        "display bi chan boi clock/power gating khong phai fuse",
+        "CMP SKU fuse khac chua nhan dang",
+        "address decoder khong map display tren CMP"
+      ],
+      "supporting": "Raw dump and source-mapped per-word audit retained.",
+      "confidence": "UNKNOWN",
+      "priority": "P0",
+      "status": "open",
+      "methods": "FUSE_SOURCE/source_evidence.json; fuse_source_coordinator_review.json",
+      "contradicting": "The available Maxwell enum uses ENABLE=0; it cannot be imported to TU106 without applicability evidence.",
+      "note": "PGRAPH 0x400000 cung poison -> BAR0 khong decode toan bo 16 MB",
+      "dependencies": [],
+      "resolution": "Reopened in Phase16: previous display-enable interpretation used Maxwell source and inferred MMIO cause. Neither establishes TU106 field meaning."
+    },
+    {
+      "id": "U-FUSE-010",
+      "component": "FUSE",
+      "address": "0x021000+0x0520",
+      "observed": "0x16480000",
+      "hypotheses": [
+        "trim value",
+        "clock setting"
+      ],
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-011",
+      "component": "FUSE",
+      "address": "0x021000+0x0D38",
+      "observed": "0x000000F0",
+      "hypotheses": [
+        "binning/grade"
+      ],
+      "confidence": "UNKNOWN",
+      "priority": "P1",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-012",
+      "component": "FUSE",
+      "address": "0x021000+0x0DC8..0x0DD0",
+      "observed": "0x00000007 x3",
+      "hypotheses": [
+        "count/version"
+      ],
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FUSE-013",
+      "component": "FUSE",
+      "address": "0x00820000",
+      "observed": "NV_FUSE0_PRI_BASE tra NV_PMC_BOOT_0 roi poison",
+      "hypotheses": [
+        "gb100-only, khong ap dung TU106"
+      ],
+      "supporting": "0x166000a1 tai offset 0; 53/64 poison",
+      "contradicting": "driver 615.78.08 co dinh nghia",
+      "confidence": "DECODED",
+      "priority": "P0",
+      "status": "resolved",
+      "methods": "da kiem chung bang doc truc tiep",
+      "dependencies": [],
+      "note": "0x820000 is not GB100-only: GA100 also publishes this aperture. TU106 applicability must be established separately; preserve observed TU106 access results."
+    },
+    {
+      "id": "U-MMIO-NV_VIRTUAL_FUNCTION_PRIV_MMU_PAGE_FAULT_CTRL",
+      "component": "MMIO",
+      "address": "0x00003070",
+      "observed": "poison 0xbadf5040",
+      "hypotheses": [
+        "block khong ton tai",
+        "clock gated",
+        "address decoder khong map",
+        "access restricted"
+      ],
+      "supporting": "register co trong source turing",
+      "contradicting": "khong co",
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "methods": "doc qua cua so khac; kiem tra reset/clock gate",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-MMIO-NV_VIRTUAL_FUNCTION_PRIV_MMU_INVALIDATE",
+      "component": "MMIO",
+      "address": "0x000030b0",
+      "observed": "poison 0xbadf5040",
+      "hypotheses": [
+        "block khong ton tai",
+        "clock gated",
+        "address decoder khong map",
+        "access restricted"
+      ],
+      "supporting": "register co trong source turing",
+      "contradicting": "khong co",
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "methods": "doc qua cua so khac; kiem tra reset/clock gate",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-MMIO-NV_VIRTUAL_FUNCTION_TIME_0",
+      "component": "MMIO",
+      "address": "0x00030080",
+      "observed": "poison 0xbadf1100",
+      "hypotheses": [
+        "block khong ton tai",
+        "clock gated",
+        "address decoder khong map",
+        "access restricted"
+      ],
+      "supporting": "register co trong source turing",
+      "contradicting": "khong co",
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "methods": "doc qua cua so khac; kiem tra reset/clock gate",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-MMIO-NV_VIRTUAL_FUNCTION_TIME_1",
+      "component": "MMIO",
+      "address": "0x00030084",
+      "observed": "poison 0xbadf1100",
+      "hypotheses": [
+        "block khong ton tai",
+        "clock gated",
+        "address decoder khong map",
+        "access restricted"
+      ],
+      "supporting": "register co trong source turing",
+      "contradicting": "khong co",
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "methods": "doc qua cua so khac; kiem tra reset/clock gate",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-MMIO-NV_VIRTUAL_FUNCTION_DOORBELL",
+      "component": "MMIO",
+      "address": "0x00030090",
+      "observed": "poison 0xbadf1100",
+      "hypotheses": [
+        "block khong ton tai",
+        "clock gated",
+        "address decoder khong map",
+        "access restricted"
+      ],
+      "supporting": "register co trong source turing",
+      "contradicting": "khong co",
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "methods": "doc qua cua so khac; kiem tra reset/clock gate",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-MMIO-NV_VIRTUAL_FUNCTION_ERR_CONT",
+      "component": "MMIO",
+      "address": "0x00030094",
+      "observed": "poison 0xbadf1100",
+      "hypotheses": [
+        "block khong ton tai",
+        "clock gated",
+        "address decoder khong map",
+        "access restricted"
+      ],
+      "supporting": "register co trong source turing",
+      "contradicting": "khong co",
+      "confidence": "UNKNOWN",
+      "priority": "P2",
+      "methods": "doc qua cua so khac; kiem tra reset/clock gate",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-VBIOS-001",
+      "component": "VBIOS",
+      "address": "0x03000..0x034BF",
+      "observed": "38 record x 32 B: sig 0x6700 + ver 0x200/0x300/0x400/0x600 + 16 B hash + flags",
+      "hypotheses": [
+        "key block / certificate table",
+        "signed config records"
+      ],
+      "supporting": "1216 B = 38 x 32 chinh xac; bank2 toan 0xFF tai cung vung",
+      "contradicting": "timestamp field doc ra nam 1972-2102 -> khong phai unix time",
+      "confidence": "DECODED-cau-truc, UNKNOWN-nghia",
+      "priority": "P0",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-VBIOS-002",
+      "component": "VBIOS",
+      "address": "0x79000..0xF2000",
+      "observed": "ban sao thu 2 cua image 495616 B, khac 1 cum 0x3000..0x34BF",
+      "hypotheses": [
+        "bank du phong",
+        "image da ky vs chua ky"
+      ],
+      "supporting": "98.9% byte giong; chi khac vung record",
+      "confidence": "CORROBORATED",
+      "priority": "P1",
+      "status": "resolved",
+      "note": "payload = ban 1; bank 2 la du phong",
+      "dependencies": []
+    },
+    {
+      "id": "U-VBIOS-003",
+      "component": "VBIOS",
+      "address": "0x076800..0x078400",
+      "observed": "NPDS type-0x70, 12 digest 32 B",
+      "hypotheses": [
+        "chu ky khoi signature",
+        "digest list"
+      ],
+      "supporting": "0/1,365,939 phep thu khong khop vung nao",
+      "confidence": "UNKNOWN",
+      "priority": "P1",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-GSP-001",
+      "component": "GSP-RM",
+      "address": "0x041A70B0",
+      "observed": "bang descriptor 186 entry x 32 B tai base 0x041A70B0, consumer la ham dispatch @0x04F575FC",
+      "hypotheses": [
+        "da xac dinh consumer"
+      ],
+      "supporting": "capstone RISC-V: lui s1,0x41a7 + addi s1,s1,0xb0 = base; addi s1,s1,0x20 = stride 32; end = base+0x1740; doc u16@0, u32@4, u8@8, u64@0x10, u16@0x18",
+      "contradicting": "layout P3 (u64@0, u32@8/0xC/0x10/0x14/0x18/0x1C) SAI hoan toan",
+      "confidence": "DECODED",
+      "priority": "P3",
+      "status": "resolved",
+      "methods": "TOOLS/q1_lui.py (quet LUI imm20) + TOOLS/q1_disasm.py (capstone)",
+      "note": "BLOCKED 'can Ghidra' la ket luan SAI: chi can quet LUI + capstone",
+      "dependencies": []
+    },
+    {
+      "id": "U-GSP-002",
+      "component": "GSP-RM",
+      "address": "0x1a72a0",
+      "observed": "PERF_CF_CONTROLLER_GPC_MAX id=21 f08=0xff0a f14=88 f18=273",
+      "hypotheses": [
+        "tran GPC clock",
+        "policy khac"
+      ],
+      "confidence": "UNKNOWN",
+      "priority": "P3",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FW-001",
+      "component": "FIRMWARE",
+      "address": "0x00020f00",
+      "observed": "122880 B entropy 7.9976",
+      "hypotheses": [
+        "ma hoa",
+        "nen",
+        "nen roi ma hoa"
+      ],
+      "supporting": "4 blob cung kich thuoc 122880 B",
+      "contradicting": "khong IV, khong magic",
+      "confidence": "UNKNOWN",
+      "priority": "P4",
+      "methods": "nen lai; XOR cap blob; tim 16 B trung",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FW-002",
+      "component": "FIRMWARE",
+      "address": "0x0003ef00",
+      "observed": "122880 B entropy 7.9978",
+      "hypotheses": [
+        "ma hoa",
+        "nen",
+        "nen roi ma hoa"
+      ],
+      "supporting": "4 blob cung kich thuoc 122880 B",
+      "contradicting": "khong IV, khong magic",
+      "confidence": "UNKNOWN",
+      "priority": "P4",
+      "methods": "nen lai; XOR cap blob; tim 16 B trung",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FW-003",
+      "component": "FIRMWARE",
+      "address": "0x0005cf00",
+      "observed": "122880 B entropy 7.9978",
+      "hypotheses": [
+        "ma hoa",
+        "nen",
+        "nen roi ma hoa"
+      ],
+      "supporting": "4 blob cung kich thuoc 122880 B",
+      "contradicting": "khong IV, khong magic",
+      "confidence": "UNKNOWN",
+      "priority": "P4",
+      "methods": "nen lai; XOR cap blob; tim 16 B trung",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FW-004",
+      "component": "FIRMWARE",
+      "address": "0x0007af00",
+      "observed": "122880 B entropy 7.9976",
+      "hypotheses": [
+        "ma hoa",
+        "nen",
+        "nen roi ma hoa"
+      ],
+      "supporting": "4 blob cung kich thuoc 122880 B",
+      "contradicting": "khong IV, khong magic",
+      "confidence": "UNKNOWN",
+      "priority": "P4",
+      "methods": "nen lai; XOR cap blob; tim 16 B trung",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-TOP-001",
+      "component": "TOPOLOGY",
+      "address": "MMIO PRIV",
+      "observed": "Archived sampled display-register reads return BADF1301. TU106 display-fuse enable state has not been established; fuse+0xC04 raw=1 has only an inapplicable Maxwell definition.",
+      "hypotheses": [
+        "clock gated",
+        "power gated",
+        "khong map"
+      ],
+      "confidence": "UNKNOWN",
+      "priority": "P5",
+      "status": "open",
+      "dependencies": [],
+      "phase16_review": "FUSE_TU106_AUDIT; ENGINE_INTERFACES_COORDINATOR_REVIEW.md. Sampled poison reads do not prove physical engine absence."
+    },
+    {
+      "id": "U-MEM-001",
+      "component": "MEMORY",
+      "address": "NV_PFB",
+      "observed": "VRAM vat ly 8192 MiB, kha dung 7762 MiB (lech 430 MiB)",
+      "hypotheses": [
+        "carveout cho WPR/GSP",
+        "ECC metadata",
+        "reserved"
+      ],
+      "supporting": "Corrected WPR2 byte-address range [0x1F7E00000,0x1FFEE0000), span 128.875 MiB via VAL[31:4] << 12. Raw register subtraction is not byte size. WPR/NVML-reserved allocation overlap remains UNKNOWN.",
+      "confidence": "UNKNOWN",
+      "priority": "P6",
+      "status": "open",
+      "dependencies": [],
+      "phase16_review": "MEMORY_PCIE/memory_pcie_verified.json; EVIDENCE_LEDGER.md E16-007. Archived 7762 MiB availability differs from later archived Total8192/Reserved389/Used0/Free7804 MiB; retain snapshot distinction."
+    },
+    {
+      "id": "U-GSP-003",
+      "component": "GSP-RM",
+      "address": "0x1a7280..0x1e0000",
+      "observed": "340 entry that trong 60 bang (khong phai 139)",
+      "hypotheses": [
+        "bang descriptor day du"
+      ],
+      "confidence": "DECODED",
+      "priority": "P3",
+      "status": "resolved",
+      "note": "parser cu dem sai: nhieu 'entry' la duoi chuoi cua entry truoc",
+      "dependencies": []
+    },
+    {
+      "id": "U-GSP-004",
+      "component": "GSP-RM",
+      "address": "0x1abc98+0x0",
+      "observed": "RELIABILITY_NVVDD id=204 f14=150 f18=273",
+      "hypotheses": [
+        "nguon cua co Reliability trong nvidia-smi"
+      ],
+      "supporting": "ten khop tung chu; T4 lam co nay tat",
+      "contradicting": "id=204 trung VMIN_NVVDD_0 -> id khong duy nhat toan cuc",
+      "confidence": "INFERRED",
+      "priority": "P3",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-GSP-005",
+      "component": "GSP-RM",
+      "address": "f08/f18/f14",
+      "observed": "f08 co 16 gia tri (13 dang 0xffXX, 3 dang 0x0001XX/0x0004XX); f18 co 13 gia tri",
+      "hypotheses": [
+        "f08 = kieu du lieu",
+        "f18 = module ID"
+      ],
+      "confidence": "UNKNOWN",
+      "priority": "P3",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-FW-012",
+      "component": "FIRMWARE",
+      "address": "0x0B7C00 vs 0x0F5400",
+      "observed": "blob[6] va blob[8] khac dung 24 byte = BUILD TIMESTAMP ASCII",
+      "hypotheses": [
+        "da xac dinh"
+      ],
+      "supporting": "blob[6]='Dec 31 2024' + '11:39:34'; blob[8]='Jan  2 2025' + '08:35:16' (20 B ASCII + 1 B counter 0x21/0x1F, lap 2 lan)",
+      "confidence": "DECODED",
+      "priority": "P4",
+      "status": "resolved",
+      "methods": "TOOLS/q289.py q8(); in hex 4 cum khac",
+      "dependencies": []
+    },
+    {
+      "id": "U-FW-013",
+      "component": "FIRMWARE",
+      "address": "0x002F00",
+      "observed": "blob[0] entropy 3.481, 93.1% lenh unknown tu 4 offset",
+      "hypotheses": [
+        "data segment khong phai code",
+        "code bi obfuscate"
+      ],
+      "supporting": "3 lenh dau decode duoc chi la trung hop",
+      "confidence": "INFERRED",
+      "priority": "P4",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-GSP-007",
+      "component": "GSP-RM",
+      "address": "0x041A70B0 + k*32",
+      "observed": "chi 56/186 entry co u64(+0x10) tro toi DAU chuoi ASCII; 130 entry con lai co u64 la vaddr nhung tro vao giua du lieu",
+      "hypotheses": [
+        "bang gom nhieu sub-table layout khac nhau",
+        "entry co union: u64 khi la name_ptr, khi la cap so"
+      ],
+      "supporting": "25 cum entry-co-ten, cum dai nhat 9 entry",
+      "contradicting": "base/stride/span deu dung tu disasm",
+      "confidence": "BLOCKED",
+      "priority": "P3",
+      "methods": "thu 3 base khac nhau, thu u64=2x u32 offset vao pool: 0 ten",
+      "next": "DA doc callback + test 4 gia thuyet: (1) suffix merging -> _MIN ambiguous 126 lan nen KHONG phan giai duoc; (2) u32(+4) offset vao pool -> chi 16/370; (3) u16(+0x18) la do dai -> toi 0xFF0B, la {group,subtype}; (4) u64(+0x10) la name_ptr -> la tham so truyen cho callback qua a2",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-GSP-006",
+      "component": "GSP-RM",
+      "address": "0x00092de8, 0x000a7a90, 0x001a6ba0",
+      "observed": "7 ten (RMClkVfOverride, RmAtsVolOverride, RmClkControllersOverride, OVERVOLTAGE_LOGIC, OVERVOLTAGE_NVVDD_0/1, PERFORMANCE_CAP0) KHONG co entry descriptor nao tro toi",
+      "hypotheses": [
+        "ten noi bo khong dang ky qua bang descriptor",
+        "bang descriptor thu 2 o dinh dang khac"
+      ],
+      "supporting": "0 u32 ptr, 0 u64 ptr, 0 entry-style o MOI offset chan 4, tren ca 3 encoding thu (file_off, vaddr, u64)",
+      "contradicting": "7 ten deu nam trong vung mat do string cao (43-116 NUL/512B)",
+      "confidence": "BLOCKED",
+      "priority": "P3",
+      "methods": "TOOLS/q289.py q9()",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-MMIO-ADDRDEC",
+      "component": "MMIO",
+      "address": "0x400000 (PGRAPH)",
+      "observed": "NV_PGRAPH_BASE 0x400000 tra 0xBADF5040 toan bo, trong khi PBUS 0x0 va FUSE 0x21000 doc tot",
+      "hypotheses": [
+        "BAR0 chi decode mot so aperture",
+        "PGRAPH nam ngoai cua so duoc map",
+        "clock/power gate rieng cho PGRAPH"
+      ],
+      "contradicting": "register co trong source turing",
+      "confidence": "DECODED",
+      "priority": "P1",
+      "status": "resolved",
+      "methods": "TOOLS/tu06_aperture.py: quet 4096 trang 4 KB -> ban do day du",
+      "supporting": "79.4% poison / 8.7% zero / 7.0% DATA / 4.9% MIXED. Vung 0x300000..0x3FFFFF = VBIOS shadow khop rom[0x28600] 100%",
+      "note": "6 unknown U-MMIO-* phai doc lai: KHONG phai 'block khong ton tai', ma la 'ngoai cua so BAR0 duoc decode'",
+      "dependencies": []
+    },
+    {
+      "id": "U-MMIO-PGRAPH",
+      "component": "MMIO",
+      "address": "0x400000 (NV_PGRAPH_BASE)",
+      "observed": "0x400000 tra 0xBADF5040; ban do aperture cho thay vung DATA lon nhat la 0x300000..0x3FFFFF nhung do la VBIOS shadow",
+      "hypotheses": [
+        "PGRAPH o aperture khac chua xac dinh",
+        "PGRAPH clock-gated hoan toan tren CMP"
+      ],
+      "supporting": "79.4% BAR0 poison; 0x300000 khop rom[0x28600] 100% -> khong phai PGRAPH",
+      "confidence": "UNKNOWN",
+      "priority": "P1",
+      "methods": "doi chieu ban do aperture voi dev_top/dev_gr header",
+      "note": "KHONG ket luan PGRAPH bi cat (muc 8.F)",
+      "status": "open",
+      "dependencies": []
+    },
+    {
+      "id": "U-VBIOS-SHADOW",
+      "component": "VBIOS",
+      "address": "BAR0 0x300000..0x3FFFFF",
+      "observed": "VBIOS shadow DANG CHAY == rom_file[0x28600:], khop 100% (chi 14 byte khac); PCIR @0x170 vendor 10DE device 1F0B",
+      "hypotheses": [
+        "da xac dinh"
+      ],
+      "supporting": "3 lan doc on dinh; 32/32 word doc lai giong; PCIR khop 10DE:1F0B; 883,200 B chi khac 14 byte",
+      "confidence": "CORROBORATED",
+      "priority": "P0",
+      "status": "resolved",
+      "methods": "TOOLS/tu06b_stable.py + TOOLS/tu07_shadow.py",
+      "note": "14 byte khac gom PPID: shadow 'CMP40HX-8G#REDACTED' vs rom 'CMP40HX-8G#REDACTED' -> SERIAL THAT CUA CARD",
+      "dependencies": []
+    },
+    {
+      "id": "U-SEC-001",
+      "question": "WPR2_LO @0x1FA820 = 0x01F78200 nhung dmesg bao wpr2_lo = 0x1FFFFE00",
+      "status": "resolved",
+      "category": "SECURITY",
+      "evidence": [
+        "MMIO/registers_turing.json (2 register WPR duy nhat)",
+        "SECURITY/p8_wpr.json",
+        "SECURITY/security_registers.json boot_log"
+      ],
+      "hypotheses": [
+        "(a) 0x1FA820 la WPR2 cua boot loader, bi ghi de khi GSP chay",
+        "(b) dmesg bao gia tri TRUOC khi driver khoi dong",
+        "(c) 0x1FA820/0x1FA824 la cap WPR2 cua WPR khac"
+      ],
+      "note": "Correct register labels: LO@0x1FA824 raw0x01F7E000; HI@0x1FA828 raw0x01FFEE00. Offset0x1FA820 is not the supported WPR2_LO. Decoded address range is [0x1F7E00000,0x1FFEE0000); raw pair matches the cited archived log, while boot-stage allocation differences remain separate unknowns.",
+      "resolution": "LOI GAN NHAN, khong co mau thuan. Source driver 615.78.08 chi dinh nghia 2 register WPR cho turing: NV_PFB_PRI_MMU_WPR2_ADDR_LO=0x1FA824 va NV_PFB_PRI_MMU_WPR2_ADDR_HI=0x1FA828 (trong 52 register turing, khong con register WPR nao khac). p8_wpr.py gan nhan sai 0x1FA820 la 'WPR2_LO'. Gia tri 0x1FA824=0x01F7E000 va 0x1FA828=0x01FFEE00 KHOP chinh xac dong dmesg 'INPLACE_STOCK_BOOTER_AFTER_UNLOCK_PASS WPR=01ffee00:01f7e000'."
+    },
+    {
+      "id": "U-SEC-002",
+      "question": "PLM_FECS/PLM_RESET/ACR_CMD/ACR_STATUS/SEC2_STATUS (0x1FA840..0x1FA860) poison",
+      "status": "open",
+      "category": "SECURITY",
+      "evidence": [
+        "SECURITY/p8_wpr.json registers poison 0xBADF5040"
+      ],
+      "hypotheses": [
+        "(a) ngoai cua so decode BAR0 (giong U-MMIO-ADDRDEC)",
+        "(b) register chi ghi duoc, doc tra ve poison"
+      ],
+      "note": "WPR_CFG @0x1FA830 = 0 (zero) -> co the chua duoc lap trinh"
+    },
+    {
+      "id": "U-MMIO-012",
+      "question": "Ma tra ve 0xBAD00100 (25 trang) va 0xFFFFFFFF (72 trang) khi doc vung khong decode",
+      "status": "open",
+      "category": "MMIO",
+      "evidence": [
+        "TOPOLOGY/p9_reclass.json",
+        "TOPOLOGY/p9_pattern.json",
+        "TOPOLOGY/aperture_map.json reclassified_v7"
+      ],
+      "hypotheses": [
+        "(a) 0xBAD00100 = loi 'unmapped' voi ma khac 0xBADFxxxx",
+        "(b) 0xFFFFFFFF = bus float PCIe chuan",
+        "(c) GPU tu tra ve, khong phai bus ngoai"
+      ],
+      "note": "TU-06 dem 287 DATA vi chi dung mask 0xBADF0000 -> da sua thanh 141 DATA"
+    },
+    {
+      "id": "U-BAR3-001",
+      "question": "BAR3 (32 MB) chua gi va tai sao host doc duoc?",
+      "status": "open",
+      "category": "MMIO",
+      "evidence": [
+        "TOPOLOGY/p9_bar3_parsed.json",
+        "RAW_DATA/bar3_hot.bin"
+      ],
+      "hypotheses": [
+        "(a) GPU page directory / GMMU level-0 do driver lap trinh",
+        "(b) bang tra cuu SKU cua VBIOS",
+        "(c) boot strap table"
+      ],
+      "note": "48/64 trang dau co du lieu; 130 trang nong trong 8192 trang. flags 0x06000000 lap o 3 vung."
+    },
+    {
+      "id": "U-BAR3-002",
+      "question": "BAR3 khong chua device ID 0x1F0B (CMP 40HX) — chi co 0x1F4F x43 va 0x1F4E x2",
+      "status": "open",
+      "category": "MMIO",
+      "evidence": [
+        "RAW_DATA/bar3_hot.bin offset 0x16000, 0x2b000"
+      ],
+      "hypotheses": [
+        "(a) CMP 40HX dung duong nhan dang khac (fuse force ID)",
+        "(b) bang chua duoc cap nhat cho SKU mining",
+        "(c) 0x1F0B nam o vung chua dump"
+      ],
+      "note": "fuse+0x04D8 = 0x1F0B, fuse+0x056C = 0x1F4B — ca hai deu khong co trong BAR3"
+    }
+  ],
+  "phase16_provenance": {
+    "baseline": "../UNKNOWN_DATABASE.json (preserved)",
+    "review": "fuse_source_coordinator_review.json",
+    "scope": "Only reviewed fuse corrections applied; other inherited resolved claims still need subsystem audits.",
+    "whole_gpu_complete": false
+  },
+  "status_counts": {
+    "open": 36,
+    "resolved": 9
+  }
+}

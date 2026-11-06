@@ -1,0 +1,45 @@
+{
+  "status": "provisional worker still live; validates saved bytes only, not repository authenticity/full-tree identity",
+  "comparisons": [
+    {
+      "path": "nvidia/inc/kernel/core/bin_data.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "nvidia/src/kernel/core/bin_data_pvt.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "common/inc/swref/published/turing/tu102/dev_fb.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "common/inc/swref/published/turing/tu102/dev_fuse.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "common/inc/swref/published/turing/tu102/dev_mmu.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "common/inc/swref/published/turing/tu102/dev_gsp.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "nvidia/inc/kernel/gpu/gsp/gsp_init_args.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h",
+      "saved_bytes_equal_local": true
+    },
+    {
+      "path": "nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta_v1.h",
+      "saved_bytes_equal_local": true
+    }
+  ]
+}

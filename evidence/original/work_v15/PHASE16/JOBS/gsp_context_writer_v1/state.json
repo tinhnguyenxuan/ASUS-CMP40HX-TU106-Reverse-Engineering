@@ -1,0 +1,12 @@
+{
+  "job": "gsp_context_writer_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:40:05.021298+00:00",
+  "wrapper_pid": 1692172,
+  "task_sha256": "5281b61d9ce5e27ca2b41cc0cdccb4e3e70f9a60b14e13c8565c98f44ba54a5b",
+  "hermes_pid": 1692173,
+  "hermes_start_ticks": "210075090",
+  "heartbeat_at": "2026-11-03T20:07:37.817395+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T20:07:39.818723+00:00"
+}

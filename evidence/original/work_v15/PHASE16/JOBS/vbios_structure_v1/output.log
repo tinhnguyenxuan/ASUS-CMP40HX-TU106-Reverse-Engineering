@@ -1,0 +1,22 @@
+Hoàn tất. Tất cả artifacts đã được tạo và chạy thực tại đây:
+
+`/home/REDACTED_USER/codex-work/work_v15/PHASE16/VBIOS_SOURCE/`
+- `vbios_structure_verify.py` — script stdlib, chỉ đọc input, không sửa ROM, không flash, exitcode 0
+- `vbios_structure_verified.json` — JSON được lưu trước báo cáo, chứa rawheader, fileoffsets, parsedfields, accepted/rejected candidates, toàn bộ token/table inventory, unresolved regions, reproduction commands
+- `VBIOS_STRUCTURE_REPORT.md` — phân biệt DECODED / source-backed / UNKNOWN, không suy mã hóa từ entropy/checksum
+- `vbios_structure_verify_run.log` — stdout/stderr/exitcode của lần chạy thực
+
+Kết quả số (tính từ output, không hardcode):
+- Input hashes ghi lại (ROM, T4, shadow — chưa thay đổi)
+- Chu ký: 64 hit; ran gioi image chap nhan: 4 (2×NVGIf @0x0, 0x79000 + 2×55AA legacy @0x28600, 0xa1600); 60 hit bị từ chối (chưa có header/đài/chain)
+- Sửa lỗi kế thừa: ran gioi bank thực là 0x79000 (495,616 B), không phải 0xa1600 (0xa1600 là sao chép header legacy trong bank2)
+- BIT: 17 token (1 null ptr=0), con triple nguyên bản, định rõ giả định ánh xạ
+- PERF: 56 slot, 40 không null, 40 bảng hợp lệHeader, 0 truncation, 14 cặp bảng chồng (bảng 17 chứa các bảng nhỏ)
+- Khóa NVGI: 38/38 record bank1 có dữ liệu, 0/38 bank2 (toàn 0xFF)
+- Hai bank lan lại: 1,212/495,616 byte khác (denominator), duy nhất cuc [0x3000, 0x34bf]
+- Original/T4: 19/495,616 byte khác ([0x5669C..0x566BE] + 0x767FF)
+- Shadow vs ROM[0x28600:]: 14/883,200 byte khác — **không phải 100%**, denominator 883,200, các byte khác liệt kê đầy đủ (PPID serial: card chạy `...002513` vs ROM `...304974`)
+
+Còn UNKNOWN (không bỏ sót): 16-byte hash của 38 record, ý nghĩa f4/f8/flags/hash16, ý nghĩa 40 bảng PERF, ý nghĩa mã token BIT, NMX container duỗi, các byte shadow khác.
+
+Full GPU reverse engineering **chưa hoàn tất** — 8 unresolved regions được ghi nhận rõ. Không tuning, không sửa ROM, không đánh dấu hoàn thành toàn bộ.

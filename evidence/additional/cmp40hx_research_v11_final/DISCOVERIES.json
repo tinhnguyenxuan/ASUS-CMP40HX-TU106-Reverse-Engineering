@@ -1,0 +1,184 @@
+{
+ "generated": "2026-11-03",
+ "count": 19,
+ "items": [
+  {
+   "id": "D01",
+   "claim": "fuse aperture that la 0x21000",
+   "type": "MEASURED",
+   "phase": "P0"
+  },
+  {
+   "id": "D02",
+   "claim": "fuse span that 0x1DFF, 352 word co du lieu",
+   "type": "MEASURED",
+   "phase": "P0"
+  },
+  {
+   "id": "D03",
+   "claim": "3 ma poison: BADF5040/1300/510C",
+   "type": "MEASURED",
+   "phase": "P0"
+  },
+  {
+   "id": "D04",
+   "claim": "152 word =1 tai 0x0110..0x0198",
+   "type": "INFERRED",
+   "phase": "P0"
+  },
+  {
+   "id": "D05",
+   "claim": "WPR2 = 0x1F7E000..0x1FFEE00, khop dmesg 100%",
+   "type": "CORROBORATED",
+   "phase": "P1"
+  },
+  {
+   "id": "D06",
+   "claim": "ROM = 2 ban sao 495616 B khac 1212 B",
+   "type": "MEASURED",
+   "phase": "P2"
+  },
+  {
+   "id": "D07",
+   "claim": "key block 38 record x 32 B, layout 6 field",
+   "type": "DECODED",
+   "phase": "P2"
+  },
+  {
+   "id": "D08",
+   "claim": "f4 khong phai unix timestamp",
+   "type": "CONTRADICTED",
+   "phase": "P2"
+  },
+  {
+   "id": "D09",
+   "claim": "hash16 khong khop SHA256/SHA1/MD5 cua 6 vung",
+   "type": "CONTRADICTED",
+   "phase": "P2"
+  },
+  {
+   "id": "D10",
+   "claim": "340 descriptor entry trong 60 bang",
+   "type": "DECODED",
+   "phase": "P3"
+  },
+  {
+   "id": "D11",
+   "claim": "RELIABILITY_NVVDD ton tai trong GSP-RM",
+   "type": "DECODED",
+   "phase": "P3"
+  },
+  {
+   "id": "D12",
+   "claim": "0 xref cung: base la hang so trong lenh",
+   "type": "CORROBORATED",
+   "phase": "P3"
+  },
+  {
+   "id": "D13",
+   "claim": "blob[6] === blob[8], khac 24 byte",
+   "type": "MEASURED",
+   "phase": "P4"
+  },
+  {
+   "id": "D14",
+   "claim": "4 blob entropy cao khong nen duoc",
+   "type": "DECODED",
+   "phase": "P4"
+  },
+  {
+   "id": "D15",
+   "claim": "Reserved 389 MiB; WPR2 chi 0.5 MiB",
+   "type": "MEASURED",
+   "phase": "P6"
+  },
+  {
+   "id": "D16",
+   "claim": "BAR1 = 64 GB; runtime link Gen1 du cap Gen2",
+   "type": "MEASURED",
+   "phase": "P7"
+  },
+  {
+   "id": "D17",
+   "claim": "24 byte khac blob[6]/blob[8] la BUILD TIMESTAMP ASCII",
+   "detail": "blob[6]='Dec 31 2024'+'11:39:34'; blob[8]='Jan  2 2025'+'08:35:16'",
+   "type": "DECODED",
+   "phase": "P4"
+  },
+  {
+   "id": "D18",
+   "claim": "32 B hash trong fuse: 455,689 phep thu, 0 khop",
+   "type": "BLOCKED",
+   "phase": "P0"
+  },
+  {
+   "id": "D19",
+   "claim": "7 ten quan trong khong co entry descriptor o bat ky encoding nao",
+   "type": "BLOCKED",
+   "phase": "P3"
+  }
+ ],
+ "discoveries": [
+  {
+   "id": "D-P9-001",
+   "round": 8,
+   "date": "2026-11-06",
+   "title": "2 ma tra ve BAR0 chua biet: 0xBAD00100 va 0xFFFFFFFF",
+   "detail": "Doc lai 16 vung 'DATA' trong aperture map, dem distinct u32. 0x010000..0x01FFFF (16 trang) va 0x058000..0x060FFF (9 trang) chi chua 0xBAD00100 lap vo han; 16 trang dau giong het nhau. 0x0A0000..0x0BFFFF (32) va 0x3D8000..0x3FFFFF (40) chi chua 0xFFFFFFFF.",
+   "evidence": [
+    "TOPOLOGY/p9_reclass.json",
+    "TOPOLOGY/p9_pattern.json"
+   ],
+   "confidence": "MEASURED",
+   "impact": "TU-06 DATA 287 -> 141; POISON 3253 -> 3278"
+  },
+  {
+   "id": "D-P9-002",
+   "round": 8,
+   "date": "2026-11-06",
+   "title": "BAR3 (32 MB) decode duoc — bang page-directory + tra cuu device ID",
+   "detail": "Doc 32 MB BAR3 qua PCI resource, 130/8192 trang nong. Vung 0x17000..0x27000 va 0x30000..: entry 16 B {u32 addr buoc +0x20000, u32 flags 0x06000000, 8 B zero}. Vung 0x2b000: 496 entry 8 B {tag 0x1F4C1001..0x1F4DFF01 buoc +0x100, flags 0x06000000}. Vung 0x16000: 45 entry device ID (0x1F4F x43, 0x1F4E x2) — KHONG co 0x1F0B.",
+   "evidence": [
+    "TOPOLOGY/p9_bar3_parsed.json",
+    "RAW_DATA/bar3_hot.bin"
+   ],
+   "confidence": "MEASURED"
+  },
+  {
+   "id": "D-P9-003",
+   "round": 8,
+   "date": "2026-11-06",
+   "title": "BAR1 (64 GB) KHONG decode qua PCI resource raw",
+   "detail": "Quet 24 offset rai rac trong 8 GB BAR1 + BAR3 doi chieu. BAR1 tra ve 0/4096 o moi offset -> can driver lap trinh aperture (NV_PBUS_BAR1_BLOCK=0x801F7CC0). Doc VRAM/WPR2 tu host can GHI register -> BLOCKED, khong phai 'WPR chan doc'.",
+   "evidence": [
+    "TOPOLOGY/p9_barscan.json",
+    "TOPOLOGY/p9_wprread.json"
+   ],
+   "confidence": "MEASURED"
+  },
+  {
+   "id": "D-P9-004",
+   "round": 9,
+   "date": "2026-11-06",
+   "title": "BAR3 du lieu THAT — da xac nhan REDACTED_USER on dinh (skill pitfall bus float)",
+   "detail": "Doc BAR3 0x17000 va 0x2b000 3 lan cach 200 ms: giong het byte. Xen ke BAR3 -> BAR0 0x300000 -> BAR3: khong doi. Positive control BAR0 co 3617/4096 nonzero -> duong doc song. BAR1 3 lan x 3 offset: 0/1024 o ca 3 lan va on dinh -> that su khong decode, khong phai chua san sang.",
+   "evidence": [
+    "TOPOLOGY/p9_stability.json"
+   ],
+   "confidence": "CORROBORATED"
+  },
+  {
+   "id": "D-P9-005",
+   "round": 11,
+   "date": "2026-11-06",
+   "title": "U-SEC-001 RESOLVED — loi gan nhan, khong co mau thuan WPR",
+   "detail": "Tra source driver 615.78.08 (52 register turing): chi co DUNG 2 register WPR, NV_PFB_PRI_MMU_WPR2_ADDR_LO=0x1FA824 va NV_PFB_PRI_MMU_WPR2_ADDR_HI=0x1FA828. Khong co register nao o 0x1FA820. p8_wpr.py gan nhan sai 0x1FA820 la 'WPR2_LO'. Cap 0x1FA824/0x1FA828 khớp chinh xac dmesg 'WPR=01ffee00:01f7e000'. WPR2 that su = 0x01F7E000..0x01FFEE00 = 457.0 MiB, khong phai 23.75 KB. Da xoa 4 vung WPR0/WPR1/WPR2/WPR2-alt gia khoi 3 file bao cao.",
+   "evidence": [
+    "MMIO/registers_turing.json",
+    "SECURITY/p8_wpr.json",
+    "SECURITY/security_registers.json"
+   ],
+   "confidence": "CORROBORATED"
+  }
+ ]
+}

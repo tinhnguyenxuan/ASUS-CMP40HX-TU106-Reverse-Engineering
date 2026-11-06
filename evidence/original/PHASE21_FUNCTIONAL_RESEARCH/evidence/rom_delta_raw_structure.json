@@ -1,0 +1,35 @@
+{
+  "baseline_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+  "records": [
+    {
+      "path": "/tmp/gen3_a.rom",
+      "sha256": "d4fa7c93a5bbbc86848b34bc7f2b6271dc0bff83d94eadb4c43e38cc77e11f3c",
+      "legacy_pointer": "0x53ac",
+      "dcb_offset": "0x2d9ac",
+      "header_hex": "412300084f54cbbddc4eaa4b0000000000004055c5550100000000",
+      "sig_ok": true,
+      "region_size": 62464,
+      "diff_offsets": [
+        "0x30060",
+        "0x3016f"
+      ]
+    },
+    {
+      "path": "/tmp/t_clk.rom",
+      "sha256": "612eaa72cc1ed8e83c53eb7aa1fb6e0edb1d6afc47201953f0272efd9d6bc435",
+      "legacy_pointer": "0x53ac",
+      "dcb_offset": "0x2d9ac",
+      "header_hex": "412300084f54cbbddc4eaa4b0000000000004055c5550100000000",
+      "sig_ok": true,
+      "region_size": 62464,
+      "diff_offsets": [
+        "0x2fbb5",
+        "0x2fbb8",
+        "0x2fbb9",
+        "0x2fbd6",
+        "0x2fbd9"
+      ]
+    }
+  ],
+  "interpretation": "raw header/pointer checks only; no VBIOS execution or semantic script decode"
+}

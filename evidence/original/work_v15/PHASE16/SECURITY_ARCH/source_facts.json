@@ -1,0 +1,35 @@
+{
+  "dev_fuse_tu102_registers": {
+    "NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS": {
+      "addr": "0x0002174C",
+      "line": 26
+    },
+    "NV_FUSE_OPT_NVDEC_DISABLE": {
+      "addr": "0x00021378",
+      "line": 31
+    }
+  },
+  "wpr_meta_magic": {
+    "line": 214,
+    "value": "0xdc3aae21371a60b3"
+  },
+  "wpr_meta_verified": {
+    "line": 212,
+    "value": "0xa0a0a0a0a0a0a0a0"
+  },
+  "wpr_meta_revision": {
+    "line": 213,
+    "value": 1
+  },
+  "wpr_meta_size_256": true,
+  "sec2_emem_channel_rm": 0,
+  "sec2_emem_channel_rm_size": 1024,
+  "gsp_wpr_alignment_128k": true,
+  "gsp_arguments_magic": "'G'<<24|'S'<<16|'P'<<8|' '",
+  "cmp40_booter_archive_sha256": "619d7b5ce1f79c3211afdbf87d02b2174d268b10d005c5b8f994be22299be681",
+  "booter_has_signature_metadata": true,
+  "firmware_container_magic": "NVUCODES",
+  "firmware_container_version": 1,
+  "firmware_container_num_entries": 496,
+  "firmware_container_valid_payloads": 38
+}

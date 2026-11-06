@@ -1,0 +1,17 @@
+Hoàn tất. Danh sách kết quả:
+
+**Outputs (PHASE16/MMIO_SOURCE/, không chạm checkpoint chung):**
+- `mmio_topology_verify.py` — tool stdlib, chạy exit 0
+- `mmio_topology_verify_run.log` — stdout+stderr+exit code của lần chạy thật
+- `mmio_topology_verified.json` — ánh xạ, hash toàn bộ inputs/header (10 file + 37 header tu102)
+- `register_fields.csv` — 78 hàng, mọi hàng có source_hash/source_line/raw/offset
+- `page_inventory.csv` — 4096 hàng, đủ cột bắt buộc
+- `MMIO_TOPOLOGY_SOURCE_REPORT.md`
+
+**Kết quả thực:**
+- Register: 52/52 địa chỉ dump khớp tên nguồn tu102 (`dev_fb.h`, `dev_vm.h`, `dev_bus.h`, `dev_fuse.h`, …), 0 địa chỉUnknown. Trích bitfield bằng mask thật `(value>>lo)&((1<<(hi-lo+1))-1)`, phân loại zero/error_like/named source match/unknown.
+- WPR2 LO/HI @0x1FA824/0x1FA828 theo `dev_fb.h` VAL31:4 shift12 (28 bit, không mask20 bit): LO raw `0x01F7E000` field `0x001F7E00` decoded `0x1F7E00000`; HI raw `0x01FFEE00` field `0x001FFEE0` decoded `0x1FFEE0000`; hiệu ran giới `135135232` bytes = `128.875 MiB`. Ran giới inclusive/exclusive = UNKNOWN (chỉ có boot log nhắc WPR2, không có nguồn định nghĩa ran giới cục bộ) — không gán reserved từ phép trừ.
+- Trang: `POISON 3278, UNINIT_FF 72, DATA 141, ZERO 355, MIXED 201` = 4047/4096; **49 trang chưa phân loại đã liệt kê chính xác** (trang tu06=DATA nằm ngoài vùng p9_reclass, ví dụ 7@0x007000 là POISON_BAD00100_like, 979/980 UNINIT_FF_like, …). Phân biệt zero/FFFFFFFF/BADFxxxx/BAD00100 chỉ trên 16-byte sample, ghi rõ hạn hiệu sampling, không đoán vắng engine/decoder từ poison.
+- Topology: `dev_top.h`/`dev_graph.h`/`dev_gr.h` không có trong nguồn local → GPC/TPC/SM/ROP/L2 số lượng = UNKNOWN (0/4 decoded); L2 chỉ có thanh ghi ECC/invalidate có nguồn, không phải count; popcount=3/17 không đủ đặt tên. Đề xuất kiểm tra offline (lấy header tu10x, đối chiếu client ID fault, nvml sm_count), không thí nghiệm phần cứng.
+
+Báo cáo chi tiết: `/home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_SOURCE/MMIO_TOPOLOGY_SOURCE_REPORT.md`. Không kết luận "toàn bộ GPU DONE".

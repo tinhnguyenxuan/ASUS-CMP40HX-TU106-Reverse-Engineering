@@ -1,0 +1,15 @@
+ROM: /home/REDACTED_USER/codex-work/work_v15/outputs/CMP40HX_ORIGINAL_1MB.bin (1,048,576 B, sha256=dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec)
+BIT: @0x0287b0 hlen=12 rlen=6 entries=17 ver=0x0100
+P token: idx=7 ver=2 t_len=224 t_offset=0x02d4
+56 slots x 4B = 224 B == t_len 224 B -> slots_fit=True
+Non-null pointers: 40 / 56
+Parsed tables (generic header): 40
+Table-table overlaps (generic extents): 14
+
+Slot 17:
+  raw_ptr=0x01aff2 mapped=0x0545f2
+  P2_tbls name: PERF TEST SPEC
+  Generic header: ver=0x10 hdr=14 esz=70 cnt=183 size=12824
+  raw32: 10 0e 46 b7 09 28 6c 02 00 1d 5a 1e 1e 4b 11 1a 3c 21 0a 07 00 40 00 00 00 00 00 00 00 00 f7 72
+  In bounds: True
+

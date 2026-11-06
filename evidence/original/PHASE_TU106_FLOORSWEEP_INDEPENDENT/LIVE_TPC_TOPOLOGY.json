@@ -1,0 +1,212 @@
+{
+  "status": "ACTIVE_MASK_MEASURED",
+  "timestamp_utc": "2026-11-05T17:49:18.115907+00:00",
+  "driver": "615.71.09",
+  "bdf": "0000:03:00.0",
+  "uuid": "GPU-REDACTED",
+  "gpc_mask": {
+    "status": "0x0",
+    "value": "0x7"
+  },
+  "tpc_masks": [
+    {
+      "gpc": 0,
+      "status": "0x0",
+      "value": "0x1f"
+    },
+    {
+      "gpc": 1,
+      "status": "0x0",
+      "value": "0x3f"
+    },
+    {
+      "gpc": 2,
+      "status": "0x0",
+      "value": "0x3f"
+    }
+  ],
+  "sm_map": {
+    "status": "0x0",
+    "count": 34,
+    "entries": [
+      {
+        "sm": 0,
+        "gpc": 1,
+        "tpc": 0
+      },
+      {
+        "sm": 1,
+        "gpc": 1,
+        "tpc": 0
+      },
+      {
+        "sm": 2,
+        "gpc": 2,
+        "tpc": 0
+      },
+      {
+        "sm": 3,
+        "gpc": 2,
+        "tpc": 0
+      },
+      {
+        "sm": 4,
+        "gpc": 0,
+        "tpc": 0
+      },
+      {
+        "sm": 5,
+        "gpc": 0,
+        "tpc": 0
+      },
+      {
+        "sm": 6,
+        "gpc": 1,
+        "tpc": 2
+      },
+      {
+        "sm": 7,
+        "gpc": 1,
+        "tpc": 2
+      },
+      {
+        "sm": 8,
+        "gpc": 2,
+        "tpc": 2
+      },
+      {
+        "sm": 9,
+        "gpc": 2,
+        "tpc": 2
+      },
+      {
+        "sm": 10,
+        "gpc": 0,
+        "tpc": 2
+      },
+      {
+        "sm": 11,
+        "gpc": 0,
+        "tpc": 2
+      },
+      {
+        "sm": 12,
+        "gpc": 1,
+        "tpc": 4
+      },
+      {
+        "sm": 13,
+        "gpc": 1,
+        "tpc": 4
+      },
+      {
+        "sm": 14,
+        "gpc": 2,
+        "tpc": 4
+      },
+      {
+        "sm": 15,
+        "gpc": 2,
+        "tpc": 4
+      },
+      {
+        "sm": 16,
+        "gpc": 0,
+        "tpc": 4
+      },
+      {
+        "sm": 17,
+        "gpc": 0,
+        "tpc": 4
+      },
+      {
+        "sm": 18,
+        "gpc": 1,
+        "tpc": 1
+      },
+      {
+        "sm": 19,
+        "gpc": 1,
+        "tpc": 1
+      },
+      {
+        "sm": 20,
+        "gpc": 2,
+        "tpc": 1
+      },
+      {
+        "sm": 21,
+        "gpc": 2,
+        "tpc": 1
+      },
+      {
+        "sm": 22,
+        "gpc": 0,
+        "tpc": 1
+      },
+      {
+        "sm": 23,
+        "gpc": 0,
+        "tpc": 1
+      },
+      {
+        "sm": 24,
+        "gpc": 1,
+        "tpc": 3
+      },
+      {
+        "sm": 25,
+        "gpc": 1,
+        "tpc": 3
+      },
+      {
+        "sm": 26,
+        "gpc": 2,
+        "tpc": 3
+      },
+      {
+        "sm": 27,
+        "gpc": 2,
+        "tpc": 3
+      },
+      {
+        "sm": 28,
+        "gpc": 0,
+        "tpc": 3
+      },
+      {
+        "sm": 29,
+        "gpc": 0,
+        "tpc": 3
+      },
+      {
+        "sm": 30,
+        "gpc": 1,
+        "tpc": 5
+      },
+      {
+        "sm": 31,
+        "gpc": 1,
+        "tpc": 5
+      },
+      {
+        "sm": 32,
+        "gpc": 2,
+        "tpc": 5
+      },
+      {
+        "sm": 33,
+        "gpc": 2,
+        "tpc": 5
+      }
+    ]
+  },
+  "consistency": {
+    "tpc_count": 17,
+    "sm_count": 34,
+    "two_sm_per_active_tpc": true,
+    "sm_map_matches_tpc_masks": true
+  },
+  "gpc0_tpc5": "not enabled according to active mask; existence and cause unknown",
+  "source": "LIVE_RM_QUERY_V2.json"
+}

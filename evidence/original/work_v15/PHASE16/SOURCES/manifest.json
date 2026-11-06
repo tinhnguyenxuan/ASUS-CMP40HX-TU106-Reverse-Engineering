@@ -1,0 +1,36 @@
+[
+  {
+    "copied_from": "/tmp/nvsrc/nvidia/src/kernel/core/bin_data_pvt.h",
+    "file": "work_v15/PHASE16/SOURCES/nvidia_bin_data_pvt.h",
+    "sha256": "0a46eff1c9db21f4b19d23d42c75d411685755f98f08b76247ace36a4fe1691a",
+    "official_source_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/615.78.08/src/nvidia/src/kernel/core/bin_data_pvt.h",
+    "release_provenance": "Selected file bytes equal saved official-tag615.78.08 copy; coordinator byte comparison recorded. Does not establish entire local tree identity or matching GPU binary release.",
+    "previous_official_source_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/main/src/nvidia/src/kernel/core/bin_data_pvt.h",
+    "comparison_evidence": "../SOURCE_RELEASE_PROVENANCE/MANIFEST.json; ../source_saved_copy_review.json"
+  },
+  {
+    "copied_from": "/tmp/nvsrc/nvidia/inc/kernel/core/bin_data.h",
+    "file": "work_v15/PHASE16/SOURCES/nvidia_bin_data.h",
+    "sha256": "9103cb8ab21ed3906eac3b1248409f4392a8d968b4fc15631be3854b24c4a50e",
+    "official_source_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/615.78.08/src/nvidia/inc/kernel/core/bin_data.h",
+    "release_provenance": "Selected file bytes equal saved official-tag615.78.08 copy; coordinator byte comparison recorded. Does not establish entire local tree identity or matching GPU binary release.",
+    "previous_official_source_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/main/src/nvidia/inc/kernel/core/bin_data.h",
+    "comparison_evidence": "../SOURCE_RELEASE_PROVENANCE/MANIFEST.json; ../source_saved_copy_review.json"
+  },
+  {
+    "copied_from": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fuse.h",
+    "file": "work_v15/PHASE16/SOURCES/nvidia_tu102_dev_fuse.h",
+    "sha256": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+    "official_source_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/615.78.08/src/common/inc/swref/published/turing/tu102/dev_fuse.h",
+    "release_provenance": "Selected file bytes equal saved official-tag615.78.08 copy; coordinator byte comparison recorded. Does not establish entire local tree identity or matching GPU binary release.",
+    "previous_official_source_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/main/src/common/inc/swref/published/turing/tu102/dev_fuse.h",
+    "comparison_evidence": "../SOURCE_RELEASE_PROVENANCE/MANIFEST.json; ../source_saved_copy_review.json"
+  },
+  {
+    "copied_from": "/tmp/nvsrc/common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+    "file": "work_v15/PHASE16/SOURCES/nvidia_gm107_dev_fuse.h",
+    "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10",
+    "official_source_url": "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/main/src/common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+    "release_provenance": "Local /tmp/nvsrc snapshot; exact driver tag not established. URL identifies corresponding official path; do not claim byte-identical to current main without comparison."
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "schema": "phase21-blocker-register-v1",
+  "generated_utc": "2026-11-06T02:49:09.467636+00:00",
+  "rows": [
+    {
+      "id": "B-RUNTIME-TARGET",
+      "requirement": "Fresh target runtime state",
+      "current": "Authenticated live target capture; BDF and UUID match; driver/GSP 615.71.09; package verifier PASS",
+      "authoritative_close": "timestamped target package from BDF 0000:03:00.0 verified by verify_target_package.py",
+      "evidence": [
+        "evidence/target_live_20261104/target_package.json",
+        "TARGET_LIVE_FINDINGS.md"
+      ],
+      "status": "CLOSED"
+    },
+    {
+      "id": "B-EFFECTIVE-REGISTRY",
+      "requirement": "Effective RmDisableDisplay/RMRunFub/RMFubUseCaseMask and related NVKV values",
+      "current": "Static ingestion path recovered; live values absent",
+      "authoritative_close": "target package containing readable registry/NVKV source with command and timestamp",
+      "evidence": [
+        "GSP_DISPLAY_CONFIG_DATAFLOW.md",
+        "HOST_REGISTRY_PRODUCER.md"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "B-FUNCTIONAL-DISPLAY",
+      "requirement": "Display capability, KMS and headless graphics correctness",
+      "current": "Retained BDF-matched EGL shader triangle/pixel correctness PASS, CUDA/WMMA/cuBLAS bounded correctness PASS; Vulkan, KMS CRTC and physical scanout remain unresolved",
+      "authoritative_close": "fresh display/KMS plus EGL/OpenGL/Vulkan/CUDA results tied to target UUID",
+      "evidence": [
+        "TARGET_LIVE_FINDINGS.md",
+        "evidence/target_live_20261104/egl_nvidia_only.json",
+        "evidence/target_live_20261104/vulkan_nvidia_only.json",
+        "evidence/target_live_20261104/drm_access_vulkan_inventory.json",
+        "evidence/target_live_20261104/egl_shader_result.json",
+        "RUNTIME_RECONCILIATION_20261106.md"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "B-REFERENCE-ROM",
+      "requirement": "Independent revision-matched TU106 reference ROM",
+      "current": "Retained variants lack independent provenance; newly supplied rtx2060super.rom/rtx2070.rom are HTML and excluded",
+      "authoritative_close": "externally sourced ROM with chain-of-custody and exact SKU/revision metadata",
+      "evidence": [
+        "evidence/rom_inventory.json",
+        "evidence/rom_dcb_all_inventory.json",
+        "evidence/vbios_display_roots.json",
+        "VBIOS_DISPLAY_ROOTS.md"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "B-PCB-ROUTING",
+      "requirement": "CG161P REV2 physical routing and package/connector evidence",
+      "current": "Supplied GenCAD design paths independently rederived and output photo inspected; exact target correspondence, sideband devices and electrical continuity unverified",
+      "authoritative_close": "authenticated PCB photos plus schematic/boardview or documented continuity",
+      "evidence": [
+        "DISPLAY_PCB_EVIDENCE.md",
+        "evidence/pcb_evidence_provenance.json",
+        "evidence/pcb_design_rederived.json",
+        "DISPLAY_DP_SIDEBAND.md",
+        "evidence/dp_sideband_audit.json"
+      ],
+      "status": "OPEN"
+    }
+  ],
+  "rule": "OPEN means the requirement is not complete; static or historical evidence cannot close a current-target blocker."
+}

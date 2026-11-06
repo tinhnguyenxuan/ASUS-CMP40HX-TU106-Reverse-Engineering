@@ -1,0 +1,208 @@
+│ glm_work/egl_render_probe.py
+│ @@ -0,0 +1,277 @@
+│ +#!/usr/bin/env python3
+│ +"""
+│ +Headless EGL/OpenGL ES 2 correctness probe (stdlib ctypes only).
+│ +
+│ +Process-only: a temporary GLVND vendor manifest selecting libEGL_nvidia.so.0
+│ +is written to a NamedTemporaryFile and __EGL_VENDOR_LIBRARY_FILENAMES is set
+│ +before CDLL("libEGL.so.1"). EGL devices are enumerated with eglQueryDevicesEXT
+│ +and only the device whose eglQueryDeviceStringEXT DRM/render-node string
+│ +matches /dev/dri/card1 or /dev/dri/renderD129 (BDF 03:00.0 per
+│ +TARGET_LIVE_FINDINGS.md) is used -- never an unverified ordinal. A
+│ +platform-device display is opened, EGL is initialized, OpenGL ES is bound, a
+│ +PBUFFER + ES2 + RGBA8 config is chosen, a 4x4 pbuffer and ES2 context are
+│ +created and made current, glClearColor red + glClear is executed, all 16
+│ +pixels are read back with glReadPixels and compared against (255,0,0,255),
+│ +and glGetString vendor/renderer/version is reported. EGL/GL errors are
+│ +checked after each step.
+│ +
+│ +Writes a JSON report to stdout. Intended to run on the target machine by a
+│ +later step; this file is only authored here, not executed on the target.
+│ +
+│ +Does NOT: change system config, use sudo, touch MMIO/GPU registers, reset or
+│ +reload drivers, write to DRM nodes, or read secrets. Manifest/env changes are
+│ +process-only; context, surface and display are cleaned up on completion.
+│ +
+│ +Scope: clear/readback pipeline verification only. A pass proves the matched
+│ +device accepts ES2 commands and returns the cleared color -- it does NOT
+│ +prove shader execution, draw commands, or scanout.
+│ +"""
+│ +
+│ +import argparse
+│ +import ctypes
+│ +import datetime
+│ +import json
+│ +import os
+│ +import sys
+│ +import tempfile
+│ +
+│ +SCHEMA = "phase21-egl-render-v1"
+│ +COMMAND = "egl_render_probe"
+│ +VENDOR_LIBRARY = "libEGL_nvidia.so.0"
+│ +EGL_DISPATCHER = "libEGL.so.1"
+│ +TARGET_NODES = ("/dev/dri/card1", "/dev/dri/renderD129")  # BDF 03:00.0, TARGET_LIVE_FINDINGS.md
+│ +MANIFEST = {"file_format_version": "1.0.0", "ICD": {"library_path": VENDOR_LIBRARY}}
+│ +PBUFFER_SIZE = 4
+│ +EXPECTED_PIXEL = [255, 0, 0, 255]
+│ +EXPECTED_PIXEL_COUNT = PBUFFER_SIZE * PBUFFER_SIZE
+│ +
+│ +# EGL / EGL_EXT_device_* / EGL_EXT_platform_device constants
+│ +EGL_NONE = 0x3000
+│ +EGL_SUCCESS = 0x3000
+│ +EGL_TRUE = 1
+│ +EGL_FALSE = 0
+│ +EGL_NO_DISPLAY = 0
+│ +EGL_OPENGL_ES_API = 0x30A0
+│ +EGL_PBUFFER_BIT = 0x0001
+│ +EGL_OPENGL_ES2_BIT = 0x0004
+│ +EGL_RENDERABLE_TYPE = 0x3040
+│ +EGL_SURFACE_TYPE = 0x3033
+│ +EGL_RED_SIZE = 0x3038
+│ +EGL_GREEN_SIZE = 0x3039
+│ +EGL_BLUE_SIZE = 0x303A
+│ +EGL_ALPHA_SIZE = 0x303B
+│ +EGL_WIDTH = 0x3057
+│ +EGL_HEIGHT = 0x3058
+│ +EGL_CONTEXT_CLIENT_VERSION = 0x3098
+│ +EGL_VENDOR = 0x3053
+│ +EGL_VERSION = 0x3054
+│ +EGL_EXTENSIONS = 0x3055
+│ +EGL_PLATFORM_DEVICE_EXT = 0x313F
+│ +EGL_DEVICE_EXT = 0x322C
+│ +EGL_DRM_DEVICE_FILE_EXT = 0x3233
+│ +EGL_RENDER_DEVICE = 0x3242
+│ +
+│ +# OpenGL ES / GL constants
+│ +GL_NO_ERROR = 0
+│ +GL_COLOR_BUFFER_BIT = 0x00004000
+│ +GL_RGBA = 0x1908
+│ +GL_UNSIGNED_BYTE = 0x1401
+│ … omitted 199 diff line(s) across 1 additional file(s)/section(s)
+│ glm_work/egl_render_probe.py
+│ @@ -159,13 +159,14 @@
+│      egl_errors = []
+│      gl_errors = []
+│      devices_out = []
+│ -    selected = None
+│ +    selected = None  # dict with index/drm_device/render_node; "handle" holds ctypes device
+│
+│      display = None
+│      config = None
+│      surface = None
+│      context = None
+│      egl_version = None
+│ +    egl_client_vendor = None
+│      gl_vendor = None
+│      gl_renderer = None
+│      gl_version = None
+│ @@ -225,9 +226,12 @@
+│      egl_query_device_string = None
+│      egl_get_platform_display = None
+│      if lib is not None:
+│ -        egl_query_devices = resolve_proc(lib, "eglQueryDevicesEXT", EGLBoolean, [EGLint, ctypes.POINTER(EGLDeviceEXT), ctypes.POINTER(EGLint)], steps)
+│ -        egl_query_device_string = resolve_proc(lib, "eglQueryDeviceStringEXT", ctypes.c_char_p, [EGLDeviceEXT, EGLint], steps)
+│ -        egl_get_platform_display = resolve_proc(lib, "eglGetPlatformDisplayEXT", EGLDisplay, [EGLenum, ctypes.c_void_p, ctypes.POINTER(EGLint)], steps)
+│ +        egl_query_devices = resolve_proc(lib, "eglQueryDevicesEXT", EGLBoolean,
+│ +                                         [EGLint, ctypes.POINTER(EGLDeviceEXT), ctypes.POINTER(EGLint)], steps)
+│ +        egl_query_device_string = resolve_proc(lib, "eglQueryDeviceStringEXT", ctypes.c_char_p,
+│ +                                               [EGLDeviceEXT, EGLint], steps)
+│ +        egl_get_platform_display = resolve_proc(lib, "eglGetPlatformDisplayEXT", EGLDisplay,
+│ +                                                [EGLenum, ctypes.c_void_p, ctypes.POINTER(EGLint)], steps)
+│          if None in (egl_query_devices, egl_query_device_string, egl_get_platform_display):
+│              steps.append(step("extension_procs", False, error="one or more EGL extension entry points missing"))
+│
+│ @@ -252,26 +256,212 @@
+│                  raw = egl_query_device_string(dev, EGL_RENDER_DEVICE)
+│                  render = cstr(raw)
+│                  matched = drm in TARGET_NODES or render in TARGET_NODES
+│ -                devices_out.append({"index": i, "drm_device": drm, "render_node": render, "matched": matched})
+│ +                entry = {"index": i, "drm_device": drm, "render_node": render, "matched": matched}
+│ +                devices_out.append(entry)
+│                  if matched and selected is None:
+│ -                    selected = {"index": i, "drm_device": drm, "render_node": render}
+│ +                    selected = entry
+│ +                    selected["handle"] = dev  # ctypes handle, excluded from JSON output
+│      if selected is None:
+│          steps.append(step("select_device", False, error="no device matched {0}; ordinal fallback disabled".format(list(TARGET_NODES))))
+│
+│      # --- 5. platform device display ---
+│      if selected is not None and lib is not None and egl_get_platform_display is not None:
+│ -        selected["device"] = None  # placeholder replaced below after array indexing is done
+│ -        # Re-obtain the device handle: devices_out order mirrors dev_array index.
+│ -        dev_handle = None
+│ -        if devices_out:
+│ -            # rebuild handle from enumeration (index == position in dev_array)
+│ -            pass
+│ -        # NOTE: dev_array went out of scope; keep handle by re-enumerating is not possible.
+│ -        # Instead, capture the handle at selection time above.
+│ -        steps.append(step("get_platform_display", False, error="internal: device handle not retained"))
+│ -
+│ -    # The handle retention issue above is resolved by capturing dev_handle during enumeration.
+│ -    # Rewrite selection loop cleanly: see note in step 4 -- handle kept via selected handle below.
+│ +        display = egl_get_platform_display(EGL_PLATFORM_DEVICE_EXT, selected["handle"], None)
+│ +        check_egl("eglGetPlatformDisplayEXT")
+│ +        steps.append(step("eglGetPlatformDisplayEXT", display is not None,
+│ +                          result={"selected_index": selected.get("index")}))
+│ +        if display is None:
+│ +            steps.append(step("eglGetPlatformDisplayEXT", False, error="returned EGL_NO_DISPLAY"))
+│
+│      # --- 6. initialize EGL ---
+│ -    ...
+│ +    if display is not None:
+│ +        major = EGLint(0)
+│ +        minor = EGLint(0)
+│ +        rc = lib.eglInitialize(display, ctypes.byref(major), ctypes.byref(minor))
+│ +        check_egl("eglInitialize")
+│ +        egl_version = [major.value, minor.value] if rc else None
+│ +        steps.append(step("eglInitialize", bool(rc), result={"major": major.value, "minor": minor.value}))
+│ +        if rc:
+│ +            raw = lib.eglQueryString(display, EGL_VENDOR)
+│ +            egl_client_vendor = cstr(raw)
+│ … omitted 181 diff line(s) across 1 additional file(s)/section(s)
+│ glm_work/egl_render_notes.md
+│ @@ -0,0 +1,30 @@
+│ +# Ghi notes: egl_render_probe.py (PHASE21 / glm_work)
+│ +
+│ +## Mục đích
+│ +Probe correctness EGL + OpenGL ES 2 headless (không hiển thị) qua Python stdlib ctypes, chỉ đọc, xuất JSON ra stdout. Tác giả tại đây, chưa chạy trên mục tiêu (không SSH, không thực thi trên target).
+│ +
+│ +## File
+│ +- `glm_work/egl_render_probe.py` — schema `phase21-egl-render-v1`, trường `utc` (ISO 8601 UTC) và `command` mỗi lần chạy, `--self-check` không cần GPU.
+│ +
+│ +## Luồng gọi
+│ +1. Ghi manifest GLVND tạm `{file_format_version:1.0.0, ICD:{library_path:libEGL_nvidia.so.0}}` vào NamedTemporaryFile (tự dọn dẹp), gán `__EGL_VENDOR_LIBRARY_FILENAMES`, rồi `CDLL("libEGL.so.1")` — chỉ Prozess này, không sửa hệ thống (phương pháp đã chứng minh trong `evidence/target_live_20261104/egl_nvidia_only.json`: init EGL 1.5 thành công).
+│ +2. Enumerate thiết bị qua `eglQueryDevicesEXT`; đối mỗi thiết bị gọi `eglQueryDeviceStringEXT` (`EGL_DRM_DEVICE_FILE_EXT` và `EGL_RENDER_DEVICE`) và chỉ CHỌN thiết bị cuyo chuỗi khớp `/dev/dri/card1` hoặc `/dev/dri/renderD129` (BDF 03:00.0, theo `TARGET_LIVE_FINDINGS.md` + `egl_device_query.json`). KHÔNG dùng ordinal chưa xác thực (`device[0]` không được nếu chưa khớp); nếu không tìm thấy → báo fail, không render trên thiết bị khác.
+│ +3. `eglGetPlatformDisplayEXT(EGL_PLATFORM_DEVICE_EXT, thiết bị)` → `eglInitialize` → `eglBindAPI(EGL_OPENGL_ES_API)`.
+│ +4. `eglChooseConfig` PBUFFER + ES2 + RGBA8 (red/green/blue/alpha = 8), kiểm tra lại thuộc tính config đã chọn qua `eglGetConfigAttrib`.
+│ +5. Tạo pbuffer 4x4 + context ES2 (`EGL_CONTEXT_CLIENT_VERSION = 2`), make current.
+│ +6. `glClearColor` đỏ `(1,0,0,1)`, `glClear`, `glReadPixels` 16 pixel RGBA unsigned byte, mỗi pixel phải đúng `(255,0,0,255)`.
+│ +7. `glGetString(GL_VENDOR/RENDERER/VERSION)`; kiểm tra lỗi EGL (`eglGetError`) và GL (`glGetError`) sau mỗi bước quan trọng, ghi mã lỗi vào báo cáo.
+│ +8. Dọn dẹp: release make-current → destroy context → destroy surface → terminate display trên đường hoàn tất (cũng xử lý handle đã tạo khi thất bại), rồi đóng manifest tạm (NamedTemporaryFile auto cleanup).
+│ +
+│ +## Tiêu chí pass
+│ +`pass = true` chỉ khi: thiết bị khớp card1/renderD129, renderer chứa "NVIDIA", 16/16 pixel đúng (255,0,0,255), không có lỗi EGL/GL sau các bước chủ yếu.
+│ +
+│ +## Ràng buộc
+│ +- Không sudo, không thay group/config, không chạm MMIO/GPU register, không reset/reload driver, không ghi node DRM, không đọc bí mật. Chỉ đệm manifest temp và biến env của quá trình này.
+│ +- Tất cả hàm EGL/GL được gọi qua ctypes với `argtypes`/`restype` rõ ràng; entry point mở rộng và GL lấy qua `eglGetProcAddress`.
+│ +
+│ +## Giới hạn (quan trọng)
+│ +Chỉ chứng minh đường ống clear → readback trên thiết bị đã khớp. KHÔNG chứng minh shader, vẽ (draw), hay scanout. Xem `TARGET_LIVE_FINDINGS.md` và `evidence/target_live_20261104/egl_nvidia_only.json` cho bằng chứng hiện tại.
+│ +
+│ +## Chạy local
+│ +`python3 glm_work/egl_render_probe.py --self-check` — không cần GPU, không chạm mục tiêu.
+Done. Wrote two files under `glm_work/` and verified locally.
+
+**`glm_work/egl_render_probe.py`** — stdlib-only ctypes probe, schema `phase21-egl-render-v1`:
+- Writes `{file_format_version:1.0.0, ICD:{library_path:libEGL_nvidia.so.0}}` to a `NamedTemporaryFile` (auto cleanup), sets `__EGL_VENDOR_LIBRARY_FILENAMES`, then `CDLL("libEGL.so.1")` — process-only, no system change.
+- Enumerates `eglQueryDevicesEXT`; selects **only** the device whose `eglQueryDeviceStringEXT` (`EGL_DRM_DEVICE_FILE_EXT` / `EGL_RENDER_DEVICE`) matches `/dev/dri/card1` or `/dev/dri/renderD129` (BDF 03:00.0 per `TARGET_LIVE_FINDINGS.md`). No ordinal fallback — fail if nothing matches.
+- `eglGetPlatformDisplayEXT` → `eglInitialize` → `eglBindAPI(ES)` → `eglChooseConfig` (PBUFFER + ES2 + RGBA8, re-verified via `eglGetConfigAttrib`) → 4x4 pbuffer + ES2 context → make current → `glClearColor` red + `glClear` → `glReadPixels` all 16 pixels vs `(255,0,0,255)` → `glGetString` vendor/renderer/version.
+- Every EGL/GL bound function has explicit `argtypes`/`restype`; extension/GL entry points via `eglGetProcAddress`; EGL/GL errors checked after each step.
+- JSON stdout with `utc`, per-step returns/errors, `egl_errors`, `gl_errors`, pixel expected/read, and `pass` only when matched GPU + NVIDIA renderer + exact pixels + no errors. Cleans context/surface/display, closes manifest. References `TARGET_LIVE_FINDINGS.md` and `evidence/target_live_20261104/egl_nvidia_only.json`; notes state this is clear/readback pipeline verification, not shader/draw/scanout proof.
+
+**`glm_work/egl_render_notes.md`** — Vietnamese notes mirroring the sibling `cupti_query_notes.md` style.
+
+Verification: `py_compile` OK, `--self-check` PASS (pixel logic + manifest + constants, no GPU). Not executed on the target per constraints; ready for the target run.
+
+Skipped: nothing substantive — full probe built as specified. Add GPU execution when the target step runs it.

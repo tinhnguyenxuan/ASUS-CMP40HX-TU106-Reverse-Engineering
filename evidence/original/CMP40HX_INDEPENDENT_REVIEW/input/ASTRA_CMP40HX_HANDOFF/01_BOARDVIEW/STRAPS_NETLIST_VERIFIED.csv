@@ -1,0 +1,7 @@
+strap_net,gpu_pin,pullup_1V8_AON,pulldown_GND,source,cmp40hx_population
+STRAP0,BL3,R255,R268,Design netlist only,CMP population UNKNOWN
+STRAP1,BL4,R257,R269,Design netlist only,CMP population UNKNOWN
+STRAP2,BM4,R256,R263,Design netlist only,CMP population UNKNOWN
+STRAP3,BM5,R258,R261,Design netlist only,CMP population UNKNOWN
+STRAP4,BK5,R249,R264,Design netlist only,CMP population UNKNOWN
+STRAP5,BJ5,R250,R265,Design netlist only,CMP population UNKNOWN

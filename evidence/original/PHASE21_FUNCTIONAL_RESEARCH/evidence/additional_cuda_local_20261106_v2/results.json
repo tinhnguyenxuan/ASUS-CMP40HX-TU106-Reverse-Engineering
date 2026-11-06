@@ -1,0 +1,18 @@
+{
+  "schema": "phase21-additional-cuda-v1",
+  "started_utc": "2026-11-06T03:01:16.946564+00:00",
+  "source": "/home/REDACTED_USER/codex-work/PHASE21_FUNCTIONAL_RESEARCH/evidence/additional_cuda_local_20261106_v2/probe_source.cu",
+  "source_sha256": "787149aa7bfe5d59775fad8828fc1385089e21db65704376eaad1e56e5c89471",
+  "bdf": "0000:03:00.0",
+  "expected_uuid": "GPU-REDACTED",
+  "status": "NOT_RUN",
+  "tests": [],
+  "limits": [
+    "No throughput/stock claim",
+    "Device payload <=512 bytes per test; driver/context overhead not bounded by that number",
+    "CPU timeout is not a GPU reset/preemption guarantee",
+    "No device configuration, clock, voltage or privileged operation"
+  ],
+  "reason": "TOOLCHAIN_MISSING: nvcc not in PATH; no target inference",
+  "ended_utc": "2026-11-06T03:01:16.946662+00:00"
+}

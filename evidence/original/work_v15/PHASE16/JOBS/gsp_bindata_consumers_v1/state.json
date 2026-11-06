@@ -1,0 +1,12 @@
+{
+  "job": "gsp_bindata_consumers_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:19:54.378275+00:00",
+  "wrapper_pid": 1631897,
+  "task_sha256": "c8c91b7e28a017c8687a6c0567c8864d2f82ae69d9043cf7fe416f2aeb1d1b2b",
+  "hermes_pid": 1631898,
+  "hermes_start_ticks": "208514026",
+  "heartbeat_at": "2026-11-03T15:39:00.983379+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:39:02.988015+00:00"
+}

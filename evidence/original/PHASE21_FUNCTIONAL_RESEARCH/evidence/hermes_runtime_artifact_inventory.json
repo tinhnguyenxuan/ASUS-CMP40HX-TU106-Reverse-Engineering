@@ -1,0 +1,33 @@
+{
+  "schema": "phase21-hermes-runtime-artifact-inventory-v1",
+  "generated_utc": "2026-11-04T13:54:47.666180+00:00",
+  "rows": [
+    {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/TOPOLOGY/silicon_topology.json",
+      "size": 4694,
+      "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+      "top_level_keys": [
+        "gpu_uuid",
+        "sm_count",
+        "smi_q"
+      ],
+      "embedded_timestamp_keys": [],
+      "classification": "HISTORICAL_HERMES_CACHE",
+      "current_authority": false
+    },
+    {
+      "path": "/home/REDACTED_USER/.hermes/cache/scratch/cmp40hx_research/TOPOLOGY/display_probe.json",
+      "size": 22560,
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "top_level_keys": [
+        "bdf",
+        "conclusion",
+        "zones"
+      ],
+      "embedded_timestamp_keys": [],
+      "classification": "HISTORICAL_HERMES_CACHE",
+      "current_authority": false
+    }
+  ],
+  "conclusion": "Artifacts are historical cache copies; display_probe lacks sufficient command/timestamp provenance and neither closes current-runtime blockers."
+}

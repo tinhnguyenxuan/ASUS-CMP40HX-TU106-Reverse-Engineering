@@ -1,0 +1,25 @@
+{
+  "summary": {
+    "tables_total": 5,
+    "decoded": 4,
+    "unsupported": 1,
+    "out_of_range": 0,
+    "at_least_3_decoded": true,
+    "decoded_slots": [
+      17,
+      5,
+      20,
+      11
+    ],
+    "unsupported_slots": [
+      0
+    ]
+  },
+  "rom_sha256": "dc5395dd845cf2139f94c8b4b342adf91206aec0e3ed18103ad94ba18d009dec",
+  "out_dir": "/home/REDACTED_USER/codex-work/work_v15/PHASE16/VBIOS_TYPED"
+}
+slot 17 PERF TEST SPEC     off 0x545f2   ver 0x10  status decoded      extent 0x545f2..0x54600 len=14
+slot 5  THERMAL DEVICES    off 0x58723   ver 0x10  status decoded      extent 0x58723..0x5875d len=58
+slot 20 THERMAL POLICY     off 0x58679   ver 0x10  status decoded      extent 0x58679..0x58723 len=170
+slot 11 POWER BUDGET       off 0x57e92   ver 0x30  status decoded      extent 0x57e92..0x583e6 len=1364
+slot 0  PERFORMANCE        off 0x54155   ver 0x60  status unsupported  extent None

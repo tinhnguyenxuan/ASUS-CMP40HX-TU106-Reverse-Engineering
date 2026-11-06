@@ -1,0 +1,20 @@
+{
+  "tool": "/tmp/envytools/build/nvbios/nvbios",
+  "tool_sha256": "476332d78fe5dae77fde7f1c12c5050fbc01d1603a671fdecfde36beed3812e8",
+  "source": "/tmp/envytools/nvbios/nvbios.c",
+  "source_sha256": "7e9f739bf8e4b45f168e90b4d6b07c0c0d039a2bdb76f753b38069714f36907f",
+  "source_git_head": "f102b82381f3f11cee113d16374c87091db039d9",
+  "extraction": "original[0x28600:0x37a00]",
+  "extracted_sha256": "f7fb49691fa3003dbd6900c975dddf2f82aec6262901925df5bbfeffc74e62c8",
+  "command": [
+    "timeout",
+    "20",
+    "/tmp/envytools/build/nvbios/nvbios",
+    "-p",
+    "scripts",
+    "PHASE21_FUNCTIONAL_RESEARCH/evidence/legacy_original.rom"
+  ],
+  "stdout": "nvbios_scripts.txt",
+  "stderr": "nvbios_scripts.stderr",
+  "limits": "Compiled parser emitted warnings; only inspected script records corroborated from original bytes. Did not execute VBIOS."
+}

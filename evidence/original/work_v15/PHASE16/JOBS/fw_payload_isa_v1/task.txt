@@ -1,0 +1,11 @@
+Hermes: trực tiếp nghiên cứu CMP40HX/TU106, chỉ offline files/source; không /goal/resume/Hermes con/GPU/config/model/driver changes, exploit/bypass/key bruteforce. Workspace /home/REDACTED_USER/codex-work/work_v15, /usr/bin/python3. Output riêng PHASE16/FW_PAYLOAD_ISA/, không checkpoint chung.
+
+Mục tiêu vượt qua container inventory: xác định cấu trúc mã/descriptor/ISA/engine của các payload có thể đọc bằng bằng chứng, không từentropy hay tên chỉ số suy đoán.
+
+Inputs outputs/ucodes_tu10x.bin và firmware_container_source_verified.json: 38 external payload, 496slots, record actualSize/compressedSize/pData/flags/relOffset. Nguồn bindata và Falcon/RISC-V descriptors trong /tmp/nvsrc, envytools trong /tmp/envytools, các tool đãcó dưới /home/REDACTED_USER/.hermes/cache/scratch. Không cài thêm tool.
+
+1. Inventory TOÀN38payload theo slot/offset/size/hash, boundedstrings và headerraw; xác định descriptor/layout candidates theo source actual struct, không giả định4blobentropy cao=AES. Không xử lý signature/key để bypass.
+2. Tìm source RM_FLCN_BL_DESC/RM_RISCV_UCODE_DESC/nvfw_hs headers và generated firmware references nếu có. So bytefield bounds, code/data lengths/load offsets với actualpayload; reject giả thuyết khi lengths bất hợp lệ. BINDATA_LABEL enum không phải global slot.
+3. Chọn ít nhất2payload thấpentropy có cấu trúc/ISA candidate đáng kiểm. Nếu envydis có sẵn, kiểm tra help và chọn đúng Falcon ISA/version; RISC-V dùng Capstone CS_MODE_RISCV64|CS_MODE_RISCVC. Disassemble code region cómetadata hỗtrợ, giữ raw/offset. Decoder ítinvalid không đủ chứng minh ISA; đối chiếu instruction patterns/controlflow và source/load role. Đừng disassemble metadata nhưcode hoặc lấy toànpadding làmvalidinstructions.
+4. Kiểm tra blob6/8 cũ theo extents mới (loại zero padding): 24diffbytes gồm2ngoàitimestamp. Xác định hai offset0x6f3e và0xb659 nằm code/data/header theo metadata đãvalidated; không tự gọi checksum/version khi thiếu consumer. Lưu exactdiff evidence.
+5. Xuất payload_isa_verify.py + chạythật/run.log, payload_isa_verified.json có accepted/rejected hypotheses, sourcehash/line, rawoffsets, disasm bounded và engine identity confidence, FW_PAYLOAD_ISA_REPORT.md. Nếu ISA/engine chưa đủproof thì UNKNOWN, vẫn giữ bằng chứng tìm kiếm. Không gọi toànGPU DONE.

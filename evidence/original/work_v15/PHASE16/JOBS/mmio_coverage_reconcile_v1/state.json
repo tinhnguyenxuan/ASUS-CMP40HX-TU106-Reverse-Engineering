@@ -1,0 +1,12 @@
+{
+  "job": "mmio_coverage_reconcile_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T18:56:54.152041+00:00",
+  "wrapper_pid": 1667759,
+  "task_sha256": "5a3448811c76f6742d087748bd2f1476681a0896d213da1ff7ce089f155378a6",
+  "hermes_pid": 1667760,
+  "hermes_start_ticks": "209816003",
+  "heartbeat_at": "2026-11-03T19:03:18.300457+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:03:20.301129+00:00"
+}

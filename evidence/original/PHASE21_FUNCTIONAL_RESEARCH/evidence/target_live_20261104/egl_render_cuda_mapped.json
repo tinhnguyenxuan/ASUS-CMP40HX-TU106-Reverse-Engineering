@@ -1,0 +1,161 @@
+{
+  "schema": "phase21-egl-render-v1",
+  "utc": "2026-11-04T15:11:15.203836+00:00",
+  "command": "egl_render_probe",
+  "read_only": true,
+  "vendor_library": "libEGL_nvidia.so.0",
+  "egl_dispatcher": "libEGL.so.1",
+  "target_nodes": [
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "manifest": {
+    "file_format_version": "1.0.0",
+    "ICD": {
+      "library_path": "libEGL_nvidia.so.0"
+    }
+  },
+  "manifest_path": "/tmp/tmpp7f1f037.json",
+  "manifest_auto_cleanup": true,
+  "steps": [
+    {
+      "step": "write_manifest",
+      "ok": true,
+      "result": {
+        "path": "/tmp/tmpp7f1f037.json",
+        "content": {
+          "file_format_version": "1.0.0",
+          "ICD": {
+            "library_path": "libEGL_nvidia.so.0"
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "step": "load_egl",
+      "ok": true,
+      "result": "libEGL.so.1",
+      "error": null
+    },
+    {
+      "step": "eglQueryDevicesEXT",
+      "ok": true,
+      "result": {
+        "count": 1,
+        "rc": true
+      },
+      "error": null
+    },
+    {
+      "step": "EGL_CUDA_DEVICE_NV_to_BDF",
+      "ok": true,
+      "result": "0000:03:00.0",
+      "error": null
+    },
+    {
+      "step": "eglGetPlatformDisplayEXT",
+      "ok": true,
+      "result": {
+        "selected_index": 0
+      },
+      "error": null
+    },
+    {
+      "step": "eglInitialize",
+      "ok": true,
+      "result": {
+        "major": 1,
+        "minor": 5
+      },
+      "error": null
+    },
+    {
+      "step": "eglBindAPI",
+      "ok": true,
+      "result": {
+        "api": "EGL_OPENGL_ES_API"
+      },
+      "error": null
+    },
+    {
+      "step": "eglChooseConfig:egl_error",
+      "ok": false,
+      "result": null,
+      "error": "0x3004"
+    },
+    {
+      "step": "eglChooseConfig",
+      "ok": false,
+      "result": {
+        "num_config": 0
+      },
+      "error": null
+    },
+    {
+      "step": "eglTerminate",
+      "ok": true,
+      "result": null,
+      "error": null
+    }
+  ],
+  "egl_errors": [
+    {
+      "where": "eglChooseConfig",
+      "code": "0x3004"
+    }
+  ],
+  "gl_errors": [],
+  "devices": [
+    {
+      "index": 0,
+      "drm_device": null,
+      "render_node": null,
+      "matched": true,
+      "handle": 124918441879312
+    }
+  ],
+  "selected_device": {
+    "index": 0,
+    "drm_device": null,
+    "render_node": null,
+    "matched": true
+  },
+  "egl_version": [
+    1,
+    5
+  ],
+  "egl_client_vendor": "NVIDIA",
+  "gl": {
+    "vendor": null,
+    "renderer": null,
+    "version": null
+  },
+  "pixels": {
+    "size": [
+      4,
+      4
+    ],
+    "count": 16,
+    "expected_per_pixel": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "read": [],
+    "all_match": false
+  },
+  "matched_gpu": true,
+  "nvidia_hardware": false,
+  "egl_errors_clean": false,
+  "gl_errors_clean": true,
+  "pass": false,
+  "notes": [
+    "This probe verifies the clear->readback pipeline only: EGL device selection, context creation, glClear and glReadPixels on a 4x4 pbuffer.",
+    "A pass does NOT prove shader execution, draw commands, or scanout; it proves the matched NVIDIA device accepts ES2 commands and returns the cleared color.",
+    "Device selection matches eglQueryDeviceStringEXT output against /dev/dri/card1 or /dev/dri/renderD129 (BDF 03:00.0); no unverified ordinal is used.",
+    "Manifest and environment changes are process-only; the temp manifest is removed via NamedTemporaryFile cleanup. No sudo, config, group, MMIO, or driver changes.",
+    "Current evidence: TARGET_LIVE_FINDINGS.md and evidence/target_live_20261104/egl_nvidia_only.json (process-only NVIDIA EGL init via temporary manifest, EGL 1.5). Rendering correctness remains to be captured by this probe."
+  ]
+}

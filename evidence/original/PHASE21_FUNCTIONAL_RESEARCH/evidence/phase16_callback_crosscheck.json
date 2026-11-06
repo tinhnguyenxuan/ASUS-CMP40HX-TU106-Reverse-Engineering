@@ -1,0 +1,47 @@
+{
+  "source": "work_v15/PHASE16/GSP_CALLBACK_TARGET/gsp_callback_target_report.json",
+  "sha256": "04b7a8f773392e842be60ef7bd6a6423912a57f06b635f5c2215b044c31b8c7b",
+  "firmware_sha256": "0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b",
+  "scope": "cross-phase static callback evidence",
+  "callback": {
+    "callback_target": "UNKNOWN_indirect",
+    "callback_mechanism": "jalr a5 at 0x04F575E0 where a5 = ld a5, 0x30(s3) @ 0x04F575D4 (indirect via context+0x30)",
+    "context_plus_0x30_writer": "NOT found in-function 0x04F5733C..0x04F57A00; slot written by callee(s) (context allocator call @0x04F5739C/3A0 callee, or s3+0x20 vtable init chain) outside this window",
+    "proven_assignments_to_context_0x30": [],
+    "candidate_static_pointer_constants": [
+      "0000000004f56c88",
+      "0000000004f633e4",
+      "0000000004f64524",
+      "0000000004f62024",
+      "0000000004f62370",
+      "0000000004f48ed4",
+      "0000000004f5a470",
+      "0000000004f46764",
+      "0000000004f4bdec",
+      "0000000004f4be8c",
+      "0000000004f46784",
+      "0000000004f571e0",
+      "0000000004f47224",
+      "0000000004f467a4"
+    ],
+    "candidate_static_targets_proven": false,
+    "a0_at_call": "s3 (context) PROVEN on both predecessor paths",
+    "a1_at_call": "PATH-SENSITIVE: first entry = call-clobbered UNKNOWN (external call @0x04F575AC/5B0 kills mv a1,s4 @0x04F575A4); back-edge = helper return PROVEN via mv a1,a0 @0x04F5764C",
+    "a2_at_call": "entry f00 u16 from stack slot s0-0x88 PROVEN straight-line; helper mutation of slot not excluded",
+    "a1_equals_s4_at_call": false,
+    "a1_equals_s4_note": "do not revive a1=s4 at the callback call; mv a1,s4 @ 0x04F57378/0x04F575A4/0x04F5761C are defs elsewhere (arg copy / helper arg / post-call), none is the live def at 0x04F575E0 on all paths",
+    "header_consumer_0x0459c5e0": "NOT touched; out of scope for this worker",
+    "unknowns": [
+      "callback target via *(s3+0x30): indirect, value not derivable from static bytes",
+      "writer of context+0x30: outside this function window (context allocator call @0x04F5739C/3A0 callee, or s3+0x20 vtable init chain)",
+      "a1 at callback on first-entry path: call-clobbered by external call @0x04F575AC/5B0",
+      "initial value of stack slot s0-0x88 before first loop iteration: no dominating store in this function",
+      "helper 0x04F075EC effect on stack slot s0-0x88 (a2 source for next iteration): not excluded statically"
+    ]
+  },
+  "limits": [
+    "callback target remains indirect UNKNOWN",
+    "no runtime reachability or target-state evidence",
+    "header consumer at 0x0459c5e0 was explicitly out of scope"
+  ]
+}

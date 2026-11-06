@@ -1,0 +1,12 @@
+{
+  "job": "gsp_header_consumer_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:40:02.905190+00:00",
+  "wrapper_pid": 1640788,
+  "task_sha256": "4c828502759ab6cf464e9693698fedf0298045d64c0c8880fbef4dd90dca9191",
+  "hermes_pid": 1640789,
+  "hermes_start_ticks": "208634878",
+  "heartbeat_at": "2026-11-03T15:57:15.594294+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:57:17.595354+00:00"
+}

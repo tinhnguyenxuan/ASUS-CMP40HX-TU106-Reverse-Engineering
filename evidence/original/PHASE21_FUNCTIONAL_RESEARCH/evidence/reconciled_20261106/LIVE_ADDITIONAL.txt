@@ -1,0 +1,29 @@
+
+==============NVSMI LOG==============
+
+Timestamp                                              : Thu Nov  5 18:17:52 2026
+Driver Version                                         : 615.71.09 [Deprecated; will be removed in CUDA 14.0. Use KMD Version instead]
+CUDA Version                                           : 13.4 [Deprecated; will be removed in CUDA 14.0. Use CUDA UMD Version instead]
+KMD Version                                            : 615.71.09
+CUDA UMD Version                                       : 13.4
+
+Attached GPUs                                          : 1
+GPU 00000000:03:00.0
+    Retired Pages
+        Single Bit ECC                                 : N/A
+        Double Bit ECC                                 : N/A
+        Pending Page Blacklist                         : N/A
+    Remapped Rows                                      : N/A
+
+Model: 		 NVIDIA CMP 40HX
+IRQ:   		 50
+GPU UUID: 	 GPU-REDACTED
+Video BIOS: 	 90.06.67.00.06
+Bus Type: 	 PCIe
+DMA Size: 	 47 bits
+DMA Mask: 	 0x7fffffffffff
+Bus Location: 	 0000:03:00.0
+Device Minor: 	 0
+GPU Firmware: 	 615.71.09
+GPU Excluded:	 No
+03:00.0 0302: 10de:1f0b (rev a1)

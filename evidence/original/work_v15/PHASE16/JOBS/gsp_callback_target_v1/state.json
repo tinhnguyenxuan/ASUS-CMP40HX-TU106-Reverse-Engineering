@@ -1,0 +1,12 @@
+{
+  "job": "gsp_callback_target_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T19:19:30.754615+00:00",
+  "wrapper_pid": 1680265,
+  "task_sha256": "32c2c4c431aa2fece1a66c6d5c6c72f63e969d8ae34aea4843cc3168b5015063",
+  "hermes_pid": 1680266,
+  "hermes_start_ticks": "209951663",
+  "heartbeat_at": "2026-11-03T19:38:59.386608+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T19:39:01.388613+00:00"
+}

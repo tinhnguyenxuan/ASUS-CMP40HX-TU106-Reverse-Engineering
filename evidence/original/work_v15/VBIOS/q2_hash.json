@@ -1,0 +1,9 @@
+{
+ "targets": {
+  "fuse_0x0718": "dc95c0578ef29c83423949bf031ec55130573764038f07ca229d3be1b9c5381e",
+  "fuse_0x0344": "b50b6840ed59e272010000000000000001000000000000000000000000000000"
+ },
+ "trials": 455689,
+ "hits": [],
+ "note": "0 khop = khong phai SHA-256 cua vung/whole-file nao"
+}

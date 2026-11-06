@@ -1,0 +1,12 @@
+Hoàn thành. Tất cả đầu ra nằm ở `/home/REDACTED_USER/codex-work/work_v15/PHASE16/MMIO_COVERAGE_RECONCILE/`, file gốc và output của worker cũ không bị đụng vào (kích thước/mtime không đổi), không truy cập phần cứng.
+
+**Kết quả chính:**
+
+- **Namespace (giữ nguyên):** 42 MMIO_BAR0 registers, 3 bases, 3 constants, 3 control-space, 1 PCI config = 52 entries; 3 misaligned đúng là 3 constants (0xffff, 0xface, 0x10de — giá trị, không phải địa chỉ); unknown = 0. Control-space (0x00b6687c/80/84) số lý nằm trong cửa sổ BAR0 nhưng kiến trúc là NV_CTRL, không chứng kiến việc vị trí nằm ngoài BAR0.
+- **26 cờ semantic=true/source_match=false:** toàn bộ là craft artifact do worker trước đọc header bitrange `"HI:LO"` ngược (lấy `lo=token đầu, hi=token thứ hai`). Đọc đúng thứ tự HI:LO → header == dump ở tất cả 26 cờ, source_match sửa thành `true`, có file:line/sha256 header chính xác, áp dụng được TU106 (header tu102 Turing là nguồn định nghĩa cho TU10x/TU106). 7 trường hợp cùng gốc gốc nhưng semantic=false (registrar giá trị poison) cũng được nêu rõ. `NV_PGC6_BSI_SECURE_SCRATCH_14_BOOT_STAGE_3_HANDOFF` đính chính: là trường bit đơn `26:26` không phải biểu diễn range không hỗ trợ, khớp với dump.
+- **Coverage lấy mẫu:** 4 u32/trang = 16 byte quan sát/trang; tổng 65536 / 16777216 byte = **0,390625%** BAR0; mỗi trang chưa quan sát 4080 byte. Không gán toàn trang/block là vắng mặt vật lý.
+- **49 trang unclassified:** kế từng trang (có trong JSON + báo cáo); 0 missing record; bucket theo mẫu: 1 poison, 46 data-like, 2 uninit-all-ones; 0 trang được xác định là unmapped.
+- **Số phân loại đối soát:** POISON 3278, UNINIT_FF 72, DATA 141, ZERO 355, MIXED 201, UNCLASSIFIED 49 = 4096. Raw DATA 287 tách thành 141 + 72 + 49; 25 trang DATA chuyển sang POISON qua vùng p9_reclass POISON_MOI (3253 → 3278). Tỷ lệ poison 3278/4047 = 0,80998… của trang đã phân loại; 3278/4096 = 0,80029… của tất cả.
+- **WPR2:** định nghĩa kiến trúc dev_fb.h VAL[31:4]<<12; giá trị chụp LO 0x01F7E000 / HI 0x01FFEE00; giải nghĩa decoded 0x1F7E00000 / 0x1FFEE0000; chênh lệch ranh giới 135135232 byte = 128,875 MiB; inclusive/exclusive vẫn UNKNOWN (không có nguồn địa phương); L2TLB ≠ L2 cache, GPC/TPC/SM/ROP = UNKNOWN.
+
+**Files:** `mmio_coverage_reconcile.py` (script, stdlib-only, có self-check asserts đã chạy OK), `mmio_coverage_reconcile.json`, `MMIO_COVERAGE_RECONCILE_REPORT.md`, `mmio_coverage_reconcile_run.log`. Skipped: thêm cấu trúc/class hay dependence mới — không cần cho nhiệm vụ này. Cần bản tiếng Việt đầy đủ hơn báo cáo, cứ nói.

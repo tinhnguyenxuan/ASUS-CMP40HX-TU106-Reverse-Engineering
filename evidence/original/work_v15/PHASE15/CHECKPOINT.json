@@ -1,0 +1,130 @@
+{
+  "project": "CMP 40HX (TU106-100-A1) full GPU reverse engineering — PHASE 15 UNKNOWN RESOLUTION",
+  "session": "2026-11-06 v16",
+  "checkpoint_version": 16,
+  "previous_checkpoint": "2026-11-06 v15",
+  "gpu": {
+    "pci": "10DE:1F0B",
+    "subsystem": "8804:1043",
+    "bdf": "0000:03:00.0",
+    "vbios": "90.06.67.00.06",
+    "silicon": "TU106-100-A1",
+    "pcb": "CG161P REV 2.00",
+    "sm": 34,
+    "cuda": 2176,
+    "tpc": 17,
+    "vram_mib": 8192
+  },
+  "env": {
+    "kernel": "6.8.0-147-generic",
+    "driver": "615.78.08 open + cmpunlocker",
+    "host": "<REDACTED_LAB_IP>",
+    "target": "<REDACTED_LAB_IP>"
+  },
+  "phases_p15": {
+    "P0_FUSE": {
+      "status": "IN_PROGRESS",
+      "report": "PHASE15/FUSE_SEMANTICS.md",
+      "key_findings": [
+        "352 word data, 126 distinct values, 3 poison codes",
+        "152 word =1 -> INFERRED enable flag, NOT OTP bit cell (gaps)",
+        "fuse +0x0718 = 32 byte entropy high, NOT PDI hash (exhaustive search 0 hit)",
+        "CRC32/Adler32 of +0x0718 computed, no match to known values",
+        "8 named registers decoded (NVDEC_DISABLE, SECURE_GSP_DEBUG_DIS, DISPLAY_DATA_ENABLE, PCI ID, TU106 family, TPC/SM, GPC, strap mirror)",
+        "Bit pattern: bit 0 set in 249/352 word, bit 31 set in 62/352 word",
+        "Recurring values: 0x8000004F x5, 0x80000043 x3, 0xFFFFFF8F x5, 0xFFFFFFFC x4",
+        "Distinction: OTP physical vs shadow/register state rule defined"
+      ]
+    },
+    "P1_GSP_RM": {
+      "status": "IN_PROGRESS",
+      "report": "PHASE15/GSP_DISPATCH_ANALYSIS.md",
+      "key_findings": [
+        "Dispatcher @0x04F575FC, base 0x041A70B0, stride 32, span 0x1740 = 186 entry",
+        "Entry layout: u16@0, u32@4, u8@8, u64@0x10, u16@0x18 (P3 layout was WRONG)",
+        "u64@+0x10 = callback parameter (via a2), NOT name_ptr; callback from context +0x30",
+        "4 hypotheses about u64@+0x10 all refuted with evidence",
+        "NEXT: find caller of dispatcher in gsp_tu10x.bin (XREF to 0x04F575FC)"
+      ]
+    },
+    "P2_VBIOS": {
+      "status": "IN_PROGRESS",
+      "report": "PHASE15/VBIOS_UNKNOWN_FIELDS.md",
+      "key_findings": [
+        "Key block 38 record x 32 byte layout decoded; image #2 all 0xFF in key block area",
+        "5 field UNKNOWN: sig, ver, f4, f8, flags, hash (f4 not timestamp, hash 0/912 match)",
+        "12 digest NPDS-0x70: 0/1,365,939 match"
+      ]
+    },
+    "P3_FIRMWARE": {
+      "status": "IN_PROGRESS",
+      "report": "PHASE15/FIRMWARE_RESEARCH.md",
+      "key_findings": [
+        "11 blob: blob[6]===blob[8] (24 byte build timestamp), 4 entropy-high not compressible, blob[0] not Falcon code",
+        "Cannot distinguish AES vs compression (C3); no key available"
+      ]
+    },
+    "P4_MMIO_TOPOLOGY": {
+      "status": "IN_PROGRESS",
+      "report": "PHASE15/MMIO_SEMANTICS.md",
+      "key_findings": [
+        "Poison codes catalogued: 0xBADF5040/1300/1301/1100/510C/0000, 0xBAD00100 (new, 25 pages), 0xFFFFFFFF (72 pages)",
+        "BAR0 0x300000 = VBIOS shadow running (100% match rom[0x28600:])"
+      ]
+    }
+  },
+  "unknowns": {
+    "total": 45,
+    "open": 35,
+    "resolved": 10,
+    "source": "UNKNOWN_DATABASE.json (single source of truth)"
+  },
+  "coverage": {
+    "dashboard": "PHASE15/UPDATED_COVERAGE.md",
+    "note": "Coverage measured per subsystem unit, not aggregated into a single percentage"
+  },
+  "safety_compliance": {
+    "flash_vbios": false,
+    "write_fuse": false,
+    "write_mmio": false,
+    "pci_config_write": false,
+    "driver_reload": false,
+    "reboot": false,
+    "voltage_clock_change": false,
+    "security_bypass": false,
+    "key_bruteforce": false,
+    "vf_offset_sweep": false,
+    "all_readonly": true
+  },
+  "rounds_added": [
+    "P15 started: unknown resolution per decree",
+    "Wrote PHASE15/FUSE_SEMANTICS.md (352 word analysis, 152 ones inferred, +0x0718 unknown)",
+    "Wrote PHASE15/GSP_DISPATCH_ANALYSIS.md (dispatcher @0x04F575FC, 4 hypotheses refuted)",
+    "Wrote PHASE15/VBIOS_UNKNOWN_FIELDS.md (5 key block fields unknown)",
+    "Wrote PHASE15/FIRMWARE_RESEARCH.md (11 blob, no AES conclusion per C3)",
+    "Wrote PHASE15/MMIO_SEMANTICS.md (poison codes catalogued)",
+    "Wrote PHASE15/BLOCKERS.md (13 blocked items with reasons)",
+    "Wrote PHASE15/EVIDENCE_LEDGER.md (15 evidence items incl. E15-11..E15-15 fuse deep analysis)",
+    "Wrote PHASE15/NEW_DISCOVERIES.md (10 discoveries)",
+    "Wrote PHASE15/UPDATED_COVERAGE.md (per-subsystem coverage)",
+    "Fixed MASTER_REPORT.md unknown count (37->45, 32->35 open, 5->10 resolved)",
+    "Wrote PHASE15/fuse_deep.py + fuse_deep.json (bit pattern, recurring values, CRC32/Adler32)",
+    "CHECKPOINT.json v16: unknowns 45/35/10"
+  ],
+  "new_findings": [
+    "D-P15-001: 352 word data, 126 distinct values, 3 poison codes",
+    "D-P15-002: 152 word =1 -> INFERRED enable flag, NOT OTP bit cell",
+    "D-P15-003: fuse +0x0718 = 32 byte entropy high, NOT PDI hash",
+    "D-P15-004: 0xBADF510C in data region -> locked fuse, not bus error",
+    "D-P15-005: Dispatcher @0x04F575FC, entry layout 5 fields decoded",
+    "D-P15-006: u64@+0x10 = callback parameter, NOT name_ptr",
+    "D-P15-007: 4 hypotheses about u64@+0x10 all refuted",
+    "D-P15-008: 11 blob firmware classified",
+    "D-P15-009: VBIOS key block 38 record layout decoded",
+    "D-P15-010: Poison codes BAR0 catalogued",
+    "D-P15-011: Fuse bit pattern - bit 0 set 249/352, bit 31 set 62/352 word",
+    "D-P15-012: Fuse recurring values - 0x8000004F x5, 0x80000043 x3, 0xFFFFFF8F x5, 0xFFFFFFFC x4",
+    "D-P15-013: fuse +0x0718 CRC32=0x719E0687, Adler32=0xF9630E16, no match to known values",
+    "D-P15-014: OTP physical vs shadow/register state distinction rule defined"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "input": {
+    "path": "work_v15/RAW_DATA/fuse2.json",
+    "bytes": 55233,
+    "sha256": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc"
+  },
+  "words": 3072,
+  "dump_bytes": 12288,
+  "declared_span": 32768,
+  "fields": [
+    {
+      "offset": "0x378",
+      "address": "0x21378",
+      "value": "0x0",
+      "name": "NVDEC_DISABLE",
+      "interpretation": "TU102 source: bits 2:0 disable mask; raw zero does not prove decode execution",
+      "storage": "MMIO saved read; physical OTP vs shadow UNKNOWN"
+    },
+    {
+      "offset": "0x74c",
+      "address": "0x2174c",
+      "value": "0x1",
+      "name": "SECURE_GSP_DEBUG_DIS",
+      "interpretation": "TU102 source: debug disable bit",
+      "storage": "MMIO saved read; physical OTP vs shadow UNKNOWN"
+    },
+    {
+      "offset": "0xc04",
+      "address": "0x21c04",
+      "value": "0x1",
+      "name": "NV_FUSE_STATUS_OPT_DISPLAY",
+      "interpretation": "Official 615.78.08 TU106 dispatch selects GM107 helper. Saved header DATA_ENABLE=0, bit0=1 in archive -> support predicate false; exact header tag bytes and fresh runtime still pending.",
+      "storage": "MMIO saved read; physical OTP vs shadow UNKNOWN",
+      "evidence": "evidence/display_gate.json"
+    },
+    {
+      "offset": "0x650",
+      "address": "0x21650",
+      "value": "0x4001f",
+      "name": "UNKNOWN",
+      "interpretation": "No verified TU106 field semantics",
+      "storage": "MMIO saved read; physical OTP vs shadow UNKNOWN"
+    },
+    {
+      "offset": "0xc1c",
+      "address": "0x21c1c",
+      "value": "0x38",
+      "name": "UNKNOWN",
+      "interpretation": "No verified TU106 field semantics",
+      "storage": "MMIO saved read; physical OTP vs shadow UNKNOWN"
+    }
+  ]
+}

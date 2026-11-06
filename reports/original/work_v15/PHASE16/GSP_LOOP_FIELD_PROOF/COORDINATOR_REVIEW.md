@@ -1,0 +1,7 @@
+# Coordinator final review
+
+Job `gsp_loop_field_proof_v1` completed with runner exit 0. Accept the bounded CFG improvement: 2205 unique decoded instructions now occupy 516 nonoverlapping blocks with no duplicated slots; indirect callees remain outside scope. Accept the local path-specific `flags+16` chain at 0x459C708/0x459C70C and separation of the unresolved `s7` table. The seed/no-seed comparison yields one locally grounded access in both modes.
+
+Reject the report's universal dominance and induction claims as currently unsupported. It calls 0x459C6E8 the “entry block,” but the actual candidate entry is 0x459C5E0 and the definitions of `s9`, `s10`, `s8` sit in block 0x459C6E8. The machine evidence hardcodes `s9_defined_in_entry_block=true` and peers. Independent dominator calculation on the final `disassembly/cfg.json` gives **false** for `dom(0x459C6E8, 0x459C6FC)`. An explicit CFG path avoiding 0x459C6E8 is documented in `COORDINATOR_INTERIM_REVIEW.md`. The path's branch-predicate feasibility has not been established. Therefore the report cannot claim that the base, stride, and IV(0,1) hold on every visit to the loop header or for all records.
+
+The final output says index>0 remains unknown, and `actualSize`, `compressedSize`, `pData`, and `relOffset` remain unattributed. Do not turn its “1 base-table access” into a proof that other fields are unused. Follow up on branch feasibility and path-sensitive dominance before any loop-wide table claim.

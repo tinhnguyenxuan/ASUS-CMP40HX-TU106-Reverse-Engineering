@@ -1,0 +1,7 @@
+strap_net,gpu_pin,pullup_ref,pullup_rail,pullup_population,pulldown_ref,pulldown_rail,pulldown_population,population_source,latch_confident
+STRAP0,BL3,R255,1V8_AON,UNCERTAIN,R268,GND,UNCERTAIN,CAD netlist only; photo not assessed,No
+STRAP1,BL4,R257,1V8_AON,UNCERTAIN,R269,GND,UNCERTAIN,CAD netlist only; photo not assessed,No
+STRAP2,BM4,R256,1V8_AON,UNCERTAIN,R263,GND,UNCERTAIN,CAD netlist only; photo not assessed,No
+STRAP3,BM5,R258,1V8_AON,DNP,R261,GND,POPULATED,Prior photo report (photos 1793813621675/1673, landmark Y1/G1),No
+STRAP4,BK5,R249,1V8_AON,DNP,R264,GND,POPULATED,Prior photo report (photos 1793813621675/1673, landmark Y1/G1),No
+STRAP5,BJ5,R250,1V8_AON,DNP,R265,GND,POPULATED,Prior photo report (photos 1793813621675/1673, landmark Y1/G1),No

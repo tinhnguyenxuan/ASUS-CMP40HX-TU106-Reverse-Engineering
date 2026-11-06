@@ -1,0 +1,39 @@
+{
+ "finding": "fuse+0x0344 = GPU PDI (Physical Device Identifier), 64-bit",
+ "evidence": {
+  "nvidia_smi_GPU_PDI": "0x0000000000000000",
+  "fuse_0x344": "0x40680bb5",
+  "fuse_0x348": "0x72e259ed",
+  "concat_hi_lo": "0x0000000000000000",
+  "match": true,
+  "source": "nvidia-smi -q (GPU PDI field) vs FUSE/fuse2.json",
+  "confidence": "CORROBORATED - hai nguon doc lap khop 100%"
+ },
+ "layout": {
+  "0x344": "PDI[31:0]",
+  "0x348": "PDI[63:32]",
+  "0x34C": "1",
+  "0x350": "0",
+  "0x354": "1",
+  "0x358": "0",
+  "0x35C": "0",
+  "0x360": "0",
+  "note": "6 word sau PDI: 0x00000001,0,1,0,0,0 = struct header + padding"
+ },
+ "not_present_in": [
+  "VBIOS ROM",
+  "gsp_tu10x.bin",
+  "ucodes_tu10x.bin"
+ ],
+ "hash_0x718": {
+  "value": "dc95c0578ef29c83423949bf031ec55130573764038f07ca229d3be1b9c5381e",
+  "tested": [
+   "sha256/sha3_256/blake2s cua PDI 8 dang (LE/BE/u32x2/ascii hex/dec)",
+   "hmac",
+   "sha256 cua fuse[0:0x344], fuse[0x34C:0x718], fuse[0:0x718]"
+  ],
+  "result": "0 khop",
+  "confidence": "BLOCKED"
+ },
+ "note": "PDI la dinh danh vat ly duy nhat cua chip, chi doc duoc tu OTP, KHONG co trong bat ky file nao tren may"
+}

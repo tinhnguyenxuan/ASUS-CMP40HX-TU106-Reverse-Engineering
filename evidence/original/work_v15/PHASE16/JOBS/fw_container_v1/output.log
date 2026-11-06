@@ -1,0 +1,20 @@
+Hoàn tất job kiểm toán container firmware. Tất cả deliverables đã tạo và chạy tool thật, exit code 0.
+
+**Kết quả:**
+- Header `@0x00` `<8sIIQ`: magic `NVUCODES`, version=1, count=496 (từ header, không hardcode), fingerprint64 `0x8D1990AB6B98AE2B`. Header=24 B, table kết thúc `0x2E98`, padding 104 B (tất cả 0) tới payload đầu `0x2F00`.
+- **496 slot (không kế thừa 11 blob):** 38 valid (marker=4, in bounds, căn lề, không trùng/lập nhất) + 458 zero. Không có size-only, marker≠4, invalid/unresolved.
+- **38 payload:** 0 overlap, 0 duplicate, covered 8.824.912 B, uncovered 12.720 B (=header+table+khoảng trắng 0). Tất cả 6 khoảng trắng toàn 0. Payload cuối (slot 493, `@0x85E500` len 62720) kết thúc đúng EOF — không dùng EOF làm độ dài blob10.
+- **Đối chiếu độc lập:** quét marker+offset trong `[0x18, 0x2F00)`: 38 hits, 38 confirmed, 0 extra, 0 missing — parse == scan.
+- **"11 blob" bị bác bỏ:** header_size≠496 (496 là count), stride≠32 (24), count≠11; blob10-to-EOF thực chất gom ~21 slot payload tách bởi khoảng trắng 0.
+- Không khẳng định AES/ISA/chức năng từ entropy (không IV, không magic, không source producer/consumer).
+
+**Files (PHASE16/):**
+- `firmware_container_verify.py` — 105 dòng, stdlib only, in lệnh tái lập, exit 0
+- `firmware_container_verified.json` — input_hash, headerraw, hypothesis, tất cả raw record/offset, phân loại, extents+evidence, invalid/unresolved, covered/uncovered
+- `FIRMWARE_CONTAINER_VERIFIED.md` — 34 dòng, DECODED vs UNKNOWN/INFERRED, bác bỏ "11 blob"
+- `firmware_container_verify_run.log` — stdout/stderr/exitcode + lệnh tái lập
+- `PHASE16/CHECKPOINT.json` — nhánh firmware đã cập nhật (firmware_container = DECODED structure, semantics/ISA UNKNOWN), các nhánh khác giữ nguyên, toàn GPU chưa đánh dấu DONE
+
+Input SHA256: `6027ab3736f733b5a06e6e61aaae957d1f990426a263849ebcfa8a49eeb4a5d0`
+
+Lưu ý: job này chỉ phạm vi container firmware, không mở rộng ra toàn GPU (theo yêu cầu).

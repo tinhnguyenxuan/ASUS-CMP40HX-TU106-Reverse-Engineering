@@ -1,0 +1,61 @@
+{
+  "task": "T06 — 2 SM thiếu: floorsweeping, fuse và khả năng phục hồi (P0)",
+  "generated_at": "2026-11-05T00:00:00+07:00",
+  "executor": "main session, sequential, no subagent",
+  "constraints": "R0 offline; chỉ đọc file + Python offline + web công khai. Không SSH/sudo/GPU write/MMIO write/BAR/PCI write//dev/mem/reload/flash/collector.",
+  "web_sources": [
+    {
+      "id": "W1",
+      "type": "web",
+      "url": "https://raw.githubusercontent.com/Cyridd/cmpunlocker/main/docs/compatibility.md",
+      "title": "cmpunlocker compatibility — CMP 40HX",
+      "accessed": "2026-11-05",
+      "relevant_quote": "CMP 40HX has no normal display outputs. Graphics use therefore requires a suitable headless, secondary-GPU, remote-display or similar setup.",
+      "applicability_tu106": "CMP 40HX/TU106 — chống trực tiếp giả hypothèse unlock display qua strap/fuse; cộng đồng đánh giá CMP 40HX không có output display vật lý thông thường."
+    },
+    {
+      "id": "W2",
+      "type": "web",
+      "url": "https://raw.githubusercontent.com/NoPantsNoLife/cmp40hx_unlocker/main/README.md",
+      "title": "cmp40hx_unlocker README",
+      "accessed": "2026-11-05",
+      "relevant_quote": "Compute unlock qua SEC2 Booter payload: SS0=0x88888888, SS1=0x00000008, FECS_PLM=0xFFFFFF8F. 'Important distinction: compute is not raster graphics'. FP32 compute ~7.0 TFLOPS sau unlock; Tensor Core MMA 63.8 TFLOPS.",
+      "applicability_tu106": "CMP 40HX/TU106 — chỉ unlock SM issue-rate / hiệu suất compute, KHÔNG tăng số lượng SM. Không là bằng chứng SM count có thể thay đổi."
+    },
+    {
+      "id": "W3",
+      "type": "web",
+      "url": "https://github.com/FreedomOverload/cmpunlocker_40hx",
+      "title": "cmpunlocker_40hx README",
+      "accessed": "2026-11-05",
+      "relevant_quote": "Compute / SM performance unlock — restores full SM issue rate and compute performance.",
+      "applicability_tu106": "CMP 40HX/TU106 — xác nhận: unlock hiệu suất (issue rate), không phải unlock thêm SM."
+    },
+    {
+      "id": "W4",
+      "type": "web",
+      "url": "https://cmp.wiki/wiki/Driver_unlock",
+      "title": "cmp.wiki Driver_unlock (CMP 170HX GA100)",
+      "accessed": "2026-11-05",
+      "relevant_quote": "cmpunlocker unlock 'Full SM compute throughput (the SS0/SS1 speed selectors)'; ceiling 74 SM trên 8 GB card; 128 SM chỉ trên 10 GB qua RIR fuse burn.",
+      "applicability_tu106": "CMP 170HX/GA100 — cơ chế chứng minh trên GA100, KHÔNG chuyển giao tự động cho TU106/CMP 40HX."
+    },
+    {
+      "id": "W5",
+      "type": "web",
+      "url": "https://cmp.wiki/wiki/Full_SM_unlock",
+      "title": "cmp.wiki Full_SM_unlock (CMP 170HX GA100)",
+      "accessed": "2026-11-05",
+      "relevant_quote": "CMP 170HX stock 70/128 SM; 74 SM ceiling 8 GB card; 128 SM chỉ 10 GB qua RIR fuse burn + EN_SW_OVERRIDE.",
+      "applicability_tu106": "GA100/CMP 170HX — không áp chỉ tự cho TU106; nhưng cho thấy NVIDIA có cơ chế floorsweep per-die và override qua RIR, ứng viên cho so sánh TU106."
+    }
+  ],
+  "local_sources": {
+    "04_PHASE15_EXTRACTS/TOPOLOGY/silicon_topology.json": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+    "04_PHASE15_EXTRACTS/FUSE/fuse2.json": "0e770041019aa3e4ac25733429589867a03c5542e83bc89f6937878c6e5c4ecc",
+    "04_PHASE15_EXTRACTS/FUSE/fuse_bitfields.csv": "0a3f627ec7fffb58975ee92994e49fba46ed28484fcd52bb82b6ff3a2824161e",
+    "00_READ_FIRST/SESSION_SUMMARY.md": "ce47def5ec487e89907ada9c359018a2b11449e23c25465b55d5f6c9f775ff69",
+    "00_READ_FIRST/ASTRA_MASTER_PROMPT.md": "90a114a98b5cba907320b2be0a9971fc190f331c730c4a3a86a147409bb46ae4"
+  },
+  "output_files": ["SM_DISABLE_CHAIN.md", "CUDA128_RECOVERY_MATRIX.md", "TPC_MASK_CANDIDATES.csv", "evidence.json", "sources.json"]
+}

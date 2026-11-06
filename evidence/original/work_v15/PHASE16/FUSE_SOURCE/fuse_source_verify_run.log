@@ -1,0 +1,39 @@
+=== fuse_source_verify (TU106/CMP40HX) ===
+FUSE/fuse2.json == RAW_DATA/fuse2.json: True
+sha256 fuse=0e770041019aa3e4 raw=0e770041019aa3e4
+base=0x21000 span_declared=0x8000 words=3072 (=12288 bytes) extent=0x3000 bytes contiguous=True
+max_offset=0x2FFC (reported 0x1dff contradicted: True)
+poison declared=[0xBADF5040, 0xBADF1300, 0xBADF1100] present=0xBADF5040:410, 0xBADF1100:1792 declared_absent=[0xBADF1300]
+zero=518 data=352 poison=2202 badf_family=2209 badf510c=7 (0x0178, 0x02D4, 0x04A8, 0x04AC, 0x04B0, 0x0578, 0x0E08)
+named register words=3 applicable(TU106)=2 data unknown=351
+source evidence entries=7 TU106-applicable=2
+
+Named/decodeable words:
+  off=0x0378 abs=0x021378 val=0x00000000 reg=NV_FUSE_OPT_NVDEC_DISABLE field=0 applicability=APPLICABLE evidence=DECODED
+  off=0x074C abs=0x02174C val=0x00000001 reg=NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS field=1 applicability=APPLICABLE evidence=DECODED
+  off=0x0C04 abs=0x021C04 val=0x00000001 reg=NV_FUSE_STATUS_OPT_DISPLAY field=None applicability=NOT_APPLICABLE evidence=UNKNOWN
+
+Source evidence (0x21000..0x23fff):
+  AMPERE/ga100 addr=0x224FC reg=NV_PTOP_DEVICE_INFO_CFG line=29 tu106=False
+  BLACKWELL/gb100 addr=0x224FC reg=NV_PTOP_DEVICE_INFO_CFG line=27 tu106=False
+  BLACKWELL/gb100 addr=0x224FC reg=NV_PTOP0_DEVICE_INFO_CFG line=52 tu106=False
+  MAXWELL/gm107 addr=0x21C04 reg=NV_FUSE_STATUS_OPT_DISPLAY line=27 tu106=False
+  NVSWITCH/ls10 addr=0x21644 reg=NV_GPIO_RM_INTR_MSK_GPIO_LIST_1 line=88 tu106=False
+  TURING/tu102 addr=0x21378 reg=NV_FUSE_OPT_NVDEC_DISABLE line=31 tu106=True
+  TURING/tu102 addr=0x2174C reg=NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS line=26 tu106=True
+
+Unknown proposals (U-FUSE-001..013):
+  U-FUSE-001 open -> INFERRED | 152 word chi bit0, 70 range roi rac co gap (0x11C=0,0x124=0) -> mang enable flag, KHONG phai OTP bit cell vat ly (OTP ce
+  U-FUSE-002 open -> BLOCKED | 8 word lien tiep 0x718..0x734, 32 byte entropy cao, khong magic/IV/cau truc. KHONG bac bo hash chi vi 455.689 + 12.883 l
+  U-FUSE-003 open -> UNKNOWN | 0xC0040000 khac NV_PMC_BOOT_0 (0x166000A1) -> INFERRED strap mirror, chua co bitfield source.
+  U-FUSE-004 open -> INFERRED | 11 word 0xFFFFFFFC/0xFFFFFF8F tai 0x0D4..0x0FF, tat ca bit cao set -> INFERRED marker, bit co nghia chua ro.
+  U-FUSE-005 open -> INFERRED | 0x0C1C=0x38 = bit 3,4,5 -> 3 GPC, khop TU106 co 3 GPC, ma chua co bitfield source.
+  U-FUSE-006 open -> UNKNOWN | 0xBADF510C xuat hien 7 lan trong cua so du lieu (0x178,0x2d4,0x4a8,0x4ac,0x4b0,0x578,0xe08), KHONG trong danh sach poiso
+  U-FUSE-007 resolved -> CORROBORATED | PDI 0x0000000000000000 tai 0x344/0x348 khop chinh xac nvidia-smi -q, 2 nguon doc lap.
+  U-FUSE-008 open -> UNKNOWN | 155 word gia tri 1..7 tai 0x100..0x240, khong phai bitmask; version/counter/index chua xac dinh.
+  U-FUSE-009 resolved -> INSUFFICIENT_EVIDENCE (de khong mo lai) | fuse 0x0C04 doc 1 nhung duy co nguon la Maxwell gm107 (DATA_ENABLE=0), KHONG co Turing/TU106 fieldsource. Du lieu 1 khon
+  U-FUSE-010 open -> UNKNOWN | 0x0520=0x16480000, trim/cock setting chua xac dinh.
+  U-FUSE-011 open -> UNKNOWN | 0x0D38=0xF0, binning/grade chua xac dinh.
+  U-FUSE-012 open -> UNKNOWN | 0x0DC8..0x0DD0 = 0x7 x3, count/version chua xac dinh.
+  U-FUSE-013 resolved -> DECODED | 0x820000 la GB100-only (NV_FUSE0_PRI_BASE), KHONG ap dung TU106; da xac minh khoi fuse cua TU106 o 0x21000.
+exit_code=0

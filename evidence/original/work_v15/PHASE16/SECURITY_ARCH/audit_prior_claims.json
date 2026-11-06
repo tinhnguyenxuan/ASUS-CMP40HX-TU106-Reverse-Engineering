@@ -1,0 +1,163 @@
+[
+  {
+    "id": "SEC-FUSE-01",
+    "claim": "fuse+0x0378 (=abs 0x21378) is NV_FUSE_OPT_NVDEC_DISABLE, bits 2:0, value 0 -> NVDEC enabled",
+    "status": "SUPPORTED",
+    "reason": "dev_fuse.h tu102 line 31 defines NV_FUSE_OPT_NVDEC_DISABLE at 0x00021378, bits 2:0. Dump value 0x00000000 at that offset.",
+    "source_ref": "common/inc/swref/published/turing/tu102/dev_fuse.h:31"
+  },
+  {
+    "id": "SEC-FUSE-02",
+    "claim": "fuse+0x074C (=abs 0x2174C) is NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS, bit 0=1 -> GSP debug disabled",
+    "status": "SUPPORTED",
+    "reason": "dev_fuse.h tu102 line 26 defines NV_FUSE_OPT_SECURE_GSP_DEBUG_DIS at 0x0002174C, bit 0:0 (NO=0/YES=1). Dump value 0x00000001.",
+    "source_ref": "common/inc/swref/published/turing/tu102/dev_fuse.h:26-29"
+  },
+  {
+    "id": "SEC-FUSE-03",
+    "claim": "fuse+0x04D8 (=abs 0x214D8) value 0x1F0B is a named 'SKU device ID' register",
+    "status": "REJECTED",
+    "reason": "dev_fuse.h tu102 defines only 2 registers (0x21378, 0x2174C). Offset 0x214D8 is not defined in source. Value 0x1F0B matches PCI device ID 10DE:1F0B but is an observed value match, not a source-defined field.",
+    "source_ref": "common/inc/swref/published/turing/tu102/dev_fuse.h (only 2 defs)"
+  },
+  {
+    "id": "SEC-FUSE-04",
+    "claim": "fuse+0x056C (=abs 0x2156C) value 0x1F4B is a named 'chip family' register",
+    "status": "REJECTED",
+    "reason": "Not defined in dev_fuse.h tu102. Observed value 0x1F4B matches TU106 family but no source bitfield.",
+    "source_ref": "common/inc/swref/published/turing/tu102/dev_fuse.h (only 2 defs)"
+  },
+  {
+    "id": "SEC-FUSE-05",
+    "claim": "fuse+0x0650 (=abs 0x21650) value 0x0004001F is a named 'TPC/SM config' register",
+    "status": "REJECTED",
+    "reason": "Not defined in dev_fuse.h tu102. No source bitfield. INFERRED only.",
+    "source_ref": "common/inc/swref/published/turing/tu102/dev_fuse.h (only 2 defs)"
+  },
+  {
+    "id": "SEC-FUSE-06",
+    "claim": "fuse+0x0C04 (=abs 0x21C04) is NV_FUSE_STATUS_OPT_DISPLAY_DATA_ENABLE",
+    "status": "REJECTED",
+    "reason": "Not defined in dev_fuse.h tu102 (only 2 registers). Name and semantics unsupported by source.",
+    "source_ref": "common/inc/swref/published/turing/tu102/dev_fuse.h (only 2 defs)"
+  },
+  {
+    "id": "SEC-FUSE-07",
+    "claim": "fuse+0x0C1C (=abs 0x21C1C) value 0x38 is a named 'GPC config' register -> 3 GPC",
+    "status": "REJECTED",
+    "reason": "Not defined in dev_fuse.h tu102. Observed value 0x38 = 3 bits set but no source bitfield or GPC definition.",
+    "source_ref": "common/inc/swref/published/turing/tu102/dev_fuse.h (only 2 defs)"
+  },
+  {
+    "id": "SEC-FUSE-08",
+    "claim": "fuse+0x0000 (=abs 0x21000) value 0xC0040000 is 'strap mirror / NV_PMC_BOOT_0 proxy'",
+    "status": "INFERRED",
+    "reason": "Not defined in dev_fuse.h tu102. Value differs from BAR0 NV_PMC_BOOT_0 (0x166000A1). No cross-check source. Retain as observed value only.",
+    "source_ref": "none"
+  },
+  {
+    "id": "SEC-FUSE-09",
+    "claim": "fuse+0x0344/0x0348 holds GPU PDI 0x0000000000000000, cross-checked with nvidia-smi",
+    "status": "MEASURED",
+    "reason": "PDI value observed in dump and matches nvidia-smi output (two independent reads). Offset 0x0344/0x0348 not defined in dev_fuse.h tu102. The PDI *value match* is measured; the offset assignment is not source-defined.",
+    "source_ref": "none"
+  },
+  {
+    "id": "SEC-FUSE-10",
+    "claim": "152 word == 0x1 are physical OTP bit cells",
+    "status": "REJECTED",
+    "reason": "Words are scattered across 70 disjoint ranges with gaps, all have only bit 0 set. Not dense/adjacent as physical OTP cells would be. INFERRED as enable flags / version fields / counters, not OTP cells.",
+    "source_ref": "fuse_audit.json (offset distribution)"
+  },
+  {
+    "id": "SEC-FUSE-11",
+    "claim": "fuse+0x0718 (32 bytes) is a key / hash / encrypted blob",
+    "status": "UNKNOWN",
+    "reason": "Entropy high but no IV, no magic, no producer/consumer source. CRC32=0x719E0687, Adler32=0xF9630E16 match no known value. Exhaustive SHA-256/HMAC over ROM+GSP+uCodes+fuse = 0 matches. No entropy-as-encryption claim. 4 hypotheses (public-key hash, booter nonce, chip trim, version stamp) all UNKNOWN.",
+    "source_ref": "fuse_deep.py / fuse_analysis.json"
+  },
+  {
+    "id": "SEC-FUSE-12",
+    "claim": "0xBADF510C (7 occurrences in fuse data region) is a fuse lock code",
+    "status": "INFERRED",
+    "reason": "Observed value, not in dev_fuse.h tu102. Distinct from poison values 0xBADF5040/0xBADF1300/0xBADF1100. Semantics unknown.",
+    "source_ref": "fuse_analysis.json"
+  },
+  {
+    "id": "SEC-WPR-01",
+    "claim": "There are 4 WPR regions (WPR0/WPR1/WPR2/WPR2-alt)",
+    "status": "REJECTED",
+    "reason": "Source driver defines only ONE WPR pair: NV_PFB_PRI_MMU_WPR2_ADDR_LO=0x1FA824 and _HI=0x1FA828. Offsets 0x1FA800/04/10/14/20/2C/30 have no register name in source. Prior WPR0/WPR1/WPR2-alt labels are wrong.",
+    "source_ref": "nvidia/inc/kernel/gpu/* + turing dev_fb.h (2 WPR registers only)"
+  },
+  {
+    "id": "SEC-WPR-02",
+    "claim": "MMIO 0x1FA820 is WPR2_LO",
+    "status": "REJECTED",
+    "reason": "No register at 0x1FA820 in Turing source. Value 0x01F78200 observed but unnamed. WPR2_LO is 0x1FA824 (matches dmesg WPR=01ffee00:01f7e000).",
+    "source_ref": "security_registers.json / source (no register at 0x1FA820)"
+  },
+  {
+    "id": "SEC-WPR-03",
+    "claim": "WPR2 = 0.50 MiB (0x01F7E000..0x01FFEE00), not 457 MiB",
+    "status": "SUPPORTED",
+    "reason": "MMIO LO=0x01F7E000 HI=0x01FFEE00 -> size 0x80E00 = 515.5 KiB \u2248 0.50 MiB. Matches dmesg WPR pair 100%.",
+    "source_ref": "security_registers.json + dmesg"
+  },
+  {
+    "id": "SEC-PLM-01",
+    "claim": "PLM_FECS / PLM_RESET registers readable at BAR0 0x1FA840/0x1FA844",
+    "status": "REJECTED",
+    "reason": "Both read 0xBADF5040 (poison) \u2014 outside BAR0 decode window. PLM values (0xFFFFFF8F / 0x000000FF) come only from dmesg boot log, not MMIO.",
+    "source_ref": "security_registers.json (poison) + dmesg"
+  },
+  {
+    "id": "SEC-FW-01",
+    "claim": "ucodes_tu10x.bin contains 11 firmware blobs",
+    "status": "REJECTED",
+    "reason": "Direct byte parse: header 24 B, record table 496 x 24 B, 38 valid payloads (marker==4), 458 zero. The legacy '11 blob' map used header_size=496/stride=32 and let blob10 run to EOF; actual parse shows 38 non-overlapping payloads.",
+    "source_ref": "firmware_container_verified.md / firmware_container_verified.json"
+  },
+  {
+    "id": "SEC-FW-02",
+    "claim": "High-entropy firmware payloads imply AES encryption",
+    "status": "REJECTED",
+    "reason": "Entropy alone cannot distinguish encryption from compression. No IV, no magic, no producer/consumer source. No key material present. No entropy-as-encryption claim.",
+    "source_ref": "firmware_container_verified.md"
+  },
+  {
+    "id": "SEC-SB-01",
+    "claim": "Linux nvidia driver has a valid signature",
+    "status": "REJECTED",
+    "reason": "dmesg: 'module verification failed: signature and/or required key missing - tainting kernel'. Driver unsigned; Secure Boot off on host. Host-level constraint, not GPU.",
+    "source_ref": "dmesg (security_registers.json)"
+  },
+  {
+    "id": "SEC-SB-02",
+    "claim": "GPU firmware is signed and signature is restored in-place",
+    "status": "MEASURED",
+    "reason": "dmesg: _kgspCreateSignatureMemdesc 'signed fullspeed stock-relock WPR-down commit'; kgspCmp40RebuildStockSignature 'restored stock signature in-place'. cmp40_booter_load_610.h contains SIG_DBG/SIG_PROD signature metadata (16 B each) from source archive 610.57.04.",
+    "source_ref": "dmesg + nvidia/src/kernel/gpu/gsp/cmp40_booter_load_610.h"
+  },
+  {
+    "id": "SEC-SEC2-01",
+    "claim": "SEC2 DMEM zeroed after use: [0x00000000, 0x00010000) 64 KB",
+    "status": "MEASURED",
+    "reason": "dmesg: s_clearCmp40Sec2ExploitDmem: FULL_DMEM_ZERO_PASS [0x00000000,0x00010000). Anti-analysis-after-execution measure.",
+    "source_ref": "dmesg (security_registers.json)"
+  },
+  {
+    "id": "SEC-CC-01",
+    "claim": "Confidential Computing is active with protected memory",
+    "status": "REJECTED",
+    "reason": "nvidia-smi: Conf Compute Protected Memory Usage: Total 0 MiB, Used 0 MiB, Free 0 MiB. GPU Virtualization Mode: None. CC is OFF.",
+    "source_ref": "dmesg/nvidia-smi (security_registers.json)"
+  },
+  {
+    "id": "SEC-DMA-01",
+    "claim": "GPU in isolated IOMMU group 31, DMA mask 47-bit",
+    "status": "MEASURED",
+    "reason": "IOMMU group 31 (dedicated), DMA mask 47 bits (128 TB range). BAR1 64 GiB. Active isolation boundary.",
+    "source_ref": "security_registers.json (dmesg_facts)"
+  }
+]

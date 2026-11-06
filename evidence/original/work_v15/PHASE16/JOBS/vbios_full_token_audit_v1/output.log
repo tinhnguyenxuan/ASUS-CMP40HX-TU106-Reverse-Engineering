@@ -1,0 +1,40 @@
+Done. The audit is complete and verified.
+
+## What was done
+
+Analyzed the three supplied images (read-only, sha256-verified and preserved):
+- ROM: `/tmp/v11chk/outputs/CMP40HX_ORIGINAL_1MB.bin` (dc5395dd…)
+- T4: `/tmp/v11chk/outputs/cmp40hx_t4.bin` (aa0ebd6d…, ROM prefix with 19 byte patches)
+- Shadow: `/tmp/v11chk/RAW_DATA/vbios_shadow.bin` (2715c0b1…, ROM shifted by 0x28600 except 14 recorded bytes)
+
+Wrote and ran `vbios_full_token_audit.py` (stdlib only, read-only, assert self-check runs on every invocation) with envytools provenance cited verbatim: `/tmp/envytools` @ f102b82, bit.c/power.c/nvbios.c/bios.c with file hashes and exact line numbers.
+
+## Key findings
+
+**BIT table** (sig `ff b8 42 49 54 00 00`, envytools bios.c:198): rom@0x287b0, shadow@0x1b0; version 0x0100, hlen 12, rlen 6, 17 entries, checksum mod 256 = 0 (envytools bit.c:91-92 would accept). Entries: `2,B,C,D,I,M,P,S,T,U,V,x,d,p,u,i` plus `N` null (NOP). All t_offsets resolved via image-specific base (0x28600 for rom/T4, direct for shadow) and bounds-checked against raw bytes.
+
+**Power directory ('P', power v2, power.c:82-103)**: t_len 224 = 56×4 u32 slots at rom 0x288d4 (shadow 0x2d4, base 0x11000); 40 non-null, 16 null. Every slot audited: raw u32, mapped target, version byte, status.
+
+**Decoded (source-backed, version-gated):**
+- slot 5 THERMAL DEVICES v0x10 (power.c:239): hlen 4/rlen 3/18 entries, extent [0x58723, 0x5875d], entry 0 = class_id 1/i2c 0/flags 0
+- slot 11 POWER BUDGET v0x30 (power.c:644): hlen 44/rlen 66/20 entries, cap_entry 2, extent [0x57e92, 0x583e6], entry 0 min 20000/avg 5001000/peak 5001000/unkn12 1
+- slot 17 PERF TEST SPEC v0x10 (power.c:1188): hlen 14 only, extent [0x545f2, 0x54600], 12 raw bytes preserved (offset+2/+3 are NOT entry_size/count per source)
+- slot 20 THERMAL POLICY v0x10 (power.c:1334): hlen 10/rlen 40/4 entries, extent [0x58679, 0x58723]
+
+**Slot 0 PERFORMANCE v60 at 0x54155: UNSUPPORTED** — generic hdr+esz*cnt = 45 bytes explicitly rejected; no envytools field parser exists (nvbios.c:1095 capture only, nvbios.c:1477 hex dump).
+
+**Structure:** BIT targets B→i form a packed adjacent chain [0x2883e, 0x28a5c] (no overlaps); gaps at [0x28822,0x28832) and [0x28836,0x2883e); claimed slot extents chain 10→15, 16→20→5. Banks byte-identical (legacy1==legacy2, EFI1==EFI2); directory duplicated at 0xA18D4. T4 patches: six `40 54 89` triplets at 0x5669c–0x566be + 1 byte at 0x0767ff, none in decoded extents.
+
+**Opaque, with reasons:** BIT tokens B,C,D,I,M,S,T,U,V,x,d,p,u (packed blob, no version-first layout, no schema), '2' (all zeros), 'N' (null), slots 26/27/28 (targets begin 0xff/0xa1/0x25 — not coherent headers), slot 0 (v60), slots 39-55 (unnamed in P2_tbls).
+
+## Outputs (all under `PHASE16/VBIOS_FULL_TOKEN_AUDIT/`)
+
+- `vbios_full_token_audit.py` — script, self-check asserts, reproducible
+- `vbios_token_audit.json` — raw structured JSON (411 KB): per-token status, evidence, provenance, hashes
+- `VBIOS_FULL_TOKEN_AUDIT_REPORT.md` — full report
+- `run_vbios_full_token_audit.sh` — replay command
+- `output_hashes.json` — output file sha256s
+
+Replay verified from a clean cwd; input hashes unchanged (no ROM/touching). No hardware, flashing, keys, or speculative crypto semantics anywhere.
+
+219 tokens audited across the 3 images: DECODED 12, HEADER_SOURCE_SHAPE 12, HEADER_ONLY 63, OPAQUE_PACKED_BLOB 45, OPAQUE_NO_SCHEMA 30, NULL 51, UNSUPPORTED_V60 3, POWER_DIRECTORY 3.

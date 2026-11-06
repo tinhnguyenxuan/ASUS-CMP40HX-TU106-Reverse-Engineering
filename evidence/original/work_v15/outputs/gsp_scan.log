@@ -1,0 +1,82 @@
+=== B1: firmware container ===
+  file 22,901,632 B, 37 section, 11 PT_LOAD
+    .ga100_data                                    vaddr 0x04001000 off 0x00001040      4,464 B
+    .tu10x_data                                    vaddr 0x04003000 off 0x00003040      4,464 B
+    .ga100_text                                    vaddr 0x04005000 off 0x00005040      5,140 B
+    .tu10x_text                                    vaddr 0x04007000 off 0x00007040      5,140 B
+    .ga100_resident_text                           vaddr 0x0400a000 off 0x0000a040     12,288 B
+    .tu10x_resident_text                           vaddr 0x0400e000 off 0x0000e040     12,288 B
+    .section_task_init_stack_instance              vaddr 0x05644000 off 0x015d1040      8,192 B
+    .section_task_rm_stack_instance                vaddr 0x05646000 off 0x015d3040     65,536 B
+    .section_task_init_elf_data_instance           vaddr 0x04015000 off 0x00015040      8,192 B
+    .section_task_init_elf_text_instance           vaddr 0x04018000 off 0x00018040     16,384 B
+    .section_task_rm_elf_rodata_instance           vaddr 0x0401d000 off 0x0001d040  1,982,464 B
+    .section_task_rm_elf_data_instance             vaddr 0x04201000 off 0x00201040  3,698,688 B
+    .section_task_rm_elf_text_instance             vaddr 0x04588000 off 0x00588040 17,010,688 B
+    .section_task_init_dmem_64kb_instance          vaddr 0x055c1000 off 0x015c1040     65,536 B
+    .section_log_init_buffer_instance              vaddr 0x055d1000 off 0x00000040     65,536 B
+    .section_task_rm_msgq_work_areas_instance      vaddr 0x055e2000 off 0x015d1040    135,168 B
+    .section_log_rm_buffer_instance                vaddr 0x05604000 off 0x00000040    262,144 B
+
+=== B3: truy vet chuoi ===
+  RMClkVfOverride                    file 0x00092de8  vaddr 0x04092de8
+  RmAtsVolOverride                   file 0x000a7a90  vaddr 0x040a7a90
+  RmClkControllersOverride           file 0x00092fd8  vaddr 0x04092fd8
+  OVERVOLTAGE_LOGIC                  file 0x001a6ba0  vaddr 0x041a6ba0
+  OVERVOLTAGE_NVVDD_0                file 0x001a9798  vaddr 0x041a9798
+  OVERVOLTAGE_NVVDD_1                file 0x001a97b0  vaddr 0x041a97b0
+  PERFORMANCE_CAP0                   file 0x001a6100  vaddr 0x041a6100
+  PERF_CF_CONTROLLER_GPC_MAX         file 0x001a6150  vaddr 0x041a6150
+  RMHwSpeedoOverride                 file 0x001b4af8  vaddr 0x041b4af8
+  RMHwSpeedoCheckIgnore              file 0x001b4b40  vaddr 0x041b4b40
+  RmPmgrIddqNvvddOverride            file 0x001b4b88  vaddr 0x041b4b88
+  RmPmgrIddqCheckIgnore              file 0x001b4bb8  vaddr 0x041b4bb8
+  RmPmgrSpeedoCoefficient            file 0x001b8f70  vaddr 0x041b8f70
+  RmPmgrSpeedoOffset                 file 0x001b8f88  vaddr 0x041b8f88
+  RmClockForceUprocVfeVfGen          file 0x00092d10  vaddr 0x04092d10
+  RmSramVminCheckIgnore              file 0x001b4bd0  vaddr 0x041b4bd0
+  RmVoltThresholdCtrlCtrl            file 0x001b9730  vaddr 0x041b9730
+  RMEnableOverclockingAllPstates     file 0x001a5ba0  vaddr 0x041a5ba0
+  RMForceLockedClocksMode            file 0x001a5c60  vaddr 0x041a5c60
+  RMSec2UseDebugFuseOnlyBinary       file 0x001bbdc8  vaddr 0x041bbdc8
+
+=== B3b: mat do string theo chu de (power/clock) ===
+  PWR             116 string
+  PERF            104 string
+  CLK              50 string
+  VF               36 string
+  PSTATE           32 string
+  VOLT             31 string
+  BOOST            25 string
+  THERM            18 string
+  SPEEDO            8 string
+  IDDQ              6 string
+  OCP               6 string
+  OVERCLOCK         4 string
+  TGP               3 string
+  FREQ              1 string
+
+=== B4: XREF (step=2 RVC, cua so o+2..o+24, u32/u64 ptr) ===
+  RMClkVfOverride                    u32ptr=0 u64ptr=0 code_ref=0
+  RmAtsVolOverride                   u32ptr=0 u64ptr=0 code_ref=0
+  RmClkControllersOverride           u32ptr=0 u64ptr=0 code_ref=0
+  OVERVOLTAGE_LOGIC                  u32ptr=0 u64ptr=0 code_ref=0
+  OVERVOLTAGE_NVVDD_0                u32ptr=0 u64ptr=0 code_ref=0
+  OVERVOLTAGE_NVVDD_1                u32ptr=0 u64ptr=0 code_ref=0
+  PERFORMANCE_CAP0                   u32ptr=0 u64ptr=0 code_ref=0
+  PERF_CF_CONTROLLER_GPC_MAX         u32ptr=1 u64ptr=1 code_ref=0
+  RMHwSpeedoOverride                 u32ptr=0 u64ptr=0 code_ref=0
+  RMHwSpeedoCheckIgnore              u32ptr=0 u64ptr=0 code_ref=0
+  RmPmgrIddqNvvddOverride            u32ptr=0 u64ptr=0 code_ref=0
+  RmPmgrIddqCheckIgnore              u32ptr=0 u64ptr=0 code_ref=0
+  RmPmgrSpeedoCoefficient            u32ptr=0 u64ptr=0 code_ref=0
+  RmPmgrSpeedoOffset                 u32ptr=0 u64ptr=0 code_ref=0
+  RmClockForceUprocVfeVfGen          u32ptr=0 u64ptr=0 code_ref=0
+  RmSramVminCheckIgnore              u32ptr=0 u64ptr=0 code_ref=0
+  RmVoltThresholdCtrlCtrl            u32ptr=0 u64ptr=0 code_ref=0
+  RMEnableOverclockingAllPstates     u32ptr=0 u64ptr=0 code_ref=0
+  RMForceLockedClocksMode            u32ptr=0 u64ptr=0 code_ref=0
+  RMSec2UseDebugFuseOnlyBinary       u32ptr=0 u64ptr=0 code_ref=0
+
+  -> 1/20 key co tham chieu nao do
+  -> outputs/gsp_strings.json, outputs/gsp_xrefs.json

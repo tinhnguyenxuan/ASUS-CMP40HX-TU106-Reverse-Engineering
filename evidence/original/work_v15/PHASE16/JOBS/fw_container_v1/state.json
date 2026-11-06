@@ -1,0 +1,12 @@
+{
+  "job": "fw_container_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:02:14.942647+00:00",
+  "wrapper_pid": 1627446,
+  "task_sha256": "cd64582a2a1763818972c2f6d8fb87318a48ad71d920a1794080bea898050551",
+  "hermes_pid": 1627447,
+  "hermes_start_ticks": "208408082",
+  "heartbeat_at": "2026-11-03T15:07:03.152657+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:07:05.153997+00:00"
+}

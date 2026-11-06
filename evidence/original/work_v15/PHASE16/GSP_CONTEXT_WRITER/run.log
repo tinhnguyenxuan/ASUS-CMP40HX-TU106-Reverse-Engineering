@@ -1,0 +1,436 @@
+binary: /home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin
+bytes: 22901632 sha256: 0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b
+inner ELF: entry=0x4009000 sections=37
+  sec[0] sec0                                         type=1919247974 flags=7164771209973754207 va=0x69746365732e0065 off_file=0x725f676f6c5f6eaf size=0x7265666675625f6d alloc=1 exec=1 delta_hdr=-0x8eb0409f9316e0a delta_file=-0x8eb0409f9316e4a
+  sec[1] GCC: (NVRISCV GCC 12.2.0-2024.03.01) 12.2.0  type=0 flags=0 va=0x0 off_file=0x40 size=0x0 alloc=0 exec=0 delta_hdr=0x0 delta_file=-0x40
+  sec[2] CV GCC 12.2.0-2024.03.01) 12.2.0             type=1 flags=3 va=0x4001000 off_file=0x1040 size=0x1170 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[3] 0-2024.03.01) 12.2.0                         type=1 flags=3 va=0x4003000 off_file=0x3040 size=0x1170 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[4] ) 12.2.0                                     type=1 flags=6 va=0x4005000 off_file=0x5040 size=0x1414 alloc=1 exec=1 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[5] : (NVRISCV GCC 8.3.0-2022.03.28) 8.3.0       type=1 flags=6 va=0x4007000 off_file=0x7040 size=0x1414 alloc=1 exec=1 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[6] CC 8.3.0-2022.03.28) 8.3.0                   type=1 flags=6 va=0x4009000 off_file=0x9040 size=0x74 alloc=1 exec=1 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[7] 22.03.28) 8.3.0                              type=1 flags=1 va=0x400a000 off_file=0x15d3040 size=0x0 alloc=0 exec=0 delta_hdr=0x2a37000 delta_file=0x2a36fc0
+  sec[8] sec8                                         type=1 flags=1 va=0x400a000 off_file=0x15d3040 size=0x0 alloc=0 exec=0 delta_hdr=0x2a37000 delta_file=0x2a36fc0
+  sec[9] sec9                                         type=1 flags=1 va=0x400a000 off_file=0x15d3040 size=0x0 alloc=0 exec=0 delta_hdr=0x2a37000 delta_file=0x2a36fc0
+  sec[10] sec10                                        type=1 flags=7 va=0x400a000 off_file=0xa040 size=0x3000 alloc=1 exec=1 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[11] sec11                                        type=1 flags=3 va=0x400d000 off_file=0xd040 size=0x1000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[12] sec12                                        type=1 flags=7 va=0x400e000 off_file=0xe040 size=0x3000 alloc=1 exec=1 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[13] sec13                                        type=1 flags=3 va=0x4011000 off_file=0x11040 size=0x1000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[14] sec14                                        type=1 flags=3 va=0x4012000 off_file=0x12040 size=0x14b alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[15] sec15                                        type=1 flags=3 va=0x4012150 off_file=0x12190 size=0xeb0 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[16] sec16                                        type=1 flags=3 va=0x5644000 off_file=0x15d1040 size=0x2000 alloc=1 exec=0 delta_hdr=0x4073000 delta_file=0x4072fc0
+  sec[17] sec17                                        type=8 flags=3 va=0x5646000 off_file=0x15d3040 size=0x10000 alloc=1 exec=0 delta_hdr=0x4073000 delta_file=0x4072fc0
+  sec[18] sec18                                        type=1 flags=2 va=0x4013000 off_file=0x13040 size=0x10 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[19] sec19                                        type=1 flags=2 va=0x4013010 off_file=0x15d3050 size=0x60 alloc=1 exec=0 delta_hdr=0x2a40000 delta_file=0x2a3ffc0
+  sec[20] sec20                                        type=1 flags=2 va=0x4014000 off_file=0x14040 size=0x1000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[21] sec21                                        type=1 flags=3 va=0x4015000 off_file=0x15040 size=0x2000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[22] sec22                                        type=1 flags=3 va=0x4017000 off_file=0x17040 size=0x1000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[23] sec23                                        type=1 flags=6 va=0x4018000 off_file=0x18040 size=0x4000 alloc=1 exec=1 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[24] sec24                                        type=1 flags=3 va=0x401c000 off_file=0x1c040 size=0x1000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[25] sec25                                        type=1 flags=2 va=0x401d000 off_file=0x1d040 size=0x1e4000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[26] sec26                                        type=1 flags=3 va=0x4201000 off_file=0x201040 size=0x387000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[27] sec27                                        type=1 flags=1 va=0x4588000 off_file=0x15d30b0 size=0x0 alloc=0 exec=0 delta_hdr=0x2fb4f90 delta_file=0x2fb4f50
+  sec[28] sec28                                        type=1 flags=6 va=0x4588000 off_file=0x588040 size=0x1039000 alloc=1 exec=1 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[29] sec29                                        type=1 flags=1 va=0x55c1000 off_file=0x15d30b0 size=0x0 alloc=0 exec=0 delta_hdr=0x3fedf90 delta_file=0x3fedf50
+  sec[30] sec30                                        type=1 flags=3 va=0x55c1000 off_file=0x15c1040 size=0x10000 alloc=1 exec=0 delta_hdr=0x4000000 delta_file=0x3ffffc0
+  sec[31] sec31                                        type=8 flags=3 va=0x55d1000 off_file=0x40 size=0x10000 alloc=1 exec=0 delta_hdr=0x55d1000 delta_file=0x55d0fc0
+  sec[32] sec32                                        type=8 flags=3 va=0x55e1000 off_file=0x40 size=0x1000 alloc=1 exec=0 delta_hdr=0x55e1000 delta_file=0x55e0fc0
+  sec[33] sec33                                        type=8 flags=3 va=0x55e2000 off_file=0x15d1040 size=0x21000 alloc=1 exec=0 delta_hdr=0x4011000 delta_file=0x4010fc0
+  sec[34] sec34                                        type=8 flags=3 va=0x5603000 off_file=0x15d1040 size=0x1000 alloc=1 exec=0 delta_hdr=0x4032000 delta_file=0x4031fc0
+  sec[35] sec35                                        type=8 flags=3 va=0x5604000 off_file=0x40 size=0x40000 alloc=1 exec=0 delta_hdr=0x5604000 delta_file=0x5603fc0
+  sec[36] sec36                                        type=1 flags=48 va=0x0 off_file=0x15d30b0 size=0x56 alloc=0 exec=0 delta_hdr=-0x15d3070 delta_file=-0x15d30b0
+delta candidate operative va-0x3ffffc0 (delta=0x3ffffc0): 12/12 triples match=True
+delta candidate sec0 sec0 hdr (delta=-0x8eb0409f9316e4a): 0/12 triples match=False
+delta candidate sec16 sec16 hdr (delta=0x4072fc0): 0/12 triples match=False
+delta candidate sec19 sec19 hdr (delta=0x2a3ffc0): 0/12 triples match=False
+delta candidate sec31 sec31 hdr (delta=0x55d0fc0): 0/12 triples match=False
+delta candidate sec32 sec32 hdr (delta=0x55e0fc0): 0/12 triples match=False
+delta candidate sec33 sec33 hdr (delta=0x4010fc0): 0/12 triples match=False
+delta candidate sec34 sec34 hdr (delta=0x4031fc0): 0/12 triples match=False
+delta candidate sec35 sec35 hdr (delta=0x5603fc0): 0/12 triples match=False
+operative mapping: operative va-0x3ffffc0 delta=0x3ffffc0 (file_off = VA - 0x3ffffc0)
+sanity: all 12 raw-byte triples re-verified under operative mapping
+caller: auipc ra,imm=80(0x50) @0x4f06c18 base=0x4f56c18; jalr imm=1828 -> target=0x4f5733c (claimed 0x4f5733c) match=True
+internal call: auipc ra,imm=810(0x32a) @0x4f5739c base=0x528139c; jalr imm=1428 -> target=0x5281930 (claimed 0x5281930) match=True
+call target 0x5281930: backing=sec28 sec28 exec=True -> IN EXECUTABLE SECTION=True
+helper: auipc imm=-80(0x-50) @0x4f57644 base=0x4f07644; jalr imm=-88 -> target=0x4f075ec (claimed 0x4f075ec) match=True
+window 0x4f5733c..0x4f57a00 (1732 bytes) from file offset 0xf5737c backing sec28 sec28 exec=1
+capstone disassembled 433 instructions (window 1732 bytes)
+calls in window: 36 (direct auipc+jalr 33, indirect jalr 3)
+  call auipc+jalr at 0x4f5739c raw 97a03200 -> 0x5281930
+  call auipc+jalr at 0x4f573b0 raw 97201000 -> 0x5058d68
+  call auipc+jalr at 0x4f573c4 raw 97e0faff -> 0x4f04c64
+  call indirect_jalr at 0x4f573e8 raw e7800700 -> UNKNOWN indirect
+  call auipc+jalr at 0x4f574c4 raw 97800d00 -> 0x502fc34
+  call auipc+jalr at 0x4f574d8 raw 97800d00 -> 0x502fc34
+  call auipc+jalr at 0x4f574ec raw 97800d00 -> 0x502fc34
+  call auipc+jalr at 0x4f575ac raw 9740ffff -> 0x4f4b500
+  call indirect_jalr at 0x4f575e0 raw e7800700 -> UNKNOWN indirect
+  call auipc+jalr at 0x4f57600 raw 97f03100 -> 0x5275ffc
+  call auipc+jalr at 0x4f57644 raw 9700fbff -> 0x4f075ec
+  call auipc+jalr at 0x4f57664 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f57678 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f5768c raw 97f064ff -> 0x45a5f44
+  call auipc+jalr at 0x4f576b8 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f576d0 raw 97f064ff -> 0x45a5f44
+  call auipc+jalr at 0x4f576f0 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f57704 raw 97f064ff -> 0x45a5f44
+  call auipc+jalr at 0x4f57728 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f5773c raw 97f064ff -> 0x45a5f44
+  call auipc+jalr at 0x4f57780 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f57794 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f577ac raw 97e064ff -> 0x45a5f44
+  call auipc+jalr at 0x4f577d0 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f577e4 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f577f8 raw 97e064ff -> 0x45a5f44
+  call indirect_jalr at 0x4f57850 raw 67800000 -> UNKNOWN indirect
+  call auipc+jalr at 0x4f5786c raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f57880 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f57894 raw 97e064ff -> 0x45a5f44
+  call auipc+jalr at 0x4f578e8 raw 97d0f9ff -> 0x4ef4754
+  call auipc+jalr at 0x4f57944 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f57958 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f5796c raw 97e064ff -> 0x45a5f44
+  call auipc+jalr at 0x4f57998 raw 97906600 -> 0x55c04d8
+  call auipc+jalr at 0x4f579d0 raw 97906600 -> 0x55c04d8
+slice: 87 blocks; insns=433; stores=90 loads=42 ctx-based=17 abs=0 unknown-base=31
+direct stores *(s3 + 0x30): 0 | aliased *(s3_alias+off==0x30): 0
+s3 expression at ld a5, 0x30(s3) @0x4f575d4: unknown  raw=None
+  s3 write 0x4f573ac mv s3, a0                      -> s3 := context base (allocator call return)
+  s3 write 0x4f57768 slli s3, s2, 0x20              -> s3 rewritten (other)
+  s3 write 0x4f5776c srli s3, s3, 0x20              -> s3 rewritten (other)
+  s3 write 0x4f5782c ld s3, 0xb8(sp)                -> s3 := stack restore (context lost)
+  s3 write 0x4f579ac slli s3, s2, 0x20              -> s3 rewritten (other)
+  s3 write 0x4f579b0 srli s3, s3, 0x20              -> s3 rewritten (other)
+  ctx-store 0x4f57400 sb a3, 0x1d8(a5)         base=s3+0x1000 imm=+472 addr=s3+0x11d8 kind=ctx_offset value=unknown
+  ctx-store 0x4f57408 sh a4, 0x1da(a5)         base=s3+0x1000 imm=+474 addr=s3+0x11da kind=ctx_offset value=unknown
+  ctx-store 0x4f57420 sd a4, 0x470(a5)         base=s3+0x1000 imm=+1136 addr=s3+0x1470 kind=ctx_offset value=unknown
+  ctx-store 0x4f5742c sd a4, 0x478(a5)         base=s3+0x1000 imm=+1144 addr=s3+0x1478 kind=ctx_offset value=unknown
+  ctx-store 0x4f57438 sd a4, 0x480(a5)         base=s3+0x1000 imm=+1152 addr=s3+0x1480 kind=ctx_offset value=unknown
+  ctx-store 0x4f57444 sd a4, 0x488(a5)         base=s3+0x1000 imm=+1160 addr=s3+0x1488 kind=ctx_offset value=unknown
+  ctx-store 0x4f57450 sd a4, 0x490(a5)         base=s3+0x1000 imm=+1168 addr=s3+0x1490 kind=ctx_offset value=unknown
+  ctx-store 0x4f5745c sd a4, 0x498(a5)         base=s3+0x1000 imm=+1176 addr=s3+0x1498 kind=ctx_offset value=unknown
+  ctx-store 0x4f57468 sd a4, 0x4a0(a5)         base=s3+0x1000 imm=+1184 addr=s3+0x14a0 kind=ctx_offset value=unknown
+  ctx-store 0x4f57474 sd a4, 0x4a8(a5)         base=s3+0x1000 imm=+1192 addr=s3+0x14a8 kind=ctx_offset value=unknown
+  ctx-store 0x4f57480 sd a4, 0x4b0(a5)         base=s3+0x1000 imm=+1200 addr=s3+0x14b0 kind=ctx_offset value=unknown
+  ctx-store 0x4f5748c sd a4, 0x4b8(a5)         base=s3+0x1000 imm=+1208 addr=s3+0x14b8 kind=ctx_offset value=unknown
+  ctx-store 0x4f57498 sd a4, 0x4c0(a5)         base=s3+0x1000 imm=+1216 addr=s3+0x14c0 kind=ctx_offset value=unknown
+  ctx-store 0x4f574a4 sd a4, 0x4c8(a5)         base=s3+0x1000 imm=+1224 addr=s3+0x14c8 kind=ctx_offset value=unknown
+  ctx-store 0x4f574b4 sd a4, 0x4d8(a5)         base=s3+0x1000 imm=+1240 addr=s3+0x14d8 kind=ctx_offset value=unknown
+  ctx-store 0x4f574b8 sw zero, 0x4e0(a5)       base=s3+0x1000 imm=+1248 addr=s3+0x14e0 kind=ctx_offset value=unknown
+  ctx-store 0x4f5750c sb zero, 0(a4)           base=s3+0x19a0 imm=+0 addr=s3+0x19a0 kind=ctx_offset value=unknown
+  unknown-base store 0x4f57340 sd s0, 0xd0(sp)          base=sp
+  unknown-base store 0x4f57344 sd s1, 0xc8(sp)          base=sp
+  unknown-base store 0x4f57348 sd s4, 0xb0(sp)          base=sp
+  unknown-base store 0x4f5734c sd s5, 0xa8(sp)          base=sp
+  unknown-base store 0x4f57350 sd s6, 0xa0(sp)          base=sp
+  unknown-base store 0x4f57354 sd s7, 0x98(sp)          base=sp
+  unknown-base store 0x4f57358 sd s8, 0x90(sp)          base=sp
+  unknown-base store 0x4f5735c sd ra, 0xd8(sp)          base=sp
+  unknown-base store 0x4f57360 sd s2, 0xc0(sp)          base=sp
+  unknown-base store 0x4f57364 sd s3, 0xb8(sp)          base=sp
+  unknown-base store 0x4f57388 sd a5, -0x58(s0)         base=s0
+  unknown-base store 0x4f573a4 sd a0, 0(s1)             base=s1
+  unknown-base store 0x4f57414 sd a4, 0x110(a0)         base=a0
+  unknown-base store 0x4f57524 sb zero, 0(a5)           base=a5
+  unknown-base store 0x4f5754c sw a2, -0x660(a4)        base=a4
+  unknown-base store 0x4f57558 sb zero, 0(a4)           base=a4
+  unknown-base store 0x4f57570 sb zero, 0(a5)           base=a5
+  unknown-base store 0x4f57588 sw a4, 0x5bc(a5)         base=a5
+  unknown-base store 0x4f57628 sb zero, -0xe0(s0)       base=s0
+  unknown-base store 0x4f5762c sb zero, -0x86(s0)       base=s0
+  unknown-base store 0x4f57630 sh a7, -0x88(s0)         base=s0
+  unknown-base store 0x4f57634 sw a6, -0x84(s0)         base=s0
+  unknown-base store 0x4f57638 sb a3, -0x80(s0)         base=s0
+  unknown-base store 0x4f5763c sd a4, -0x78(s0)         base=s0
+  unknown-base store 0x4f57640 sh a5, -0x70(s0)         base=s0
+  unknown-base store 0x4f57760 sw zero, 0(a5)           base=a5
+  unknown-base store 0x4f578bc sw zero, 0(a5)           base=a5
+  unknown-base store 0x4f578d8 sw zero, 0(a5)           base=a5
+  unknown-base store 0x4f57914 sw zero, 0(a5)           base=a5
+  unknown-base store 0x4f5792c sb a5, 0x1dd(a0)         base=a0
+  unknown-base store 0x4f579f8 sw zero, 0(a5)           base=a5
+callee 0x5281930 (0x5281930): backing sec28 sec28 va=0x4588000 exec=True bytes_available=0x4000 insns=4096
+  rets=20 first_ret=0x5281c48 rets_capped=True
+  ret 0x5281c48 raw 67800000 -> a0 last def: 86514684 (mv a0, zero)
+  ret 0x528209c raw 67800000 -> a0 last def: 86515792 (mv a0, zero)
+  ret 0x52821b4 raw 67800000 -> a0 last def: 86516136 (mv a0, s2)
+  ret 0x52822cc raw 67800000 -> a0 last def: 86516420 (mv a0, zero)
+  ret 0x5282370 raw 67800000 -> a0 last def: 86516584 (mv a0, zero)
+  ret 0x52823ac raw 67800000 -> a0 last def: 86516644 (addi a0, zero, 0x51)
+  ret 0x52823b4 raw 67800000 -> a0 last def: 86516656 (mv a0, zero)
+  ret 0x52824a8 raw 67800000 -> a0 last def: 86516872 (mv a0, zero)
+  ret 0x52825d4 raw 67800000 -> a0 last def: 86517196 (mv a0, zero)
+  ret 0x52826b4 raw 67800000 -> a0 last def: 86517416 (mv a0, s2)
+  ret 0x52827d8 raw 67800000 -> a0 last def: 86517708 (mv a0, s2)
+  ret 0x52828e0 raw 67800000 -> a0 last def: 86517972 (mv a0, s3)
+  ret 0x52829cc raw 67800000 -> a0 last def: 86518208 (mv a0, s1)
+  ret 0x5282a28 raw 67800000 -> a0 last def: 86518300 (mv a0, s1)
+  ret 0x5282b9c raw 67800000 -> a0 last def: 86518640 (mv a0, zero)
+  ret 0x5282df0 raw 67800000 -> a0 last def: 86519268 (mv a0, s2)
+  ret 0x5282ec8 raw 67800000 -> a0 last def: 86519488 (mv a0, zero)
+  ret 0x5282f84 raw 67800000 -> a0 last def: 86519676 (mv a0, zero)
+  ret 0x5283010 raw 67800000 -> a0 last def: 86519816 (addi a0, zero, 0x1a)
+  ret 0x52830c4 raw 67800000 -> a0 last def: 86519980 (mv a0, zero)
+  a0 last def before first ret: 0x5281bfc (mv a0, zero)
+  callee stores=173 plus_0x30_stores=9
+  callee store 0x5281934 sd s0, 0x60(sp)        base=sp imm=+96 
+  callee store 0x5281938 sd s5, 0x38(sp)        base=sp imm=+56 
+  callee store 0x528193c sd ra, 0x68(sp)        base=sp imm=+104 
+  callee store 0x5281940 sd s1, 0x58(sp)        base=sp imm=+88 
+  callee store 0x5281944 sd s2, 0x50(sp)        base=sp imm=+80 
+  callee store 0x5281948 sd s3, 0x48(sp)        base=sp imm=+72 
+  callee store 0x528194c sd s4, 0x40(sp)        base=sp imm=+64 
+  callee store 0x5281950 sd s6, 0x30(sp)        base=sp imm=+48 <PLUS 0x30>
+  callee store 0x5281954 sd s7, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5281958 sd s8, 0x20(sp)        base=sp imm=+32 
+  callee store 0x528195c sd s9, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5281960 sd s10, 0x10(sp)       base=sp imm=+16 
+  callee store 0x5281970 sd a5, -0x68(s0)       base=s0 imm=-104 
+  callee store 0x5281978 sw zero, -0x6c(s0)     base=s0 imm=-108 
+  callee store 0x5281a18 sd s3, 0(a0)           base=a0 imm=+0 
+  callee store 0x5281a28 sw a1, 0x18(a5)        base=a5 imm=+24 
+  callee store 0x5281a34 sw a4, 0x1c(a5)        base=a5 imm=+28 
+  callee store 0x5281a40 sd a3, 0x28(a5)        base=a5 imm=+40 
+  callee store 0x5281a4c sd a4, 0x30(a5)        base=a5 imm=+48 <PLUS 0x30>
+  callee store 0x5281a60 sd a3, 0x38(a5)        base=a5 imm=+56 
+  callee store 0x5281a84 sw a1, 0x20(a5)        base=a5 imm=+32 
+  callee store 0x5281aa0 sw a2, 0x18(s1)        base=s1 imm=+24 
+  callee store 0x5281aac sw a5, 0x1c(s1)        base=s1 imm=+28 
+  callee store 0x5281ab8 sd a4, 0x28(s1)        base=s1 imm=+40 
+  callee store 0x5281ac4 sd a5, 0x30(s1)        base=s1 imm=+48 <PLUS 0x30>
+  callee store 0x5281ad8 sd a4, 0x38(s1)        base=s1 imm=+56 
+  callee store 0x5281afc sw a2, 0x20(s1)        base=s1 imm=+32 
+  callee store 0x5281b3c sw a5, -0x53c(s2)      base=s2 imm=-1340 
+  callee store 0x5281b50 sw s6, 8(s4)           base=s4 imm=+8 
+  callee store 0x5281b60 sw a1, -0x540(s8)      base=s8 imm=-1344 
+  callee store 0x5281b94 sd a5, 0x58(a4)        base=a4 imm=+88 
+  callee store 0x5281bb0 sw a0, 0x18(a5)        base=a5 imm=+24 
+  callee store 0x5281bbc sw a4, 0x1c(a5)        base=a5 imm=+28 
+  callee store 0x5281bc8 sd a3, 0x28(a5)        base=a5 imm=+40 
+  callee store 0x5281bd4 sd a4, 0x30(a5)        base=a5 imm=+48 <PLUS 0x30>
+  callee store 0x5281be8 sd a3, 0x38(a5)        base=a5 imm=+56 
+  callee store 0x5281c64 sw a0, 0x20(a5)        base=a5 imm=+32 
+  callee store 0x5281d30 sd s2, 0x40(s1)        base=s1 imm=+64 
+  callee store 0x5281d34 sd s9, 0x48(s1)        base=s1 imm=+72 
+  callee store 0x5281d88 sw a5, -0x53c(s2)      base=s2 imm=-1340 
+  callee store 0x5281da4 sw a1, -0x540(s8)      base=s8 imm=-1344 
+  callee store 0x5281de8 sw a5, -0x53c(s2)      base=s2 imm=-1340 
+  callee store 0x5281dfc sw a1, -0x540(s8)      base=s8 imm=-1344 
+  callee store 0x5281ea8 sd s2, 0x40(s1)        base=s1 imm=+64 
+  callee store 0x5281eac sd s9, 0x48(s1)        base=s1 imm=+72 
+  callee store 0x5281f64 sd s2, 0x40(s1)        base=s1 imm=+64 
+  callee store 0x5281f68 sd s3, 0x48(s1)        base=s1 imm=+72 
+  callee store 0x5281fb4 sd s0, 0x50(sp)        base=sp imm=+80 
+  callee store 0x5281fb8 sd s5, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5281fbc sd s6, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5281fc0 sd ra, 0x58(sp)        base=sp imm=+88 
+  callee store 0x5281fc4 sd s1, 0x48(sp)        base=sp imm=+72 
+  callee store 0x5281fc8 sd s2, 0x40(sp)        base=sp imm=+64 
+  callee store 0x5281fcc sd s3, 0x38(sp)        base=sp imm=+56 
+  callee store 0x5281fd0 sd s4, 0x30(sp)        base=sp imm=+48 <PLUS 0x30>
+  callee store 0x5281fe0 sd a5, -0x48(s0)       base=s0 imm=-72 
+  callee store 0x5282014 sd a0, -0x58(s0)       base=s0 imm=-88 
+  callee store 0x5282018 sd s2, -0x50(s0)       base=s0 imm=-80 
+  callee store 0x5282054 sd s4, 0x18(s1)        base=s1 imm=+24 
+  callee store 0x5282058 sd s3, 0(s1)           base=s1 imm=+0 
+  callee store 0x528205c sd zero, 0x40(s1)      base=s1 imm=+64 
+  callee store 0x5282060 sd zero, 0x80(s1)      base=s1 imm=+128 
+  callee store 0x5282108 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x528211c sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282120 sd s4, 0(sp)           base=sp imm=+0 
+  callee store 0x5282124 sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282128 sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x528212c sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282130 sd s3, 8(sp)           base=sp imm=+8 
+  callee store 0x5282218 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282224 sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282228 sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x528222c sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282230 sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282284 sd ra, -0x28(s0)       base=s0 imm=-40 
+  callee store 0x52822e4 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x52822f8 sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x52822fc sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282300 sd s3, 8(sp)           base=sp imm=+8 
+  callee store 0x5282304 sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282308 sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x528230c sd s4, 0(sp)           base=sp imm=+0 
+  callee store 0x52823c8 sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x52823cc sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x52823d0 sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x52823d4 sd s3, 8(sp)           base=sp imm=+8 
+  callee store 0x52823d8 sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x52823dc sd s4, 0(sp)           base=sp imm=+0 
+  callee store 0x528244c sb a5, 0x108(s2)       base=s2 imm=+264 
+  callee store 0x5282484 sw a5, 4(a0)           base=a0 imm=+4 
+  callee store 0x5282528 sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x528252c sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282530 sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282534 sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x528258c sd ra, -0x28(s0)       base=s0 imm=-40 
+  callee store 0x52825ec sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x52825fc sd ra, 0x38(sp)        base=sp imm=+56 
+  callee store 0x5282600 sd s0, 0x30(sp)        base=sp imm=+48 <PLUS 0x30>
+  callee store 0x5282604 sd s1, 0x28(sp)        base=sp imm=+40 
+  callee store 0x528260c sd s2, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282610 sd s3, 0x18(sp)        base=sp imm=+24 
+  callee store 0x528261c sd a1, -0x38(s0)       base=s0 imm=-56 
+  callee store 0x528268c sw a5, 0x50(a4)        base=a4 imm=+80 
+  callee store 0x5282694 sd s1, 0x1b8(a5)       base=a5 imm=+440 
+  callee store 0x5282714 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282720 sd ra, 0x38(sp)        base=sp imm=+56 
+  callee store 0x5282724 sd s0, 0x30(sp)        base=sp imm=+48 <PLUS 0x30>
+  callee store 0x5282728 sd s1, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282730 sd s2, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282734 sd s3, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282740 sd a1, -0x38(s0)       base=s0 imm=-56 
+  callee store 0x52827b0 sw a5, 0x50(a4)        base=a4 imm=+80 
+  callee store 0x52827b8 sd s1, 0x1c0(a5)       base=a5 imm=+448 
+  callee store 0x5282838 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282844 sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282848 sd s3, 8(sp)           base=sp imm=+8 
+  callee store 0x528284c sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282850 sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282854 sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282858 sd s4, 0(sp)           base=sp imm=+0 
+  callee store 0x5282938 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x528296c sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282970 sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282974 sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282978 sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x52829b0 sw s2, 8(s1)           base=s1 imm=+8 
+  callee store 0x52829dc sd ra, -0x28(s0)       base=s0 imm=-40 
+  callee store 0x5282a40 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282a50 sd s0, 0x40(sp)        base=sp imm=+64 
+  callee store 0x5282a54 sd s7, 8(sp)           base=sp imm=+8 
+  callee store 0x5282a58 sd ra, 0x48(sp)        base=sp imm=+72 
+  callee store 0x5282a5c sd s1, 0x38(sp)        base=sp imm=+56 
+  callee store 0x5282a60 sd s2, 0x30(sp)        base=sp imm=+48 <PLUS 0x30>
+  callee store 0x5282a64 sd s3, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282a68 sd s4, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282a6c sd s5, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282a70 sd s6, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282b60 sd s4, 8(s2)           base=s2 imm=+8 
+  callee store 0x5282b64 sd s1, 0x10(s2)        base=s2 imm=+16 
+  callee store 0x5282b68 sd s3, 0(s2)           base=s2 imm=+0 
+  callee store 0x5282b6c sd s6, 0x68(s2)        base=s2 imm=+104 
+  callee store 0x5282bcc sw a5, 8(s5)           base=s5 imm=+8 
+  callee store 0x5282c28 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282d00 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282d1c sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282d28 sd s0, 0x30(sp)        base=sp imm=+48 <PLUS 0x30>
+  callee store 0x5282d2c sd ra, 0x38(sp)        base=sp imm=+56 
+  callee store 0x5282d30 sd s1, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282d34 sd s2, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282d38 sd s3, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282d3c sd s4, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282d40 sd s5, 8(sp)           base=sp imm=+8 
+  callee store 0x5282dac sd s4, 0(a5)           base=a5 imm=+0 
+  callee store 0x5282dc8 sw a5, 0x24(s1)        base=s1 imm=+36 
+  callee store 0x5282e10 sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282e14 sd s3, 8(sp)           base=sp imm=+8 
+  callee store 0x5282e18 sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282e1c sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282e20 sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282ee0 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5282efc sd s0, 0x20(sp)        base=sp imm=+32 
+  callee store 0x5282f00 sd s1, 0x18(sp)        base=sp imm=+24 
+  callee store 0x5282f04 sd s2, 0x10(sp)        base=sp imm=+16 
+  callee store 0x5282f08 sd ra, 0x28(sp)        base=sp imm=+40 
+  callee store 0x5282f10 sd a2, -0x28(s0)       base=s0 imm=-40 
+  callee store 0x5282f3c sd a1, -0x30(s0)       base=s0 imm=-48 
+  callee store 0x5282f94 sd a2, -0x30(s0)       base=s0 imm=-48 
+  callee store 0x5282fd0 sd a1, -0x30(s0)       base=s0 imm=-48 
+  callee store 0x5283028 sw zero, 0(a5)         base=a5 imm=+0 
+  callee store 0x5283038 sd s0, 0x10(sp)        base=sp imm=+16 
+  callee store 0x528303c sd s1, 8(sp)           base=sp imm=+8 
+  callee store 0x5283040 sd s2, 0(sp)           base=sp imm=+0 
+  callee store 0x5283044 sd ra, 0x18(sp)        base=sp imm=+24 
+  callee external call at 0x528199c -> 0x54f9e68 in_exec=True
+  callee external call at 0x5281c88 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5281c94 -> 0x527824c in_exec=True
+  callee external call at 0x5281d10 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5281e1c -> 0x55c04d8 in_exec=True
+  callee external call at 0x5281e88 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5281ed8 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5281f44 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5281f94 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5281fa8 -> 0x54eefb4 in_exec=True
+  callee external call at 0x5282008 -> 0x5281930 in_exec=True
+  callee external call at 0x5282030 -> 0x52754d4 in_exec=True
+  callee external call at 0x5282048 -> 0x52754d4 in_exec=True
+  callee external call at 0x52820b4 -> 0x55c04d8 in_exec=True
+  callee external call at 0x52820c8 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282110 -> 0x54eefb4 in_exec=True
+  callee external call at 0x5282154 -> 0x5281930 in_exec=True
+  callee external call at 0x5282170 -> 0x5275ffc in_exec=True
+  callee external call at 0x528218c -> 0x5271dd0 in_exec=True
+  callee external call at 0x52821c4 -> 0x55c04d8 in_exec=True
+  callee external call at 0x52821d8 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282244 -> 0x5282118 in_exec=True
+  callee external call at 0x5282288 -> 0x55c04d8 in_exec=True
+  callee external call at 0x528229c -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282340 -> 0x5282220 in_exec=True
+  callee external call at 0x5282380 -> 0x5282220 in_exec=True
+  callee external call at 0x5282438 -> 0x52822f0 in_exec=True
+  callee external call at 0x528246c -> 0x527c5cc in_exec=True
+  callee external call at 0x52824b8 -> 0x527c78c in_exec=True
+  callee external call at 0x52824c4 -> 0x527cf20 in_exec=True
+  callee external call at 0x52824e0 -> 0x5274b64 in_exec=True
+  callee external call at 0x5282510 -> 0x5282220 in_exec=True
+  callee external call at 0x528254c -> 0x5282118 in_exec=True
+  callee external call at 0x5282590 -> 0x55c04d8 in_exec=True
+  callee external call at 0x52825a4 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282624 -> 0x55012f8 in_exec=True
+  callee external call at 0x5282634 -> 0x527a4d0 in_exec=True
+  callee external call at 0x528265c -> 0x5282118 in_exec=True
+  callee external call at 0x5282674 -> 0x52754d4 in_exec=True
+  callee external call at 0x52826c4 -> 0x55c04d8 in_exec=True
+  callee external call at 0x52826d8 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282748 -> 0x55012f8 in_exec=True
+  callee external call at 0x5282758 -> 0x527a4d0 in_exec=True
+  callee external call at 0x5282780 -> 0x5282118 in_exec=True
+  callee external call at 0x5282798 -> 0x52754d4 in_exec=True
+  callee external call at 0x52827e8 -> 0x55c04d8 in_exec=True
+  callee external call at 0x52827fc -> 0x45a5f44 in_exec=True
+  callee external call at 0x528287c -> 0x5281930 in_exec=True
+  callee external call at 0x5282898 -> 0x5275ffc in_exec=True
+  callee external call at 0x52828b4 -> 0x5263fa4 in_exec=True
+  callee external call at 0x52828f0 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282904 -> 0x45a5f44 in_exec=True
+  callee external call at 0x528295c -> 0x5274a0c in_exec=True
+  callee external call at 0x5282988 -> 0x5282840 in_exec=True
+  callee external call at 0x52829a8 -> 0x5275ffc in_exec=True
+  callee external call at 0x52829e0 -> 0x55c04d8 in_exec=True
+  callee external call at 0x52829f4 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282aac -> 0x5272f2c in_exec=True
+  callee external call at 0x5282ac8 -> 0x52729a8 in_exec=True
+  callee external call at 0x5282adc -> 0x5272f2c in_exec=True
+  callee external call at 0x5282b00 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282b1c -> 0x5271cc4 in_exec=True
+  callee external call at 0x5282b58 -> 0x5271cc4 in_exec=True
+  callee external call at 0x5282ba8 -> 0x5282840 in_exec=True
+  callee external call at 0x5282bc0 -> 0x5275ffc in_exec=True
+  callee external call at 0x5282be0 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282bf4 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282c44 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282c84 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282c9c -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282cbc -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282cd0 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282d54 -> 0x5272f2c in_exec=True
+  callee external call at 0x5282d7c -> 0x5281930 in_exec=True
+  callee external call at 0x5282d94 -> 0x5275ffc in_exec=True
+  callee external call at 0x5282db4 -> 0x52729a8 in_exec=True
+  callee external call at 0x5282dfc -> 0x5274a0c in_exec=True
+  callee external call at 0x5282e3c -> 0x5282d24 in_exec=True
+  callee external call at 0x5282e80 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282e94 -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282f40 -> 0x5272f2c in_exec=True
+  callee external call at 0x5282f60 -> 0x5282e0c in_exec=True
+  callee external call at 0x5282f98 -> 0x55c04d8 in_exec=True
+  callee external call at 0x5282fac -> 0x45a5f44 in_exec=True
+  callee external call at 0x5282fd4 -> 0x5272f2c in_exec=True
+  callee external call at 0x5282fe8 -> 0x5282968 in_exec=True
+  callee external call at 0x5283074 -> 0x5282ef8 in_exec=True
+wrote gsp_context_writer.json, report.md, input_hashes.json under /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_CONTEXT_WRITER

@@ -1,0 +1,136 @@
+{
+ "generated": "2026-11-03",
+ "count": 19,
+ "items": [
+  {
+   "id": "D01",
+   "claim": "fuse aperture that la 0x21000",
+   "type": "MEASURED",
+   "phase": "P0"
+  },
+  {
+   "id": "D02",
+   "claim": "fuse span that 0x1DFF, 352 word co du lieu",
+   "type": "MEASURED",
+   "phase": "P0"
+  },
+  {
+   "id": "D03",
+   "claim": "3 ma poison: BADF5040/1300/510C",
+   "type": "MEASURED",
+   "phase": "P0"
+  },
+  {
+   "id": "D04",
+   "claim": "152 word =1 tai 0x0110..0x0198",
+   "type": "INFERRED",
+   "phase": "P0"
+  },
+  {
+   "id": "D05",
+   "claim": "WPR2 = 0x1F7E000..0x1FFEE00, khop dmesg 100%",
+   "type": "CORROBORATED",
+   "phase": "P1"
+  },
+  {
+   "id": "D06",
+   "claim": "ROM = 2 ban sao 495616 B khac 1212 B",
+   "type": "MEASURED",
+   "phase": "P2"
+  },
+  {
+   "id": "D07",
+   "claim": "key block 38 record x 32 B, layout 6 field",
+   "type": "DECODED",
+   "phase": "P2"
+  },
+  {
+   "id": "D08",
+   "claim": "f4 khong phai unix timestamp",
+   "type": "CONTRADICTED",
+   "phase": "P2"
+  },
+  {
+   "id": "D09",
+   "claim": "hash16 khong khop SHA256/SHA1/MD5 cua 6 vung",
+   "type": "CONTRADICTED",
+   "phase": "P2"
+  },
+  {
+   "id": "D10",
+   "claim": "340 descriptor entry trong 60 bang",
+   "type": "DECODED",
+   "phase": "P3"
+  },
+  {
+   "id": "D11",
+   "claim": "RELIABILITY_NVVDD ton tai trong GSP-RM",
+   "type": "DECODED",
+   "phase": "P3"
+  },
+  {
+   "id": "D12",
+   "claim": "0 xref cung: base la hang so trong lenh",
+   "type": "CORROBORATED",
+   "phase": "P3"
+  },
+  {
+   "id": "D13",
+   "claim": "blob[6] === blob[8], khac 24 byte",
+   "type": "MEASURED",
+   "phase": "P4"
+  },
+  {
+   "id": "D14",
+   "claim": "4 blob entropy cao khong nen duoc",
+   "type": "DECODED",
+   "phase": "P4"
+  },
+  {
+   "id": "D15",
+   "claim": "Reserved 389 MiB; WPR2 chi 0.5 MiB",
+   "type": "MEASURED",
+   "phase": "P6"
+  },
+  {
+   "id": "D16",
+   "claim": "BAR1 = 64 GB; runtime link Gen1 du cap Gen2",
+   "type": "MEASURED",
+   "phase": "P7"
+  },
+  {
+   "id": "D17",
+   "claim": "24 byte khac blob[6]/blob[8] la BUILD TIMESTAMP ASCII",
+   "detail": "blob[6]='Dec 31 2024'+'11:39:34'; blob[8]='Jan  2 2025'+'08:35:16'",
+   "type": "DECODED",
+   "phase": "P4"
+  },
+  {
+   "id": "D18",
+   "claim": "32 B hash trong fuse: 455,689 phep thu, 0 khop",
+   "type": "BLOCKED",
+   "phase": "P0"
+  },
+  {
+   "id": "D19",
+   "claim": "7 ten quan trong khong co entry descriptor o bat ky encoding nao",
+   "type": "BLOCKED",
+   "phase": "P3"
+  }
+ ],
+ "discoveries": [
+  {
+   "id": "D-P9-001",
+   "round": 8,
+   "date": "2026-11-06",
+   "title": "2 ma tra ve BAR0 chua biet: 0xBAD00100 va 0xFFFFFFFF",
+   "detail": "Doc lai 16 vung 'DATA' trong aperture map, dem distinct u32. 0x010000..0x01FFFF (16 trang) va 0x058000..0x060FFF (9 trang) chi chua 0xBAD00100 lap vo han; 16 trang dau giong het nhau. 0x0A0000..0x0BFFFF (32) va 0x3D8000..0x3FFFFF (40) chi chua 0xFFFFFFFF.",
+   "evidence": [
+    "TOPOLOGY/p9_reclass.json",
+    "TOPOLOGY/p9_pattern.json"
+   ],
+   "confidence": "MEASURED",
+   "impact": "TU-06 DATA 287 -> 141; POISON 3253 -> 3278"
+  }
+ ]
+}

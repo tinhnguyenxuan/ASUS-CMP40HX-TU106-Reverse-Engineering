@@ -1,0 +1,28 @@
+Hoàn tất. Không viết thêm code — không cần (đây là tra cứu bằng chứng, không phải build).
+
+## Kết quả
+
+**HI được đọc tốt nhất là exclusive upper bound** (ranh giới trên; byte tại HI không thuộc WPR2), nhưng **chỉ ở mức comment/hợp đồng ABI, không có bằng chứng consumer trực tiếp** — do đó không hardcode exclusivity, giữ UNKNOWN đối với consumer-proof dimension.
+
+Bằng chứng tìm được trong /tmp/nvsrc (phiên bản tự khai báo 615.78.08) + archived artifacts:
+
+| Nguồn | Path | Línea | Ý nghĩa |
+|---|---|---|---|
+| ctrl2080fb.h | common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080fb.h | 3074-3091 | `NV2080_CTRL_CMD_FB_GET_WPR_REGION_INFO`: `wpr2End` = "FB offset of the end **(exclusive)**" (struct field dòng 3091; chú ý dòng 3079 có lỗi copy-paste ghi "of WPR1") |
+| gsp_fw_wpr_meta.h | nvidia/arch/nvalloc/common/inc/gsp/gsp_fw_wpr_meta.h | 32, 128, 42-55, 199 | `gspFwWprEnd` là ranh giới trên WPR2; vùng kế tiếp (PMU reservation) bắt đầu tại `gspFwWprEnd+frtsSize` |
+| nvrm_registry.h | nvidia/interface/nvrm_registry.h | 2792-2816 | `RmGspWprEndMargin`: margin đặt "after the end of WPR2" |
+| dev_fb.h (turing) | common/inc/swref/published/turing/tu102/dev_fb.h | 39-44 | `WPR2_ADDR_LO/HI` @ 0x1FA824/28, VAL[31:4] 4 KiB, alignment 0xc — không có comment inclusivity |
+
+**Consumer code:** không tìm thấy trong toàn bộ /tmp/nvsrc (`.c/.cpp` under nvidia/, nvidia-modeset/); hàm `subdeviceCtrlCmdFbGetWprRegionInfo_IMPL` chỉ có khai báo trong generated header, body không có trong cây lưu. → consumer-proof dimension = **UNKNOWN**, không hardcode.
+
+**Khác:**
+- Numeric extraction (E16-007) xác nhận lại: base `0x1F7E00000`, HI decoded `0x1FFEE0000`, size `0x080E0000` = 128.875 MiB; phép trừ raw (~0.50 MiB) invalid.
+- Alignment: WPR2 regs căn 4 KiB; WPR2 = 32,864 trang 4 KiB; GSP metadata `gspFwWprStart/End` căn 128K.
+- WPR2 vs NVML Reserved 389 MiB overlap: không có bằng chứng trực tiếp (Reserved là con số không có phạm vi) → **UNKNOWN**, giữ nguyên quy tắc không trừ mặc định (MEMORY_PCIE §8).
+
+**Nguồn xuất bản:** URL 580.95.05 trong E16-007 là ngoại cảnh, chưa verify so với /tmp/nvsrc — không claim exact release.
+
+**Đầu ra (chỉ ghi vào thư mục mới, artifact gốc không động):**
+- `/home/REDACTED_USER/codex-work/work_v15/PHASE16/WPR_ENDPOINT_SEMANTICS/REPORT.md`
+- `/home/REDACTED_USER/codex-work/work_v15/PHASE16/WPR_ENDPOINT_SEMANTICS/findings.json` (JSON hợp lệ, verified)
+- `/home/REDACTED_USER/codex-work/work_v15/PHASE16/WPR_ENDPOINT_SEMANTICS/SOURCE_SEARCH_LOG.md` (log tra cứu có lệnh, hash, kết quả âm dương)

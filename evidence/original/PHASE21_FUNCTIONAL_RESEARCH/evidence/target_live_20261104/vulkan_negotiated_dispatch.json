@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-04T15:20:36.215878+00:00",
+  "returncode": 0,
+  "stdout": "{\"negotiate_result\": -3, \"negotiated_interface\": 7, \"functions\": {\"vkCreateInstance\": false, \"vkEnumerateInstanceExtensionProperties\": false, \"vkGetInstanceProcAddr\": false}}\n",
+  "stderr": "",
+  "boundary": "ICD negotiation and dispatch only; no capability conclusion."
+}

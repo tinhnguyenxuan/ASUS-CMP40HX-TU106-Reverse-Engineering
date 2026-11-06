@@ -1,0 +1,82 @@
+{
+  "scope": "local published fuse-header inventory",
+  "records": [
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/ampere/ga100/dev_fuse.h",
+      "sha256": "4ba90e076d4e88bfdf3c713b718daefa8c967fc80002d6e9dac2c48dd356fe8a",
+      "has_status_opt_display": true,
+      "has_feature_readout": true,
+      "selector_3814": true,
+      "lines": 141
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/blackwell/gb100/dev_fuse_zb.h",
+      "sha256": "5629d245bc4ccadff1c19a6c5045af817167fa4a13a920dd018a1f082c94594c",
+      "has_status_opt_display": true,
+      "has_feature_readout": true,
+      "selector_3814": true,
+      "lines": 48
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/blackwell/gb10b/dev_fuse.h",
+      "sha256": "95eb7b397b5e1fc15262225ab5788d3b8470b406cff5df89136bd44390caf9ff",
+      "has_status_opt_display": false,
+      "has_feature_readout": false,
+      "selector_3814": false,
+      "lines": 30
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/blackwell/gb202/dev_fuse_zb.h",
+      "sha256": "5b9be80e74fac18b6110c9938ab1827c4987b22a7daf70c46a83995d14d250c3",
+      "has_status_opt_display": false,
+      "has_feature_readout": false,
+      "selector_3814": false,
+      "lines": 35
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/hopper/gh100/dev_fuse.h",
+      "sha256": "952da1d1102ce4a645bf848561ca87c7e8da6c2a1a0d476835b459bbba36131a",
+      "has_status_opt_display": false,
+      "has_feature_readout": false,
+      "selector_3814": false,
+      "lines": 52
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/hopper/gh100/dev_fuse_zb.h",
+      "sha256": "98c48e618ef63d9f4a3c64a0bdbbc3e50cc04865abd0df4a7c917bdc01d7c7dc",
+      "has_status_opt_display": false,
+      "has_feature_readout": false,
+      "selector_3814": false,
+      "lines": 47
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/maxwell/gm107/dev_fuse.h",
+      "sha256": "1b83b306b0996758e85eecccb1afaec5ead026fd2fb9f4cae980f5f944b25c10",
+      "has_status_opt_display": true,
+      "has_feature_readout": false,
+      "selector_3814": false,
+      "lines": 31
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/t23x/t234/dev_fuse.h",
+      "sha256": "19e9d4f41c090147ad9cb280a13983f5aca7046af9a158e98e9bb1743f656827",
+      "has_status_opt_display": true,
+      "has_feature_readout": false,
+      "selector_3814": false,
+      "lines": 31
+    },
+    {
+      "path": "/tmp/nvsrc/common/inc/swref/published/turing/tu102/dev_fuse.h",
+      "sha256": "f96f637c14732564911cd3211409a11b5dacd0ef27c5ad3df56e5d715d9fa30d",
+      "has_status_opt_display": false,
+      "has_feature_readout": false,
+      "selector_3814": false,
+      "lines": 35
+    }
+  ],
+  "interpretation": "only GM107 header supplies the TU-family STATUS_OPT_DISPLAY address used by host dispatch; 0x3814 appears only in cross-generation GA100/GB100 feature-readout headers",
+  "limits": [
+    "header inventory cannot establish proprietary GSP selector semantics",
+    "no TU106-specific dev_fuse.h was present beyond Turing-family/GM107 applicability used elsewhere"
+  ]
+}

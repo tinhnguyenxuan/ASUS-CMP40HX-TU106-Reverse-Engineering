@@ -1,0 +1,13 @@
+Hermes: trực tiếp reverse engineering CMP40HX/TU106, không /goal/resume/Hermes con, không GPU/config/model changes. Workspace /home/REDACTED_USER/codex-work/work_v15; dùng /usr/bin/python3 với capstone5.0.7. Chỉ offline binary và source đã có, giữ nguyên original/archive. Output riêng PHASE16/GSP_BINDATA/, không sửa checkpoint chung hoặc artifacts job khác.
+
+Mục tiêu thực chất: truy từ NVUCODES fingerprint/header/record tới consumer trong GSP, tìm mapping global slot->firmware component có bằng chứng. Không chỉ chạy lại parser/counts.
+
+Inputs outputs/gsp_tu10x.bin, outputs/ucodes_tu10x.bin, PHASE16/firmware_container_source_verified.json, firmware_source_coordinator_review.json, SOURCES/nvidia_bin_data_pvt.h, nvidia_bin_data.h; local headers /tmp/nvsrc/nvidia. 38 external payload /496slots đã source-backed. Struct BINDATA_STORAGE_PVT <IIQII, flags4=EXTERNAL. BINDATA_LABEL enum là namespace KHÁC globalfile slot, không gán index trực tiếp.
+
+1. Tạo gsp_bindata_consumers.py, tự parse embeddedELF64 @file0x40, section/program offsets relative-inner phải cộng0x40. Dùng mapping từheader, không globalconstant cho mọisection/NOBITS. Fingerprint literal ởfile140152 (0x22378) có correctVA0x04022338; artifact global_va0x40022338 là SAI. Magic NVUCODES ngaytrước literal. Xác minh raw trước dùng, ghi hash/VA/file.
+2. Quét executable sections tìm code dựng magic/fingerprint/numEntries hoặc references tới vùngrodata này. Xử lý LUI+ADDI, AUIPC+ADDI/LD và callsites có register-flow; tránh quét opcode giữa instruction hoặc xem adjacency là proof khi có clobber. Mọi hit chỉ CANDIDATE đến khi disasm/CFG xác nhận consumer. Lưu rawbytes+instructionboundary+computedtarget.
+3. Tìm fingerprint/numEntries validation path, accessor đọc record flags/relOffset/actualSize, hoặc BINDATA_ARCHIVE_ENTRY arrays/pointers trong GSP data. Tìm tên function/string assertions BINDATA/bin_data/ucodes và xrefs có khả năng, không gán ý nghĩa chỉ từ string gần nhau.
+4. Với ít nhất một consumer candidate tốt, disassemble function/callers bounded, dựng call/dataflow evidence tới table fields hoặc fetch accessor; nếu có index mapping gắn external slotpayload cụ thể, ghi index, archive label, pointer chain, engine-name provenance. Nếu chưa chứng minh, giữ UNKNOWN và lưu đủnegative search scope + bước offline tiếp.
+5. Lưu gsp_bindata_consumers.json trước report, script+run.log exitcode, GSP_BINDATA_CONSUMERS.md ngắn với sourcehash/raw/VA/file/commands, VERIFIED vs CANDIDATE vs UNKNOWN. Không tuyên bố mọi function/engine được giải mã. Không sửa artifacts fw/fuse/VBIOS/MMIO jobs khác.
+
+Giữ công việc hữu hạn theo một consumer path, tạo phát hiện mới có thể tái lập. Không cài tool hoặc dùng exploit/bypass/bruteforce.

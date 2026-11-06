@@ -1,0 +1,32 @@
+{
+  "task": "T08 — Thiết kế phép kiểm read-only có giá trị phân biệt",
+  "generated_at": "2026-11-05T09:14:07+07:00",
+  "executor": "main session cx/gpt-5.5",
+  "execution_status": "DESIGN_ONLY_NOT_RUN_ON_TARGET",
+  "constraints": "R0 offline; không SSH, sudo, GPU/MMIO/BAR/PCI read trực tiếp, ioctl lạ, reset/reload/reboot, flash, patch, unlock, benchmark hoặc output test",
+  "method": "Tổng hợp UNKNOWN từ T01–T07; xếp tối đa 10 phép theo giá trị phân biệt, identity guard, side-effect risk và tiêu chí dừng",
+  "source_artifacts": [
+    "results/T01/evidence.json",
+    "results/T02/evidence.json",
+    "results/T03/evidence.json",
+    "results/T04/evidence.json",
+    "results/T05/evidence.json",
+    "results/T06/evidence.json",
+    "results/T07/evidence.json",
+    "input/ASTRA_CMP40HX_HANDOFF/05_PHASE21_EXTRACTS/TARGET_LIVE_FINDINGS.md",
+    "input/ASTRA_CMP40HX_HANDOFF/00_READ_FIRST/DISPLAY_ENABLE_DECISION_TREE.md"
+  ],
+  "tests": [
+    {"test_id":"T08-01","priority":1,"target":"current identity/version/BDF","status":"UNAVAILABLE_UNDER_R0","discriminates":"615.71.09 vs archived 615.78.08 and exact BDF","guard":"BDF 0000:03:00.0 + timestamp","side_effect":"LOW if documented query; not run","stop":"do not merge versions"},
+    {"test_id":"T08-02","priority":2,"target":"STATUS 0x021C04 provenance across cold boot","status":"UNAVAILABLE_UNDER_R0","discriminates":"stable OTP-like vs changing shadow/strap/policy","guard":"verified TU106 read path + positive control + liveness","side_effect":"MEDIUM; not run","stop":"read fail is path failure, not fuse conclusion"},
+    {"test_id":"T08-03","priority":3,"target":"host gate vs display-IP response","status":"PROPOSE_ONLY","discriminates":"host policy gate vs independent IP response","guard":"timestamp/BDF/driver matched","side_effect":"LOW for documented logs","stop":"keep contradictory signals separate"},
+    {"test_id":"T08-04","priority":4,"target":"DP J1 HPD/AUX/KMS status","status":"PROPOSE_ONLY","discriminates":"DP sideband/endpoint evidence vs CAD-only","guard":"CMP BDF and physical J1 identity","side_effect":"LOW query; no modeset/output test","stop":"absence remains ambiguous"},
+    {"test_id":"T08-05","priority":5,"target":"DVI J5 HPD/DDC/KMS status","status":"PROPOSE_ONLY","discriminates":"DVI sideband/endpoint evidence vs CAD-only","guard":"CMP BDF and physical J5 identity","side_effect":"LOW query; no modeset/output test","stop":"do not infer DP"},
+    {"test_id":"T08-06","priority":6,"target":"effective packaged/per-device registry","status":"UNAVAILABLE_UNDER_R0","discriminates":"RmDisableDisplay explicit 1 vs absent/0","guard":"documented read-only registry or GSP trace","side_effect":"MEDIUM; no unknown ioctl","stop":"absent/0 does not prove hardware enable"},
+    {"test_id":"T08-07","priority":7,"target":"authenticated RTX 2060S/2070 ROM controls","status":"NEEDS_INPUT","discriminates":"CMP-specific DCB zero vs common TU106 behavior","guard":"board/revision/source/hash","side_effect":"LOW offline","stop":"unproven ROM is not control"},
+    {"test_id":"T08-08","priority":8,"target":"TU106 34-SM vs 36-SM fuse/topology controls","status":"NEEDS_INPUT","discriminates":"offset correlation with effective topology","guard":"same family/revision/aperture/driver","side_effect":"MEDIUM external data only","stop":"correlation is not semantics"},
+    {"test_id":"T08-09","priority":9,"target":"exact 615.71.09 GSP bounded mapping","status":"NEEDS_INPUT","discriminates":"version-specific worker/consumer mapping","guard":"exact version/hash before analysis","side_effect":"LOW offline","stop":"no address delta mapping"},
+    {"test_id":"T08-10","priority":10,"target":"TU106 strap-to-class/ID source","status":"NEEDS_INPUT","discriminates":"direct causal mapping vs G80/N18E extrapolation","guard":"TU106-family exact scope","side_effect":"LOW offline","stop":"keep UNKNOWN without direct-family source"}
+  ],
+  "output_files": ["NEXT_READ_ONLY_TESTS.md","TEST_DISCRIMINATION_MATRIX.csv","evidence.json"]
+}

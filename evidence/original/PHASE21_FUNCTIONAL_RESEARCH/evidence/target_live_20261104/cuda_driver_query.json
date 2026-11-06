@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-04T14:45:08.773858+00:00",
+  "api": "CUDA Driver API",
+  "devices": [
+    {
+      "ordinal": 0,
+      "name": "NVIDIA CMP 40HX",
+      "bdf": "0000:03:00.0",
+      "attributes": {
+        "compute_major": {
+          "returncode": 0,
+          "value": 7
+        },
+        "compute_minor": {
+          "returncode": 0,
+          "value": 5
+        },
+        "multiprocessors": {
+          "returncode": 0,
+          "value": 34
+        }
+      }
+    }
+  ],
+  "cuInit": 0,
+  "cuDeviceGetCount": 0,
+  "count": 1
+}

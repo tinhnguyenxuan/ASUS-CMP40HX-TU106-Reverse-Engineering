@@ -1,0 +1,38 @@
+{
+  "artifacts": [
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/TOPOLOGY/silicon_topology.json",
+      "sha256": "1364dbb89eb9054b8d875a114fe4a40ffc0769d6df83bc996e93bfba236d23ee",
+      "bytes": 4694,
+      "json_valid": true,
+      "captured_timestamp": "Tue Nov  3 08:30:53 2026",
+      "bdf": "00000000:03:00.0",
+      "gpu_uuid": "GPU-REDACTED",
+      "selected_fields": {
+        "Product Name": "NVIDIA CMP 40HX",
+        "GPU Part Number": "1F0B-100-A1",
+        "VBIOS Version": "90.06.67.00.06",
+        "GSP Firmware Version": "615.78.08",
+        "Display Attached": "No",
+        "Display Active": "Disabled",
+        "Display Mode": "Requested functionality has been deprecated",
+        "Driver Version": "615.78.08 [Deprecated; will be removed in CUDA 14.0. Use KMD Version instead]",
+        "PCI\n        Bus": "0x03"
+      },
+      "source_metadata": "embedded nvidia-smi query string; no live recapture in this session"
+    },
+    {
+      "path": "/home/REDACTED_USER/codex-work/work_v15/TOPOLOGY/display_probe.json",
+      "sha256": "6cf3874c4fde19292769f04b5dab261563e878584fdaf348a15133a5693d41cf",
+      "bytes": 22560,
+      "json_valid": true,
+      "bdf_resource": "/sys/bus/pci/devices/0000:03:00.0/resource0",
+      "conclusion": {
+        "display_data_words": 0,
+        "control_data_words": 8
+      },
+      "source_metadata": "saved BAR/resource0 readout; no capture timestamp or command metadata in file"
+    }
+  ],
+  "interpretation": "Saved historical runtime evidence is attributable to the recorded BDF where metadata exists, but it is not evidence of current target state. display_probe has no timestamp/command metadata; silicon_topology embeds a timestamped nvidia-smi query."
+}

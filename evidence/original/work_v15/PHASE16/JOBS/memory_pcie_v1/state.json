@@ -1,0 +1,12 @@
+{
+  "job": "memory_pcie_v1",
+  "stage": "completed",
+  "started_at": "2026-11-03T15:33:25.977534+00:00",
+  "wrapper_pid": 1638253,
+  "task_sha256": "e2cb234821a1470bcd188a21465bed3ee58ab0bd293ca33c0d6ef5612b241f3a",
+  "hermes_pid": 1638254,
+  "hermes_start_ticks": "208595186",
+  "heartbeat_at": "2026-11-03T15:48:24.520147+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-03T15:48:26.521279+00:00"
+}

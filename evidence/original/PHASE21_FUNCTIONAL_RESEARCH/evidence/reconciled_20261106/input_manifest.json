@@ -1,0 +1,42 @@
+[
+  {
+    "source": {
+      "path": "CMP40HX_NEW_INDEPENDENT_20261106/LIVE_IDENTITY.txt",
+      "sha256": "d85bd2e6ae003089e0893afa86aaad3ff5f252eb4a6568e0f9bbd5967c15e98a"
+    },
+    "snapshot": {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/reconciled_20261106/LIVE_IDENTITY.txt",
+      "sha256": "d85bd2e6ae003089e0893afa86aaad3ff5f252eb4a6568e0f9bbd5967c15e98a"
+    }
+  },
+  {
+    "source": {
+      "path": "CMP40HX_NEW_INDEPENDENT_20261106/LIVE_ADDITIONAL.txt",
+      "sha256": "4460862e7404cb883b61e29666d8ff1c58639d8992f12b5b13f4eef1f405b680"
+    },
+    "snapshot": {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/reconciled_20261106/LIVE_ADDITIONAL.txt",
+      "sha256": "4460862e7404cb883b61e29666d8ff1c58639d8992f12b5b13f4eef1f405b680"
+    }
+  },
+  {
+    "source": {
+      "path": "CMP40HX_NEW_INDEPENDENT_20261106/LIVE_RM_CANDIDATES_V2.json",
+      "sha256": "c3df01cff9b254391e157095e6728a5a7375c8b7a1a8c47cf8fd24b8f22c180f"
+    },
+    "snapshot": {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/reconciled_20261106/LIVE_RM_CANDIDATES_V2.json",
+      "sha256": "c3df01cff9b254391e157095e6728a5a7375c8b7a1a8c47cf8fd24b8f22c180f"
+    }
+  },
+  {
+    "source": {
+      "path": "CMP40HX_NEW_INDEPENDENT_20261106/probe_rm_get.py",
+      "sha256": "827d17f74bdabb959a3655c5bff08e1a289411113928f2174453ac16c0c30ec1"
+    },
+    "snapshot": {
+      "path": "PHASE21_FUNCTIONAL_RESEARCH/evidence/reconciled_20261106/probe_rm_get.py",
+      "sha256": "827d17f74bdabb959a3655c5bff08e1a289411113928f2174453ac16c0c30ec1"
+    }
+  }
+]

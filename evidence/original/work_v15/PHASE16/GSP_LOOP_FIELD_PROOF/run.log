@@ -1,0 +1,46 @@
+[inputs] gsp=/home/REDACTED_USER/codex-work/work_v15/outputs/gsp_tu10x.bin size=22901632 sha256=0c6124c11d59900a05ab5461e5fc7087fc6687a1badead49a7eeca6ed13eeb3b
+[elf] LOAD off=0x0 vaddr=0x4000000 filesz=0x13010 memsz=0x13010 flags=0x7 exec=True delta=0x4000000
+[elf] LOAD off=0x15c1000 vaddr=0x55c1000 filesz=0x10000 memsz=0x10000 flags=0x1200 exec=False delta=0x4000000
+[elf] LOAD off=0x0 vaddr=0x55e2000 filesz=0x0 memsz=0x21000 flags=0x200 exec=False delta=0x55e2000
+[elf] LOAD off=0x0 vaddr=0x5603000 filesz=0x0 memsz=0x1000 flags=0x200 exec=False delta=0x5603000
+[elf] LOAD off=0x15d1000 vaddr=0x5644000 filesz=0x2000 memsz=0x2000 flags=0x1100 exec=False delta=0x4073000
+[elf] LOAD off=0x0 vaddr=0x5646000 filesz=0x0 memsz=0x10000 flags=0x200 exec=False delta=0x5646000
+[elf] LOAD off=0x18000 vaddr=0x4018000 filesz=0x4000 memsz=0x4000 flags=0x1101 exec=True delta=0x4000000
+[elf] LOAD off=0x14000 vaddr=0x4014000 filesz=0x1000 memsz=0x1000 flags=0x1100 exec=False delta=0x4000000
+[elf] LOAD off=0x15000 vaddr=0x4015000 filesz=0x2000 memsz=0x2000 flags=0x1100 exec=False delta=0x4000000
+[elf] LOAD off=0x1c000 vaddr=0x401c000 filesz=0x1000 memsz=0x1000 flags=0x1201 exec=True delta=0x4000000
+[elf] LOAD off=0x17000 vaddr=0x4017000 filesz=0x1000 memsz=0x1000 flags=0x1200 exec=False delta=0x4000000
+[elf] LOAD off=0x588000 vaddr=0x4588000 filesz=0x1039000 memsz=0x1039000 flags=0x101 exec=True delta=0x4000000
+[elf] LOAD off=0x1d000 vaddr=0x401d000 filesz=0x1e4000 memsz=0x1e4000 flags=0x100 exec=False delta=0x4000000
+[elf] LOAD off=0x201000 vaddr=0x4201000 filesz=0x387000 memsz=0x387000 flags=0x100 exec=False delta=0x4000000
+[elf] LOAD off=0x13010 vaddr=0x0 filesz=0x0 memsz=0x0 flags=0x201 exec=True delta=-0x13010
+[elf] LOAD off=0x13010 vaddr=0x0 filesz=0x0 memsz=0x0 flags=0x200 exec=False delta=-0x13010
+[elf] entry=0x4009000 machine=0xf3 phnum=31 load_deltas=['-0x13010', '0x4000000', '0x4073000', '0x55e2000', '0x5603000', '0x5646000']
+[elf] candidate VA 0x459c5e0 = file 0x59c620 OK
+[walk] blocks_raw=381 decoded_insns=2205 walked=2205 hit_cap=False
+[walk] edges=1015 calls=294 oob=5
+[cfg] blocks=516 unique_insns=2205 edges=884 leaders=516
+[cfg] span=0x459c5e0..0x459e950
+[check] PASS no duplicated decode slots: total_slot_insns=2205 unique=2205
+[check] PASS all decoded insns covered: covered=2205 decoded=2205
+[cfg] overlaps_after_split=0
+[check] PASS no overlapping blocks after split: overlaps=0
+[dom] computed for 516 blocks
+[loop] back_edges=8 loop_headers=['0x459cbf0', '0x459cd80', '0x459db24', '0x459db84', '0x459dd00', '0x459e5c4', '0x459e700', '0x459e808']
+[loop] back-edge 0x459cbf0 -> 0x459cbf0 (branch_taken)
+[loop] back-edge 0x459cd88 -> 0x459cd80 (branch_taken)
+[loop] back-edge 0x459db4c -> 0x459db24 (branch_taken)
+[loop] back-edge 0x459db9c -> 0x459db84 (branch_taken)
+[loop] back-edge 0x459dd24 -> 0x459dd00 (branch_taken)
+[loop] back-edge 0x459e5d4 -> 0x459e5c4 (branch_taken)
+[loop] back-edge 0x459e714 -> 0x459e700 (branch_taken)
+[loop] back-edge 0x459e810 -> 0x459e808 (branch_taken)
+[dataflow WITH seed] passes=2478 status=fixpoint base_accesses=1
+[dataflow WITHOUT seed] passes=2555 status=fixpoint base_accesses=1
+[table] count=496 valid_nonzero=495 zero=1 oob=0
+[check] PASS mem_size width table (lhu=2): real widths={'lbu': 20, 'ld': 233, 'lw': 59, 'lwu': 6, 'sb': 26, 'sd': 131, 'sh': 2, 'sw': 43}
+[check] PASS branch/jal/load/store immediates vs capstone: checked=736 mismatches=0
+[check] PASS disasm coverage vs CFG instruction count (split blocks): lines=2205 expected_total=2205 unique=2205 expected_unique=2205
+[check] PASS seed-absent == seed-present result (seed not load-bearing): with_seed base=1 status=fixpoint | without_seed base=1 status=fixpoint
+[done] fixpoint=True hit_cap=False
+[done] wrote /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/verified.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/table_accesses.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/records_dump.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/structured_evidence.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/input_hashes.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/disassembly/cfg.json, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/disassembly/extended_disasm.txt, /home/REDACTED_USER/codex-work/work_v15/PHASE16/GSP_LOOP_FIELD_PROOF/run.log
