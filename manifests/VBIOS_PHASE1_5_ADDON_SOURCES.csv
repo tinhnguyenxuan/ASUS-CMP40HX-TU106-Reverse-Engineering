@@ -1,0 +1,14 @@
+kind,phase,input_zip,zip_sha256,member_path,member_sha256,published_path,published_sha256,note
+package,Phase 1,vbiosre.zip,4f821660a6fee6237e28bdc315f1e0d446e4eaf31f5686327d3269b96217e711,,,,,member_count=11
+package,Phase 2,vbiosrel2.zip,6e8874b7a0a8bfddf526f5e12246611be85d45f9ee66b46dcaa2bbf414996bfd,,,,,member_count=11
+package,Phase 3,vbiosrel3.zip,df360bc70eae04a212840e2ad6ecd1a35d3ba016fdbe4e2a7afa2660bc8498be,,,,,member_count=10
+package,Phase 4,vbiosrel4.zip,1badbefe4f1966bebc59f046af56176640a866108f757a1ada5caa911130604e,,,,,member_count=30
+package,Phase 5,vbiosrel5.zip,1e74ca6df7bc4a2b08b292d61a36c1ecd25ce018a0272be61d1dcd372e87d6e5,,,,,member_count=38
+package,Phase 6 original,vbiosrel6.zip,7d24bd26d0a65dc671f647bdc41ba77f53ce2e5cea66c445a58a156acb7c9e23,,,,,member_count=46
+package,Phase 6 revision,vbiosrel6(1).zip,1dbc991a081e0eaac0207068d8f863149dd194af7a1f58793c2950d8e0752bf5,,,,,member_count=46
+package,Phase 6 duplicate,vbiosrel6(2).zip,1dbc991a081e0eaac0207068d8f863149dd194af7a1f58793c2950d8e0752bf5,,,,,member_count=46
+curated-document,Phase 1,vbiosre.zip,,home/tinh/codex-work/TU106_VBIOS_RE/docs/VBIOS_FIELD_REVERSE_ENGINEERING.md,10e5db21465fdbfb2d3135071688c66ea00b0c90dd529b9dedf3f542ad0770f3,research/vbios_phase1_3/docs/PHASE1_FIELD_REVERSE_HISTORICAL.md,e559c01fd56484427bbc4346366799f2530694b597b782a0d4bf14f86a9bad27,"historical source; filtered/annotated, not independently ROM-verified"
+curated-document,Phase 2,vbiosrel2.zip,,home/tinh/codex-work/TU106_VBIOS_RE/docs/VBIOS_FIELD_REVERSE_ENGINEERING.md,2d5cd27c92996a75df407c2183d6dde868a042c01581ee72b0a6468d26c91dc2,research/vbios_phase1_3/docs/PHASE2_FIELD_REVERSE_HISTORICAL.md,9e7e4a059c58483e3f2cf08c965ef8a1259be0ce4df24e1cb488cf78e31e5f85,"historical source; filtered/annotated, not independently ROM-verified"
+curated-document,Phase 3,vbiosrel3.zip,,home/tinh/codex-work/TU106_VBIOS_RE/docs/VBIOS_FIELD_REVERSE_ENGINEERING.md,1d4434fd2221d78efaadd25c1992afe3837e95da532aa1467353364b811d1810,research/vbios_phase1_3/docs/PHASE3_FIELD_REVERSE_HISTORICAL.md,e475db2417d2a64e266d00003c7acb8aeef4405a9daf1303005de87721945e2e,"historical source; filtered/annotated, not independently ROM-verified"
+curated-document,Phase 4,vbiosrel4.zip,,home/tinh/codex-work/TU106_VBIOS_RE/docs/PHASE4_MASTER_REPORT_VI.md,39894d3cf10667d963cc2a61e12e4a818995789f7dd49812f6b64e48316a513e,research/vbios_phase4_6/docs/PHASE4_MASTER_ROM_EXTRACT.md,35258b5f7676bf9a54b93aa1935fc4422f544b52f521fb7b02fe04813a1e1ca5,"historical source; filtered/annotated, not independently ROM-verified"
+curated-document,Phase 5,vbiosrel5.zip,,home/tinh/codex-work/TU106_VBIOS_RE/docs/PHASE5_MASTER_REPORT_VI.md,03fd94e4e3f4f39eeb7a9e31ff11f4e36f689994bde5723c48a80093e3f57b47,research/vbios_phase4_6/docs/PHASE5_MASTER_ROM_EXTRACT.md,2dd813afdab5f0b8eb368a45890d8ef8735e0541bc9c3d4fb40bef2afd18e5c0,"historical source; filtered/annotated, not independently ROM-verified"

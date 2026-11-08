@@ -12,3 +12,13 @@ node_modules/
 *.pem
 .env
 .env.*
+
+# Local ROM input and live measurement outputs (V5)
+**/roms/
+**/bench_outputs/
+**/telemetry/
+*.etl
+*.dmp
+*.exe
+*.dll
+*.sys

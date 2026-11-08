@@ -56,3 +56,11 @@ Added **43 distinct historic source files** from 8 more tarball snapshots, with 
 ## V4: early v4-v5 source snapshots
 
 Added **11 distinct early report, script and JSON revisions** from 7 additional tarballs. See [V4 source review](docs/V4_ADDITIONAL_SOURCE_REVIEW.md), [Vietnamese review](docs/V4_ADDITIONAL_SOURCE_REVIEW.vi.md), and [member manifest](manifests/V4_SOURCE_INVENTORY.csv). All original tarballs are preserved in the **private companion archive**; do not publish that private archive.
+
+## V5: TU106 VBIOS structural analysis (Phase 4–6)
+
+Added [a curated ROM-only technical report](docs/TU106_VBIOS_PHASE4_6.md) and [reference parser, field CSVs and static reverse-engineering notes](research/vbios_phase4_6/README.md) from the supplied Phase 4–6 research. **No real-game benchmarking, GPU telemetry collectors, Windows runbooks, ROM images or firmware binaries were included.** This addition does not demonstrate an SM or display unlock. See [V5 release notes](docs/RELEASE_V5.md).
+
+## Additional source history — VBIOS Phase 1–5
+
+The original Phase 1–3 VBIOS field analyses and curated Phase 4–5 master findings are now documented in the [Phase 1–5 history and corrections guide](docs/TU106_VBIOS_PHASE1_5_HISTORY.md). This is a **ROM-analysis-only** addition; it excludes real-game testing, FPS measurement, GPU telemetry and duplicate scripts already published in V5. See [addon release notes](docs/RELEASE_V5_PHASE1_5_ADDON.md).

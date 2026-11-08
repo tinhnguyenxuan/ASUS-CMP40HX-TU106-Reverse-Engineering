@@ -18,3 +18,7 @@ All dates are as recorded in the supplied archive; no fresh hardware experiment 
 - **Nov 7 V3 historical supplementation:** source snapshots v6-v13 from early Nov 2026; 43 additional source versions with 1,035 manifest entries. Historical revisions only; see [V3 audit](V3_HISTORICAL_SNAPSHOTS_REVIEW.md).
 
 - **2026-11-07 source curation V4:** seven additional older archives; 11 unique historical source revisions from v4/v5, no new hardware testing. See [V4 review](V4_ADDITIONAL_SOURCE_REVIEW.md).
+
+- **2026-11-08, GitHub V5 integration:** independent Phase 4–6 TU106 VBIOS static analyses curated from `vbiosrel6(2).zip`. This is another *overlapping* research thread, not a post-V4 hardware experiment. [VBIOS Phase 4–6 report](TU106_VBIOS_PHASE4_6.md).
+
+- **2026-11-08, V5 supplement (historical Phase 1–5):** previously omitted TU106 VBIOS field-reverse snapshots from `vbiosre`, `vbiosrel2`, `vbiosrel3`, and curated master report extracts from `vbiosrel4/5`. These are historical source revisions; later phases may correct earlier interpretation. [Reading order and corrections](TU106_VBIOS_PHASE1_5_HISTORY.md). No additional hardware measurements.

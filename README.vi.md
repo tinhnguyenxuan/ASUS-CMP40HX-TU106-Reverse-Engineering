@@ -21,3 +21,11 @@ Them **43 noi dung goc moi** tu 8 tarball, giu lai cac bao cao/script phien ban 
 ## V4: bo sung phien ban nghien cuu v4-v5
 
 Them **11 noi dung khac SHA-256** tu 7 tarball moi. Xem [bao cao V4 tieng Viet](docs/V4_ADDITIONAL_SOURCE_REVIEW.vi.md) va [danh muc tung tep](manifests/V4_SOURCE_INVENTORY.csv). Kho RAW rieng giu nguyen tat ca 7 tarball goc; khong dua kho RAW rieng len GitHub.
+
+## V5 — Bổ sung báo cáo VBIOS, bỏ đo/test game
+
+Đã tích hợp [báo cáo reverse VBIOS TU106 Phase 4–6](docs/TU106_VBIOS_PHASE4_6.md), [các tài liệu kỹ thuật và mã parser ROM chỉ đọc](research/vbios_phase4_6/README.md). Bản này **không chứa benchmark, test game, telemetry, collector, hướng dẫn đo FPS hay ROM/firmware gốc**. Không kết luận đã mở khóa thêm SM/TPC hay xuất hình vật lý. Xem [ghi chú V5](docs/RELEASE_V5.vi.md).
+
+## Bổ sung tiến trình nghiên cứu VBIOS Phase 1–5
+
+Đã đưa các tài liệu reverse VBIOS **Phase 1–3** và phần báo cáo tổng hợp **Phase 4–5** chưa có trong V5 vào [bảng lịch sử/đính chính Phase 1–6](docs/TU106_VBIOS_PHASE1_5_HISTORY.md). Chỉ thêm nội dung mới hoặc thay đổi; không lặp lại file đã phát hành, không đưa phần chạy/đo game thực tế.
